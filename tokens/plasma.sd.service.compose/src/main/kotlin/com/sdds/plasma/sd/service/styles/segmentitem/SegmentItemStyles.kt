@@ -9,12 +9,13 @@ package com.sdds.plasma.sd.service.styles.segmentitem
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -175,73 +176,63 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
         }
@@ -252,70 +243,63 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
         }
@@ -326,71 +310,63 @@ public val WrapperSegmentItemView.Accent: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
         }
@@ -407,71 +383,63 @@ public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
         .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
         }
@@ -483,73 +451,63 @@ public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
         }
@@ -561,70 +519,63 @@ public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
         }
@@ -671,71 +622,63 @@ public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
         .counterStyle(SegmentItemCounter.S.Accent.style())
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
         }
@@ -747,73 +690,63 @@ public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
         }
@@ -825,70 +758,63 @@ public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
         }
@@ -935,71 +861,63 @@ public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
         .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
         }
@@ -1011,73 +929,63 @@ public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
         }
@@ -1089,70 +997,63 @@ public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
         }
@@ -1199,71 +1100,63 @@ public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
         .counterStyle(SegmentItemCounter.Xs.Accent.style())
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
         }
@@ -1275,73 +1168,63 @@ public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
         }
@@ -1353,70 +1236,63 @@ public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
         }
@@ -1463,71 +1339,63 @@ public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
         .counterStyle(SegmentItemCounter.Xxs.Accent.style())
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccent),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textOnDarkSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover),
                 ),
             )
         }
@@ -1539,73 +1407,63 @@ public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textInverseSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textInverseSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInverseSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textInversePrimaryHover),
                 ),
             )
         }
@@ -1617,70 +1475,63 @@ public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCard),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentCardHover),
                 ),
             )
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary),
                     setOf(InteractiveState.Selected, InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                 ),
             )
             startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             endContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    ) to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
+                    setOf(InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Hovered) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
                 ),
             )
         }

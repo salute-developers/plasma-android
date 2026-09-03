@@ -9,12 +9,13 @@ package com.sdkit.star.designsystem.styles.segmentitem
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -135,73 +136,59 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.surfaceDefaultSolidDefault,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.surfaceDefaultSolidDefaultActive,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefault),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefaultActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultSolidDefaultHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.textInversePrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to SolidColor(StarDsTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.textInversePrimaryHover,
+                        SolidColor(StarDsTheme.colors.textInversePrimaryHover),
                 ),
             )
             valueColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textInverseSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.textInverseSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to SolidColor(StarDsTheme.colors.textInverseSecondary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.textInverseSecondaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.textInverseSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textInverseSecondaryHover),
                 ),
             )
             startContentColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.textInversePrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to SolidColor(StarDsTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.textInversePrimaryHover,
+                        SolidColor(StarDsTheme.colors.textInversePrimaryHover),
                 ),
             )
             endContentColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textInversePrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.textInversePrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to SolidColor(StarDsTheme.colors.textInversePrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.textInversePrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.textInversePrimaryHover,
+                        SolidColor(StarDsTheme.colors.textInversePrimaryHover),
                 ),
             )
         }
@@ -212,73 +199,65 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     get() = builder
         .colors {
             backgroundColor(
-                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(StarDsTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.surfaceDefaultClearHover,
+                        to SolidColor(StarDsTheme.colors.surfaceDefaultClearHover),
                     setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.surfaceDefaultTransparentCard,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.surfaceDefaultTransparentCardActive,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentCard),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentCardActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.surfaceDefaultTransparentCardHover,
+                        SolidColor(StarDsTheme.colors.surfaceDefaultTransparentCardHover),
                 ),
             )
             labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textDefaultPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected) to SolidColor(StarDsTheme.colors.textDefaultPrimary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultPrimaryHover,
+                        SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             valueColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to StarDsTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textDefaultSecondary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    ) to StarDsTheme.colors.textDefaultSecondaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultSecondaryHover),
+                    setOf(InteractiveState.Selected) to SolidColor(StarDsTheme.colors.textDefaultSecondary),
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed) to
+                        SolidColor(StarDsTheme.colors.textDefaultSecondaryActive),
                     setOf(InteractiveState.Selected, InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultSecondaryHover,
+                        SolidColor(StarDsTheme.colors.textDefaultSecondaryHover),
                 ),
             )
             startContentColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textDefaultPrimary,
+                        SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected)
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    ) to StarDsTheme.colors.textDefaultPrimaryHover,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
                 ),
             )
             endContentColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to StarDsTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimaryActive),
                     setOf(InteractiveState.Hovered) to
-                        StarDsTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected) to
-                        StarDsTheme.colors.textDefaultPrimary,
+                        SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Selected)
+                        to SolidColor(StarDsTheme.colors.textDefaultPrimary),
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
-                    ) to StarDsTheme.colors.textDefaultPrimaryHover,
+                    ) to SolidColor(StarDsTheme.colors.textDefaultPrimaryHover),
                 ),
             )
         }

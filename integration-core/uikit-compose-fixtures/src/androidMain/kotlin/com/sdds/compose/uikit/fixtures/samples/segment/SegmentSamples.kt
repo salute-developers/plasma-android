@@ -1,7 +1,14 @@
 package com.sdds.compose.uikit.fixtures.samples.segment
 
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -11,7 +18,15 @@ import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.selection
+import com.sdds.compose.uikit.motion.components.segment.SegmentMotionStyle
+import com.sdds.compose.uikit.motion.components.segment.rememberSegmentMotion
+import com.sdds.compose.uikit.motion.finite
+import com.sdds.compose.uikit.motion.transition
 import com.sdds.docs.DocSample
 import com.sdds.docs.composableCodeSnippet
 
@@ -87,5 +102,37 @@ fun Segment_Style() {
                 paddingBottom(2.0.dp)
             }
             .style()
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
+fun Segment_Motion() {
+    composableCodeSnippet {
+        var expanded by remember { mutableStateOf(false) }
+        val selectedState = setOf(InteractiveState.Selected)
+        val style = SegmentStyle.builder()
+            .colors { backgroundColor(Color.LightGray.asStatefulBrush(selectedState to Color.Gray)) }
+            .dimensions { gap(4.dp.asStatefulValue(selectedState to 16.dp)) }
+            .style()
+        val motion = rememberSegmentMotion(
+            style = SegmentMotionStyle.builder()
+                .gap(transition { segment {} changesWith { finite(tween(200)) } })
+                .backgroundColor(transition { segment {} changesWith { finite(tween(200)) } })
+                .style(),
+        )
+        SegmentHorizontal(
+            motion = motion,
+            style = style,
+            stretch = false,
+            modifier = Modifier
+                .selection(expanded, motion.context.semanticStateSource)
+                .clickable(interactionSource = motion.context.interactionSource, indication = null) {
+                    expanded = !expanded
+                },
+        ) {
+            segmentItem { SegmentItem(label = "Первый", isSelected = true) }
+            segmentItem { SegmentItem(label = "Второй") }
+        }
     }
 }
