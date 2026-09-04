@@ -59,9 +59,9 @@ fun Autocomplete(
 ) {
     Autocomplete(
         dropdownMotion = rememberDropdownMenuMotion(),
+        field = field,
         modifier = modifier,
         style = style,
-        field = field,
         showDropdown = showDropdown,
         onDismissRequest = onDismissRequest,
         showEmptyState = showEmptyState,
@@ -80,9 +80,9 @@ fun Autocomplete(
  * [DropdownMenuMotionStyle].
  *
  * @param dropdownMotion контекст состояний и стиль переходов выпадающего меню
+ * @param field произвольный слот поля; Motion передаётся TextField непосредственно в этом слоте
  * @param modifier модификатор триггера
  * @param style стиль компонента
- * @param field произвольный слот поля; Motion передаётся TextField непосредственно в этом слоте
  * @param showDropdown показан dropdown или нет
  * @param onDismissRequest запрос закрытия меню; изменение [showDropdown] остаётся у вызывающего кода
  * @param showEmptyState показать [emptyState] вместо основного содержимого, если слот задан
@@ -94,9 +94,9 @@ fun Autocomplete(
 @Composable
 fun Autocomplete(
     dropdownMotion: Motion<DropdownMenuMotionStyle>,
+    field: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     style: AutocompleteStyle = LocalAutocompleteStyle.current,
-    field: @Composable () -> Unit,
     showDropdown: Boolean = false,
     onDismissRequest: () -> Unit = {},
     showEmptyState: Boolean = false,

@@ -202,7 +202,7 @@ public final class com/sdds/compose/uikit/AdjustmentCornerSizeKt {
 
 public final class com/sdds/compose/uikit/AutocompleteKt {
 	public static final fun Autocomplete (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/AutocompleteStyle;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function0;ZLcom/sdds/compose/uikit/DropdownProperties;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
-	public static final fun Autocomplete (Lcom/sdds/compose/uikit/motion/Motion;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/AutocompleteStyle;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function0;ZLcom/sdds/compose/uikit/DropdownProperties;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
+	public static final fun Autocomplete (Lcom/sdds/compose/uikit/motion/Motion;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/AutocompleteStyle;ZLkotlin/jvm/functions/Function0;ZLcom/sdds/compose/uikit/DropdownProperties;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;III)V
 }
 
 public abstract interface class com/sdds/compose/uikit/AutocompleteStyle : com/sdds/compose/uikit/style/Style {

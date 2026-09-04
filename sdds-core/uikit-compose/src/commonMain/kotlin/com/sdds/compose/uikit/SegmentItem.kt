@@ -40,8 +40,8 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  * @param label основной текст
  * @param modifier модификатор
  * @param style стиль компонента
- * @param value дополнительный текст
  * @param isSelected выбран ли компонент
+ * @param value дополнительный текст
  * @param startIcon иконка в начале
  * @param endIcon иконка в конце
  * @param counter значение счетчика
@@ -82,16 +82,16 @@ fun SegmentItem(
 /**
  * Компонент SegmentItem
  *
+ * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  * @param label основной текст
  * @param modifier модификатор
  * @param style стиль компонента
- * @param value дополнительный текст
  * @param isSelected выбран ли компонент
+ * @param value дополнительный текст
  * @param startIcon иконка в начале
  * @param endIcon иконка в конце
  * @param counter значение счетчика
  * @param enabled включен ли компонент
- * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  */
 @Composable
 fun SegmentItem(
@@ -149,9 +149,9 @@ fun SegmentItem(
  *
  * @param label основной текст
  * @param modifier модификатор
+ * @param isSelected выбран ли компонент
  * @param style стиль компонента
  * @param value дополнительный текст
- * @param isSelected выбран ли компонент
  * @param startContent контент в начале
  * @param endContent контент в конце
  * @param enabled включен ли компонент
@@ -189,15 +189,15 @@ fun SegmentItem(
 /**
  * Компонент SegmentItem
  *
+ * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  * @param label основной текст
  * @param modifier модификатор
+ * @param isSelected выбран ли компонент
  * @param style стиль компонента
  * @param value дополнительный текст
- * @param isSelected выбран ли компонент
  * @param startContent контент в начале
  * @param endContent контент в конце
  * @param enabled включен ли компонент
- * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  */
 @Composable
 fun SegmentItem(
@@ -233,8 +233,8 @@ fun SegmentItem(
  *
  * @param labelContent контент основного текст
  * @param modifier модификатор
- * @param style стиль компонента
  * @param isSelected выбран ли компонент
+ * @param style стиль компонента
  * @param valueContent контент допольнительного текста
  * @param startContent контент в начале
  * @param endContent контент в конце
@@ -273,15 +273,15 @@ fun SegmentItem(
 /**
  * Компонент SegmentItem
  *
+ * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  * @param labelContent контент основного текст
  * @param modifier модификатор
- * @param style стиль компонента
  * @param isSelected выбран ли компонент
+ * @param style стиль компонента
  * @param valueContent контент допольнительного текста
  * @param startContent контент в начале
  * @param endContent контент в конце
  * @param enabled включен ли компонент
- * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  */
 @Composable
 fun SegmentItem(

@@ -57,11 +57,11 @@ fun SegmentHorizontal(
 /**
  * Компонент Segment с горизонтальной ориентацией
  *
+ * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  * @param modifier модификатор
  * @param style стиль компонента [SegmentStyle]
  * @param stretch может ли компонент растягиваться по ширине
  * @param hasBackground включает фон
- * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  * @param content контент
  */
 @Composable
@@ -179,10 +179,10 @@ fun SegmentVertical(
 /**
  * Компонент Segment с вертикальной ориентацией
  *
+ * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  * @param modifier модификатор
  * @param style стиль компонента [SegmentStyle]
  * @param hasBackground включает фон
- * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
  * @param content контент
  */
 @Composable

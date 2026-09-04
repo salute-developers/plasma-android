@@ -170,10 +170,10 @@ fun ComboBoxScope.ComboBoxTextField(
         endContent = {
             ComboBoxTextFieldIcon(
                 selectState = selectState,
-                iconOpened = iconOpened,
-                iconClosed = iconClosed,
                 enabled = enabled,
                 readOnly = readOnly,
+                iconOpened = iconOpened,
+                iconClosed = iconClosed,
             )
         },
         chipsContent = chipsContent,
@@ -307,10 +307,10 @@ fun ComboBoxScope.ComboBoxTextField(
         endContent = {
             ComboBoxTextFieldIcon(
                 selectState = selectState,
-                iconOpened = iconOpened,
-                iconClosed = iconClosed,
                 enabled = enabled,
                 readOnly = readOnly,
+                iconOpened = iconOpened,
+                iconClosed = iconClosed,
             )
         },
         chipsContent = chipsContent,
@@ -376,10 +376,10 @@ internal class SelectStateEffectKey(val state: SelectState) {
 @Composable
 private fun ComboBoxTextFieldIcon(
     selectState: SelectStateEffectKey,
-    iconOpened: ImageSource? = null,
-    iconClosed: ImageSource? = null,
     enabled: Boolean,
     readOnly: Boolean,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
 ) {
     val isOpened = selectState.state.isOpened
     val icon = if (isOpened) iconOpened else iconClosed
