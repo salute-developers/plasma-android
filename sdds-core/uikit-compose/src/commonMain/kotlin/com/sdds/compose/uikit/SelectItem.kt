@@ -12,13 +12,23 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.maybeShapeable
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.interactions.selection
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.cell.rememberCellMotion
+import com.sdds.compose.uikit.motion.components.checkbox.rememberCheckBoxMotion
+import com.sdds.compose.uikit.motion.components.select.SelectItemMotionStyle
+import com.sdds.compose.uikit.motion.components.select.rememberSelectItemMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Элемент компонента выбора [Select].
@@ -62,14 +72,56 @@ fun SelectItem(
     titleContent: @Composable () -> Unit,
 ) {
     SelectItem(
+        motion = rememberSelectItemMotion(motionContext = rememberMotionContext(interactionSource)),
         checked = checked,
         onClick = onClick,
         modifier = modifier,
         style = style,
         enabled = enabled,
-        interactionSource = interactionSource,
+        disclosureEnabled = disclosureEnabled,
+        labelContent = labelContent,
+        subtitleContent = subtitleContent,
+        startContent = startContent,
+        endContent = endContent,
+        disclosureContent = disclosureContent,
+        titleContent = titleContent,
+    )
+}
+
+/**
+ * Элемент выбора с переходами собственных значений и состоянием Selected из checked.
+ * Встроенные Cell/CheckBox используют контекст строки и собственные стили переходов.
+ *
+ * @param motion контекст состояний и стиль переходов строки.
+ */
+@Composable
+@NonRestartableComposable
+fun SelectItem(
+    motion: Motion<SelectItemMotionStyle>,
+    checked: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: SelectItemStyle = LocalSelectItemStyle.current,
+    enabled: Boolean = true,
+    disclosureEnabled: Boolean = true,
+    labelContent: (@Composable () -> Unit)? = null,
+    subtitleContent: (@Composable () -> Unit)? = null,
+    startContent: (@Composable RowScope.() -> Unit)? = null,
+    endContent: (@Composable RowScope.() -> Unit)? = null,
+    disclosureContent: (@Composable RowScope.() -> Unit)? = null,
+    titleContent: @Composable () -> Unit,
+) {
+    SelectItem(
+        motion = motion,
+        checked = checked,
+        onClick = onClick,
+        modifier = modifier,
+        style = style,
+        enabled = enabled,
         content = {
             Cell(
+                motion = rememberCellMotion(motionContext = motion.context),
+                interactionSource = motion.context.interactionSource,
                 style = style.cellStyle,
                 titleContent = titleContent,
                 labelContent = labelContent,
@@ -110,24 +162,63 @@ fun SelectItem(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable () -> Unit,
 ) {
+    SelectItem(
+        motion = rememberSelectItemMotion(motionContext = rememberMotionContext(interactionSource)),
+        checked = checked,
+        onClick = onClick,
+        modifier = modifier,
+        style = style,
+        enabled = enabled,
+        content = content,
+    )
+}
+
+/**
+ * Элемент выбора с переходами собственных значений и состоянием Selected из checked.
+ * Произвольный content получает общий контекст только при явной передаче потребителем.
+ * Форма переключается без интерполяции, незаданные переходы используют noMotion().
+ *
+ * @param motion контекст состояний и стиль переходов строки.
+ */
+@Composable
+fun SelectItem(
+    motion: Motion<SelectItemMotionStyle>,
+    checked: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: SelectItemStyle = LocalSelectItemStyle.current,
+    enabled: Boolean = true,
+    content: @Composable () -> Unit,
+) {
+    val shape by style.shapes.getValueAsState(motion.context)
+    val backgroundBrush by style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+    val iconBrush by style.colors.iconBrush.getBrushAsState(motion.context, motion.style.iconColor)
+    val height by style.dimensions.heightValues.getValueAsState(motion.context)
+    val paddingStart by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+    val paddingEnd by style.dimensions.paddingEndValues.getValueAsState(motion.context)
+    val paddingTop by style.dimensions.paddingTopValues.getValueAsState(motion.context)
+    val paddingBottom by style.dimensions.paddingBottomValues.getValueAsState(motion.context)
+    val controlMargin by style.dimensions.controlMarginValues.getValueAsState(motion.context)
+    val controlSize by style.dimensions.controlSizeValues.getValueAsState(motion.context)
     Row(
         modifier = modifier
+            .selection(checked, motion.context.semanticStateSource)
             .alpha(if (enabled) 1f else style.disableAlpha)
             .background(
-                color = style.colors.backgroundColor.colorForInteraction(interactionSource),
-                shape = style.shape,
+                brush = backgroundBrush,
+                shape = shape,
             )
-            .heightIn(min = style.dimensions.height)
+            .heightIn(min = height)
             .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-                top = style.dimensions.paddingTop,
-                bottom = style.dimensions.paddingBottom,
+                start = paddingStart,
+                end = paddingEnd,
+                top = paddingTop,
+                bottom = paddingBottom,
             )
             .clickable(
                 enabled = enabled,
-                indication = LocalIndication.current.maybeShapeable(style.shape),
-                interactionSource = interactionSource,
+                indication = LocalIndication.current.maybeShapeable(shape),
+                interactionSource = motion.context.interactionSource,
             ) {
                 onClick.invoke()
             },
@@ -136,10 +227,9 @@ fun SelectItem(
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
-                .padding(end = style.dimensions.controlMargin)
-                .size(style.dimensions.controlSize),
+                .padding(end = controlMargin)
+                .size(controlSize),
         ) {
-            val iconBrush = SolidColor(style.colors.iconColor.colorForInteraction(interactionSource))
             CompositionLocalProvider(
                 LocalTintBrushProducer provides { iconBrush },
                 LocalCheckBoxStyle provides style.checkBoxStyle,
@@ -157,7 +247,12 @@ fun SelectItem(
                         }
 
                         SelectItemType.Multiple -> {
-                            CheckBox(enabled = enabled, checked = checked)
+                            CheckBox(
+                                enabled = enabled,
+                                state = ToggleableState(checked),
+                                interactionSource = motion.context.interactionSource,
+                                motion = rememberCheckBoxMotion(motionContext = motion.context),
+                            )
                         }
                     }
                 }

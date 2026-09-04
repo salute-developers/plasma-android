@@ -9,11 +9,12 @@ package com.sdkit.star.designsystem.styles.segment
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -209,7 +210,7 @@ private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive())
+            backgroundColor(SolidColor(StarDsTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
 
 public val WrapperSegmentXlView.Primary: WrapperSegmentTerminate
