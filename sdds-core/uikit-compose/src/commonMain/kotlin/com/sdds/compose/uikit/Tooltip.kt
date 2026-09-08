@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,10 +21,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
-import com.sdds.compose.uikit.internal.common.StyledText
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.popover.BasePopover
 import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
-import com.sdds.compose.uikit.motion.components.popover.rememberPopoverMotion
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.tooltip.TooltipMotionStyle
+import com.sdds.compose.uikit.motion.components.tooltip.rememberTooltipMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
@@ -68,6 +73,9 @@ fun Tooltip(
     exitTransition: ExitTransition = fadeOut(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     popupProperties: PopupProperties = remember { DefaultPopupProperties },
+    motion: Motion<TooltipMotionStyle> = rememberTooltipMotion(
+        motionContext = rememberMotionContext(interactionSource = interactionSource),
+    ),
 ) {
     if (text.isEmpty() && contentStart == null) return
     BasePopover(
@@ -76,7 +84,7 @@ fun Tooltip(
         triggerInfo = triggerInfo,
         dimensions = style.dimensions.toPopoverDimensions(),
         colors = style.colors.toPopoverColors(),
-        shape = style.shape.asStatefulValue(),
+        shape = style.shapes,
         shadow = style.shadow,
         placement = placement,
         placementMode = placementMode,
@@ -87,35 +95,43 @@ fun Tooltip(
         popupProperties = popupProperties,
         enterTransition = enterTransition,
         exitTransition = exitTransition,
-        motion = rememberPopoverMotion(
-            motionContext = rememberMotionContext(interactionSource),
-        ),
+        motion = motion,
         safeAreaPadding = PaddingValues(0.dp),
     ) {
+        val paddingStart by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+        val paddingEnd by style.dimensions.paddingEndValues.getValueAsState(motion.context)
+        val paddingTop by style.dimensions.paddingTopValues.getValueAsState(motion.context)
+        val paddingBottom by style.dimensions.paddingBottomValues.getValueAsState(motion.context)
         Row(
             modifier = modifier.padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-                top = style.dimensions.paddingTop,
-                bottom = style.dimensions.paddingBottom,
+                start = paddingStart,
+                end = paddingEnd,
+                top = paddingTop,
+                bottom = paddingBottom,
             ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             contentStart?.let {
+                val paddingEnd by style.dimensions.tailPaddingValues.getValueAsState(motion.context)
                 Box(
-                    modifier = Modifier.padding(end = style.dimensions.tailPadding),
+                    modifier = Modifier.padding(end = paddingEnd),
                 ) {
-                    val contentStartColor = style.colors.contentStartColor.colorForInteraction(interactionSource)
-                    CompositionLocalProvider(LocalTint provides contentStartColor) {
+                    val contentStartColor = style.colors.contentStartBrush
+                        .getBrushAsState(motion.context, motion.style.contentStartColor)
+                    CompositionLocalProvider(LocalTintBrushProducer provides { contentStartColor.value }) {
                         it.invoke()
                     }
                 }
             }
-            StyledText(
-                text = text,
-                textStyle = style.textStyle,
-                textColor = style.colors.textColor.getValue(interactionSource),
-            )
+            val textStyle by style.textStyles.getTextStyleAsState(motion.context, motion.style.textStyle)
+            val textColor = style.colors.textColor.getBrushAsState(motion.context, motion.style.textColor)
+            if (text.isNotEmpty()) {
+                Text(
+                    text = text,
+                    style = textStyle,
+                    brush = { textColor.value },
+                )
+            }
         }
     }
 }
@@ -124,7 +140,7 @@ private fun TooltipDimensions.toPopoverDimensions(offset: Dp = this.offset): Pop
     return object : PopoverDimensions {
         @Deprecated("use widthValues", replaceWith = ReplaceWith("widthValues"))
         override val width: Dp = 0.dp
-        override val widthValues = width.asStatefulValue()
+        override val widthValues = this.width.asStatefulValue()
 
         @Deprecated("use offsetValues", replaceWith = ReplaceWith("offsetValues"))
         override val offset: Dp = offset
@@ -132,15 +148,15 @@ private fun TooltipDimensions.toPopoverDimensions(offset: Dp = this.offset): Pop
 
         @Deprecated("use tailWidthValues", replaceWith = ReplaceWith("tailWidthValues"))
         override val tailWidth: Dp = this@toPopoverDimensions.tailWidth
-        override val tailWidthValues = this.tailWidth.asStatefulValue()
+        override val tailWidthValues = this@toPopoverDimensions.tailWidthValues
 
         @Deprecated("use tailHeightValues", replaceWith = ReplaceWith("tailHeightValues"))
         override val tailHeight: Dp = this@toPopoverDimensions.tailHeight
-        override val tailHeightValues = this.tailHeight.asStatefulValue()
+        override val tailHeightValues = this@toPopoverDimensions.tailHeightValues
 
         @Deprecated("use tailPaddingValues", replaceWith = ReplaceWith("tailPaddingValues"))
         override val tailPadding: Dp = this@toPopoverDimensions.tailPadding
-        override val tailPaddingValues = this.tailPadding.asStatefulValue()
+        override val tailPaddingValues = this@toPopoverDimensions.tailPaddingValues
     }
 }
 

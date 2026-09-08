@@ -14,7 +14,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -41,9 +40,16 @@ import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.FIELD_ID
 import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.ICON_ID
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.editable.EditableMotionStyle
+import com.sdds.compose.uikit.motion.components.editable.rememberEditableMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Редактируемое текстовое поле
@@ -85,34 +91,41 @@ fun Editable(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<EditableMotionStyle> = rememberEditableMotion(
+        motionContext = rememberMotionContext(interactionSource = interactionSource),
+    ),
 ) {
-    val stateSet = remember(readOnly) {
-        if (readOnly) setOf(EditableStates.ReadOnly) else emptySet()
+    SideEffect {
+        motion.context.semanticStateSource.set(
+            EditableStates.ReadOnly,
+            readOnly,
+        )
     }
     val textMeasurer = rememberTextMeasurer()
+    val textStyle by style.textStyles.getTextStyleAsState(motion.context, motion.style.textStyle)
     Layout(
         modifier = modifier.enable(enabled = enabled, disabledAlpha = style.disableAlpha),
-        measurePolicy = remember(iconPlacement, value, style.textStyle, singleLine, maxLines) {
+        measurePolicy = remember(iconPlacement, value, textStyle, singleLine, maxLines) {
             EditableMeasurePolicy(
                 iconModePlacement = iconPlacement,
                 textMeasurer = textMeasurer,
                 value = value,
-                textStyle = style.textStyle,
+                textStyle = textStyle,
                 singleLine = singleLine,
                 maxLines = maxLines,
             )
         },
         content = {
-            val textColor = style.colors.textColor.getValue(interactionSource, stateSet)
-            val cursorColor = style.colors.cursorColor.getValue(interactionSource, stateSet)
-            val textStyle = style.textStyle.copy(color = textColor, textAlign = textAlign)
+            val textColor by style.colors.textBrush.getBrushAsState(motion.context, motion.style.textColor)
+            val cursorColor by style.colors.cursorBrush.getBrushAsState(motion.context, motion.style.cursorColor)
+            val newTextStyle = textStyle.copy(brush = textColor, textAlign = textAlign)
             BasicTextField(
                 modifier = Modifier
                     .testTag("EditableField")
                     .layoutId(FIELD_ID),
                 value = value,
                 onValueChange = onValueChange,
-                textStyle = textStyle,
+                textStyle = newTextStyle,
                 singleLine = singleLine,
                 readOnly = readOnly,
                 enabled = enabled,
@@ -122,21 +135,23 @@ fun Editable(
                 minLines = minLines,
                 visualTransformation = visualTransformation,
                 onTextLayout = onTextLayout,
-                interactionSource = interactionSource,
-                cursorBrush = SolidColor(value = cursorColor),
+                interactionSource = motion.context.interactionSource,
+                cursorBrush = cursorColor,
             )
 
             icon?.let {
+                val padding = style.dimensions.iconMarginValues
+                    .getValue(motion.context.interactionSource, motion.context.semanticStateSource)
                 Box(
                     modifier = Modifier
-                        .padding(start = style.dimensions.iconMargin)
+                        .padding(start = padding)
                         .layoutId(ICON_ID),
                 ) {
-                    val iconSize = DpSize(style.dimensions.iconSize, style.dimensions.iconSize)
-                    val iconColor = style.colors.iconColor.getValue(interactionSource, stateSet)
+                    val iconSize by style.dimensions.iconSizeValues.getValueAsState(motion.context)
+                    val iconColor = style.colors.iconBrush.getBrushAsState(motion.context, motion.style.iconColor)
                     CompositionLocalProvider(
-                        LocalIconDefaultSize provides iconSize,
-                        LocalTint provides iconColor,
+                        LocalIconDefaultSize provides DpSize(iconSize, iconSize),
+                        LocalTintBrushProducer provides { iconColor.value },
                     ) {
                         icon()
                     }
@@ -186,6 +201,9 @@ fun Editable(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<EditableMotionStyle> = rememberEditableMotion(
+        motionContext = rememberMotionContext(interactionSource = interactionSource),
+    ),
 ) {
     var textFieldValueSate by remember {
         mutableStateOf(TextFieldValue(text = value, selection = TextRange(value.length)))
@@ -227,6 +245,7 @@ fun Editable(
         visualTransformation = visualTransformation,
         onTextLayout = onTextLayout,
         interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
