@@ -563,6 +563,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             chipsPadding(6.0.dp)
             chipsPaddingStart(0.0.dp)
             chipsPaddingEnd(0.0.dp)
+            dividerThickness(1.0.dp)
         }
         .colors {
             cursorColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
