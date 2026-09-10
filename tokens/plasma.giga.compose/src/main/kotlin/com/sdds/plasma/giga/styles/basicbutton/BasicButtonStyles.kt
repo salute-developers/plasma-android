@@ -151,7 +151,7 @@ public val WrapperBasicButtonView.Secondary: WrapperBasicButtonTerminate
                     setOf(InteractiveState.Pressed)
                         to SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive),
                     setOf(InteractiveState.Hovered) to
-                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover),
+                        SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary),
                 ),
             )
             labelColor(
