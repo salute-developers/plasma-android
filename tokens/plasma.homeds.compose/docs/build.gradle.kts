@@ -18,6 +18,7 @@ android {
 
 docusaurus {
     additionalComponentNames.add("NumberPanel")
+    additionalComponentNames.add("Bubble")
 }
 
 ksp {
