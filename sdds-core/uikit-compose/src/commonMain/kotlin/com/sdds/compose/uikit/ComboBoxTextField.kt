@@ -22,6 +22,10 @@ import com.sdds.compose.uikit.interactions.ActivateInteraction
 import com.sdds.compose.uikit.interactions.activate
 import com.sdds.compose.uikit.interactions.deactivate
 import com.sdds.compose.uikit.interactions.tryDeactivate
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.textfield.TextFieldMotionStyle
+import com.sdds.compose.uikit.motion.components.textfield.rememberTextFieldMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Текстовое поле для ввода и выбора значения, предназначенное для использования внутри [ComboBoxScope].
@@ -78,16 +82,78 @@ fun ComboBoxScope.ComboBoxTextField(
     focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    ComboBoxTextField(
+        motion = rememberTextFieldMotion(motionContext = rememberMotionContext(interactionSource)),
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        style = style,
+        iconOpened = iconOpened,
+        iconClosed = iconClosed,
+        enabled = enabled,
+        readOnly = readOnly,
+        placeholderText = placeholderText,
+        labelText = labelText,
+        captionText = captionText,
+        counterText = counterText,
+        optionalText = optionalText,
+        prefix = prefix,
+        suffix = suffix,
+        startContent = startContent,
+        chipsContent = chipsContent,
+        animation = animation,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        visualTransformation = visualTransformation,
+        focusSelectorSettings = focusSelectorSettings,
+    )
+}
+
+/**
+ * Поле ComboBox с переходами TextField и единым источником взаимодействий из [motion].
+ * Сохраняет [TextFieldAnimation], ввод и открытие списка.
+ *
+ * @param motion контекст состояний и стиль переходов поля.
+ */
+@Suppress("LongParameterList")
+@Composable
+@NonRestartableComposable
+fun ComboBoxScope.ComboBoxTextField(
+    motion: Motion<TextFieldMotionStyle>,
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    style: TextFieldStyle = LocalTextFieldStyle.current,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
+    placeholderText: String? = null,
+    labelText: String = "",
+    captionText: String? = null,
+    counterText: String? = null,
+    optionalText: String? = null,
+    prefix: String? = null,
+    suffix: String? = null,
+    startContent: @Composable (() -> Unit)? = null,
+    chipsContent: @Composable (() -> Unit)? = null,
+    animation: TextFieldAnimation = TextFieldAnimation(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
+) {
     val selectState = rememberComboBoxTextFieldState(
-        interactionSource = interactionSource,
+        interactionSource = motion.context.interactionSource,
         readOnly = readOnly,
         focusSelectorSettings = focusSelectorSettings,
     )
     TextField(
+        motion = motion,
         value = value,
         onValueChange = {
             onValueChange(it)
-            selectState.open()
+            selectState.state.open()
         },
         modifier = modifier,
         style = style,
@@ -104,10 +170,10 @@ fun ComboBoxScope.ComboBoxTextField(
         endContent = {
             ComboBoxTextFieldIcon(
                 selectState = selectState,
-                iconOpened = iconOpened,
-                iconClosed = iconClosed,
                 enabled = enabled,
                 readOnly = readOnly,
+                iconOpened = iconOpened,
+                iconClosed = iconClosed,
             )
         },
         chipsContent = chipsContent,
@@ -116,7 +182,7 @@ fun ComboBoxScope.ComboBoxTextField(
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         focusSelectorSettings = focusSelectorSettings,
-        interactionSource = interactionSource,
+        interactionSource = motion.context.interactionSource,
     )
 }
 
@@ -153,16 +219,78 @@ fun ComboBoxScope.ComboBoxTextField(
     focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    ComboBoxTextField(
+        motion = rememberTextFieldMotion(motionContext = rememberMotionContext(interactionSource)),
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        style = style,
+        iconOpened = iconOpened,
+        iconClosed = iconClosed,
+        enabled = enabled,
+        readOnly = readOnly,
+        placeholderText = placeholderText,
+        labelText = labelText,
+        captionText = captionText,
+        counterText = counterText,
+        optionalText = optionalText,
+        prefix = prefix,
+        suffix = suffix,
+        startContent = startContent,
+        chipsContent = chipsContent,
+        animation = animation,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        visualTransformation = visualTransformation,
+        focusSelectorSettings = focusSelectorSettings,
+    )
+}
+
+/**
+ * Поле ComboBox с переходами TextField и управлением выделением/composition через [TextFieldValue].
+ * Сохраняет [TextFieldAnimation], ввод и открытие списка.
+ *
+ * @param motion контекст состояний и стиль переходов поля; helper и TextField используют его источник.
+ */
+@Suppress("LongParameterList")
+@Composable
+@NonRestartableComposable
+fun ComboBoxScope.ComboBoxTextField(
+    motion: Motion<TextFieldMotionStyle>,
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    modifier: Modifier = Modifier,
+    style: TextFieldStyle = LocalTextFieldStyle.current,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
+    placeholderText: String? = null,
+    labelText: String = "",
+    captionText: String? = null,
+    counterText: String? = null,
+    optionalText: String? = null,
+    prefix: String? = null,
+    suffix: String? = null,
+    startContent: @Composable (() -> Unit)? = null,
+    chipsContent: @Composable (() -> Unit)? = null,
+    animation: TextFieldAnimation = TextFieldAnimation(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
+) {
     val selectState = rememberComboBoxTextFieldState(
-        interactionSource = interactionSource,
+        interactionSource = motion.context.interactionSource,
         readOnly = readOnly,
         focusSelectorSettings = focusSelectorSettings,
     )
     TextField(
+        motion = motion,
         value = value,
         onValueChange = {
             onValueChange(it)
-            selectState.open()
+            selectState.state.open()
         },
         modifier = modifier,
         style = style,
@@ -179,10 +307,10 @@ fun ComboBoxScope.ComboBoxTextField(
         endContent = {
             ComboBoxTextFieldIcon(
                 selectState = selectState,
-                iconOpened = iconOpened,
-                iconClosed = iconClosed,
                 enabled = enabled,
                 readOnly = readOnly,
+                iconOpened = iconOpened,
+                iconClosed = iconClosed,
             )
         },
         chipsContent = chipsContent,
@@ -191,7 +319,7 @@ fun ComboBoxScope.ComboBoxTextField(
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         focusSelectorSettings = focusSelectorSettings,
-        interactionSource = interactionSource,
+        interactionSource = motion.context.interactionSource,
     )
 }
 
@@ -200,50 +328,60 @@ private fun rememberComboBoxTextFieldState(
     interactionSource: MutableInteractionSource,
     readOnly: Boolean,
     focusSelectorSettings: FocusSelectorSettings,
-): SelectState {
+): SelectStateEffectKey {
     val selectState = LocalSelectState.current
     val isOpened = selectState.isOpened
-    val activateInteraction = remember { mutableStateOf<ActivateInteraction.Activate?>(null) }
-    DisposableEffect(interactionSource) {
+    val stateKey = SelectStateEffectKey(selectState)
+    val activateInteraction = remember(interactionSource, stateKey) {
+        mutableStateOf<ActivateInteraction.Activate?>(null)
+    }
+    DisposableEffect(interactionSource, stateKey) {
         onDispose {
             activateInteraction.tryDeactivate(interactionSource)
         }
     }
-    LaunchedEffect(isOpened) {
+    LaunchedEffect(interactionSource, stateKey, isOpened) {
         if (!isOpened) {
             activateInteraction.deactivate(interactionSource)
         } else {
             activateInteraction.activate(interactionSource)
         }
     }
-    LaunchedEffect(interactionSource, readOnly, focusSelectorSettings) {
+    LaunchedEffect(interactionSource, stateKey, readOnly, focusSelectorSettings) {
         if (!readOnly) {
             interactionSource.interactions
                 .collect { interaction ->
                     when (interaction) {
                         is ActivateInteraction.Activate -> {
-                            if (focusSelectorSettings.isEnabled()) selectState.open()
+                            if (focusSelectorSettings.isEnabled()) stateKey.state.open()
                         }
 
                         is FocusInteraction.Focus -> {
-                            if (focusSelectorSettings.isDisabled()) selectState.open()
+                            if (focusSelectorSettings.isDisabled()) stateKey.state.open()
                         }
                     }
                 }
         }
     }
-    return selectState
+    return stateKey
+}
+
+// SelectState.equals compares isOpened; effects must instead follow the supplied instance.
+internal class SelectStateEffectKey(val state: SelectState) {
+    override fun equals(other: Any?): Boolean = other is SelectStateEffectKey && state === other.state
+
+    override fun hashCode(): Int = 0
 }
 
 @Composable
 private fun ComboBoxTextFieldIcon(
-    selectState: SelectState,
-    iconOpened: ImageSource? = null,
-    iconClosed: ImageSource? = null,
+    selectState: SelectStateEffectKey,
     enabled: Boolean,
     readOnly: Boolean,
+    iconOpened: ImageSource? = null,
+    iconClosed: ImageSource? = null,
 ) {
-    val isOpened = selectState.isOpened
+    val isOpened = selectState.state.isOpened
     val icon = if (isOpened) iconOpened else iconClosed
     val dismissState = LocalComboBoxDismissState.current
     icon?.let {
@@ -254,10 +392,10 @@ private fun ComboBoxTextFieldIcon(
                 indication = null,
                 enabled = enabled && !readOnly,
                 onClick = {
-                    if (selectState.isOpened) {
-                        selectState.close()
+                    if (selectState.state.isOpened) {
+                        selectState.state.close()
                     } else if (dismissState?.consumeRecentDismiss() != true) {
-                        selectState.open()
+                        selectState.state.open()
                     }
                 },
                 interactionSource = remember { MutableInteractionSource() },

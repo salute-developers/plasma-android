@@ -109,6 +109,32 @@ val filteredList = if (state.isOpened && value.isEmpty()) {
 
 ## Стиль ComboBox
 
+### Motion поля и меню
+
+Обе формы `ComboBoxTextField` (`String` и `TextFieldValue`) принимают обязательный параметр
+`motion: Motion<TextFieldMotionStyle>` в новых перегрузках. Поле и логика открытия используют
+`motion.context.interactionSource`; отдельный `interactionSource` в этих перегрузках не передаётся.
+Старые вызовы, включая Android drawable-адаптеры, сохраняются и создают Motion из прежнего
+источника и `LocalTextFieldMotionStyle`. Замена источника или экземпляра `SelectState`
+переподключает подписки и снимает прежнюю активацию. `TextFieldValue` сохраняет выделение и composition.
+
+У `ComboBox` есть перегрузка с `dropdownMotion: Motion<DropdownMenuMotionStyle>`.
+Она передаёт объект существующему меню. Поле, меню и строки имеют независимые контексты
+по умолчанию; общий контекст задаётся явно. `ComboBoxStyle` по-прежнему содержит обычные
+`textFieldStyle`, `dropdownStyle` и `selectItemStyle`.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/combobox/ComboBox_Motion.kt
+```
+
+Незаданные Motion-переходы используют `noMotion()`. Это не отключает прежние
+`TextFieldAnimation` и fade-переходы появления/исчезновения меню. Доступны только свойства,
+которые поддерживают текущие `TextFieldMotionStyle` и `DropdownMenuMotionStyle`.
+Переработка анимаций DropdownMenu/Popover в `feature/plasma-8013` выполняется отдельно;
+данная миграция не расширяет их набор свойств.
+
+Stateful-стиль и переходы строк описаны в разделе [SelectItem](SelectUsage#selectitem).
+
 В большинстве случаев можно использовать готовые сгенерированные стили, а при необходимости создать собственный стиль через соответствующий builder. Подробнее о том, как работают `Style`, `StyleBuilder` и stateful-параметры стиля, см. в разделе [Стилизация компонентов](../theme/Styles.md).
 
 <!-- @style-api -->

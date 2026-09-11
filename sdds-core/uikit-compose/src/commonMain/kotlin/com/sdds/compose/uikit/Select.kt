@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.referentialEqualityPolicy
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -233,7 +234,7 @@ fun <T> rememberSelectMultipleDataStateManager(
     }
 }
 
-internal val LocalSelectState = compositionLocalOf { SelectState() }
+internal val LocalSelectState = compositionLocalOf(referentialEqualityPolicy()) { SelectState() }
 
 private object SelectScopeImpl : SelectScope
 

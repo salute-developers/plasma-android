@@ -8,6 +8,7 @@
 package com.sdds.serv.styles.selectitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SelectItemStyle
 import com.sdds.compose.uikit.SelectItemStyleBuilder
@@ -15,7 +16,7 @@ import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -84,11 +85,11 @@ private val SelectItemStyleBuilder.invariantProps: SelectItemStyleBuilder
         .itemType(SelectItemType.Single)
         .disableAlpha(0.4f)
         .colors {
-            iconColor(SddsServTheme.colors.textDefaultAccent.asInteractive())
+            iconColor(SolidColor(SddsServTheme.colors.textDefaultAccent).asStatefulValue())
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(SddsServTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary),
                 ),
             )
         }

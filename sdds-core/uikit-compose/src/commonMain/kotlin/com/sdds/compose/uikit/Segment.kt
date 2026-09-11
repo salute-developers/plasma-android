@@ -10,11 +10,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asBrush
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.internal.segment.getSegmentDpAsState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.segment.SegmentMotionStyle
+import com.sdds.compose.uikit.motion.components.segment.rememberSegmentMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент Segment с горизонтальной ориентацией
@@ -35,27 +44,77 @@ fun SegmentHorizontal(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable SegmentScope.() -> Unit,
 ) {
+    SegmentHorizontal(
+        motion = rememberSegmentMotion(motionContext = rememberMotionContext(interactionSource)),
+        modifier = modifier,
+        style = style,
+        stretch = stretch,
+        hasBackground = hasBackground,
+        content = content,
+    )
+}
+
+/**
+ * Компонент Segment с горизонтальной ориентацией
+ *
+ * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
+ * @param modifier модификатор
+ * @param style стиль компонента [SegmentStyle]
+ * @param stretch может ли компонент растягиваться по ширине
+ * @param hasBackground включает фон
+ * @param content контент
+ */
+@Composable
+fun SegmentHorizontal(
+    motion: Motion<SegmentMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: SegmentStyle = LocalSegmentStyle.current,
+    stretch: Boolean = true,
+    hasBackground: Boolean = true,
+    content: @Composable SegmentScope.() -> Unit,
+) {
+    val backgroundBrush = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+    val shape by style.shapes.getValueAsState(motion.context)
+    val paddingStart by style.dimensions.paddingStartValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.paddingStart,
+    )
+    val paddingEnd by style.dimensions.paddingEndValues.getSegmentDpAsState(motion.context, motion.style.paddingEnd)
+    val paddingTop by style.dimensions.paddingTopValues.getSegmentDpAsState(motion.context, motion.style.paddingTop)
+    val paddingBottom by style.dimensions.paddingBottomValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.paddingBottom,
+    )
+    val gap by style.dimensions.gapValues.getSegmentDpAsState(motion.context, motion.style.gap)
+    val dividerPaddingStart by style.dimensions.dividerPaddingStartValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.dividerPaddingStart,
+    )
+    val dividerPaddingEnd by style.dimensions.dividerPaddingEndValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.dividerPaddingEnd,
+    )
     val segmentScope = remember { SegmentScopeImpl() }
     val stretchModifier = if (stretch) Modifier.fillMaxWidth() else Modifier
     Row(
         modifier = Modifier
             .then(modifier)
             .background(
-                color = if (hasBackground) {
-                    style.colors.backgroundColor.colorForInteraction(interactionSource)
+                brush = if (hasBackground) {
+                    backgroundBrush.value
                 } else {
-                    Color.Transparent
+                    Color.Transparent.asBrush()
                 },
-                shape = style.shape,
+                shape = shape,
             )
             .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-                top = style.dimensions.paddingTop,
-                bottom = style.dimensions.paddingBottom,
+                start = paddingStart,
+                end = paddingEnd,
+                top = paddingTop,
+                bottom = paddingBottom,
             )
             .then(stretchModifier),
-        horizontalArrangement = Arrangement.spacedBy(style.dimensions.gap.toArrangementSpacing()),
+        horizontalArrangement = Arrangement.spacedBy(gap.toArrangementSpacing()),
     ) {
         CompositionLocalProvider(
             LocalSegmentItemStyle provides style.segmentItemStyle,
@@ -69,8 +128,8 @@ fun SegmentHorizontal(
                     is SegmentItem.Divider -> {
                         Box(
                             Modifier.padding(
-                                top = style.dimensions.dividerPaddingStart,
-                                bottom = style.dimensions.dividerPaddingEnd,
+                                top = dividerPaddingStart,
+                                bottom = dividerPaddingEnd,
                             ),
                         ) {
                             item.content.invoke()
@@ -108,25 +167,72 @@ fun SegmentVertical(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable SegmentScope.() -> Unit,
 ) {
+    SegmentVertical(
+        motion = rememberSegmentMotion(motionContext = rememberMotionContext(interactionSource)),
+        modifier = modifier,
+        style = style,
+        hasBackground = hasBackground,
+        content = content,
+    )
+}
+
+/**
+ * Компонент Segment с вертикальной ориентацией
+ *
+ * @param motion контекст состояний и стиль переходов; форма переключается без интерполяции
+ * @param modifier модификатор
+ * @param style стиль компонента [SegmentStyle]
+ * @param hasBackground включает фон
+ * @param content контент
+ */
+@Composable
+fun SegmentVertical(
+    motion: Motion<SegmentMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: SegmentStyle = LocalSegmentStyle.current,
+    hasBackground: Boolean = true,
+    content: @Composable SegmentScope.() -> Unit,
+) {
+    val backgroundBrush = style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
+    val shape by style.shapes.getValueAsState(motion.context)
+    val paddingStart by style.dimensions.paddingStartValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.paddingStart,
+    )
+    val paddingEnd by style.dimensions.paddingEndValues.getSegmentDpAsState(motion.context, motion.style.paddingEnd)
+    val paddingTop by style.dimensions.paddingTopValues.getSegmentDpAsState(motion.context, motion.style.paddingTop)
+    val paddingBottom by style.dimensions.paddingBottomValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.paddingBottom,
+    )
+    val gap by style.dimensions.gapValues.getSegmentDpAsState(motion.context, motion.style.gap)
+    val dividerPaddingStart by style.dimensions.dividerPaddingStartValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.dividerPaddingStart,
+    )
+    val dividerPaddingEnd by style.dimensions.dividerPaddingEndValues.getSegmentDpAsState(
+        motion.context,
+        motion.style.dividerPaddingEnd,
+    )
     val segmentScope = remember { SegmentScopeImpl() }
     Column(
         modifier = Modifier
             .then(modifier)
             .background(
-                color = if (hasBackground) {
-                    style.colors.backgroundColor.colorForInteraction(interactionSource)
+                brush = if (hasBackground) {
+                    backgroundBrush.value
                 } else {
-                    Color.Transparent
+                    Color.Transparent.asBrush()
                 },
-                shape = style.shape,
+                shape = shape,
             )
             .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-                top = style.dimensions.paddingTop,
-                bottom = style.dimensions.paddingBottom,
+                start = paddingStart,
+                end = paddingEnd,
+                top = paddingTop,
+                bottom = paddingBottom,
             ),
-        verticalArrangement = Arrangement.spacedBy(style.dimensions.gap.toArrangementSpacing()),
+        verticalArrangement = Arrangement.spacedBy(gap.toArrangementSpacing()),
     ) {
         CompositionLocalProvider(
             LocalSegmentItemStyle provides style.segmentItemStyle,
@@ -139,8 +245,8 @@ fun SegmentVertical(
                     is SegmentItem.Divider -> {
                         Box(
                             Modifier.padding(
-                                start = style.dimensions.dividerPaddingStart,
-                                end = style.dimensions.dividerPaddingEnd,
+                                start = dividerPaddingStart,
+                                end = dividerPaddingEnd,
                             ),
                         ) {
                             item.content.invoke()

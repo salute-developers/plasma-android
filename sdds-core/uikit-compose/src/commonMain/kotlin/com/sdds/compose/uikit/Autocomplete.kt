@@ -23,9 +23,15 @@ import com.sdds.compose.uikit.DropdownProperties.Height
 import com.sdds.compose.uikit.DropdownProperties.Width
 import com.sdds.compose.uikit.internal.dropdownmenu.BaseDropdownMenu
 import com.sdds.compose.uikit.internal.toDp
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.dropdownmenu.DropdownMenuMotionStyle
+import com.sdds.compose.uikit.motion.components.dropdownmenu.rememberDropdownMenuMotion
 
 /**
  * Поле ввода с возможностью подстановки значения из предварительно заполненного выпадающего списка по мере ввода данных
+ *
+ * Использует локальный стиль Motion меню. Для собственного контекста меню используйте перегрузку с dropdownMotion.
+ * Motion текстового поля задаётся непосредственно в слоте [field]. Показом и выбором управляет вызывающий код.
  *
  * @param modifier модификатор текстового поля
  * @param style стиль компонента
@@ -51,6 +57,54 @@ fun Autocomplete(
     footer: (@Composable () -> Unit)? = null,
     listContent: LazyListScope.() -> Unit = {},
 ) {
+    Autocomplete(
+        dropdownMotion = rememberDropdownMenuMotion(),
+        field = field,
+        modifier = modifier,
+        style = style,
+        showDropdown = showDropdown,
+        onDismissRequest = onDismissRequest,
+        showEmptyState = showEmptyState,
+        dropdownProperties = dropdownProperties,
+        emptyState = emptyState,
+        footer = footer,
+        listContent = listContent,
+    )
+}
+
+/**
+ * Autocomplete с заданным Motion выпадающего меню.
+ *
+ * Поле и строки используют собственные контексты. StatefulValue настраиваются во вложенных стилях [AutocompleteStyle].
+ * Сохраняет существующие переходы появления и исчезновения меню; доступные переходы свойств определяет
+ * [DropdownMenuMotionStyle].
+ *
+ * @param dropdownMotion контекст состояний и стиль переходов выпадающего меню
+ * @param field произвольный слот поля; Motion передаётся TextField непосредственно в этом слоте
+ * @param modifier модификатор триггера
+ * @param style стиль компонента
+ * @param showDropdown показан dropdown или нет
+ * @param onDismissRequest запрос закрытия меню; изменение [showDropdown] остаётся у вызывающего кода
+ * @param showEmptyState показать [emptyState] вместо основного содержимого, если слот задан
+ * @param dropdownProperties настройки размеров и размещения меню
+ * @param emptyState слот пустого состояния
+ * @param footer слот нижней части меню
+ * @param listContent содержимое списка
+ */
+@Composable
+fun Autocomplete(
+    dropdownMotion: Motion<DropdownMenuMotionStyle>,
+    field: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: AutocompleteStyle = LocalAutocompleteStyle.current,
+    showDropdown: Boolean = false,
+    onDismissRequest: () -> Unit = {},
+    showEmptyState: Boolean = false,
+    dropdownProperties: DropdownProperties = DropdownProperties(),
+    emptyState: (@Composable DropdownScope.() -> Unit)? = null,
+    footer: (@Composable () -> Unit)? = null,
+    listContent: LazyListScope.() -> Unit = {},
+) {
     val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
     Box(modifier = modifier.popoverTrigger(triggerInfo)) {
         CompositionLocalProvider(LocalTextFieldStyle provides style.textFieldStyle) {
@@ -62,6 +116,7 @@ fun Autocomplete(
     // читаем только ширину через derivedStateOf, а полное значение передаем лямбдой.
     val triggerWidth by remember { derivedStateOf { triggerInfo.value.size.width } }
     BaseDropdownMenu(
+        motion = dropdownMotion,
         offset = 0.dp,
         modifier = Modifier
             .width(

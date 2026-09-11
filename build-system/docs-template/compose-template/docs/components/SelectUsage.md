@@ -68,6 +68,47 @@ SelectItem(
 
 ## Работа с компонентом
 
+### Stateful-стиль и Motion SelectItem
+
+`checked` публикуется как `InteractiveState.Selected` в семантическом источнике строки.
+Стиль может сочетать Selected с Pressed, Hovered и Focused. Строки независимы по умолчанию.
+Новые перегрузки обеих форм `SelectItem` принимают `motion: Motion<SelectItemMotionStyle>`;
+старые вызовы сохраняются и используют прежний `interactionSource` и `LocalSelectItemMotionStyle`.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/select/SelectItem_Motion.kt
+```
+
+Встроенные Cell (форма с `titleContent`) и CheckBox разделяют контекст строки, сохраняя
+собственные MotionStyle, checked/enabled и собственные состояния. Выбор изменяется одним
+`onClick` строки. Для Cell внутри произвольного `content` контекст передаётся явно:
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/select/SelectItem_CustomCellMotion.kt
+```
+
+| Владелец | Новое значение | Старый getter |
+| --- | --- | --- |
+| SelectItemStyle | `shapes: StatefulValue<Shape>` | `shape` |
+| SelectItemColors | `backgroundBrush`, `iconBrush`: `StatefulValue<Brush>` | `backgroundColor`, `iconColor` |
+| SelectItemDimensions | `controlSizeValues`, `controlMarginValues`, `paddingStartValues`, `paddingEndValues`, `paddingTopValues`, `paddingBottomValues`, `heightValues`: `StatefulValue<Dp>` | те же имена без `Values` |
+
+Builder-методы сохраняют прежние имена и принимают как статические значения, так и
+`StatefulValue`. Цвета дополнительно принимают `Brush`. Старые getters помечены Deprecated:
+форма и размеры возвращают default; цветовые getters возвращают
+`Color.Transparent.asInteractive()`, как в Cell/Chip. Default, selected и комбинированные
+состояния старых цветовых builder-вызовов сохраняются в новом Brush API, включая градиенты.
+
+Произвольная `Shape` поддерживается; форма и все размеры переключаются без интерполяции через
+`getValueAsState(motion.context)`, как размеры BaseTextField. Фон и indication
+используют одну разрешённую форму. MotionStyle содержит два перехода Brush,
+по умолчанию `noMotion()`. Неконечные Dp переключаются без анимации и без замены на ноль.
+`height` сохраняет смысл минимальной высоты, а место контрольной иконки резервируется
+даже при её отсутствии. `disableAlpha`, вложенные стили и ImageSource-контракт не меняются.
+
+Обычные вызовы и сгенерированные стили совместимы. Собственные реализации интерфейсов
+SelectItemStyle/Colors/Dimensions и их builder-ов нужно дополнить новыми членами.
+
 ### SelectState
 
 Для работы с компонентом необходимо создать экземпляр `SelectState` и передать его в `Select`. 

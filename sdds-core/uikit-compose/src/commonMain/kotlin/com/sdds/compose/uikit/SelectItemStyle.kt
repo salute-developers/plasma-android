@@ -5,6 +5,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
@@ -13,7 +14,10 @@ import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -26,6 +30,7 @@ val LocalSelectItemStyle: ProvidableCompositionLocal<SelectItemStyle> =
 /**
  * Стиль компонента SelectItem.
  * Определяет визуальное представление элемента выбора в списке.
+ * Собственные реализации интерфейсов стиля и билдеров должны поддерживать StatefulValue-свойства.
  */
 @Immutable
 interface SelectItemStyle : Style {
@@ -63,7 +68,13 @@ interface SelectItemStyle : Style {
     /**
      * Форма элемента.
      */
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
     val shape: Shape
+
+    /**
+     * Форма для состояний компонента; переключается без интерполяции.
+     */
+    val shapes: StatefulValue<Shape>
 
     /**
      * Иконка элемента.
@@ -113,7 +124,12 @@ interface SelectItemStyleBuilder : StyleBuilder<SelectItemStyle> {
      * Устанавливает форму элемента.
      * @param shape форма
      */
-    fun shape(shape: Shape): SelectItemStyleBuilder
+    fun shape(shape: Shape): SelectItemStyleBuilder = shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы для состояний компонента.
+     */
+    fun shape(shape: StatefulValue<Shape>): SelectItemStyleBuilder
 
     /**
      * Устанавливает источник изображения иконки элемента.
@@ -170,15 +186,18 @@ private data class DefaultSelectItemStyle(
     override val cellStyle: CellStyle,
     override val iconSource: ImageSource?,
     override val disableAlpha: Float,
-    override val shape: Shape,
+    override val shapes: StatefulValue<Shape>,
 ) : SelectItemStyle {
+    @Deprecated("Use shapes", ReplaceWith("shapes"))
+    override val shape: Shape = shapes.getDefaultValue()
+
     @Deprecated("Use iconSource", replaceWith = ReplaceWith("iconSource"))
     override val icon: Int? = null
 
     class Builder : SelectItemStyleBuilder {
         private var iconSource: ImageSource? = null
         private var itemType: SelectItemType? = null
-        private var shape: Shape? = null
+        private var shape: StatefulValue<Shape>? = null
         private var disableAlpha: Float? = null
         private var checkBoxStyle: CheckBoxStyle? = null
         private var cellStyle: CellStyle? = null
@@ -193,7 +212,7 @@ private data class DefaultSelectItemStyle(
             this.disableAlpha = disableAlpha
         }
 
-        override fun shape(shape: Shape) = apply {
+        override fun shape(shape: StatefulValue<Shape>) = apply {
             this.shape = shape
         }
 
@@ -225,7 +244,7 @@ private data class DefaultSelectItemStyle(
             cellStyle = cellStyle ?: CellStyle.builder().style(),
             iconSource = iconSource,
             disableAlpha = disableAlpha ?: 0.4f,
-            shape = shape ?: RectangleShape,
+            shapes = shape ?: RectangleShape.asStatefulValue(),
         )
     }
 }
@@ -239,12 +258,24 @@ interface SelectItemColors {
     /**
      * Цвет иконки в различных состояниях.
      */
+    @Deprecated("Use iconBrush", ReplaceWith("iconBrush"))
     val iconColor: InteractiveColor
+
+    /**
+     * Заливка для состояний компонента. Устаревший getter цвета возвращает Color.Transparent.
+     */
+    val iconBrush: StatefulValue<Brush>
 
     /**
      * Цвет фона в различных состояниях.
      */
+    @Deprecated("Use backgroundBrush", ReplaceWith("backgroundBrush"))
     val backgroundColor: InteractiveColor
+
+    /**
+     * Заливка для состояний компонента. Устаревший getter цвета возвращает Color.Transparent.
+     */
+    val backgroundBrush: StatefulValue<Brush>
 
     companion object {
         /**
@@ -263,7 +294,18 @@ interface SelectItemColorsBuilder {
      * Устанавливает цвет иконки как интерактивный цвет.
      * @param iconColor цвет с поддержкой различных состояний
      */
-    fun iconColor(iconColor: InteractiveColor): SelectItemColorsBuilder
+    fun iconColor(iconColor: InteractiveColor): SelectItemColorsBuilder =
+        iconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает заливки для состояний компонента.
+     */
+    fun iconColor(iconColor: StatefulValue<Brush>): SelectItemColorsBuilder
+
+    /**
+     * Устанавливает заливку компонента.
+     */
+    fun iconColor(iconColor: Brush): SelectItemColorsBuilder = iconColor(iconColor.asStatefulValue())
 
     /**
      * Устанавливает цвет иконки как обычный цвет.
@@ -277,7 +319,20 @@ interface SelectItemColorsBuilder {
      * Устанавливает цвет фона как интерактивный цвет.
      * @param backgroundColor цвет с поддержкой различных состояний
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): SelectItemColorsBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): SelectItemColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает заливки для состояний компонента.
+     */
+    fun backgroundColor(backgroundColor: StatefulValue<Brush>): SelectItemColorsBuilder
+
+    /**
+     * Устанавливает заливку компонента.
+     */
+    fun backgroundColor(
+        backgroundColor: Brush,
+    ): SelectItemColorsBuilder = backgroundColor(backgroundColor.asStatefulValue())
 
     /**
      * Устанавливает цвет фона как обычный цвет.
@@ -298,24 +353,30 @@ interface SelectItemColorsBuilder {
  * Реализация SelectItemColors по умолчанию.
  */
 private data class DefaultSelectItemColors(
-    override val iconColor: InteractiveColor,
-    override val backgroundColor: InteractiveColor,
+    override val iconBrush: StatefulValue<Brush>,
+    override val backgroundBrush: StatefulValue<Brush>,
 ) : SelectItemColors {
-    class Builder : SelectItemColorsBuilder {
-        private var iconColor: InteractiveColor? = null
-        private var backgroundColor: InteractiveColor? = null
+    @Deprecated("Use iconBrush", ReplaceWith("iconBrush"))
+    override val iconColor: InteractiveColor = Color.Transparent.asInteractive()
 
-        override fun iconColor(iconColor: InteractiveColor): SelectItemColorsBuilder =
+    @Deprecated("Use backgroundBrush", ReplaceWith("backgroundBrush"))
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    class Builder : SelectItemColorsBuilder {
+        private var iconColor: StatefulValue<Brush>? = null
+        private var backgroundColor: StatefulValue<Brush>? = null
+
+        override fun iconColor(iconColor: StatefulValue<Brush>): SelectItemColorsBuilder =
             apply { this.iconColor = iconColor }
 
-        override fun backgroundColor(backgroundColor: InteractiveColor): SelectItemColorsBuilder =
+        override fun backgroundColor(backgroundColor: StatefulValue<Brush>): SelectItemColorsBuilder =
             apply { this.backgroundColor = backgroundColor }
 
         override fun build(): SelectItemColors = DefaultSelectItemColors(
-            iconColor = iconColor ?: Color.Gray.asInteractive(),
-            backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(
+            iconBrush = iconColor ?: Color.Gray.asInteractive().asStatefulBrush(),
+            backgroundBrush = backgroundColor ?: Color.Transparent.asInteractive(
                 focused = Color.LightGray,
-            ),
+            ).asStatefulBrush(),
         )
     }
 }
@@ -329,37 +390,79 @@ interface SelectItemDimensions {
     /**
      * Размер элемента управления (чекбокс, радио-кнопка).
      */
+    @Deprecated("Use controlSizeValues", ReplaceWith("controlSizeValues"))
     val controlSize: Dp
+
+    /**
+     * Значения [controlSize] для состояний компонента.
+     */
+    val controlSizeValues: StatefulValue<Dp>
 
     /**
      * Отступ от элемента управления до контента.
      */
+    @Deprecated("Use controlMarginValues", ReplaceWith("controlMarginValues"))
     val controlMargin: Dp
+
+    /**
+     * Значения [controlMargin] для состояний компонента.
+     */
+    val controlMarginValues: StatefulValue<Dp>
 
     /**
      * Внутренний отступ слева.
      */
+    @Deprecated("Use paddingStartValues", ReplaceWith("paddingStartValues"))
     val paddingStart: Dp
+
+    /**
+     * Значения [paddingStart] для состояний компонента.
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Внутренний отступ справа.
      */
+    @Deprecated("Use paddingEndValues", ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
+
+    /**
+     * Значения [paddingEnd] для состояний компонента.
+     */
+    val paddingEndValues: StatefulValue<Dp>
 
     /**
      * Внутренний отступ сверху.
      */
+    @Deprecated("Use paddingTopValues", ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
+
+    /**
+     * Значения [paddingTop] для состояний компонента.
+     */
+    val paddingTopValues: StatefulValue<Dp>
 
     /**
      * Внутренний отступ снизу.
      */
+    @Deprecated("Use paddingBottomValues", ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
+
+    /**
+     * Значения [paddingBottom] для состояний компонента.
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     /**
      * Минимальная высота элемента.
      */
+    @Deprecated("Use heightValues", ReplaceWith("heightValues"))
     val height: Dp
+
+    /**
+     * Значения [height] для состояний компонента.
+     */
+    val heightValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -378,43 +481,78 @@ interface SelectItemDimensionsBuilder {
      * Устанавливает размер элемента управления.
      * @param controlSize размер в dp
      */
-    fun controlSize(controlSize: Dp): SelectItemDimensionsBuilder
+    fun controlSize(controlSize: Dp): SelectItemDimensionsBuilder = controlSize(controlSize.asStatefulValue())
+
+    /**
+     * Устанавливает [controlSize] для состояний компонента.
+     */
+    fun controlSize(controlSize: StatefulValue<Dp>): SelectItemDimensionsBuilder
 
     /**
      * Устанавливает отступ от элемента управления.
      * @param controlMargin отступ в dp
      */
-    fun controlMargin(controlMargin: Dp): SelectItemDimensionsBuilder
+    fun controlMargin(controlMargin: Dp): SelectItemDimensionsBuilder = controlMargin(controlMargin.asStatefulValue())
+
+    /**
+     * Устанавливает [controlMargin] для состояний компонента.
+     */
+    fun controlMargin(controlMargin: StatefulValue<Dp>): SelectItemDimensionsBuilder
 
     /**
      * Устанавливает внутренний отступ слева.
      * @param paddingStart отступ в dp
      */
-    fun paddingStart(paddingStart: Dp): SelectItemDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): SelectItemDimensionsBuilder = paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает [paddingStart] для состояний компонента.
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): SelectItemDimensionsBuilder
 
     /**
      * Устанавливает внутренний отступ справа.
      * @param paddingEnd отступ в dp
      */
-    fun paddingEnd(paddingEnd: Dp): SelectItemDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): SelectItemDimensionsBuilder = paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает [paddingEnd] для состояний компонента.
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): SelectItemDimensionsBuilder
 
     /**
      * Устанавливает внутренний отступ сверху.
      * @param paddingTop отступ в dp
      */
-    fun paddingTop(paddingTop: Dp): SelectItemDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): SelectItemDimensionsBuilder = paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает [paddingTop] для состояний компонента.
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): SelectItemDimensionsBuilder
 
     /**
      * Устанавливает внутренний отступ снизу.
      * @param paddingBottom отступ в dp
      */
-    fun paddingBottom(paddingBottom: Dp): SelectItemDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): SelectItemDimensionsBuilder = paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает [paddingBottom] для состояний компонента.
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): SelectItemDimensionsBuilder
 
     /**
      * Устанавливает минимальную высоту элемента.
      * @param height высота в dp
      */
-    fun height(height: Dp): SelectItemDimensionsBuilder
+    fun height(height: Dp): SelectItemDimensionsBuilder = height(height.asStatefulValue())
+
+    /**
+     * Устанавливает [height] для состояний компонента.
+     */
+    fun height(height: StatefulValue<Dp>): SelectItemDimensionsBuilder
 
     /**
      * Создает экземпляр [SelectItemDimensions] с настроенными параметрами.
@@ -427,59 +565,80 @@ interface SelectItemDimensionsBuilder {
  * Реализация SelectItemDimensions по умолчанию.
  */
 private data class DefaultSelectItemDimensions(
-    override val controlSize: Dp,
-    override val controlMargin: Dp,
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val height: Dp,
+    override val controlSizeValues: StatefulValue<Dp>,
+    override val controlMarginValues: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
+    override val heightValues: StatefulValue<Dp>,
 ) : SelectItemDimensions {
-    class Builder : SelectItemDimensionsBuilder {
-        private var controlSize: Dp? = null
-        private var controlMargin: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
-        private var height: Dp? = null
+    @Deprecated("Use controlSizeValues", ReplaceWith("controlSizeValues"))
+    override val controlSize: Dp = controlSizeValues.getDefaultValue()
 
-        override fun controlSize(controlSize: Dp): SelectItemDimensionsBuilder = apply {
+    @Deprecated("Use controlMarginValues", ReplaceWith("controlMarginValues"))
+    override val controlMargin: Dp = controlMarginValues.getDefaultValue()
+
+    @Deprecated("Use paddingStartValues", ReplaceWith("paddingStartValues"))
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+    @Deprecated("Use paddingEndValues", ReplaceWith("paddingEndValues"))
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
+
+    @Deprecated("Use paddingTopValues", ReplaceWith("paddingTopValues"))
+    override val paddingTop: Dp = paddingTopValues.getDefaultValue()
+
+    @Deprecated("Use paddingBottomValues", ReplaceWith("paddingBottomValues"))
+    override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
+
+    @Deprecated("Use heightValues", ReplaceWith("heightValues"))
+    override val height: Dp = heightValues.getDefaultValue()
+
+    class Builder : SelectItemDimensionsBuilder {
+        private var controlSize: StatefulValue<Dp>? = null
+        private var controlMargin: StatefulValue<Dp>? = null
+        private var paddingStart: StatefulValue<Dp>? = null
+        private var paddingEnd: StatefulValue<Dp>? = null
+        private var paddingTop: StatefulValue<Dp>? = null
+        private var paddingBottom: StatefulValue<Dp>? = null
+        private var height: StatefulValue<Dp>? = null
+
+        override fun controlSize(controlSize: StatefulValue<Dp>): SelectItemDimensionsBuilder = apply {
             this.controlSize = controlSize
         }
 
-        override fun controlMargin(controlMargin: Dp): SelectItemDimensionsBuilder = apply {
+        override fun controlMargin(controlMargin: StatefulValue<Dp>): SelectItemDimensionsBuilder = apply {
             this.controlMargin = controlMargin
         }
 
-        override fun paddingStart(paddingStart: Dp): SelectItemDimensionsBuilder = apply {
+        override fun paddingStart(paddingStart: StatefulValue<Dp>): SelectItemDimensionsBuilder = apply {
             this.paddingStart = paddingStart
         }
 
-        override fun paddingEnd(paddingEnd: Dp): SelectItemDimensionsBuilder = apply {
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>): SelectItemDimensionsBuilder = apply {
             this.paddingEnd = paddingEnd
         }
 
-        override fun paddingTop(paddingTop: Dp): SelectItemDimensionsBuilder = apply {
+        override fun paddingTop(paddingTop: StatefulValue<Dp>): SelectItemDimensionsBuilder = apply {
             this.paddingTop = paddingTop
         }
 
-        override fun paddingBottom(paddingBottom: Dp): SelectItemDimensionsBuilder = apply {
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>): SelectItemDimensionsBuilder = apply {
             this.paddingBottom = paddingBottom
         }
 
-        override fun height(height: Dp) = apply {
+        override fun height(height: StatefulValue<Dp>) = apply {
             this.height = height
         }
 
         override fun build(): SelectItemDimensions = DefaultSelectItemDimensions(
-            controlSize = controlSize ?: 24.dp,
-            controlMargin = controlMargin ?: 8.dp,
-            paddingStart = paddingStart ?: 8.dp,
-            paddingEnd = paddingEnd ?: 8.dp,
-            paddingTop = paddingTop ?: 8.dp,
-            paddingBottom = paddingBottom ?: 8.dp,
-            height = height ?: 48.dp,
+            controlSizeValues = controlSize ?: 24.dp.asStatefulValue(),
+            controlMarginValues = controlMargin ?: 8.dp.asStatefulValue(),
+            paddingStartValues = paddingStart ?: 8.dp.asStatefulValue(),
+            paddingEndValues = paddingEnd ?: 8.dp.asStatefulValue(),
+            paddingTopValues = paddingTop ?: 8.dp.asStatefulValue(),
+            paddingBottomValues = paddingBottom ?: 8.dp.asStatefulValue(),
+            heightValues = height ?: 48.dp.asStatefulValue(),
         )
     }
 }
