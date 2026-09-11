@@ -14,9 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonIcons
 import com.sdds.compose.uikit.Divider
+import com.sdds.compose.uikit.DropdownFooterLoadingState
 import com.sdds.compose.uikit.DropdownMenu
 import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.FooterLoadingState
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.LocalButtonStyle
@@ -32,7 +35,10 @@ import com.sdds.compose.uikit.fixtures.stories.DropdownMenuUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.popover.TriggerPlacement
 import com.sdds.compose.uikit.fixtures.stories.popover.toAlignment
 import com.sdds.compose.uikit.graphics.maybeShapeable
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.popoverTrigger
+import com.sdds.icons.compose.Refresh24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -50,6 +56,7 @@ data class DropdownMenuUiState(
     val placement: PopoverPlacement = PopoverPlacement.Bottom,
     val alignment: PopoverAlignment = PopoverAlignment.Center,
     val triggerPlacement: TriggerPlacement = TriggerPlacement.Center,
+    val loadingState: DropdownFooterLoadingState = DropdownFooterLoadingState.None,
     val dimBackground: Boolean = false,
 ) : UiState {
 
@@ -96,6 +103,17 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
                 clipHeight = true,
                 clipWidth = true,
                 dimBackground = true,
+                footer = {
+                    style.loadingStateStyle?.let {
+                        FooterLoadingState(
+                            style = it,
+                            loadingState = state.loadingState,
+                            loadingLabel = "Загрузка",
+                            reloadLabel = "Повторить",
+                            reloadIconSource = imageVectorSource(SddsIcons.Refresh24),
+                        )
+                    }
+                },
             ) {
                 DropdownContent(state)
             }
@@ -112,6 +130,24 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
                 style = style,
                 clipHeight = true,
                 clipWidth = true,
+                footer = {
+                    style.loadingStateStyle?.let {
+                        FooterLoadingState(
+                            style = it,
+                            loadingState = state.loadingState,
+                            loadingContent = { Text(text = "Загрузка") },
+                            reloadContent = {
+                                Button(
+                                    label = "Повторить",
+                                    onClick = {},
+                                    icons = ButtonIcons(
+                                        startSource = imageVectorSource(SddsIcons.Refresh24),
+                                    ),
+                                )
+                            },
+                        )
+                    }
+                },
             ) {
                 DropdownContent(state)
             }

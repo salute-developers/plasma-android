@@ -143,6 +143,7 @@ data class ComponentKey(
         val Carousel = ComponentKey(CoreComponentName.CAROUSEL)
         val Autocomplete = ComponentKey(CoreComponentName.AUTOCOMPLETE)
         val DropdownEmptyState = ComponentKey(CoreComponentName.DROPDOWN_EMPTY_STATE)
+        val DropdownLoadingState = ComponentKey(CoreComponentName.DROPDOWN_LOADING_STATE)
         val File = ComponentKey(CoreComponentName.FILE)
         val FormItem = ComponentKey(CoreComponentName.FORM_ITEM)
         val Editable = ComponentKey(CoreComponentName.EDITABLE)
@@ -258,6 +259,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     CAROUSEL,
     AUTOCOMPLETE,
     DROPDOWN_EMPTY_STATE,
+    DROPDOWN_LOADING_STATE,
     FILE,
     FORM_ITEM,
     EDITABLE,
@@ -310,6 +312,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.NOTE_COMPACT,
         CoreComponentName.PAGINATION_DOTS,
         CoreComponentName.DROPDOWN_EMPTY_STATE,
+        CoreComponentName.DROPDOWN_LOADING_STATE,
         CoreComponentName.SPLITTER,
         -> CoreComponentGroup.DATA_DISPLAY
 
