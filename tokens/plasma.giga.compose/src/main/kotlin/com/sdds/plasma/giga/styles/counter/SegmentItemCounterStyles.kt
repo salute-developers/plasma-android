@@ -95,11 +95,11 @@ public val WrapperSegmentItemCounterView.Default: WrapperSegmentItemCounterTermi
                 ),
             )
             textColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
                     setOf(InteractiveState.Hovered) to
-                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }
@@ -120,11 +120,11 @@ public val WrapperSegmentItemCounterView.Accent: WrapperSegmentItemCounterTermin
                 ),
             )
             textColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
                     setOf(InteractiveState.Hovered) to
-                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                     setOf(InteractiveState.Selected) to
                         PlasmaGigaTheme.colors.textOnLightPrimary,
                 ),
