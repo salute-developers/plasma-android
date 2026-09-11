@@ -68,6 +68,11 @@ interface CardStyle : Style {
      */
     val dimensions: CardDimensions
 
+    /**
+     * Значение прозрачности выключенной карточки
+     */
+    val disableAlpha: Float
+
     companion object {
         /**
          * Возвращает экземпляр [CardStyleBuilder]
