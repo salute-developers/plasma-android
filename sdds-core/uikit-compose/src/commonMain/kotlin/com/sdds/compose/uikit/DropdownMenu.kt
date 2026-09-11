@@ -5,11 +5,15 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -20,6 +24,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.PopupProperties
+import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.dropdownmenu.BaseDropdownMenu
 import com.sdds.compose.uikit.internal.dropdownmenu.BaseModalDropdownMenu
 import com.sdds.compose.uikit.internal.dropdownmenu.DefaultModalDropdownDialogProperties
@@ -538,4 +545,168 @@ fun DropdownScope.EmptyState(
             }
         }
     }
+}
+
+/**
+ * Cемантические состояния представления загрузки
+ */
+enum class DropdownFooterLoadingState : ValueState {
+
+    /**
+     * Представление отсутствует
+     */
+    None,
+
+    /**
+     * Состояние загрузки
+     */
+    Loading,
+
+    /**
+     * Состояние перезагрузки
+     */
+    Reload,
+}
+
+/**
+ * Представление состояния загрузки в footer [DropdownMenu]
+ *
+ * @param style стиль компонента
+ * @param loadingState семантическое состояние представления загрузки
+ * @see DropdownFooterLoadingState
+ * @param loadingLabel описание в режиме загрузки
+ * @param reloadIconSource источник иконки для представления в состоянии презагрузки
+ * @param reloadLabel описание в режиме перезагрузки
+ * @param onClick обработчик кнопки действия представления в состоянии презагрузки
+ * @param interactionSource источник взаимодействий
+ */
+// TODO: https://github.com/salute-developers/plasma-android/issues/916
+@Composable
+fun FooterLoadingState(
+    style: DropdownLoadingStateStyle = LocalDropdownLoadingStateStyle.current,
+    loadingState: DropdownFooterLoadingState = DropdownFooterLoadingState.None,
+    loadingLabel: String? = null,
+    reloadIconSource: ImageSource? = null,
+    reloadLabel: String? = null,
+    onClick: (() -> Unit) = {},
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    when (loadingState) {
+        DropdownFooterLoadingState.Loading -> LoadingState(
+            style = style,
+            loadingLabel = loadingLabel?.let {
+                {
+                    Text(it)
+                }
+            },
+            interactionSource = interactionSource,
+        )
+
+        DropdownFooterLoadingState.Reload -> ReloadState(
+            style = style,
+            reloadLabel = reloadLabel,
+            iconSource = reloadIconSource,
+            onClick = onClick,
+            interactionSource = interactionSource,
+        )
+
+        else -> return
+    }
+}
+
+/**
+ * Представление состояния загрузки в footer [DropdownMenu]
+ *
+ * @param style стиль компонента
+ * @param loadingState семантическое состояние представления загрузки
+ * @see DropdownFooterLoadingState
+ * @param loadingContent контент представления в режиме загрузки
+ * @param reloadContent контент представления в режиме перезагрузки
+ * @param interactionSource источник взаимодействий
+ */
+// TODO: https://github.com/salute-developers/plasma-android/issues/916
+@Composable
+fun FooterLoadingState(
+    style: DropdownLoadingStateStyle = LocalDropdownLoadingStateStyle.current,
+    loadingState: DropdownFooterLoadingState = DropdownFooterLoadingState.None,
+    loadingContent: (@Composable () -> Unit)? = null,
+    reloadContent: (@Composable () -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    when (loadingState) {
+        DropdownFooterLoadingState.Loading -> LoadingState(
+            style = style,
+            loadingLabel = loadingContent,
+            interactionSource = interactionSource,
+        )
+
+        DropdownFooterLoadingState.Reload -> CompositionLocalProvider(
+            LocalButtonStyle provides style.buttonStyle,
+        ) {
+            reloadContent?.invoke()
+        }
+
+        else -> return
+    }
+}
+
+@Composable
+private fun LoadingState(
+    style: DropdownLoadingStateStyle,
+    loadingLabel: (@Composable () -> Unit)? = null,
+    interactionSource: MutableInteractionSource,
+) {
+    val paddingTop = style.dimensions.paddingTop.getValue(interactionSource)
+    val paddingBottom = style.dimensions.paddingBottom.getValue(interactionSource)
+    val gap = style.dimensions.gap.getValue(interactionSource)
+    Row(
+        modifier = Modifier
+            .padding(top = paddingTop, bottom = paddingBottom),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
+    ) {
+        style.spinnerStyle?.let {
+            Spinner(
+                style = it,
+            )
+        }
+
+        loadingLabel?.let {
+            val textStyle = style.labelStyle.getValue(interactionSource)
+            val color = style.colors.labelColor.getValueAsState(interactionSource)
+            style.spinnerStyle?.let {
+                Spacer(Modifier.width(gap))
+            }
+            ProvideTextStyle(
+                textStyle,
+                brush = { color.value },
+                it,
+            )
+        }
+    }
+}
+
+@Composable
+private fun ReloadState(
+    style: DropdownLoadingStateStyle,
+    reloadLabel: String? = null,
+    interactionSource: MutableInteractionSource,
+    onClick: (() -> Unit) = {},
+    iconSource: ImageSource? = null,
+) {
+    if (reloadLabel == null && iconSource == null) return
+    Button(
+        label = reloadLabel ?: "",
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
+        style = style.buttonStyle,
+        spacing = ButtonSpacing.Packed,
+        interactionSource = interactionSource,
+        icons = iconSource?.let {
+            ButtonIcons(
+                startSource = it,
+                startContentDescription = null,
+            )
+        },
+    )
 }

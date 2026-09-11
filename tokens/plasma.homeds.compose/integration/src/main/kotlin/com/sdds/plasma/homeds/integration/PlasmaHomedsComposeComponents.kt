@@ -182,6 +182,7 @@ object PlasmaHomedsComposeComponents : ComponentProvider() {
                 mapOf(
                     "List" to PlasmaHomedsListVariationsCompose,
                     "ListNumbered" to PlasmaHomedsListNumberedVariationsCompose,
+                    "DropdownMenuList" to PlasmaHomedsDropdownMenuListVariationsCompose,
                 ),
             ),
             Component(
@@ -189,6 +190,7 @@ object PlasmaHomedsComposeComponents : ComponentProvider() {
                 mapOf(
                     "ListItem" to PlasmaHomedsListItemVariationsCompose,
                     "ListNumberedItem" to PlasmaHomedsListNumberedItemVariationsCompose,
+                    "DropdownMenuItem" to PlasmaHomedsDropdownMenuItemVariationsCompose,
                 ),
             ),
             Component(
@@ -282,6 +284,24 @@ object PlasmaHomedsComposeComponents : ComponentProvider() {
                 ComponentKey.Editable,
                 mapOf(
                     "Editable" to PlasmaHomedsEditableVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.ScrollBar,
+                mapOf(
+                    "ScrollBar" to PlasmaHomedsScrollBarVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.DropdownMenu,
+                mapOf(
+                    "DropdownMenu" to PlasmaHomedsDropdownMenuVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.DropdownLoadingState,
+                mapOf(
+                    "DropdownLoadingState" to PlasmaHomedsDropdownLoadingStateVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

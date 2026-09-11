@@ -13725,6 +13725,29 @@
          ]
       },
       {
+         "key": "list",
+         "coreName": "List",
+         "styleName": "DropdownMenuList",
+         "styleApi": {
+            "packageName": "com.sdds.plasma.homeds.styles.list",
+            "stylesClassName": "ListStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.homeds.styles.list.ListStyles",
+            "receiverClassName": "ListStyles.DropdownMenuList",
+            "receiverClassQualifiedName": "com.sdds.plasma.homeds.styles.list.ListStyles.DropdownMenuList",
+            "returnTypeName": "ListStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListStyle",
+            "modifyReceiverTypeName": "ListStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListStyleBuilder",
+            "holderName": "DropdownMenuList"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropdownMenuList.Default"
+            }
+         ]
+      },
+      {
          "key": "list-item",
          "coreName": "ListItem",
          "styleName": "ListItem",
@@ -13916,6 +13939,93 @@
                   {
                      "name": "size",
                      "value": "m"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "list-item",
+         "coreName": "ListItem",
+         "styleName": "DropdownMenuItem",
+         "props": [
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "positive",
+                  "negative"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.plasma.homeds.styles.listitem",
+            "stylesClassName": "ListItemStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.homeds.styles.listitem.ListItemStyles",
+            "receiverClassName": "ListItemStyles.DropdownMenuItem",
+            "receiverClassQualifiedName": "com.sdds.plasma.homeds.styles.listitem.ListItemStyles.DropdownMenuItem",
+            "returnTypeName": "ListItemStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyle",
+            "modifyReceiverTypeName": "ListItemStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ListItemStyleBuilder",
+            "holderName": "DropdownMenuItem",
+            "params": [
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ListItemDropdownMenuItemView",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.listitem.ListItemDropdownMenuItemView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "DropdownMenuItem.Default",
+               "props": [
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "positive",
+               "composeReference": "DropdownMenuItem.Positive",
+               "props": [
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "negative",
+               "composeReference": "DropdownMenuItem.Negative",
+               "props": [
+                  {
+                     "name": "view",
+                     "value": "negative"
                   }
                ]
             }
@@ -18337,6 +18447,121 @@
                      "value": "body-xxs"
                   }
                ]
+            }
+         ]
+      },
+      {
+         "key": "scroll-bar",
+         "coreName": "ScrollBar",
+         "styleName": "ScrollBar",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "s",
+                  "m"
+               ],
+               "defaultValue": "s"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.plasma.homeds.styles.scrollbar",
+            "stylesClassName": "ScrollBarStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.homeds.styles.scrollbar.ScrollBarStyles",
+            "receiverClassName": "ScrollBarStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.plasma.homeds.styles.scrollbar.ScrollBarStyles.Companion",
+            "returnTypeName": "ScrollBarStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ScrollBarStyle",
+            "modifyReceiverTypeName": "ScrollBarStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.ScrollBarStyleBuilder",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "ScrollBarSize",
+                  "typeQualifiedName": "com.sdds.plasma.homeds.styles.scrollbar.ScrollBarSize",
+                  "defaultValue": {
+                     "value": "s",
+                     "codeName": "S"
+                  },
+                  "values": [
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "ScrollBar.S",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  }
+               ]
+            },
+            {
+               "name": "m",
+               "composeReference": "ScrollBar.M",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "dropdown-menu",
+         "coreName": "DropdownMenu",
+         "styleName": "DropdownMenu",
+         "styleApi": {
+            "packageName": "com.sdds.plasma.homeds.styles.dropdownmenu",
+            "stylesClassName": "DropdownMenuStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.homeds.styles.dropdownmenu.DropdownMenuStyles",
+            "receiverClassName": "DropdownMenuStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.plasma.homeds.styles.dropdownmenu.DropdownMenuStyles.Companion",
+            "returnTypeName": "DropdownMenuStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.DropdownMenuStyle",
+            "modifyReceiverTypeName": "DropdownMenuStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.DropdownMenuStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropdownMenu.Default"
+            }
+         ]
+      },
+      {
+         "key": "dropdown-loading-state",
+         "coreName": "DropdownLoadingState",
+         "styleName": "DropdownLoadingState",
+         "styleApi": {
+            "packageName": "com.sdds.plasma.homeds.styles.dropdownloadingstate",
+            "stylesClassName": "DropdownLoadingStateStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.homeds.styles.dropdownloadingstate.DropdownLoadingStateStyles",
+            "receiverClassName": "DropdownLoadingStateStyles.Companion",
+            "receiverClassQualifiedName": "com.sdds.plasma.homeds.styles.dropdownloadingstate.DropdownLoadingStateStyles.Companion",
+            "returnTypeName": "DropdownLoadingStateStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.DropdownLoadingStateStyle",
+            "modifyReceiverTypeName": "DropdownLoadingStateStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.DropdownLoadingStateStyleBuilder"
+         },
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropdownLoadingState.Default"
             }
          ]
       }

@@ -36,6 +36,7 @@ public enum class ListStyles(
     ListMHasBackground("List.M.HasBackground"),
     ListNumberedS("ListNumbered.S"),
     ListNumberedM("ListNumbered.M"),
+    DropdownMenuListDefault("DropdownMenuList.Default"),
     ;
 
     /**
@@ -47,6 +48,11 @@ public enum class ListStyles(
      * Typed API для подбора стиля list-numbered
      */
     public object Numbered
+
+    /**
+     * Typed API для подбора стиля dropdown-menu-list
+     */
+    public object DropdownMenuList
 }
 
 /**
@@ -81,6 +87,7 @@ public fun ListStyles.style(modify: @Composable ListStyleBuilder.() -> Unit = {}
         ListStyles.ListMHasBackground -> List.M.HasBackground
         ListStyles.ListNumberedS -> ListNumbered.S
         ListStyles.ListNumberedM -> ListNumbered.M
+        ListStyles.DropdownMenuListDefault -> DropdownMenuList.Default
     }
     return builder.modify(modify).style()
 }
@@ -136,3 +143,15 @@ public fun ListStyles.Numbered.style(
     modify: @Composable ListStyleBuilder.() -> Unit = {},
 ): ListStyle =
     resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ListStyles] для dropdown-menu-list
+ */
+public fun ListStyles.DropdownMenuList.resolve(): ListStyles = ListStyles.DropdownMenuListDefault
+
+/**
+ * Возвращает [ListStyle] для dropdown-menu-list
+ */
+@Composable
+public fun ListStyles.DropdownMenuList.style(modify: @Composable ListStyleBuilder.() -> Unit = {}):
+    ListStyle = resolve().style(modify)

@@ -67,6 +67,11 @@ interface DropdownMenuStyle : Style {
     val emptyStateStyle: DropdownEmptyStateStyle
 
     /**
+     * Стиль состояния загрузки в footer
+     */
+    val loadingStateStyle: DropdownLoadingStateStyle?
+
+    /**
      * Стиль прокрутки
      */
     val scrollBarStyle: ScrollBarStyle
@@ -134,6 +139,11 @@ interface DropdownMenuStyleBuilder : StyleBuilder<DropdownMenuStyle> {
     fun emptyStateStyle(emptyStateStyle: DropdownEmptyStateStyle): DropdownMenuStyleBuilder
 
     /**
+     * Устанавливает стиль состояния загрузки[loadingStateStyle]
+     */
+    fun loadingStateStyle(loadingStateStyle: DropdownLoadingStateStyle): DropdownMenuStyleBuilder
+
+    /**
      * Устанавливает стиль [overlayStyle]
      */
     fun overlayStyle(overlayStyle: OverlayStyle): DropdownMenuStyleBuilder
@@ -150,6 +160,7 @@ private class DefaultDropdownMenuStyle(
     override val emptyStateStyle: DropdownEmptyStateStyle,
     override val scrollBarStyle: ScrollBarStyle,
     override val overlayStyle: OverlayStyle,
+    override val loadingStateStyle: DropdownLoadingStateStyle?,
 ) : DropdownMenuStyle {
 
     class Builder : DropdownMenuStyleBuilder {
@@ -160,6 +171,7 @@ private class DefaultDropdownMenuStyle(
         private var listStyle: ListStyle? = null
         private var dividerStyle: DividerStyle? = null
         private var emptyStateStyle: DropdownEmptyStateStyle? = null
+        private var loadingStateStyle: DropdownLoadingStateStyle? = null
         private var scrollBarStyle: ScrollBarStyle? = null
         private var overlayStyle: OverlayStyle? = null
 
@@ -198,6 +210,10 @@ private class DefaultDropdownMenuStyle(
             this.emptyStateStyle = emptyStateStyle
         }
 
+        override fun loadingStateStyle(loadingStateStyle: DropdownLoadingStateStyle) = apply {
+            this.loadingStateStyle = loadingStateStyle
+        }
+
         override fun overlayStyle(overlayStyle: OverlayStyle) = apply {
             this.overlayStyle = overlayStyle
         }
@@ -213,6 +229,7 @@ private class DefaultDropdownMenuStyle(
                 scrollBarStyle = scrollBarStyle ?: ScrollBarStyle.builder().style(),
                 emptyStateStyle = emptyStateStyle ?: DropdownEmptyStateStyle.builder().style(),
                 overlayStyle = overlayStyle ?: OverlayStyle.builder().style(),
+                loadingStateStyle = loadingStateStyle,
             )
         }
     }
