@@ -108,7 +108,7 @@ public fun BubbleTrigger(
     val rotationProgress = remember { Animatable(0f) }
     val bounceProgress = remember { Animatable(0f) }
     var anchorPosition by remember { mutableStateOf(Offset.Zero) }
-    var triggerCoordinates by remember { mutableStateOf<LayoutCoordinates?>(null) }
+    val triggerCoordinatesRef = remember { MutableRef<LayoutCoordinates?>(null) }
     var triggerVisible by remember { mutableStateOf(false) }
 
     LaunchedEffect(expanded) {
@@ -143,8 +143,13 @@ public fun BubbleTrigger(
         }
     }
 
-    LaunchedEffect(rootCoordinates, triggerCoordinates) {
-        updateTriggerVisibility(triggerCoordinates)
+    // Ключ только rootCoordinates (меняется редко — поворот/инсеты/ресайз хоста): onGloballyPositioned
+    // ниже и так синхронно пересчитывает видимость при каждом изменении позиции самого триггера,
+    // а triggerCoordinates — новый объект на каждый layout-проход (в т.ч. каждый кадр скролла сетки),
+    // поэтому не должен быть ключом/Snapshot-state — иначе пересоздание корутины и рекомпозиция
+    // BubbleTrigger на каждый кадр скролла для каждого триггера в списке.
+    LaunchedEffect(rootCoordinates) {
+        updateTriggerVisibility(triggerCoordinatesRef.value)
     }
 
     DisposableEffect(hostState, key) {
@@ -202,7 +207,7 @@ public fun BubbleTrigger(
         modifier = modifier
             .size(circleSize)
             .onGloballyPositioned { coordinates ->
-                triggerCoordinates = coordinates
+                triggerCoordinatesRef.value = coordinates
                 val root = hostState?.rootCoordinates
                 if (root != null && root.isAttached) {
                     anchorPosition = root.localPositionOf(coordinates, Offset.Zero)
@@ -416,3 +421,9 @@ private fun LayoutCoordinates?.isFullyVisibleIn(hostCoordinates: LayoutCoordinat
     val isVerticallyInside = bounds.top >= 0f && bounds.bottom <= hostCoordinates.size.height
     return hasArea && isHorizontallyInside && isVerticallyInside
 }
+
+/**
+ * Обычный (не Snapshot-state) изменяемый холдер — для значений, которые должны переживать
+ * рекомпозицию, но не обязаны сами её вызывать при записи.
+ */
+private class MutableRef<T>(var value: T)
