@@ -195,22 +195,22 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет
      */
-    public val TextDefaultAccentHover: Color = Color(0xFF43F4C8)
+    public val TextDefaultAccentHover: Color = Color(0xFF858585)
 
     /**
      * Акцентный цвет
      */
-    public val TextDefaultAccentActive: Color = Color(0xFF0EECB5)
+    public val TextDefaultAccentActive: Color = Color(0xFF666666)
 
     /**
      * Акцентный минорный цвет
      */
-    public val TextDefaultAccentMinorHover: Color = Color(0xFF42BD9E)
+    public val TextDefaultAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Акцентный минорный цвет
      */
-    public val TextDefaultAccentMinorActive: Color = Color(0xFF328F78)
+    public val TextDefaultAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Промо цвет
@@ -365,12 +365,12 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет
      */
-    public val TextDefaultAccent: Color = Color(0xFF24F2BF)
+    public val TextDefaultAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный цвет
      */
-    public val TextDefaultAccentMinor: Color = Color(0xFF3AA68B)
+    public val TextDefaultAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Основной цвет текста на темном фоне
@@ -440,22 +440,22 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет на темном фоне
      */
-    public val TextOnDarkAccentHover: Color = Color(0xFF43F4C8)
+    public val TextOnDarkAccentHover: Color = Color(0xFF858585)
 
     /**
      * Акцентный цвет на темном фоне
      */
-    public val TextOnDarkAccentActive: Color = Color(0xFF0EECB5)
+    public val TextOnDarkAccentActive: Color = Color(0xFF666666)
 
     /**
      * Акцентный минорный цвет на темном фоне
      */
-    public val TextOnDarkAccentMinorHover: Color = Color(0xFF42BD9E)
+    public val TextOnDarkAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Акцентный минорный цвет на темном фоне
      */
-    public val TextOnDarkAccentMinorActive: Color = Color(0xFF328F78)
+    public val TextOnDarkAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Промо цвет на темном фоне
@@ -610,12 +610,12 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет на темном фоне
      */
-    public val TextOnDarkAccent: Color = Color(0xFF24F2BF)
+    public val TextOnDarkAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный цвет на темном фоне
      */
-    public val TextOnDarkAccentMinor: Color = Color(0xFF3AA68B)
+    public val TextOnDarkAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Основной цвет текста на светлом фоне
@@ -665,22 +665,22 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccentHover: Color = Color(0xFF2ADFB2)
+    public val TextOnLightAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccentActive: Color = Color(0xFF1BB18C)
+    public val TextOnLightAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Акцентный минорный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinorHover: Color = Color(0xFF8BEAD3)
+    public val TextOnLightAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Акцентный минорный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinorActive: Color = Color(0xFF57E0C0)
+    public val TextOnLightAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Промо цвет на светлом фоне
@@ -855,12 +855,12 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccent: Color = Color(0xFF1FCCA0)
+    public val TextOnLightAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinor: Color = Color(0xFF73E5CA)
+    public val TextOnLightAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Инвертированный основной цвет текста
@@ -910,22 +910,22 @@ public object DarkColorTokens {
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentHover: Color = Color(0xFF2ADFB2)
+    public val TextInverseAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentActive: Color = Color(0xFF1BB18C)
+    public val TextInverseAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Инвертированный минорный акцентный цвет
      */
-    public val TextInverseAccentMinorHover: Color = Color(0xFF8BEAD3)
+    public val TextInverseAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Инвертированный минорный акцентный цвет
      */
-    public val TextInverseAccentMinorActive: Color = Color(0xFF57E0C0)
+    public val TextInverseAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Инвертированный промо цвет
@@ -1100,12 +1100,12 @@ public object DarkColorTokens {
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccent: Color = Color(0xFF1FCCA0)
+    public val TextInverseAccent: Color = Color(0xFF122654)
 
     /**
      * Инвертированный минорный акцентный цвет
      */
-    public val TextInverseAccentMinor: Color = Color(0xFF73E5CA)
+    public val TextInverseAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Основной непрозрачный фон поверхности/контрола
@@ -1235,32 +1235,32 @@ public object DarkColorTokens {
     /**
      * Акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentHover: Color = Color(0xFF7AF5D2)
+    public val SurfaceDefaultAccentHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentActive: Color = Color(0xFF4BF1C2)
+    public val SurfaceDefaultAccentActive: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFF116A51)
+    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFFE3E3E3)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFF0C4F3C)
+    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFFD4D4D4)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x5254F2C5)
+    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x52FFFFFF)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x2454F2C5)
+    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x24FFFFFF)
 
     /**
      * Промо фон поверхности/контрола
@@ -1533,21 +1533,6 @@ public object DarkColorTokens {
     public val SurfaceDefaultTransparentInfo: Color = Color(0x333F81FD)
 
     /**
-     * Акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccent: Color = Color(0xFF52F2C5)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceDefaultAccentMinor: Color = Color(0xFF0E5944)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола
-     */
-    public val SurfaceDefaultTransparentAccent: Color = Color(0x3352F2C5)
-
-    /**
      * Основной фон для карточек
      */
     public val SurfaceDefaultSolidCard: Color = Color(0xFF262626)
@@ -1556,6 +1541,21 @@ public object DarkColorTokens {
      * Прозрачный фон для карточек
      */
     public val SurfaceDefaultTransparentCard: Color = Color(0x0DEDFFFD)
+
+    /**
+     * Акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccent: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceDefaultAccentMinor: Color = Color(0xFFD8D8D8)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола
+     */
+    public val SurfaceDefaultTransparentAccent: Color = Color(0x33FFFFFF)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -1690,32 +1690,32 @@ public object DarkColorTokens {
     /**
      * Акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentHover: Color = Color(0xFF7AF5D2)
+    public val SurfaceOnDarkAccentHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentActive: Color = Color(0xFF4BF1C2)
+    public val SurfaceOnDarkAccentActive: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFF116A51)
+    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFFE3E3E3)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentMinorActive: Color = Color(0xFF0C4F3C)
+    public val SurfaceOnDarkAccentMinorActive: Color = Color(0xFFD4D4D4)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x5252F1FF)
+    public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x52FFFFFF)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x2452F1FF)
+    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x24FFFFFF)
 
     /**
      * Промо фон поверхности/контрола на темном фоне
@@ -1983,21 +1983,6 @@ public object DarkColorTokens {
     public val SurfaceOnDarkTransparentInfo: Color = Color(0x333F81FD)
 
     /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccent: Color = Color(0xFF52F2C5)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentMinor: Color = Color(0xFF0E5944)
-
-    /**
-     * Прозрачный акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentAccent: Color = Color(0x3352F2FF)
-
-    /**
      * Основной фон для карточек на темном фоне
      */
     public val SurfaceOnDarkSolidCard: Color = Color(0xFF262626)
@@ -2006,6 +1991,21 @@ public object DarkColorTokens {
      * Прозрачный фон для карточек на темном фоне
      */
     public val SurfaceOnDarkTransparentCard: Color = Color(0x0DEDFFFD)
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccent: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentMinor: Color = Color(0xFFD8D8D8)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentAccent: Color = Color(0x33FFFFFF)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
@@ -2140,32 +2140,32 @@ public object DarkColorTokens {
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentHover: Color = Color(0xFF00C28B)
+    public val SurfaceOnLightAccentHover: Color = Color(0xFF152D65)
 
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentActive: Color = Color(0xFF00A375)
+    public val SurfaceOnLightAccentActive: Color = Color(0xFF0E1E43)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentMinorHover: Color = Color(0xFFE5FFF8)
+    public val SurfaceOnLightAccentMinorHover: Color = Color(0xFF3A4773)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentMinorActive: Color = Color(0xFFD1FFF2)
+    public val SurfaceOnLightAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x3D00AD7C)
+    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x2E122654)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x0F00AD7C)
+    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x33122654)
 
     /**
      * Промо фон поверхности/контрола на светлом фоне
@@ -2438,24 +2438,24 @@ public object DarkColorTokens {
     public val SurfaceOnLightTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val SurfaceOnLightSolidDefault: Color = Color(0xFF122654)
+
+    /**
      * Акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccent: Color = Color(0xFF00AC7B)
+    public val SurfaceOnLightAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentMinor: Color = Color(0xFFDBFFF5)
+    public val SurfaceOnLightAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccent: Color = Color(0x1F00AC7B)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val SurfaceOnLightSolidDefault: Color = Color(0xFF122654)
+    public val SurfaceOnLightTransparentAccent: Color = Color(0x1F122654)
 
     /**
      * Инвертированный основной непрозрачный фон поверхности/контрола
@@ -2590,32 +2590,32 @@ public object DarkColorTokens {
     /**
      * Инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentHover: Color = Color(0xFF00C28B)
+    public val SurfaceInverseAccentHover: Color = Color(0xFF152D65)
 
     /**
      * Инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentActive: Color = Color(0xFF00A375)
+    public val SurfaceInverseAccentActive: Color = Color(0xFF0E1E43)
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentMinorHover: Color = Color(0xFFE5FFF8)
+    public val SurfaceInverseAccentMinorHover: Color = Color(0xFF3A4773)
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentMinorActive: Color = Color(0xFFD1FFF2)
+    public val SurfaceInverseAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentAccentHover: Color = Color(0x3D00AD7C)
+    public val SurfaceInverseTransparentAccentHover: Color = Color(0x2E122654)
 
     /**
      * Прозрачный инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentAccentActive: Color = Color(0x0F00AD7C)
+    public val SurfaceInverseTransparentAccentActive: Color = Color(0x33122654)
 
     /**
      * Инвертированный промо фон поверхности/контрола
@@ -2888,24 +2888,24 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefault: Color = Color(0xFF122654)
+
+    /**
      * Инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseAccent: Color = Color(0xFF00AC7B)
+    public val SurfaceInverseAccent: Color = Color(0xFF122654)
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentMinor: Color = Color(0xFFDBFFF5)
+    public val SurfaceInverseAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Прозрачный инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentAccent: Color = Color(0x1F00AC7B)
-
-    /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefault: Color = Color(0xFF122654)
+    public val SurfaceInverseTransparentAccent: Color = Color(0x1F122654)
 
     /**
      * Вторичный фон
@@ -3110,32 +3110,32 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет обводки
      */
-    public val OutlineDefaultAccentHover: Color = Color(0xFF43F4C8)
+    public val OutlineDefaultAccentHover: Color = Color(0xFF858585)
 
     /**
      * Акцентный цвет обводки
      */
-    public val OutlineDefaultAccentActive: Color = Color(0xFF0EECB5)
+    public val OutlineDefaultAccentActive: Color = Color(0xFF666666)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineDefaultAccentMinorHover: Color = Color(0xFF42BD9E)
+    public val OutlineDefaultAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineDefaultAccentMinorActive: Color = Color(0xFF328F78)
+    public val OutlineDefaultAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Прозрачный акцентный цвет обводки
      */
-    public val OutlineDefaultTransparentAccentHover: Color = Color(0xFF26F2BF)
+    public val OutlineDefaultTransparentAccentHover: Color = Color(0xB3FFFFFF)
 
     /**
      * Прозрачный акцентный цвет обводки
      */
-    public val OutlineDefaultTransparentAccentActive: Color = Color(0x5626F2BF)
+    public val OutlineDefaultTransparentAccentActive: Color = Color(0x2BFFFFFF)
 
     /**
      * Промо цвет обводки
@@ -3390,17 +3390,17 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет обводки
      */
-    public val OutlineDefaultAccent: Color = Color(0xFF24F2BF)
+    public val OutlineDefaultAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineDefaultAccentMinor: Color = Color(0xFF3AA68B)
+    public val OutlineDefaultAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Прозрачный акцентный цвет обводки
      */
-    public val OutlineDefaultTransparentAccent: Color = Color(0x4724F2BF)
+    public val OutlineDefaultTransparentAccent: Color = Color(0x47FFFFFF)
 
     /**
      * Основной непрозрачный цвет обводки на темном фоне
@@ -3490,32 +3490,32 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentHover: Color = Color(0xFF43F4C8)
+    public val OutlineOnDarkAccentHover: Color = Color(0xFF858585)
 
     /**
      * Акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentActive: Color = Color(0xFF0EECB5)
+    public val OutlineOnDarkAccentActive: Color = Color(0xFF666666)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentMinorHover: Color = Color(0xFF43F4C8)
+    public val OutlineOnDarkAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentMinorActive: Color = Color(0xFF0EECB5)
+    public val OutlineOnDarkAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentAccentHover: Color = Color(0xFF26F2BF)
+    public val OutlineOnDarkTransparentAccentHover: Color = Color(0xB3FFFFFF)
 
     /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentAccentActive: Color = Color(0x5626F2BF)
+    public val OutlineOnDarkTransparentAccentActive: Color = Color(0x2BFFFFFF)
 
     /**
      * Промо цвет обводки на темном фоне
@@ -3765,17 +3765,17 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccent: Color = Color(0xFF24F2BF)
+    public val OutlineOnDarkAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentMinor: Color = Color(0xFF24F2BF)
+    public val OutlineOnDarkAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentAccent: Color = Color(0x4724F2BF)
+    public val OutlineOnDarkTransparentAccent: Color = Color(0x47FFFFFF)
 
     /**
      * Основной непрозрачный цвет обводки на светлом фоне
@@ -3865,32 +3865,32 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentHover: Color = Color(0xFF2ADFB2)
+    public val OutlineOnLightAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentActive: Color = Color(0xFF1BB18C)
+    public val OutlineOnLightAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentMinorHover: Color = Color(0xFF8BEAD3)
+    public val OutlineOnLightAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentMinorActive: Color = Color(0xFF57E0C0)
+    public val OutlineOnLightAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentAccentHover: Color = Color(0xFF1ECCA1)
+    public val OutlineOnLightTransparentAccentHover: Color = Color(0x1F122654)
 
     /**
      * Прозрачный акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentAccentActive: Color = Color(0x561ECCA1)
+    public val OutlineOnLightTransparentAccentActive: Color = Color(0x52122654)
 
     /**
      * Промо цвет обводки на светлом фоне
@@ -4140,17 +4140,17 @@ public object DarkColorTokens {
     /**
      * Акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccent: Color = Color(0xFF1FCCA0)
+    public val OutlineOnLightAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentMinor: Color = Color(0xFF73E5CA)
+    public val OutlineOnLightAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Прозрачный акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentAccent: Color = Color(0x471FCCA0)
+    public val OutlineOnLightTransparentAccent: Color = Color(0x33122654)
 
     /**
      * Инвертированный основной непрозрачный цвет обводки
@@ -4240,32 +4240,32 @@ public object DarkColorTokens {
     /**
      * Инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseAccentHover: Color = Color(0xFF2ADFB2)
+    public val OutlineInverseAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseAccentActive: Color = Color(0xFF1BB18C)
+    public val OutlineInverseAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineInverseAccentMinorHover: Color = Color(0xFF8BEAD3)
+    public val OutlineInverseAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineInverseAccentMinorActive: Color = Color(0xFF57E0C0)
+    public val OutlineInverseAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseTransparentAccentHover: Color = Color(0xFF1ECCA1)
+    public val OutlineInverseTransparentAccentHover: Color = Color(0x1F122654)
 
     /**
      * Прозрачный инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseTransparentAccentActive: Color = Color(0x561ECCA1)
+    public val OutlineInverseTransparentAccentActive: Color = Color(0x52122654)
 
     /**
      * Инвертированный промо цвет обводки
@@ -4515,17 +4515,17 @@ public object DarkColorTokens {
     /**
      * Инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseAccent: Color = Color(0xFF1FCCA0)
+    public val OutlineInverseAccent: Color = Color(0xFF122654)
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineInverseAccentMinor: Color = Color(0xFF73E5CA)
+    public val OutlineInverseAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Прозрачный инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseTransparentAccent: Color = Color(0x471FCCA0)
+    public val OutlineInverseTransparentAccent: Color = Color(0x33122654)
 
     /**
      * Желтый цвет для данных
@@ -4880,22 +4880,22 @@ public object LightColorTokens {
     /**
      * Акцентный цвет
      */
-    public val TextDefaultAccentHover: Color = Color(0xFF33E1B5)
+    public val TextDefaultAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Акцентный цвет
      */
-    public val TextDefaultAccentActive: Color = Color(0xFF19A985)
+    public val TextDefaultAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Акцентный минорный цвет
      */
-    public val TextDefaultAccentMinorHover: Color = Color(0xFF93EBD7)
+    public val TextDefaultAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Акцентный минорный цвет
      */
-    public val TextDefaultAccentMinorActive: Color = Color(0xFF4EDFBD)
+    public val TextDefaultAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Промо цвет
@@ -5070,12 +5070,12 @@ public object LightColorTokens {
     /**
      * Акцентный цвет
      */
-    public val TextDefaultAccent: Color = Color(0xFF1FCCA0)
+    public val TextDefaultAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный цвет
      */
-    public val TextDefaultAccentMinor: Color = Color(0xFF73E5CA)
+    public val TextDefaultAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Основной цвет текста на темном фоне
@@ -5145,22 +5145,22 @@ public object LightColorTokens {
     /**
      * Акцентный цвет на темном фоне
      */
-    public val TextOnDarkAccentHover: Color = Color(0xFF4DF5CB)
+    public val TextOnDarkAccentHover: Color = Color(0xFF858585)
 
     /**
      * Акцентный цвет на темном фоне
      */
-    public val TextOnDarkAccentActive: Color = Color(0xFF0DE3AD)
+    public val TextOnDarkAccentActive: Color = Color(0xFF666666)
 
     /**
      * Акцентный минорный цвет на темном фоне
      */
-    public val TextOnDarkAccentMinorHover: Color = Color(0xFF4ABFA2)
+    public val TextOnDarkAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Акцентный минорный цвет на темном фоне
      */
-    public val TextOnDarkAccentMinorActive: Color = Color(0xFF308872)
+    public val TextOnDarkAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Промо цвет на темном фоне
@@ -5315,12 +5315,12 @@ public object LightColorTokens {
     /**
      * Акцентный цвет на темном фоне
      */
-    public val TextOnDarkAccent: Color = Color(0xFF24F2BF)
+    public val TextOnDarkAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный цвет на темном фоне
      */
-    public val TextOnDarkAccentMinor: Color = Color(0xFF3AA68B)
+    public val TextOnDarkAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Основной цвет текста на светлом фоне
@@ -5370,22 +5370,22 @@ public object LightColorTokens {
     /**
      * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccentHover: Color = Color(0xFF33E1B5)
+    public val TextOnLightAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccentActive: Color = Color(0xFF19A985)
+    public val TextOnLightAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Акцентный минорный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinorHover: Color = Color(0xFF93EBD7)
+    public val TextOnLightAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Акцентный минорный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinorActive: Color = Color(0xFF4EDFBD)
+    public val TextOnLightAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Промо цвет на светлом фоне
@@ -5560,12 +5560,12 @@ public object LightColorTokens {
     /**
      * Акцентный цвет на светлом фоне
      */
-    public val TextOnLightAccent: Color = Color(0xFF1FCCA0)
+    public val TextOnLightAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный цвет на светлом фоне
      */
-    public val TextOnLightAccentMinor: Color = Color(0xFF73E5CA)
+    public val TextOnLightAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Инвертированный основной цвет текста
@@ -5635,22 +5635,22 @@ public object LightColorTokens {
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentHover: Color = Color(0xFF4DF5CB)
+    public val TextInverseAccentHover: Color = Color(0xFF858585)
 
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentActive: Color = Color(0xFF0DE3AD)
+    public val TextInverseAccentActive: Color = Color(0xFF666666)
 
     /**
      * Инвертированный минорный акцентный цвет
      */
-    public val TextInverseAccentMinorHover: Color = Color(0xFF4ABFA2)
+    public val TextInverseAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Инвертированный минорный акцентный цвет
      */
-    public val TextInverseAccentMinorActive: Color = Color(0xFF308872)
+    public val TextInverseAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Инвертированный промо цвет
@@ -5805,12 +5805,12 @@ public object LightColorTokens {
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccent: Color = Color(0xFF24F2BF)
+    public val TextInverseAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный минорный акцентный цвет
      */
-    public val TextInverseAccentMinor: Color = Color(0xFF3AA68B)
+    public val TextInverseAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Основной непрозрачный фон поверхности/контрола
@@ -5940,32 +5940,32 @@ public object LightColorTokens {
     /**
      * Акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentHover: Color = Color(0xFF00C28B)
+    public val SurfaceDefaultAccentHover: Color = Color(0xFF152D65)
 
     /**
      * Акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentActive: Color = Color(0xFF00996E)
+    public val SurfaceDefaultAccentActive: Color = Color(0xFF0E1E43)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFFF0FFFB)
+    public val SurfaceDefaultAccentMinorHover: Color = Color(0xFF3A4773)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFFD1FFF2)
+    public val SurfaceDefaultAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x0A00AD7C)
+    public val SurfaceDefaultTransparentAccentHover: Color = Color(0x2E122654)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x2900AD7C)
+    public val SurfaceDefaultTransparentAccentActive: Color = Color(0x33122654)
 
     /**
      * Промо фон поверхности/контрола
@@ -6243,24 +6243,24 @@ public object LightColorTokens {
     public val SurfaceDefaultTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefault: Color = Color(0xFF122654)
+
+    /**
      * Акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccent: Color = Color(0xFF00AC7B)
+    public val SurfaceDefaultAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultAccentMinor: Color = Color(0xFFDBFFF5)
+    public val SurfaceDefaultAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола
      */
-    public val SurfaceDefaultTransparentAccent: Color = Color(0x1F00AC7B)
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefault: Color = Color(0xFF122654)
+    public val SurfaceDefaultTransparentAccent: Color = Color(0x1F122654)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -6395,32 +6395,32 @@ public object LightColorTokens {
     /**
      * Акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentHover: Color = Color(0xFF71F4CF)
+    public val SurfaceOnDarkAccentHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentActive: Color = Color(0xFF41F1BF)
+    public val SurfaceOnDarkAccentActive: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFF127357)
+    public val SurfaceOnDarkAccentMinorHover: Color = Color(0xFFE3E3E3)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkAccentMinorActive: Color = Color(0xFF0B4736)
+    public val SurfaceOnDarkAccentMinorActive: Color = Color(0xFFD4D4D4)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x1F52F1FF)
+    public val SurfaceOnDarkTransparentAccentHover: Color = Color(0x52FFFFFF)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на темном фоне
      */
-    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x3D52F1FF)
+    public val SurfaceOnDarkTransparentAccentActive: Color = Color(0x24FFFFFF)
 
     /**
      * Промо фон поверхности/контрола на темном фоне
@@ -6688,21 +6688,6 @@ public object LightColorTokens {
     public val SurfaceOnDarkTransparentInfo: Color = Color(0x333F81FD)
 
     /**
-     * Прозрачный акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkTransparentAccent: Color = Color(0x3352F2FF)
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccent: Color = Color(0xFF52F2C5)
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val SurfaceOnDarkAccentMinor: Color = Color(0xFF0E5944)
-
-    /**
      * Основной фон для карточек на темном фоне
      */
     public val SurfaceOnDarkSolidCard: Color = Color(0xFF262626)
@@ -6711,6 +6696,21 @@ public object LightColorTokens {
      * Прозрачный фон для карточек на темном фоне
      */
     public val SurfaceOnDarkTransparentCard: Color = Color(0x0DEDFFFD)
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccent: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkAccentMinor: Color = Color(0xFFD8D8D8)
+
+    /**
+     * Прозрачный акцентный фон поверхности/контрола на темном фоне
+     */
+    public val SurfaceOnDarkTransparentAccent: Color = Color(0x33FFFFFF)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
@@ -6845,32 +6845,32 @@ public object LightColorTokens {
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentHover: Color = Color(0xFF00C28B)
+    public val SurfaceOnLightAccentHover: Color = Color(0xFF152D65)
 
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentActive: Color = Color(0xFF00996E)
+    public val SurfaceOnLightAccentActive: Color = Color(0xFF0E1E43)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentMinorHover: Color = Color(0xFFF0FFFB)
+    public val SurfaceOnLightAccentMinorHover: Color = Color(0xFF3A4773)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentMinorActive: Color = Color(0xFFD1FFF2)
+    public val SurfaceOnLightAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x0A00AD7C)
+    public val SurfaceOnLightTransparentAccentHover: Color = Color(0x2E122654)
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x2900AD7C)
+    public val SurfaceOnLightTransparentAccentActive: Color = Color(0x33122654)
 
     /**
      * Промо фон поверхности/контрола на светлом фоне
@@ -7143,24 +7143,24 @@ public object LightColorTokens {
     public val SurfaceOnLightTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
-     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public val SurfaceOnLightTransparentAccent: Color = Color(0x1F00AC7B)
+    public val SurfaceOnLightSolidDefault: Color = Color(0xFF122654)
 
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccent: Color = Color(0xFF00AC7B)
+    public val SurfaceOnLightAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightAccentMinor: Color = Color(0xFFDBFFF5)
+    public val SurfaceOnLightAccentMinor: Color = Color(0xFF333F65)
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
-    public val SurfaceOnLightSolidDefault: Color = Color(0xFF122654)
+    public val SurfaceOnLightTransparentAccent: Color = Color(0x1F122654)
 
     /**
      * Инвертированный основной непрозрачный фон поверхности/контрола
@@ -7295,32 +7295,32 @@ public object LightColorTokens {
     /**
      * Инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentHover: Color = Color(0xFF71F4CF)
+    public val SurfaceInverseAccentHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentActive: Color = Color(0xFF41F1BF)
+    public val SurfaceInverseAccentActive: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentMinorHover: Color = Color(0xFF127357)
+    public val SurfaceInverseAccentMinorHover: Color = Color(0xFFE3E3E3)
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentMinorActive: Color = Color(0xFF0B4736)
+    public val SurfaceInverseAccentMinorActive: Color = Color(0xFFD4D4D4)
 
     /**
      * Прозрачный инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentAccentHover: Color = Color(0x1F54F2C5)
+    public val SurfaceInverseTransparentAccentHover: Color = Color(0x52FFFFFF)
 
     /**
      * Прозрачный инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentAccentActive: Color = Color(0x3D54F2C5)
+    public val SurfaceInverseTransparentAccentActive: Color = Color(0x24FFFFFF)
 
     /**
      * Инвертированный промо фон поверхности/контрола
@@ -7588,21 +7588,6 @@ public object LightColorTokens {
     public val SurfaceInverseTransparentInfo: Color = Color(0x333F81FD)
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccent: Color = Color(0xFF52F2C5)
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseAccentMinor: Color = Color(0xFF0E5944)
-
-    /**
-     * Прозрачный инвертированный акцентный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentAccent: Color = Color(0x3352F2C5)
-
-    /**
      * Инвертированный основной фон для карточек
      */
     public val SurfaceInverseSolidCard: Color = Color(0xFF262626)
@@ -7611,6 +7596,21 @@ public object LightColorTokens {
      * Инвертированный прозрачный фон для карточек
      */
     public val SurfaceInverseTransparentCard: Color = Color(0x0DEDFFFD)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccent: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccentMinor: Color = Color(0xFFD8D8D8)
+
+    /**
+     * Прозрачный инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentAccent: Color = Color(0x33FFFFFF)
 
     /**
      * Вторичный фон
@@ -7815,32 +7815,32 @@ public object LightColorTokens {
     /**
      * Акцентный цвет обводки
      */
-    public val OutlineDefaultAccentHover: Color = Color(0xFF33E1B5)
+    public val OutlineDefaultAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Акцентный цвет обводки
      */
-    public val OutlineDefaultAccentActive: Color = Color(0xFF19A985)
+    public val OutlineDefaultAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineDefaultAccentMinorHover: Color = Color(0xFF93EBD7)
+    public val OutlineDefaultAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineDefaultAccentMinorActive: Color = Color(0xFF4EDFBD)
+    public val OutlineDefaultAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный акцентный цвет обводки
      */
-    public val OutlineDefaultTransparentAccentHover: Color = Color(0xFF1ECCA1)
+    public val OutlineDefaultTransparentAccentHover: Color = Color(0x1F122654)
 
     /**
      * Прозрачный акцентный цвет обводки
      */
-    public val OutlineDefaultTransparentAccentActive: Color = Color(0x561ECCA1)
+    public val OutlineDefaultTransparentAccentActive: Color = Color(0x52122654)
 
     /**
      * Промо цвет обводки
@@ -8095,17 +8095,17 @@ public object LightColorTokens {
     /**
      * Акцентный цвет обводки
      */
-    public val OutlineDefaultAccent: Color = Color(0xFF1FCCA0)
+    public val OutlineDefaultAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineDefaultAccentMinor: Color = Color(0xFF73E5CA)
+    public val OutlineDefaultAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Прозрачный акцентный цвет обводки
      */
-    public val OutlineDefaultTransparentAccent: Color = Color(0x471FCCA0)
+    public val OutlineDefaultTransparentAccent: Color = Color(0x33122654)
 
     /**
      * Основной непрозрачный цвет обводки на темном фоне
@@ -8195,32 +8195,32 @@ public object LightColorTokens {
     /**
      * Акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentHover: Color = Color(0xFF4DF5CB)
+    public val OutlineOnDarkAccentHover: Color = Color(0xFF858585)
 
     /**
      * Акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentActive: Color = Color(0xFF0DE3AD)
+    public val OutlineOnDarkAccentActive: Color = Color(0xFF666666)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentMinorHover: Color = Color(0xFF4ABFA2)
+    public val OutlineOnDarkAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentMinorActive: Color = Color(0xFF308872)
+    public val OutlineOnDarkAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentAccentHover: Color = Color(0xFF26F2BF)
+    public val OutlineOnDarkTransparentAccentHover: Color = Color(0xB3FFFFFF)
 
     /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentAccentActive: Color = Color(0x5626F2BF)
+    public val OutlineOnDarkTransparentAccentActive: Color = Color(0x2BFFFFFF)
 
     /**
      * Промо цвет обводки на темном фоне
@@ -8470,17 +8470,17 @@ public object LightColorTokens {
     /**
      * Акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccent: Color = Color(0xFF24F2BF)
+    public val OutlineOnDarkAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkAccentMinor: Color = Color(0xFF3AA68B)
+    public val OutlineOnDarkAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val OutlineOnDarkTransparentAccent: Color = Color(0x4724F2BF)
+    public val OutlineOnDarkTransparentAccent: Color = Color(0x47FFFFFF)
 
     /**
      * Основной непрозрачный цвет обводки на светлом фоне
@@ -8570,32 +8570,32 @@ public object LightColorTokens {
     /**
      * Акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentHover: Color = Color(0xFF33E1B5)
+    public val OutlineOnLightAccentHover: Color = Color(0xFF244BA8)
 
     /**
      * Акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentActive: Color = Color(0xFF19A985)
+    public val OutlineOnLightAccentActive: Color = Color(0xFF10224C)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentMinorHover: Color = Color(0xFF93EBD7)
+    public val OutlineOnLightAccentMinorHover: Color = Color(0xFF4B5C95)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentMinorActive: Color = Color(0xFF4EDFBD)
+    public val OutlineOnLightAccentMinorActive: Color = Color(0xFF2C3758)
 
     /**
      * Прозрачный акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentAccentHover: Color = Color(0xFF1ECCA1)
+    public val OutlineOnLightTransparentAccentHover: Color = Color(0x1F122654)
 
     /**
      * Прозрачный акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentAccentActive: Color = Color(0x561ECCA1)
+    public val OutlineOnLightTransparentAccentActive: Color = Color(0x52122654)
 
     /**
      * Промо цвет обводки на светлом фоне
@@ -8845,17 +8845,17 @@ public object LightColorTokens {
     /**
      * Акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccent: Color = Color(0xFF1FCCA0)
+    public val OutlineOnLightAccent: Color = Color(0xFF122654)
 
     /**
      * Акцентный минорный непрозрачный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightAccentMinor: Color = Color(0xFF73E5CA)
+    public val OutlineOnLightAccentMinor: Color = Color(0xFF333F65)
 
     /**
      * Прозрачный акцентный цвет обводки на светлом фоне
      */
-    public val OutlineOnLightTransparentAccent: Color = Color(0x471FCCA0)
+    public val OutlineOnLightTransparentAccent: Color = Color(0x33122654)
 
     /**
      * Инвертированный основной непрозрачный цвет обводки
@@ -8945,32 +8945,32 @@ public object LightColorTokens {
     /**
      * Инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseAccentHover: Color = Color(0xFF4DF5CB)
+    public val OutlineInverseAccentHover: Color = Color(0xFF858585)
 
     /**
      * Инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseAccentActive: Color = Color(0xFF0DE3AD)
+    public val OutlineInverseAccentActive: Color = Color(0xFF666666)
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineInverseAccentMinorHover: Color = Color(0xFF4ABFA2)
+    public val OutlineInverseAccentMinorHover: Color = Color(0xFF878787)
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineInverseAccentMinorActive: Color = Color(0xFF308872)
+    public val OutlineInverseAccentMinorActive: Color = Color(0xFF5E5E5E)
 
     /**
      * Прозрачный инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseTransparentAccentHover: Color = Color(0xFF26F2BF)
+    public val OutlineInverseTransparentAccentHover: Color = Color(0xB3FFFFFF)
 
     /**
      * Прозрачный инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseTransparentAccentActive: Color = Color(0x5626F2BF)
+    public val OutlineInverseTransparentAccentActive: Color = Color(0x2BFFFFFF)
 
     /**
      * Инвертированный промо цвет обводки
@@ -9220,17 +9220,17 @@ public object LightColorTokens {
     /**
      * Инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseAccent: Color = Color(0xFF24F2BF)
+    public val OutlineInverseAccent: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
      */
-    public val OutlineInverseAccentMinor: Color = Color(0xFF3AA68B)
+    public val OutlineInverseAccentMinor: Color = Color(0xFFD8D8D8)
 
     /**
      * Прозрачный инвертированный акцентный цвет обводки
      */
-    public val OutlineInverseTransparentAccent: Color = Color(0x4724F2BF)
+    public val OutlineInverseTransparentAccent: Color = Color(0x47FFFFFF)
 
     /**
      * Желтый цвет для данных

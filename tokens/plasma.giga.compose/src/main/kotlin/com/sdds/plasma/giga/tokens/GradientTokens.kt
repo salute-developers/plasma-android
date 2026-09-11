@@ -237,7 +237,7 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
@@ -477,7 +477,7 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
@@ -717,17 +717,17 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -957,17 +957,17 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -1317,7 +1317,7 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
@@ -1813,17 +1813,17 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -2309,17 +2309,17 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -2805,17 +2805,17 @@ public object DarkGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -4386,7 +4386,7 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
@@ -4626,7 +4626,7 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
@@ -4866,17 +4866,17 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -5106,17 +5106,17 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -5466,7 +5466,7 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
@@ -5962,17 +5962,17 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -6458,17 +6458,17 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFF122654), Color(0xFF2D5FD2))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -6954,7 +6954,7 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFFffffff), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF7D98CF), Color(0xFFA9C6FF))
 
         /**
          * Точки остановки цветов градиента
@@ -6964,7 +6964,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 94.0f
+        public const val angle: Float = 90.0f
     }
 
     /**
