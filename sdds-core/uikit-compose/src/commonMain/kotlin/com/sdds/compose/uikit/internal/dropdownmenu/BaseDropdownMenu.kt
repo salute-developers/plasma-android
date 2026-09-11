@@ -56,6 +56,8 @@ import com.sdds.compose.uikit.graphics.cutout.ProvideCutoutState
 import com.sdds.compose.uikit.graphics.cutout.cutout
 import com.sdds.compose.uikit.graphics.cutout.cutoutTarget
 import com.sdds.compose.uikit.graphics.cutout.rememberCutoutState
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.modal.EdgeToEdgeDialog
@@ -140,7 +142,7 @@ internal fun BaseDropdownMenu(
         triggerInfo = triggerInfo,
         colors = style.colors.toPopoverColors(),
         dimensions = style.dimensions.toPopoverDimensions(offset),
-        shape = style.shape,
+        shape = style.shape.asStatefulValue(),
         shadow = style.shadow,
         placement = placement,
         placementMode = placementMode,
@@ -418,11 +420,25 @@ private fun ScrollableContentWithHeaderFooter(
 
 private fun DropdownMenuDimensions.toPopoverDimensions(offset: Dp = this.offset): PopoverDimensions {
     return object : PopoverDimensions {
+        @Deprecated("use widthValues", replaceWith = ReplaceWith("widthValues"))
         override val width = this@toPopoverDimensions.width
+        override val widthValues: StatefulValue<Dp> = this.width.asStatefulValue()
+
+        @Deprecated("use offsetValues", replaceWith = ReplaceWith("offsetValues"))
         override val offset = offset
+        override val offsetValues: StatefulValue<Dp> = this.offset.asStatefulValue()
+
+        @Deprecated("use tailWidthValues", replaceWith = ReplaceWith("tailWidthValues"))
         override val tailWidth = 0.dp
+        override val tailWidthValues: StatefulValue<Dp> = this.tailWidth.asStatefulValue()
+
+        @Deprecated("use tailHeightValues", replaceWith = ReplaceWith("tailHeightValues"))
         override val tailHeight = 0.dp
+        override val tailHeightValues: StatefulValue<Dp> = this.tailHeight.asStatefulValue()
+
+        @Deprecated("use tailPaddingValues", replaceWith = ReplaceWith("tailPaddingValues"))
         override val tailPadding = 0.dp
+        override val tailPaddingValues: StatefulValue<Dp> = this.tailPadding.asStatefulValue()
     }
 }
 
