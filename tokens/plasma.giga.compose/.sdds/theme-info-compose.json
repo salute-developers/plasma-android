@@ -1,6 +1,6 @@
 {
    "name": "PlasmaGiga",
-   "version": "0.16.0",
+   "version": "0.17.0",
    "platform": "compose",
    "tokens": [
       {
@@ -418,7 +418,7 @@
          "reference": "TextDefaultAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentHover",
          "value": {
-            "color": "0xFF43F4C8"
+            "color": "0xFF858585"
          }
       },
       {
@@ -429,7 +429,7 @@
          "reference": "TextDefaultAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentActive",
          "value": {
-            "color": "0xFF0EECB5"
+            "color": "0xFF666666"
          }
       },
       {
@@ -440,7 +440,7 @@
          "reference": "TextDefaultAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentMinorHover",
          "value": {
-            "color": "0xFF42BD9E"
+            "color": "0xFF878787"
          }
       },
       {
@@ -451,7 +451,7 @@
          "reference": "TextDefaultAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentMinorActive",
          "value": {
-            "color": "0xFF328F78"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -792,7 +792,7 @@
          "reference": "TextDefaultAccent",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -803,7 +803,7 @@
          "reference": "TextDefaultAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentMinor",
          "value": {
-            "color": "0xFF3AA68B"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -957,7 +957,7 @@
          "reference": "TextOnDarkAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentHover",
          "value": {
-            "color": "0xFF43F4C8"
+            "color": "0xFF858585"
          }
       },
       {
@@ -968,7 +968,7 @@
          "reference": "TextOnDarkAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentActive",
          "value": {
-            "color": "0xFF0EECB5"
+            "color": "0xFF666666"
          }
       },
       {
@@ -979,7 +979,7 @@
          "reference": "TextOnDarkAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentMinorHover",
          "value": {
-            "color": "0xFF42BD9E"
+            "color": "0xFF878787"
          }
       },
       {
@@ -990,7 +990,7 @@
          "reference": "TextOnDarkAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF328F78"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -1331,7 +1331,7 @@
          "reference": "TextOnDarkAccent",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -1342,7 +1342,7 @@
          "reference": "TextOnDarkAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentMinor",
          "value": {
-            "color": "0xFF3AA68B"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -1452,7 +1452,7 @@
          "reference": "TextOnLightAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentHover",
          "value": {
-            "color": "0xFF2ADFB2"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -1463,7 +1463,7 @@
          "reference": "TextOnLightAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentActive",
          "value": {
-            "color": "0xFF1BB18C"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -1474,7 +1474,7 @@
          "reference": "TextOnLightAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentMinorHover",
          "value": {
-            "color": "0xFF8BEAD3"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -1485,7 +1485,7 @@
          "reference": "TextOnLightAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentMinorActive",
          "value": {
-            "color": "0xFF57E0C0"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -1870,7 +1870,7 @@
          "reference": "TextOnLightAccent",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -1881,7 +1881,7 @@
          "reference": "TextOnLightAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -1991,7 +1991,7 @@
          "reference": "TextInverseAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentHover",
          "value": {
-            "color": "0xFF2ADFB2"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -2002,7 +2002,7 @@
          "reference": "TextInverseAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentActive",
          "value": {
-            "color": "0xFF1BB18C"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -2013,7 +2013,7 @@
          "reference": "TextInverseAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentMinorHover",
          "value": {
-            "color": "0xFF8BEAD3"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -2024,7 +2024,7 @@
          "reference": "TextInverseAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentMinorActive",
          "value": {
-            "color": "0xFF57E0C0"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -2409,7 +2409,7 @@
          "reference": "TextInverseAccent",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -2420,7 +2420,7 @@
          "reference": "TextInverseAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -2706,7 +2706,7 @@
          "reference": "SurfaceDefaultAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentHover",
          "value": {
-            "color": "0xFF7AF5D2"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -2717,7 +2717,7 @@
          "reference": "SurfaceDefaultAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentActive",
          "value": {
-            "color": "0xFF4BF1C2"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -2728,7 +2728,7 @@
          "reference": "SurfaceDefaultAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentMinorHover",
          "value": {
-            "color": "0xFF116A51"
+            "color": "0xFFE3E3E3"
          }
       },
       {
@@ -2739,7 +2739,7 @@
          "reference": "SurfaceDefaultAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentMinorActive",
          "value": {
-            "color": "0xFF0C4F3C"
+            "color": "0xFFD4D4D4"
          }
       },
       {
@@ -2750,7 +2750,7 @@
          "reference": "SurfaceDefaultTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentAccentHover",
          "value": {
-            "color": "0x5254F2C5"
+            "color": "0x52FFFFFF"
          }
       },
       {
@@ -2761,7 +2761,7 @@
          "reference": "SurfaceDefaultTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentAccentActive",
          "value": {
-            "color": "0x2454F2C5"
+            "color": "0x24FFFFFF"
          }
       },
       {
@@ -3360,39 +3360,6 @@
       },
       {
          "type": "color",
-         "name": "dark.surface.default.accent",
-         "displayName": "surfaceAccent",
-         "description": "Акцентный фон поверхности/контрола",
-         "reference": "SurfaceDefaultAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccent",
-         "value": {
-            "color": "0xFF52F2C5"
-         }
-      },
-      {
-         "type": "color",
-         "name": "dark.surface.default.accent-minor",
-         "displayName": "surfaceAccentMinor",
-         "description": "Акцентный минорный непрозрачный фон поверхности/контрола",
-         "reference": "SurfaceDefaultAccentMinor",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentMinor",
-         "value": {
-            "color": "0xFF0E5944"
-         }
-      },
-      {
-         "type": "color",
-         "name": "dark.surface.default.transparent-accent",
-         "displayName": "surfaceTransparentAccent",
-         "description": "Прозрачный акцентный фон поверхности/контрола",
-         "reference": "SurfaceDefaultTransparentAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentAccent",
-         "value": {
-            "color": "0x3352F2C5"
-         }
-      },
-      {
-         "type": "color",
          "name": "dark.surface.default.solid-card",
          "displayName": "surfaceSolidCard",
          "description": "Основной фон для карточек",
@@ -3411,6 +3378,39 @@
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentCard",
          "value": {
             "color": "0x0DEDFFFD"
+         }
+      },
+      {
+         "type": "color",
+         "name": "dark.surface.default.accent",
+         "displayName": "surfaceAccent",
+         "description": "Акцентный фон поверхности/контрола",
+         "reference": "SurfaceDefaultAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccent",
+         "value": {
+            "color": "0xFFFFFFFF"
+         }
+      },
+      {
+         "type": "color",
+         "name": "dark.surface.default.accent-minor",
+         "displayName": "surfaceAccentMinor",
+         "description": "Акцентный минорный непрозрачный фон поверхности/контрола",
+         "reference": "SurfaceDefaultAccentMinor",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentMinor",
+         "value": {
+            "color": "0xFFD8D8D8"
+         }
+      },
+      {
+         "type": "color",
+         "name": "dark.surface.default.transparent-accent",
+         "displayName": "surfaceTransparentAccent",
+         "description": "Прозрачный акцентный фон поверхности/контрола",
+         "reference": "SurfaceDefaultTransparentAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentAccent",
+         "value": {
+            "color": "0x33FFFFFF"
          }
       },
       {
@@ -3707,7 +3707,7 @@
          "reference": "SurfaceOnDarkAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentHover",
          "value": {
-            "color": "0xFF7AF5D2"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -3718,7 +3718,7 @@
          "reference": "SurfaceOnDarkAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentActive",
          "value": {
-            "color": "0xFF4BF1C2"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -3729,7 +3729,7 @@
          "reference": "SurfaceOnDarkAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinorHover",
          "value": {
-            "color": "0xFF116A51"
+            "color": "0xFFE3E3E3"
          }
       },
       {
@@ -3740,7 +3740,7 @@
          "reference": "SurfaceOnDarkAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF0C4F3C"
+            "color": "0xFFD4D4D4"
          }
       },
       {
@@ -3751,7 +3751,7 @@
          "reference": "SurfaceOnDarkTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccentHover",
          "value": {
-            "color": "0x5252F1FF"
+            "color": "0x52FFFFFF"
          }
       },
       {
@@ -3762,7 +3762,7 @@
          "reference": "SurfaceOnDarkTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccentActive",
          "value": {
-            "color": "0x2452F1FF"
+            "color": "0x24FFFFFF"
          }
       },
       {
@@ -4350,39 +4350,6 @@
       },
       {
          "type": "color",
-         "name": "dark.surface.on-dark.accent",
-         "displayName": "onDarkSurfaceAccent",
-         "description": "Акцентный фон поверхности/контрола на темном фоне",
-         "reference": "SurfaceOnDarkAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccent",
-         "value": {
-            "color": "0xFF52F2C5"
-         }
-      },
-      {
-         "type": "color",
-         "name": "dark.surface.on-dark.accent-minor",
-         "displayName": "onDarkSurfaceAccentMinor",
-         "description": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне",
-         "reference": "SurfaceOnDarkAccentMinor",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinor",
-         "value": {
-            "color": "0xFF0E5944"
-         }
-      },
-      {
-         "type": "color",
-         "name": "dark.surface.on-dark.transparent-accent",
-         "displayName": "onDarkSurfaceTransparentAccent",
-         "description": "Прозрачный акцентный фон поверхности/контрола на темном фоне",
-         "reference": "SurfaceOnDarkTransparentAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccent",
-         "value": {
-            "color": "0x3352F2FF"
-         }
-      },
-      {
-         "type": "color",
          "name": "dark.surface.on-dark.solid-card",
          "displayName": "onDarkSurfaceSolidCard",
          "description": "Основной фон для карточек на темном фоне",
@@ -4401,6 +4368,39 @@
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentCard",
          "value": {
             "color": "0x0DEDFFFD"
+         }
+      },
+      {
+         "type": "color",
+         "name": "dark.surface.on-dark.accent",
+         "displayName": "onDarkSurfaceAccent",
+         "description": "Акцентный фон поверхности/контрола на темном фоне",
+         "reference": "SurfaceOnDarkAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccent",
+         "value": {
+            "color": "0xFFFFFFFF"
+         }
+      },
+      {
+         "type": "color",
+         "name": "dark.surface.on-dark.accent-minor",
+         "displayName": "onDarkSurfaceAccentMinor",
+         "description": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне",
+         "reference": "SurfaceOnDarkAccentMinor",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinor",
+         "value": {
+            "color": "0xFFD8D8D8"
+         }
+      },
+      {
+         "type": "color",
+         "name": "dark.surface.on-dark.transparent-accent",
+         "displayName": "onDarkSurfaceTransparentAccent",
+         "description": "Прозрачный акцентный фон поверхности/контрола на темном фоне",
+         "reference": "SurfaceOnDarkTransparentAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccent",
+         "value": {
+            "color": "0x33FFFFFF"
          }
       },
       {
@@ -4697,7 +4697,7 @@
          "reference": "SurfaceOnLightAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentHover",
          "value": {
-            "color": "0xFF00C28B"
+            "color": "0xFF152D65"
          }
       },
       {
@@ -4708,7 +4708,7 @@
          "reference": "SurfaceOnLightAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentActive",
          "value": {
-            "color": "0xFF00A375"
+            "color": "0xFF0E1E43"
          }
       },
       {
@@ -4719,7 +4719,7 @@
          "reference": "SurfaceOnLightAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentMinorHover",
          "value": {
-            "color": "0xFFE5FFF8"
+            "color": "0xFF3A4773"
          }
       },
       {
@@ -4730,7 +4730,7 @@
          "reference": "SurfaceOnLightAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentMinorActive",
          "value": {
-            "color": "0xFFD1FFF2"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -4741,7 +4741,7 @@
          "reference": "SurfaceOnLightTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightTransparentAccentHover",
          "value": {
-            "color": "0x3D00AD7C"
+            "color": "0x2E122654"
          }
       },
       {
@@ -4752,7 +4752,7 @@
          "reference": "SurfaceOnLightTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightTransparentAccentActive",
          "value": {
-            "color": "0x0F00AD7C"
+            "color": "0x33122654"
          }
       },
       {
@@ -5351,13 +5351,24 @@
       },
       {
          "type": "color",
+         "name": "dark.surface.on-light.solid-default",
+         "displayName": "onLightSurfaceSolidDefault",
+         "description": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне",
+         "reference": "SurfaceOnLightSolidDefault",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightSolidDefault",
+         "value": {
+            "color": "0xFF122654"
+         }
+      },
+      {
+         "type": "color",
          "name": "dark.surface.on-light.accent",
          "displayName": "onLightSurfaceAccent",
          "description": "Акцентный фон поверхности/контрола на светлом фоне",
          "reference": "SurfaceOnLightAccent",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccent",
          "value": {
-            "color": "0xFF00AC7B"
+            "color": "0xFF122654"
          }
       },
       {
@@ -5368,7 +5379,7 @@
          "reference": "SurfaceOnLightAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentMinor",
          "value": {
-            "color": "0xFFDBFFF5"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -5379,18 +5390,7 @@
          "reference": "SurfaceOnLightTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightTransparentAccent",
          "value": {
-            "color": "0x1F00AC7B"
-         }
-      },
-      {
-         "type": "color",
-         "name": "dark.surface.on-light.solid-default",
-         "displayName": "onLightSurfaceSolidDefault",
-         "description": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне",
-         "reference": "SurfaceOnLightSolidDefault",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightSolidDefault",
-         "value": {
-            "color": "0xFF122654"
+            "color": "0x1F122654"
          }
       },
       {
@@ -5687,7 +5687,7 @@
          "reference": "SurfaceInverseAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentHover",
          "value": {
-            "color": "0xFF00C28B"
+            "color": "0xFF152D65"
          }
       },
       {
@@ -5698,7 +5698,7 @@
          "reference": "SurfaceInverseAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentActive",
          "value": {
-            "color": "0xFF00A375"
+            "color": "0xFF0E1E43"
          }
       },
       {
@@ -5709,7 +5709,7 @@
          "reference": "SurfaceInverseAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentMinorHover",
          "value": {
-            "color": "0xFFE5FFF8"
+            "color": "0xFF3A4773"
          }
       },
       {
@@ -5720,7 +5720,7 @@
          "reference": "SurfaceInverseAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentMinorActive",
          "value": {
-            "color": "0xFFD1FFF2"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -5731,7 +5731,7 @@
          "reference": "SurfaceInverseTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentAccentHover",
          "value": {
-            "color": "0x3D00AD7C"
+            "color": "0x2E122654"
          }
       },
       {
@@ -5742,7 +5742,7 @@
          "reference": "SurfaceInverseTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentAccentActive",
          "value": {
-            "color": "0x0F00AD7C"
+            "color": "0x33122654"
          }
       },
       {
@@ -6341,13 +6341,24 @@
       },
       {
          "type": "color",
+         "name": "dark.surface.inverse.solid-default",
+         "displayName": "inverseSurfaceSolidDefault",
+         "description": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
+         "reference": "SurfaceInverseSolidDefault",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseSolidDefault",
+         "value": {
+            "color": "0xFF122654"
+         }
+      },
+      {
+         "type": "color",
          "name": "dark.surface.inverse.accent",
          "displayName": "inverseSurfaceAccent",
          "description": "Инвертированный акцентный фон поверхности/контрола",
          "reference": "SurfaceInverseAccent",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccent",
          "value": {
-            "color": "0xFF00AC7B"
+            "color": "0xFF122654"
          }
       },
       {
@@ -6358,7 +6369,7 @@
          "reference": "SurfaceInverseAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentMinor",
          "value": {
-            "color": "0xFFDBFFF5"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -6369,18 +6380,7 @@
          "reference": "SurfaceInverseTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentAccent",
          "value": {
-            "color": "0x1F00AC7B"
-         }
-      },
-      {
-         "type": "color",
-         "name": "dark.surface.inverse.solid-default",
-         "displayName": "inverseSurfaceSolidDefault",
-         "description": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
-         "reference": "SurfaceInverseSolidDefault",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseSolidDefault",
-         "value": {
-            "color": "0xFF122654"
+            "color": "0x1F122654"
          }
       },
       {
@@ -6831,7 +6831,7 @@
          "reference": "OutlineDefaultAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentHover",
          "value": {
-            "color": "0xFF43F4C8"
+            "color": "0xFF858585"
          }
       },
       {
@@ -6842,7 +6842,7 @@
          "reference": "OutlineDefaultAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentActive",
          "value": {
-            "color": "0xFF0EECB5"
+            "color": "0xFF666666"
          }
       },
       {
@@ -6853,7 +6853,7 @@
          "reference": "OutlineDefaultAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentMinorHover",
          "value": {
-            "color": "0xFF42BD9E"
+            "color": "0xFF878787"
          }
       },
       {
@@ -6864,7 +6864,7 @@
          "reference": "OutlineDefaultAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentMinorActive",
          "value": {
-            "color": "0xFF328F78"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -6875,7 +6875,7 @@
          "reference": "OutlineDefaultTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultTransparentAccentHover",
          "value": {
-            "color": "0xFF26F2BF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -6886,7 +6886,7 @@
          "reference": "OutlineDefaultTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultTransparentAccentActive",
          "value": {
-            "color": "0x5626F2BF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -7447,7 +7447,7 @@
          "reference": "OutlineDefaultAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -7458,7 +7458,7 @@
          "reference": "OutlineDefaultAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentMinor",
          "value": {
-            "color": "0xFF3AA68B"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -7469,7 +7469,7 @@
          "reference": "OutlineDefaultTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultTransparentAccent",
          "value": {
-            "color": "0x4724F2BF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -7667,7 +7667,7 @@
          "reference": "OutlineOnDarkAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentHover",
          "value": {
-            "color": "0xFF43F4C8"
+            "color": "0xFF858585"
          }
       },
       {
@@ -7678,7 +7678,7 @@
          "reference": "OutlineOnDarkAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentActive",
          "value": {
-            "color": "0xFF0EECB5"
+            "color": "0xFF666666"
          }
       },
       {
@@ -7689,7 +7689,7 @@
          "reference": "OutlineOnDarkAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentMinorHover",
          "value": {
-            "color": "0xFF43F4C8"
+            "color": "0xFF878787"
          }
       },
       {
@@ -7700,7 +7700,7 @@
          "reference": "OutlineOnDarkAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF0EECB5"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -7711,7 +7711,7 @@
          "reference": "OutlineOnDarkTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkTransparentAccentHover",
          "value": {
-            "color": "0xFF26F2BF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -7722,7 +7722,7 @@
          "reference": "OutlineOnDarkTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkTransparentAccentActive",
          "value": {
-            "color": "0x5626F2BF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -8272,7 +8272,7 @@
          "reference": "OutlineOnDarkAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -8283,7 +8283,7 @@
          "reference": "OutlineOnDarkAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentMinor",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -8294,7 +8294,7 @@
          "reference": "OutlineOnDarkTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkTransparentAccent",
          "value": {
-            "color": "0x4724F2BF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -8492,7 +8492,7 @@
          "reference": "OutlineOnLightAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentHover",
          "value": {
-            "color": "0xFF2ADFB2"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -8503,7 +8503,7 @@
          "reference": "OutlineOnLightAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentActive",
          "value": {
-            "color": "0xFF1BB18C"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -8514,7 +8514,7 @@
          "reference": "OutlineOnLightAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentMinorHover",
          "value": {
-            "color": "0xFF8BEAD3"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -8525,7 +8525,7 @@
          "reference": "OutlineOnLightAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentMinorActive",
          "value": {
-            "color": "0xFF57E0C0"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -8536,7 +8536,7 @@
          "reference": "OutlineOnLightTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightTransparentAccentHover",
          "value": {
-            "color": "0xFF1ECCA1"
+            "color": "0x1F122654"
          }
       },
       {
@@ -8547,7 +8547,7 @@
          "reference": "OutlineOnLightTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightTransparentAccentActive",
          "value": {
-            "color": "0x561ECCA1"
+            "color": "0x52122654"
          }
       },
       {
@@ -9097,7 +9097,7 @@
          "reference": "OutlineOnLightAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -9108,7 +9108,7 @@
          "reference": "OutlineOnLightAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -9119,7 +9119,7 @@
          "reference": "OutlineOnLightTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightTransparentAccent",
          "value": {
-            "color": "0x471FCCA0"
+            "color": "0x33122654"
          }
       },
       {
@@ -9317,7 +9317,7 @@
          "reference": "OutlineInverseAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentHover",
          "value": {
-            "color": "0xFF2ADFB2"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -9328,7 +9328,7 @@
          "reference": "OutlineInverseAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentActive",
          "value": {
-            "color": "0xFF1BB18C"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -9339,7 +9339,7 @@
          "reference": "OutlineInverseAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentMinorHover",
          "value": {
-            "color": "0xFF8BEAD3"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -9350,7 +9350,7 @@
          "reference": "OutlineInverseAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentMinorActive",
          "value": {
-            "color": "0xFF57E0C0"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -9361,7 +9361,7 @@
          "reference": "OutlineInverseTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseTransparentAccentHover",
          "value": {
-            "color": "0xFF1ECCA1"
+            "color": "0x1F122654"
          }
       },
       {
@@ -9372,7 +9372,7 @@
          "reference": "OutlineInverseTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseTransparentAccentActive",
          "value": {
-            "color": "0x561ECCA1"
+            "color": "0x52122654"
          }
       },
       {
@@ -9922,7 +9922,7 @@
          "reference": "OutlineInverseAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -9933,7 +9933,7 @@
          "reference": "OutlineInverseAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -9944,7 +9944,7 @@
          "reference": "OutlineInverseTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseTransparentAccent",
          "value": {
-            "color": "0x471FCCA0"
+            "color": "0x33122654"
          }
       },
       {
@@ -10714,7 +10714,7 @@
          "reference": "TextDefaultAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentHover",
          "value": {
-            "color": "0xFF33E1B5"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -10725,7 +10725,7 @@
          "reference": "TextDefaultAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentActive",
          "value": {
-            "color": "0xFF19A985"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -10736,7 +10736,7 @@
          "reference": "TextDefaultAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentMinorHover",
          "value": {
-            "color": "0xFF93EBD7"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -10747,7 +10747,7 @@
          "reference": "TextDefaultAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentMinorActive",
          "value": {
-            "color": "0xFF4EDFBD"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -11132,7 +11132,7 @@
          "reference": "TextDefaultAccent",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -11143,7 +11143,7 @@
          "reference": "TextDefaultAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textDefaultAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -11297,7 +11297,7 @@
          "reference": "TextOnDarkAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentHover",
          "value": {
-            "color": "0xFF4DF5CB"
+            "color": "0xFF858585"
          }
       },
       {
@@ -11308,7 +11308,7 @@
          "reference": "TextOnDarkAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentActive",
          "value": {
-            "color": "0xFF0DE3AD"
+            "color": "0xFF666666"
          }
       },
       {
@@ -11319,7 +11319,7 @@
          "reference": "TextOnDarkAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentMinorHover",
          "value": {
-            "color": "0xFF4ABFA2"
+            "color": "0xFF878787"
          }
       },
       {
@@ -11330,7 +11330,7 @@
          "reference": "TextOnDarkAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF308872"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -11671,7 +11671,7 @@
          "reference": "TextOnDarkAccent",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -11682,7 +11682,7 @@
          "reference": "TextOnDarkAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textOnDarkAccentMinor",
          "value": {
-            "color": "0xFF3AA68B"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -11792,7 +11792,7 @@
          "reference": "TextOnLightAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentHover",
          "value": {
-            "color": "0xFF33E1B5"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -11803,7 +11803,7 @@
          "reference": "TextOnLightAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentActive",
          "value": {
-            "color": "0xFF19A985"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -11814,7 +11814,7 @@
          "reference": "TextOnLightAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentMinorHover",
          "value": {
-            "color": "0xFF93EBD7"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -11825,7 +11825,7 @@
          "reference": "TextOnLightAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentMinorActive",
          "value": {
-            "color": "0xFF4EDFBD"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -12210,7 +12210,7 @@
          "reference": "TextOnLightAccent",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -12221,7 +12221,7 @@
          "reference": "TextOnLightAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textOnLightAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -12375,7 +12375,7 @@
          "reference": "TextInverseAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentHover",
          "value": {
-            "color": "0xFF4DF5CB"
+            "color": "0xFF858585"
          }
       },
       {
@@ -12386,7 +12386,7 @@
          "reference": "TextInverseAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentActive",
          "value": {
-            "color": "0xFF0DE3AD"
+            "color": "0xFF666666"
          }
       },
       {
@@ -12397,7 +12397,7 @@
          "reference": "TextInverseAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentMinorHover",
          "value": {
-            "color": "0xFF4ABFA2"
+            "color": "0xFF878787"
          }
       },
       {
@@ -12408,7 +12408,7 @@
          "reference": "TextInverseAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentMinorActive",
          "value": {
-            "color": "0xFF308872"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -12749,7 +12749,7 @@
          "reference": "TextInverseAccent",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -12760,7 +12760,7 @@
          "reference": "TextInverseAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.textInverseAccentMinor",
          "value": {
-            "color": "0xFF3AA68B"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -13046,7 +13046,7 @@
          "reference": "SurfaceDefaultAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentHover",
          "value": {
-            "color": "0xFF00C28B"
+            "color": "0xFF152D65"
          }
       },
       {
@@ -13057,7 +13057,7 @@
          "reference": "SurfaceDefaultAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentActive",
          "value": {
-            "color": "0xFF00996E"
+            "color": "0xFF0E1E43"
          }
       },
       {
@@ -13068,7 +13068,7 @@
          "reference": "SurfaceDefaultAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentMinorHover",
          "value": {
-            "color": "0xFFF0FFFB"
+            "color": "0xFF3A4773"
          }
       },
       {
@@ -13079,7 +13079,7 @@
          "reference": "SurfaceDefaultAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentMinorActive",
          "value": {
-            "color": "0xFFD1FFF2"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -13090,7 +13090,7 @@
          "reference": "SurfaceDefaultTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentAccentHover",
          "value": {
-            "color": "0x0A00AD7C"
+            "color": "0x2E122654"
          }
       },
       {
@@ -13101,7 +13101,7 @@
          "reference": "SurfaceDefaultTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentAccentActive",
          "value": {
-            "color": "0x2900AD7C"
+            "color": "0x33122654"
          }
       },
       {
@@ -13711,13 +13711,24 @@
       },
       {
          "type": "color",
+         "name": "light.surface.default.solid-default",
+         "displayName": "surfaceSolidDefault",
+         "description": "Непрозрачный фон поверхности/контрола по умолчанию",
+         "reference": "SurfaceDefaultSolidDefault",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultSolidDefault",
+         "value": {
+            "color": "0xFF122654"
+         }
+      },
+      {
+         "type": "color",
          "name": "light.surface.default.accent",
          "displayName": "surfaceAccent",
          "description": "Акцентный фон поверхности/контрола",
          "reference": "SurfaceDefaultAccent",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccent",
          "value": {
-            "color": "0xFF00AC7B"
+            "color": "0xFF122654"
          }
       },
       {
@@ -13728,7 +13739,7 @@
          "reference": "SurfaceDefaultAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultAccentMinor",
          "value": {
-            "color": "0xFFDBFFF5"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -13739,18 +13750,7 @@
          "reference": "SurfaceDefaultTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultTransparentAccent",
          "value": {
-            "color": "0x1F00AC7B"
-         }
-      },
-      {
-         "type": "color",
-         "name": "light.surface.default.solid-default",
-         "displayName": "surfaceSolidDefault",
-         "description": "Непрозрачный фон поверхности/контрола по умолчанию",
-         "reference": "SurfaceDefaultSolidDefault",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceDefaultSolidDefault",
-         "value": {
-            "color": "0xFF122654"
+            "color": "0x1F122654"
          }
       },
       {
@@ -14047,7 +14047,7 @@
          "reference": "SurfaceOnDarkAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentHover",
          "value": {
-            "color": "0xFF71F4CF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -14058,7 +14058,7 @@
          "reference": "SurfaceOnDarkAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentActive",
          "value": {
-            "color": "0xFF41F1BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -14069,7 +14069,7 @@
          "reference": "SurfaceOnDarkAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinorHover",
          "value": {
-            "color": "0xFF127357"
+            "color": "0xFFE3E3E3"
          }
       },
       {
@@ -14080,7 +14080,7 @@
          "reference": "SurfaceOnDarkAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF0B4736"
+            "color": "0xFFD4D4D4"
          }
       },
       {
@@ -14091,7 +14091,7 @@
          "reference": "SurfaceOnDarkTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccentHover",
          "value": {
-            "color": "0x1F52F1FF"
+            "color": "0x52FFFFFF"
          }
       },
       {
@@ -14102,7 +14102,7 @@
          "reference": "SurfaceOnDarkTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccentActive",
          "value": {
-            "color": "0x3D52F1FF"
+            "color": "0x24FFFFFF"
          }
       },
       {
@@ -14690,39 +14690,6 @@
       },
       {
          "type": "color",
-         "name": "light.surface.on-dark.transparent-accent",
-         "displayName": "onDarkSurfaceTransparentAccent",
-         "description": "Прозрачный акцентный фон поверхности/контрола на темном фоне",
-         "reference": "SurfaceOnDarkTransparentAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccent",
-         "value": {
-            "color": "0x3352F2FF"
-         }
-      },
-      {
-         "type": "color",
-         "name": "light.surface.on-dark.accent",
-         "displayName": "onDarkSurfaceAccent",
-         "description": "Акцентный фон поверхности/контрола на темном фоне",
-         "reference": "SurfaceOnDarkAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccent",
-         "value": {
-            "color": "0xFF52F2C5"
-         }
-      },
-      {
-         "type": "color",
-         "name": "light.surface.on-dark.accent-minor",
-         "displayName": "onDarkSurfaceAccentMinor",
-         "description": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне",
-         "reference": "SurfaceOnDarkAccentMinor",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinor",
-         "value": {
-            "color": "0xFF0E5944"
-         }
-      },
-      {
-         "type": "color",
          "name": "light.surface.on-dark.solid-card",
          "displayName": "onDarkSurfaceSolidCard",
          "description": "Основной фон для карточек на темном фоне",
@@ -14741,6 +14708,39 @@
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentCard",
          "value": {
             "color": "0x0DEDFFFD"
+         }
+      },
+      {
+         "type": "color",
+         "name": "light.surface.on-dark.accent",
+         "displayName": "onDarkSurfaceAccent",
+         "description": "Акцентный фон поверхности/контрола на темном фоне",
+         "reference": "SurfaceOnDarkAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccent",
+         "value": {
+            "color": "0xFFFFFFFF"
+         }
+      },
+      {
+         "type": "color",
+         "name": "light.surface.on-dark.accent-minor",
+         "displayName": "onDarkSurfaceAccentMinor",
+         "description": "Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне",
+         "reference": "SurfaceOnDarkAccentMinor",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkAccentMinor",
+         "value": {
+            "color": "0xFFD8D8D8"
+         }
+      },
+      {
+         "type": "color",
+         "name": "light.surface.on-dark.transparent-accent",
+         "displayName": "onDarkSurfaceTransparentAccent",
+         "description": "Прозрачный акцентный фон поверхности/контрола на темном фоне",
+         "reference": "SurfaceOnDarkTransparentAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnDarkTransparentAccent",
+         "value": {
+            "color": "0x33FFFFFF"
          }
       },
       {
@@ -15037,7 +15037,7 @@
          "reference": "SurfaceOnLightAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentHover",
          "value": {
-            "color": "0xFF00C28B"
+            "color": "0xFF152D65"
          }
       },
       {
@@ -15048,7 +15048,7 @@
          "reference": "SurfaceOnLightAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentActive",
          "value": {
-            "color": "0xFF00996E"
+            "color": "0xFF0E1E43"
          }
       },
       {
@@ -15059,7 +15059,7 @@
          "reference": "SurfaceOnLightAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentMinorHover",
          "value": {
-            "color": "0xFFF0FFFB"
+            "color": "0xFF3A4773"
          }
       },
       {
@@ -15070,7 +15070,7 @@
          "reference": "SurfaceOnLightAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentMinorActive",
          "value": {
-            "color": "0xFFD1FFF2"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -15081,7 +15081,7 @@
          "reference": "SurfaceOnLightTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightTransparentAccentHover",
          "value": {
-            "color": "0x0A00AD7C"
+            "color": "0x2E122654"
          }
       },
       {
@@ -15092,7 +15092,7 @@
          "reference": "SurfaceOnLightTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightTransparentAccentActive",
          "value": {
-            "color": "0x2900AD7C"
+            "color": "0x33122654"
          }
       },
       {
@@ -15691,13 +15691,13 @@
       },
       {
          "type": "color",
-         "name": "light.surface.on-light.transparent-accent",
-         "displayName": "onLightSurfaceTransparentAccent",
-         "description": "Прозрачный акцентный фон поверхности/контрола на светлом фоне",
-         "reference": "SurfaceOnLightTransparentAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightTransparentAccent",
+         "name": "light.surface.on-light.solid-default",
+         "displayName": "onLightSurfaceSolidDefault",
+         "description": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне",
+         "reference": "SurfaceOnLightSolidDefault",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightSolidDefault",
          "value": {
-            "color": "0x1F00AC7B"
+            "color": "0xFF122654"
          }
       },
       {
@@ -15708,7 +15708,7 @@
          "reference": "SurfaceOnLightAccent",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccent",
          "value": {
-            "color": "0xFF00AC7B"
+            "color": "0xFF122654"
          }
       },
       {
@@ -15719,18 +15719,18 @@
          "reference": "SurfaceOnLightAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightAccentMinor",
          "value": {
-            "color": "0xFFDBFFF5"
+            "color": "0xFF333F65"
          }
       },
       {
          "type": "color",
-         "name": "light.surface.on-light.solid-default",
-         "displayName": "onLightSurfaceSolidDefault",
-         "description": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне",
-         "reference": "SurfaceOnLightSolidDefault",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightSolidDefault",
+         "name": "light.surface.on-light.transparent-accent",
+         "displayName": "onLightSurfaceTransparentAccent",
+         "description": "Прозрачный акцентный фон поверхности/контрола на светлом фоне",
+         "reference": "SurfaceOnLightTransparentAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceOnLightTransparentAccent",
          "value": {
-            "color": "0xFF122654"
+            "color": "0x1F122654"
          }
       },
       {
@@ -16027,7 +16027,7 @@
          "reference": "SurfaceInverseAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentHover",
          "value": {
-            "color": "0xFF71F4CF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -16038,7 +16038,7 @@
          "reference": "SurfaceInverseAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentActive",
          "value": {
-            "color": "0xFF41F1BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -16049,7 +16049,7 @@
          "reference": "SurfaceInverseAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentMinorHover",
          "value": {
-            "color": "0xFF127357"
+            "color": "0xFFE3E3E3"
          }
       },
       {
@@ -16060,7 +16060,7 @@
          "reference": "SurfaceInverseAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentMinorActive",
          "value": {
-            "color": "0xFF0B4736"
+            "color": "0xFFD4D4D4"
          }
       },
       {
@@ -16071,7 +16071,7 @@
          "reference": "SurfaceInverseTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentAccentHover",
          "value": {
-            "color": "0x1F54F2C5"
+            "color": "0x52FFFFFF"
          }
       },
       {
@@ -16082,7 +16082,7 @@
          "reference": "SurfaceInverseTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentAccentActive",
          "value": {
-            "color": "0x3D54F2C5"
+            "color": "0x24FFFFFF"
          }
       },
       {
@@ -16670,39 +16670,6 @@
       },
       {
          "type": "color",
-         "name": "light.surface.inverse.accent",
-         "displayName": "inverseSurfaceAccent",
-         "description": "Инвертированный акцентный фон поверхности/контрола",
-         "reference": "SurfaceInverseAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccent",
-         "value": {
-            "color": "0xFF52F2C5"
-         }
-      },
-      {
-         "type": "color",
-         "name": "light.surface.inverse.accent-minor",
-         "displayName": "inverseSurfaceAccentMinor",
-         "description": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола",
-         "reference": "SurfaceInverseAccentMinor",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentMinor",
-         "value": {
-            "color": "0xFF0E5944"
-         }
-      },
-      {
-         "type": "color",
-         "name": "light.surface.inverse.transparent-accent",
-         "displayName": "inverseSurfaceTransparentAccent",
-         "description": "Прозрачный инвертированный акцентный фон поверхности/контрола",
-         "reference": "SurfaceInverseTransparentAccent",
-         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentAccent",
-         "value": {
-            "color": "0x3352F2C5"
-         }
-      },
-      {
-         "type": "color",
          "name": "light.surface.inverse.solid-card",
          "displayName": "inverseSurfaceSolidCard",
          "description": "Инвертированный основной фон для карточек",
@@ -16721,6 +16688,39 @@
          "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentCard",
          "value": {
             "color": "0x0DEDFFFD"
+         }
+      },
+      {
+         "type": "color",
+         "name": "light.surface.inverse.accent",
+         "displayName": "inverseSurfaceAccent",
+         "description": "Инвертированный акцентный фон поверхности/контрола",
+         "reference": "SurfaceInverseAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccent",
+         "value": {
+            "color": "0xFFFFFFFF"
+         }
+      },
+      {
+         "type": "color",
+         "name": "light.surface.inverse.accent-minor",
+         "displayName": "inverseSurfaceAccentMinor",
+         "description": "Инвертированный акцентный минорный непрозрачный фон поверхности/контрола",
+         "reference": "SurfaceInverseAccentMinor",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseAccentMinor",
+         "value": {
+            "color": "0xFFD8D8D8"
+         }
+      },
+      {
+         "type": "color",
+         "name": "light.surface.inverse.transparent-accent",
+         "displayName": "inverseSurfaceTransparentAccent",
+         "description": "Прозрачный инвертированный акцентный фон поверхности/контрола",
+         "reference": "SurfaceInverseTransparentAccent",
+         "themeReference": "PlasmaGigaTheme.colors.surfaceInverseTransparentAccent",
+         "value": {
+            "color": "0x33FFFFFF"
          }
       },
       {
@@ -17171,7 +17171,7 @@
          "reference": "OutlineDefaultAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentHover",
          "value": {
-            "color": "0xFF33E1B5"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -17182,7 +17182,7 @@
          "reference": "OutlineDefaultAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentActive",
          "value": {
-            "color": "0xFF19A985"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -17193,7 +17193,7 @@
          "reference": "OutlineDefaultAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentMinorHover",
          "value": {
-            "color": "0xFF93EBD7"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -17204,7 +17204,7 @@
          "reference": "OutlineDefaultAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentMinorActive",
          "value": {
-            "color": "0xFF4EDFBD"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -17215,7 +17215,7 @@
          "reference": "OutlineDefaultTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultTransparentAccentHover",
          "value": {
-            "color": "0xFF1ECCA1"
+            "color": "0x1F122654"
          }
       },
       {
@@ -17226,7 +17226,7 @@
          "reference": "OutlineDefaultTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultTransparentAccentActive",
          "value": {
-            "color": "0x561ECCA1"
+            "color": "0x52122654"
          }
       },
       {
@@ -17787,7 +17787,7 @@
          "reference": "OutlineDefaultAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -17798,7 +17798,7 @@
          "reference": "OutlineDefaultAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -17809,7 +17809,7 @@
          "reference": "OutlineDefaultTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineDefaultTransparentAccent",
          "value": {
-            "color": "0x471FCCA0"
+            "color": "0x33122654"
          }
       },
       {
@@ -18007,7 +18007,7 @@
          "reference": "OutlineOnDarkAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentHover",
          "value": {
-            "color": "0xFF4DF5CB"
+            "color": "0xFF858585"
          }
       },
       {
@@ -18018,7 +18018,7 @@
          "reference": "OutlineOnDarkAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentActive",
          "value": {
-            "color": "0xFF0DE3AD"
+            "color": "0xFF666666"
          }
       },
       {
@@ -18029,7 +18029,7 @@
          "reference": "OutlineOnDarkAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentMinorHover",
          "value": {
-            "color": "0xFF4ABFA2"
+            "color": "0xFF878787"
          }
       },
       {
@@ -18040,7 +18040,7 @@
          "reference": "OutlineOnDarkAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentMinorActive",
          "value": {
-            "color": "0xFF308872"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -18051,7 +18051,7 @@
          "reference": "OutlineOnDarkTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkTransparentAccentHover",
          "value": {
-            "color": "0xFF26F2BF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -18062,7 +18062,7 @@
          "reference": "OutlineOnDarkTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkTransparentAccentActive",
          "value": {
-            "color": "0x5626F2BF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -18612,7 +18612,7 @@
          "reference": "OutlineOnDarkAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -18623,7 +18623,7 @@
          "reference": "OutlineOnDarkAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkAccentMinor",
          "value": {
-            "color": "0xFF3AA68B"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -18634,7 +18634,7 @@
          "reference": "OutlineOnDarkTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnDarkTransparentAccent",
          "value": {
-            "color": "0x4724F2BF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -18832,7 +18832,7 @@
          "reference": "OutlineOnLightAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentHover",
          "value": {
-            "color": "0xFF33E1B5"
+            "color": "0xFF244BA8"
          }
       },
       {
@@ -18843,7 +18843,7 @@
          "reference": "OutlineOnLightAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentActive",
          "value": {
-            "color": "0xFF19A985"
+            "color": "0xFF10224C"
          }
       },
       {
@@ -18854,7 +18854,7 @@
          "reference": "OutlineOnLightAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentMinorHover",
          "value": {
-            "color": "0xFF93EBD7"
+            "color": "0xFF4B5C95"
          }
       },
       {
@@ -18865,7 +18865,7 @@
          "reference": "OutlineOnLightAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentMinorActive",
          "value": {
-            "color": "0xFF4EDFBD"
+            "color": "0xFF2C3758"
          }
       },
       {
@@ -18876,7 +18876,7 @@
          "reference": "OutlineOnLightTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightTransparentAccentHover",
          "value": {
-            "color": "0xFF1ECCA1"
+            "color": "0x1F122654"
          }
       },
       {
@@ -18887,7 +18887,7 @@
          "reference": "OutlineOnLightTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightTransparentAccentActive",
          "value": {
-            "color": "0x561ECCA1"
+            "color": "0x52122654"
          }
       },
       {
@@ -19437,7 +19437,7 @@
          "reference": "OutlineOnLightAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccent",
          "value": {
-            "color": "0xFF1FCCA0"
+            "color": "0xFF122654"
          }
       },
       {
@@ -19448,7 +19448,7 @@
          "reference": "OutlineOnLightAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightAccentMinor",
          "value": {
-            "color": "0xFF73E5CA"
+            "color": "0xFF333F65"
          }
       },
       {
@@ -19459,7 +19459,7 @@
          "reference": "OutlineOnLightTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineOnLightTransparentAccent",
          "value": {
-            "color": "0x471FCCA0"
+            "color": "0x33122654"
          }
       },
       {
@@ -19657,7 +19657,7 @@
          "reference": "OutlineInverseAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentHover",
          "value": {
-            "color": "0xFF4DF5CB"
+            "color": "0xFF858585"
          }
       },
       {
@@ -19668,7 +19668,7 @@
          "reference": "OutlineInverseAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentActive",
          "value": {
-            "color": "0xFF0DE3AD"
+            "color": "0xFF666666"
          }
       },
       {
@@ -19679,7 +19679,7 @@
          "reference": "OutlineInverseAccentMinorHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentMinorHover",
          "value": {
-            "color": "0xFF4ABFA2"
+            "color": "0xFF878787"
          }
       },
       {
@@ -19690,7 +19690,7 @@
          "reference": "OutlineInverseAccentMinorActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentMinorActive",
          "value": {
-            "color": "0xFF308872"
+            "color": "0xFF5E5E5E"
          }
       },
       {
@@ -19701,7 +19701,7 @@
          "reference": "OutlineInverseTransparentAccentHover",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseTransparentAccentHover",
          "value": {
-            "color": "0xFF26F2BF"
+            "color": "0xB3FFFFFF"
          }
       },
       {
@@ -19712,7 +19712,7 @@
          "reference": "OutlineInverseTransparentAccentActive",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseTransparentAccentActive",
          "value": {
-            "color": "0x5626F2BF"
+            "color": "0x2BFFFFFF"
          }
       },
       {
@@ -20262,7 +20262,7 @@
          "reference": "OutlineInverseAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccent",
          "value": {
-            "color": "0xFF24F2BF"
+            "color": "0xFFFFFFFF"
          }
       },
       {
@@ -20273,7 +20273,7 @@
          "reference": "OutlineInverseAccentMinor",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseAccentMinor",
          "value": {
-            "color": "0xFF3AA68B"
+            "color": "0xFFD8D8D8"
          }
       },
       {
@@ -20284,7 +20284,7 @@
          "reference": "OutlineInverseTransparentAccent",
          "themeReference": "PlasmaGigaTheme.colors.outlineInverseTransparentAccent",
          "value": {
-            "color": "0x4724F2BF"
+            "color": "0x47FFFFFF"
          }
       },
       {
@@ -20869,8 +20869,8 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#5E94FFFF",
-               "#43DBFAFF"
+               "#7D98CFFF",
+               "#A9C6FFFF"
             ],
             "angle": 90.0
          }
@@ -21061,8 +21061,8 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#5E94FFFF",
-               "#43DBFAFF"
+               "#7D98CFFF",
+               "#A9C6FFFF"
             ],
             "angle": 90.0
          }
@@ -21253,14 +21253,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -21449,14 +21445,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -21741,8 +21733,8 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#7D98CFFF",
+               "#A9C6FFFF"
             ],
             "angle": 90.0
          }
@@ -22177,14 +22169,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#7D98CFFF",
+               "#A9C6FFFF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -22617,14 +22605,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -23057,14 +23041,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -24361,8 +24341,8 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
             "angle": 90.0
          }
@@ -24553,8 +24533,8 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#5E94FFFF",
-               "#43DBFAFF"
+               "#7D98CFFF",
+               "#A9C6FFFF"
             ],
             "angle": 90.0
          }
@@ -24745,14 +24725,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -24941,14 +24917,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#5E94FFFF",
-               "#43DBFAFF"
+               "#7D98CFFF",
+               "#A9C6FFFF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -25233,8 +25205,8 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
             "angle": 90.0
          }
@@ -25669,14 +25641,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#7D98CFFF",
+               "#A9C6FFFF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -26109,14 +26077,10 @@
          "value": {
             "kind": "linear",
             "colors": [
-               "#3E79F0FF",
-               "#27C6E5FF"
+               "#122654FF",
+               "#2D5FD2FF"
             ],
-            "locations": [
-               0.06,
-               0.94
-            ],
-            "angle": 94.0
+            "angle": 90.0
          }
       },
       {
@@ -26548,7 +26512,11 @@
          "themeReference": "PlasmaGigaTheme.gradients.surfaceInverseAccentGradient",
          "value": {
             "kind": "linear",
-            "angle": 94.0
+            "colors": [
+               "#7D98CFFF",
+               "#A9C6FFFF"
+            ],
+            "angle": 90.0
          }
       },
       {
@@ -28305,7 +28273,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -28321,7 +28289,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -28817,7 +28785,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -29169,7 +29137,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -29185,7 +29153,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -29681,7 +29649,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -30033,7 +30001,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -30049,7 +30017,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
@@ -30545,7 +30513,7 @@
             "fontStyle": "normal",
             "textSize": 32.0,
             "lineHeight": 38.0,
-            "letterSpacing": 0.0
+            "letterSpacing": -0.01
          }
       },
       {
