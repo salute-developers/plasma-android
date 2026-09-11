@@ -74,9 +74,9 @@ private val NumberPanelStyleBuilder.invariantProps: NumberPanelStyleBuilder
     @Composable
     get() = this
         .colors {
-            valueColor(PlasmaHomeDsTheme.colors.textOnLightParagraph)
-            fractionColor(PlasmaHomeDsTheme.colors.textOnLightParagraph)
-            iconColor(PlasmaHomeDsTheme.colors.textOnLightParagraph)
+            valueColor(PlasmaHomeDsTheme.colors.textInverseParagraph)
+            fractionColor(PlasmaHomeDsTheme.colors.textInverseParagraph)
+            iconColor(PlasmaHomeDsTheme.colors.textInverseParagraph)
         }
 
 public val NumberPanel.Xs: WrapperNumberPanelXs

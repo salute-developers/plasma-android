@@ -84,6 +84,12 @@ interface CardStyleBuilder : StyleBuilder<CardStyle> {
      */
     @Composable
     fun dimensions(builder: @Composable CardDimensionsBuilder.() -> Unit): CardStyleBuilder
+
+    /**
+     * Устанавливает значение прозрачности выключенной карточки [disableAlpha]
+     * @see CardStyle.disableAlpha
+     */
+    fun disableAlpha(disableAlpha: Float): CardStyleBuilder
 }
 
 /**
@@ -457,6 +463,7 @@ private class DefaultCardStyle(
     override val titleStyle: TextStyle,
     override val subtitleStyles: StatefulValue<TextStyle>,
     override val orientation: CardOrientation,
+    override val disableAlpha: Float,
 ) : CardStyle
 
 internal class DefaultCardStyleBuilderImpl(receiver: Any?) : CardStyleBuilder {
@@ -468,6 +475,7 @@ internal class DefaultCardStyleBuilderImpl(receiver: Any?) : CardStyleBuilder {
     private var titleStyle: TextStyle? = null
     private var subtitleStyle: StatefulValue<TextStyle>? = null
     private var dimensionsBuilder: CardDimensionsBuilder = CardDimensionsBuilder.builder()
+    private var disableAlpha: Float? = null
 
     @Composable
     override fun colors(
@@ -512,6 +520,10 @@ internal class DefaultCardStyleBuilderImpl(receiver: Any?) : CardStyleBuilder {
         this.dimensionsBuilder.builder()
     }
 
+    override fun disableAlpha(disableAlpha: Float) = apply {
+        this.disableAlpha = disableAlpha
+    }
+
     override fun style(): CardStyle {
         return DefaultCardStyle(
             colors = colorsBuilder.build(),
@@ -522,6 +534,9 @@ internal class DefaultCardStyleBuilderImpl(receiver: Any?) : CardStyleBuilder {
             subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
             dimensions = dimensionsBuilder.build(),
             orientation = orientation ?: CardOrientation.Vertical,
+            disableAlpha = disableAlpha ?: DISABLED_CARD_ALPHA,
         )
     }
 }
+
+private const val DISABLED_CARD_ALPHA = 0.4f

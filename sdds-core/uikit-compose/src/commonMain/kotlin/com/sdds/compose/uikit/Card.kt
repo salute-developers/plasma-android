@@ -103,6 +103,7 @@ fun Card(
                     shape = shape,
                     onClick = onClick,
                     enabled = enabled,
+                    alpha = { if (it) 1f else style.disableAlpha },
                     indication = indication,
                     interactionSource = interactionSource,
                 )
@@ -163,6 +164,7 @@ fun Card(
             shape = shape,
             onClick = onClick,
             enabled = enabled,
+            alpha = { if (it) 1f else style.disableAlpha },
             indication = indication,
             interactionSource = interactionSource,
         )

@@ -11,6 +11,11 @@ import com.sdds.sandbox.ComponentProvider
 val NumberPanelKey = ComponentKey("NumberPanel", ComponentGroup("Data Entry", 1))
 
 /**
+ *  Ключ для компонента NumberPanel
+ */
+val CardWithNumbersKey = ComponentKey("CardWithNumbers", ComponentGroup("Data Display", 0))
+
+/**
  *  Компоненты
  */
 object PlasmaHomedsComposeCustomComponents : ComponentProvider() {
@@ -21,6 +26,12 @@ object PlasmaHomedsComposeCustomComponents : ComponentProvider() {
                 NumberPanelKey,
                 mapOf(
                     "NumberPanel" to PlasmaHomedsNumberPanelVariationsCompose,
+                ),
+            ),
+            Component(
+                CardWithNumbersKey,
+                mapOf(
+                    "CardWithNumbers" to PlasmaHomedsCardWithNumbersVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }
