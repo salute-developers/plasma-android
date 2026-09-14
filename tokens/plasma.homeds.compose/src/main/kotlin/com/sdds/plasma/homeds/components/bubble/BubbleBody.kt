@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.util.lerp
@@ -136,16 +137,17 @@ internal fun BubbleBody(entry: BubbleOverlayEntry, circleSize: Dp, motion: Motio
                         with(glowPainter) { draw(path, glowLayer.color, glowRadiusPx, alpha = bodyAlpha) }
                     }
                 }
-            }
-            .clickable(
-                interactionSource = interactionSource,
-                indication = null,
-                onClick = entry.onBodyClick,
-            ),
+            },
     ) {
         Box(modifier = Modifier.padding(reservedPadding)) {
             Box(
                 modifier = bodyMinSizeModifier
+                    .testTag(BUBBLE_BODY_BUTTON_TEST_TAG)
+                    .clickable(
+                        interactionSource = interactionSource,
+                        indication = null,
+                        onClick = entry.onBodyClick,
+                    )
                     .padding(contentPadding)
                     .graphicsLayer { alpha = entry.expandProgress().coerceIn(0f, 1f) },
             ) {
@@ -162,9 +164,11 @@ internal fun BubbleBody(entry: BubbleOverlayEntry, circleSize: Dp, motion: Motio
             modifier = Modifier
                 .align(badgeAlignment)
                 .size(circleSize)
+                .testTag(BUBBLE_CLOSE_BUTTON_TEST_TAG)
                 .clickable(
                     interactionSource = closeInteractionSource,
                     indication = null,
+                    enabled = !entry.isAnimationRunning(),
                     onClick = entry.onCloseClick,
                 ),
             contentAlignment = Alignment.Center,
@@ -185,6 +189,9 @@ internal fun BubbleBody(entry: BubbleOverlayEntry, circleSize: Dp, motion: Motio
         }
     }
 }
+
+internal const val BUBBLE_BODY_BUTTON_TEST_TAG = "bubble_body_button"
+internal const val BUBBLE_CLOSE_BUTTON_TEST_TAG = "bubble_close_button"
 
 /**
  * Позиция круга-якоря внутри overlay-бокса для выравнивания бейджа-крестика через `Modifier.align`.

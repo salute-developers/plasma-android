@@ -103,6 +103,7 @@ internal class BubbleOverlayEntry(
     val iconMorphProgress: () -> Float,
     val rotationProgress: () -> Float,
     val bounceProgress: () -> Float,
+    val isAnimationRunning: () -> Boolean,
     val placement: BubblePlacement,
     val alignment: BubbleAlignment,
     val style: BubbleStyle,

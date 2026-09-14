@@ -3,23 +3,37 @@ package com.sdds.plasma.homeds
 import android.app.Application
 import android.content.pm.ActivityInfo
 import androidx.activity.ComponentActivity
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.test.click
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.unit.dp
 import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.homeds.components.bubble.BUBBLE_BODY_BUTTON_TEST_TAG
+import com.sdds.plasma.homeds.components.bubble.BUBBLE_CLOSE_BUTTON_TEST_TAG
 import com.sdds.plasma.homeds.components.bubble.BubbleHost
+import com.sdds.plasma.homeds.components.bubble.BubbleHostState
 import com.sdds.plasma.homeds.components.bubble.BubbleTrigger
 import com.sdds.plasma.homeds.styles.customcomponents.bubble.Bubble
 import com.sdds.plasma.homeds.styles.customcomponents.bubble.Default
@@ -111,6 +125,126 @@ class ComposeBubbleBehaviorTest {
     }
 
     @Test
+    fun closeClickIsIgnoredWhileExpansionAnimationIsRunning() {
+        var dismissRequestCount = 0
+        composeTestRule.mainClock.autoAdvance = false
+        composeTestRule.content {
+            BubbleHost(modifier = Modifier.size(100.dp)) {
+                BubbleTrigger(
+                    onExpandedClick = {},
+                    expanded = true,
+                    onDismissRequest = { dismissRequestCount++ },
+                    style = Bubble.Default.style(),
+                ) {
+                    Text(text = BODY_TEXT)
+                }
+            }
+        }
+
+        composeTestRule.mainClock.advanceTimeBy(MID_ANIMATION_MS)
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithTag(BUBBLE_CLOSE_BUTTON_TEST_TAG).performClick()
+        composeTestRule.runOnIdle { assertEquals(0, dismissRequestCount) }
+
+        composeTestRule.mainClock.advanceTimeBy(ANIMATION_SETTLE_MS)
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithTag(BUBBLE_CLOSE_BUTTON_TEST_TAG).performClick()
+
+        composeTestRule.runOnIdle { assertEquals(1, dismissRequestCount) }
+    }
+
+    @Test
+    fun clickOutsideBodyDoesNotInvokeExpandedClick() {
+        var expandedClickCount = 0
+        composeTestRule.mainClock.autoAdvance = false
+        composeTestRule.content {
+            BubbleHost(modifier = Modifier.size(300.dp)) {
+                Box(modifier = Modifier.offset(100.dp, 150.dp)) {
+                    BubbleTrigger(
+                        onExpandedClick = { expandedClickCount++ },
+                        expanded = true,
+                        style = Bubble.Default.style(),
+                    ) {
+                        Text(text = BODY_TEXT)
+                    }
+                }
+            }
+        }
+
+        composeTestRule.mainClock.advanceTimeBy(ANIMATION_SETTLE_MS)
+        composeTestRule.waitForIdle()
+        val bodyBounds = composeTestRule.onNodeWithTag(BUBBLE_BODY_BUTTON_TEST_TAG)
+            .fetchSemanticsNode().boundsInRoot
+        val closeBounds = composeTestRule.onNodeWithTag(BUBBLE_CLOSE_BUTTON_TEST_TAG)
+            .fetchSemanticsNode().boundsInRoot
+        val transparentAreaPosition = Offset(
+            x = bodyBounds.left + bodyBounds.width / 4f,
+            y = closeBounds.center.y,
+        )
+
+        composeTestRule.onRoot().performTouchInput { click(transparentAreaPosition) }
+        composeTestRule.runOnIdle { assertEquals(0, expandedClickCount) }
+
+        composeTestRule.onNodeWithTag(BUBBLE_BODY_BUTTON_TEST_TAG).performClick()
+        composeTestRule.runOnIdle { assertEquals(1, expandedClickCount) }
+    }
+
+    @Test
+    fun expandedBodyIsDisplayedOnlyWhileTriggerIsFullyVisible() {
+        val scrollState = ScrollState(0)
+        val hostState = BubbleHostState()
+        val visibilityEvents = mutableListOf<Boolean>()
+        var scrollDistancePx = 0f
+        composeTestRule.mainClock.autoAdvance = false
+        composeTestRule.content {
+            scrollDistancePx = with(LocalDensity.current) { SCROLL_DISTANCE.toPx() }
+            BubbleHost(modifier = Modifier.size(100.dp), state = hostState) {
+                Column(modifier = Modifier.verticalScroll(scrollState)) {
+                    BubbleTrigger(
+                        onExpandedClick = {},
+                        expanded = true,
+                        onTriggerVisibilityChange = visibilityEvents::add,
+                        style = Bubble.Default.style(),
+                    ) {
+                        Text(text = BODY_TEXT)
+                    }
+                    Spacer(modifier = Modifier.height(300.dp))
+                }
+            }
+        }
+
+        composeTestRule.mainClock.advanceTimeBy(ANIMATION_SETTLE_MS)
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithText(BODY_TEXT).assertExists()
+
+        composeTestRule.runOnIdle { scrollState.dispatchRawDelta(scrollDistancePx) }
+        composeTestRule.mainClock.advanceTimeBy(SCROLL_SETTLE_MS)
+        composeTestRule.waitForIdle()
+        assertEquals(listOf(true, false), visibilityEvents)
+        assertEquals(0, hostState.entries.size)
+        composeTestRule.mainClock.advanceTimeByFrame()
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithText(BODY_TEXT).assertDoesNotExist()
+
+        composeTestRule.runOnIdle { scrollState.dispatchRawDelta(-scrollDistancePx / 2f) }
+        composeTestRule.mainClock.advanceTimeBy(SCROLL_SETTLE_MS)
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithText(BODY_TEXT).assertDoesNotExist()
+
+        composeTestRule.runOnIdle { scrollState.dispatchRawDelta(-scrollDistancePx / 2f) }
+        composeTestRule.mainClock.advanceTimeBy(SCROLL_SETTLE_MS)
+        composeTestRule.waitForIdle()
+        composeTestRule.mainClock.advanceTimeByFrame()
+        composeTestRule.waitForIdle()
+        assertEquals(0, scrollState.value)
+        assertEquals(listOf(true, false, true), visibilityEvents)
+        assertEquals(1, hostState.entries.size)
+        composeTestRule.mainClock.advanceTimeByFrame()
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithText(BODY_TEXT).assertExists()
+    }
+
+    @Test
     fun visibilityIsDistinctAndBecomesFalseWhenTriggerIsRemoved() {
         val offset = mutableStateOf(0.dp)
         val show = mutableStateOf(true)
@@ -185,3 +319,6 @@ private const val BODY_TEXT = "Bubble body"
 private const val FIRST_BODY_TEXT = "First bubble body"
 private const val SECOND_BODY_TEXT = "Second bubble body"
 private const val ANIMATION_SETTLE_MS = 700L
+private const val MID_ANIMATION_MS = 100L
+private const val SCROLL_SETTLE_MS = 100L
+private val SCROLL_DISTANCE = 40.dp

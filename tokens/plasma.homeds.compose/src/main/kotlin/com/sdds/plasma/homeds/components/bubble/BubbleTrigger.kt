@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.onLayoutRectChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.contentDescription
@@ -139,17 +140,27 @@ public fun BubbleTrigger(
         val visible = coordinates.isFullyVisibleIn(rootCoordinates)
         if (visible != triggerVisible) {
             triggerVisible = visible
+            if (!visible) {
+                hostState?.unregister(key)
+            }
             currentOnTriggerVisibilityChange.value?.invoke(visible)
         }
     }
 
-    // Ключ только rootCoordinates (меняется редко — поворот/инсеты/ресайз хоста): onGloballyPositioned
-    // ниже и так синхронно пересчитывает видимость при каждом изменении позиции самого триггера,
-    // а triggerCoordinates — новый объект на каждый layout-проход (в т.ч. каждый кадр скролла сетки),
-    // поэтому не должен быть ключом/Snapshot-state — иначе пересоздание корутины и рекомпозиция
-    // BubbleTrigger на каждый кадр скролла для каждого триггера в списке.
+    fun updateTriggerLayout(coordinates: LayoutCoordinates?) {
+        if (coordinates == null) return
+        triggerCoordinatesRef.value = coordinates
+        val root = hostState?.rootCoordinates
+        if (root != null && root.isAttached) {
+            anchorPosition = root.localPositionOf(coordinates, Offset.Zero)
+        }
+        updateTriggerVisibility(coordinates)
+    }
+
+    // Ключ только rootCoordinates (меняется редко — поворот/инсеты/ресайз хоста).
+    // Позиция самого триггера при скролле отслеживается через onLayoutRectChanged ниже.
     LaunchedEffect(rootCoordinates) {
-        updateTriggerVisibility(triggerCoordinatesRef.value)
+        updateTriggerLayout(triggerCoordinatesRef.value)
     }
 
     DisposableEffect(hostState, key) {
@@ -163,7 +174,11 @@ public fun BubbleTrigger(
     }
 
     if (hostState != null) {
-        LaunchedEffect(hostState, key) {
+        LaunchedEffect(hostState, key, triggerVisible) {
+            if (!triggerVisible) {
+                hostState.unregister(key)
+                return@LaunchedEffect
+            }
             snapshotFlow { currentExpanded.value || expandProgress.value > 0f }
                 .distinctUntilChanged()
                 .collect { visible ->
@@ -188,6 +203,12 @@ public fun BubbleTrigger(
                                 iconMorphProgress = { iconMorph.value },
                                 rotationProgress = { rotationProgress.value },
                                 bounceProgress = { bounceProgress.value },
+                                isAnimationRunning = {
+                                    expandProgress.isRunning ||
+                                        iconMorph.isRunning ||
+                                        rotationProgress.isRunning ||
+                                        bounceProgress.isRunning
+                                },
                                 placement = resolvedPlacement,
                                 alignment = resolvedAlignment,
                                 style = currentStyle.value,
@@ -206,13 +227,9 @@ public fun BubbleTrigger(
     Box(
         modifier = modifier
             .size(circleSize)
-            .onGloballyPositioned { coordinates ->
-                triggerCoordinatesRef.value = coordinates
-                val root = hostState?.rootCoordinates
-                if (root != null && root.isAttached) {
-                    anchorPosition = root.localPositionOf(coordinates, Offset.Zero)
-                }
-                updateTriggerVisibility(coordinates)
+            .onGloballyPositioned(::updateTriggerLayout)
+            .onLayoutRectChanged(throttleMillis = 0, debounceMillis = 0) {
+                updateTriggerLayout(triggerCoordinatesRef.value)
             },
     ) {
         val bodyBrush by style.colors.bodyBrush.getBrushAsState(badgeMotion.context, badgeMotion.style.bodyColor)
