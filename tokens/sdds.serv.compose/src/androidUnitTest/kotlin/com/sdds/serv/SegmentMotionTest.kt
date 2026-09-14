@@ -55,6 +55,7 @@ import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.SegmentHorizontal
 import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
+import com.sdds.compose.uikit.SegmentScope
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentVertical
 import com.sdds.compose.uikit.basicButtonBuilder
@@ -77,6 +78,11 @@ import com.sdds.compose.uikit.motion.components.segment.rememberSegmentMotion
 import com.sdds.compose.uikit.motion.finite
 import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.compose.uikit.motion.transition
+import com.sdds.compose.uikit.style.style
+import com.sdds.serv.styles.segment.M
+import com.sdds.serv.styles.segment.Primary
+import com.sdds.serv.styles.segment.Segment
+import com.sdds.serv.styles.segment.Xl
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -312,6 +318,28 @@ class SegmentMotionTest {
     }
 
     @Test
+    fun itemsRemainAfterContainerStyleReplacement() {
+        var compact by mutableStateOf(false)
+        compose.content {
+            val style = if (compact) Segment.M.Primary.style() else Segment.Xl.Primary.style()
+            Column {
+                SegmentHorizontal(style = style, stretch = false) {
+                    TestSegmentItems("horizontalItem")
+                }
+                SegmentVertical(style = style) {
+                    TestSegmentItems("verticalItem")
+                }
+            }
+        }
+
+        compose.onNodeWithTag("horizontalItem").assertExists()
+        compose.onNodeWithTag("verticalItem").assertExists()
+        compose.runOnIdle { compact = true }
+        compose.onNodeWithTag("horizontalItem").assertExists()
+        compose.onNodeWithTag("verticalItem").assertExists()
+    }
+
+    @Test
     fun containerMotionAnimatesGapAndBackgroundFromLocalStyle() {
         val semantic = MutableSemanticStateSource()
         val localMotion = SegmentMotionStyle.builder()
@@ -513,6 +541,11 @@ class SegmentMotionTest {
     private fun colorWidth(color: Color, tag: String = "item"): Int {
         val pixels = pixels(tag)
         return (0 until pixels.width).count { x -> (0 until pixels.height).any { y -> pixels[x, y] == color } }
+    }
+
+    @Composable
+    private fun SegmentScope.TestSegmentItems(tag: String) {
+        segmentItem { Box(Modifier.size(10.dp).testTag(tag)) }
     }
 
     private fun pixels(tag: String): androidx.compose.ui.graphics.PixelMap {

@@ -94,7 +94,7 @@ fun SegmentHorizontal(
         motion.context,
         motion.style.dividerPaddingEnd,
     )
-    val segmentScope = remember { SegmentScopeImpl() }
+    val segmentScope = SegmentScopeImpl()
     val stretchModifier = if (stretch) Modifier.fillMaxWidth() else Modifier
     Row(
         modifier = Modifier
@@ -145,7 +145,6 @@ fun SegmentHorizontal(
                     }
                 }
             }
-            segmentScope.reset()
         }
     }
 }
@@ -214,7 +213,7 @@ fun SegmentVertical(
         motion.context,
         motion.style.dividerPaddingEnd,
     )
-    val segmentScope = remember { SegmentScopeImpl() }
+    val segmentScope = SegmentScopeImpl()
     Column(
         modifier = Modifier
             .then(modifier)
@@ -255,7 +254,6 @@ fun SegmentVertical(
                     is SegmentItem.Item -> item.content.invoke()
                 }
             }
-            segmentScope.reset()
         }
     }
 }
@@ -288,10 +286,6 @@ private class SegmentScopeImpl : SegmentScope {
 
     override fun divider(content: @Composable () -> Unit) {
         _segmentItems.add(SegmentItem.Divider(content))
-    }
-
-    fun reset() {
-        _segmentItems.clear()
     }
 }
 
