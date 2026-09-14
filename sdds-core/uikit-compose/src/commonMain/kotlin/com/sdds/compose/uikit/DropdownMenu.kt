@@ -698,7 +698,6 @@ private fun ReloadState(
     Button(
         label = reloadLabel ?: "",
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth(),
         style = style.buttonStyle,
         spacing = ButtonSpacing.Packed,
         interactionSource = interactionSource,
