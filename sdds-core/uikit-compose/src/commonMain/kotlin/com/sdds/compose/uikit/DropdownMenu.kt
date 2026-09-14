@@ -589,6 +589,7 @@ fun FooterLoadingState(
     reloadIconSource: ImageSource? = null,
     reloadLabel: String? = null,
     onClick: (() -> Unit) = {},
+    onClickLabel: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     when (loadingState) {
@@ -607,6 +608,7 @@ fun FooterLoadingState(
             reloadLabel = reloadLabel,
             iconSource = reloadIconSource,
             onClick = onClick,
+            onClickLabel = onClickLabel,
             interactionSource = interactionSource,
         )
 
@@ -692,6 +694,7 @@ private fun ReloadState(
     reloadLabel: String? = null,
     interactionSource: MutableInteractionSource,
     onClick: (() -> Unit) = {},
+    onClickLabel: String? = null,
     iconSource: ImageSource? = null,
 ) {
     if (reloadLabel == null && iconSource == null) return
@@ -701,6 +704,7 @@ private fun ReloadState(
         style = style.buttonStyle,
         spacing = ButtonSpacing.Packed,
         interactionSource = interactionSource,
+        onClickLabel = onClickLabel,
         icons = iconSource?.let {
             ButtonIcons(
                 startSource = it,
