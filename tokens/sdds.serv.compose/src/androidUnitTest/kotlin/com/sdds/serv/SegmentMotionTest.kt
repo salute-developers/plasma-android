@@ -167,6 +167,24 @@ class SegmentMotionTest {
     }
 
     @Test
+    fun emptyValueDoesNotShiftLabelFromCenter() {
+        compose.setContent {
+            SegmentItem(
+                label = "Label",
+                value = "",
+                style = itemStyle(),
+                modifier = Modifier.testTag("item"),
+            )
+        }
+
+        val itemBounds = compose.onNodeWithTag("item").getUnclippedBoundsInRoot()
+        val labelBounds = compose.onNodeWithText("Label", useUnmergedTree = true).getUnclippedBoundsInRoot()
+        val itemCenter = (itemBounds.left + itemBounds.right) / 2
+        val labelCenter = (labelBounds.left + labelBounds.right) / 2
+        assertEquals(itemCenter.value, labelCenter.value, 0.5f)
+    }
+
+    @Test
     fun combinedStatesAndStyleReplacementUseOriginalSources() {
         var selected by mutableStateOf(true)
         var baseColor by mutableStateOf(Color.Red)

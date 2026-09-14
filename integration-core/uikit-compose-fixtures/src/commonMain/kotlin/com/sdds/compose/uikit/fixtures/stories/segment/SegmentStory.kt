@@ -159,7 +159,11 @@ private fun SegmentScope.SegmentItems(
                         onClick(id)
                     },
                 isSelected = isChecked(id),
-                valueContent = { Text(uiState.value) },
+                valueContent = if (uiState.value.isNotEmpty()) {
+                    { Text(uiState.value) }
+                } else {
+                    null
+                },
                 startContent = startIcon(uiState.startIcon),
                 endContent = endContent(uiState, semanticStateSource),
                 enabled = uiState.enabled,

@@ -217,7 +217,7 @@ fun SegmentItem(
         modifier = modifier,
         isSelected = isSelected,
         style = style,
-        valueContent = if (value != null) {
+        valueContent = if (!value.isNullOrEmpty()) {
             { Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis) }
         } else {
             null
