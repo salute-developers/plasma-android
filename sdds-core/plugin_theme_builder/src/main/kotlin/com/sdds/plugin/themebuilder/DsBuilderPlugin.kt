@@ -41,7 +41,7 @@ class DsBuilderPlugin : Plugin<Project> {
             componentsExtension = {
                 extension.components
                     .takeIf { it.enabled.get() }
-                    ?.toLegacyExtension()
+                    ?.toLegacyExtension(extension)
             },
         )
         project.configureDocumentation(extension)
@@ -253,10 +253,13 @@ private fun ThemeCapability.toLegacyExtension(root: DsBuilderExtension): ThemeBu
         legacy.useDefaultFonts = useDefaultFonts.get()
     }
 
-private fun ComponentsCapability.toLegacyExtension(): ThemeBuilderExtension =
+private fun ComponentsCapability.toLegacyExtension(root: DsBuilderExtension): ThemeBuilderExtension =
     ThemeBuilderExtension().also { legacy ->
         copyGenerationOptionsTo(legacy)
         legacy.componentSource = source.orNull
+            ?: root.sddsDirectory.get().asFile.let { sddsDirectory ->
+                SddsComponentsSourceReader(sddsDirectory).read()
+            }
         legacy.componentsMetaStyleClass = componentsMetaStyleClass.get()
         legacy.autoGenerate = autoGenerate.get()
     }

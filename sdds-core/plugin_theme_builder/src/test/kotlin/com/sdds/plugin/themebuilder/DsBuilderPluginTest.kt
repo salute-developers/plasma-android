@@ -663,6 +663,57 @@ class DsBuilderPluginTest {
     }
 
     @Test
+    fun `components capability falls back to local sdds components when source is not set`() {
+        val projectDir = temporaryFolder.root
+        projectDir.resolve(".sdds/components").mkdirs()
+        projectDir.resolve(".sdds/components/meta.json").writeText(
+            """{ "name": "LocalComponents", "version": "1.0.0", "components": [] }""",
+        )
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.configurations.create("compileClasspath")
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).components {
+            compose()
+            autoGenerate.set(false)
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        val task = project.tasks.getByName("generateComponents") as GenerateComponentsTask
+        assertEquals(
+            projectDir.resolve(".sdds/components").canonicalFile,
+            task.componentsDir.get().asFile.canonicalFile,
+        )
+        assertEquals("LocalComponents", task.themeName.get())
+        assertNull(project.tasks.findByName("fetchComponents"))
+        assertNull(project.tasks.findByName("unpackComponentFiles"))
+    }
+
+    @Test
+    fun `explicit components source is not replaced by local sdds components`() {
+        val projectDir = temporaryFolder.root
+        projectDir.resolve(".sdds/components").mkdirs()
+        projectDir.resolve(".sdds/components/meta.json").writeText(
+            """{ "name": "LocalComponents", "version": "1.0.0", "components": [] }""",
+        )
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.configurations.create("compileClasspath")
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).components {
+            compose()
+            source("https://example.com/components.zip")
+            autoGenerate.set(false)
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        assertNotNull(project.tasks.findByName("fetchComponents"))
+        assertNotNull(project.tasks.findByName("unpackComponentFiles"))
+        val task = project.tasks.getByName("generateComponents") as GenerateComponentsTask
+        assertEquals("Default", task.themeName.get())
+    }
+
+    @Test
     fun `multiplatform sandbox generates into wired common source set`() {
         val projectDir = temporaryFolder.newFolder("kmp-sandbox")
         createSandboxMetadata(projectDir, "config-info-compose.json")

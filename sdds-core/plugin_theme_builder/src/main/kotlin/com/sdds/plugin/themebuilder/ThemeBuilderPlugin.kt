@@ -6,8 +6,12 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isComposeOrAll
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import org.gradle.api.GradleException
 import org.gradle.api.Project
+import org.gradle.api.Task
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.attributes.Attribute
 import org.gradle.api.file.Directory
@@ -98,21 +102,49 @@ internal class ThemeBuilderPlugin {
                     readUikitComposeApiMetaTask.configureUikitComposeApiMetaTask(compileClasspath)
                     readUikitApiMetaTask.configureUikitApiMetaTask(compileClasspath)
                 }
-                val fetchComponentsTask = registerFetchAndUnzipComponents(components, componentsZip)
-                fetchComponentsTask?.let {
-                    val generateComponents = registerGenerateComponentsTask(
-                        components,
-                        it,
-                        readUikitComposeApiMetaTask,
-                        readUikitApiMetaTask,
+                val componentsInput = registerFetchAndUnzipComponents(components, componentsZip)
+                componentsInput?.let {
+                    registerComponentsBuilder(
+                        extension = components,
+                        componentsInput = it,
+                        readUikitComposeApiMetaTask = readUikitComposeApiMetaTask,
+                        readUikitApiMetaTask = readUikitApiMetaTask,
                     )
-                    if (components.autoGenerate) {
-                        tasks.matching { task -> task.name == "preBuild" }.configureEach {
-                            dependsOn(generateComponents)
-                        }
-                    }
                 }
             }
+        }
+    }
+
+    private fun Project.registerComponentsBuilder(
+        extension: ThemeBuilderExtension,
+        componentsInput: ComponentsInput,
+        readUikitComposeApiMetaTask: TaskProvider<UikitComposeApiMetaTask>,
+        readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
+    ) {
+        fun register(taskName: String, target: ThemeBuilderTarget?) = registerGenerateComponentsTask(
+            taskName = taskName,
+            target = target,
+            extension = extension,
+            componentsInput = componentsInput,
+            readUikitComposeApiMetaTask = readUikitComposeApiMetaTask,
+            readUikitApiMetaTask = readUikitApiMetaTask,
+        )
+
+        val generateComponents = register("generateComponents", extension.target)
+        if (extension.autoGenerate) {
+            tasks.matching { task -> task.name == "preBuild" }.configureEach {
+                dependsOn(generateComponents)
+            }
+        }
+
+        // Пер-платформенные таски — см. комментарий в registerThemeBuilder: сиблинги для внешнего
+        // вызывающего, не участвуют в preBuild.
+        val target = extension.target
+        if (target?.isComposeOrAll == true) {
+            register("generateComposeComponents", ThemeBuilderTarget.COMPOSE)
+        }
+        if (target?.isViewSystemOrAll == true) {
+            register("generateViewComponents", ThemeBuilderTarget.VIEW_SYSTEM)
         }
     }
 
@@ -187,25 +219,42 @@ internal class ThemeBuilderPlugin {
     private fun Project.registerFetchAndUnzipComponents(
         extension: ThemeBuilderExtension,
         outputZip: Provider<RegularFile>,
-    ): TaskProvider<Copy>? {
+    ): ComponentsInput? {
         val source = extension.componentSource
             ?: run {
                 logger.warn("componentSource not specified")
                 return null
             }
-        val fetchComponentsTask = registerFileFetcher(
-            taskName = "fetchComponents",
-            url = getComponentsUrl(source),
-            output = outputZip,
-        )
-        val unzipTask = registerUnzip(
-            taskName = "unpackComponentFiles",
-            zipFile = outputZip,
-            outputPath = COMPONENTS_PATH,
-            dependsOnTask = fetchComponentsTask,
-        )
-        return unzipTask
+        return when (source) {
+            is ThemeBuilderSource.LocalDirectory -> ComponentsInput(
+                componentsDir = project.layout.dir(project.provider { source.directory }),
+                dependsOnTask = null,
+            )
+            is ThemeBuilderSource.NameAndVersion, is ThemeBuilderSource.Url -> {
+                val fetchComponentsTask = registerFileFetcher(
+                    taskName = "fetchComponents",
+                    url = getComponentsUrl(source),
+                    output = outputZip,
+                )
+                val unzipTask = registerUnzip(
+                    taskName = "unpackComponentFiles",
+                    zipFile = outputZip,
+                    outputPath = COMPONENTS_PATH,
+                    dependsOnTask = fetchComponentsTask,
+                )
+                ComponentsInput(componentsDir = getComponentsDir(), dependsOnTask = unzipTask)
+            }
+        }
     }
+
+    /**
+     * Директория с конфигами компонентов и таска, которую нужно дождаться перед генерацией — `null` для
+     * локального `.sdds/components`, где fetch/unzip не регистрируются.
+     */
+    private data class ComponentsInput(
+        val componentsDir: Provider<Directory>,
+        val dependsOnTask: Any?,
+    )
 
     private fun Project.registerFetchAndUnzipTheme(
         themeOutputZip: Provider<RegularFile>,
@@ -230,15 +279,18 @@ internal class ThemeBuilderPlugin {
         return unzipTask
     }
 
+    @Suppress("LongParameterList")
     private fun Project.registerGenerateComponentsTask(
+        taskName: String,
+        target: ThemeBuilderTarget?,
         extension: ThemeBuilderExtension,
-        fetchComponentsTask: TaskProvider<Copy>,
+        componentsInput: ComponentsInput,
         readUikitComposeApiMetaTask: TaskProvider<UikitComposeApiMetaTask>,
         readUikitApiMetaTask: TaskProvider<UikitApiMetaTask>,
     ): TaskProvider<GenerateComponentsTask> {
-        val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
+        val task = project.tasks.register<GenerateComponentsTask>(taskName) {
             group = TASK_GROUP
-            componentsDir.set(getComponentsDir())
+            componentsDir.set(componentsInput.componentsDir)
             outputDirPath.set(extension.outputLocation.getSourcePath(extension.multiplatform))
             outputResDirPath.set(extension.outputLocation.getResourcePath(extension.multiplatform))
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -249,14 +301,30 @@ internal class ThemeBuilderPlugin {
             resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
             themeName.set(extension.componentSource?.themeName)
             namespace.set(getProjectNameSpace())
-            target.set(extension.target)
+            this.target.set(target)
             componentsMetaStyleClass.set(extension.componentsMetaStyleClass)
             multiplatform.set(extension.multiplatform)
             uikitComposeApiMetaFile.set(readUikitComposeApiMetaTask.flatMap { it.outputFile })
             uikitApiMetaFile.set(readUikitApiMetaTask.flatMap { it.outputFile })
         }
-        task.dependsOn(fetchComponentsTask, readUikitComposeApiMetaTask, readUikitApiMetaTask)
+        task.dependsOn(readUikitComposeApiMetaTask, readUikitApiMetaTask)
+        componentsInput.dependsOnTask?.let { dependency -> task.configure { dependsOn(dependency) } }
+        finalizeWithSpotless(task)
         return task
+    }
+
+    /**
+     * Форматирует сгенерированный код через `spotlessApply`, если он зарегистрирован в модуле.
+     *
+     * `finalizedBy` запускает `spotlessApply` автоматически после генерации; отдельный `mustRunAfter`
+     * на всех `spotless*`-тасках нужен, потому что сам `finalizedBy` не устраивает Gradle как
+     * объявленная зависимость для его же проверки "implicit dependency" — `spotlessKotlin` читает
+     * `src/main/kotlin` целиком, включая только что сгенерированные файлы, и без `mustRunAfter`,
+     * заявленного со стороны spotless-таски, Gradle считает порядок недетерминированным и падает.
+     */
+    private fun Project.finalizeWithSpotless(generateTask: TaskProvider<out Task>) {
+        generateTask.configure { finalizedBy(tasks.matching { it.name == "spotlessApply" }) }
+        tasks.matching { it.name.startsWith("spotless") }.configureEach { mustRunAfter(generateTask) }
     }
 
     private fun Project.registerThemeBuilder(
@@ -268,24 +336,38 @@ internal class ThemeBuilderPlugin {
     ) {
         val themeFiles = getThemeFiles(themeSources)
 
-        val generateThemeTask =
-            registerThemeGenerator(
-                extension = extension,
-                paletteFile = paletteFile,
-                metaFile = themeFiles.metaFile,
-                tenants = themeFiles.tenants,
-                colorFiles = themeFiles.colorFiles,
-                typographyFiles = themeFiles.typographyFiles,
-                fontFiles = themeFiles.fontFiles,
-                shadowFiles = themeFiles.shadowFiles,
-                spacingFiles = themeFiles.spacingFiles,
-                gradientFiles = themeFiles.gradientFiles,
-                shapeFiles = themeFiles.shapeFiles,
-                unzipTasks = unzipThemeTasks,
-                themeName = themeSources.baseAlias,
-            )
+        fun register(taskName: String, target: ThemeBuilderTarget?) = registerThemeGenerator(
+            taskName = taskName,
+            target = target,
+            extension = extension,
+            paletteFile = paletteFile,
+            metaFile = themeFiles.metaFile,
+            tenants = themeFiles.tenants,
+            colorFiles = themeFiles.colorFiles,
+            typographyFiles = themeFiles.typographyFiles,
+            fontFiles = themeFiles.fontFiles,
+            shadowFiles = themeFiles.shadowFiles,
+            spacingFiles = themeFiles.spacingFiles,
+            gradientFiles = themeFiles.gradientFiles,
+            shapeFiles = themeFiles.shapeFiles,
+            unzipTasks = unzipThemeTasks,
+            themeName = themeSources.baseAlias,
+        )
+
+        val generateThemeTask = register("generateTheme", extension.target)
         if (dependOnPreBuild) {
             tasks.named("preBuild").dependsOn(generateThemeTask)
+        }
+
+        // Пер-платформенные таски — для внешнего вызывающего (CLI platform-delegate), который просит
+        // конкретную платформу и должен получить понятную ошибку "task not found", если модуль её не
+        // конфигурировал, а не молчаливую генерацию не той платформы. Не участвуют в preBuild.
+        val target = extension.target
+        if (target?.isComposeOrAll == true) {
+            register("generateComposeTheme", ThemeBuilderTarget.COMPOSE)
+        }
+        if (target?.isViewSystemOrAll == true) {
+            register("generateViewTheme", ThemeBuilderTarget.VIEW_SYSTEM)
         }
     }
 
@@ -437,8 +519,10 @@ internal class ThemeBuilderPlugin {
         }
     }
 
-    @Suppress("SpreadOperator")
+    @Suppress("SpreadOperator", "LongParameterList")
     private fun Project.registerThemeGenerator(
+        taskName: String,
+        target: ThemeBuilderTarget?,
         extension: ThemeBuilderExtension,
         paletteFile: File,
         metaFile: File,
@@ -453,7 +537,7 @@ internal class ThemeBuilderPlugin {
         shapeFiles: List<File>,
         themeName: String,
     ): TaskProvider<GenerateThemeTask> {
-        return project.tasks.register<GenerateThemeTask>("generateTheme") {
+        return project.tasks.register<GenerateThemeTask>(taskName) {
             group = TASK_GROUP
             this.paletteFile.fileValue(paletteFile)
             this.metaFile.fileValue(metaFile)
@@ -468,7 +552,7 @@ internal class ThemeBuilderPlugin {
             this.shapeFiles.setFrom(shapeFiles)
 
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
-            target.set(extension.target)
+            this.target.set(target)
             resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
             viewThemeParents.set(extension.viewThemeParents)
             viewShapeAppearanceConfig.set(extension.viewShapeAppearanceConfig)
@@ -485,7 +569,7 @@ internal class ThemeBuilderPlugin {
             useDefaultFonts.set(extension.useDefaultFonts)
             multiplatform.set(extension.multiplatform)
             dependsOn(*unzipTasks.toTypedArray())
-        }
+        }.also { finalizeWithSpotless(it) }
     }
 
     private fun Project.getResourcePrefixConfig(extension: ThemeBuilderExtension): ResourcePrefixConfig {
