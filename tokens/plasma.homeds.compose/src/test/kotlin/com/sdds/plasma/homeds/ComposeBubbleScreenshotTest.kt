@@ -40,7 +40,7 @@ class ComposeBubbleScreenshotTest(
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    fun testCollapsedShowsStarIcon() {
+    fun testCollapsedShowsBubbleStarIcon() {
         composeTestRule.mainClock.autoAdvance = false
         composeTestRule.content {
             BubbleHost {
