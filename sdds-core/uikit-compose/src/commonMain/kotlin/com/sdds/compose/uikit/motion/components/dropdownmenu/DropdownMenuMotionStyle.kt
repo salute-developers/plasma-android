@@ -21,6 +21,11 @@ val LocalDropdownMenuMotionStyle = compositionLocalOf { DropdownMenuMotionStyle.
 @Stable
 interface DropdownMenuMotionStyle : PopoverMotionStyle {
 
+    /**
+     * Анимация изменения кисти обводки
+     */
+    val strokeColor: MotionProperty<Brush>
+
     companion object {
         /**
          * Создает билдер для построения [DropdownMenuMotionStyle].
@@ -34,26 +39,41 @@ interface DropdownMenuMotionStyle : PopoverMotionStyle {
  */
 @Stable
 interface DropdownMenuMotionStyleBuilder : PopoverMotionStyleBuilder {
+
+    /**
+     * Устанавливает анимационное свойство цвета обводки DropdownMenu.
+     */
+    fun strokeColor(stroke: MotionProperty<Brush>): DropdownMenuMotionStyleBuilder
+
     /**
      * Устанавливает анимационное свойство цвета фона DropdownMenu.
      */
     override fun backgroundColor(background: MotionProperty<Brush>): DropdownMenuMotionStyleBuilder
+
     override fun style(): DropdownMenuMotionStyle
 }
 
 @Immutable
 private class DropdownMenuMotionStyleImpl(
     override val backgroundColor: MotionProperty<Brush>,
+    override val strokeColor: MotionProperty<Brush>,
 ) : DropdownMenuMotionStyle {
 
     class Builder : DropdownMenuMotionStyleBuilder {
         private var backgroundColor: MotionProperty<Brush>? = null
+        private var strokeColor: MotionProperty<Brush>? = null
+
+        override fun strokeColor(stroke: MotionProperty<Brush>) = apply {
+            this.strokeColor = stroke
+        }
 
         override fun backgroundColor(background: MotionProperty<Brush>) = apply {
             this.backgroundColor = background
         }
+
         override fun style(): DropdownMenuMotionStyle = DropdownMenuMotionStyleImpl(
             backgroundColor = backgroundColor ?: noMotion(),
+            strokeColor = strokeColor ?: noMotion(),
         )
     }
 }
