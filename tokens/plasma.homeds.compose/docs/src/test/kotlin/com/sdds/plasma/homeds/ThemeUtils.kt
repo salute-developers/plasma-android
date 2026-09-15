@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.core.view.WindowCompat
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.sdds.compose.uikit.DropdownMenu
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalBadgeStyle
@@ -26,6 +27,7 @@ import com.sdds.compose.uikit.LocalCircularProgressBarStyle
 import com.sdds.compose.uikit.LocalCollapsingNavigationBarStyle
 import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalDividerStyle
+import com.sdds.compose.uikit.LocalDropdownMenuStyle
 import com.sdds.compose.uikit.LocalEditableStyle
 import com.sdds.compose.uikit.LocalFormItemStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
@@ -93,6 +95,8 @@ import com.sdds.plasma.homeds.styles.counter.Default
 import com.sdds.plasma.homeds.styles.counter.M
 import com.sdds.plasma.homeds.styles.divider.Default
 import com.sdds.plasma.homeds.styles.divider.Divider
+import com.sdds.plasma.homeds.styles.dropdownmenu.Default
+import com.sdds.plasma.homeds.styles.dropdownmenu.DropdownMenu
 import com.sdds.plasma.homeds.styles.editable.BodyM
 import com.sdds.plasma.homeds.styles.editable.Editable
 import com.sdds.plasma.homeds.styles.formitem.Default
@@ -235,6 +239,7 @@ fun ThemeSetup(
             LocalToastStyle provides Toast.Default.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
             LocalWheelStyle provides Wheel.H1.CenterAlign.style(),
+            LocalDropdownMenuStyle provides DropdownMenu.Default.style(),
         ) {
             content()
         }

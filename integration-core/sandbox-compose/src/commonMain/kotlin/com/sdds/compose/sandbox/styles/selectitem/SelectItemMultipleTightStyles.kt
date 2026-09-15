@@ -8,6 +8,7 @@
 package com.sdds.compose.sandbox.styles.selectitem
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.styles.cell.Cell
 import com.sdds.compose.sandbox.styles.cell.L
@@ -24,7 +25,7 @@ import com.sdds.compose.uikit.SelectItemStyleBuilder
 import com.sdds.compose.uikit.SelectItemType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -85,9 +86,9 @@ private val SelectItemStyleBuilder.invariantProps: SelectItemStyleBuilder
         .disableAlpha(0.4f)
         .colors {
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultClear).asStatefulValue(
                     setOf(InteractiveState.Focused)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary),
                 ),
             )
         }

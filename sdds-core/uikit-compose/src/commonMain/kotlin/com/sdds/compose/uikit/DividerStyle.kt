@@ -122,15 +122,20 @@ interface DividerColor {
 interface DividerDimensions {
 
     /**
-     * Толщина [Divider]
+     * Толщина линии [Divider]
      */
     @Deprecated("Use thicknessValues", ReplaceWith("thicknessValues"))
     val thickness: Dp
 
     /**
-     * Толщина [Divider]
+     * Толщина линии  [Divider]
      */
     val thicknessValues: StatefulValue<Dp>
+
+    /**
+     * Размер контейнера [Divider]
+     */
+    val size: StatefulValue<Dp>
 }
 
 /**
@@ -195,6 +200,17 @@ interface DividerDimensionsBuilder {
      * Устанавливает толщину разделительной линии
      */
     fun thickness(thickness: StatefulValue<Dp>): DividerDimensionsBuilder
+
+    /**
+     * Устанавливает размер контейнера
+     */
+    fun size(size: Dp): DividerDimensionsBuilder =
+        size(size.asStatefulValue())
+
+    /**
+     * Устанавливает размер контейнера
+     */
+    fun size(size: StatefulValue<Dp>): DividerDimensionsBuilder
 
     /**
      * Возвращает [DividerDimensions]
@@ -278,6 +294,7 @@ private class DefaultDividerColor(
 @Immutable
 private class DefaultDividerDimensions(
     override val thicknessValues: StatefulValue<Dp>,
+    override val size: StatefulValue<Dp>,
 ) : DividerDimensions {
 
     @Deprecated("Use thicknessValues", ReplaceWith("thicknessValues"))
@@ -285,13 +302,22 @@ private class DefaultDividerDimensions(
 
     class Builder : DividerDimensionsBuilder {
         private var thicknessValues: StatefulValue<Dp>? = null
+        private var size: StatefulValue<Dp>? = null
 
         override fun thickness(thickness: StatefulValue<Dp>): DividerDimensionsBuilder = apply {
             this.thicknessValues = thickness
         }
 
-        override fun build(): DividerDimensions = DefaultDividerDimensions(
-            thicknessValues = thicknessValues ?: Dp.Hairline.asStatefulValue(),
-        )
+        override fun size(size: StatefulValue<Dp>): DividerDimensionsBuilder = apply {
+            this.size = size
+        }
+
+        override fun build(): DividerDimensions {
+            val commonThickness = thicknessValues ?: Dp.Hairline.asStatefulValue()
+            return DefaultDividerDimensions(
+                thicknessValues = commonThickness,
+                size = size ?: commonThickness,
+            )
+        }
     }
 }

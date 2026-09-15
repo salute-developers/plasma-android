@@ -5,13 +5,19 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.transform
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -35,7 +41,13 @@ interface EditableStyle : Style {
     /**
      * Стиль текста
      */
+    @Deprecated("use textStyles", replaceWith = ReplaceWith("textStyles"))
     val textStyle: TextStyle
+
+    /**
+     * Стиль текста
+     */
+    val textStyles: StatefulValue<TextStyle>
 
     /**
      * Цвета компонента
@@ -69,7 +81,12 @@ interface EditableStyleBuilder : StyleBuilder<EditableStyle> {
     /**
      * Устанавливает стиль текста
      */
-    fun textStyle(textStyle: TextStyle): EditableStyleBuilder
+    fun textStyle(textStyle: TextStyle): EditableStyleBuilder = textStyle(textStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили текста
+     */
+    fun textStyle(textStyle: StatefulValue<TextStyle>): EditableStyleBuilder
 
     /**
      * Устанавливает цвета с помощью [builder]
@@ -85,14 +102,18 @@ interface EditableStyleBuilder : StyleBuilder<EditableStyle> {
 }
 
 private data class DefaultEditableStyle(
-    override val textStyle: TextStyle,
     override val colors: EditableColors,
     override val dimensions: EditableDimensions,
     override val disableAlpha: Float,
+    override val textStyles: StatefulValue<TextStyle>,
 ) : EditableStyle {
+
+    @Deprecated("use textStyles", replaceWith = ReplaceWith("textStyles"))
+    override val textStyle: TextStyle = textStyles.getDefaultValue()
+
     class Builder : EditableStyleBuilder {
         private var disableAlpha: Float? = null
-        private var textStyle: TextStyle? = null
+        private var textStyle: StatefulValue<TextStyle>? = null
         private val colorsBuilder: EditableColorsBuilder = EditableColors.builder()
         private val dimensionsBuilder: EditableDimensionsBuilder = EditableDimensions.builder()
 
@@ -100,7 +121,7 @@ private data class DefaultEditableStyle(
             this.disableAlpha = disableAlpha
         }
 
-        override fun textStyle(textStyle: TextStyle): EditableStyleBuilder = apply {
+        override fun textStyle(textStyle: StatefulValue<TextStyle>): EditableStyleBuilder = apply {
             this.textStyle = textStyle
         }
 
@@ -113,7 +134,7 @@ private data class DefaultEditableStyle(
             EditableStyleBuilder = apply { this.dimensionsBuilder.builder() }
 
         override fun style(): EditableStyle = DefaultEditableStyle(
-            textStyle = textStyle ?: TextStyle.Default,
+            textStyles = textStyle ?: TextStyle.Default.asStatefulValue(),
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
             disableAlpha = disableAlpha ?: 0.4f,
@@ -129,17 +150,35 @@ interface EditableColors {
     /**
      * Цвет текста
      */
+    @Deprecated("use textBrush", replaceWith = ReplaceWith("textBrush"))
     val textColor: StatefulValue<Color>
+
+    /**
+     * Цвет текста
+     */
+    val textBrush: StatefulValue<Brush>
 
     /**
      * Цвет иконки
      */
+    @Deprecated("use iconBrush", replaceWith = ReplaceWith("iconBrush"))
     val iconColor: StatefulValue<Color>
+
+    /**
+     * Цвет иконки
+     */
+    val iconBrush: StatefulValue<Brush>
 
     /**
      * Цвет курсора
      */
+    @Deprecated("use cursorBrush", replaceWith = ReplaceWith("cursorBrush"))
     val cursorColor: StatefulValue<Color>
+
+    /**
+     * Цвет курсора
+     */
+    val cursorBrush: StatefulValue<Brush>
 
     companion object {
         /**
@@ -156,35 +195,89 @@ interface EditableColorsBuilder {
     /**
      * Устанавливает цвет [textColor]
      */
-    fun textColor(textColor: StatefulValue<Color>): EditableColorsBuilder
+    fun textColor(textColor: StatefulValue<Color>): EditableColorsBuilder =
+        textBrush(textColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [textColor]
      */
     fun textColor(textColor: Color): EditableColorsBuilder =
-        textColor(textColor.asStatefulValue())
+        textBrush(textColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [textColor]
+     */
+    fun textColor(textColor: InteractiveColor): EditableColorsBuilder =
+        textBrush(textColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [textColor]
+     */
+    fun textColor(textColor: Brush): EditableColorsBuilder =
+        textBrush(textColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет [textBrush]
+     */
+    fun textBrush(textColor: StatefulValue<Brush>): EditableColorsBuilder
 
     /**
      * Устанавливает цвет [iconColor]
      */
-    fun iconColor(iconColor: StatefulValue<Color>): EditableColorsBuilder
+    fun iconColor(iconColor: StatefulValue<Color>): EditableColorsBuilder =
+        iconBrush(iconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [iconColor]
      */
     fun iconColor(iconColor: Color): EditableColorsBuilder =
-        iconColor(iconColor.asStatefulValue())
+        iconBrush(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [iconColor]
+     */
+    fun iconColor(iconColor: InteractiveColor): EditableColorsBuilder =
+        iconBrush(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [iconColor]
+     */
+    fun iconColor(iconColor: Brush): EditableColorsBuilder =
+        iconBrush(iconColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет [iconBrush]
+     */
+    fun iconBrush(iconColor: StatefulValue<Brush>): EditableColorsBuilder
 
     /**
      * Устанавливает цвет [cursorColor]
      */
-    fun cursorColor(cursorColor: StatefulValue<Color>): EditableColorsBuilder
+    fun cursorColor(cursorColor: StatefulValue<Color>): EditableColorsBuilder =
+        cursorBrush(cursorColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [cursorColor]
      */
     fun cursorColor(cursorColor: Color): EditableColorsBuilder =
-        cursorColor(cursorColor.asStatefulValue())
+        cursorBrush(cursorColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [cursorColor]
+     */
+    fun cursorColor(cursorColor: InteractiveColor): EditableColorsBuilder =
+        cursorBrush(cursorColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [cursorColor]
+     */
+    fun cursorColor(cursorColor: Brush): EditableColorsBuilder =
+        cursorBrush(cursorColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет [cursorBrush]
+     */
+    fun cursorBrush(cursorColor: StatefulValue<Brush>): EditableColorsBuilder
 
     /**
      * Вернёт [EditableColors]
@@ -193,31 +286,47 @@ interface EditableColorsBuilder {
 }
 
 private data class DefaultEditableColors(
-    override val textColor: StatefulValue<Color>,
-    override val iconColor: StatefulValue<Color>,
-    override val cursorColor: StatefulValue<Color>,
-) : EditableColors {
-    class Builder : EditableColorsBuilder {
-        private var textColor: StatefulValue<Color>? = null
-        private var iconColor: StatefulValue<Color>? = null
-        private var cursorColor: StatefulValue<Color>? = null
+    override val textBrush: StatefulValue<Brush>,
+    override val iconBrush: StatefulValue<Brush>,
+    override val cursorBrush: StatefulValue<Brush>,
 
-        override fun textColor(textColor: StatefulValue<Color>): EditableColorsBuilder = apply {
+) : EditableColors {
+    @Deprecated("use textBrush", replaceWith = ReplaceWith("textBrush"))
+    override val textColor: StatefulValue<Color> = textBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use iconBrush", replaceWith = ReplaceWith("iconBrush"))
+    override val iconColor: StatefulValue<Color> = iconBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use cursorBrush", replaceWith = ReplaceWith("cursorBrush"))
+    override val cursorColor: StatefulValue<Color> = cursorBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    class Builder : EditableColorsBuilder {
+        private var textColor: StatefulValue<Brush>? = null
+        private var iconColor: StatefulValue<Brush>? = null
+        private var cursorColor: StatefulValue<Brush>? = null
+
+        override fun textBrush(textColor: StatefulValue<Brush>): EditableColorsBuilder = apply {
             this.textColor = textColor
         }
 
-        override fun iconColor(iconColor: StatefulValue<Color>): EditableColorsBuilder = apply {
+        override fun iconBrush(iconColor: StatefulValue<Brush>): EditableColorsBuilder = apply {
             this.iconColor = iconColor
         }
 
-        override fun cursorColor(cursorColor: StatefulValue<Color>) = apply {
+        override fun cursorBrush(cursorColor: StatefulValue<Brush>) = apply {
             this.cursorColor = cursorColor
         }
 
         override fun build(): EditableColors = DefaultEditableColors(
-            textColor = textColor ?: Color.Black.asStatefulValue(),
-            iconColor = iconColor ?: Color.DarkGray.asStatefulValue(),
-            cursorColor = cursorColor ?: Color.DarkGray.asStatefulValue(),
+            textBrush = textColor ?: Color.Black.asStatefulBrush(),
+            iconBrush = iconColor ?: Color.DarkGray.asStatefulBrush(),
+            cursorBrush = cursorColor ?: Color.DarkGray.asStatefulBrush(),
         )
     }
 }
@@ -230,12 +339,24 @@ interface EditableDimensions {
     /**
      * Отступ
      */
+    @Deprecated("use iconMarginValues", replaceWith = ReplaceWith("iconMarginValues"))
     val iconMargin: Dp
 
     /**
      * Отступ
      */
+    val iconMarginValues: StatefulValue<Dp>
+
+    /**
+     * Отступ
+     */
+    @Deprecated("use iconSizeValues", replaceWith = ReplaceWith("iconSizeValues"))
     val iconSize: Dp
+
+    /**
+     * Отступ
+     */
+    val iconSizeValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -252,12 +373,24 @@ interface EditableDimensionsBuilder {
     /**
      * Устанавливает [iconMargin]
      */
-    fun iconMargin(iconMargin: Dp): EditableDimensionsBuilder
+    fun iconMargin(iconMargin: Dp): EditableDimensionsBuilder =
+        iconMargin(iconMargin.asStatefulValue())
+
+    /**
+     * Устанавливает [iconMargin]
+     */
+    fun iconMargin(iconMargin: StatefulValue<Dp>): EditableDimensionsBuilder
 
     /**
      * Устанавливает [iconSize]
      */
-    fun iconSize(iconSize: Dp): EditableDimensionsBuilder
+    fun iconSize(iconSize: Dp): EditableDimensionsBuilder =
+        iconSize(iconSize.asStatefulValue())
+
+    /**
+     * Устанавливает [iconSize]
+     */
+    fun iconSize(iconSize: StatefulValue<Dp>): EditableDimensionsBuilder
 
     /**
      * Вернёт [EditableDimensions]
@@ -266,25 +399,31 @@ interface EditableDimensionsBuilder {
 }
 
 private data class DefaultEditableDimensions(
-    override val iconMargin: Dp,
-    override val iconSize: Dp,
+    override val iconMarginValues: StatefulValue<Dp>,
+    override val iconSizeValues: StatefulValue<Dp>,
 ) : EditableDimensions {
+
+    @Deprecated("use iconMarginValues", replaceWith = ReplaceWith("iconMarginValues"))
+    override val iconMargin: Dp = iconMarginValues.getDefaultValue()
+
+    @Deprecated("use iconSizeValues", replaceWith = ReplaceWith("iconSizeValues"))
+    override val iconSize: Dp = iconSizeValues.getDefaultValue()
     class Builder : EditableDimensionsBuilder {
-        private var iconMargin: Dp? = null
+        private var iconMargin: StatefulValue<Dp>? = null
 
-        private var iconSize: Dp? = null
+        private var iconSize: StatefulValue<Dp>? = null
 
-        override fun iconMargin(iconMargin: Dp): EditableDimensionsBuilder = apply {
+        override fun iconMargin(iconMargin: StatefulValue<Dp>): EditableDimensionsBuilder = apply {
             this.iconMargin = iconMargin
         }
 
-        override fun iconSize(iconSize: Dp): EditableDimensionsBuilder = apply {
+        override fun iconSize(iconSize: StatefulValue<Dp>): EditableDimensionsBuilder = apply {
             this.iconSize = iconSize
         }
 
         override fun build(): EditableDimensions = DefaultEditableDimensions(
-            iconMargin = iconMargin ?: 8.dp,
-            iconSize = iconSize ?: 16.dp,
+            iconMarginValues = iconMargin ?: 8.dp.asStatefulValue(),
+            iconSizeValues = iconSize ?: 16.dp.asStatefulValue(),
         )
     }
 }

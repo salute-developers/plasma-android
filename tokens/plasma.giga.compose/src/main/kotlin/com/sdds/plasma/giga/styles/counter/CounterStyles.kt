@@ -118,11 +118,11 @@ public val WrapperCounterView.Accent: WrapperCounterTerminate
                 ),
             )
             textColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
                     setOf(InteractiveState.Hovered) to
-                        PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                        PlasmaGigaTheme.colors.textInversePrimaryHover,
                 ),
             )
         }

@@ -1,9 +1,9 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.docs.ComposableSample
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.samples.RoborazziConfigDocs
+import com.sdds.docs.ComposableSample
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

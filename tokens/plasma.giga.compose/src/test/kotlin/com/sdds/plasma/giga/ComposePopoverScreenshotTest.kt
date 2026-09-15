@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.fixtures.testcases.PopoverSDefaultLooseEndBottomSt
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.styles.basicbutton.BasicButton
 import com.sdds.plasma.giga.styles.basicbutton.Default
+import com.sdds.plasma.giga.styles.basicbutton.Positive
 import com.sdds.plasma.giga.styles.basicbutton.S
 import com.sdds.plasma.giga.styles.popover.Accent
 import com.sdds.plasma.giga.styles.popover.Default
@@ -45,7 +46,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverMDefaultStrictBottomEndTopStart(
                 style = Popover.M.Default.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -59,7 +60,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverMAccentStrictTopCenterCenterStart(
                 style = Popover.M.Accent.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -73,7 +74,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverSDefaultLooseEndBottomStart(
                 style = Popover.S.Default.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -87,7 +88,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverSAccentStrictBottomStartTopCenter(
                 style = Popover.S.Accent.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -101,7 +102,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverMDefaultLooseStartCenter(
                 style = Popover.M.Default.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -115,7 +116,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverMDefaultLooseStartBottomCenter(
                 style = Popover.M.Default.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -130,7 +131,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverMDefaultLooseTopEnd(
                 style = Popover.M.Default.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -144,7 +145,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverMDefaultLooseStartCenterEnd(
                 style = Popover.M.Default.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()
@@ -158,7 +159,7 @@ class ComposePopoverScreenshotTest(
         composeTestRule.content {
             PopoverMDefaultLooseStartCenterBottomEnd(
                 style = Popover.M.Default.style(),
-                buttonStyle = BasicButton.S.Default.style(),
+                buttonStyle = BasicButton.S.Positive.style(),
             )
         }
         composeTestRule.onNodeWithText("Show").performClick()

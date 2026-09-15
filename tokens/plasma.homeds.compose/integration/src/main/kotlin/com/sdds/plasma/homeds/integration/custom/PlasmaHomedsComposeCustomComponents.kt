@@ -1,14 +1,23 @@
 package com.sdds.plasma.homeds.integration.custom
 
 import com.sdds.sandbox.Component
-import com.sdds.sandbox.ComponentGroup
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.ComponentProvider
 
 /**
  *  Ключ для компонента NumberPanel
  */
-val NumberPanelKey = ComponentKey("NumberPanel", ComponentGroup("Data Entry", 1))
+val NumberPanelKey = ComponentKey("NumberPanel", ComponentKey.BasicButton.group)
+
+/**
+ *  Ключ для компонента Bubble
+ */
+val BubbleKey = ComponentKey("Bubble", ComponentKey.Overlay.group)
+
+/**
+ *  Ключ для компонента ProductCard
+ */
+val ProductCardKey = ComponentKey("ProductCard", ComponentKey.Card.group)
 
 /**
  *  Компоненты
@@ -21,6 +30,18 @@ object PlasmaHomedsComposeCustomComponents : ComponentProvider() {
                 NumberPanelKey,
                 mapOf(
                     "NumberPanel" to PlasmaHomedsNumberPanelVariationsCompose,
+                ),
+            ),
+            Component(
+                BubbleKey,
+                mapOf(
+                    "Bubble" to PlasmaHomedsBubbleVariationsCompose,
+                ),
+            ),
+            Component(
+                ProductCardKey,
+                mapOf(
+                    "ProductCard" to PlasmaHomedsProductCardVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

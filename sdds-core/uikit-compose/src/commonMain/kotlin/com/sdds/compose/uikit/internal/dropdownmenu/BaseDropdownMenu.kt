@@ -4,7 +4,6 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
@@ -18,6 +17,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -56,14 +56,19 @@ import com.sdds.compose.uikit.graphics.cutout.ProvideCutoutState
 import com.sdds.compose.uikit.graphics.cutout.cutout
 import com.sdds.compose.uikit.graphics.cutout.cutoutTarget
 import com.sdds.compose.uikit.graphics.cutout.rememberCutoutState
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.internal.focusselector.drawInnerBorder
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.modal.EdgeToEdgeDialog
 import com.sdds.compose.uikit.internal.popover.BasePopover
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.MotionContext
 import com.sdds.compose.uikit.motion.components.dropdownmenu.DropdownMenuMotionStyle
 import com.sdds.compose.uikit.motion.components.dropdownmenu.rememberDropdownMenuMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
 import androidx.compose.ui.unit.offset as constraintsOffset
 
 @Composable
@@ -94,31 +99,33 @@ internal fun BaseDropdownMenu(
     motion: Motion<DropdownMenuMotionStyle> = rememberDropdownMenuMotion(),
     content: @Composable () -> Unit,
 ) {
+    val shape = style.shapes.getValueAsState(motion.context)
+    val strokeWidth = style.dimensions.strokeWidthValues.getValueAsState(motion.context)
+    val strokeColor = style.colors.strokeColor.getBrushAsState(motion.context, motion.style.strokeColor)
     val popoverContent: @Composable () -> Unit = {
-        val hasBorder = style.dimensions.strokeWidth != Dp.Unspecified
-        val borderModifier = if (hasBorder) {
-            Modifier.border(
-                width = style.dimensions.strokeWidth,
-                brush = style.colors.strokeColor.getValueAsState(motion.context).value,
-                shape = style.shape,
-            )
-        } else {
-            Modifier
-        }
         CompositionLocalProvider(
             LocalListStyle provides style.listStyle,
             LocalDividerStyle provides style.dividerStyle,
             LocalDropdownEmptyStateStyle provides style.emptyStateStyle,
             LocalScrollBarStyle provides style.scrollBarStyle,
         ) {
+            val paddingStart by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+            val paddingEnd by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+            val paddingTop by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+            val paddingBottom by style.dimensions.paddingStartValues.getValueAsState(motion.context)
             Box(
                 modifier = modifier
-                    .then(borderModifier)
+                    .drawInnerBorder(
+                        strokeWidth = strokeWidth,
+                        strokeColor = { strokeColor.value },
+                        shape = shape.value,
+                        isFocused = { true },
+                    )
                     .padding(
-                        start = style.dimensions.paddingStart,
-                        end = style.dimensions.paddingEnd,
-                        top = style.dimensions.paddingTop,
-                        bottom = style.dimensions.paddingBottom,
+                        start = paddingStart,
+                        end = paddingEnd,
+                        top = paddingTop,
+                        bottom = paddingBottom,
                     ),
             ) {
                 if (showEmptyState && emptyState != null) {
@@ -128,7 +135,7 @@ internal fun BaseDropdownMenu(
                         listContent = { content.invoke() },
                         headerContent = { header?.invoke() },
                         footerContent = { footer?.invoke() },
-                        scrollBar = { ScrollBarContent(scrollState, style) },
+                        scrollBar = { ScrollBarContent(scrollState, style, motion.context) },
                     )
                 }
             }
@@ -140,7 +147,7 @@ internal fun BaseDropdownMenu(
         triggerInfo = triggerInfo,
         colors = style.colors.toPopoverColors(),
         dimensions = style.dimensions.toPopoverDimensions(offset),
-        shape = style.shape,
+        shape = style.shapes,
         shadow = style.shadow,
         placement = placement,
         placementMode = placementMode,
@@ -332,13 +339,19 @@ private const val CLOSE_DROPDOWN_MENU_DESCRIPTION = "Close DropdownMenu"
 private object DropdownScopeImpl : DropdownScope
 
 @Composable
-private fun BoxScope.ScrollBarContent(scrollState: LazyListState?, style: DropdownMenuStyle) {
+private fun BoxScope.ScrollBarContent(
+    scrollState: LazyListState?,
+    style: DropdownMenuStyle,
+    motionContext: MotionContext,
+) {
+    val paddingTop by style.dimensions.scrollBarPaddingTopValues.getValueAsState(motionContext)
+    val paddingBottom by style.dimensions.scrollBarPaddingBottomValues.getValueAsState(motionContext)
     if (scrollState != null && (scrollState.canScrollForward || scrollState.canScrollBackward)) {
         com.sdds.compose.uikit.ScrollBar(
             modifier = Modifier
                 .padding(
-                    top = style.dimensions.scrollBarPaddingTop,
-                    bottom = style.dimensions.scrollBarPaddingTop,
+                    top = paddingTop,
+                    bottom = paddingBottom,
                 )
                 .align(Alignment.CenterEnd),
             style = style.scrollBarStyle,
@@ -418,11 +431,25 @@ private fun ScrollableContentWithHeaderFooter(
 
 private fun DropdownMenuDimensions.toPopoverDimensions(offset: Dp = this.offset): PopoverDimensions {
     return object : PopoverDimensions {
+        @Deprecated("use widthValues", replaceWith = ReplaceWith("widthValues"))
         override val width = this@toPopoverDimensions.width
+        override val widthValues: StatefulValue<Dp> = this@toPopoverDimensions.widthValues
+
+        @Deprecated("use offsetValues", replaceWith = ReplaceWith("offsetValues"))
         override val offset = offset
+        override val offsetValues: StatefulValue<Dp> = offset.asStatefulValue()
+
+        @Deprecated("use tailWidthValues", replaceWith = ReplaceWith("tailWidthValues"))
         override val tailWidth = 0.dp
+        override val tailWidthValues: StatefulValue<Dp> = this.tailWidth.asStatefulValue()
+
+        @Deprecated("use tailHeightValues", replaceWith = ReplaceWith("tailHeightValues"))
         override val tailHeight = 0.dp
+        override val tailHeightValues: StatefulValue<Dp> = this.tailHeight.asStatefulValue()
+
+        @Deprecated("use tailPaddingValues", replaceWith = ReplaceWith("tailPaddingValues"))
         override val tailPadding = 0.dp
+        override val tailPaddingValues: StatefulValue<Dp> = this.tailPadding.asStatefulValue()
     }
 }
 

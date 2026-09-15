@@ -121,7 +121,7 @@ public val WrapperIconBadgeSolidView.Accent: WrapperIconBadgeSolidTerminate
     get() = builder
         .colors {
             backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultAccent).asStatefulValue())
-            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue())
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
