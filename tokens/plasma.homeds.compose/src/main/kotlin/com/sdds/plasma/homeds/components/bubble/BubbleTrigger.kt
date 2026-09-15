@@ -112,7 +112,15 @@ public fun BubbleTrigger(
     val triggerCoordinatesRef = remember { MutableRef<LayoutCoordinates?>(null) }
     var triggerVisible by remember { mutableStateOf(false) }
 
-    LaunchedEffect(expanded) {
+    LaunchedEffect(expanded, triggerVisible) {
+        if (!triggerVisible) {
+            // Overlay уже скрыт; сбрасываем таймлайны для плавного раскрытия при возврате.
+            expandProgress.snapTo(0f)
+            iconMorph.snapTo(0f)
+            rotationProgress.snapTo(0f)
+            bounceProgress.snapTo(0f)
+            return@LaunchedEffect
+        }
         animateBubbleExpansion(
             expanded = expanded,
             expandProgress = expandProgress,

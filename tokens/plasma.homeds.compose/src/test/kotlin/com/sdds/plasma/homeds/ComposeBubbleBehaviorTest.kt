@@ -38,6 +38,8 @@ import com.sdds.plasma.homeds.components.bubble.BubbleTrigger
 import com.sdds.plasma.homeds.styles.customcomponents.bubble.Bubble
 import com.sdds.plasma.homeds.styles.customcomponents.bubble.Default
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestWatcher
@@ -239,9 +241,19 @@ class ComposeBubbleBehaviorTest {
         assertEquals(0, scrollState.value)
         assertEquals(listOf(true, false, true), visibilityEvents)
         assertEquals(1, hostState.entries.size)
+        val entry = hostState.entries.values.single()
+        assertTrue(entry.expandProgress() < 1f)
+        assertTrue(entry.isAnimationRunning())
         composeTestRule.mainClock.advanceTimeByFrame()
         composeTestRule.waitForIdle()
         composeTestRule.onNodeWithText(BODY_TEXT).assertExists()
+        composeTestRule.mainClock.advanceTimeBy(MID_ANIMATION_MS)
+        composeTestRule.waitForIdle()
+        assertTrue(entry.expandProgress() > 0f && entry.expandProgress() < 1f)
+        composeTestRule.mainClock.advanceTimeBy(ANIMATION_SETTLE_MS)
+        composeTestRule.waitForIdle()
+        assertEquals(1f, entry.expandProgress())
+        assertFalse(entry.isAnimationRunning())
     }
 
     @Test
