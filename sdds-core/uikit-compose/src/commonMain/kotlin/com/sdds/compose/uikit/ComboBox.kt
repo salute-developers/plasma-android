@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.NonSkippableComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -26,6 +27,9 @@ import com.sdds.compose.uikit.DropdownProperties.Height
 import com.sdds.compose.uikit.DropdownProperties.Width
 import com.sdds.compose.uikit.internal.dropdownmenu.BaseDropdownMenu
 import com.sdds.compose.uikit.internal.toDp
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.dropdownmenu.DropdownMenuMotionStyle
+import com.sdds.compose.uikit.motion.components.dropdownmenu.rememberDropdownMenuMotion
 import kotlinx.coroutines.delay
 
 /**
@@ -50,7 +54,49 @@ import kotlinx.coroutines.delay
  * @param dropdownProperties Свойства конфигурации выпадающего меню
  */
 @Composable
+@NonSkippableComposable
 fun ComboBox(
+    trigger: @Composable ComboBoxScope.() -> Unit,
+    listContent: LazyListScope.() -> Unit,
+    modifier: Modifier = Modifier,
+    style: ComboBoxStyle = LocalComboBoxStyle.current,
+    state: SelectState = remember { SelectState() },
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
+    showEmptyState: Boolean = false,
+    emptyState: (@Composable DropdownScope.() -> Unit)? = null,
+    header: (@Composable () -> Unit)? = null,
+    footer: (@Composable () -> Unit)? = null,
+    dropdownProperties: DropdownProperties = ComboBoxDefaultDropdownProperties,
+) {
+    ComboBox(
+        dropdownMotion = rememberDropdownMenuMotion(),
+        trigger = trigger,
+        listContent = listContent,
+        modifier = modifier,
+        style = style,
+        state = state,
+        enabled = enabled,
+        readOnly = readOnly,
+        showEmptyState = showEmptyState,
+        emptyState = emptyState,
+        header = header,
+        footer = footer,
+        dropdownProperties = dropdownProperties,
+    )
+}
+
+/**
+ * ComboBox с заданным Motion существующего выпадающего меню.
+ * Сохраняет переходы появления/исчезновения и настройки [DropdownProperties].
+ * Контексты поля и отдельных строк задаются независимо.
+ *
+ * @param dropdownMotion контекст состояний и стиль переходов выпадающего меню.
+ */
+@Composable
+@NonSkippableComposable
+fun ComboBox(
+    dropdownMotion: Motion<DropdownMenuMotionStyle>,
     trigger: @Composable ComboBoxScope.() -> Unit,
     listContent: LazyListScope.() -> Unit,
     modifier: Modifier = Modifier,
@@ -67,12 +113,13 @@ fun ComboBox(
     val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
     val scrollState = rememberLazyListState()
     val dismissState = remember { ComboBoxDismissState() }
+    val stateKey = SelectStateEffectKey(state)
     ResetRecentPopupDismiss(dismissState)
 
     Box(modifier = modifier.popoverTrigger(triggerInfo)) {
         CompositionLocalProvider(
             LocalTextFieldStyle provides style.textFieldStyle,
-            LocalSelectState provides state,
+            LocalSelectState provides stateKey.state,
             LocalComboBoxDismissState provides dismissState,
         ) {
             ComboBoxScopeImpl.trigger()
@@ -83,6 +130,7 @@ fun ComboBox(
     // читаем только ширину через derivedStateOf, а полное значение передаем лямбдой.
     val triggerWidth by remember { derivedStateOf { triggerInfo.value.size.width } }
     BaseDropdownMenu(
+        motion = dropdownMotion,
         offset = 0.dp,
         modifier = Modifier
             .width(
@@ -102,7 +150,7 @@ fun ComboBox(
         style = style.dropdownStyle,
         onDismissRequest = {
             dismissState.markDismissed()
-            state.close()
+            stateKey.state.close()
         },
         triggerInfo = { triggerInfo.value },
         clipWidth = false,

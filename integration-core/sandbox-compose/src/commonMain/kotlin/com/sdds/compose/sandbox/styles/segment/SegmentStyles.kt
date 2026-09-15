@@ -9,6 +9,7 @@ package com.sdds.compose.sandbox.styles.segment
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.styles.segmentitem.Accent
 import com.sdds.compose.sandbox.styles.segmentitem.L
@@ -24,7 +25,7 @@ import com.sdds.compose.sandbox.theme.SddsSandboxTheme
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -209,7 +210,7 @@ private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary.asInteractive())
+            backgroundColor(SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
         }
 
 public val WrapperSegmentXlView.Primary: WrapperSegmentTerminate

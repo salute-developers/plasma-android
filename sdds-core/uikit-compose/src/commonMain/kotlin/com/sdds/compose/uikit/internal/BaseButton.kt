@@ -348,6 +348,35 @@ internal fun ButtonText(
     valueMargin: StatefulValue<Dp>,
     motion: Motion<CommonButtonMotionStyle>,
 ) {
+    val resolvedMargin by valueMargin.getValueAsState(motion.context)
+    ButtonText(
+        labelContent = labelContent,
+        labelTextStyle = labelTextStyle,
+        labelColor = labelColor,
+        modifier = modifier,
+        valueContent = valueContent,
+        valueTextStyle = valueTextStyle,
+        valueColor = valueColor,
+        valueMargin = resolvedMargin,
+        motion = motion,
+    )
+}
+
+/**
+ * Тексты кнопки с уже разрешённым или анимированным отступом дополнительного текста.
+ */
+@Composable
+internal fun ButtonText(
+    labelContent: @Composable () -> Unit,
+    labelTextStyle: StatefulValue<TextStyle>,
+    labelColor: StatefulValue<Brush>,
+    modifier: Modifier = Modifier,
+    valueContent: (@Composable () -> Unit)?,
+    valueTextStyle: StatefulValue<TextStyle>,
+    valueColor: StatefulValue<Brush>,
+    valueMargin: Dp,
+    motion: Motion<CommonButtonMotionStyle>,
+) {
     ProvideTextBehaviour(TextBehaviour(overflow = TextOverflow.Ellipsis, maxLines = 1, softWrap = false)) {
         Layout(
             modifier = modifier,
@@ -362,7 +391,7 @@ internal fun ButtonText(
                 if (valueContent != null) {
                     Box(
                         Modifier
-                            .padding(start = valueMargin.getValue(motion.context.interactionSource))
+                            .padding(start = valueMargin)
                             .layoutId(VALUE_TEXT_ID),
                     ) {
                         val valueStateBrush = valueColor.getBrushAsState(motion.context, motion.style.valueColor)
