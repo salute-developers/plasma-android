@@ -17,16 +17,17 @@ internal expect fun Modifier.basePopoverTrigger(
     enabled: Boolean,
 ): Modifier
 
-internal fun Rect.toScreenRect(hostLocation: IntArray): Rect {
+internal fun Rect.toScreenRect(hostLocation: IntArray): Rect? {
     return Rect(
         left = left + hostLocation[0],
         top = top + hostLocation[1],
         right = right + hostLocation[0],
         bottom = bottom + hostLocation[1],
-    ).roundToPixelBounds()
+    ).roundToPixelBoundsOrNull()
 }
 
-internal fun Rect.roundToPixelBounds(): Rect {
+internal fun Rect.roundToPixelBoundsOrNull(): Rect? {
+    if (!isFinite) return null
     return Rect(
         left = left.roundToInt().toFloat(),
         top = top.roundToInt().toFloat(),
