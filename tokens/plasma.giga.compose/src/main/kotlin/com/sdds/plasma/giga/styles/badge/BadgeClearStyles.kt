@@ -161,9 +161,9 @@ public val WrapperBadgeClearView.Dark: WrapperBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
-            labelColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
-            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
-            endContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textOnLightPrimary).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnLightPrimary).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textOnLightPrimary).asStatefulValue())
         }
         .wrap(::WrapperBadgeClearTerminate)
 

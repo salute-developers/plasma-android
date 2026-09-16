@@ -43,6 +43,7 @@ public val Divider.Default: WrapperDividerDefault
             backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultTransparentTertiary).asStatefulValue())
         }
         .dimensions {
-            thickness(1.0.dp)
+            thickness(0.5.dp)
+            size(1.0.dp)
         }
         .wrap(::WrapperDividerDefault)

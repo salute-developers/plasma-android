@@ -1,17 +1,31 @@
 package com.sdds.compose.uikit.fixtures.samples.segment
 
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.motion.components.segment.SegmentItemMotionStyle
+import com.sdds.compose.uikit.motion.components.segment.rememberSegmentItemMotion
+import com.sdds.compose.uikit.motion.finite
+import com.sdds.compose.uikit.motion.transition
 import com.sdds.docs.DocSample
 import com.sdds.docs.composableCodeSnippet
 
@@ -81,5 +95,45 @@ fun SegmentItem_Style() {
             }
             .counterStyle(placeholder(CounterStyle.builder().style(), "/** Стиль компонента */"))
             .style()
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
+fun SegmentItem_Motion() {
+    composableCodeSnippet {
+        var selected by remember { mutableStateOf(false) }
+        val selectedState = setOf(InteractiveState.Selected)
+        val counterStyle = CounterStyle.builder()
+            .colors { backgroundBrush(Color.LightGray.asStatefulBrush(selectedState to Color.Green)) }
+            .style()
+        val style = SegmentItemStyle.builder()
+            .colors { backgroundColor(Color.LightGray.asStatefulBrush(selectedState to Color.Cyan)) }
+            .labelStyle(TextStyle(fontSize = 14.sp))
+            .dimensions {
+                minHeight(40.dp.asStatefulValue(selectedState to 48.dp))
+                valueMargin(4.dp.asStatefulValue(selectedState to 12.dp))
+            }
+            .counterStyle(counterStyle)
+            .style()
+        val motion = rememberSegmentItemMotion(
+            style = SegmentItemMotionStyle.builder()
+                .backgroundColor(transition { segment {} changesWith { finite(tween(200)) } })
+                .minHeight(transition { segment {} changesWith { finite(tween(200)) } })
+                .valueMargin(transition { segment {} changesWith { finite(tween(200)) } })
+                .style(),
+        )
+        SegmentItem(
+            motion = motion,
+            style = style,
+            label = "Сообщения",
+            value = "Новые",
+            counter = "7",
+            isSelected = selected,
+            modifier = Modifier.clickable(
+                interactionSource = motion.context.interactionSource,
+                indication = null,
+            ) { selected = !selected },
+        )
     }
 }

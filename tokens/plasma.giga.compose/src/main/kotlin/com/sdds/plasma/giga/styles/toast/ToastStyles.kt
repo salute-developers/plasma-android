@@ -63,7 +63,7 @@ public val WrapperToastView.Default: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            contentStartColor(PlasmaGigaTheme.colors.textInversePrimary.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -71,7 +71,7 @@ public val WrapperToastView.Positive: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(PlasmaGigaTheme.colors.textDefaultPositive.asInteractive())
+            contentStartColor(PlasmaGigaTheme.colors.textInversePositive.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -79,7 +79,7 @@ public val WrapperToastView.Negative: WrapperToastTerminate
     @Composable
     get() = builder
         .colors {
-            contentStartColor(PlasmaGigaTheme.colors.textDefaultNegative.asInteractive())
+            contentStartColor(PlasmaGigaTheme.colors.textInverseNegative.asInteractive())
         }
         .wrap(::WrapperToastTerminate)
 
@@ -88,9 +88,9 @@ private val ToastStyleBuilder.invariantProps: ToastStyleBuilder
     get() = this
         .textStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .colors {
-            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
-            textColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
-            contentEndColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidCard).asStatefulValue())
+            textColor(PlasmaGigaTheme.colors.textInversePrimary.asInteractive())
+            contentEndColor(PlasmaGigaTheme.colors.textInverseSecondary.asInteractive())
         }
         .dimensions {
             contentStartSize(16.0.dp)

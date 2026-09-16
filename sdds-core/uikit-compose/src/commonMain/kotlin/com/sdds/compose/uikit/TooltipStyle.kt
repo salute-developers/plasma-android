@@ -12,9 +12,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.style.Style
@@ -34,7 +36,13 @@ interface TooltipStyle : Style {
     /**
      * Форма компонента
      */
+    @Deprecated("use shapes", replaceWith = ReplaceWith("shapes"))
     val shape: CornerBasedShape
+
+    /**
+     * Формы компонента
+     */
+    val shapes: StatefulValue<CornerBasedShape>
 
     /**
      * Тень компонента
@@ -44,7 +52,13 @@ interface TooltipStyle : Style {
     /**
      * Стиль текста
      */
+    @Deprecated("use textStyles", replaceWith = ReplaceWith("textStyles"))
     val textStyle: TextStyle
+
+    /**
+     * Стиль текста
+     */
+    val textStyles: StatefulValue<TextStyle>
 
     /**
      * Размеры и отступы компонента
@@ -73,7 +87,13 @@ interface TooltipStyleBuilder : StyleBuilder<TooltipStyle> {
     /**
      * Устанавливает форму [shape] компонента
      */
-    fun shape(shape: CornerBasedShape): TooltipStyleBuilder
+    fun shape(shape: CornerBasedShape): TooltipStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает формы [shape] компонента
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): TooltipStyleBuilder
 
     /**
      * Устанавливает тень [shadow] компонента
@@ -83,7 +103,12 @@ interface TooltipStyleBuilder : StyleBuilder<TooltipStyle> {
     /**
      * Устанавливает стиль текста
      */
-    fun textStyle(textStyle: TextStyle): TooltipStyleBuilder
+    fun textStyle(textStyle: TextStyle): TooltipStyleBuilder = textStyle(textStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили текста
+     */
+    fun textStyle(textStyle: StatefulValue<TextStyle>): TooltipStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder].
@@ -99,21 +124,26 @@ interface TooltipStyleBuilder : StyleBuilder<TooltipStyle> {
 }
 
 private class DefaultTooltipStyle(
-    override val shape: CornerBasedShape,
     override val shadow: ShadowAppearance,
-    override val textStyle: TextStyle,
     override val dimensions: TooltipDimensions,
     override val colors: TooltipColors,
+    override val shapes: StatefulValue<CornerBasedShape>,
+    override val textStyles: StatefulValue<TextStyle>,
 ) : TooltipStyle {
 
+    @Deprecated("use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
+
+    @Deprecated("use textStyles", replaceWith = ReplaceWith("textStyles"))
+    override val textStyle: TextStyle = textStyles.getDefaultValue()
     class Builder : TooltipStyleBuilder {
-        private var shape: CornerBasedShape? = null
+        private var shape: StatefulValue<CornerBasedShape>? = null
         private var shadow: ShadowAppearance? = null
         private val colorsBuilder = TooltipColors.builder()
         private val dimensionsBuilder = TooltipDimensions.builder()
-        private var textStyle: TextStyle? = null
+        private var textStyle: StatefulValue<TextStyle>? = null
 
-        override fun shape(shape: CornerBasedShape) = apply {
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
             this.shape = shape
         }
 
@@ -121,7 +151,7 @@ private class DefaultTooltipStyle(
             this.shadow = shadow
         }
 
-        override fun textStyle(textStyle: TextStyle) = apply {
+        override fun textStyle(textStyle: StatefulValue<TextStyle>) = apply {
             this.textStyle = textStyle
         }
 
@@ -138,9 +168,9 @@ private class DefaultTooltipStyle(
 
         override fun style(): TooltipStyle {
             return DefaultTooltipStyle(
-                shape = shape ?: RoundedCornerShape(15),
+                shapes = shape ?: RoundedCornerShape(15).asStatefulValue(),
                 shadow = shadow ?: ShadowAppearance(),
-                textStyle = textStyle ?: TextStyle.Default,
+                textStyles = textStyle ?: TextStyle.Default.asStatefulValue(),
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
             )
@@ -167,7 +197,13 @@ interface TooltipColors {
     /**
      * Цвет контента в начале
      */
+    @Deprecated("use contentStartBrush", replaceWith = ReplaceWith("contentStartBrush"))
     val contentStartColor: InteractiveColor
+
+    /**
+     * Цвет контента в начале
+     */
+    val contentStartBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -182,6 +218,19 @@ interface TooltipColors {
  * Builder для [TooltipColors]
  */
 interface TooltipColorsBuilder {
+
+    /**
+     * Устанавливает фон [backgroundColor] компонента.
+     */
+    fun backgroundColor(backgroundColor: Color): TooltipColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает фон [backgroundColor] компонента.
+     */
+    fun backgroundColor(backgroundColor: InteractiveColor): TooltipColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
     /**
      * Устанавливает фон [backgroundColor] компонента.
      */
@@ -192,6 +241,18 @@ interface TooltipColorsBuilder {
      * Устанавливает фон [backgroundColor] компонента.
      */
     fun backgroundColor(backgroundColor: StatefulValue<Brush>): TooltipColorsBuilder
+
+    /**
+     * Устанавливает цвет текста [textColor].
+     */
+    fun textColor(textColor: Color): TooltipColorsBuilder =
+        textColor(textColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет текста [textColor].
+     */
+    fun textColor(textColor: InteractiveColor): TooltipColorsBuilder =
+        textColor(textColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет текста [textColor].
@@ -208,12 +269,24 @@ interface TooltipColorsBuilder {
      * Устанавливает цвет контента в начале [contentStartColor].
      */
     fun contentStartColor(contentStartColor: Color): TooltipColorsBuilder =
-        contentStartColor(contentStartColor.asInteractive())
+        contentStartColor(contentStartColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента в начале [contentStartColor].
      */
-    fun contentStartColor(contentStartColor: InteractiveColor): TooltipColorsBuilder
+    fun contentStartColor(contentStartColor: InteractiveColor): TooltipColorsBuilder =
+        contentStartColor(contentStartColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет контента в начале [contentStartColor].
+     */
+    fun contentStartColor(contentStartColor: Brush): TooltipColorsBuilder =
+        contentStartColor(contentStartColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет контента в начале [contentStartColor].
+     */
+    fun contentStartColor(contentStartColor: StatefulValue<Brush>): TooltipColorsBuilder
 
     /**
      * Создает экземпляр [TooltipColors]
@@ -225,13 +298,16 @@ interface TooltipColorsBuilder {
 private data class DefaultTooltipColors(
     override val backgroundColor: StatefulValue<Brush>,
     override val textColor: StatefulValue<Brush>,
-    override val contentStartColor: InteractiveColor,
+    override val contentStartBrush: StatefulValue<Brush>,
 ) : TooltipColors {
+
+    @Deprecated("use contentStartBrush", replaceWith = ReplaceWith("contentStartBrush"))
+    override val contentStartColor: InteractiveColor = Color.Transparent.asInteractive()
 
     class Builder : TooltipColorsBuilder {
         private var backgroundColor: StatefulValue<Brush>? = null
         private var textColor: StatefulValue<Brush>? = null
-        private var contentStartColor: InteractiveColor? = null
+        private var contentStartColor: StatefulValue<Brush>? = null
 
         override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
             this.backgroundColor = backgroundColor
@@ -241,7 +317,7 @@ private data class DefaultTooltipColors(
             this.textColor = textColor
         }
 
-        override fun contentStartColor(contentStartColor: InteractiveColor) = apply {
+        override fun contentStartColor(contentStartColor: StatefulValue<Brush>) = apply {
             this.contentStartColor = contentStartColor
         }
 
@@ -249,7 +325,7 @@ private data class DefaultTooltipColors(
             return DefaultTooltipColors(
                 backgroundColor = backgroundColor ?: SolidColor(Color.LightGray).asStatefulValue(),
                 textColor = textColor ?: SolidColor(Color.Black).asStatefulValue(),
-                contentStartColor = Color.DarkGray.asInteractive(),
+                contentStartBrush = Color.DarkGray.asStatefulBrush(),
             )
         }
     }
@@ -264,52 +340,112 @@ interface TooltipDimensions {
     /**
      * Отступ до компонента
      */
+    @Deprecated("use offsetValues", replaceWith = ReplaceWith("offsetValues"))
     val offset: Dp
+
+    /**
+     * Отступ до компонента
+     */
+    val offsetValues: StatefulValue<Dp>
 
     /**
      * Ширина указателя
      */
+    @Deprecated("use tailWidthValues", replaceWith = ReplaceWith("tailWidthValues"))
     val tailWidth: Dp
+
+    /**
+     * Ширина указателя
+     */
+    val tailWidthValues: StatefulValue<Dp>
 
     /**
      * Высота указателя
      */
+    @Deprecated("use tailHeightValues", replaceWith = ReplaceWith("tailHeightValues"))
     val tailHeight: Dp
+
+    /**
+     * Высота указателя
+     */
+    val tailHeightValues: StatefulValue<Dp>
 
     /**
      * Отступ указателя
      */
+    @Deprecated("use tailPaddingValues", replaceWith = ReplaceWith("tailPaddingValues"))
     val tailPadding: Dp
+
+    /**
+     * Отступ указателя
+     */
+    val tailPaddingValues: StatefulValue<Dp>
 
     /**
      * Размер контента в начале
      */
+    @Deprecated("use contentStartSizeValues", replaceWith = ReplaceWith("contentStartSizeValues"))
     val contentStartSize: Dp
+
+    /**
+     * Размер контента в начале
+     */
+    val contentStartSizeValues: StatefulValue<Dp>
 
     /**
      *  Отступа контента в начале
      */
+    @Deprecated("use contentStartPaddingValues", replaceWith = ReplaceWith("contentStartPaddingValues"))
     val contentStartPadding: Dp
+
+    /**
+     *  Отступа контента в начале
+     */
+    val contentStartPaddingValues: StatefulValue<Dp>
 
     /**
      * Отступ в начале
      */
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
     val paddingStart: Dp
+
+    /**
+     * Отступ в начале
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ в конце
      */
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
+
+    /**
+     * Отступ в конце
+     */
+    val paddingEndValues: StatefulValue<Dp>
 
     /**
      * Отступ сверху
      */
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
+
+    /**
+     * Отступ сверху
+     */
+    val paddingTopValues: StatefulValue<Dp>
 
     /**
      * Отступ снизу
      */
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -326,52 +462,108 @@ interface TooltipDimensionsBuilder {
     /**
      * Устанавливает смещение [offset] компонента относительно триггера.
      */
-    fun offset(offset: Dp): TooltipDimensionsBuilder
+    fun offset(offset: Dp): TooltipDimensionsBuilder = offset(offset.asStatefulValue())
+
+    /**
+     * Устанавливает смещение [offset] компонента относительно триггера.
+     */
+    fun offset(offset: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает ширину [tailWidth] указателя.
      */
-    fun tailWidth(tailWidth: Dp): TooltipDimensionsBuilder
+    fun tailWidth(tailWidth: Dp): TooltipDimensionsBuilder = tailWidth(tailWidth.asStatefulValue())
+
+    /**
+     * Устанавливает ширину [tailWidth] указателя.
+     */
+    fun tailWidth(tailWidth: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает высоту [tailHeight] указателя.
      */
-    fun tailHeight(tailHeight: Dp): TooltipDimensionsBuilder
+    fun tailHeight(tailHeight: Dp): TooltipDimensionsBuilder = tailHeight(tailHeight.asStatefulValue())
+
+    /**
+     * Устанавливает высоту [tailHeight] указателя.
+     */
+    fun tailHeight(tailHeight: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает отступ [tailPadding] указателя относительно края компонента.
      */
-    fun tailPadding(tailPadding: Dp): TooltipDimensionsBuilder
+    fun tailPadding(tailPadding: Dp): TooltipDimensionsBuilder = tailPadding(tailPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ [tailPadding] указателя относительно края компонента.
+     */
+    fun tailPadding(tailPadding: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает размер контента в начале [contentStartSize]
      */
-    fun contentStartSize(contentStartSize: Dp): TooltipDimensionsBuilder
+    fun contentStartSize(contentStartSize: Dp): TooltipDimensionsBuilder =
+        contentStartSize(contentStartSize.asStatefulValue())
+
+    /**
+     * Устанавливает размер контента в начале [contentStartSize]
+     */
+    fun contentStartSize(contentStartSize: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает отступ контента в начале [contentStartPadding]
      */
-    fun contentStartPadding(contentStartPadding: Dp): TooltipDimensionsBuilder
+    fun contentStartPadding(contentStartPadding: Dp): TooltipDimensionsBuilder =
+        contentStartPadding(contentStartPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ контента в начале [contentStartPadding]
+     */
+    fun contentStartPadding(contentStartPadding: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале [paddingStart]
      */
-    fun paddingStart(paddingStart: Dp): TooltipDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): TooltipDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце [paddingEnd]
      */
-    fun paddingEnd(paddingEnd: Dp): TooltipDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): TooltipDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху [paddingTop]
      */
-    fun paddingTop(paddingTop: Dp): TooltipDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): TooltipDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступ сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу [paddingBottom]
      */
-    fun paddingBottom(paddingBottom: Dp): TooltipDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): TooltipDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступ снизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): TooltipDimensionsBuilder
 
     /**
      * Создает экземпляр [TooltipDimensions]
@@ -380,83 +572,112 @@ interface TooltipDimensionsBuilder {
 }
 
 private class DefaultTooltipDimensions(
-    override val offset: Dp,
-    override val tailWidth: Dp,
-    override val tailHeight: Dp,
-    override val tailPadding: Dp,
-    override val contentStartSize: Dp,
-    override val contentStartPadding: Dp,
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-) : TooltipDimensions {
+    override val offsetValues: StatefulValue<Dp>,
+    override val tailWidthValues: StatefulValue<Dp>,
+    override val tailHeightValues: StatefulValue<Dp>,
+    override val tailPaddingValues: StatefulValue<Dp>,
+    override val contentStartSizeValues: StatefulValue<Dp>,
+    override val contentStartPaddingValues: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
 
+) : TooltipDimensions {
+    @Deprecated("use offsetValues", replaceWith = ReplaceWith("offsetValues"))
+    override val offset: Dp = offsetValues.getDefaultValue()
+
+    @Deprecated("use tailWidthValues", replaceWith = ReplaceWith("tailWidthValues"))
+    override val tailWidth: Dp = tailWidthValues.getDefaultValue()
+
+    @Deprecated("use tailHeightValues", replaceWith = ReplaceWith("tailHeightValues"))
+    override val tailHeight: Dp = tailHeightValues.getDefaultValue()
+
+    @Deprecated("use tailPaddingValues", replaceWith = ReplaceWith("tailPaddingValues"))
+    override val tailPadding: Dp = tailPaddingValues.getDefaultValue()
+
+    @Deprecated("use contentStartSizeValues", replaceWith = ReplaceWith("contentStartSizeValues"))
+    override val contentStartSize: Dp = contentStartSizeValues.getDefaultValue()
+
+    @Deprecated("use contentStartPaddingValues", replaceWith = ReplaceWith("contentStartPaddingValues"))
+    override val contentStartPadding: Dp = contentStartPaddingValues.getDefaultValue()
+
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
+
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
+    override val paddingTop: Dp = paddingTopValues.getDefaultValue()
+
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
+    override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
     class Builder : TooltipDimensionsBuilder {
 
-        private var offset: Dp? = null
-        private var tailWidth: Dp? = null
-        private var tailHeight: Dp? = null
-        private var tailPadding: Dp? = null
-        private var contentStartSize: Dp? = null
-        private var contentStartPadding: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
+        private var offset: StatefulValue<Dp>? = null
+        private var tailWidth: StatefulValue<Dp>? = null
+        private var tailHeight: StatefulValue<Dp>? = null
+        private var tailPadding: StatefulValue<Dp>? = null
+        private var contentStartSize: StatefulValue<Dp>? = null
+        private var contentStartPadding: StatefulValue<Dp>? = null
+        private var paddingStart: StatefulValue<Dp>? = null
+        private var paddingEnd: StatefulValue<Dp>? = null
+        private var paddingTop: StatefulValue<Dp>? = null
+        private var paddingBottom: StatefulValue<Dp>? = null
 
-        override fun offset(offset: Dp) = apply {
+        override fun offset(offset: StatefulValue<Dp>) = apply {
             this.offset = offset
         }
 
-        override fun tailWidth(tailWidth: Dp) = apply {
+        override fun tailWidth(tailWidth: StatefulValue<Dp>) = apply {
             this.tailWidth = tailWidth
         }
 
-        override fun tailHeight(tailHeight: Dp) = apply {
+        override fun tailHeight(tailHeight: StatefulValue<Dp>) = apply {
             this.tailHeight = tailHeight
         }
 
-        override fun tailPadding(tailPadding: Dp) = apply {
+        override fun tailPadding(tailPadding: StatefulValue<Dp>) = apply {
             this.tailPadding = tailPadding
         }
 
-        override fun contentStartSize(contentStartSize: Dp) = apply {
+        override fun contentStartSize(contentStartSize: StatefulValue<Dp>) = apply {
             this.contentStartSize = contentStartSize
         }
 
-        override fun contentStartPadding(contentStartPadding: Dp) = apply {
+        override fun contentStartPadding(contentStartPadding: StatefulValue<Dp>) = apply {
             this.contentStartPadding = contentStartPadding
         }
 
-        override fun paddingStart(paddingStart: Dp) = apply {
+        override fun paddingStart(paddingStart: StatefulValue<Dp>) = apply {
             this.paddingStart = paddingStart
         }
 
-        override fun paddingEnd(paddingEnd: Dp) = apply {
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>) = apply {
             this.paddingEnd = paddingEnd
         }
 
-        override fun paddingTop(paddingTop: Dp) = apply {
+        override fun paddingTop(paddingTop: StatefulValue<Dp>) = apply {
             this.paddingTop = paddingTop
         }
 
-        override fun paddingBottom(paddingBottom: Dp) = apply {
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>) = apply {
             this.paddingBottom = paddingBottom
         }
 
         override fun build(): TooltipDimensions {
             return DefaultTooltipDimensions(
-                offset = offset ?: 4.dp,
-                tailWidth = tailWidth ?: 20.dp,
-                tailHeight = tailHeight ?: 8.dp,
-                tailPadding = tailPadding ?: 10.dp,
-                contentStartSize = contentStartSize ?: 16.dp,
-                contentStartPadding = contentStartPadding ?: 4.dp,
-                paddingStart = paddingStart ?: 8.dp,
-                paddingEnd = paddingEnd ?: 8.dp,
-                paddingTop = paddingTop ?: 10.dp,
-                paddingBottom = paddingBottom ?: 10.dp,
+                offsetValues = offset ?: 4.dp.asStatefulValue(),
+                tailWidthValues = tailWidth ?: 20.dp.asStatefulValue(),
+                tailHeightValues = tailHeight ?: 8.dp.asStatefulValue(),
+                tailPaddingValues = tailPadding ?: 10.dp.asStatefulValue(),
+                contentStartSizeValues = contentStartSize ?: 16.dp.asStatefulValue(),
+                contentStartPaddingValues = contentStartPadding ?: 4.dp.asStatefulValue(),
+                paddingStartValues = paddingStart ?: 8.dp.asStatefulValue(),
+                paddingEndValues = paddingEnd ?: 8.dp.asStatefulValue(),
+                paddingTopValues = paddingTop ?: 10.dp.asStatefulValue(),
+                paddingBottomValues = paddingBottom ?: 10.dp.asStatefulValue(),
             )
         }
     }

@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TooltipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -48,9 +47,9 @@ private val TooltipStyleBuilder.invariantProps: TooltipStyleBuilder
     get() = this
         .shadow(PlasmaGigaTheme.shadows.downHardM)
         .colors {
-            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
-            textColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
-            contentStartColor(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceInverseSolidCard).asStatefulValue())
+            textColor(SolidColor(PlasmaGigaTheme.colors.textInversePrimary).asStatefulValue())
+            contentStartColor(SolidColor(PlasmaGigaTheme.colors.textInverseSecondary).asStatefulValue())
         }
         .dimensions {
             contentStartSize(16.0.dp)

@@ -32,6 +32,9 @@ public enum class ListItemStyles(
     ListItemMHasBackground("ListItem.M.HasBackground"),
     ListNumberedItemS("ListNumberedItem.S"),
     ListNumberedItemM("ListNumberedItem.M"),
+    DropdownMenuItemDefault("DropdownMenuItem.Default"),
+    DropdownMenuItemPositive("DropdownMenuItem.Positive"),
+    DropdownMenuItemNegative("DropdownMenuItem.Negative"),
     ;
 
     /**
@@ -43,6 +46,11 @@ public enum class ListItemStyles(
      * Typed API для подбора стиля list-numbered-item
      */
     public object ListNumberedItem
+
+    /**
+     * Typed API для подбора стиля dropdown-menu-item
+     */
+    public object DropdownMenuItem
 }
 
 /**
@@ -62,6 +70,15 @@ public enum class ListItemListNumberedItemSize {
 }
 
 /**
+ * Возможные значения свойства view для dropdown-menu-item
+ */
+public enum class ListItemDropdownMenuItemView {
+    Default,
+    Positive,
+    Negative,
+}
+
+/**
  * Возвращает [ListItemStyle] для [ListItemStyles]
  */
 @Composable
@@ -73,6 +90,9 @@ public fun ListItemStyles.style(modify: @Composable ListItemStyleBuilder.() -> U
         ListItemStyles.ListItemMHasBackground -> ListItem.M.HasBackground
         ListItemStyles.ListNumberedItemS -> ListNumberedItem.S
         ListItemStyles.ListNumberedItemM -> ListNumberedItem.M
+        ListItemStyles.DropdownMenuItemDefault -> DropdownMenuItem.Default
+        ListItemStyles.DropdownMenuItemPositive -> DropdownMenuItem.Positive
+        ListItemStyles.DropdownMenuItemNegative -> DropdownMenuItem.Negative
     }
     return builder.modify(modify).style()
 }
@@ -122,3 +142,27 @@ public fun ListItemStyles.ListNumberedItem.style(
         ListItemListNumberedItemSize.S,
     modify: @Composable ListItemStyleBuilder.() -> Unit = {},
 ): ListItemStyle = resolve(size).style(modify)
+
+/**
+ * Возвращает экземпляр [ListItemStyles] для dropdown-menu-item
+ */
+public fun ListItemStyles.DropdownMenuItem.resolve(
+    view: ListItemDropdownMenuItemView =
+        ListItemDropdownMenuItemView.Default,
+): ListItemStyles = when {
+    view == ListItemDropdownMenuItemView.Default -> ListItemStyles.DropdownMenuItemDefault
+    view == ListItemDropdownMenuItemView.Positive -> ListItemStyles.DropdownMenuItemPositive
+    view == ListItemDropdownMenuItemView.Negative -> ListItemStyles.DropdownMenuItemNegative
+    else -> error("Unsupported dropdown-menu-item style combination")
+}
+
+/**
+ * Возвращает [ListItemStyle] для dropdown-menu-item
+ */
+@Composable
+public fun ListItemStyles.DropdownMenuItem.style(
+    view: ListItemDropdownMenuItemView =
+        ListItemDropdownMenuItemView.Default,
+    modify: @Composable ListItemStyleBuilder.() -> Unit =
+        {},
+): ListItemStyle = resolve(view).style(modify)

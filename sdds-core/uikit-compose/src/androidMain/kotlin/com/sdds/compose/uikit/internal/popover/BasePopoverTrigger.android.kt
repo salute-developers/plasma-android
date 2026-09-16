@@ -11,6 +11,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.geometry.isFinite
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.boundsInWindow
@@ -38,10 +39,15 @@ internal actual fun Modifier.basePopoverTrigger(
         val hostView = LocalView.current
         var coordinates by remember { mutableStateOf<LayoutCoordinates?>(null) }
         fun updateTriggerBounds(layoutCoordinates: LayoutCoordinates) {
-            val positionInWindow = layoutCoordinates.positionInWindow().round()
-            val visibleBoundsInWindow = layoutCoordinates.boundsInWindow()
+            val positionInWindow = layoutCoordinates.positionInWindow()
+                .takeIf { it.isFinite }
+                ?.round()
+                ?: return
             val hostLocation = IntArray(2)
             hostView.rootView.getLocationOnScreen(hostLocation)
+            val visibleBoundsInScreen = layoutCoordinates.boundsInWindow()
+                .toScreenRect(hostLocation)
+                ?: return
             val updatedTriggerInfo = triggerInfo.value.copy(
                 size = layoutCoordinates.size,
                 positionInRoot = positionInWindow,
@@ -51,7 +57,7 @@ internal actual fun Modifier.basePopoverTrigger(
                 ),
                 cutoutShape = shape,
                 cutoutPaddings = cutoutPaddings,
-                visibleBoundsInScreen = visibleBoundsInWindow.toScreenRect(hostLocation),
+                visibleBoundsInScreen = visibleBoundsInScreen,
             )
             if (updatedTriggerInfo != triggerInfo.value) {
                 triggerInfo.value = updatedTriggerInfo
