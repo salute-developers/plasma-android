@@ -533,6 +533,63 @@ class DsBuilderPluginTest {
     }
 
     @Test
+    fun `documentation capability регистрирует только пер-платформенную таску сконфигурированной платформы`() {
+        val projectDir = temporaryFolder.root
+        projectDir.resolve(".sdds").mkdir()
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            targets { compose() }
+            documentation { compose() }
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        assertNotNull(project.tasks.findByName("documentationAggregate"))
+        assertNotNull(project.tasks.findByName("aggregateComposeDocumentation"))
+        assertNull(project.tasks.findByName("aggregateViewDocumentation"))
+    }
+
+    @Test
+    fun `documentation capability регистрирует обе пер-платформенные таски если сконфигурированы compose и view`() {
+        val projectDir = temporaryFolder.root
+        projectDir.resolve(".sdds").mkdir()
+        val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
+        project.plugins.apply(DsBuilderPlugin::class.java)
+        project.extensions.getByType(DsBuilderExtension::class.java).apply {
+            targets {
+                compose()
+                view()
+            }
+            documentation {
+                compose()
+                view()
+            }
+        }
+
+        (project as ProjectInternal).evaluate()
+
+        val aggregateCompose =
+            project.tasks.getByName("aggregateComposeDocumentation") as DocumentationAggregateTask
+        val aggregateView = project.tasks.getByName("aggregateViewDocumentation") as DocumentationAggregateTask
+        assertTrue(
+            aggregateCompose.componentsInfoFile.get().asFile.name,
+            aggregateCompose.componentsInfoFile.get().asFile.name.contains("compose"),
+        )
+        assertTrue(
+            aggregateView.componentsInfoFile.get().asFile.name,
+            aggregateView.componentsInfoFile.get().asFile.name.contains("view-system"),
+        )
+
+        // Старая таска сохраняет приоритет Compose, если сконфигурированы обе платформы.
+        val legacyAggregate = project.tasks.getByName("documentationAggregate") as DocumentationAggregateTask
+        assertEquals(
+            aggregateCompose.componentsInfoFile.get().asFile,
+            legacyAggregate.componentsInfoFile.get().asFile,
+        )
+    }
+
+    @Test
     fun `compose sandbox derives package theme alias and generated output`() {
         val projectDir = temporaryFolder.root
         createSandboxMetadata(projectDir, "config-info-compose.json")
@@ -801,6 +858,8 @@ class DsBuilderPluginTest {
 
         assertNull(project.tasks.findByName("documentationAggregate"))
         assertNull(project.tasks.findByName("documentationExtract"))
+        assertNull(project.tasks.findByName("aggregateComposeDocumentation"))
+        assertNull(project.tasks.findByName("aggregateViewDocumentation"))
     }
 
     @Test

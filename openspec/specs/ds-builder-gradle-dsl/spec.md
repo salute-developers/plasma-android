@@ -126,3 +126,36 @@ DS Builder Gradle Plugin SHALL регистрировать собственны
 - **THEN** `generateComposeTheme`/`generateViewTheme`/`generateComposeComponents`/`generateViewComponents` SHALL
   NOT быть добавлены в зависимости `preBuild`
 
+### Requirement: Пер-платформенные documentation-таски
+
+Плагин SHALL регистрировать для `documentation` capability отдельную агрегирующую таску на каждую
+сконфигурированную платформу (`aggregateComposeDocumentation`/`aggregateViewDocumentation`), собирающую
+документацию строго одной платформы независимо от того, сколько платформ сконфигурировано в модуле в целом —
+зеркально уже существующему разделению для `theme` и `components`.
+
+#### Scenario: Модуль конфигурирует одну платформу
+
+- **WHEN** `dsBuilder.documentation` включена и `dsBuilder.targets` содержит только `compose`
+- **THEN** плагин SHALL зарегистрировать `aggregateComposeDocumentation`
+- **THEN** плагин SHALL NOT зарегистрировать `aggregateViewDocumentation` для этого модуля
+
+#### Scenario: Модуль конфигурирует обе платформы
+
+- **WHEN** `dsBuilder.targets` содержит и `compose`, и `view`
+- **THEN** плагин SHALL зарегистрировать обе пер-платформенные documentation-таски
+- **THEN** каждая таска SHALL использовать `componentsInfoFile`/`themeInfoFile` только своей платформы
+
+#### Scenario: Незапрошенная платформа отсутствует как таска
+
+- **WHEN** внешний вызывающий запрашивает documentation-таску платформы, не сконфигурированной в модуле
+  (например, `aggregateViewDocumentation` в модуле с `targets { compose() }`)
+- **THEN** Gradle SHALL сообщить об отсутствующей таске вместо агрегации для неверной платформы
+
+#### Scenario: Существующая таска сохраняет приоритет
+
+- **WHEN** `dsBuilder.targets` содержит и `compose`, и `view`
+- **THEN** `documentationAggregate` SHALL оставаться зарегистрированной под тем же именем и продолжать выбирать
+  Compose, как и до появления пер-платформенных тасок
+- **THEN** только `documentationAggregate` SHALL быть добавлена в зависимости `preBuild`, если `autoGenerate`
+  включён — `aggregateComposeDocumentation`/`aggregateViewDocumentation` SHALL NOT быть добавлены
+
