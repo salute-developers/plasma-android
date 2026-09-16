@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.isSpecified
+import androidx.compose.ui.geometry.isFinite
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.boundsInWindow
@@ -32,12 +32,15 @@ internal actual fun Modifier.basePopoverTrigger(
     return composed {
         val currentScaleFactor = LocalFocusSelectorSettings.current.scale.scaleFactor
         fun updateTriggerBounds(layoutCoordinates: LayoutCoordinates) {
-            val positionInWindow = layoutCoordinates.positionInWindow().round()
+            val positionInWindow = layoutCoordinates.positionInWindow()
+                .takeIf { it.isFinite }
+                ?.round()
+                ?: return
             val positionOnScreen = layoutCoordinates.positionOnScreen()
-            val positionInScreen = positionOnScreen.takeIf { it.isSpecified }?.round()
+            val positionInScreen = positionOnScreen.takeIf { it.isFinite }?.round()
                 ?: positionInWindow
             val visibleBoundsInWindow = layoutCoordinates.boundsInWindow()
-            val screenOffset = positionOnScreen.takeIf { it.isSpecified }
+            val screenOffset = positionOnScreen.takeIf { it.isFinite }
                 ?.let {
                     Offset(
                         x = it.x - positionInWindow.x,
@@ -53,7 +56,8 @@ internal actual fun Modifier.basePopoverTrigger(
                 cutoutPaddings = cutoutPaddings,
                 visibleBoundsInScreen = visibleBoundsInWindow
                     .translate(screenOffset)
-                    .roundToPixelBounds(),
+                    .roundToPixelBoundsOrNull()
+                    ?: return,
             )
             if (updatedTriggerInfo != triggerInfo.value) {
                 triggerInfo.value = updatedTriggerInfo
