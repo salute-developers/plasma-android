@@ -274,7 +274,17 @@ private fun ComponentsCapability.toLegacyExtension(root: DsBuilderExtension): Th
         copyGenerationOptionsTo(legacy)
         legacy.componentSource = source.orNull
             ?: root.sddsDirectory.get().asFile.let { sddsDirectory ->
-                SddsComponentsSourceReader(sddsDirectory).read()
+                // Тема и компоненты должны ссылаться на один и тот же themeName, иначе
+                // сгенерированные стили компонентов не находят объект темы (компилятор
+                // не резолвит `<themeName>Theme`). Источник истины для имени — тот же,
+                // что использует тема: .sdds/config.json (publicName первого tenant).
+                // Если конфиг темы недоступен или не читается, откатываемся к прежнему
+                // поведению — имени из .sdds/components/meta.json, — чтобы не ломать
+                // проекты, использующие только components без theme.
+                val configThemeName = runCatching {
+                    SddsThemeSourceReader(sddsDirectory.parentFile, sddsDirectory).read().baseAlias
+                }.getOrNull()?.takeIf { it.isNotBlank() }
+                SddsComponentsSourceReader(sddsDirectory).read(themeNameOverride = configThemeName)
             }
         legacy.componentsMetaStyleClass = componentsMetaStyleClass.get()
         legacy.autoGenerate = autoGenerate.get()

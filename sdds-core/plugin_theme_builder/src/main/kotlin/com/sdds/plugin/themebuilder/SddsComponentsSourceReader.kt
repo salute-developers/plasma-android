@@ -13,7 +13,13 @@ internal class SddsComponentsSourceReader(
     private val componentsDirectory: File = sddsDirectory.resolve(COMPONENTS_DIR),
 ) {
 
-    fun read(): ThemeBuilderSource {
+    /**
+     * @param themeNameOverride имя темы из источника, общего с [SddsThemeSourceReader]
+     * (`.sdds/config.json`), чтобы сгенерированные стили компонентов ссылались на тот же
+     * объект темы, что и сгенерированная тема. `null` — прежнее поведение: имя берётся
+     * из `meta.name` этого пакета компонентов.
+     */
+    fun read(themeNameOverride: String? = null): ThemeBuilderSource {
         val metaFile = componentsDirectory.resolve(META_FILE_NAME)
         if (!metaFile.isFile) {
             throw ThemeBuilderException(
@@ -25,7 +31,7 @@ internal class SddsComponentsSourceReader(
 
         return ThemeBuilderSource.withLocalDirectory(
             directory = componentsDirectory,
-            name = meta.name,
+            name = themeNameOverride ?: meta.name,
         )
     }
 
