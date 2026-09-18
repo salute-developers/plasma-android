@@ -33,21 +33,23 @@ internal object FontTokenValidator : TokenValidator<FontTokenValue> {
                         "Valid url must end with '.otf' or '.ttf'.",
                 )
             }
-            checkWeightAndStyleDuplicates(tokenValue, tokenName)
         }
+        checkWeightAndStyleDuplicates(tokenValue, tokenName)
     }
 
     private fun checkWeightAndStyleDuplicates(tokenValue: FontTokenValue, tokenName: String) {
-        val fontSet = mutableSetOf<Pair<Int, String>>()
-        tokenValue.fonts.forEach {
-            val weightStylePair = Pair(it.fontWeight, it.fontStyle)
-            if (fontSet.contains(weightStylePair)) {
-                throw ThemeBuilderException(
-                    "Font $tokenName has fontWeight and fontStyle duplicates.",
-                )
-            } else {
-                fontSet.add(weightStylePair)
-            }
+        val duplicates = tokenValue.fonts
+            .groupBy { it.fontWeight to it.fontStyle }
+            .filterValues { it.size > 1 }
+        if (duplicates.isEmpty()) return
+
+        val details = duplicates.entries.joinToString("; ") { (weightStyle, fonts) ->
+            val (weight, style) = weightStyle
+            val fileNames = fonts.joinToString(", ") { it.link.substringAfterLast('/') }
+            "$weight/$style: $fileNames"
         }
+        throw ThemeBuilderException(
+            "Font $tokenName (family '${tokenValue.name}') has fontWeight/fontStyle duplicates: $details",
+        )
     }
 }
