@@ -10,6 +10,7 @@ import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.fixtures.stories.ProgressUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ProgressUiStateTransformer
+import com.sdds.compose.uikit.motion.components.progressbar.rememberProgressBarMotion
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -44,6 +45,7 @@ object ProgressStory : ComposeBaseStory<ProgressUiState, ProgressBarStyle>(
         state: ProgressUiState,
     ) {
         ProgressBar(
+            motion = rememberProgressBarMotion(),
             progress = state.progress,
             modifier = Modifier.width(240.dp),
             style = style,

@@ -5,12 +5,11 @@ import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.progressSemantics
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.DrawScope
@@ -19,31 +18,34 @@ import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.coerceAtLeast
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 
 /**
  * Базовый компонент Progress.
  * @param progress значение прогресса от 0.0 до 1.0
  * @param modifier модификатор
- * @param indicatorBrush кисть для прогресса
- * @param backgroundBrush кисть для фона
- * @param backgroundHeight высота бэкграунда
- * @param backgroundShape форма бэкграунда
- * @param indicatorHeight высота индикатора
- * @param indicatorShape форма индикатора
+ * @param indicatorBrush производитель кисти для прогресса
+ * @param backgroundBrush производитель кисти для фона
+ * @param indicatorStateHeight стейт высоты индикатора
+ * @param backgroundStateHeight стейт высоты фона
+ * @param indicatorStateShape стейт формы индикатора
+ * @param backgroundStateShape стейт формы бэкграунда
  */
 @Composable
 internal fun BaseProgress(
     progress: Float,
     modifier: Modifier,
-    indicatorBrush: Brush?,
-    indicatorColor: Color?,
-    backgroundBrush: Brush?,
-    backgroundColor: Color?,
-    indicatorHeight: Dp,
-    backgroundHeight: Dp,
-    indicatorShape: CornerBasedShape,
-    backgroundShape: CornerBasedShape,
+    indicatorBrush: BrushProducer,
+    backgroundBrush: BrushProducer,
+    indicatorStateHeight: State<Dp>,
+    backgroundStateHeight: State<Dp>,
+    indicatorStateShape: State<CornerBasedShape>,
+    backgroundStateShape: State<CornerBasedShape>,
 ) {
+    val indicatorHeight = indicatorStateHeight.value
+    val backgroundHeight = backgroundStateHeight.value
+    val indicatorShape = indicatorStateShape.value
+    val backgroundShape = backgroundStateShape.value
     Box(
         modifier = modifier
             .progressSemantics(progress)
@@ -59,11 +61,11 @@ internal fun BaseProgress(
 
                 onDrawBehind {
                     translate(top = backgroundTranslate) {
-                        drawFilledOutline(backgroundOutline, backgroundColor, backgroundBrush)
+                        drawFilledOutline(backgroundOutline, backgroundBrush)
                     }
                     if (progress > 0f) {
                         translate(top = indicatorTranslate) {
-                            drawFilledOutline(indicatorOutline, indicatorColor, indicatorBrush)
+                            drawFilledOutline(indicatorOutline, indicatorBrush)
                         }
                     }
                 }
@@ -71,9 +73,8 @@ internal fun BaseProgress(
     )
 }
 
-private fun DrawScope.drawFilledOutline(outline: Outline, color: Color?, brush: Brush?) {
-    brush?.let { drawOutline(outline, brush = it, style = Fill) }
-    color?.let { drawOutline(outline, color = it, style = Fill) }
+private fun DrawScope.drawFilledOutline(outline: Outline, brush: BrushProducer) {
+    drawOutline(outline, brush = brush(), style = Fill)
 }
 
 private fun CacheDrawScope.createIndicatorOutline(

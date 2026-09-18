@@ -7,6 +7,7 @@ import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.fixtures.stories.CircularProgressUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.CircularProgressUiStateTransformer
+import com.sdds.compose.uikit.motion.components.progressbar.rememberCircularProgressBarMotion
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -42,6 +43,7 @@ object CircularProgressStory : ComposeBaseStory<CircularProgressUiState, Circula
         state: CircularProgressUiState,
     ) {
         CircularProgressBar(
+            motion = rememberCircularProgressBarMotion(),
             progress = state.progress,
             style = style,
             trackEnabled = state.trackEnabled,
