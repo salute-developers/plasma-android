@@ -670,7 +670,7 @@ internal class ThemeBuilderPlugin {
 
     private companion object {
         const val TASK_GROUP = "theme-builder"
-        const val DEFAULT_KT_PACKAGE = "com.themebuilder.tokens"
+        const val DEFAULT_KT_PACKAGE = "com.ds.builder"
         const val BUILD_OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
         const val BUILD_OUTPUT_PATH = "build/generated/theme-builder"
         const val SRC_OUTPUT_RESOURCE_PATH = "src/main/theme-builder-res"
