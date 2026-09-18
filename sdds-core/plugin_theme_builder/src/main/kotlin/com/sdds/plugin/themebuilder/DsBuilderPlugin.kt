@@ -233,10 +233,18 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
                 samplesMetadata.set(extract.flatMap { it.outputMeta })
                 componentsInfoFile.set(platform.componentsInfoFile)
                 themeInfoFile.set(platform.themeInfoFile)
+                // Обе директории объявлены `@Optional @InputDirectory`, и aggregate() уже
+                // трактует их отсутствие как «нет override-докёв» (`.orNull`). Но Gradle
+                // валидирует существование ЛЮБОГО заданного значения `@InputDirectory`,
+                // даже optional-свойства, — поэтому нельзя просто `.set()` путь по
+                // конвенции: если override-docs/ реально нет (обычный случай для проекта
+                // без кастомной документации), сборка падает. Задаём значение только когда
+                // директория действительно на диске, иначе оставляем свойство неустановленным.
                 screenshotsDirectory.set(
-                    layout.projectDirectory.dir("override-docs/static/screenshots-docusaurus"),
+                    layout.projectDirectory.dir("override-docs/static/screenshots-docusaurus")
+                        .takeIf { it.asFile.isDirectory },
                 )
-                userDocumentationRoot.set(documentation.userDocumentationRoot)
+                userDocumentationRoot.set(documentation.userDocumentationRoot.orNull?.takeIf { it.asFile.isDirectory })
                 outputDirectory.set(documentation.outputDirectory)
                 dependsOn(extract)
             }

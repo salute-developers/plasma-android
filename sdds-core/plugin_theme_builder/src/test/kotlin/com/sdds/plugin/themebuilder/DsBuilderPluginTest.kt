@@ -500,6 +500,10 @@ class DsBuilderPluginTest {
     fun `documentation capability registers local aggregation without portal tasks`() {
         val projectDir = temporaryFolder.root
         projectDir.resolve(".sdds").mkdir()
+        // userDocumentationRoot теперь optional: свойство задаётся, только если директория
+        // реально существует (см. DsBuilderPlugin.registerAggregate) — тест проверяет резолюцию
+        // конвенции по пути, поэтому директория должна быть на диске.
+        projectDir.resolve("override-docs").mkdir()
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
         val preBuild = project.tasks.register("preBuild")
         project.plugins.apply(DsBuilderPlugin::class.java)
