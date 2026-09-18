@@ -10,19 +10,24 @@ import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
-import com.sdds.compose.uikit.internal.common.StyledText
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.progressbar.CircularProgressBarMotionStyle
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 import kotlin.math.roundToInt
 
 /**
@@ -53,16 +58,17 @@ fun CircularProgressBar(
         modifier = modifier,
         valueContent = {
             if (style.valueEnabled) {
+                val valueStyle = style.valueStyleValues.getValue(interactionSource)
                 Row {
-                    StyledText(
+                    Text(
                         text = value,
-                        textStyle = style.valueStyle,
-                        textColor = valueColor.value,
+                        style = valueStyle,
+                        brush = { valueColor.value },
                     )
-                    StyledText(
+                    Text(
                         text = valueSuffix,
-                        textStyle = style.valueStyle,
-                        textColor = valueSuffixColor.value,
+                        style = valueStyle,
+                        brush = { valueSuffixColor.value },
                     )
                 }
             }
@@ -91,50 +97,175 @@ fun CircularProgressBar(
     trackEnabled: Boolean? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
+    val height = style.dimensions.heightValues.getValue(interactionSource)
+    val width = style.dimensions.widthValues.getValue(interactionSource)
     Box(
         modifier = modifier
-            .requiredHeight(style.dimensions.height)
-            .requiredWidth(style.dimensions.width),
+            .requiredHeight(height)
+            .requiredWidth(width),
         contentAlignment = Alignment.Center,
     ) {
         val trackBrush = style.colors.trackColor.getValueAsState(interactionSource)
         val indicatorBrush = style.colors.indicatorColor.getValueAsState(interactionSource)
-        val valueColor = style.colors.valueColor.getValueAsState(interactionSource)
         val isTrackEnabled = trackEnabled ?: style.trackEnabled
+        val trackThickness = style.dimensions.trackThicknessValues.getValueAsState(interactionSource)
+        val progressThickness = style.dimensions.progressThicknessValues.getValueAsState(interactionSource)
         Canvas(
             modifier = Modifier.fillMaxSize(),
         ) {
             if (isTrackEnabled) {
                 drawTrack(
-                    brush = trackBrush.value,
-                    trackThickness = style.dimensions.trackThickness,
-                    indicatorThickness = style.dimensions.progressThickness,
+                    brush = { trackBrush.value },
+                    trackThickness = trackThickness.value,
+                    indicatorThickness = progressThickness.value,
                 )
             }
             drawIndicator(
-                brush = indicatorBrush.value,
+                brush = { indicatorBrush.value },
                 progress = progress,
-                indicatorThickness = style.dimensions.progressThickness,
-                trackThickness = style.dimensions.trackThickness,
+                indicatorThickness = progressThickness.value,
+                trackThickness = trackThickness.value,
             )
         }
 
         if (valueContent != null) {
+            val valueColor = style.colors.valueColor.getValueAsState(interactionSource)
+            val valueStyle = style.valueStyleValues.getValueAsState(interactionSource)
+            val iconSize by style.dimensions.iconSizeValues.getValueAsState(interactionSource)
             CompositionLocalProvider(
-                LocalTextStyle provides style.valueStyle.copy(brush = valueColor.value),
                 LocalIconDefaultSize provides DpSize(
-                    width = style.dimensions.iconSize,
-                    height = style.dimensions.iconSize,
+                    width = iconSize,
+                    height = iconSize,
                 ),
             ) {
-                valueContent.invoke()
+                ProvideTextStyle(
+                    value = valueStyle.value,
+                    brush = { valueColor.value },
+                    content = valueContent,
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Компонент CircularProgressBar.
+ * @param progress значение прогресса от 0.0 до 1.0
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param value текст надписи
+ * @param valueSuffix суффикс текста
+ * @param trackEnabled включен ли трек
+ */
+@Composable
+fun CircularProgressBar(
+    progress: Float,
+    motion: Motion<CircularProgressBarMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: CircularProgressBarStyle = LocalCircularProgressBarStyle.current,
+    value: String = "${(progress * 100).roundToInt()}",
+    valueSuffix: String = "%",
+    trackEnabled: Boolean = style.trackEnabled,
+) {
+    val valueColor = style.colors.valueColor.getBrushAsState(motion.context, motion.style.valueColor)
+    val valueSuffixColor = style.colors.valueSuffixColor.getBrushAsState(motion.context, motion.style.valueSuffixColor)
+
+    CircularProgressBar(
+        progress = progress,
+        modifier = modifier,
+        valueContent = {
+            if (style.valueEnabled) {
+                val valueStyle by style.valueStyleValues.getTextStyleAsState(motion.context, motion.style.valueStyle)
+                Row {
+                    Text(
+                        text = value,
+                        style = valueStyle,
+                        brush = { valueColor.value },
+                    )
+                    Text(
+                        text = valueSuffix,
+                        style = valueStyle,
+                        brush = { valueSuffixColor.value },
+                    )
+                }
+            }
+        },
+        style = style,
+        trackEnabled = trackEnabled,
+        motion = motion,
+    )
+}
+
+/**
+ * Компонент CircularProgressBar.
+ * @param progress значение прогресса от 0.0 до 1.0
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param valueContent центральный контент
+ * @param trackEnabled включен ли трек
+ */
+@Composable
+fun CircularProgressBar(
+    progress: Float,
+    motion: Motion<CircularProgressBarMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: CircularProgressBarStyle = LocalCircularProgressBarStyle.current,
+    valueContent: (@Composable () -> Unit)?,
+    trackEnabled: Boolean = style.trackEnabled,
+) {
+    val height by style.dimensions.heightValues.getValueAsState(motion.context)
+    val width by style.dimensions.widthValues.getValueAsState(motion.context)
+    Box(
+        modifier = modifier
+            .requiredHeight(height)
+            .requiredWidth(width),
+        contentAlignment = Alignment.Center,
+    ) {
+        val trackThickness = style.dimensions.trackThicknessValues.getValueAsState(motion.context)
+        val progressThickness = style.dimensions.progressThicknessValues.getValueAsState(motion.context)
+        val trackBrush = style.colors.trackColor.getBrushAsState(motion.context, motion.style.trackColor)
+        val indicatorBrush = style.colors.indicatorColor.getBrushAsState(motion.context, motion.style.indicatorColor)
+        Canvas(
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            if (trackEnabled) {
+                drawTrack(
+                    brush = { trackBrush.value },
+                    trackThickness = trackThickness.value,
+                    indicatorThickness = progressThickness.value,
+                )
+            }
+            drawIndicator(
+                brush = { indicatorBrush.value },
+                progress = progress,
+                indicatorThickness = progressThickness.value,
+                trackThickness = trackThickness.value,
+            )
+        }
+
+        if (valueContent != null) {
+            val valueColor = style.colors.valueColor.getBrushAsState(motion.context, motion.style.valueColor)
+            val valueStyle = style.valueStyleValues.getTextStyleAsState(motion.context, motion.style.valueStyle)
+            val iconSize by style.dimensions.iconSizeValues.getValueAsState(motion.context)
+            CompositionLocalProvider(
+                LocalIconDefaultSize provides DpSize(
+                    width = iconSize,
+                    height = iconSize,
+                ),
+            ) {
+                ProvideTextStyle(
+                    value = valueStyle.value,
+                    brush = { valueColor.value },
+                    content = valueContent,
+                )
             }
         }
     }
 }
 
 private fun DrawScope.drawTrack(
-    brush: Brush,
+    brush: BrushProducer,
     trackThickness: Dp,
     indicatorThickness: Dp,
 ) {
@@ -142,7 +273,7 @@ private fun DrawScope.drawTrack(
     val indicatorThicknessPx = indicatorThickness.toPx()
     val maxThickness = maxOf(trackThicknessPx, indicatorThicknessPx)
     drawArc(
-        brush = brush,
+        brush = brush(),
         startAngle = 0f,
         sweepAngle = 360f,
         useCenter = false,
@@ -159,7 +290,7 @@ private fun DrawScope.drawTrack(
 }
 
 private fun DrawScope.drawIndicator(
-    brush: Brush,
+    brush: BrushProducer,
     progress: Float,
     indicatorThickness: Dp,
     trackThickness: Dp,
@@ -169,7 +300,7 @@ private fun DrawScope.drawIndicator(
     val indicatorThicknessPx = indicatorThickness.toPx()
     val maxThickness = maxOf(trackThicknessPx, indicatorThicknessPx)
     drawArc(
-        brush = brush,
+        brush = brush(),
         startAngle = -90f,
         sweepAngle = 360f * progress,
         useCenter = false,
