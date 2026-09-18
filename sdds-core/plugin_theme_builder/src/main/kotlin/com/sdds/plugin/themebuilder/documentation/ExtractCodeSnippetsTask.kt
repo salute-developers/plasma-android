@@ -15,6 +15,7 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Classpath
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFiles
+import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.PathSensitive
@@ -51,10 +52,18 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
     @get:Input
     abstract val xmlNamespace: Property<String>
 
+    // `Task.project` запрещён на execution time под configuration cache (см. compile()).
+    // Значение снимается в init — на этапе конфигурации — и живёт как обычный Provider,
+    // который безопасно сериализуется. @Internal: как и раньше, когда это был прямой вызов
+    // `project.layout.projectDirectory` в compile(), значение не участвовало в up-to-date.
+    @get:Internal
+    abstract val projectDirectory: DirectoryProperty
+
     init {
         kotlinSources.from(kotlinSourceTrees())
         xmlSources.from(xmlSourceTrees())
         xmlNamespace.convention("")
+        projectDirectory.convention(project.layout.projectDirectory)
     }
 
     @TaskAction
@@ -69,7 +78,7 @@ abstract class ExtractCodeSnippetsTask : DefaultTask() {
             outputXmlDir.set(this@ExtractCodeSnippetsTask.outputXmlDir)
             outputMeta.set(this@ExtractCodeSnippetsTask.outputMeta)
             namespace.set(this@ExtractCodeSnippetsTask.xmlNamespace)
-            projectDir.set(project.layout.projectDirectory)
+            projectDir.set(this@ExtractCodeSnippetsTask.projectDirectory)
         }
     }
 

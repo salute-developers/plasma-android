@@ -258,6 +258,180 @@ class ThemeBuilderPluginTest {
         assertEquals("BaseTheme", generateTheme.themeName.get())
     }
 
+    @Test
+    fun `plugin регистрирует только generateComposeTheme если сконфигурирован только compose`() {
+        val project = createProject("theme-compose-only")
+        val theme = ThemeBuilderExtension().apply {
+            compose()
+            themeSource("https://example.com/theme.zip")
+            autoGenerate(false)
+        }
+
+        ThemeBuilderPlugin().configure(
+            project = project,
+            themeExtension = { theme },
+            componentsExtension = { null },
+        )
+        project.evaluate()
+
+        assertNotNull(project.tasks.findByName("generateTheme"))
+        assertNotNull(project.tasks.findByName("generateComposeTheme"))
+        assertNull(project.tasks.findByName("generateViewTheme"))
+    }
+
+    @Test
+    fun `plugin регистрирует обе пер-платформенные таски темы если сконфигурированы compose и view`() {
+        val project = createProject("theme-compose-and-view")
+        val theme = ThemeBuilderExtension().apply {
+            compose()
+            view()
+            themeSource("https://example.com/theme.zip")
+            autoGenerate(false)
+        }
+
+        ThemeBuilderPlugin().configure(
+            project = project,
+            themeExtension = { theme },
+            componentsExtension = { null },
+        )
+        project.evaluate()
+
+        val generateComposeTheme = project.tasks.getByName("generateComposeTheme") as GenerateThemeTask
+        val generateViewTheme = project.tasks.getByName("generateViewTheme") as GenerateThemeTask
+        assertEquals(ThemeBuilderTarget.COMPOSE, generateComposeTheme.target.get())
+        assertEquals(ThemeBuilderTarget.VIEW_SYSTEM, generateViewTheme.target.get())
+        assertEquals(
+            ThemeBuilderTarget.ALL,
+            (project.tasks.getByName("generateTheme") as GenerateThemeTask).target.get(),
+        )
+    }
+
+    @Test
+    fun `plugin не регистрирует пер-платформенные таски темы если платформа не выбрана`() {
+        val project = createProject("theme-no-target")
+        val theme = ThemeBuilderExtension().apply {
+            themeSource("https://example.com/theme.zip")
+            autoGenerate(false)
+        }
+
+        ThemeBuilderPlugin().configure(
+            project = project,
+            themeExtension = { theme },
+            componentsExtension = { null },
+        )
+        project.evaluate()
+
+        assertNotNull(project.tasks.findByName("generateTheme"))
+        assertNull(project.tasks.findByName("generateComposeTheme"))
+        assertNull(project.tasks.findByName("generateViewTheme"))
+    }
+
+    @Test
+    fun `plugin регистрирует пер-платформенные таски компонентов только для сконфигурированных платформ`() {
+        val project = createProject("components-compose-only")
+        project.configurations.create("compileClasspath")
+        val components = ThemeBuilderExtension().apply {
+            compose()
+            componentSource("https://example.com/components.zip")
+            autoGenerate(false)
+        }
+
+        ThemeBuilderPlugin().configure(
+            project = project,
+            themeExtension = { null },
+            componentsExtension = { components },
+        )
+        project.evaluate()
+
+        assertNotNull(project.tasks.findByName("generateComponents"))
+        assertNotNull(project.tasks.findByName("generateComposeComponents"))
+        assertNull(project.tasks.findByName("generateViewComponents"))
+    }
+
+    @Test
+    fun `plugin регистрирует обе пер-платформенные таски компонентов если сконфигурированы compose и view`() {
+        val project = createProject("components-compose-and-view")
+        project.configurations.create("compileClasspath")
+        val components = ThemeBuilderExtension().apply {
+            compose()
+            view()
+            componentSource("https://example.com/components.zip")
+            autoGenerate(false)
+        }
+
+        ThemeBuilderPlugin().configure(
+            project = project,
+            themeExtension = { null },
+            componentsExtension = { components },
+        )
+        project.evaluate()
+
+        val generateComposeComponents = project.tasks.getByName("generateComposeComponents") as GenerateComponentsTask
+        val generateViewComponents = project.tasks.getByName("generateViewComponents") as GenerateComponentsTask
+        assertEquals(ThemeBuilderTarget.COMPOSE, generateComposeComponents.target.get())
+        assertEquals(ThemeBuilderTarget.VIEW_SYSTEM, generateViewComponents.target.get())
+    }
+
+    @Test
+    fun `generate-таски темы и компонентов форматируют код через spotlessApply если он есть`() {
+        val project = createProject("spotless-present")
+        project.configurations.create("compileClasspath")
+        project.tasks.register("spotlessApply")
+        val theme = ThemeBuilderExtension().apply {
+            compose()
+            view()
+            themeSource("https://example.com/theme.zip")
+            autoGenerate(false)
+        }
+        val components = ThemeBuilderExtension().apply {
+            compose()
+            view()
+            componentSource("https://example.com/components.zip")
+            autoGenerate(false)
+        }
+
+        ThemeBuilderPlugin().configure(
+            project = project,
+            themeExtension = { theme },
+            componentsExtension = { components },
+        )
+        project.evaluate()
+
+        listOf(
+            "generateTheme",
+            "generateComposeTheme",
+            "generateViewTheme",
+            "generateComponents",
+            "generateComposeComponents",
+            "generateViewComponents",
+        ).forEach { taskName ->
+            val task = project.tasks.getByName(taskName)
+            assertTrue(
+                "$taskName не запускает spotlessApply",
+                task.finalizedBy.getDependencies(task).any { it.name == "spotlessApply" },
+            )
+        }
+    }
+
+    @Test
+    fun `generate-таски не падают если в модуле нет spotlessApply`() {
+        val project = createProject("spotless-absent")
+        val theme = ThemeBuilderExtension().apply {
+            compose()
+            themeSource("https://example.com/theme.zip")
+            autoGenerate(false)
+        }
+
+        ThemeBuilderPlugin().configure(
+            project = project,
+            themeExtension = { theme },
+            componentsExtension = { null },
+        )
+        project.evaluate()
+
+        assertNotNull(project.tasks.findByName("generateTheme"))
+    }
+
     private fun createSddsConfig(projectDir: File) {
         projectDir.resolve(".sdds/config.json").apply {
             parentFile.mkdirs()
