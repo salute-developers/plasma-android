@@ -265,6 +265,18 @@ tasks.register("verifyRoborazziReleaseAll") {
     dependsOn(verifyTasks)
 }
 
+subprojects {
+    tasks.register("verifyKmpScreenshotsJvm") {
+        group = "verification"
+        dependsOn(tasks.matching { it.name == "verifyRoborazziJvm" })
+    }
+
+    tasks.register("verifyKmpScreenshotsIos") {
+        group = "verification"
+        dependsOn(tasks.matching { it.name == "verifyRoborazziIosSimulatorArm64" })
+    }
+}
+
 tasks.register("verifyAndRecordRoborazziAll") {
     group = "verification"
     val verifyTasks = subprojects.flatMap {
