@@ -205,6 +205,14 @@ abstract class DsBuilderExtension @Inject constructor(
                 ),
             )
             extension.configFile.convention(extension.sddsDirectory.file("config.json"))
+            // Дефолт, а не принудительное значение: explicit `targets { }` в скрипте сборки
+            // побеждает convention целиком (стандартная семантика Property), так что этот дефолт
+            // виден только когда targets вообще не сконфигурирован. См. SddsThemeSourceReader.
+            extension.targets.convention(
+                extension.sddsDirectory
+                    .map { dir -> SddsThemeSourceReader.readPlatforms(dir.asFile) }
+                    .orElse(emptySet()),
+            )
             extension.documentation.outputDirectory.convention(extension.sddsDirectory.dir("temp/docs"))
             extension.documentation.userDocumentationRoot.convention(
                 project.layout.projectDirectory.dir("override-docs"),
@@ -322,9 +330,9 @@ abstract class ThemeCapability : GenerationCapability() {
 
     init {
         paletteUrl.convention(DEFAULT_PALETTE_URL)
-        mode.convention(ThemeBuilderMode.TOKENS_ONLY)
+        mode.convention(ThemeBuilderMode.THEME)
         defaultTypography.convention(DefaultThemeTypography.DYNAMIC)
-        ignoreDisabledTokens.convention(false)
+        ignoreDisabledTokens.convention(true)
         useDefaultFonts.convention(false)
     }
 

@@ -56,6 +56,7 @@ internal class SddsThemeSourceReader(
     internal data class SddsConfig(
         val tenants: List<Tenant> = emptyList(),
         val palettePath: String? = null,
+        val platforms: List<String> = emptyList(),
     ) {
         fun paletteFile(projectDir: File, sddsDirectory: File): File {
             return palettePath?.let(projectDir::resolve)
@@ -78,14 +79,39 @@ internal class SddsThemeSourceReader(
         }
     }
 
-    private companion object {
-        const val SDDS_DIR = ".sdds"
-        const val CONFIG_FILE_NAME = "config.json"
-        const val CONFIG_PATH = "$SDDS_DIR/config.json"
-        const val DEFAULT_PALETTE_RELATIVE_PATH = "tenants/palette.json"
+    companion object {
+        private const val SDDS_DIR = ".sdds"
+        private const val CONFIG_FILE_NAME = "config.json"
+        private const val CONFIG_PATH = "$SDDS_DIR/config.json"
+        private const val DEFAULT_PALETTE_RELATIVE_PATH = "tenants/palette.json"
 
-        val json = Json {
+        private val json = Json {
             ignoreUnknownKeys = true
+        }
+
+        /**
+         * Читает `platforms` из `.sdds/config.json`, если он есть, для дефолта [DsBuilderExtension.targets].
+         *
+         * В отличие от [read], ничего не бросает: отсутствие или невалидность файла — не ошибка
+         * здесь, а просто "нечего предложить в качестве дефолта", explicit `targets { }` в скрипте
+         * сборки как и раньше работает независимо от этого файла. Платформы, не относящиеся к
+         * Android (`swiftui`, `react`), молча игнорируются — этот плагин генерирует только под
+         * Compose/View.
+         */
+        fun readPlatforms(sddsDirectory: File): Set<DsBuilderPlatform> {
+            val configFile = sddsDirectory.resolve(CONFIG_FILE_NAME)
+            if (!configFile.isFile) return emptySet()
+            val config = runCatching {
+                json.decodeFromString(SddsConfig.serializer(), configFile.readText())
+            }.getOrNull() ?: return emptySet()
+
+            return config.platforms.mapNotNullTo(mutableSetOf()) { platform ->
+                when (platform) {
+                    "compose" -> DsBuilderPlatform.COMPOSE
+                    "android-view" -> DsBuilderPlatform.VIEW
+                    else -> null
+                }
+            }
         }
     }
 }
