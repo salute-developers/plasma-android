@@ -19,6 +19,7 @@ import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.newInstance
 import org.gradle.kotlin.dsl.register
+import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
@@ -209,6 +210,17 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
             outputKotlinDir.set(workDirectory.map { it.dir("kotlin") })
             outputXmlDir.set(workDirectory.map { it.dir("xml") })
             outputMeta.set(workDirectory.map { it.file("samples.json") })
+        }
+        // `kotlinSources` (см. ExtractCodeSnippetsTask.init) читает src/main/kotlin и
+        // src/main/theme-builder-res напрямую через project.file(...), без provenance от
+        // задачи, которая их пишет — Gradle не может вывести порядок сам и с включённым
+        // configuration cache падает валидацией "implicit dependency" вместо предупреждения.
+        // tasks.withType — ленивая коллекция: безопасна, даже если capability выключена и
+        // задачи вовсе не зарегистрированы, и не требует конфигурировать `extract` изнутри
+        // колбэка другой задачи (это запрещено в контексте создания графа задач).
+        extract.configure {
+            mustRunAfter(tasks.withType<GenerateThemeTask>())
+            mustRunAfter(tasks.withType<GenerateComponentsTask>())
         }
 
         fun registerAggregate(taskName: String, platform: DocumentationPlatform) =
