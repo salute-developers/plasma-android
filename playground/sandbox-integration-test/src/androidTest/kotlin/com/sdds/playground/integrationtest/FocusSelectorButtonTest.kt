@@ -16,8 +16,10 @@ class FocusSelectorButtonTest {
         FocusSelectorPage(composeTestRule)
             .checkButtonTabContentVisible()
             .checkButtonFocusStateNotFocused()
+            .rememberButtonWithoutFocusVisualState()
             .pressTab()
             .checkButtonFocusStateFocused()
+            .checkFocusSelectorVisible()
             .checkButtonFocusRequestPassed()
     }
 
