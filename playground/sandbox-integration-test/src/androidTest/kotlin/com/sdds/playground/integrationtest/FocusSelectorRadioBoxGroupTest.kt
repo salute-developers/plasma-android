@@ -18,8 +18,10 @@ class FocusSelectorRadioBoxGroupTest {
             .selectRadioBoxGroupTab()
             .checkRadioBoxGroupTabContentVisible()
             .checkRadioBoxGroupFocusStateNotFocused()
+            .rememberRadioBoxWithoutFocusVisualState()
             .pressTab()
             .checkRadioBoxGroupFocusStateFocused()
+            .checkFocusSelectorVisible()
             .checkRadioBoxGroupFocusPassed()
     }
 

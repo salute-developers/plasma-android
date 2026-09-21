@@ -230,7 +230,6 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
         if (current.device.device != reference.device.device) add("другой идентификатор Android-устройства")
         if (current.device.fingerprint != reference.device.fingerprint) add("другой build fingerprint")
         if (current.device.compilationMode != reference.device.compilationMode) add("другой режим компиляции")
-        if (current.device.cpuLocked != reference.device.cpuLocked) add("другое значение cpuLocked")
         if (current.device.cpuMaxFreqHz != reference.device.cpuMaxFreqHz) add("другие максимальные частоты CPU")
         if (commonCases.any { current.cases[it]?.repeatIterations != reference.cases[it]?.repeatIterations }) {
             add("разное число измеренных итераций")
@@ -286,8 +285,9 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
         referenceMetadata: ReferenceMetadata?,
         isRecordedReference: Boolean,
     ): String {
+        val comparisonEnabled = reference != null && compatibilityProblems.isEmpty()
         val regressionCount = comparisons.count { it.status == CaseStatus.REGRESSION }
-        val comparableCaseCount = comparisons.count { it.reference != null }
+        val comparableCaseCount = comparisons.count { comparisonEnabled && it.reference != null }
         val overallStatus = when {
             isRecordedReference -> "РЕФЕРЕНС СОХРАНЁН"
             reference == null -> "НЕТ РЕФЕРЕНСА"
@@ -302,13 +302,12 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
             regressionCount > 0 -> "bad"
             else -> "good"
         }
-        val comparisonEnabled = reference != null && compatibilityProblems.isEmpty()
         val visualComparisons = comparisons.sortedByDescending { it.current.overrun.p95 ?: Double.NEGATIVE_INFINITY }
         val barScaleMaximum = visualComparisons
             .flatMap { comparison ->
                 listOfNotNull(
                     comparison.current.overrun.p95,
-                    comparison.reference?.overrun?.p95?.takeIf { comparisonEnabled },
+                    comparison.reference?.overrun?.p95.takeIf { comparisonEnabled },
                 )
             }
             .filter { it > 0.0 }
@@ -332,7 +331,7 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
         }
         val comparisonRows = comparisons.joinToString("") { comparison ->
             val currentCase = comparison.current
-            val referenceCase = comparison.reference
+            val referenceCase = comparison.reference.takeIf { comparisonEnabled }
             """
             <tr>
               <th>${html(currentCase.displayName)}</th>
@@ -382,9 +381,9 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
             .run-meta{color:var(--muted);font-size:13px;margin:10px 0 20px}.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:20px 0}.summary-card,.panel,.dashboard-panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 8px #1b263814}
             .summary-card{padding:18px}.summary-label{color:var(--muted);font-size:13px;margin-bottom:6px}.summary-value{font-size:24px;font-weight:780;line-height:1.15}.summary-note{color:var(--muted);font-size:12px;margin-top:7px;overflow-wrap:anywhere}
             .dashboard-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(360px,1fr);gap:16px;align-items:start}.dashboard-panel{padding:20px}.panel-title{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px}.panel-title h2{font-size:20px;margin:0}.panel-help{color:var(--muted);font-size:12px;margin-bottom:16px}
-            .legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin:10px 0 16px}.legend-item{display:flex;align-items:center;gap:7px}.legend-current{width:30px;height:5px;border-radius:5px;background:#e98b0c}.legend-reference{width:0;height:18px;border-left:3px dashed #6f7783}.legend-zero{width:2px;height:18px;background:#303641}
+            .legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin:10px 0 16px}.legend-item{display:flex;align-items:center;gap:7px}.legend-current{width:30px;height:7px;border-radius:5px;background:#e98b0c}.legend-reference{width:30px;height:7px;border-radius:5px;background:#7d8796}.legend-zero{width:2px;height:18px;background:#303641}
             .benchmark-list{display:grid;gap:9px}.benchmark-row{display:grid;grid-template-columns:30px minmax(0,1fr) 126px;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:11px}.rank{width:28px;height:28px;display:grid;place-items:center;background:#f0f3f7;border-radius:7px;font-weight:750}.case-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px}.case-name{font-weight:720}.case-status{font-size:11px;font-weight:800;padding:4px 7px;border-radius:6px;white-space:nowrap}.status-cell-stable{color:var(--stable);background:var(--stable-soft)}.status-cell-good{color:var(--good);background:var(--good-soft)}.status-cell-bad{color:var(--bad);background:var(--bad-soft)}.status-cell-warning{color:var(--warn);background:var(--warn-soft)}
-            .bar-track{height:14px;position:relative;background:#eef1f5;border-radius:0 8px 8px 0;margin-left:2px}.zero-marker{position:absolute;left:0;top:-5px;bottom:-5px;width:2px;background:#303641;z-index:3}.current-bar{height:100%;border-radius:0 7px 7px 0;min-width:2px}.severity-good{background:var(--good)}.severity-low{background:#efad1f}.severity-medium{background:#ea7e0c}.severity-high{background:var(--bad)}.reference-marker{position:absolute;top:-6px;bottom:-6px;width:0;border-left:3px dashed #626b78;z-index:4}.bar-labels{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:7px}.bar-labels strong{color:var(--text)}.delta-box{text-align:right;font-size:12px;color:var(--muted)}.delta-box strong{display:block;color:var(--text);font-size:14px}.secondary-metrics{display:flex;justify-content:flex-end;gap:10px;margin-top:6px;font-size:11px;color:var(--muted)}
+            .comparison-bars{display:grid;gap:6px}.comparison-bar-row{display:grid;grid-template-columns:66px minmax(0,1fr) 74px;gap:8px;align-items:center;color:var(--muted);font-size:11px}.comparison-bar-row strong{color:var(--text);text-align:right}.bar-track{height:11px;position:relative;background:#eef1f5;border-radius:0 8px 8px 0;margin-left:2px}.zero-marker{position:absolute;left:0;top:-3px;bottom:-3px;width:2px;background:#303641;z-index:3}.current-bar,.reference-bar{height:100%;border-radius:0 7px 7px 0;min-width:2px}.reference-bar{background:#7d8796}.severity-good{background:var(--good)}.severity-low{background:#efad1f}.severity-medium{background:#ea7e0c}.severity-high{background:var(--bad)}.delta-box{text-align:right;font-size:12px;color:var(--muted)}.delta-box strong{display:block;color:var(--text);font-size:14px}.secondary-metrics{display:flex;justify-content:flex-end;gap:10px;margin-top:8px;font-size:11px;color:var(--muted)}
             .heatmap-grid{display:grid;min-width:520px;border:1px solid var(--border);border-radius:10px;overflow:hidden}.heat-cell{padding:10px;border-right:1px solid var(--surface);border-bottom:1px solid var(--surface);text-align:center;font-size:12px}.heat-label{text-align:left;background:#f6f8fb;font-weight:650}.heat-header{background:#eef1f5;font-weight:750}.heatmap-note{color:var(--muted);font-size:12px;margin:12px 0 0}.heat-legend{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;color:var(--muted);font-size:11px}.heat-legend span{display:flex;align-items:center;gap:5px}.heat-swatch{width:12px;height:12px;border-radius:3px}
             details.panel{margin-top:16px;padding:0}details.panel>summary{cursor:pointer;list-style:none;padding:17px 20px;font-weight:750}details.panel>summary::-webkit-details-marker{display:none}details.panel>summary:before{content:"›";display:inline-block;margin-right:10px;transition:transform .15s}details[open].panel>summary:before{transform:rotate(90deg)}.details-content{padding:0 20px 20px;border-top:1px solid var(--border)}
             .glossary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.glossary-item{padding:14px;background:#f7f9fc;border-radius:10px}.glossary-item strong{display:block;margin-bottom:5px}.glossary-item span{font-size:13px;color:var(--muted)}
@@ -406,8 +405,8 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
           </section>
           <section class="dashboard-grid">
             <article class="dashboard-panel">
-              <div class="panel-title"><h2>Обзор соблюдения frame deadline</h2></div>
-              <p class="panel-help">Сценарии отсортированы по текущему frameOverrunMs P95. Длина и цвет полосы показывают нагрузку относительно deadline внутри этого прогона; статус определяется только сравнением с совместимым референсом.</p>
+              <div class="panel-title"><h2>Сравнение frameOverrunMs P95 с референсом</h2></div>
+              <p class="panel-help">Для каждого сценария показаны две полосы в одном масштабе: текущий прогон и сохранённый референс. Чем длиннее полоса, тем больше опоздание относительно frame deadline; статус определяется сравнением всех контрольных метрик.</p>
               <div class="legend"><span class="legend-item"><i class="legend-zero"></i>0 = frame deadline</span><span class="legend-item"><i class="legend-current"></i>Текущий прогон</span><span class="legend-item"><i class="legend-reference"></i>Референс</span></div>
               <div class="benchmark-list">$overviewRows</div>
             </article>
@@ -463,7 +462,8 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
               <tr><th>Устройство</th><td>${html("${current.device.brand} ${current.device.model}".trim())}</td></tr>
               <tr><th>Android SDK</th><td>${html(current.device.sdk)}</td></tr>
               <tr><th>Fingerprint</th><td>${html(current.device.fingerprint)}</td></tr>
-              <tr><th>Ядра CPU / locked</th><td>${html(current.device.cpuCoreCount)} / ${html(current.device.cpuLocked)}</td></tr>
+              <tr><th>Ядра CPU</th><td>${html(current.device.cpuCoreCount)}</td></tr>
+              <tr><th>cpuLocked</th><td>${html(current.device.cpuLocked)} (справочно, не влияет на совместимость с референсом)</td></tr>
               <tr><th>Режим компиляции</th><td>${html(current.device.compilationMode)}</td></tr>
               <tr><th>Текущий JSON</th><td><code>${html(current.source.absolutePath)}</code></td></tr>
               <tr><th>JSON референса</th><td><code>${html(referenceText)}</code></td></tr>
@@ -486,19 +486,31 @@ abstract class PerformanceBenchmarkReportTask : DefaultTask() {
         val currentOverrun = current.overrun.p95
         val referenceOverrun = reference?.overrun?.p95
         val currentWidth = barWidth(currentOverrun, scaleMaximum)
-        val referenceMarker = referenceOverrun?.let {
-            "<i class=\"reference-marker\" style=\"left:${barWidth(it, scaleMaximum)}%\" title=\"Референс ${signed(it)} мс\"></i>"
-        }.orEmpty()
-        val referenceLabel = referenceOverrun?.let { "<span>Референс <strong>${signed(it)} мс</strong></span>" }
-            ?: "<span>Референс <strong>—</strong></span>"
+        val referenceBar = referenceOverrun?.let {
+            """
+            <div class="comparison-bar-row">
+              <span>Референс</span>
+              <div class="bar-track"><i class="zero-marker"></i><div class="reference-bar" style="width:${barWidth(it, scaleMaximum)}%"></div></div>
+              <strong>${signed(it)} мс</strong>
+            </div>
+            """.trimIndent()
+        } ?: """
+            <div class="comparison-bar-row"><span>Референс</span><div class="bar-track"></div><strong>—</strong></div>
+        """.trimIndent()
         val delta = metricDelta(currentOverrun, referenceOverrun)
         """
         <article class="benchmark-row">
           <div class="rank">${index + 1}</div>
           <div>
             <div class="case-heading"><span class="case-name">${html(current.displayName)}</span><span class="case-status ${comparison.status.css}">${comparison.status.label}</span></div>
-            <div class="bar-track"><i class="zero-marker"></i><div class="current-bar ${severityClass(currentOverrun, scaleMaximum)}" style="width:$currentWidth%"></div>$referenceMarker</div>
-            <div class="bar-labels"><span>Текущий <strong>${signed(currentOverrun)} мс</strong></span>$referenceLabel</div>
+            <div class="comparison-bars">
+              <div class="comparison-bar-row">
+                <span>Текущий</span>
+                <div class="bar-track"><i class="zero-marker"></i><div class="current-bar ${severityClass(currentOverrun, scaleMaximum)}" style="width:$currentWidth%"></div></div>
+                <strong>${signed(currentOverrun)} мс</strong>
+              </div>
+              $referenceBar
+            </div>
             <div class="secondary-metrics"><span>CPU P95 ${number(current.cpu.p95)} мс</span><span>Jank ${number(current.jankRate)}%</span></div>
           </div>
           <div class="delta-box ${comparison.status.css}"><strong>${delta.first}</strong><span>${delta.second}</span></div>

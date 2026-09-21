@@ -18,8 +18,10 @@ class FocusSelectorTabsTest {
             .selectTabsTab()
             .checkTabsTabContentVisible()
             .checkTabsFocusStateNotFocused()
+            .rememberTabsWithoutFocusVisualState()
             .pressTab()
             .checkTabsFocusStateFocused()
+            .checkFocusSelectorVisible()
             .checkTabsFocusPassed()
     }
 

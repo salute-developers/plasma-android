@@ -138,7 +138,7 @@ Open `index.html` directly. Its dashboard contains:
 - a per-iteration `frameOverrunMs P95` heatmap calculated from raw frame arrays
 - collapsible metric guidance, detailed P50/P90/P95/P99 values, exact reference comparison and environment data
 
-The visual ranking uses P95 as the primary signal, while the status also considers CPU P95 and jank rate. P50, P90, P99, frame count and per-iteration stability remain available for diagnosis. A comparison is disabled and marked incompatible when the device, build fingerprint, compilation mode, measured iteration count, `cpuLocked` or CPU maximum frequencies differ.
+The visual ranking uses P95 as the primary signal, while the status also considers CPU P95 and jank rate. P50, P90, P99, frame count and per-iteration stability remain available for diagnosis. A comparison is disabled and marked incompatible when the device, build fingerprint, compilation mode, measured iteration count or CPU maximum frequencies differ. `cpuLocked` is kept in the environment section for diagnostics, but does not affect reference compatibility because its value may change between runs on the same physical device.
 
 The default report marks a regression candidate when at least one condition is true:
 

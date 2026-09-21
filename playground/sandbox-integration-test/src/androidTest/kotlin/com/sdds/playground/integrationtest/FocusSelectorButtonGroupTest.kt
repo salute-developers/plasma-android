@@ -17,8 +17,10 @@ class FocusSelectorButtonGroupTest {
             .selectButtonGroupTab()
             .checkButtonGroupTabContentVisible()
             .checkButtonGroupFocusStateNotFocused()
+            .rememberButtonGroupWithoutFocusVisualState()
             .pressTab()
             .checkButtonGroupFocusStateFocused()
+            .checkFocusSelectorVisible()
             .checkButtonGroupFocusRequestPassed()
     }
 
