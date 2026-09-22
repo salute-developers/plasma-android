@@ -15,6 +15,8 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
       'quick_start',
+      'cli',
+      'mcp',
       {
         type: 'category',
         label: 'Тема',
