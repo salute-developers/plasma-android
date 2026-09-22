@@ -5,14 +5,21 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
 import com.sdds.api.info.compose.ApiName
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.transform
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -30,12 +37,24 @@ interface CodeInputStyle : Style {
     /**
      * Стиль кода
      */
+    @Deprecated("use codeStyles", replaceWith = ReplaceWith("codeStyles"))
     val codeStyle: TextStyle
+
+    /**
+     * Стиль кода
+     */
+    val codeStyles: StatefulValue<TextStyle>
 
     /**
      * Стиль надписи
      */
+    @Deprecated("use captionStyles", replaceWith = ReplaceWith("captionStyles"))
     val captionStyle: TextStyle
+
+    /**
+     * Стили надписи
+     */
+    val captionStyles: StatefulValue<TextStyle>
 
     /**
      * Цвета компонента
@@ -61,15 +80,28 @@ interface CodeInputStyle : Style {
  */
 @ApiInfo
 interface CodeInputStyleBuilder : StyleBuilder<CodeInputStyle> {
+
     /**
      * Устанавливает стиль кода [codeStyle]
      */
-    fun codeStyle(codeStyle: TextStyle): CodeInputStyleBuilder
+    fun codeStyle(codeStyle: TextStyle): CodeInputStyleBuilder =
+        codeStyle(codeStyle.asStatefulValue())
 
     /**
-     * Устанавливает стиль текста надписи [captionStyle]
+     * Устанавливает стили кода [codeStyle]
      */
-    fun captionStyle(captionStyle: TextStyle): CodeInputStyleBuilder
+    fun codeStyle(codeStyle: StatefulValue<TextStyle>): CodeInputStyleBuilder
+
+    /**
+     * Устанавливает стиль надписи [captionStyle]
+     */
+    fun captionStyle(captionStyle: StatefulValue<TextStyle>): CodeInputStyleBuilder
+
+    /**
+     * Устанавливает стили надписи [captionStyle]
+     */
+    fun captionStyle(captionStyle: TextStyle): CodeInputStyleBuilder =
+        captionStyle(captionStyle.asStatefulValue())
 
     /**
      * Устанавливает цвета с помощью [builder]
@@ -85,25 +117,30 @@ interface CodeInputStyleBuilder : StyleBuilder<CodeInputStyle> {
 }
 
 private data class DefaultCodeInputStyle(
-    override val codeStyle: TextStyle,
-    override val captionStyle: TextStyle,
     override val colors: CodeInputColors,
     override val dimensions: CodeInputDimensions,
+    override val codeStyles: StatefulValue<TextStyle>,
+    override val captionStyles: StatefulValue<TextStyle>,
 ) : CodeInputStyle {
-    class Builder : CodeInputStyleBuilder {
-        private var codeStyle: TextStyle? = null
+    @Deprecated("use codeStyles", replaceWith = ReplaceWith("codeStyles"))
+    override val codeStyle: TextStyle = codeStyles.getDefaultValue()
 
-        private var captionStyle: TextStyle? = null
+    @Deprecated("use captionStyles", replaceWith = ReplaceWith("captionStyles"))
+    override val captionStyle: TextStyle = captionStyles.getDefaultValue()
+    class Builder : CodeInputStyleBuilder {
+        private var codeStyle: StatefulValue<TextStyle>? = null
+
+        private var captionStyle: StatefulValue<TextStyle>? = null
 
         private val colorsBuilder: CodeInputColorsBuilder = CodeInputColors.builder()
 
         private val dimensionsBuilder: CodeInputDimensionsBuilder = CodeInputDimensions.builder()
 
-        override fun codeStyle(codeStyle: TextStyle): CodeInputStyleBuilder = apply {
+        override fun codeStyle(codeStyle: StatefulValue<TextStyle>): CodeInputStyleBuilder = apply {
             this.codeStyle = codeStyle
         }
 
-        override fun captionStyle(captionStyle: TextStyle): CodeInputStyleBuilder = apply {
+        override fun captionStyle(captionStyle: StatefulValue<TextStyle>): CodeInputStyleBuilder = apply {
             this.captionStyle = captionStyle
         }
 
@@ -116,8 +153,8 @@ private data class DefaultCodeInputStyle(
             CodeInputStyleBuilder = apply { this.dimensionsBuilder.builder() }
 
         override fun style(): CodeInputStyle = DefaultCodeInputStyle(
-            codeStyle = codeStyle ?: TextStyle.Default,
-            captionStyle = captionStyle ?: TextStyle.Default,
+            codeStyles = codeStyle ?: TextStyle.Default.asStatefulValue(),
+            captionStyles = captionStyle ?: TextStyle.Default.asStatefulValue(),
             colors =
             colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
@@ -133,22 +170,46 @@ interface CodeInputColors {
     /**
      * Цвет кода
      */
+    @Deprecated("use codeBrush", replaceWith = ReplaceWith("codeBrush"))
     val codeColor: StatefulValue<Color>
+
+    /**
+     * Цвет кода
+     */
+    val codeBrush: StatefulValue<Brush>
 
     /**
      * Цвет надписи
      */
+    @Deprecated("use captionBrush", replaceWith = ReplaceWith("captionBrush"))
     val captionColor: StatefulValue<Color>
+
+    /**
+     * Цвет надписи
+     */
+    val captionBrush: StatefulValue<Brush>
 
     /**
      * Цвет обводки точки
      */
+    @Deprecated("use strokeBrush", replaceWith = ReplaceWith("strokeBrush"))
     val strokeColor: StatefulValue<Color>
+
+    /**
+     * Цвет обводки точки
+     */
+    val strokeBrush: StatefulValue<Brush>
 
     /**
      * Цвет фона точки
      */
+    @Deprecated("use fillBrush", replaceWith = ReplaceWith("fillBrush"))
     val fillColor: StatefulValue<Color>
+
+    /**
+     * Цвет фона точки
+     */
+    val fillBrush: StatefulValue<Brush>
 
     companion object {
         /**
@@ -165,46 +226,118 @@ interface CodeInputColorsBuilder {
     /**
      * Устанавливает цвет кода [codeColor]
      */
-    fun codeColor(codeColor: StatefulValue<Color>): CodeInputColorsBuilder
+    fun codeColor(codeColor: StatefulValue<Color>): CodeInputColorsBuilder =
+        codeBrush(codeColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет кода [codeColor]
+     */
+    fun codeBrush(codeColor: StatefulValue<Brush>): CodeInputColorsBuilder
+
+    /**
+     * Устанавливает цвет кода [codeColor]
+     */
+    fun codeColor(codeColor: Brush): CodeInputColorsBuilder =
+        codeBrush(codeColor.asStatefulValue())
 
     /**
      * Устанавливает цвет кода [codeColor]
      */
     fun codeColor(codeColor: Color): CodeInputColorsBuilder =
-        codeColor(codeColor.asStatefulValue())
+        codeBrush(codeColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет кода [codeColor]
+     */
+    fun codeColor(codeColor: InteractiveColor): CodeInputColorsBuilder =
+        codeBrush(codeColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет надписи [captionColor]
      */
-    fun captionColor(captionColor: StatefulValue<Color>): CodeInputColorsBuilder
+    fun captionColor(captionColor: StatefulValue<Color>): CodeInputColorsBuilder =
+        captionBrush(captionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет надписи [captionColor]
+     */
+    fun captionBrush(captionColor: StatefulValue<Brush>): CodeInputColorsBuilder
+
+    /**
+     * Устанавливает цвет надписи [captionColor]
+     */
+    fun captionColor(captionColor: Brush): CodeInputColorsBuilder =
+        captionBrush(captionColor.asStatefulValue())
 
     /**
      * Устанавливает цвет надписи [captionColor]
      */
     fun captionColor(captionColor: Color): CodeInputColorsBuilder =
-        captionColor(captionColor.asStatefulValue())
+        captionBrush(captionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет надписи [captionColor]
+     */
+    fun captionColor(captionColor: InteractiveColor): CodeInputColorsBuilder =
+        captionBrush(captionColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет обводки точки [strokeColor]
      */
-    fun strokeColor(strokeColor: StatefulValue<Color>): CodeInputColorsBuilder
+    fun strokeColor(strokeColor: StatefulValue<Color>): CodeInputColorsBuilder =
+        strokeBrush(strokeColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет обводки точки [strokeColor]
+     */
+    fun strokeBrush(strokeColor: StatefulValue<Brush>): CodeInputColorsBuilder
+
+    /**
+     * Устанавливает цвет обводки точки [strokeColor]
+     */
+    fun strokeColor(strokeColor: Brush): CodeInputColorsBuilder =
+        strokeBrush(strokeColor.asStatefulValue())
 
     /**
      * Устанавливает цвет обводки точки [strokeColor]
      */
     fun strokeColor(strokeColor: Color): CodeInputColorsBuilder =
-        strokeColor(strokeColor.asStatefulValue())
+        strokeBrush(strokeColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет обводки точки [strokeColor]
+     */
+    fun strokeColor(strokeColor: InteractiveColor): CodeInputColorsBuilder =
+        strokeBrush(strokeColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона точки [fillColor]
      */
-    fun fillColor(fillColor: StatefulValue<Color>): CodeInputColorsBuilder
+    fun fillColor(fillColor: StatefulValue<Color>): CodeInputColorsBuilder =
+        fillBrush(fillColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет фона точки [fillColor]
+     */
+    fun fillBrush(fillColor: StatefulValue<Brush>): CodeInputColorsBuilder
+
+    /**
+     * Устанавливает цвет фона точки [fillColor]
+     */
+    fun fillColor(fillColor: Brush): CodeInputColorsBuilder =
+        fillBrush(fillColor.asStatefulValue())
 
     /**
      * Устанавливает цвет фона точки [fillColor]
      */
     fun fillColor(fillColor: Color): CodeInputColorsBuilder =
-        fillColor(fillColor.asStatefulValue())
+        fillBrush(fillColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет фона точки [fillColor]
+     */
+    fun fillColor(fillColor: InteractiveColor): CodeInputColorsBuilder =
+        fillBrush(fillColor.asStatefulBrush())
 
     /**
      * Вернёт [CodeInputColors]
@@ -213,48 +346,65 @@ interface CodeInputColorsBuilder {
 }
 
 private data class DefaultCodeInputColors(
-    override val codeColor: StatefulValue<Color>,
-    override val captionColor: StatefulValue<Color>,
-    override val strokeColor: StatefulValue<Color>,
-    override val fillColor: StatefulValue<Color>,
+    override val codeBrush: StatefulValue<Brush>,
+    override val captionBrush: StatefulValue<Brush>,
+    override val strokeBrush: StatefulValue<Brush>,
+    override val fillBrush: StatefulValue<Brush>,
+
 ) : CodeInputColors {
+    @Deprecated("use codeBrush", replaceWith = ReplaceWith("codeBrush"))
+    override val codeColor: StatefulValue<Color> = codeBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use captionBrush", replaceWith = ReplaceWith("captionBrush"))
+    override val captionColor: StatefulValue<Color> = captionBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use strokeBrush", replaceWith = ReplaceWith("strokeBrush"))
+    override val strokeColor: StatefulValue<Color> = strokeBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use fillBrush", replaceWith = ReplaceWith("fillBrush"))
+    override val fillColor: StatefulValue<Color> = fillBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
     class Builder : CodeInputColorsBuilder {
-        private var codeColor: StatefulValue<Color>? = null
-        private var captionColor: StatefulValue<Color>? = null
-        private var strokeColor: StatefulValue<Color>? = null
-        private var fillColor: StatefulValue<Color>? = null
+        private var codeColor: StatefulValue<Brush>? = null
+        private var captionColor: StatefulValue<Brush>? = null
+        private var strokeColor: StatefulValue<Brush>? = null
+        private var fillColor: StatefulValue<Brush>? = null
 
-        override fun codeColor(codeColor: StatefulValue<Color>): CodeInputColorsBuilder =
-            apply {
-                this.codeColor = codeColor
-            }
+        override fun codeBrush(codeColor: StatefulValue<Brush>): CodeInputColorsBuilder = apply {
+            this.codeColor = codeColor
+        }
 
-        override fun captionColor(captionColor: StatefulValue<Color>): CodeInputColorsBuilder =
-            apply {
-                this.captionColor = captionColor
-            }
+        override fun captionBrush(captionColor: StatefulValue<Brush>): CodeInputColorsBuilder = apply {
+            this.captionColor = captionColor
+        }
 
-        override fun strokeColor(strokeColor: StatefulValue<Color>): CodeInputColorsBuilder =
-            apply {
-                this.strokeColor = strokeColor
-            }
+        override fun strokeBrush(strokeColor: StatefulValue<Brush>): CodeInputColorsBuilder = apply {
+            this.strokeColor = strokeColor
+        }
 
-        override fun fillColor(fillColor: StatefulValue<Color>): CodeInputColorsBuilder =
-            apply {
-                this.fillColor = fillColor
-            }
+        override fun fillBrush(fillColor: StatefulValue<Brush>): CodeInputColorsBuilder = apply {
+            this.fillColor = fillColor
+        }
 
         override fun build(): CodeInputColors = DefaultCodeInputColors(
-            codeColor = codeColor ?: Color.Black.asStatefulValue(
+            codeBrush = codeColor ?: Color.Black.asStatefulBrush(
                 setOf(CodeInputStates.Error) to Color.Red,
             ),
-            captionColor = captionColor ?: Color.DarkGray.asStatefulValue(
+            captionBrush = captionColor ?: Color.DarkGray.asStatefulBrush(
                 setOf(CodeInputStates.Error) to Color.Red,
             ),
-            strokeColor = strokeColor ?: Color.Black.asStatefulValue(
+            strokeBrush = strokeColor ?: Color.Black.asStatefulBrush(
                 setOf(CodeInputStates.Error) to Color.Red,
             ),
-            fillColor = fillColor ?: Color.Black.asStatefulValue(
+            fillBrush = fillColor ?: Color.Black.asStatefulBrush(
                 setOf(CodeInputStates.Error) to Color.Red,
             ),
         )
@@ -269,7 +419,7 @@ interface CodeInputDimensions {
     /**
      * Размер точки
      */
-    @Deprecated("Use circleSize instead")
+    @Deprecated("use circleSize", replaceWith = ReplaceWith("circleSize"))
     val dotSize: Dp
 
     /**
@@ -280,7 +430,13 @@ interface CodeInputDimensions {
     /**
      * Ширина обводки точки
      */
+    @Deprecated("use strokeWidthValues", replaceWith = ReplaceWith("strokeWidthValues"))
     val strokeWidth: Dp
+
+    /**
+     * Ширина обводки точки
+     */
+    val strokeWidthValues: StatefulValue<Dp>
 
     /**
      * Высота элемента с символом
@@ -295,17 +451,35 @@ interface CodeInputDimensions {
     /**
      * Расстояние между элементами в пределах одной группы
      */
+    @Deprecated("use itemSpacingValues", replaceWith = ReplaceWith("itemSpacingValues"))
     val itemSpacing: Dp
+
+    /**
+     * Расстояние между элементами в пределах одной группы
+     */
+    val itemSpacingValues: StatefulValue<Dp>
 
     /**
      * Расстояние между группами
      */
+    @Deprecated("use groupSpacingValues", replaceWith = ReplaceWith("groupSpacingValues"))
     val groupSpacing: Dp
+
+    /**
+     * Расстояние между группами
+     */
+    val groupSpacingValues: StatefulValue<Dp>
 
     /**
      * Отступ надписи
      */
+    @Deprecated("use captionPaddingValues", replaceWith = ReplaceWith("captionPaddingValues"))
     val captionPadding: Dp
+
+    /**
+     * Отступ надписи
+     */
+    val captionPaddingValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -340,7 +514,13 @@ interface CodeInputDimensionsBuilder {
     /**
      * Устанавливает ширину обводки точки [strokeWidth]
      */
-    fun strokeWidth(strokeWidth: Dp): CodeInputDimensionsBuilder
+    fun strokeWidth(strokeWidth: StatefulValue<Dp>): CodeInputDimensionsBuilder
+
+    /**
+     * Устанавливает ширину обводки точки [strokeWidth]
+     */
+    fun strokeWidth(strokeWidth: Dp): CodeInputDimensionsBuilder =
+        strokeWidth(strokeWidth.asStatefulValue())
 
     /**
      * Устанавливает высоту элемента с символом [itemHeight]
@@ -367,17 +547,35 @@ interface CodeInputDimensionsBuilder {
     /**
      * Устанавливает расстояние между элементами в пределах одной группы [itemSpacing]
      */
-    fun itemSpacing(itemSpacing: Dp): CodeInputDimensionsBuilder
+    fun itemSpacing(itemSpacing: StatefulValue<Dp>): CodeInputDimensionsBuilder
+
+    /**
+     * Устанавливает расстояние между элементами в пределах одной группы [itemSpacing]
+     */
+    fun itemSpacing(itemSpacing: Dp): CodeInputDimensionsBuilder =
+        itemSpacing(itemSpacing.asStatefulValue())
 
     /**
      * Устанавливает расстояние между группами [groupSpacing]
      */
-    fun groupSpacing(groupSpacing: Dp): CodeInputDimensionsBuilder
+    fun groupSpacing(groupSpacing: StatefulValue<Dp>): CodeInputDimensionsBuilder
+
+    /**
+     * Устанавливает расстояние между группами [groupSpacing]
+     */
+    fun groupSpacing(groupSpacing: Dp): CodeInputDimensionsBuilder =
+        groupSpacing(groupSpacing.asStatefulValue())
 
     /**
      * Устанавливает отступ надписи [captionPadding]
      */
-    fun captionPadding(captionPadding: Dp): CodeInputDimensionsBuilder
+    fun captionPadding(captionPadding: StatefulValue<Dp>): CodeInputDimensionsBuilder
+
+    /**
+     * Устанавливает отступ надписи [captionPadding]
+     */
+    fun captionPadding(captionPadding: Dp): CodeInputDimensionsBuilder =
+        captionPadding(captionPadding.asStatefulValue())
 
     /**
      * Вернёт [CodeInputDimensions]
@@ -388,23 +586,34 @@ interface CodeInputDimensionsBuilder {
 private data class DefaultCodeInputDimensions(
     @Deprecated("Use circleSize instead")
     override val dotSize: Dp,
-    override val strokeWidth: Dp,
     override val itemHeight: StatefulValue<Dp>,
     override val itemWidth: StatefulValue<Dp>,
-    override val itemSpacing: Dp,
-    override val groupSpacing: Dp,
-    override val captionPadding: Dp,
     override val circleSize: StatefulValue<Dp>,
+    override val strokeWidthValues: StatefulValue<Dp>,
+    override val itemSpacingValues: StatefulValue<Dp>,
+    override val groupSpacingValues: StatefulValue<Dp>,
+    override val captionPaddingValues: StatefulValue<Dp>,
 ) : CodeInputDimensions {
+    @Deprecated("use strokeWidthValues", replaceWith = ReplaceWith("strokeWidthValues"))
+    override val strokeWidth: Dp = strokeWidthValues.getDefaultValue()
+
+    @Deprecated("use itemSpacingValues", replaceWith = ReplaceWith("itemSpacingValues"))
+    override val itemSpacing: Dp = itemSpacingValues.getDefaultValue()
+
+    @Deprecated("use groupSpacingValues", replaceWith = ReplaceWith("groupSpacingValues"))
+    override val groupSpacing: Dp = groupSpacingValues.getDefaultValue()
+
+    @Deprecated("use captionPaddingValues", replaceWith = ReplaceWith("captionPaddingValues"))
+    override val captionPadding: Dp = captionPaddingValues.getDefaultValue()
     class Builder : CodeInputDimensionsBuilder {
         private var dotSize: Dp? = null
         private var circleSize: StatefulValue<Dp>? = null
-        private var strokeWidth: Dp? = null
+        private var strokeWidth: StatefulValue<Dp>? = null
         private var itemHeight: StatefulValue<Dp>? = null
         private var itemWidth: StatefulValue<Dp>? = null
-        private var itemSpacing: Dp? = null
-        private var groupSpacing: Dp? = null
-        private var captionPadding: Dp? = null
+        private var itemSpacing: StatefulValue<Dp>? = null
+        private var groupSpacing: StatefulValue<Dp>? = null
+        private var captionPadding: StatefulValue<Dp>? = null
 
         @Deprecated("Use circleSize() instead")
         override fun dotSize(dotSize: Dp): CodeInputDimensionsBuilder = apply {
@@ -417,7 +626,7 @@ private data class DefaultCodeInputDimensions(
             this.circleSize = circleSize
         }
 
-        override fun strokeWidth(strokeWidth: Dp): CodeInputDimensionsBuilder = apply {
+        override fun strokeWidth(strokeWidth: StatefulValue<Dp>): CodeInputDimensionsBuilder = apply {
             this.strokeWidth = strokeWidth
         }
 
@@ -429,26 +638,26 @@ private data class DefaultCodeInputDimensions(
             this.itemWidth = itemWidth
         }
 
-        override fun itemSpacing(itemSpacing: Dp): CodeInputDimensionsBuilder = apply {
+        override fun itemSpacing(itemSpacing: StatefulValue<Dp>): CodeInputDimensionsBuilder = apply {
             this.itemSpacing = itemSpacing
         }
 
-        override fun groupSpacing(groupSpacing: Dp): CodeInputDimensionsBuilder = apply {
+        override fun groupSpacing(groupSpacing: StatefulValue<Dp>): CodeInputDimensionsBuilder = apply {
             this.groupSpacing = groupSpacing
         }
 
-        override fun captionPadding(captionPadding: Dp): CodeInputDimensionsBuilder = apply {
+        override fun captionPadding(captionPadding: StatefulValue<Dp>): CodeInputDimensionsBuilder = apply {
             this.captionPadding = captionPadding
         }
 
         override fun build(): CodeInputDimensions = DefaultCodeInputDimensions(
             dotSize = dotSize ?: 12.dp,
-            strokeWidth = strokeWidth ?: 1.dp,
+            strokeWidthValues = strokeWidth ?: 1.dp.asStatefulValue(),
             itemHeight = itemHeight ?: 44.dp.asStatefulValue(),
             itemWidth = itemWidth ?: 26.dp.asStatefulValue(),
-            itemSpacing = itemSpacing ?: 4.dp,
-            groupSpacing = groupSpacing ?: 16.dp,
-            captionPadding = captionPadding ?: 24.dp,
+            itemSpacingValues = itemSpacing ?: 4.dp.asStatefulValue(),
+            groupSpacingValues = groupSpacing ?: 16.dp.asStatefulValue(),
+            captionPaddingValues = captionPadding ?: 24.dp.asStatefulValue(),
             circleSize = circleSize ?: dotSize?.asStatefulValue() ?: 12.dp.asStatefulValue(),
         )
     }

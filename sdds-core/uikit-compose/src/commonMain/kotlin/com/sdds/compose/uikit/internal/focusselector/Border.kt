@@ -74,13 +74,13 @@ internal fun Modifier.drawBorder(
 internal fun Modifier.drawInnerBorder(
     strokeWidth: State<Dp>,
     strokeColor: BrushProducer,
-    shape: CornerBasedShape,
+    shape: CornerBasedShape?,
     strokePadding: Dp? = null,
     isFocused: () -> Boolean,
 ): Modifier {
     return this.drawWithCache {
         val width = strokeWidth.value
-        if (width <= 0.dp) {
+        if (width <= 0.dp || shape == null) {
             onDrawBehind { }
         } else {
             val strokeWidthPx = width.toPx()

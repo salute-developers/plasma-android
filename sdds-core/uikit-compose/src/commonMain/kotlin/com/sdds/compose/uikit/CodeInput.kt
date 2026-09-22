@@ -19,6 +19,10 @@ import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputColors
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputDimensions
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputTextStyles
 import com.sdds.compose.uikit.internal.codeinput.defaultCodeGroups
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.codeinput.CodeInputMotionStyle
+import com.sdds.compose.uikit.motion.components.codeinput.rememberCodeInputMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент CodeInput представляет собой горизонтальный ряд графических элементов (точек).
@@ -62,30 +66,33 @@ fun CodeInput(
     animationSpec: AnimationSpec<Float>? = rememberShakeAnimationSpec(),
     hasItemFocusSelector: Boolean = LocalFocusSelectorSettings.current.isEnabled(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CodeInputMotionStyle> = rememberCodeInputMotion(
+        motionContext = rememberMotionContext(interactionSource = interactionSource),
+    ),
 ) {
     val colors = remember(style.colors) {
         BaseCodeInputColors(
-            valueColor = style.colors.codeColor,
-            captionColor = style.colors.captionColor,
-            strokeColor = style.colors.strokeColor,
-            dotColor = style.colors.fillColor,
+            valueColor = style.colors.codeBrush,
+            captionColor = style.colors.captionBrush,
+            dotStrokeColor = style.colors.strokeBrush,
+            dotColor = style.colors.fillBrush,
         )
     }
     val dimensions = remember(style.dimensions) {
         BaseCodeInputDimensions(
             dotSize = style.dimensions.circleSize,
-            strokeWidth = style.dimensions.strokeWidth,
+            dotStrokeWidth = style.dimensions.strokeWidthValues,
             height = style.dimensions.itemHeight,
             width = style.dimensions.itemWidth,
-            itemSpacing = style.dimensions.itemSpacing,
-            groupSpacing = style.dimensions.groupSpacing,
-            captionPadding = style.dimensions.captionPadding,
+            itemSpacing = style.dimensions.itemSpacingValues,
+            groupSpacing = style.dimensions.groupSpacingValues,
+            captionPadding = style.dimensions.captionPaddingValues,
         )
     }
-    val textStyles = remember(style.captionStyle, style.codeStyle) {
+    val textStyles = remember(style.captionStyles, style.codeStyles) {
         BaseCodeInputTextStyles(
-            valueStyle = style.codeStyle,
-            captionStyle = style.captionStyle,
+            valueStyle = style.codeStyles,
+            captionStyle = style.captionStyles,
         )
     }
     BaseCodeInput(
@@ -102,7 +109,7 @@ fun CodeInput(
         captionAlignment = captionAlignment.toBaseCaptionAlignment(),
         hidden = hidden,
         enabled = enabled,
-        interactionSource = interactionSource,
+        motion = motion,
         hasItemFocusSelector = hasItemFocusSelector,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,

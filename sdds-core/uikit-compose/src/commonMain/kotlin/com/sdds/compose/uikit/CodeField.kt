@@ -5,10 +5,11 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.annotations.IntRange
-import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInput
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputCaptionAlignment
@@ -17,6 +18,11 @@ import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputCursor
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputDimensions
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputTextStyles
 import com.sdds.compose.uikit.internal.codeinput.defaultCodeGroups
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.codeField.CodeFieldMotionStyle
+import com.sdds.compose.uikit.motion.components.codeinput.rememberCodeFieldMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент CodeField представляет собой горизонтальный ряд текстовых полей.
@@ -59,41 +65,49 @@ fun CodeField(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     animationSpec: AnimationSpec<Float>? = rememberShakeAnimationSpec(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CodeFieldMotionStyle> = rememberCodeFieldMotion(
+        motionContext = rememberMotionContext(interactionSource = interactionSource),
+    ),
 ) {
     val colors = remember(style.colors) {
         BaseCodeInputColors(
-            valueColor = style.colors.valueColor,
-            captionColor = style.colors.captionColor,
-            dotColor = style.colors.dotColor,
-            backgroundColor = style.colors.backgroundColor,
+            valueColor = style.colors.valueBrush,
+            captionColor = style.colors.captionBrush,
+            dotColor = style.colors.dotBrush,
+            backgroundColor = style.colors.backgroundBrush,
+            fieldStrokeColor = style.colors.strokeBrush,
         )
     }
     val dimensions = remember(style.dimensions) {
         BaseCodeInputDimensions(
-            dotSize = style.dimensions.dotSize.asStatefulValue(),
-            height = style.dimensions.height.asStatefulValue(),
-            width = style.dimensions.width.asStatefulValue(),
-            itemSpacing = style.dimensions.itemSpacing,
-            groupSpacing = style.dimensions.groupSpacing,
-            captionPadding = style.dimensions.captionSpacing,
+            dotSize = style.dimensions.dotSizeValues,
+            height = style.dimensions.heightValues,
+            width = style.dimensions.widthValues,
+            itemSpacing = style.dimensions.itemSpacingValues,
+            groupSpacing = style.dimensions.groupSpacingValues,
+            captionPadding = style.dimensions.captionSpacingValues,
+            fieldStrokeWidth = style.dimensions.strokeWidth,
         )
     }
-    val textStyles = remember(style.captionStyle, style.valueStyle) {
+    val textStyles = remember(style.captionStyles, style.valueStyles) {
         BaseCodeInputTextStyles(
-            valueStyle = style.valueStyle,
-            captionStyle = style.captionStyle,
+            valueStyle = style.valueStyles,
+            captionStyle = style.captionStyles,
         )
     }
-    val cursor = remember(style.colors.cursorColor) {
-        BaseCodeInputCursor(color = style.colors.cursorColor.getDefaultValue())
+    val cursorColor = style.colors.cursorBrush.getBrushAsState(motion.context, motion.style.cursorColor)
+    val cursor = remember(cursorColor) {
+        BaseCodeInputCursor(color = { cursorColor.value })
     }
+    val itemShape by style.itemShapes.getValueAsState(motion.context)
+    val groupShape by style.groupShapes.getValueAsState(motion.context)
     BaseCodeInput(
         modifier = modifier,
         colors = colors,
         dimensions = dimensions,
         textStyles = textStyles,
-        itemShape = style.itemShape,
-        groupShape = style.groupShape,
+        itemShape = itemShape,
+        groupShape = groupShape,
         cursor = cursor,
         onCodeComplete = onCodeComplete,
         isItemValid = isItemValid,
@@ -101,7 +115,7 @@ fun CodeField(
         captionAlignment = captionAlignment.toBaseCaptionAlignment(),
         hidden = hidden,
         enabled = enabled,
-        interactionSource = interactionSource,
+        motion = motion,
         hasItemFocusSelector = false,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
