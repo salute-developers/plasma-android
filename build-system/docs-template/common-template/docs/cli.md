@@ -1,6 +1,6 @@
 ---
 id: cli
-title: CLI
+title: Использование DS Builder CLI
 sidebar_position: 2
 ---
 
@@ -69,7 +69,7 @@ dsbuilder init \
 Если project API key недоступен, можно использовать пользовательскую сессию:
 
 ```bash
-dsbuilder auth login --username <username> --api-url <gateway-url>
+dsbuilder auth login --username <username>
 ```
 
 ## Проверка доступа
@@ -113,10 +113,6 @@ dsbuilder theme generate --platform compose
 
 ## MCP-сервер
 
-CLI умеет поднимать MCP-сервер с постоянным локальным контекстом проекта — не нужно передавать `project-id`/`design-system-id` в каждом запросе:
-
-```bash
-dsbuilder mcp serve
-```
+CLI умеет поднимать MCP-сервер с постоянным локальным контекстом проекта — не нужно передавать `project-id`/`design-system-id` в каждом запросе. Команду `dsbuilder mcp serve` обычно не запускают вручную — её вызывает сам MCP-клиент по своей конфигурации.
 
 За конфигурацией MCP-клиента и списком доступных инструментов — см. [MCP](mcp.md).

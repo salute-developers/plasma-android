@@ -1,6 +1,6 @@
 ---
 id: mcp
-title: MCP
+title: Агентская разработка с DS Builder MCP
 sidebar_position: 3
 ---
 
@@ -14,15 +14,7 @@ MCP (Model Context Protocol) даёт вашему AI-агенту в IDE (Curso
 
 1. Установите и настройте CLI `dsbuilder` — установка, `dsbuilder init` и авторизация описаны на странице [CLI](cli.md).
 
-2. Запустите MCP-сервер:
-
-```bash
-dsbuilder mcp serve
-```
-
-CLI уже знает `project-id` и `design-system-id` из локального `.sdds/config.json` — в запросе к агенту их указывать не нужно.
-
-3. Добавьте сервер в конфигурацию вашего MCP-клиента. Например, для Claude Code (`.mcp.json`) или Cursor (`mcp.json`):
+2. Добавьте сервер в конфигурацию вашего MCP-клиента. Например, для Claude Code (`.mcp.json`) или Cursor (`mcp.json`):
 
 ```json
 {
@@ -34,6 +26,8 @@ CLI уже знает `project-id` и `design-system-id` из локальног
   }
 }
 ```
+
+Клиент сам запускает `dsbuilder mcp serve` по этой конфигурации — запускать его отдельно не нужно. CLI уже знает `project-id` и `design-system-id` из локального `.sdds/config.json`, поэтому в запросе к агенту их указывать не нужно.
 
 После перезапуска клиента агент увидит инструменты дизайн-системы в списке доступных MCP tools.
 
