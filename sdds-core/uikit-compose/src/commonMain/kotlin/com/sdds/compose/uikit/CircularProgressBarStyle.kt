@@ -10,7 +10,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -42,7 +45,13 @@ interface CircularProgressBarStyle : Style {
     /**
      * Стиль надписи
      */
+    @Deprecated("Use valueStyleValues", replaceWith = ReplaceWith("valueStyleValues"))
     val valueStyle: TextStyle
+
+    /**
+     * Стиль надписи
+     */
+    val valueStyleValues: StatefulValue<TextStyle>
 
     /**
      * Включена ли надпись
@@ -89,7 +98,13 @@ interface CircularProgressBarStyleBuilder : StyleBuilder<CircularProgressBarStyl
     /**
      * Устанавливает стиль надписи
      */
-    fun valueStyle(valueStyle: TextStyle): CircularProgressBarStyleBuilder
+    fun valueStyle(valueStyle: TextStyle): CircularProgressBarStyleBuilder =
+        valueStyle(valueStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стили надписи
+     */
+    fun valueStyle(valueStyle: StatefulValue<TextStyle>): CircularProgressBarStyleBuilder
 
     /**
      * Включает надпись
@@ -106,13 +121,14 @@ interface CircularProgressBarStyleBuilder : StyleBuilder<CircularProgressBarStyl
 private data class DefaultCircularProgressBarStyle(
     override val colors: CircularProgressBarColors,
     override val dimensions: CircularProgressBarDimensions,
-    override val valueStyle: TextStyle,
     override val valueEnabled: Boolean,
     override val trackEnabled: Boolean,
+    override val valueStyleValues: StatefulValue<TextStyle>,
 ) : CircularProgressBarStyle {
-
+    @Deprecated("Use valueStyleValues", replaceWith = ReplaceWith("valueStyleValues"))
+    override val valueStyle: TextStyle = valueStyleValues.getDefaultValue()
     class Builder : CircularProgressBarStyleBuilder {
-        private var valueStyle: TextStyle? = null
+        private var valueStyle: StatefulValue<TextStyle>? = null
         private var valueEnabled: Boolean? = null
         private var trackEnabled: Boolean? = null
         private var colorsBuilder = CircularProgressBarColors.builder()
@@ -130,7 +146,7 @@ private data class DefaultCircularProgressBarStyle(
                 this.dimensionBuilder.builder()
             }
 
-        override fun valueStyle(valueStyle: TextStyle) = apply {
+        override fun valueStyle(valueStyle: StatefulValue<TextStyle>) = apply {
             this.valueStyle = valueStyle
         }
 
@@ -146,7 +162,7 @@ private data class DefaultCircularProgressBarStyle(
             return DefaultCircularProgressBarStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionBuilder.build(),
-                valueStyle = valueStyle ?: TextStyle.Default,
+                valueStyleValues = valueStyle ?: TextStyle.Default.asStatefulValue(),
                 valueEnabled = valueEnabled ?: true,
                 trackEnabled = trackEnabled ?: true,
             )
@@ -198,6 +214,20 @@ interface CircularProgressBarColorsBuilder {
      * Устанавливает цвет [indicatorColor] индикатора компонента.
      * @see CircularProgressBarColors.indicatorColor
      */
+    fun indicatorColor(indicatorColor: Color): CircularProgressBarColorsBuilder =
+        indicatorColor(indicatorColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [indicatorColor] индикатора компонента.
+     * @see CircularProgressBarColors.indicatorColor
+     */
+    fun indicatorColor(indicatorColor: InteractiveColor): CircularProgressBarColorsBuilder =
+        indicatorColor(indicatorColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [indicatorColor] индикатора компонента.
+     * @see CircularProgressBarColors.indicatorColor
+     */
     fun indicatorColor(indicatorColor: Brush): CircularProgressBarColorsBuilder =
         indicatorColor(indicatorColor.asStatefulValue())
 
@@ -206,6 +236,20 @@ interface CircularProgressBarColorsBuilder {
      * @see CircularProgressBarColors.indicatorColor
      */
     fun indicatorColor(indicatorColor: StatefulValue<Brush>): CircularProgressBarColorsBuilder
+
+    /**
+     * Устанавливает цвет [trackColor] трека прогресса.
+     * @see CircularProgressBarColors.trackColor
+     */
+    fun trackColor(trackColor: Color): CircularProgressBarColorsBuilder =
+        trackColor(trackColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [trackColor] трека прогресса.
+     * @see CircularProgressBarColors.trackColor
+     */
+    fun trackColor(trackColor: InteractiveColor): CircularProgressBarColorsBuilder =
+        trackColor(trackColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [trackColor] трека прогресса.
@@ -224,6 +268,20 @@ interface CircularProgressBarColorsBuilder {
      * Устанавливает цвет [valueColor] надписи.
      * @see CircularProgressBarColors.valueColor
      */
+    fun valueColor(valueColor: Color): CircularProgressBarColorsBuilder =
+        valueColor(valueColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [valueColor] надписи.
+     * @see CircularProgressBarColors.valueColor
+     */
+    fun valueColor(valueColor: InteractiveColor): CircularProgressBarColorsBuilder =
+        valueColor(valueColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [valueColor] надписи.
+     * @see CircularProgressBarColors.valueColor
+     */
     fun valueColor(valueColor: Brush): CircularProgressBarColorsBuilder =
         valueColor(valueColor.asStatefulValue())
 
@@ -232,6 +290,20 @@ interface CircularProgressBarColorsBuilder {
      * @see CircularProgressBarColors.valueColor
      */
     fun valueColor(valueColor: StatefulValue<Brush>): CircularProgressBarColorsBuilder
+
+    /**
+     * Устанавливает цвет [valueSuffixColor] суффикса надписи.
+     * @see CircularProgressBarColors.valueSuffixColor
+     */
+    fun valueSuffixColor(valueSuffixColor: Color): CircularProgressBarColorsBuilder =
+        valueSuffixColor(valueSuffixColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [valueSuffixColor] суффикса надписи.
+     * @see CircularProgressBarColors.valueSuffixColor
+     */
+    fun valueSuffixColor(valueSuffixColor: InteractiveColor): CircularProgressBarColorsBuilder =
+        valueSuffixColor(valueSuffixColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [valueSuffixColor] суффикса надписи.
@@ -302,27 +374,57 @@ interface CircularProgressBarDimensions {
     /**
      * Ширина компонента [CircularProgressBar]
      */
+    @Deprecated("Use widthValues", replaceWith = ReplaceWith("widthValues"))
     val width: Dp
+
+    /**
+     * Ширина компонента [CircularProgressBar]
+     */
+    val widthValues: StatefulValue<Dp>
 
     /**
      * Высота компонента [CircularProgressBar]
      */
+    @Deprecated("Use heightValues", replaceWith = ReplaceWith("heightValues"))
     val height: Dp
+
+    /**
+     * Высота компонента [CircularProgressBar]
+     */
+    val heightValues: StatefulValue<Dp>
 
     /**
      * Толщина трека [CircularProgressBar]
      */
+    @Deprecated("Use trackThicknessValues", replaceWith = ReplaceWith("trackThicknessValues"))
     val trackThickness: Dp
+
+    /**
+     * Толщина трека [CircularProgressBar]
+     */
+    val trackThicknessValues: StatefulValue<Dp>
 
     /**
      * Толщина инидкатора [CircularProgressBar]
      */
+    @Deprecated("Use progressThicknessValues", replaceWith = ReplaceWith("progressThicknessValues"))
     val progressThickness: Dp
+
+    /**
+     * Толщина инидкатора [CircularProgressBar]
+     */
+    val progressThicknessValues: StatefulValue<Dp>
 
     /**
      * Размер иконки
      */
+    @Deprecated("Use iconSizeValues", replaceWith = ReplaceWith("iconSizeValues"))
     val iconSize: Dp
+
+    /**
+     * Размер иконки
+     */
+    val iconSizeValues: StatefulValue<Dp>
 
     companion object {
 
@@ -342,27 +444,57 @@ interface CircularProgressBarDimensionsBuilder {
     /**
      * Устанавливает ширину компонента [width]
      */
-    fun width(width: Dp): CircularProgressBarDimensionsBuilder
+    fun width(width: StatefulValue<Dp>): CircularProgressBarDimensionsBuilder
+
+    /**
+     * Устанавливает ширину компонента [width]
+     */
+    fun width(width: Dp): CircularProgressBarDimensionsBuilder =
+        width(width.asStatefulValue())
 
     /**
      * Устанавливает высоту компонента [height]
      */
-    fun height(height: Dp): CircularProgressBarDimensionsBuilder
+    fun height(height: StatefulValue<Dp>): CircularProgressBarDimensionsBuilder
+
+    /**
+     * Устанавливает высоту компонента [height]
+     */
+    fun height(height: Dp): CircularProgressBarDimensionsBuilder =
+        height(height.asStatefulValue())
 
     /**
      * Устанавливает толщину трека [trackThickness]
      */
-    fun trackThickness(trackThickness: Dp): CircularProgressBarDimensionsBuilder
+    fun trackThickness(trackThickness: StatefulValue<Dp>): CircularProgressBarDimensionsBuilder
+
+    /**
+     * Устанавливает толщину трека [trackThickness]
+     */
+    fun trackThickness(trackThickness: Dp): CircularProgressBarDimensionsBuilder =
+        trackThickness(trackThickness.asStatefulValue())
 
     /**
      * Устанавливает толщину индикатора [progressThickness]
      */
-    fun progressThickness(progressThickness: Dp): CircularProgressBarDimensionsBuilder
+    fun progressThickness(progressThickness: StatefulValue<Dp>): CircularProgressBarDimensionsBuilder
+
+    /**
+     * Устанавливает толщину индикатора [progressThickness]
+     */
+    fun progressThickness(progressThickness: Dp): CircularProgressBarDimensionsBuilder =
+        progressThickness(progressThickness.asStatefulValue())
 
     /**
      * Устанавливает размер иконки [iconSize]
      */
-    fun iconSize(iconSize: Dp): CircularProgressBarDimensionsBuilder
+    fun iconSize(iconSize: StatefulValue<Dp>): CircularProgressBarDimensionsBuilder
+
+    /**
+     * Устанавливает размер иконки [iconSize]
+     */
+    fun iconSize(iconSize: Dp): CircularProgressBarDimensionsBuilder =
+        iconSize(iconSize.asStatefulValue())
 
     /**
      * Возвращает экземпляр [CircularProgressBarDimensions]
@@ -372,47 +504,61 @@ interface CircularProgressBarDimensionsBuilder {
 
 @Immutable
 private class DefaultCircularProgressBarDimensions(
-    override val width: Dp,
-    override val height: Dp,
-    override val trackThickness: Dp,
-    override val progressThickness: Dp,
-    override val iconSize: Dp,
+    override val widthValues: StatefulValue<Dp>,
+    override val heightValues: StatefulValue<Dp>,
+    override val trackThicknessValues: StatefulValue<Dp>,
+    override val progressThicknessValues: StatefulValue<Dp>,
+    override val iconSizeValues: StatefulValue<Dp>,
+
 ) : CircularProgressBarDimensions {
+    @Deprecated("Use widthValues", replaceWith = ReplaceWith("widthValues"))
+    override val width: Dp = widthValues.getDefaultValue()
 
+    @Deprecated("Use heightValues", replaceWith = ReplaceWith("heightValues"))
+    override val height: Dp = heightValues.getDefaultValue()
+
+    @Deprecated("Use trackThicknessValues", replaceWith = ReplaceWith("trackThicknessValues"))
+    override val trackThickness: Dp = trackThicknessValues.getDefaultValue()
+
+    @Deprecated("Use progressThicknessValues", replaceWith = ReplaceWith("progressThicknessValues"))
+    override val progressThickness: Dp = progressThicknessValues.getDefaultValue()
+
+    @Deprecated("Use iconSizeValues", replaceWith = ReplaceWith("iconSizeValues"))
+    override val iconSize: Dp = iconSizeValues.getDefaultValue()
     class Builder : CircularProgressBarDimensionsBuilder {
-        private var width: Dp? = null
-        private var height: Dp? = null
-        private var trackThickness: Dp? = null
-        private var progressThickness: Dp? = null
-        private var iconSize: Dp? = null
+        private var width: StatefulValue<Dp>? = null
+        private var height: StatefulValue<Dp>? = null
+        private var trackThickness: StatefulValue<Dp>? = null
+        private var progressThickness: StatefulValue<Dp>? = null
+        private var iconSize: StatefulValue<Dp>? = null
 
-        override fun width(width: Dp) = apply {
+        override fun width(width: StatefulValue<Dp>) = apply {
             this.width = width
         }
 
-        override fun height(height: Dp) = apply {
+        override fun height(height: StatefulValue<Dp>) = apply {
             this.height = height
         }
 
-        override fun trackThickness(trackThickness: Dp) = apply {
+        override fun trackThickness(trackThickness: StatefulValue<Dp>) = apply {
             this.trackThickness = trackThickness
         }
 
-        override fun progressThickness(progressThickness: Dp) = apply {
+        override fun progressThickness(progressThickness: StatefulValue<Dp>) = apply {
             this.progressThickness = progressThickness
         }
 
-        override fun iconSize(iconSize: Dp) = apply {
+        override fun iconSize(iconSize: StatefulValue<Dp>) = apply {
             this.iconSize = iconSize
         }
 
         override fun build(): CircularProgressBarDimensions {
             return DefaultCircularProgressBarDimensions(
-                width = width ?: 100.dp,
-                height = height ?: 100.dp,
-                trackThickness = trackThickness ?: progressThickness ?: 2.dp,
-                progressThickness = progressThickness ?: trackThickness ?: 2.dp,
-                iconSize = iconSize ?: Dp.Unspecified,
+                widthValues = width ?: 100.dp.asStatefulValue(),
+                heightValues = height ?: 100.dp.asStatefulValue(),
+                trackThicknessValues = trackThickness ?: progressThickness ?: 2.dp.asStatefulValue(),
+                progressThicknessValues = progressThickness ?: trackThickness ?: 2.dp.asStatefulValue(),
+                iconSizeValues = iconSize ?: Dp.Unspecified.asStatefulValue(),
             )
         }
     }
