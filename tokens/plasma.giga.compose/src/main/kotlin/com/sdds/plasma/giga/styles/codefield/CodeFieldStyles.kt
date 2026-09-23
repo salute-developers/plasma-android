@@ -8,6 +8,7 @@
 package com.sdds.plasma.giga.styles.codefield
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CodeFieldStyle
 import com.sdds.compose.uikit.CodeFieldStyleBuilder
@@ -90,10 +91,17 @@ private val CodeFieldStyleBuilder.invariantProps: CodeFieldStyleBuilder
                         PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary,
                 ),
             )
+            strokeBrush(
+                SolidColor(PlasmaGigaTheme.colors.outlineDefaultSolidPrimary).asStatefulValue(
+                    setOf(CodeInputStates.Error)
+                        to SolidColor(PlasmaGigaTheme.colors.outlineDefaultTransparentNegative),
+                ),
+            )
         }
         .dimensions {
             itemSpacing(2.0.dp)
             groupSpacing(8.0.dp)
+            strokeWidth(1.0.dp)
         }
 
 public val CodeField.L: WrapperCodeFieldL

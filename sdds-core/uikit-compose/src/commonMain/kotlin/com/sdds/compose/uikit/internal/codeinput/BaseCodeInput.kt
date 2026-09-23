@@ -18,6 +18,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.focus.focusTarget
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.SubcomposeLayout
@@ -35,18 +37,27 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CodeInputStates
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.annotations.IntRange
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.isEnabled
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.graphics.brush.asBrush
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.animation.ShakeAnimationDefaults.DefaultShakeAnimationDurationMs
 import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
-import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.codeinput.CodeInputMotionStyle
+import com.sdds.compose.uikit.motion.components.codeinput.rememberCodeInputMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 import kotlinx.coroutines.delay
 
 @Composable
@@ -68,29 +79,35 @@ internal fun BaseCodeInput(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     hasItemFocusSelector: Boolean = LocalFocusSelectorSettings.current.isEnabled(),
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<CodeInputMotionStyle> = rememberCodeInputMotion(),
     animationSpec: AnimationSpec<Float>? = rememberShakeAnimationSpec(),
     codeGroupInfo: CodeGroupInfo = remember { defaultCodeGroups() },
+
 ) {
     var code by remember { mutableStateOf("") }
     var inputEnabled by remember { mutableStateOf(true) }
     var isCodeValid by remember { mutableStateOf(true) }
     var isCaptionError by remember { mutableStateOf(false) }
-    val captionErrorState = rememberCaptionErrorState(isCaptionError)
     var isComponentFocused by remember { mutableStateOf(false) }
 
+    SideEffect {
+        motion.context.semanticStateSource.set(
+            CodeInputStates.Error,
+            isCaptionError,
+        )
+    }
     BasicTextField(
         modifier = modifier.fieldActivatableModifier(
             enabled = enabled,
             hasItemFocusSelector = hasItemFocusSelector,
-            interactionSource = interactionSource,
+            interactionSource = motion.context.interactionSource,
         ) { isComponentFocused = it.isFocused },
         value = code,
         singleLine = true,
         enabled = enabled,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
-        interactionSource = interactionSource,
+        interactionSource = motion.context.interactionSource,
         onValueChange = { newValue ->
             if (inputEnabled && newValue.length <= codeGroupInfo.codeLength) {
                 code = newValue
@@ -119,13 +136,17 @@ internal fun BaseCodeInput(
                         animationSpec = animationSpec,
                     )
                     val (startShape, middleShape, endShape) = rememberShapes(itemShape, groupShape)
+                    val itemSpacing by dimensions.itemSpacing.getValueAsState(motion.context)
+                    val groupSpacing by dimensions.groupSpacing.getValueAsState(motion.context)
                     Row(
                         modifier = Modifier.codeInputShakeModifier(isCodeValid, shakeOffset),
-                        horizontalArrangement = Arrangement.spacedBy(dimensions.itemSpacing),
+                        horizontalArrangement = Arrangement.spacedBy(itemSpacing),
                     ) {
+                        val codeStyle =
+                            textStyles.valueStyle.getTextStyleAsState(motion.context, motion.style.codeStyle)
                         repeat(codeGroupInfo.groupCount) { groupIndex ->
                             repeat(codeGroupInfo.groups[groupIndex]) { itemIndex ->
-                                val isFieldFocused by interactionSource.collectIsFocusedAsState()
+                                val isFieldFocused by motion.context.interactionSource.collectIsFocusedAsState()
                                 val absoluteIndex =
                                     codeGroupInfo.groups.take(groupIndex).sum() + itemIndex
                                 val hasPrevious = absoluteIndex in 1..code.length
@@ -160,15 +181,16 @@ internal fun BaseCodeInput(
                                     },
                                     dimensions = dimensions,
                                     colors = colors,
-                                    codeStyle = textStyles.valueStyle,
+                                    codeStyle = codeStyle,
                                     animationSpec = animationSpec,
                                     cursor = cursor,
-                                    interactionSource = interactionSource,
+                                    interactionSource = motion.context.interactionSource,
+                                    motionStyle = motion.style,
                                 )
                             }
                             if (groupIndex != codeGroupInfo.groups.lastIndex) {
                                 val spacerWidth =
-                                    dimensions.groupSpacing - dimensions.itemSpacing * 2
+                                    groupSpacing - itemSpacing * 2
                                 Spacer(Modifier.width(spacerWidth))
                             }
                         }
@@ -177,18 +199,18 @@ internal fun BaseCodeInput(
 
                 val captionPlaceable = subcompose("Caption") {
                     if (!caption.isNullOrEmpty()) {
-                        val captionStyle = rememberCaptionStyle(textStyles, captionAlignment)
-                        StyledText(
+                        val captionStyle = rememberCaptionStyle(textStyles, captionAlignment, motion)
+                        val padding by dimensions.captionPadding.getValueAsState(motion.context)
+                        val captionColor =
+                            colors.captionColor.getBrushAsState(motion.context, motion.style.captionColor)
+                        Text(
                             modifier = Modifier
                                 .focusProperties { canFocus = false }
                                 .width(fieldPlaceable.widthOrZero().toDp())
-                                .padding(top = dimensions.captionPadding),
+                                .padding(top = padding),
                             text = caption,
-                            textStyle = captionStyle,
-                            textColor = colors.captionColor.getValue(
-                                interactionSource,
-                                captionErrorState,
-                            ),
+                            style = captionStyle,
+                            brush = { captionColor.value },
                         )
                     }
                 }.firstOrNull()?.measure(constraints.copy(maxWidth = fieldPlaceable.widthOrZero()))
@@ -212,34 +234,36 @@ internal enum class BaseCodeInputCaptionAlignment {
 @Immutable
 internal data class BaseCodeInputDimensions(
     val dotSize: StatefulValue<Dp>,
-    val strokeWidth: Dp = 0.dp,
+    val dotStrokeWidth: StatefulValue<Dp> = 0.dp.asStatefulValue(),
+    val fieldStrokeWidth: StatefulValue<Dp> = 0.dp.asStatefulValue(),
     val height: StatefulValue<Dp>,
     val width: StatefulValue<Dp>,
-    val itemSpacing: Dp,
-    val groupSpacing: Dp,
-    val captionPadding: Dp,
+    val itemSpacing: StatefulValue<Dp>,
+    val groupSpacing: StatefulValue<Dp>,
+    val captionPadding: StatefulValue<Dp>,
 )
 
 @Immutable
 internal data class BaseCodeInputColors(
-    val valueColor: StatefulValue<Color>,
-    val captionColor: StatefulValue<Color>,
-    val strokeColor: StatefulValue<Color> = Color.Transparent.asStatefulValue(),
-    val dotColor: StatefulValue<Color>,
-    val backgroundColor: StatefulValue<Color> = Color.Transparent.asStatefulValue(),
+    val valueColor: StatefulValue<Brush>,
+    val captionColor: StatefulValue<Brush>,
+    val dotStrokeColor: StatefulValue<Brush> = Color.Transparent.asStatefulBrush(),
+    val fieldStrokeColor: StatefulValue<Brush> = Color.Transparent.asStatefulBrush(),
+    val dotColor: StatefulValue<Brush>,
+    val backgroundColor: StatefulValue<Brush> = Color.Transparent.asStatefulBrush(),
 )
 
 @Immutable
 internal data class BaseCodeInputTextStyles(
-    val valueStyle: TextStyle,
-    val captionStyle: TextStyle,
+    val valueStyle: StatefulValue<TextStyle>,
+    val captionStyle: StatefulValue<TextStyle>,
 )
 
 @Immutable
 internal data class BaseCodeInputCursor(
     val width: Dp = 1.dp,
     val height: Dp = 16.dp,
-    val color: Color = Color.Green,
+    val color: BrushProducer = BrushProducer { Color.Green.asBrush() },
 )
 
 internal fun defaultCodeGroups(@IntRange(from = 2) codeLength: Int = 4): CodeGroupInfo {
@@ -288,13 +312,6 @@ internal fun Modifier.codeInputShakeModifier(isCodeValid: Boolean, shakeOffset: 
     }
 }
 
-@Composable
-private fun rememberCaptionErrorState(isCaptionError: Boolean): Set<CodeInputStates> {
-    return remember(isCaptionError) {
-        if (!isCaptionError) emptySet() else setOf(CodeInputStates.Error)
-    }
-}
-
 /**
  * Activatable модификатор компонента.
  * Если внещний фокус включен, то компонент должен стать focusable
@@ -331,9 +348,11 @@ private fun Modifier.fieldActivatableModifier(
 private fun rememberCaptionStyle(
     textStyles: BaseCodeInputTextStyles,
     captionAlignment: BaseCodeInputCaptionAlignment,
+    motion: Motion<CodeInputMotionStyle>,
 ): TextStyle {
-    return remember(textStyles.captionStyle, captionAlignment) {
-        textStyles.captionStyle.copy(
+    val captionStyle by textStyles.captionStyle.getTextStyleAsState(motion.context, motion.style.captionStyle)
+    return remember(captionStyle, captionAlignment) {
+        captionStyle.copy(
             textAlign = when (captionAlignment) {
                 BaseCodeInputCaptionAlignment.Start -> TextAlign.Start
                 BaseCodeInputCaptionAlignment.Center -> TextAlign.Center
