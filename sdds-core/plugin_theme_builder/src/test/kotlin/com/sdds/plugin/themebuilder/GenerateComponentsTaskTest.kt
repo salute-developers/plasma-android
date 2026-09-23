@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.universal.ComponentInfo
 import com.sdds.plugin.themebuilder.internal.universal.ConfigInfo
@@ -20,6 +21,7 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
@@ -78,6 +80,7 @@ class GenerateComponentsTaskTest {
             componentsMetaStyleClass = true,
             componentsJson = componentsJson(),
         )
+        task.setComposeMeta(projectDir)
         task.generate()
 
         val generatedFile = projectDir
@@ -123,6 +126,50 @@ class GenerateComponentsTaskTest {
     }
 
     @Test
+    fun `generate при target compose непустых компонентах и пустой compose мете падает`() {
+        val (task, _) = createConfigureTask(
+            target = ThemeBuilderTarget.COMPOSE,
+            componentsJson = componentsJson(),
+        )
+        // uikitComposeApiMetaFile не задан — мета пуста, как при отсутствии
+        // зависимости на Compose-библиотеку uikit на classpath модуля.
+
+        val exception = assertThrows(ThemeBuilderException::class.java) {
+            task.generate()
+        }
+
+        assertTrue(exception.message.orEmpty().contains("uikit-compose-api-meta.json"))
+    }
+
+    @Test
+    fun `generate при target view_system непустых компонентах и пустой view мете падает`() {
+        val (task, _) = createConfigureTask(
+            target = ThemeBuilderTarget.VIEW_SYSTEM,
+            componentsJson = componentsJson(),
+        )
+        // uikitApiMetaFile не задан — мета пуста, как при отсутствии зависимости
+        // на View-библиотеку uikit на classpath модуля.
+
+        val exception = assertThrows(ThemeBuilderException::class.java) {
+            task.generate()
+        }
+
+        assertTrue(exception.message.orEmpty().contains("uikit-api-meta.json"))
+    }
+
+    @Test
+    fun `generate при пустом списке компонентов не падает даже без uikit меты`() {
+        val (task, projectDir) = createConfigureTask(
+            target = ThemeBuilderTarget.VIEW_SYSTEM,
+        )
+
+        task.generate()
+
+        assertFalse(projectDir.resolve(".sdds/config-info-compose.json").exists())
+        assertFalse(projectDir.resolve(".sdds/config-info-view-system.json").exists())
+    }
+
+    @Test
     fun `generate при неизвестном компоненте не создает config info файлы compose`() {
         val projectDir = temporaryFolder.root
         val componentsDir = temporaryFolder.newFolder("components")
@@ -146,6 +193,9 @@ class GenerateComponentsTaskTest {
             componentsDir = componentsDir,
             target = ThemeBuilderTarget.COMPOSE,
         )
+        // Мета непуста, но не содержит "UnknownComponent" — проверяется путь
+        // "компонент не найден в мете", а не путь "меты нет вовсе".
+        task.setComposeMeta(projectDir, componentName = "SomeOtherComponent")
         task.generate()
 
         assertFalse(projectDir.resolve(".sdds/config-info-compose.json").exists())
@@ -176,6 +226,9 @@ class GenerateComponentsTaskTest {
             componentsDir = componentsDir,
             target = ThemeBuilderTarget.VIEW_SYSTEM,
         )
+        // Мета непуста, но не содержит "UnknownComponent" — проверяется путь
+        // "компонент не найден в мете", а не путь "меты нет вовсе".
+        task.setViewMeta(projectDir, componentName = "SomeOtherComponent")
         task.generate()
 
         assertFalse(projectDir.resolve(".sdds/config-info-compose.json").exists())
@@ -191,6 +244,7 @@ class GenerateComponentsTaskTest {
             target = ThemeBuilderTarget.VIEW_SYSTEM,
             componentsJson = componentsJson(),
         )
+        task.setViewMeta(projectDir)
 
         task.generate()
 
@@ -221,6 +275,7 @@ class GenerateComponentsTaskTest {
             target = ThemeBuilderTarget.COMPOSE,
             componentsJson = componentsJson(),
         )
+        task.setComposeMeta(projectDir)
 
         task.generate()
         val configInfo = readComposeConfigInfo(projectDir)
@@ -314,6 +369,43 @@ class GenerateComponentsTaskTest {
         every {
             componentGenerator.generateCompose(any(), any(), any())
         } returns componentInfo
+    }
+
+    private fun GenerateComponentsTask.setComposeMeta(projectDir: File, componentName: String = TEST_COMPONENT_NAME) {
+        val file = projectDir.resolve("compose-meta-$componentName.json").apply {
+            writeText(
+                """
+                    [
+                      {
+                        "componentName": "$componentName",
+                        "qualifiedName": "com.test.$componentName",
+                        "resolvedTypes": [],
+                        "params": []
+                      }
+                    ]
+                """.trimIndent(),
+            )
+        }
+        uikitComposeApiMetaFile.set(file)
+    }
+
+    private fun GenerateComponentsTask.setViewMeta(projectDir: File, componentName: String = TEST_COMPONENT_NAME) {
+        val file = projectDir.resolve("view-meta-$componentName.json").apply {
+            writeText(
+                """
+                    {
+                      "components": [
+                        {
+                          "componentNames": ["$componentName"],
+                          "styleableName": "$componentName",
+                          "params": []
+                        }
+                      ]
+                    }
+                """.trimIndent(),
+            )
+        }
+        uikitApiMetaFile.set(file)
     }
 
     private fun readViewConfigInfo(projectDir: File): ConfigInfo {

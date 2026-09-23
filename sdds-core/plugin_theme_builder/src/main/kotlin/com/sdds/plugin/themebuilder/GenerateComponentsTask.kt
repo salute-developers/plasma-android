@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isComposeOrAll
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
@@ -144,6 +145,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         // View-генератору. Для однопрофильной генерации чужую мету читать не нужно.
         val allMeta = if (deps.target.isComposeOrAll) loadUikitComposeApiMeta() else emptyList()
         val viewIndex = ViewMetaIndex(if (deps.target.isViewSystemOrAll) loadUikitApiMeta() else ApiMeta())
+        requireUikitMetaPresent(deps.target, allMeta, viewIndex)
         val componentGenerator = universalComponentGenerator(allMeta, viewIndex, metaInfo.components)
         val composeComponents = mutableListOf<ComponentInfo>()
         val viewComponents = mutableListOf<ComponentInfo>()
@@ -183,6 +185,36 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
 
         if (deps.target.isViewSystemOrAll || dimensionsConfig.get().fromResources) {
             deps.dimensGenerator.generate()
+        }
+    }
+
+    /**
+     * Требует, чтобы для каждой запрошенной цели была хоть какая-то мета uikit.
+     *
+     * Пустая мета для непустого списка компонентов означает не «нечего генерировать»,
+     * а то, что `uikit-*-api-meta.json` не нашёлся на classpath модуля (не подключена
+     * platform-библиотека uikit) — без этой проверки таска тихо завершалась бы успехом,
+     * не сгенерировав ни одного файла.
+     */
+    private fun requireUikitMetaPresent(
+        target: ThemeBuilderTarget,
+        allMeta: List<ComposeComponentMeta>,
+        viewIndex: ViewMetaIndex,
+    ) {
+        if (metaInfo.components.isEmpty()) return
+        if (target.isComposeOrAll && allMeta.isEmpty()) {
+            throw ThemeBuilderException(
+                "No Compose uikit metadata found: 'uikit-compose-api-meta.json' is missing from the " +
+                    "module's compile classpath, so no Compose component styles can be generated. " +
+                    "Add a dependency on the Compose uikit library (e.g. sdds-uikit-compose).",
+            )
+        }
+        if (target.isViewSystemOrAll && viewIndex.isEmpty) {
+            throw ThemeBuilderException(
+                "No View uikit metadata found: 'uikit-api-meta.json' is missing from the module's " +
+                    "compile classpath, so no View component styles can be generated. " +
+                    "Add a dependency on the View uikit library (e.g. sdds-uikit).",
+            )
         }
     }
 

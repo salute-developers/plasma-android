@@ -17,6 +17,9 @@ internal class ViewMetaIndex(private val meta: ApiMeta) {
     /** Общий словарь состояний модуля: имя состояния → drawable-атрибут. */
     val sharedStates: Map<String, String> get() = meta.sharedStates
 
+    /** Мета не содержит ни одного компонента — источник (classpath) не дал View-меты вовсе. */
+    val isEmpty: Boolean get() = byComponent.isEmpty()
+
     /**
      * Возвращает склеенную мету компонента либо `null`, если компонента нет в мете
      * или у него не размечена идентичность (не переведён на универсальный генератор).
