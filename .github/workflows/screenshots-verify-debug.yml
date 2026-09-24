@@ -79,3 +79,67 @@ jobs:
           if-no-files-found: ignore
           path: ${{ steps.module_dir.outputs.dir }}/build/test-results
           retention-days: 30
+
+  kmp-test:
+    name: Verify KMP screenshots (${{ matrix.module }}, ${{ matrix.target.platform }})
+    runs-on: macos-latest
+    needs: detect_changes
+    if: ${{ join(fromJson(needs.detect_changes.outputs.changed_kmp_tokens)) != '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ${{ fromJson(needs.detect_changes.outputs.changed_kmp_tokens) }}
+        target:
+          - platform: jvm
+            task: verifyRoborazziJvm
+          - platform: ios
+            task: verifyRoborazziIosSimulatorArm64
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Get module dir
+        id: module_dir
+        run: |
+          module="${{ matrix.module }}"
+          module="${module#:}"
+          safe_path="${module//:/\/}"
+          safe_path="$(echo "$safe_path" | tr '\\' '/')"
+          echo "dir=$safe_path" >> $GITHUB_OUTPUT
+
+          safe_name="${module//:/-}"
+          safe_name="${safe_name//\//-}"
+          safe_name="${safe_name//\\/-}"
+          echo "name=$safe_name" >> $GITHUB_OUTPUT
+
+      - name: Verify KMP screenshots
+        run: ./gradlew ${{ matrix.module }}:${{ matrix.target.task }} --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshot-kmp-diff-${{ steps.module_dir.outputs.name }}-${{ matrix.target.platform }}
+          if-no-files-found: ignore
+          path: |
+            ${{ steps.module_dir.outputs.dir }}/build/outputs/roborazzi
+            build/outputs/roborazzi
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshot-kmp-reports-${{ steps.module_dir.outputs.name }}-${{ matrix.target.platform }}
+          if-no-files-found: ignore
+          path: ${{ steps.module_dir.outputs.dir }}/build/reports
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshot-kmp-test-results-${{ steps.module_dir.outputs.name }}-${{ matrix.target.platform }}
+          if-no-files-found: ignore
+          path: ${{ steps.module_dir.outputs.dir }}/build/test-results
+          retention-days: 30
