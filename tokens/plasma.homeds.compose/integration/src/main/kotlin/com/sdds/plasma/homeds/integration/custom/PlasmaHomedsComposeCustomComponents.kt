@@ -20,6 +20,11 @@ val BubbleKey = ComponentKey("Bubble", ComponentKey.Overlay.group)
 val ProductCardKey = ComponentKey("ProductCard", ComponentKey.Card.group)
 
 /**
+ *  Ключ для компонента ProductBottomSheet
+ */
+val ProductBottomSheetKey = ComponentKey("ProductBottomSheet", ComponentKey.Overlay.group)
+
+/**
  *  Компоненты
  */
 object PlasmaHomedsComposeCustomComponents : ComponentProvider() {
@@ -42,6 +47,12 @@ object PlasmaHomedsComposeCustomComponents : ComponentProvider() {
                 ProductCardKey,
                 mapOf(
                     "ProductCard" to PlasmaHomedsProductCardVariationsCompose,
+                ),
+            ),
+            Component(
+                ProductBottomSheetKey,
+                mapOf(
+                    "ProductBottomSheet" to PlasmaHomedsProductBottomSheetVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }
