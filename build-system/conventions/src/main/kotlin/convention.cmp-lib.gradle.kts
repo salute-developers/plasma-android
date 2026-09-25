@@ -1,3 +1,5 @@
+import tasks.IOS_SCREENSHOT_DIFF_THRESHOLD
+import tasks.VerifyRoborazziIosThresholdTask
 import utils.configureAndroidLibraryDefaults
 
 plugins {
@@ -12,6 +14,16 @@ plugins {
 }
 
 configureAndroidLibraryDefaults()
+
+pluginManager.withPlugin("io.github.takahirom.roborazzi") {
+    tasks.register<VerifyRoborazziIosThresholdTask>("verifyRoborazziIosWithThreshold") {
+        group = "verification"
+        description = "Verifies iOS Roborazzi results with a temporary diff threshold"
+        dependsOn("compareRoborazziIosSimulatorArm64")
+        resultsDirectory.set(layout.buildDirectory.dir("test-results/roborazzi/results"))
+        threshold.set(IOS_SCREENSHOT_DIFF_THRESHOLD)
+    }
+}
 
 android {
 

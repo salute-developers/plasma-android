@@ -93,7 +93,7 @@ jobs:
           - platform: jvm
             task: verifyRoborazziJvm
           - platform: ios
-            task: verifyRoborazziIosSimulatorArm64
+            task: verifyRoborazziIosWithThreshold
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
