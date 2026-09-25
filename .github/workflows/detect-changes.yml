@@ -18,6 +18,9 @@ on:
       changed_tokens:
         description: 'Changed token modules only'
         value: ${{ jobs.state.outputs.changed_tokens }}
+      changed_kmp_tokens:
+        description: 'Changed token modules with KMP screenshot tests'
+        value: ${{ jobs.state.outputs.changed_kmp_tokens }}
 
 jobs:
   state:
@@ -26,6 +29,7 @@ jobs:
     outputs:
       changed: ${{ steps.filtered_modules.outputs.all }}
       changed_tokens: ${{ steps.filtered_modules.outputs.tokens }}
+      changed_kmp_tokens: ${{ steps.filtered_modules.outputs.kmp_tokens }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -48,7 +52,24 @@ jobs:
           MODULES='${{ steps.changed_modules.outputs.modules }}'
           MODULES_JSON=$(echo "$MODULES" | tr ' ' '\n' | jq -R . | jq -s)
           TOKENS_JSON=$(echo "$MODULES_JSON" | jq '[.[] | select(startswith(":tokens:"))]')
+          KMP_MODULES=()
+          while IFS= read -r MODULE; do
+            MODULE_PATH="${MODULE#:}"
+            MODULE_PATH="${MODULE_PATH//://}"
+            if [[ -d "$MODULE_PATH/src/screenshotTest" ]]; then
+              KMP_MODULES+=("$MODULE")
+            fi
+          done < <(echo "$TOKENS_JSON" | jq -r '.[]')
+
+          if [[ ${#KMP_MODULES[@]} -gt 0 ]]; then
+            KMP_TOKENS_JSON=$(printf "%s\n" "${KMP_MODULES[@]}" | jq -R . | jq -s)
+          else
+            KMP_TOKENS_JSON='[]'
+          fi
+
           echo "Tokens $TOKENS_JSON"
+          echo "KMP tokens $KMP_TOKENS_JSON"
           echo "All $MODULES_JSON"
           echo "all=$(echo "$MODULES_JSON" | jq -c .)" >> $GITHUB_OUTPUT
           echo "tokens=$(echo "$TOKENS_JSON" | jq -c .)" >> $GITHUB_OUTPUT
+          echo "kmp_tokens=$(echo "$KMP_TOKENS_JSON" | jq -c .)" >> $GITHUB_OUTPUT
