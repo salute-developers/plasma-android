@@ -958,8 +958,20 @@ private class PopoverPositionProvider(
             when (innerPlacement) {
                 PopoverPlacement.Start -> triggerPositionInRoot.x - availableWindowBounds.left - alignedOffset - offset
                 PopoverPlacement.End -> availableWindowBounds.right - finalPopupPosition.x - alignedOffset
-                PopoverPlacement.Top -> availableWindowBounds.right - finalPopupPosition.x - alignedOffset
-                PopoverPlacement.Bottom -> availableWindowBounds.right - finalPopupPosition.x - alignedOffset
+                PopoverPlacement.Top, PopoverPlacement.Bottom -> {
+                    val triggerInfo = triggerInfoProvider()
+                    val triggerWidth = triggerInfo.size.width
+                    when (innerTailAlignment) {
+                        PopoverAlignment.Start -> availableWindowBounds.right - triggerPositionInRoot.x
+                        PopoverAlignment.Center -> {
+                            val triggerCenter = triggerPositionInRoot.x + triggerWidth / 2
+                            val spaceToStart = triggerCenter - availableWindowBounds.left
+                            val spaceToEnd = availableWindowBounds.right - triggerCenter
+                            2 * minOf(spaceToStart, spaceToEnd)
+                        }
+                        PopoverAlignment.End -> triggerPositionInRoot.x + triggerWidth - availableWindowBounds.left
+                    }
+                }
             }
         } else {
             popupContentSize.width
