@@ -99,10 +99,12 @@ fun ProductBottomSheet(
                 ) {
                     title?.let { content ->
                         val titleStyle by style.titleStyle.getTextStyleAsState(
-                            motion.context, motion.style.titleStyle,
+                            motion.context,
+                            motion.style.titleStyle,
                         )
                         val titleColor = style.colors.titleColor.getBrushAsState(
-                            motion.context, motion.style.titleColor,
+                            motion.context,
+                            motion.style.titleColor,
                         )
                         ProvideTextStyle(
                             value = titleStyle,
@@ -117,7 +119,8 @@ fun ProductBottomSheet(
                             motion.style.subTitleStyle,
                         )
                         val subtitleColor = style.colors.subtitleColor.getBrushAsState(
-                            motion.context, motion.style.subtitleColor,
+                            motion.context,
+                            motion.style.subtitleColor,
                         )
                         ProvideTextStyle(
                             value = subTitleStyle,
