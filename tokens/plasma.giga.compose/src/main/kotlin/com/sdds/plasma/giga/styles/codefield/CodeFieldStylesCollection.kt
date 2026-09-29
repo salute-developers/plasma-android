@@ -50,6 +50,7 @@ public enum class CodeFieldSize {
  */
 public enum class CodeFieldShape {
     Segmented,
+    Default,
 }
 
 /**
@@ -71,7 +72,7 @@ public fun CodeFieldStyles.style(modify: @Composable CodeFieldStyleBuilder.() ->
  */
 public fun CodeFieldStyles.Companion.resolve(
     size: CodeFieldSize = CodeFieldSize.L,
-    shape: CodeFieldShape = CodeFieldShape.Segmented,
+    shape: CodeFieldShape = CodeFieldShape.Default,
 ): CodeFieldStyles = when {
     size == CodeFieldSize.L && shape == CodeFieldShape.Segmented ->
         CodeFieldStyles.CodeFieldLSegmented
@@ -88,6 +89,6 @@ public fun CodeFieldStyles.Companion.resolve(
 @Composable
 public fun CodeFieldStyles.Companion.style(
     size: CodeFieldSize = CodeFieldSize.L,
-    shape: CodeFieldShape = CodeFieldShape.Segmented,
+    shape: CodeFieldShape = CodeFieldShape.Default,
     modify: @Composable CodeFieldStyleBuilder.() -> Unit = {},
 ): CodeFieldStyle = resolve(size, shape).style(modify)
