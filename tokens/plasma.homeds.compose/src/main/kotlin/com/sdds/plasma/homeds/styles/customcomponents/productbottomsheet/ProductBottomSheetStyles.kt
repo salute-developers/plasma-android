@@ -57,6 +57,10 @@ private val ProductBottomSheetStyleBuilder.invariantProps: ProductBottomSheetSty
         )
         .titleStyle(PlasmaHomeDsTheme.typography.headerH2Normal)
         .subTitleStyle(PlasmaHomeDsTheme.typography.textMNormal)
+        .colors {
+            titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary)
+            subtitleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary)
+        }
 
 public val ProductBottomSheet.Default: WrapperProductBottomSheetDefault
     @Composable

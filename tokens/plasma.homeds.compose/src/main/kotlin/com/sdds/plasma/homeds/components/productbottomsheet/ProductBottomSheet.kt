@@ -12,8 +12,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
 import com.sdds.compose.uikit.LocalButtonGroupStyle
-import com.sdds.compose.uikit.LocalTextStyle
 import com.sdds.compose.uikit.ModalBottomSheet
+import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.modal.BottomSheetState
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
@@ -21,6 +21,7 @@ import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.components.bottomsheet.ModalBottomSheetMotionStyle
 import com.sdds.compose.uikit.motion.components.bottomsheet.rememberModalBottomSheetMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
 import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.plasma.homeds.motion.productbottomsheet.ProductBottomSheetMotionStyle
 import com.sdds.plasma.homeds.motion.productbottomsheet.rememberProductBottomSheetMotion
@@ -97,8 +98,16 @@ fun ProductBottomSheet(
                     verticalArrangement = Arrangement.spacedBy(gap),
                 ) {
                     title?.let { content ->
-                        val titleStyle by style.titleStyle.getTextStyleAsState(motion.context, motion.style.titleStyle)
-                        CompositionLocalProvider(LocalTextStyle provides titleStyle) {
+                        val titleStyle by style.titleStyle.getTextStyleAsState(
+                            motion.context, motion.style.titleStyle,
+                        )
+                        val titleColor = style.colors.titleColor.getBrushAsState(
+                            motion.context, motion.style.titleColor,
+                        )
+                        ProvideTextStyle(
+                            value = titleStyle,
+                            brush = { titleColor.value },
+                        ) {
                             content()
                         }
                     }
@@ -107,7 +116,13 @@ fun ProductBottomSheet(
                             motion.context,
                             motion.style.subTitleStyle,
                         )
-                        CompositionLocalProvider(LocalTextStyle provides subTitleStyle) {
+                        val subtitleColor = style.colors.subtitleColor.getBrushAsState(
+                            motion.context, motion.style.subtitleColor,
+                        )
+                        ProvideTextStyle(
+                            value = subTitleStyle,
+                            brush = { subtitleColor.value },
+                        ) {
                             content()
                         }
                     }

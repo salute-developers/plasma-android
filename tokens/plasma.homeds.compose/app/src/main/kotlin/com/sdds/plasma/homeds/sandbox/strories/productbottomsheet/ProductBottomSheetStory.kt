@@ -10,15 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonGroup
 import com.sdds.compose.uikit.ButtonGroupOrientation
-import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Wheel
 import com.sdds.compose.uikit.WheelDataSet
@@ -32,7 +29,6 @@ import com.sdds.plasma.homeds.components.productbottomsheet.ProductBottomSheetSt
 import com.sdds.plasma.homeds.compose.sandbox.stories.HomeDsProductBottomSheetUiStatePropertiesProducer
 import com.sdds.plasma.homeds.compose.sandbox.stories.HomeDsProductBottomSheetUiStateTransformer
 import com.sdds.plasma.homeds.integration.custom.ProductBottomSheetKey
-import com.sdds.plasma.homeds.sandbox.R
 import com.sdds.plasma.homeds.styles.wheel.H4
 import com.sdds.plasma.homeds.styles.wheel.Wheel
 import com.sdds.sandbox.ComponentKey
@@ -48,6 +44,7 @@ import kotlinx.coroutines.launch
  * @param edgeToEdge полноэкранный режим
  * @param dimBackground включение затемнения экрна
  * @param useNativeBlackout исполльзование нативного затемнения
+ * @param hasButtons включает отображение блока с кнопками в футере
  */
 @StoryUiState
 data class HomeDsProductBottomSheetUiState(
@@ -57,6 +54,7 @@ data class HomeDsProductBottomSheetUiState(
     val edgeToEdge: Boolean = true,
     val dimBackground: Boolean = true,
     val useNativeBlackout: Boolean = true,
+    val hasButtons: Boolean = false,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
@@ -102,36 +100,32 @@ internal object ProductBottomSheetStory : ComposeBaseStory<HomeDsProductBottomSh
             fitContent = true,
             edgeToEdge = state.edgeToEdge,
             title = {
-                Text("Title", Modifier.align(Alignment.Start))
+                Text("Title", Modifier.align(Alignment.CenterHorizontally))
             },
             subTitle = {
-                Text("Subtitle", Modifier.align(Alignment.Start))
+                Text("Subtitle", Modifier.align(Alignment.CenterHorizontally))
             },
             footer = {
-                ButtonGroup(
-                    modifier = Modifier
-                        .align(Alignment.Center),
-                    orientation = ButtonGroupOrientation.Vertical,
-                ) {
-                    repeat(2) {
-                        button {
-                            Button(
-                                modifier = Modifier.fillMaxWidth(),
-                                label = "label",
-                                value = "value",
-                                onClick = {},
-                            )
+                if (state.hasButtons) {
+                    ButtonGroup(
+                        modifier = Modifier
+                            .align(Alignment.Center),
+                        orientation = ButtonGroupOrientation.Vertical,
+                    ) {
+                        repeat(2) {
+                            button {
+                                Button(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    label = "label",
+                                    value = "value",
+                                    onClick = {},
+                                )
+                            }
                         }
                     }
                 }
             },
             body = {
-                Image(
-                    modifier = Modifier.fillMaxWidth(),
-                    contentScale = ContentScale.Crop,
-                    painter = painterResource(R.drawable.checker),
-                    contentDescription = "Android",
-                )
                 Wheel(
                     modifier = Modifier
                         .fillMaxWidth()

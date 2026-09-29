@@ -4,12 +4,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -54,12 +59,137 @@ interface ProductBottomSheetStyle : Style {
      */
     val dimensions: ProductBottomSheetDimensions
 
+    /**
+     * Размеры и отступы
+     * @see ProductBottomSheetDimensions
+     */
+    val colors: ProductBottomSheetColors
+
     companion object {
 
         /**
          * Возвращает экземпляр [ProductBottomSheetStyleBuilder]
          */
         fun builder(receiver: Any? = null): ProductBottomSheetStyleBuilder = DefaultProductBottomSheetStyle.Builder()
+    }
+}
+
+/**
+ * Цвета компонента [ProductBottomSheet]
+ */
+@Stable
+interface ProductBottomSheetColors {
+
+    /**
+     * Кисти текста заголовка
+     */
+    val titleColor: StatefulValue<Brush>
+
+    /**
+     * Кисти текста подзаголовка
+     */
+    val subtitleColor: StatefulValue<Brush>
+}
+
+/**
+ * Builder для [ProductBottomSheetColors].
+ */
+interface ProductBottomSheetColorsBuilder {
+
+    /**
+     * Устанавливает цвет [color] текста заголовка компонента
+     * @see ProductBottomSheetColorsBuilder.titleColor
+     * @see InteractiveColor
+     */
+    fun titleColor(color: InteractiveColor): ProductBottomSheetColorsBuilder =
+        titleColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [color] текста заголовка компонента
+     * @see ProductBottomSheetColorsBuilder.titleColor
+     */
+    fun titleColor(color: Color): ProductBottomSheetColorsBuilder =
+        titleColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [color] текста заголовка компонента
+     * @see ProductBottomSheetColorsBuilder.titleColor
+     */
+    fun titleColor(color: Brush): ProductBottomSheetColorsBuilder =
+        titleColor(color.asStatefulValue())
+
+    /**
+     * Устанавливает цвет [color] текста заголовка компонента
+     * @see ProductBottomSheetColors.titleColor
+     */
+    fun titleColor(color: StatefulValue<Brush>): ProductBottomSheetColorsBuilder
+
+    /**
+     * Устанавливает цвет [color] текста подзаголовка компонента
+     * @see ProductBottomSheetColorsBuilder.subtitleColor
+     * @see InteractiveColor
+     */
+    fun subtitleColor(color: InteractiveColor): ProductBottomSheetColorsBuilder =
+        subtitleColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [color] текста подзаголовка компонента
+     * @see ProductBottomSheetColorsBuilder.subtitleColor
+     */
+    fun subtitleColor(color: Color): ProductBottomSheetColorsBuilder =
+        subtitleColor(color.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [color] текста подзаголовка компонента
+     * @see ProductBottomSheetColorsBuilder.subtitleColor
+     */
+    fun subtitleColor(color: Brush): ProductBottomSheetColorsBuilder =
+        subtitleColor(color.asStatefulValue())
+
+    /**
+     * Устанавливает цвет [color] текста подзаголовка компонента
+     * @see ProductBottomSheetColors.subtitleColor
+     */
+    fun subtitleColor(color: StatefulValue<Brush>): ProductBottomSheetColorsBuilder
+
+    /**
+     * Возвращает готовый экземпляр [ProductBottomSheetColors]
+     */
+    fun build(): ProductBottomSheetColors
+
+    companion object {
+
+        /**
+         * Возвращает экземпляр [ProductBottomSheetColorsBuilder]
+         */
+        fun builder(): ProductBottomSheetColorsBuilder = DefaultProductBottomSheetColors.Builder()
+    }
+}
+
+@Immutable
+private class DefaultProductBottomSheetColors(
+    override val titleColor: StatefulValue<Brush>,
+    override val subtitleColor: StatefulValue<Brush>,
+) : ProductBottomSheetColors {
+
+    class Builder : ProductBottomSheetColorsBuilder {
+        private var titleColor: StatefulValue<Brush>? = null
+        private var subtitleColor: StatefulValue<Brush>? = null
+
+        override fun titleColor(color: StatefulValue<Brush>) = apply {
+            this.titleColor = color
+        }
+
+        override fun subtitleColor(color: StatefulValue<Brush>) = apply {
+            this.subtitleColor = color
+        }
+
+        override fun build(): ProductBottomSheetColors {
+            return DefaultProductBottomSheetColors(
+                titleColor = titleColor ?: Color.Black.asStatefulBrush(),
+                subtitleColor = subtitleColor ?: Color.Black.asStatefulBrush(),
+            )
+        }
     }
 }
 
@@ -419,27 +549,27 @@ interface ProductBottomSheetStyleBuilder : StyleBuilder<ProductBottomSheetStyle>
     fun buttonGroupStyle(style: ButtonGroupStyle): ProductBottomSheetStyleBuilder
 
     /**
-     * Устанавливает стиль текста [style] целой части числа компонента.
+     * Устанавливает стиль текста [style] заголовка компонента.
      * @see ProductBottomSheetStyleBuilder.titleStyle
      */
     fun titleStyle(style: TextStyle): ProductBottomSheetStyleBuilder =
         titleStyle(style.asStatefulValue())
 
     /**
-     * Устанавливает стили текста [style] целой части числа компонента.
+     * Устанавливает стили текста [style] заголовка компонента.
      * @see ProductBottomSheetStyleBuilder.titleStyle
      */
     fun titleStyle(style: StatefulValue<TextStyle>): ProductBottomSheetStyleBuilder
 
     /**
-     * Устанавливает стиль текста [style] целой части числа компонента.
+     * Устанавливает стиль текста [style] подзаголовка компонента.
      * @see ProductBottomSheetStyleBuilder.subTitleStyle
      */
     fun subTitleStyle(style: TextStyle): ProductBottomSheetStyleBuilder =
         subTitleStyle(style.asStatefulValue())
 
     /**
-     * Устанавливает стили текста [style] целой части числа компонента.
+     * Устанавливает стили текста [style] подзаголовка компонента.
      * @see ProductBottomSheetStyleBuilder.subTitleStyle
      */
     fun subTitleStyle(style: StatefulValue<TextStyle>): ProductBottomSheetStyleBuilder
@@ -449,6 +579,12 @@ interface ProductBottomSheetStyleBuilder : StyleBuilder<ProductBottomSheetStyle>
      */
     @Composable
     fun dimensions(builder: @Composable ProductBottomSheetDimensionsBuilder.() -> Unit): ProductBottomSheetStyleBuilder
+
+    /**
+     * Устанавливает цвета компонента [dimensions]
+     */
+    @Composable
+    fun colors(builder: @Composable ProductBottomSheetColorsBuilder.() -> Unit): ProductBottomSheetStyleBuilder
 }
 
 @Immutable
@@ -458,6 +594,7 @@ internal class DefaultProductBottomSheetStyle(
     override val bottomSheetStyle: ModalBottomSheetStyle,
     override val titleStyle: StatefulValue<TextStyle>,
     override val subTitleStyle: StatefulValue<TextStyle>,
+    override val colors: ProductBottomSheetColors,
 ) : ProductBottomSheetStyle {
     @Stable
     class Builder : ProductBottomSheetStyleBuilder {
@@ -469,6 +606,9 @@ internal class DefaultProductBottomSheetStyle(
 
         private var dimensionsBuilder: ProductBottomSheetDimensionsBuilder =
             ProductBottomSheetDimensionsBuilder.builder()
+
+        private var colorsBuilder: ProductBottomSheetColorsBuilder =
+            ProductBottomSheetColorsBuilder.builder()
 
         override fun bottomSheetStyle(style: ModalBottomSheetStyle): ProductBottomSheetStyleBuilder = apply {
             this.bottomSheetStyle = style
@@ -493,6 +633,13 @@ internal class DefaultProductBottomSheetStyle(
             this.dimensionsBuilder.builder()
         }
 
+        @Composable
+        override fun colors(
+            builder: @Composable (ProductBottomSheetColorsBuilder.() -> Unit),
+        ): ProductBottomSheetStyleBuilder = apply {
+            this.colorsBuilder.builder()
+        }
+
         override fun style(): ProductBottomSheetStyle {
             return DefaultProductBottomSheetStyle(
                 bottomSheetStyle = bottomSheetStyle ?: ModalBottomSheetStyle.builder().style(),
@@ -500,6 +647,7 @@ internal class DefaultProductBottomSheetStyle(
                 subTitleStyle = subTitleStyle ?: TextStyle.Default.asStatefulValue(),
                 dimensions = dimensionsBuilder.build(),
                 buttonGroupStyle = buttonGroupStyle ?: ButtonGroupStyle.builder().style(),
+                colors = colorsBuilder.build(),
             )
         }
     }
