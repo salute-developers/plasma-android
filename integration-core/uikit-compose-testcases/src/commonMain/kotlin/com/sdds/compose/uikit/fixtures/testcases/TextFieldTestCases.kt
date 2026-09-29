@@ -1,0 +1,1007 @@
+package com.sdds.compose.uikit.fixtures.testcases
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.Chip
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.ScribbleDiagonal16
+import com.sdds.icons.compose.ScribbleDiagonal24
+import com.sdds.icons.compose.SddsIcons
+import com.sdds.icons.compose.Shazam16
+import com.sdds.icons.compose.Shazam24
+
+/**
+ * Тест кейсы для TextField, TextFieldClear
+ */
+
+/**
+ * PLASMA-T1501
+ */
+@Composable
+fun TextFieldLDefaultInnerLeft(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    TextField(
+        value = value,
+        style = style,
+        labelText = "Label",
+        placeholderText = "",
+        captionText = "Caption",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1517
+ */
+@Composable
+fun TextFieldMSuccessOuterLabel(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Caption",
+        labelText = "Label",
+        placeholderText = "Placeholder",
+        optionalText = "optional",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1554
+ */
+@Composable
+fun TextFieldWarningInnerRight(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Caption",
+        labelText = "Label",
+        optionalText = "",
+        placeholderText = "Placeholder",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1555
+ */
+@Composable
+fun TextFieldXSErrorInner(style: TextFieldStyle) {
+    TextField(
+        value = TextFieldValue(text = ""),
+        style = style,
+        captionText = "Caption",
+        labelText = "Label",
+        optionalText = "",
+        placeholderText = "Placeholder",
+        onValueChange = {},
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+    )
+}
+
+/**
+ * PLASMA-T1556
+ */
+@Composable
+fun TextFieldLSuccessRequiredLeftOuter(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Caption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1557
+ */
+@Composable
+fun TextFieldMWarningInnerLabelOptional(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1558
+ */
+@Composable
+fun TextFieldSReadOnly(style: TextFieldStyle) {
+    TextField(
+        value = TextFieldValue(text = ""),
+        style = style,
+        captionText = "Сaption",
+        labelText = "",
+        optionalText = "",
+        placeholderText = "Placeholder",
+        onValueChange = {},
+        enabled = true,
+        readOnly = true,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1559
+ */
+@Composable
+fun TextFieldXSSuccessOuterLabelOptional(style: TextFieldStyle) {
+    TextField(
+        value = TextFieldValue(text = "Value"),
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "",
+        onValueChange = {},
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal16),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam16),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1560
+ */
+@Composable
+fun TextFieldLDisabled(style: TextFieldStyle) {
+    TextField(
+        value = TextFieldValue(text = ""),
+        style = style,
+        captionText = "",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "Placeholder",
+        onValueChange = {},
+        enabled = false,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1561
+ */
+@Composable
+fun TextFieldMErrorOuterLabelOptional(style: TextFieldStyle) {
+    TextField(
+        value = TextFieldValue(text = ""),
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "Placeholder",
+        onValueChange = {},
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1563
+ */
+@Composable
+fun TextFieldSWarningInnerLabelRightFocused(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "Placeholder",
+        prefix = "",
+        suffix = "",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1564
+ */
+@Composable
+fun TextFieldMSuccessInnerLabelChips(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "Placeholder",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+        chipsContent = {
+            Chip(
+                label = "Chip",
+                endContent = {
+                    Icon(
+                        painter = rememberVectorPainter(SddsIcons.Close24),
+                        contentDescription = "",
+                    )
+                },
+            )
+            Chip(
+                label = "Chip",
+                endContent = {
+                    Icon(
+                        painter = rememberVectorPainter(SddsIcons.Close24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1565
+ */
+@Composable
+fun TextFieldSOuterLabelRightChips(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "",
+        placeholderText = "Placeholder",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+        chipsContent = {
+            Chip(
+                label = "Chip",
+                endContent = {
+                    Icon(
+                        painter = rememberVectorPainter(SddsIcons.Close24),
+                        contentDescription = "",
+                    )
+                },
+            )
+            Chip(
+                label = "Chip",
+                endContent = {
+                    Icon(
+                        painter = rememberVectorPainter(SddsIcons.Close24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T962
+ */
+@Composable
+fun TextFieldLInputText(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "Placeholder",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1572
+ */
+@Composable
+fun TextFieldLSuffixPrefix(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "TB Prefix",
+            suffix = "TA Suffix",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1566
+ */
+@Composable
+fun TextFieldClearLErrorInnerOptional(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "Placeholder",
+        onValueChange = { value = it },
+        readOnly = false,
+        enabled = true,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1567
+ */
+@Composable
+fun TextFieldClearMWarningInnerRequiredLeft(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            readOnly = false,
+            enabled = true,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1568
+ */
+@Composable
+fun TextFieldClearSDefaultOuterOptional(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Сaption",
+        labelText = "",
+        optionalText = "Optional",
+        placeholderText = "Placeholder",
+        onValueChange = { value = it },
+        readOnly = false,
+        enabled = true,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1569
+ */
+@Composable
+fun TextFieldClearXSSuccessOuterRequiredRightFocused(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Сaption",
+        labelText = "Label",
+        optionalText = "optional",
+        placeholderText = "Placeholder",
+        onValueChange = { value = it },
+        readOnly = false,
+        enabled = true,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T1570
+ */
+@Composable
+fun TextFieldClearLDefaultInnerRequiredRight(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center,
+    ) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            readOnly = false,
+            enabled = true,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1571
+ */
+@Composable
+fun TextFieldClearMErrorInnerRequiredLeft(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            readOnly = false,
+            enabled = true,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1920
+ */
+@Composable
+fun TextFieldLSuffixPrefixCyrillic(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "префикс",
+            suffix = "суффикс",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1891
+ */
+@Composable
+fun TextFieldLDisabledOuterLeft(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "",
+            suffix = "",
+            onValueChange = { value = it },
+            enabled = false,
+            readOnly = false,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1933
+ */
+@Composable
+fun TextFieldClearLErrorTBTA(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center,
+    ) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "TB",
+            suffix = "TA",
+            onValueChange = { value = it },
+            readOnly = false,
+            enabled = true,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1920
+ */
+@Composable
+fun TextFieldLSuffixPrefixNoValue(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "TB",
+            suffix = "TA",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1920
+ */
+@Composable
+fun TextFieldXlDefault(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = rememberVectorPainter(SddsIcons.Shazam24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * TextField иконка справа
+ */
+@Composable
+fun TextFieldIconRight(
+    style: TextFieldStyle,
+    enabled: Boolean = true,
+) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Caption",
+        counterText = "0/100",
+        labelText = "Label",
+        placeholderText = "Placeholder",
+        optionalText = "",
+        onValueChange = { value = it },
+        enabled = enabled,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * TextField search bar
+ */
+@Composable
+fun TextFieldSbComSearchBar(
+    style: TextFieldStyle,
+    captionText: String? = null,
+    counterText: String? = null,
+    labelText: String = "",
+) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = captionText,
+        counterText = counterText,
+        labelText = labelText,
+        placeholderText = "Placeholder",
+        optionalText = "",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.ScribbleDiagonal24),
+                contentDescription = "",
+            )
+        },
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Shazam24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * TextField alternative field
+ */
+@Composable
+fun TextFieldAlternativeField(
+    style: TextFieldStyle,
+) {
+    TextFieldSbComSearchBar(
+        style = style,
+        captionText = "Helper",
+        counterText = "0/100",
+
+    )
+}
+
+/**
+ * TextField normal
+ */
+@Composable
+fun TextFieldNormalSbCom(
+    style: TextFieldStyle,
+) {
+    TextFieldSbComSearchBar(
+        style = style,
+        labelText = "Label",
+        captionText = "Helper",
+        counterText = "0/100",
+    )
+}
+
+/**
+ * TextField icon right disabled
+ */
+@Composable
+fun TextFieldIconRightDisabled(style: TextFieldStyle) {
+    TextFieldIconRight(
+        style = style,
+        enabled = false,
+    )
+}
