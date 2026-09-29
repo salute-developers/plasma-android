@@ -12,9 +12,12 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -32,12 +35,24 @@ interface ProgressBarStyle : Style {
     /**
      * Форма индикатора компонента
      */
+    @Deprecated("Use indicatorShapes", replaceWith = ReplaceWith("indicatorShapes"))
     val indicatorShape: CornerBasedShape
+
+    /**
+     * Формы индикатора компонента
+     */
+    val indicatorShapes: StatefulValue<CornerBasedShape>
 
     /**
      * Форма фона компонента
      */
+    @Deprecated("Use backgroundShapes", replaceWith = ReplaceWith("backgroundShapes"))
     val backgroundShape: CornerBasedShape
+
+    /**
+     * Форма фона компонента
+     */
+    val backgroundShapes: StatefulValue<CornerBasedShape>
 
     /**
      * Цвета компонента
@@ -81,14 +96,26 @@ interface ProgressBarStyle : Style {
 interface ProgressBarStyleBuilder : StyleBuilder<ProgressBarStyle> {
 
     /**
+     * Устанавливает формы индикатора [indicatorShape]
+     */
+    fun indicatorShape(indicatorShape: StatefulValue<CornerBasedShape>): ProgressBarStyleBuilder
+
+    /**
      * Устанавливает форму индикатора [indicatorShape]
      */
-    fun indicatorShape(indicatorShape: CornerBasedShape): ProgressBarStyleBuilder
+    fun indicatorShape(indicatorShape: CornerBasedShape): ProgressBarStyleBuilder =
+        indicatorShape(indicatorShape.asStatefulValue())
+
+    /**
+     * Устанавливает формы фона [backgroundShape]
+     */
+    fun backgroundShape(backgroundShape: StatefulValue<CornerBasedShape>): ProgressBarStyleBuilder
 
     /**
      * Устанавливает форму фона [backgroundShape]
      */
-    fun backgroundShape(backgroundShape: CornerBasedShape): ProgressBarStyleBuilder
+    fun backgroundShape(backgroundShape: CornerBasedShape): ProgressBarStyleBuilder =
+        backgroundShape(backgroundShape.asStatefulValue())
 
     /**
      * Устанавливает цвета компонента при помощи [builder].
@@ -134,6 +161,7 @@ interface ProgressBarColorValues {
     /**
      * Цвет (или градиент) индикатора [ProgressBar]
      */
+    @Deprecated("Use indicatorBrush", replaceWith = ReplaceWith("indicatorBrush"))
     val indicatorColor: InteractiveColor?
 
     /**
@@ -144,6 +172,7 @@ interface ProgressBarColorValues {
     /**
      * Цвет (или градиент) фона [ProgressBar]
      */
+    @Deprecated("Use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
     val backgroundColor: InteractiveColor?
 
     companion object {
@@ -165,13 +194,21 @@ interface ProgressBarColorValuesBuilder {
      * @see ProgressBarColors.indicatorColor
      */
     fun indicatorColor(indicatorColor: Color): ProgressBarColorValuesBuilder =
-        indicatorColor(indicatorColor.asInteractive())
+        indicatorColor(indicatorColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [indicatorColor] индикатора компонента.
      * @see ProgressBarColors.indicatorColor
      */
-    fun indicatorColor(indicatorColor: InteractiveColor): ProgressBarColorValuesBuilder
+    fun indicatorColor(indicatorColor: InteractiveColor): ProgressBarColorValuesBuilder =
+        indicatorColor(indicatorColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет (или градиент) [indicatorColor] индикатора компонента.
+     * @see ProgressBarColors.indicatorColor
+     */
+    fun indicatorColor(indicatorColor: Brush): ProgressBarColorValuesBuilder =
+        indicatorColor(indicatorColor.asStatefulValue())
 
     /**
      * Устанавливает цвет (или градиент) [indicatorColor] индикатора компонента.
@@ -184,13 +221,21 @@ interface ProgressBarColorValuesBuilder {
      * @see ProgressBarColors.backgroundColor
      */
     fun backgroundColor(backgroundColor: Color): ProgressBarColorValuesBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет [backgroundColor] фона компонента.
      * @see ProgressBarColors.backgroundColor
      */
-    fun backgroundColor(backgroundColor: InteractiveColor): ProgressBarColorValuesBuilder
+    fun backgroundColor(backgroundColor: InteractiveColor): ProgressBarColorValuesBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет (или градиент) [backgroundColor] фона компонента.
+     * @see ProgressBarColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Brush): ProgressBarColorValuesBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
 
     /**
      * Устанавливает цвет (или градиент) [backgroundColor] фона компонента.
@@ -239,12 +284,24 @@ interface ProgressBarDimensionValues {
     /**
      * Высота индикатора [ProgressBar]
      */
+    @Deprecated("Use indicatorHeightValues", replaceWith = ReplaceWith("indicatorHeightValues"))
     val indicatorHeight: Dp
+
+    /**
+     * Высота индикатора [ProgressBar]
+     */
+    val indicatorHeightValues: StatefulValue<Dp>
 
     /**
      * Высота фона [ProgressBar]
      */
+    @Deprecated("Use backgroundHeightValues", replaceWith = ReplaceWith("backgroundHeightValues"))
     val backgroundHeight: Dp
+
+    /**
+     * Высота фона [ProgressBar]
+     */
+    val backgroundHeightValues: StatefulValue<Dp>
 
     companion object {
 
@@ -263,12 +320,24 @@ interface ProgressBarDimensionValuesBuilder {
     /**
      * Устанавливает высоту индикатора [indicatorHeight]
      */
-    fun indicatorHeight(indicatorHeight: Dp): ProgressBarDimensionValuesBuilder
+    fun indicatorHeight(indicatorHeight: StatefulValue<Dp>): ProgressBarDimensionValuesBuilder
+
+    /**
+     * Устанавливает высоту индикатора [indicatorHeight]
+     */
+    fun indicatorHeight(indicatorHeight: Dp): ProgressBarDimensionValuesBuilder =
+        indicatorHeight(indicatorHeight.asStatefulValue())
 
     /**
      * Устанавливает высоту фона [backgroundHeight]
      */
-    fun backgroundHeight(backgroundHeight: Dp): ProgressBarDimensionValuesBuilder
+    fun backgroundHeight(backgroundHeight: StatefulValue<Dp>): ProgressBarDimensionValuesBuilder
+
+    /**
+     * Устанавливает высоту фона [backgroundHeight]
+     */
+    fun backgroundHeight(backgroundHeight: Dp): ProgressBarDimensionValuesBuilder =
+        backgroundHeight(backgroundHeight.asStatefulValue())
 
     /**
      * Возвращает экземпляр [ProgressBarDimensionValues]
@@ -278,26 +347,30 @@ interface ProgressBarDimensionValuesBuilder {
 
 @Immutable
 private class DefaultProgressBarDimensionValues(
-    override val indicatorHeight: Dp,
-    override val backgroundHeight: Dp,
+    override val indicatorHeightValues: StatefulValue<Dp>,
+    override val backgroundHeightValues: StatefulValue<Dp>,
 ) : ProgressBarDimensionValues {
+    @Deprecated("Use indicatorHeightValues", replaceWith = ReplaceWith("indicatorHeightValues"))
+    override val indicatorHeight: Dp = indicatorHeightValues.getDefaultValue()
 
+    @Deprecated("Use backgroundHeightValues", replaceWith = ReplaceWith("backgroundHeightValues"))
+    override val backgroundHeight: Dp = backgroundHeightValues.getDefaultValue()
     class Builder : ProgressBarDimensionValuesBuilder {
-        private var indicatorHeight: Dp? = null
-        private var backgroundHeight: Dp? = null
+        private var indicatorHeight: StatefulValue<Dp>? = null
+        private var backgroundHeight: StatefulValue<Dp>? = null
 
-        override fun indicatorHeight(indicatorHeight: Dp) = apply {
+        override fun indicatorHeight(indicatorHeight: StatefulValue<Dp>) = apply {
             this.indicatorHeight = indicatorHeight
         }
 
-        override fun backgroundHeight(backgroundHeight: Dp) = apply {
+        override fun backgroundHeight(backgroundHeight: StatefulValue<Dp>) = apply {
             this.backgroundHeight = backgroundHeight
         }
 
         override fun build(): ProgressBarDimensionValues {
             return DefaultProgressBarDimensionValues(
-                indicatorHeight = indicatorHeight ?: 3.dp,
-                backgroundHeight = backgroundHeight ?: 2.dp,
+                indicatorHeightValues = indicatorHeight ?: 3.dp.asStatefulValue(),
+                backgroundHeightValues = backgroundHeight ?: 2.dp.asStatefulValue(),
             )
         }
     }
@@ -367,26 +440,30 @@ private data class DefaultProgressBarStyle(
     override val colors: ProgressBarColors,
     @Deprecated("Use dimensionValues instead")
     override val dimensions: ProgressBarDimensions,
-    override val indicatorShape: CornerBasedShape,
-    override val backgroundShape: CornerBasedShape,
     override val colorValues: ProgressBarColorValues,
     override val dimensionValues: ProgressBarDimensionValues,
+    override val indicatorShapes: StatefulValue<CornerBasedShape>,
+    override val backgroundShapes: StatefulValue<CornerBasedShape>,
 ) : ProgressBarStyle {
+    @Deprecated("Use indicatorShapes", replaceWith = ReplaceWith("indicatorShapes"))
+    override val indicatorShape: CornerBasedShape = indicatorShapes.getDefaultValue()
 
+    @Deprecated("Use backgroundShapes", replaceWith = ReplaceWith("backgroundShapes"))
+    override val backgroundShape: CornerBasedShape = backgroundShapes.getDefaultValue()
     class Builder : ProgressBarStyleBuilder {
 
         private var colorsBuilder: ProgressBarColorsBuilder = ProgressBarColors.builder()
         private var dimensions: ProgressBarDimensions? = null
         private val dimensionValuesBuilder = ProgressBarDimensionValues.builder()
         private val colorValuesBuilder = ProgressBarColorValues.builder()
-        private var indicatorShape: CornerBasedShape? = null
-        private var backgroundShape: CornerBasedShape? = null
+        private var indicatorShape: StatefulValue<CornerBasedShape>? = null
+        private var backgroundShape: StatefulValue<CornerBasedShape>? = null
 
-        override fun indicatorShape(indicatorShape: CornerBasedShape) = apply {
+        override fun indicatorShape(indicatorShape: StatefulValue<CornerBasedShape>) = apply {
             this.indicatorShape = indicatorShape
         }
 
-        override fun backgroundShape(backgroundShape: CornerBasedShape) = apply {
+        override fun backgroundShape(backgroundShape: StatefulValue<CornerBasedShape>) = apply {
             this.backgroundShape = backgroundShape
         }
 
@@ -425,8 +502,8 @@ private data class DefaultProgressBarStyle(
                 dimensions = dimensions ?: ProgressBarDimensions(),
                 dimensionValues = dimensionValues,
                 colorValues = colorValuesBuilder.build(),
-                indicatorShape = indicatorShape ?: CircleShape,
-                backgroundShape = backgroundShape ?: CircleShape,
+                indicatorShapes = indicatorShape ?: CircleShape.asStatefulValue(),
+                backgroundShapes = backgroundShape ?: CircleShape.asStatefulValue(),
             )
         }
     }
@@ -434,29 +511,20 @@ private data class DefaultProgressBarStyle(
 
 @Immutable
 private data class DefaultProgressBarColorValues(
-    override val indicatorColor: InteractiveColor?,
-    override val backgroundColor: InteractiveColor?,
     override val indicatorBrush: StatefulValue<Brush>?,
     override val backgroundBrush: StatefulValue<Brush>?,
 ) : ProgressBarColorValues {
+    @Deprecated("Use indicatorBrush", replaceWith = ReplaceWith("indicatorBrush"))
+    override val indicatorColor: InteractiveColor = Color.Transparent.asInteractive()
 
+    @Deprecated("Use backgroundBrush", replaceWith = ReplaceWith("backgroundBrush"))
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
     class Builder : ProgressBarColorValuesBuilder {
-
-        private var indicatorColor: InteractiveColor? = null
         private var indicatorBrush: StatefulValue<Brush>? = null
-        private var backgroundColor: InteractiveColor? = null
         private var backgroundBrush: StatefulValue<Brush>? = null
-
-        override fun indicatorColor(indicatorColor: InteractiveColor) = apply {
-            this.indicatorColor = indicatorColor
-        }
 
         override fun indicatorColor(indicatorColor: StatefulValue<Brush>) = apply {
             this.indicatorBrush = indicatorColor
-        }
-
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
-            this.backgroundColor = backgroundColor
         }
 
         override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
@@ -465,10 +533,8 @@ private data class DefaultProgressBarColorValues(
 
         override fun build(): ProgressBarColorValues =
             DefaultProgressBarColorValues(
-                indicatorColor = indicatorColor,
-                indicatorBrush = indicatorBrush,
-                backgroundColor = backgroundColor,
-                backgroundBrush = backgroundBrush,
+                indicatorBrush = indicatorBrush ?: Color.Black.asStatefulBrush(),
+                backgroundBrush = backgroundBrush ?: Color.Gray.asStatefulBrush(),
             )
     }
 }
