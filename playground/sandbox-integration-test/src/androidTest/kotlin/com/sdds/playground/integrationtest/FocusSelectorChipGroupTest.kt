@@ -17,8 +17,10 @@ class FocusSelectorChipGroupTest {
             .clickShowAll()
             .selectChipGroupTab()
             .checkChipGroupTabContentVisible()
+            .rememberChipGroupWithoutFocusVisualState()
             .pressTab()
             .checkChipGroupFocusStateFocused()
+            .checkFocusSelectorVisible()
             .checkChipGroupFocusPassed()
     }
 

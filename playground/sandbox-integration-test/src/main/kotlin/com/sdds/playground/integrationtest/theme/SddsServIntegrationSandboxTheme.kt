@@ -4,10 +4,15 @@ import android.app.Activity
 import android.graphics.Color
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import com.sdds.compose.uikit.fs.FocusSelectorBorders
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.serv.theme.SddsServTheme
 import com.sdds.serv.theme.darkSddsServColors
 import com.sdds.serv.theme.darkSddsServGradients
@@ -47,6 +52,18 @@ internal fun IntegrationSandboxTheme(
     SddsServTheme(
         colors = colorScheme,
         gradients = if (darkTheme) DarkGradients else LightGradients,
-        content = content,
-    )
+    ) {
+        CompositionLocalProvider(
+            LocalFocusSelectorSettings provides FocusSelectorSettings.builder()
+                .border(
+                    FocusSelectorBorders.solid(
+                        strokeWidth = 1.dp,
+                        color = colorScheme.surfaceDefaultAccent,
+                        strokeInsets = 2.dp,
+                    ),
+                )
+                .build(),
+            content = content,
+        )
+    }
 }

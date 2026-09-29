@@ -16,8 +16,10 @@ class FocusSelectorChipTest {
         FocusSelectorPage(composeTestRule)
             .selectChipTab()
             .checkChipTabContentVisible()
+            .rememberChipWithoutFocusVisualState()
             .pressTab()
             .checkChipFocusStateFocused()
+            .checkFocusSelectorVisible()
             .checkChipFocusPassed()
     }
 

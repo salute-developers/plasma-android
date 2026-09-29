@@ -1,9 +1,16 @@
 package com.sdds.playground.integrationtest.pageobject
 
+import android.content.res.Configuration
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.PixelMap
+import androidx.compose.ui.graphics.toPixelMap
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.assertTextEquals
+import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onLast
@@ -17,11 +24,20 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.sdds.playground.integrationtest.sandbox.AppActivity
 import com.sdds.playground.integrationtest.testtags.FocusSelectorScaleTags
 import com.sdds.playground.integrationtest.testtags.FocusSelectorTags
+import com.sdds.serv.theme.darkSddsServColors
+import com.sdds.serv.theme.lightSddsServColors
+import kotlin.math.abs
+import kotlin.math.ceil
+import kotlin.math.floor
 
 @OptIn(ExperimentalTestApi::class)
 internal class FocusSelectorPage(
     private val composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<AppActivity>, AppActivity>,
 ) {
+    private var unfocusedComponentScreenshot: ImageBitmap? = null
+    private var unfocusedComponentBounds: Rect? = null
+    private var focusSelectorComponentTag: String? = null
+
     fun selectButtonTab() = apply {
         composeTestRule.onNodeWithTag(FocusSelectorTags.BUTTON_TAB).performClick()
         composeTestRule.waitForIdle()
@@ -120,6 +136,72 @@ internal class FocusSelectorPage(
     fun checkButtonFocusStateNotFocused() = apply {
         composeTestRule.onNodeWithTag(FocusSelectorTags.BUTTON_FOCUS_STATE)
             .assertTextEquals("Кнопка не в фокусе")
+    }
+
+    fun rememberButtonWithoutFocusVisualState() = rememberUnfocusedVisualState(FocusSelectorTags.FOCUSABLE_BUTTON)
+
+    fun rememberButtonGroupWithoutFocusVisualState() =
+        rememberUnfocusedVisualState(FocusSelectorTags.buttonGroupItem(0))
+
+    fun rememberChipWithoutFocusVisualState() = rememberUnfocusedVisualState(FocusSelectorTags.FOCUSABLE_CHIP)
+
+    fun rememberChipGroupWithoutFocusVisualState() =
+        rememberUnfocusedVisualState(FocusSelectorTags.chipGroupItem(0))
+
+    fun rememberTextFieldWithoutFocusVisualState() =
+        rememberUnfocusedVisualState(FocusSelectorTags.FOCUSABLE_TEXT_FIELD)
+
+    fun rememberRadioBoxWithoutFocusVisualState() =
+        rememberUnfocusedVisualState(FocusSelectorTags.radioBoxGroupItem(0))
+
+    fun rememberTabsWithoutFocusVisualState() = rememberUnfocusedVisualState(FocusSelectorTags.tabsItem(0))
+
+    fun checkFocusSelectorVisible() = apply {
+        composeTestRule.waitForIdle()
+        val before = checkNotNull(unfocusedComponentScreenshot) {
+            "Capture the component visual state before requesting focus"
+        }.toPixelMap()
+        val beforeBounds = checkNotNull(unfocusedComponentBounds) {
+            "Component bounds were not captured before requesting focus"
+        }
+        val componentTag = checkNotNull(focusSelectorComponentTag) {
+            "Component tag was not captured before requesting focus"
+        }
+        val afterBounds = composeTestRule
+            .onNodeWithTag(componentTag)
+            .fetchSemanticsNode()
+            .boundsInRoot
+        val after = composeTestRule.onRoot().captureToImage().toPixelMap()
+        val density = composeTestRule.activity.resources.displayMetrics.density
+        val outerPaddingPx = ceil(FOCUS_SELECTOR_OUTER_PADDING_DP * density).toInt()
+        val innerEdgeWidthPx = ceil(FOCUS_SELECTOR_INNER_EDGE_WIDTH_DP * density).toInt()
+        val accentColor = expectedAccentColor()
+        val beforeAccent = countAccentPixelsInBorderRing(
+            pixels = before,
+            bounds = beforeBounds,
+            accentColor = accentColor,
+            outerPaddingPx = outerPaddingPx,
+            innerEdgeWidthPx = innerEdgeWidthPx,
+        )
+        val afterAccent = countAccentPixelsInBorderRing(
+            pixels = after,
+            bounds = afterBounds,
+            accentColor = accentColor,
+            outerPaddingPx = outerPaddingPx,
+            innerEdgeWidthPx = innerEdgeWidthPx,
+        )
+        val addedAccentPixels = afterAccent.matching - beforeAccent.matching
+
+        if (afterAccent.matching < MIN_FOCUS_SELECTOR_ACCENT_PIXELS ||
+            addedAccentPixels < MIN_ADDED_FOCUS_SELECTOR_ACCENT_PIXELS
+        ) {
+            throw AssertionError(
+                "Focus was received, but the expected accent-colored FocusSelector border was not found. " +
+                    "Accent pixels in the border area: before=${beforeAccent.matching}/${beforeAccent.inspected}, " +
+                    "after=${afterAccent.matching}/${afterAccent.inspected}, added=$addedAccentPixels; " +
+                    "component bounds: before=$beforeBounds, after=$afterBounds",
+            )
+        }
     }
 
     fun checkButtonGroupFocusStateFocused() = apply {
@@ -270,5 +352,81 @@ internal class FocusSelectorPage(
     private fun selectOverflowTab(title: String) {
         composeTestRule.onAllNodesWithText(title).onLast().performClick()
         composeTestRule.waitForIdle()
+    }
+
+    private fun rememberUnfocusedVisualState(componentTag: String) = apply {
+        composeTestRule.waitForIdle()
+        focusSelectorComponentTag = componentTag
+        unfocusedComponentBounds = composeTestRule
+            .onNodeWithTag(componentTag)
+            .fetchSemanticsNode()
+            .boundsInRoot
+        unfocusedComponentScreenshot = composeTestRule.onRoot().captureToImage()
+    }
+
+    private fun expectedAccentColor(): Color {
+        val nightMode = composeTestRule.activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return if (nightMode == Configuration.UI_MODE_NIGHT_YES) {
+            darkSddsServColors().surfaceDefaultAccent
+        } else {
+            lightSddsServColors().surfaceDefaultAccent
+        }
+    }
+
+    private fun countAccentPixelsInBorderRing(
+        pixels: PixelMap,
+        bounds: Rect,
+        accentColor: Color,
+        outerPaddingPx: Int,
+        innerEdgeWidthPx: Int,
+    ): AccentPixelCount {
+        val componentLeft = floor(bounds.left).toInt()
+        val componentTop = floor(bounds.top).toInt()
+        val componentRight = ceil(bounds.right).toInt()
+        val componentBottom = ceil(bounds.bottom).toInt()
+        val outerLeft = (componentLeft - outerPaddingPx).coerceIn(0, pixels.width)
+        val outerTop = (componentTop - outerPaddingPx).coerceIn(0, pixels.height)
+        val outerRight = (componentRight + outerPaddingPx).coerceIn(0, pixels.width)
+        val outerBottom = (componentBottom + outerPaddingPx).coerceIn(0, pixels.height)
+        if (outerLeft >= outerRight || outerTop >= outerBottom) return AccentPixelCount()
+
+        val coreLeft = (componentLeft + innerEdgeWidthPx).coerceIn(outerLeft, outerRight)
+        val coreTop = (componentTop + innerEdgeWidthPx).coerceIn(outerTop, outerBottom)
+        val coreRight = (componentRight - innerEdgeWidthPx).coerceIn(outerLeft, outerRight)
+        val coreBottom = (componentBottom - innerEdgeWidthPx).coerceIn(outerTop, outerBottom)
+        val hasComponentCore = coreLeft < coreRight && coreTop < coreBottom
+        var matching = 0
+        var inspected = 0
+
+        for (y in outerTop until outerBottom) {
+            for (x in outerLeft until outerRight) {
+                val insideComponentCore = hasComponentCore &&
+                    x >= coreLeft && x < coreRight && y >= coreTop && y < coreBottom
+                if (insideComponentCore) continue
+                inspected++
+                if (pixels[x, y].matchesAccent(accentColor)) matching++
+            }
+        }
+        return AccentPixelCount(matching = matching, inspected = inspected)
+    }
+
+    private fun Color.matchesAccent(accentColor: Color): Boolean =
+        abs(red - accentColor.red) <= ACCENT_COLOR_TOLERANCE &&
+            abs(green - accentColor.green) <= ACCENT_COLOR_TOLERANCE &&
+            abs(blue - accentColor.blue) <= ACCENT_COLOR_TOLERANCE &&
+            alpha >= MIN_VISIBLE_ALPHA
+
+    private data class AccentPixelCount(
+        val matching: Int = 0,
+        val inspected: Int = 0,
+    )
+
+    private companion object {
+        const val FOCUS_SELECTOR_OUTER_PADDING_DP = 4f
+        const val FOCUS_SELECTOR_INNER_EDGE_WIDTH_DP = 2f
+        const val ACCENT_COLOR_TOLERANCE = 0.1f
+        const val MIN_VISIBLE_ALPHA = 0.9f
+        const val MIN_FOCUS_SELECTOR_ACCENT_PIXELS = 20
+        const val MIN_ADDED_FOCUS_SELECTOR_ACCENT_PIXELS = 12
     }
 }

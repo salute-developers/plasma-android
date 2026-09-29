@@ -18,8 +18,10 @@ class FocusSelectorTextFieldTest {
             .selectTextFieldTab()
             .checkTextFieldTabContentVisible()
             .checkTextFieldFocusStateNotFocused()
+            .rememberTextFieldWithoutFocusVisualState()
             .pressTab()
             .checkTextFieldFocusStateFocused()
+            .checkFocusSelectorVisible()
             .checkTextFieldFocusPassed()
     }
 
