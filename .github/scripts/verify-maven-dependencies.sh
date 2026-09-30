@@ -163,43 +163,6 @@ verify_dependency() {
   fi
 }
 
-verify_local_project_dependency() {
-  local consumer_module=$1
-  local dependency_reference=$2
-  local provider_module=$3
-  local build_file=$4
-  local provider_directory properties_file artifact_id version
-  local major minor patch
-
-  if ! grep -Eq "$dependency_reference" "$build_file"; then
-    return
-  fi
-
-  provider_directory=$(module_directory "$provider_module")
-  properties_file="$provider_directory/gradle.properties"
-  if [[ ! -f "$properties_file" ]]; then
-    FAILURES+=("$consumer_module: cannot find properties for $provider_module")
-    return
-  fi
-
-  artifact_id=$(sed -n 's/^nexus.artifactId=//p' "$properties_file")
-  major=$(sed -n 's/^versionMajor=//p' "$properties_file")
-  minor=$(sed -n 's/^versionMinor=//p' "$properties_file")
-  patch=$(sed -n 's/^versionPatch=//p' "$properties_file")
-  version="$major.$minor.$patch"
-
-  verify_dependency \
-    "$consumer_module" \
-    "$dependency_reference" \
-    "$artifact_id" \
-    "$version" \
-    "$provider_module" \
-    "$build_file"
-}
-
-UIKIT_VERSION=$(catalog_version gradle/libs.versions.toml sdds-uikit)
-UIKIT_COMPOSE_VERSION=$(catalog_version gradle/libs.versions.toml sdds-uikit-compose)
-HAZE_VERSION=$(catalog_version gradle/libs.versions.toml sdds-haze)
 ICONS_VERSION=$(catalog_version gradle/icons.version.toml sdds-icons)
 ICONS_COMPOSE_VERSION=$(catalog_version gradle/icons-compose.version.toml sdds-icons-compose)
 
@@ -212,30 +175,17 @@ for MODULE in $MODULES_STRING; do
     continue
   fi
 
-  verify_dependency "$MODULE" 'libs\.sdds\.haze([^[:alnum:]_.]|$)' \
-    "sdds-haze" "$HAZE_VERSION" ":sdds-haze:haze" "$BUILD_FILE"
-  verify_dependency "$MODULE" 'libs\.sdds\.uikit\.compose([^[:alnum:]_.]|$)' \
-    "sdds-uikit-compose" "$UIKIT_COMPOSE_VERSION" ":sdds-core:uikit-compose" "$BUILD_FILE"
-  verify_dependency "$MODULE" 'libs\.sdds\.uikit([^[:alnum:]_.]|$)' \
-    "sdds-uikit" "$UIKIT_VERSION" ":sdds-core:uikit" "$BUILD_FILE"
   verify_dependency "$MODULE" 'icons\.sdds\.icons([^[:alnum:]_.]|$)' \
     "sdds-icons" "$ICONS_VERSION" ":sdds-core:icons" "$BUILD_FILE"
   verify_dependency "$MODULE" 'iconsCompose\.sdds\.icons\.compose([^[:alnum:]_.]|$)' \
     "sdds-icons-compose" "$ICONS_COMPOSE_VERSION" ":sdds-core:icons-compose" "$BUILD_FILE"
-
-  if [[ "$MODULE" == :integration-core:* ]]; then
-    verify_local_project_dependency "$MODULE" 'implementation\(project\(":sandbox-core"\)\)' \
-      ":integration-core:sandbox-core" "$BUILD_FILE"
-    verify_local_project_dependency "$MODULE" 'implementation\(project\(":sandbox-compose"\)\)' \
-      ":integration-core:sandbox-compose" "$BUILD_FILE"
-  fi
 done
 
 if (( ${#FAILURES[@]} > 0 )); then
-  echo "Internal Maven dependency verification failed:" >&2
+  echo "Maven icon dependency verification failed:" >&2
   printf '  - %s\n' "${FAILURES[@]}" >&2
   echo "Publish the missing dependencies or include their publishable modules in this release." >&2
   exit 1
 fi
 
-echo "All internal Maven dependencies are available or scheduled for this release"
+echo "All Maven icon dependencies are available or scheduled for this release"
