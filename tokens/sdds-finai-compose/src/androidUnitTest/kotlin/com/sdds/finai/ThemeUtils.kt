@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.core.view.WindowCompat
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.sdds.compose.uikit.fixtures.configureComposeResourcesForRobolectric
 import com.sdds.finai.theme.SddsFinAiTheme
 import com.sdds.finai.theme.darkSddsFinAiColors
 import com.sdds.finai.theme.darkSddsFinAiGradients
@@ -58,6 +59,7 @@ fun AndroidComposeTestRule<ActivityScenarioRule<ComponentActivity>, ComponentAct
     content: @Composable () -> Unit,
 ) {
     setContent {
+        configureComposeResourcesForRobolectric()
         ThemeSetup {
             content()
         }
