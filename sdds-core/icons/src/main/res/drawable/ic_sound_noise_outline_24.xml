@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M7.06 15.179c0.415 0 0.75 0.336 0.75 0.75v4.29c0 0.415-0.335 0.75-0.75 0.75-0.414 0-0.75-0.335-0.75-0.75v-4.29c0-0.415 0.336-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M3.77 9.17c0.415 0.001 0.75 0.337 0.75 0.75v7.868c0 0.414-0.335 0.75-0.75 0.75-0.414 0-0.75-0.336-0.75-0.75V9.921c0-0.414 0.336-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M10.35 10.602c0.415 0 0.75 0.335 0.75 0.75v5.721c0 0.414-0.335 0.75-0.75 0.75-0.414 0-0.75-0.336-0.75-0.75v-5.721c0-0.415 0.336-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M13.64 9.17c0.414 0 0.75 0.337 0.75 0.75v4.292c0 0.414-0.336 0.75-0.75 0.75s-0.75-0.336-0.75-0.75V9.92c0-0.414 0.335-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M16.93 10.244c0.414 0 0.75 0.336 0.75 0.75v2.146c0 0.414-0.336 0.75-0.75 0.75s-0.75-0.336-0.75-0.75v-2.146c0-0.414 0.336-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M7.06 3.02c0.415 0 0.75 0.336 0.75 0.75v9.297c0 0.415-0.335 0.75-0.75 0.75-0.414 0-0.75-0.335-0.75-0.75V3.77c0-0.414 0.336-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M20.22 11.316c0.415 0 0.75 0.336 0.75 0.75s-0.335 0.75-0.75 0.75c-0.413 0-0.75-0.335-0.75-0.75 0-0.414 0.337-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M10.35 6.31c0.415 0 0.75 0.336 0.75 0.75v1.43c0 0.414-0.335 0.75-0.75 0.75-0.414 0-0.75-0.336-0.75-0.75V7.06c0-0.414 0.336-0.75 0.75-0.75Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M3.77 4.164c0.414 0 0.75 0.336 0.75 0.75V7.06c0 0.414-0.335 0.75-0.75 0.75-0.414 0-0.75-0.336-0.75-0.75V4.914c0-0.414 0.336-0.75 0.75-0.75Z"/>
+</vector>

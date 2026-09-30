@@ -1,0 +1,22 @@
+package com.sdds.icons.compose
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.unit.dp
+
+public val SddsIcons.NoiseCancellationFill16: ImageVector by lazy(LazyThreadSafetyMode.NONE) {
+    ImageVector.Builder(
+        name = "NoiseCancellationFill16",
+        defaultWidth = 16.dp,
+        defaultHeight = 16.dp,
+        viewportWidth = 16f,
+        viewportHeight = 16f
+    ).apply {
+        addPath(
+            fill = SolidColor(Color.White),
+            pathData = addPathNodes("M 8.302 10.388 c 1.507 0.057 2.912 0.538 4.105 1.33 c 0.507 0.337 0.902 1.0 0.692 1.708 c -0.032 0.105 -0.072 0.207 -0.122 0.304 c -0.22 0.433 -0.572 0.786 -1.005 1.006 c -0.275 0.14 -0.57 0.198 -0.902 0.225 c -0.325 0.027 -0.727 0.026 -1.222 0.026 H 6.153 c -0.495 0.0 -0.897 0.0 -1.222 -0.026 c -0.331 -0.027 -0.627 -0.085 -0.902 -0.225 c -0.432 -0.22 -0.785 -0.573 -1.006 -1.006 c -0.05 -0.097 -0.09 -0.199 -0.12 -0.304 c -0.212 -0.708 0.184 -1.372 0.69 -1.708 C 4.867 10.873 6.379 10.382 8.0 10.382 l 0.303 0.006 Z M 8.0 1.0 c 3.038 0.0 5.5 2.462 5.5 5.5 c 0.0 1.374 -0.505 2.632 -1.338 3.596 c -0.18 0.209 -0.496 0.231 -0.705 0.05 c -0.209 -0.18 -0.232 -0.496 -0.052 -0.705 C 12.088 8.652 12.5 7.625 12.5 6.5 C 12.5 4.015 10.485 2.0 8.0 2.0 S 3.5 4.015 3.5 6.5 c 0.0 1.125 0.413 2.152 1.095 2.941 c 0.18 0.21 0.157 0.525 -0.052 0.705 c -0.209 0.181 -0.524 0.159 -0.705 -0.05 C 3.005 9.132 2.5 7.874 2.5 6.5 C 2.5 3.462 4.962 1.0 8.0 1.0 Z m 0.0 2.56 c 1.643 0.0 2.935 1.39 2.935 3.053 c 0.0 1.664 -1.292 3.053 -2.935 3.053 s -2.935 -1.39 -2.936 -3.053 C 5.064 4.95 6.357 3.56 8.0 3.56 Z")
+        )
+    }.build()
+}
