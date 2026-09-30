@@ -19,6 +19,7 @@ import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.newInstance
 import org.gradle.kotlin.dsl.register
+import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
@@ -41,7 +42,7 @@ class DsBuilderPlugin : Plugin<Project> {
             componentsExtension = {
                 extension.components
                     .takeIf { it.enabled.get() }
-                    ?.toLegacyExtension()
+                    ?.toLegacyExtension(extension)
             },
         )
         project.configureDocumentation(extension)
@@ -184,29 +185,22 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
     afterEvaluate {
         val documentation = extension.documentation.takeIf { it.enabled.get() } ?: return@afterEvaluate
         val targets = extension.targets.get()
-        val platform: DocumentationPlatform = when {
-            DsBuilderPlatform.COMPOSE in targets -> documentation.compose ?: run {
-                objects.newInstance<DocumentationPlatform>().also {
-                    it.componentsInfoFile.convention(
-                        extension.sddsDirectory.file(DsBuilderPlatform.COMPOSE.componentsInfoName),
-                    )
-                    it.themeInfoFile.convention(
-                        extension.sddsDirectory.file(DsBuilderPlatform.COMPOSE.themeInfoName),
-                    )
-                }
+
+        // Compose идёт первым нарочно: `documentationAggregate` сохраняет старый приоритет
+        // (Compose, если сконфигурированы обе платформы) — этот список одновременно и определяет
+        // его выбор, и перечисляет, какие пер-платформенные таски вообще регистрировать.
+        val resolvedPlatforms = buildList {
+            if (DsBuilderPlatform.COMPOSE in targets) {
+                val platform = resolveDocumentationPlatform(extension, documentation.compose, DsBuilderPlatform.COMPOSE)
+                add(DsBuilderPlatform.COMPOSE to platform)
             }
-            DsBuilderPlatform.VIEW in targets -> documentation.view ?: run {
-                objects.newInstance<DocumentationPlatform>().also {
-                    it.componentsInfoFile.convention(
-                        extension.sddsDirectory.file(DsBuilderPlatform.VIEW.componentsInfoName),
-                    )
-                    it.themeInfoFile.convention(
-                        extension.sddsDirectory.file(DsBuilderPlatform.VIEW.themeInfoName),
-                    )
-                }
+            if (DsBuilderPlatform.VIEW in targets) {
+                val platform = resolveDocumentationPlatform(extension, documentation.view, DsBuilderPlatform.VIEW)
+                add(DsBuilderPlatform.VIEW to platform)
             }
-            else -> return@afterEvaluate
         }
+        if (resolvedPlatforms.isEmpty()) return@afterEvaluate
+
         val workDirectory = layout.buildDirectory.dir("sdds/documentation")
         val extract = tasks.register<ExtractCodeSnippetsTask>("documentationExtract") {
             group = "documentation"
@@ -217,24 +211,66 @@ private fun Project.configureDocumentation(extension: DsBuilderExtension) {
             outputXmlDir.set(workDirectory.map { it.dir("xml") })
             outputMeta.set(workDirectory.map { it.file("samples.json") })
         }
-        val aggregate = tasks.register<DocumentationAggregateTask>("documentationAggregate") {
-            group = "documentation"
-            description = "Creates ADR-0003 Android documentation enrichment"
-            coreArtifacts.from(coreSnippets)
-            kotlinSnippets.set(extract.flatMap { it.outputKotlinDir })
-            xmlSnippets.set(extract.flatMap { it.outputXmlDir })
-            samplesMetadata.set(extract.flatMap { it.outputMeta })
-            componentsInfoFile.set(platform.componentsInfoFile)
-            themeInfoFile.set(platform.themeInfoFile)
-            screenshotsDirectory.set(
-                layout.projectDirectory.dir("override-docs/static/screenshots-docusaurus"),
-            )
-            userDocumentationRoot.set(documentation.userDocumentationRoot)
-            outputDirectory.set(documentation.outputDirectory)
-            dependsOn(extract)
+        // `kotlinSources` (см. ExtractCodeSnippetsTask.init) читает src/main/kotlin и
+        // src/main/theme-builder-res напрямую через project.file(...), без provenance от
+        // задачи, которая их пишет — Gradle не может вывести порядок сам и с включённым
+        // configuration cache падает валидацией "implicit dependency" вместо предупреждения.
+        // tasks.withType — ленивая коллекция: безопасна, даже если capability выключена и
+        // задачи вовсе не зарегистрированы, и не требует конфигурировать `extract` изнутри
+        // колбэка другой задачи (это запрещено в контексте создания графа задач).
+        extract.configure {
+            mustRunAfter(tasks.withType<GenerateThemeTask>())
+            mustRunAfter(tasks.withType<GenerateComponentsTask>())
         }
+
+        fun registerAggregate(taskName: String, platform: DocumentationPlatform) =
+            tasks.register<DocumentationAggregateTask>(taskName) {
+                group = "documentation"
+                description = "Creates ADR-0003 Android documentation enrichment"
+                coreArtifacts.from(coreSnippets)
+                kotlinSnippets.set(extract.flatMap { it.outputKotlinDir })
+                xmlSnippets.set(extract.flatMap { it.outputXmlDir })
+                samplesMetadata.set(extract.flatMap { it.outputMeta })
+                componentsInfoFile.set(platform.componentsInfoFile)
+                themeInfoFile.set(platform.themeInfoFile)
+                // Обе директории объявлены `@Optional @InputDirectory`, и aggregate() уже
+                // трактует их отсутствие как «нет override-докёв» (`.orNull`). Но Gradle
+                // валидирует существование ЛЮБОГО заданного значения `@InputDirectory`,
+                // даже optional-свойства, — поэтому нельзя просто `.set()` путь по
+                // конвенции: если override-docs/ реально нет (обычный случай для проекта
+                // без кастомной документации), сборка падает. Задаём значение только когда
+                // директория действительно на диске, иначе оставляем свойство неустановленным.
+                screenshotsDirectory.set(
+                    layout.projectDirectory.dir("override-docs/static/screenshots-docusaurus")
+                        .takeIf { it.asFile.isDirectory },
+                )
+                userDocumentationRoot.set(documentation.userDocumentationRoot.orNull?.takeIf { it.asFile.isDirectory })
+                outputDirectory.set(documentation.outputDirectory)
+                dependsOn(extract)
+            }
+
+        // Существующая таска: то же имя, то же поведение (Compose > View, если обе сконфигурированы) —
+        // preBuild/autoGenerate продолжают ссылаться именно на неё.
+        val aggregate = registerAggregate("documentationAggregate", resolvedPlatforms.first().second)
         attachToPreBuild(aggregate, documentation.autoGenerate.get())
+
+        // Пер-платформенные таски — для внешнего вызывающего (CLI platform-delegate), который просит
+        // агрегацию конкретной платформы и должен получить понятную ошибку "task not found", если
+        // модуль её не конфигурировал, а не агрегацию не той платформы молча. Не участвуют в preBuild.
+        resolvedPlatforms.forEach { (target, platform) ->
+            val suffix = if (target == DsBuilderPlatform.COMPOSE) "Compose" else "View"
+            registerAggregate("aggregate${suffix}Documentation", platform)
+        }
     }
+}
+
+private fun Project.resolveDocumentationPlatform(
+    extension: DsBuilderExtension,
+    explicit: DocumentationPlatform?,
+    platform: DsBuilderPlatform,
+): DocumentationPlatform = explicit ?: objects.newInstance<DocumentationPlatform>().also {
+    it.componentsInfoFile.convention(extension.sddsDirectory.file(platform.componentsInfoName))
+    it.themeInfoFile.convention(extension.sddsDirectory.file(platform.themeInfoName))
 }
 
 private fun ThemeCapability.toLegacyExtension(root: DsBuilderExtension): ThemeBuilderExtension =
@@ -253,10 +289,23 @@ private fun ThemeCapability.toLegacyExtension(root: DsBuilderExtension): ThemeBu
         legacy.useDefaultFonts = useDefaultFonts.get()
     }
 
-private fun ComponentsCapability.toLegacyExtension(): ThemeBuilderExtension =
+private fun ComponentsCapability.toLegacyExtension(root: DsBuilderExtension): ThemeBuilderExtension =
     ThemeBuilderExtension().also { legacy ->
         copyGenerationOptionsTo(legacy)
         legacy.componentSource = source.orNull
+            ?: root.sddsDirectory.get().asFile.let { sddsDirectory ->
+                // Тема и компоненты должны ссылаться на один и тот же themeName, иначе
+                // сгенерированные стили компонентов не находят объект темы (компилятор
+                // не резолвит `<themeName>Theme`). Источник истины для имени — тот же,
+                // что использует тема: .sdds/config.json (publicName первого tenant).
+                // Если конфиг темы недоступен или не читается, откатываемся к прежнему
+                // поведению — имени из .sdds/components/meta.json, — чтобы не ломать
+                // проекты, использующие только components без theme.
+                val configThemeName = runCatching {
+                    SddsThemeSourceReader(sddsDirectory.parentFile, sddsDirectory).read().baseAlias
+                }.getOrNull()?.takeIf { it.isNotBlank() }
+                SddsComponentsSourceReader(sddsDirectory).read(themeNameOverride = configThemeName)
+            }
         legacy.componentsMetaStyleClass = componentsMetaStyleClass.get()
         legacy.autoGenerate = autoGenerate.get()
     }

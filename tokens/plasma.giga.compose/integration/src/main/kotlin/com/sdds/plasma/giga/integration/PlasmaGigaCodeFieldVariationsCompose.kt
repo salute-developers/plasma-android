@@ -27,7 +27,7 @@ internal object PlasmaGigaCodeFieldVariationsCompose : ComposeStyleProvider<Code
     override val bindings: Set<Property<*>> =
         setOf(
             Property.SingleChoiceProperty(name = "size", value = "L", variants = listOf("L", "M")),
-            Property.SingleChoiceProperty(name = "shape", value = "Segmented", variants = listOf("Segmented")),
+            Property.SingleChoiceProperty(name = "shape", value = "Default", variants = listOf("Segmented", "Default")),
         )
 
     override val variations: Map<String, ComposeStyleReference<CodeFieldStyle>> =
@@ -47,7 +47,8 @@ internal object PlasmaGigaCodeFieldVariationsCompose : ComposeStyleProvider<Code
             },
             shape = when (bindings["shape"]?.toString()) {
                 "Segmented" -> CodeFieldShape.Segmented
-                else -> CodeFieldShape.Segmented
+                "Default" -> CodeFieldShape.Default
+                else -> CodeFieldShape.Default
             },
         ).key
     }

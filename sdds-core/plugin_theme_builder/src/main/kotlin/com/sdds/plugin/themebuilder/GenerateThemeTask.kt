@@ -40,7 +40,6 @@ import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
-import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
@@ -53,7 +52,6 @@ import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
-import org.gradle.kotlin.dsl.provideDelegate
 import java.io.File
 
 /**
@@ -218,49 +216,48 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:Input
     abstract val multiplatform: Property<Boolean>
 
-    private val dimensAggregator by unsafeLazy { DimensAggregator() }
-    private val fontsAggregator by unsafeLazy { FontsAggregator() }
-    private val packageResolver by unsafeLazy { PackageResolver(packageName.get()) }
-    private val generatorFactory by unsafeLazy {
-        GeneratorFactory(
-            outputDirPath = outputDirPath.get(),
-            outputResDirPath = outputResDirPath.get(),
-            projectDir = projectDir,
-            target = target.get(),
-            generatorMode = generatorMode.get(),
-            dimensAggregator = dimensAggregator,
-            fontsAggregator = fontsAggregator,
-            xmlResourcesDocumentBuilderFactory = XmlResourcesDocumentBuilderFactory(
-                resourcesPrefixConfig.get().resourcePrefix,
-                themeName.get(),
-            ),
-            xmlFontFamilyDocumentBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
-            fontDownloaderFactory = FontDownloaderFactory(),
-            ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
-            ktFileFromResourcesBuilderFactory = KtFileFromResourcesBuilderFactory(packageName.get()),
-            resourceReferenceProvider = ResourceReferenceProvider(
-                resourcesPrefixConfig.get().resourcePrefix,
-                themeName.get(),
-            ),
-            namespace = namespace.get(),
-            resPrefixConfig = resourcesPrefixConfig.get(),
-            viewThemeParents = viewThemeParents.get(),
-            viewShapeAppearanceConfig = viewShapeAppearanceConfig.get(),
-            themeName = themeName.get(),
-            dimensionsConfig = dimensionsConfig.get(),
-            packageResolver = packageResolver,
-            defaultThemeTypography = defaultThemeTypography.get(),
-            useDefaultFonts = useDefaultFonts.get(),
-            multiplatform = multiplatform.getOrElse(false),
-        )
-    }
-
-    private val themeGenerator by unsafeLazy { generatorFactory.createThemeGenerator() }
-    private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
-    private val outputFileForCompose: File by unsafeLazy {
-        createJsonFileFor(target.get())
-    }
-    private val themeInfoGenerator by unsafeLazy { generatorFactory.createThemeInfoGenerator(outputFileForCompose) }
+    /**
+     * Фабрика генераторов темы.
+     *
+     * Не хранится как поле таска: объекты генераторов держат живые DOM-узлы
+     * (см. [XmlResourcesDocumentBuilder][com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder]),
+     * которые не сериализуются Configuration Cache. Поэтому вычисляется локально в [generate].
+     */
+    private fun createGeneratorFactory(
+        dimensAggregator: DimensAggregator,
+        fontsAggregator: FontsAggregator,
+        packageResolver: PackageResolver,
+    ): GeneratorFactory = GeneratorFactory(
+        outputDirPath = outputDirPath.get(),
+        outputResDirPath = outputResDirPath.get(),
+        projectDir = projectDir,
+        target = target.get(),
+        generatorMode = generatorMode.get(),
+        dimensAggregator = dimensAggregator,
+        fontsAggregator = fontsAggregator,
+        xmlResourcesDocumentBuilderFactory = XmlResourcesDocumentBuilderFactory(
+            resourcesPrefixConfig.get().resourcePrefix,
+            themeName.get(),
+        ),
+        xmlFontFamilyDocumentBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
+        fontDownloaderFactory = FontDownloaderFactory(),
+        ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
+        ktFileFromResourcesBuilderFactory = KtFileFromResourcesBuilderFactory(packageName.get()),
+        resourceReferenceProvider = ResourceReferenceProvider(
+            resourcesPrefixConfig.get().resourcePrefix,
+            themeName.get(),
+        ),
+        namespace = namespace.get(),
+        resPrefixConfig = resourcesPrefixConfig.get(),
+        viewThemeParents = viewThemeParents.get(),
+        viewShapeAppearanceConfig = viewShapeAppearanceConfig.get(),
+        themeName = themeName.get(),
+        dimensionsConfig = dimensionsConfig.get(),
+        packageResolver = packageResolver,
+        defaultThemeTypography = defaultThemeTypography.get(),
+        useDefaultFonts = useDefaultFonts.get(),
+        multiplatform = multiplatform.getOrElse(false),
+    )
 
     /**
      * Генерирует файлы с токенами
@@ -269,6 +266,17 @@ abstract class GenerateThemeTask : DefaultTask() {
     @Suppress("CyclomaticComplexMethod")
     fun generate() {
         checkCollectionSize()
+
+        val generatorFactory = createGeneratorFactory(
+            dimensAggregator = DimensAggregator(),
+            fontsAggregator = FontsAggregator(),
+            packageResolver = PackageResolver(packageName.get()),
+        )
+        val themeGenerator = generatorFactory.createThemeGenerator()
+        val dimensGenerator = generatorFactory.createDimensGenerator()
+        val outputFileForCompose: File = createJsonFileFor(target.get())
+        val themeInfoGenerator = generatorFactory.createThemeInfoGenerator(outputFileForCompose)
+
         val tenants = themeTenants.get()
         val tenantDataMap = tenants.mapIndexed { index, tenant ->
             TenantData(
@@ -346,6 +354,10 @@ abstract class GenerateThemeTask : DefaultTask() {
                 allSpacings[tenant] = tenantDiffSpacings
             }
 
+        // Читается здесь, а не раньше: в оригинальном коде это было lazy-поле, вычисляемое при
+        // первом обращении (ровно тут, в createColorGenerator/createShadowGenerator) — так
+        // palette-специфичная ошибка не перехватывает более ранние проверки meta/tenant/файлов.
+        val palette = readPalette()
         val colorGenerator = generatorFactory.createColorGenerator(allColors, palette)
         val gradientGenerator = generatorFactory.createGradientGenerator(allGradients, palette)
         val fontGenerator = generatorFactory.createFontGenerator(allFonts)
@@ -538,12 +550,12 @@ abstract class GenerateThemeTask : DefaultTask() {
         return file
     }
 
-    private val palette by unsafeLazy {
+    private fun readPalette(): Map<String, Map<String, String>> {
         val file = paletteFile.get().asFile
         if (!file.isFile) {
             throw ThemeBuilderException("Required palette file is missing: ${file.path}")
         }
-        file.decode<Map<String, Map<String, String>>>()
+        return file.decode<Map<String, Map<String, String>>>()
             .also { logger.debug("decoded palette $it") }
     }
 

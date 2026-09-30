@@ -1,0 +1,175 @@
+package com.sdds.compose.uikit.fixtures.testcases
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import com.sdds.compose.uikit.Chip
+import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.ChipGroupStyle
+import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.Icon
+import com.sdds.icons.compose.Close24
+import com.sdds.icons.compose.Plasma16
+import com.sdds.icons.compose.SddsIcons
+
+/**
+ * Тест кейсы для Chip, ChipGroup
+ */
+
+/**
+ * PLASMA-T1442
+ */
+@Composable
+fun ChipSizeLDefault(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Close24),
+                contentDescription = null,
+            )
+        },
+        enabled = true,
+    )
+}
+
+/**
+ * PLASMA-T1443
+ */
+@Composable
+fun ChipSizeMSecondaryPilled(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        enabled = true,
+    )
+}
+
+/**
+ * PLASMA-T1446
+ */
+@Composable
+fun ChipSizeSAccent(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        enabled = true,
+    )
+}
+
+/**
+ * PLASMA-T1447
+ */
+@Composable
+fun ChipSizeXSContentLeft(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        startContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Plasma16),
+                contentDescription = null,
+            )
+        },
+        enabled = true,
+    )
+}
+
+/**
+ * PLASMA-T1654
+ */
+@Composable
+fun ChipDisabled(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        endContent = {
+            Icon(
+                painter = rememberVectorPainter(SddsIcons.Close24),
+                contentDescription = null,
+            )
+        },
+        enabled = false,
+    )
+}
+
+/**
+ * PLASMA-T1599
+ */
+@Composable
+fun ChipGroupSizeLDense(style: ChipGroupStyle) {
+    ChipGroup(
+        style = style,
+        content = {
+            repeat(5) {
+                Chip(
+                    label = "Label",
+                    onClick = {},
+                    enabled = true,
+                )
+            }
+        },
+    )
+}
+
+/**
+ * PLASMA-T1600
+ */
+@Composable
+fun ChipGroupSizeMSecondaryWideWrapped(style: ChipGroupStyle) {
+    ChipGroup(
+        style = style,
+        content = {
+            repeat(20) {
+                Chip(
+                    label = "Label",
+                    onClick = {},
+                    enabled = true,
+                )
+            }
+        },
+    )
+}
+
+/**
+ * PLASMA-T1601
+ */
+@Composable
+fun ChipGroupSizeSAccentDense(style: ChipGroupStyle) {
+    ChipGroup(
+        style = style,
+        content = {
+            repeat(10) {
+                Chip(
+                    label = "Label",
+                    onClick = {},
+                    enabled = true,
+                )
+            }
+        },
+    )
+}
+
+/**
+ * PLASMA-T1602
+ */
+@Composable
+fun ChipGroupSizeXsDefault(style: ChipGroupStyle) {
+    ChipGroup(
+        style = style,
+        content = {
+            repeat(5) {
+                Chip(
+                    label = "Label",
+                    onClick = {},
+                    enabled = true,
+                )
+            }
+        },
+    )
+}

@@ -45516,9 +45516,10 @@
             {
                "name": "shape",
                "values": [
-                  "segmented"
+                  "segmented",
+                  "default"
                ],
-               "defaultValue": "segmented"
+               "defaultValue": "default"
             }
          ],
          "styleApi": {
@@ -45560,13 +45561,17 @@
                   "typeName": "CodeFieldShape",
                   "typeQualifiedName": "com.sdds.plasma.giga.styles.codefield.CodeFieldShape",
                   "defaultValue": {
-                     "value": "segmented",
-                     "codeName": "Segmented"
+                     "value": "default",
+                     "codeName": "Default"
                   },
                   "values": [
                      {
                         "value": "segmented",
                         "codeName": "Segmented"
+                     },
+                     {
+                        "value": "default",
+                        "codeName": "Default"
                      }
                   ]
                }
