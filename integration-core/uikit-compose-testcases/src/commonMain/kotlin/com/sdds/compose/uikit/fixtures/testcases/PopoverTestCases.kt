@@ -4,10 +4,10 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -22,9 +22,9 @@ import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.PopoverStyle
-import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.popoverTrigger
 
 /**
  * Тест кейсы для Popover

@@ -1,11 +1,11 @@
 package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.isChecked
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.isChecked
 import com.sdds.compose.uikit.updateSelection
 
 /**
