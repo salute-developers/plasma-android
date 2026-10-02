@@ -2,14 +2,14 @@ package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.graphics.brush.asBrush
 import com.sdds.compose.uikit.stringSource
-import com.sdds.compose.uikit.Text
 
 /**
  * Текст зеленый

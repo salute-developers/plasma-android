@@ -3,12 +3,12 @@ package com.sdds.compose.uikit.fixtures.testcases
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.uikit.Icon
-import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.Note
 import com.sdds.compose.uikit.NoteCompact
 import com.sdds.compose.uikit.NoteCompactStyle
 import com.sdds.compose.uikit.NoteStyle
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.icons.compose.Close24
 import com.sdds.icons.compose.SaluteOutline24
 import com.sdds.icons.compose.SaluteOutline36
