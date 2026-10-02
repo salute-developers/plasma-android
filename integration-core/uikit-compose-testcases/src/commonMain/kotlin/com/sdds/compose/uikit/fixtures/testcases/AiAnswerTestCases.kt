@@ -1,6 +1,11 @@
 package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonGroupScope
+import com.sdds.compose.uikit.Chip
+import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.ai.AiAnswer
 import com.sdds.compose.uikit.ai.AiAnswerError
 import com.sdds.compose.uikit.ai.AiAnswerErrorScope
@@ -8,13 +13,8 @@ import com.sdds.compose.uikit.ai.AiAnswerLoading
 import com.sdds.compose.uikit.ai.AiAnswerLoadingScope
 import com.sdds.compose.uikit.ai.AiAnswerState
 import com.sdds.compose.uikit.ai.AiAnswerStyle
-import com.sdds.compose.uikit.Button
-import com.sdds.compose.uikit.ButtonGroupScope
-import com.sdds.compose.uikit.Chip
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.internal.common.FlowRowScope
-import com.sdds.compose.uikit.Text
 import com.sdds.icons.compose.CopyOutline24
 import com.sdds.icons.compose.DislikeOutline24
 import com.sdds.icons.compose.LikeOutline24

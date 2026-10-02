@@ -483,11 +483,11 @@ public val WrapperBasicButtonView.Black: WrapperBasicButtonTerminate
         .loadingAlpha(0.0f)
         .colors {
             backgroundColor(
-                SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidDefault).asStatefulValue(
+                SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidContrast).asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultActive),
+                        to SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidContrastActive),
                     setOf(InteractiveState.Hovered) to
-                        SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidDefaultHover),
+                        SolidColor(PlasmaGigaTheme.colors.surfaceOnLightSolidContrastHover),
                 ),
             )
             labelColor(
