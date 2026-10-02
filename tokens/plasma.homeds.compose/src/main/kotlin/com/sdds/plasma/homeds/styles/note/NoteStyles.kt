@@ -189,7 +189,7 @@ public val Note.ContentBeforeFixed: WrapperNoteContentBeforeFixed
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
             iconSize(16.0.dp)
-            contentBeforeEndMargin(8.0.dp)
+            contentBeforeEndMargin(12.0.dp)
         }
         .wrap(::WrapperNoteContentBeforeFixed)
 
