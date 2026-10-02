@@ -17,5 +17,6 @@
             "updatedAt": "2026-06-15T09:25:17.623Z"
         }
     ],
-    "palettePath": ".sdds/tenants/palette.json"
+    "palettePath": ".sdds/tenants/palette.json",
+    "platforms": []
 }
