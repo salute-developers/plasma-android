@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
@@ -20,10 +20,10 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
-import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.icons.compose.SddsIcons
 import com.sdds.icons.compose.Shazam16
 

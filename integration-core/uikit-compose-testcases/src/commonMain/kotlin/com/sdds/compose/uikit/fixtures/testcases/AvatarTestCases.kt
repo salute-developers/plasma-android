@@ -2,9 +2,9 @@ package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
@@ -15,12 +15,12 @@ import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.Counter
-import com.sdds.compose.uikit.fixtures.generated.resources.il_avatar_test
-import com.sdds.compose.uikit.fixtures.generated.resources.Res
-import com.sdds.compose.uikit.graphics.cutout.cutout
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconBadge
 import com.sdds.compose.uikit.Image
+import com.sdds.compose.uikit.fixtures.generated.resources.Res
+import com.sdds.compose.uikit.fixtures.generated.resources.il_avatar_test
+import com.sdds.compose.uikit.graphics.cutout.cutout
 import com.sdds.icons.compose.MuteFill24
 import com.sdds.icons.compose.Plasma16
 import com.sdds.icons.compose.SddsIcons
