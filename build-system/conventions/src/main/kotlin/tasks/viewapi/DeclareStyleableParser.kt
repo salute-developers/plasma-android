@@ -280,7 +280,7 @@ class DeclareStyleableParser(
             if (own.isNotEmpty()) {
                 EnumDefinition(own, attr.optAttribute(ATTR_API_DEFAULT).orEmpty())
             } else {
-                enumIndex[attrName] ?: EnumDefinition(emptyList(), "")
+                enumIndex[attrName] ?: FRAMEWORK_ENUMS[attrName] ?: EnumDefinition(emptyList(), "")
             }
         } else {
             EnumDefinition(emptyList(), "")
@@ -601,6 +601,21 @@ class DeclareStyleableParser(
         const val TAG_ENUM = "enum"
         const val FORMAT_ENUM = "enum"
         const val FORMAT_REFERENCE = "reference"
+
+        /**
+         * Значения framework-enum атрибутов, которые в модуле не определены: у framework-атрибута
+         * (с префиксом `android:`) нет собственных `<enum>`, а ресурсы модуля его не определяют.
+         * Применяются, только если значений нет ни у самого атрибута, ни в индексе модуля.
+         */
+        val FRAMEWORK_ENUMS: Map<String, EnumDefinition> = mapOf(
+            "android:orientation" to EnumDefinition(
+                values = listOf(
+                    EnumValue(name = "horizontal", value = "0", configName = "horizontal"),
+                    EnumValue(name = "vertical", value = "1", configName = "vertical"),
+                ),
+                default = "",
+            ),
+        )
 
         /** Форматы, описывающие числовую величину, и приоритет выбора среди них. */
         val NUMERIC_PRECEDENCE = listOf("dimension", "float", "fraction", "integer")
