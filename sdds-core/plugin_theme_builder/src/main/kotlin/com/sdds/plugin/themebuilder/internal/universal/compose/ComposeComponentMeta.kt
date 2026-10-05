@@ -28,6 +28,16 @@ internal data class ComposeEnumValueInfo(
     val configName: String = name,
 )
 
+/**
+ * Пометка свойства устаревшим (`@ApiDeprecated` на стороне Compose-API).
+ *
+ * @property message сообщение об устаревании; может быть пустым.
+ */
+@Serializable
+internal data class ComposeDeprecatedMeta(
+    val message: String,
+)
+
 @Serializable
 internal sealed interface ComposePropertyMeta {
     val id: String
@@ -36,6 +46,9 @@ internal sealed interface ComposePropertyMeta {
     val paramQualifiedType: String
     val paramSimpleType: String
     val group: String
+
+    /** Пометка `@ApiDeprecated`; `null` — свойство актуально. Статус общий для всех перегрузок `id`. */
+    val deprecated: ComposeDeprecatedMeta?
 }
 
 @Serializable
@@ -47,6 +60,7 @@ internal data class ComposeDimensionPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -61,6 +75,7 @@ internal data class ComposeColorPropertyMeta(
     val valueQualifiedType: String = "",
     val hasInteractiveColorOverload: Boolean = false,
     val hasBrushOverload: Boolean = false,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -72,6 +87,7 @@ internal data class ComposeTypographyPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -83,6 +99,7 @@ internal data class ComposeShapePropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -94,6 +111,7 @@ internal data class ComposeShadowPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -105,6 +123,7 @@ internal data class ComposeBooleanPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -116,6 +135,7 @@ internal data class ComposeIntegerPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -127,6 +147,7 @@ internal data class ComposeFloatPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -138,6 +159,7 @@ internal data class ComposeIconPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -149,6 +171,7 @@ internal data class ComposeComponentPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -161,6 +184,7 @@ internal data class ComposeValuePropertyMeta(
     override val paramSimpleType: String,
     override val group: String,
     val values: List<ComposeEnumValueInfo>,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
 @Serializable
@@ -172,4 +196,5 @@ internal data class ComposeUnknownPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta

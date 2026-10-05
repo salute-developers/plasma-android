@@ -122,6 +122,62 @@ class UikitApiMetaTaskTest {
         )
     }
 
+    @Test
+    fun `UikitApiMetaTask сохраняет deprecated при чтении view меты`() {
+        val metaDir = temporaryFolder.newFolder("classes-deprecated").apply {
+            resolve("sdds/api/uikit-api-meta.json").apply {
+                parentFile.mkdirs()
+                writeText(
+                    """
+                    {"components":[{"componentNames":["Toast"],"styleableName":"Toast","params":[
+                      {"id":"textColor","attrName":"sd_textColor","type":"color","resSuffix":"text_color",
+                       "deprecated":{"message":"Use android:textColor"}}]}]}
+                    """.trimIndent(),
+                )
+            }
+        }
+        val task = uikitApiMetaTask("readViewMetaDeprecated")
+        val output = temporaryFolder.newFile("view-meta-deprecated.json")
+        task.metaClasspath.from(metaDir)
+        task.outputFile.set(output)
+
+        task.generate()
+
+        val meta = Serializer.componentConfig.decodeFromString<ApiMeta>(output.readText())
+        assertEquals("Use android:textColor", meta.components.single().params.single().deprecated?.message)
+    }
+
+    @Test
+    fun `UikitComposeApiMetaTask сохраняет deprecated при чтении compose меты`() {
+        val metaDir = temporaryFolder.newFolder("compose-classes-deprecated").apply {
+            resolve("sdds/api/uikit-compose-api-meta.json").apply {
+                parentFile.mkdirs()
+                writeText(
+                    """
+                    [{"componentName":"Button","qualifiedName":"com.test.Button","resolvedTypes":[],"params":[
+                      {"type":"dimension","id":"padding","methodName":"padding","paramName":"padding",
+                       "paramQualifiedType":"","paramSimpleType":"","group":"root",
+                       "deprecated":{"message":"Use paddingStart"}},
+                      {"type":"dimension","id":"width","methodName":"width","paramName":"width",
+                       "paramQualifiedType":"","paramSimpleType":"","group":"root"}]}]
+                    """.trimIndent(),
+                )
+            }
+        }
+        val task = uikitComposeApiMetaTask("readComposeMetaDeprecated")
+        val output = temporaryFolder.newFile("compose-meta-deprecated.json")
+        task.metaClasspath.from(metaDir)
+        task.outputFile.set(output)
+
+        task.generate()
+
+        val params = Serializer.componentConfig
+            .decodeFromString<List<ComposeComponentMeta>>(output.readText())
+            .single().params
+        assertEquals("Use paddingStart", params[0].deprecated?.message)
+        assertEquals(null, params[1].deprecated)
+    }
+
     private fun uikitApiMetaTask(name: String): UikitApiMetaTask {
         val project = ProjectBuilder.builder().withProjectDir(temporaryFolder.newFolder()).build()
         return project.tasks.register(name, UikitApiMetaTask::class.java).get()

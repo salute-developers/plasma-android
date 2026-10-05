@@ -17,6 +17,7 @@ import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.google.devtools.ksp.symbol.KSType
 import com.google.devtools.ksp.symbol.KSValueParameter
 import com.sdds.api.info.ksp.internal.ComposeComponentMeta
+import com.sdds.api.info.ksp.internal.ComposeDeprecatedMeta
 import com.sdds.api.info.ksp.internal.ComposeEnumValueInfo
 import com.sdds.api.info.ksp.internal.ComposeParameterMeta
 import com.sdds.api.info.ksp.internal.ComposeStateEnum
@@ -147,7 +148,7 @@ class ApiInfoProcessor(
         val params = mutableListOf<ComposeParameterMeta>()
 
         classDeclaration.getDeclaredFunctions()
-            .filter { it.simpleName.asString() !in SKIP_METHODS && !it.isDeprecated() }
+            .filter { it.simpleName.asString() !in SKIP_METHODS && it.isIncludedInMeta() }
             .forEach { func ->
                 val param = func.parameters.firstOrNull() ?: return@forEach
                 val paramType = param.type.resolve()
@@ -163,6 +164,7 @@ class ApiInfoProcessor(
             }
 
         val resolvedTypes = collectedTypes.sorted()
+        val propagatedParams = params.propagateDeprecated()
         val styleQualifiedName = classDeclaration.styleBuilderTypeArgQualifiedName()
         return componentNames.map { componentName ->
             ComposeComponentMeta(
@@ -170,7 +172,7 @@ class ApiInfoProcessor(
                 qualifiedName = qualifiedName,
                 resolvedTypes = resolvedTypes,
                 stateEnum = stateEnumsByComponent[componentName],
-                params = params,
+                params = propagatedParams,
                 packageName = packageName,
                 styleQualifiedName = styleQualifiedName,
                 builderFunName = builderFunName,
@@ -297,7 +299,7 @@ class ApiInfoProcessor(
 
         receiverDeclaration
             .getDeclaredFunctions()
-            .filter { it.simpleName.asString() !in SKIP_METHODS && !it.isDeprecated() }
+            .filter { it.simpleName.asString() !in SKIP_METHODS && it.isIncludedInMeta() }
             .forEach { func ->
                 val param = func.parameters.firstOrNull() ?: return@forEach
                 val paramType = param.type.resolve()
@@ -357,8 +359,32 @@ class ApiInfoProcessor(
             valueQualifiedType = effectiveQualifiedName,
             group = group,
             values = if (type == ParameterType.VALUE) extractEnumValues(effectiveParamType) else emptyList(),
+            deprecated = func.apiDeprecated(),
         )
     }
+
+    /**
+     * Статус `@ApiDeprecated` относится к свойству целиком: если помечена хотя бы одна перегрузка,
+     * все записи с тем же `id` получают `deprecated` первой помеченной (в порядке объявления).
+     */
+    private fun List<ComposeParameterMeta>.propagateDeprecated(): List<ComposeParameterMeta> {
+        val deprecatedById = filter { it.deprecated != null }
+            .groupBy { it.id }
+            .mapValues { (_, entries) -> entries.first().deprecated }
+        if (deprecatedById.isEmpty()) return this
+        return map { param ->
+            deprecatedById[param.id]?.let { param.copy(deprecated = it) } ?: param
+        }
+    }
+
+    private fun KSFunctionDeclaration.apiDeprecated(): ComposeDeprecatedMeta? =
+        annotations
+            .firstOrNull { it.hasQualifiedName(API_DEPRECATED_ANNOTATION) }
+            ?.let { ComposeDeprecatedMeta(message = it.namedArgumentValue<String>("message").orEmpty()) }
+
+    /** Метод с одним лишь `@Deprecated` из меты исключается; `@ApiDeprecated` возвращает его с пометкой. */
+    private fun KSFunctionDeclaration.isIncludedInMeta(): Boolean =
+        !isDeprecated() || apiDeprecated() != null
 
     private fun KSFunctionDeclaration.propertyName(): String? =
         annotations
@@ -458,6 +484,7 @@ class ApiInfoProcessor(
         private const val API_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiInfo"
         private const val STATE_SET_INFO_ANNOTATION = "com.sdds.api.info.compose.ApiStateSet"
         private const val CONFIG_NAME_ANNOTATION = "com.sdds.api.info.compose.ApiName"
+        private const val API_DEPRECATED_ANNOTATION = "com.sdds.api.info.compose.ApiDeprecated"
         private val DRAWABLE_RES_ANNOTATIONS = setOf(
             "androidx.annotation.DrawableRes",
             "com.sdds.compose.uikit.annotations.DrawableRes",

@@ -300,8 +300,21 @@ class DeclareStyleableParser(
             valueExpr = parseValueExpr(attr, attrName),
             condition = parseCondition(attr, attrName),
             shapeAdjustment = resolveShapeAdjustment(attr, attrName, type),
+            deprecated = parseDeprecated(attr),
         )
     }
+
+    /**
+     * `sdds:api_deprecated` — свойство устарело. Значение — сообщение; пустое допустимо (ошибкой не
+     * является), поэтому проверяется наличие атрибута, а не непустота. Действует только на этот
+     * `<attr>` и не распространяется на другие атрибуты с тем же `id`.
+     */
+    private fun parseDeprecated(attr: Element): DeprecatedMeta? =
+        if (attr.hasAttribute(ATTR_API_DEPRECATED)) {
+            DeprecatedMeta(message = attr.getAttribute(ATTR_API_DEPRECATED))
+        } else {
+            null
+        }
 
     /**
      * `sdds:api_shape_adjustment` — владеет ли shape-свойство единственным на стиль
@@ -641,6 +654,7 @@ class DeclareStyleableParser(
         const val ATTR_API_RES_PREFIX = "sdds:api_res_prefix"
         const val ATTR_API_VALUE = "sdds:api_value"
         const val ATTR_API_WHEN = "sdds:api_when"
+        const val ATTR_API_DEPRECATED = "sdds:api_deprecated"
         const val ATTR_API_SUB_STYLE = "sdds:api_sub_style"
         const val ATTR_API_SUB_STYLE_KIND = "sdds:api_sub_style_kind"
         const val ATTR_API_STYLE_REF = "sdds:api_style_ref"

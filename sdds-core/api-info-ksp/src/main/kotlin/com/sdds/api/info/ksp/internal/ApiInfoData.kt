@@ -29,6 +29,17 @@ internal data class ComposeParameterMeta(
     val valueQualifiedType: String,
     val group: String,
     val values: List<ComposeEnumValueInfo> = emptyList(),
+    val deprecated: ComposeDeprecatedMeta? = null,
+)
+
+/**
+ * Пометка свойства устаревшим (`@ApiDeprecated`).
+ * Поле `deprecated` пишется в JSON только у помеченных свойств: `null` совпадает с дефолтом
+ * и опускается при сериализации (`encodeDefaults = false`).
+ */
+@Serializable
+internal data class ComposeDeprecatedMeta(
+    val message: String,
 )
 
 @Serializable
