@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.universal.Dimension
 import com.sdds.plugin.themebuilder.internal.universal.FloatValue
+import com.sdds.plugin.themebuilder.internal.universal.IntegerValue
 import com.sdds.plugin.themebuilder.internal.universal.State
 import com.sdds.plugin.themebuilder.internal.universal.Stateful
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.selectorXmlFile
@@ -58,6 +59,7 @@ internal class NumberStateListGenerator<T : Number, S : State<T>, V : Stateful<T
             }
 
             is FloatValue -> rawValue.toFloat().toString()
+            is IntegerValue -> rawValue.toInt().toString()
             else -> rawValue.toInt().toString()
         },
         states = states,

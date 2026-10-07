@@ -761,4 +761,101 @@ class UniversalViewEmissionTest {
         assertEquals(null, index.forComponent("Badge"))
         assertEquals(null, index.forComponent("Unknown"))
     }
+
+    @Test
+    fun `deprecated запись отсекается по attrName, актуальный атрибут с тем же id остаётся`() {
+        val index = ViewMetaIndex(
+            ApiMeta(
+                components = listOf(
+                    ComponentMeta(
+                        componentNames = listOf("Toast"),
+                        styleableName = "Toast",
+                        identity = mapOf(
+                            "Toast" to ComponentIdentity("Toast", "sd_toastStyle", "Sdds.Components.Toast"),
+                        ),
+                        params = listOf(
+                            PropertyMeta(
+                                id = "textColor",
+                                attrName = "sd_textColor",
+                                type = PropertyType.COLOR,
+                                resSuffix = "text_color",
+                                deprecated = DeprecatedMeta("Use android:textColor"),
+                            ),
+                            PropertyMeta(
+                                id = "textColor",
+                                attrName = "android:textColor",
+                                type = PropertyType.COLOR,
+                                resSuffix = "text_color",
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        )
+
+        val merged = requireNotNull(index.forComponent("Toast"))
+
+        assertEquals(listOf("android:textColor"), merged.params.map { it.attrName })
+    }
+
+    @Test
+    fun `все записи id deprecated - свойство исчезает без ошибки`() {
+        val index = ViewMetaIndex(
+            ApiMeta(
+                components = listOf(
+                    ComponentMeta(
+                        componentNames = listOf("Spinner"),
+                        styleableName = "Spinner",
+                        identity = mapOf(
+                            "Spinner" to ComponentIdentity("Spinner", "sd_spinnerStyle", "Sdds.Components.Spinner"),
+                        ),
+                        params = listOf(
+                            PropertyMeta(
+                                id = "size",
+                                attrName = "android:minWidth",
+                                type = PropertyType.DIMENSION,
+                                resSuffix = "min_width",
+                                deprecated = DeprecatedMeta(""),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        )
+
+        val merged = requireNotNull(index.forComponent("Spinner"))
+
+        assertTrue(merged.params.isEmpty())
+    }
+
+    @Test
+    fun `deprecated свойства вложенной семьи стилей отсекаются`() {
+        val index = ViewMetaIndex(
+            ApiMeta(
+                components = listOf(
+                    ComponentMeta(
+                        componentNames = listOf("Card"),
+                        styleableName = "Card",
+                        identity = mapOf(
+                            "Card" to ComponentIdentity("Card", "sd_cardStyle", "Sdds.Components.Card"),
+                        ),
+                        params = emptyList(),
+                    ),
+                    ComponentMeta(
+                        componentNames = listOf("Card"),
+                        styleableName = "CardContent",
+                        params = listOf(
+                            colorParam().copy(deprecated = DeprecatedMeta("old")),
+                            colorParam().copy(id = "titleColor", attrName = "sd_titleColor"),
+                        ),
+                        subStyle = SubStyleInfo(name = "Content", kind = "style", styleRef = "sd_cardContentStyle"),
+                    ),
+                ),
+            ),
+        )
+
+        val merged = requireNotNull(index.forComponent("Card"))
+
+        assertEquals(listOf("titleColor"), merged.subStyles.single().params.map { it.id })
+    }
 }

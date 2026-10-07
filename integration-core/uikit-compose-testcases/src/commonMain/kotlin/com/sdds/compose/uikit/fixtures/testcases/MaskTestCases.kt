@@ -8,13 +8,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.mask.DateMask
 import com.sdds.compose.uikit.mask.MaskedTextField
 import com.sdds.compose.uikit.mask.NumberMask
@@ -22,7 +23,6 @@ import com.sdds.compose.uikit.mask.PhoneMask
 import com.sdds.compose.uikit.mask.TextFieldMask
 import com.sdds.compose.uikit.mask.TextFieldMaskMode
 import com.sdds.compose.uikit.mask.TimeMask
-import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.icons.compose.ScribbleDiagonal24
 import com.sdds.icons.compose.SddsIcons
 import com.sdds.icons.compose.Shazam24

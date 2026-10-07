@@ -41,3 +41,37 @@ annotation class ApiStateSet(val components: Array<String> = [])
 @Target(allowedTargets = [AnnotationTarget.CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION])
 @Retention(AnnotationRetention.SOURCE)
 annotation class ApiName(val name: String)
+
+/**
+ * Помечает метод билдера стиля устаревшим **в API-мете** (`uikit-compose-api-meta.json`).
+ *
+ * Это разметка меты, а не замена [Deprecated]: аннотация не влияет на компиляцию и не создаёт
+ * предупреждений. Нативная депрекация кода по-прежнему выражается через [Deprecated], и обе
+ * аннотации независимы:
+ * - метод только с [Deprecated] из меты исключается, как и раньше;
+ * - метод с [ApiDeprecated] попадает в мету с полем `deprecated` (вне зависимости от
+ *   наличия [Deprecated]);
+ * - если нужны и предупреждение компилятора, и пометка в мете — ставятся обе аннотации.
+ *
+ * Статус относится к свойству целиком. Свойство определяется своим `id` — это значение
+ * [ApiName] либо имя метода. Если [ApiDeprecated] стоит хотя бы на одной перегрузке, в мете
+ * `deprecated` получают **все** записи с тем же `id`, в том числе перегрузки без аннотации.
+ * `message` берётся у первой помеченной перегрузки в порядке объявления; различие сообщений
+ * у перегрузок ошибкой не является.
+ *
+ * Генератор стилей пропускает свойства с `deprecated`, поэтому они не попадают в
+ * сгенерированный код.
+ *
+ * Пример: пометка одной перегрузки делает устаревшими обе записи `color` в мете.
+ * ```
+ * @ApiDeprecated("Use InteractiveColor")
+ * fun color(color: Color): Builder
+ * fun color(color: InteractiveColor): Builder
+ * ```
+ *
+ * @param message сообщение об устаревании; пустое значение допустимо — сам факт аннотации
+ * означает, что свойство устарело
+ */
+@Target(allowedTargets = [AnnotationTarget.FUNCTION])
+@Retention(AnnotationRetention.SOURCE)
+annotation class ApiDeprecated(val message: String = "")

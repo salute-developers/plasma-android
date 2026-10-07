@@ -35,7 +35,7 @@
         <attr name="sd_tabIndicatorEnabled" sdds:api_name="indicatorEnabled" format="boolean"/>
         <attr name="sd_tabIndicatorThickness" sdds:api_name="indicatorThickness" format="dimension" sdds:api_res_suffix="indicator_thickness" />
 
-        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="integer" />
+        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="value" />
         <attr name="sd_shapeAppearance" sdds:api_name="shape" />
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_strokeWidth"/>

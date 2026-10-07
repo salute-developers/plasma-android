@@ -68,7 +68,8 @@ internal class UniversalComposeVariationGenerator(
 
     private val paramOverloads: List<List<ComposePropertyMeta>> by unsafeLazy {
         val grouped = linkedMapOf<String, MutableList<ComposePropertyMeta>>()
-        componentMeta.params.forEach { meta ->
+        // Устаревшие свойства (`@ApiDeprecated`) не генерируются; статус уже общий для всех перегрузок id.
+        componentMeta.params.filter { it.deprecated == null }.forEach { meta ->
             grouped.getOrPut(meta.id) { mutableListOf() }.add(meta)
         }
         grouped.values.toList()
