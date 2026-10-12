@@ -116,8 +116,54 @@
         const firstRenderLatencyMs = Math.round(performance.now() - startedAt);
         assert(first.type === "success" && first.requestId === "button-first", "first success");
         assert(
+            first.warnings?.length === 1 &&
+            first.warnings[0].code === "unknown_state" &&
+            first.warnings[0].path === "$.component.properties.backgroundColor.states[2]",
+            "unknown state warning",
+        );
+
+        assert(
             iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-first",
             "first render marker",
+        );
+        const gradient = structuredClone(fixture);
+        gradient.requestId = "button-gradient";
+        gradient.theme["gradient.background"] = {
+            type: "gradient",
+            layers: [{
+                kind: "linear",
+                angle: 90,
+                stops: [{color: "#FF0000FF", position: 0}, {color: "#0000FFFF", position: 1}],
+            }],
+        };
+        gradient.component.properties.backgroundColor = {base: {type: "tokenRef", tokenId: "gradient.background"}};
+        const gradientResult = await send(gradient);
+        assert(gradientResult.type === "success", "gradient background success");
+
+        const styleCycle = structuredClone(fixture);
+        styleCycle.requestId = "button-style-cycle";
+        styleCycle.styles = {
+            a: {component: "x", properties: {next: {base: {type: "styleRef", styleId: "b"}}}},
+            b: {component: "x", properties: {next: {base: {type: "styleRef", styleId: "a"}}}},
+        };
+        styleCycle.component.properties.nested = {base: {type: "styleRef", styleId: "a"}};
+        const styleCycleResult = await send(styleCycle);
+        assert(
+            styleCycleResult.type === "failure" && styleCycleResult.code === "style_ref_cycle",
+            "style cycle failure",
+        );
+
+        const unknownStyle = structuredClone(fixture);
+        unknownStyle.requestId = "button-unknown-style";
+        unknownStyle.component.properties.nested = {base: {type: "styleRef", styleId: "missing"}};
+        const unknownStyleResult = await send(unknownStyle);
+        assert(
+            unknownStyleResult.type === "failure" && unknownStyleResult.code === "unknown_style_ref",
+            "unknown style failure",
+        );
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-gradient",
+            "reference failures preserved render",
         );
         const propertyValues = {
             label: "Changed label",

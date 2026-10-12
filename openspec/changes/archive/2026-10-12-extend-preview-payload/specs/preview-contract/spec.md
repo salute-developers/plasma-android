@@ -5,7 +5,7 @@
 Theme MUST быть отображением token ID в типизированное normalized value. v1 MUST
 поддерживать color, dimension, shape, shadow, gradient, font family и typography без
 Android/Compose типов. Слой shadow MUST содержать `x`, `y`, `blur`, `spread` и `color`.
-Gradient MUST содержать слои `{kind: "linear", angle, stops}`, где `stops` включает не менее
+Gradient MUST содержать слои `{kind: "linear", angle, stops}`, где `angle` задан в градусах по соглашению CSS (0° снизу вверх, 90° слева направо), а `stops` включает не менее
 двух элементов `{color, position}`. Font-family value MUST описывать faces через asset ID,
 weight и style, а typography MUST ссылаться на font-family token и содержать
 числовые font size, line height, letter spacing и weight.

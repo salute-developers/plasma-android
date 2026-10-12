@@ -2,14 +2,16 @@ package com.sdds.preview.compose
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sdds.compose.uikit.graphics.Gradients
+import com.sdds.preview.contract.GradientLayer
 import com.sdds.preview.contract.PreviewFontStyle
 import com.sdds.preview.contract.PreviewPayload
 import com.sdds.preview.contract.TokenValue
@@ -19,7 +21,8 @@ public class PreparedComposeTheme internal constructor(
     private val colors: Map<String, Color>,
     private val dimensions: Map<String, Dp>,
     private val shapes: Map<String, RoundedCornerShape>,
-    private val shadows: Map<String, List<Shadow>>,
+    private val shadows: Map<String, List<PreparedShadowLayer>>,
+    private val gradients: Map<String, Brush> = emptyMap(),
     private val fontFamilies: Map<String, FontFamily>,
     private val typography: Map<String, TextStyle>,
 ) {
@@ -33,7 +36,10 @@ public class PreparedComposeTheme internal constructor(
     public fun shape(id: String): RoundedCornerShape? = shapes[id]
 
     /** Возвращает слои тени по token ID. */
-    public fun shadow(id: String): List<Shadow>? = shadows[id]
+    public fun shadow(id: String): List<PreparedShadowLayer>? = shadows[id]
+
+    /** Возвращает линейный градиент по token ID. */
+    public fun gradient(id: String): Brush? = gradients[id]
 
     /** Возвращает подготовленное семейство шрифтов по token ID. */
     public fun fontFamily(id: String): FontFamily? = fontFamilies[id]
@@ -41,6 +47,18 @@ public class PreparedComposeTheme internal constructor(
     /** Возвращает подготовленный стиль текста по token ID. */
     public fun typography(id: String): TextStyle? = typography[id]
 }
+
+/** Слой тени в значениях Compose; Compose [androidx.compose.ui.graphics.Shadow] не хранит spread. */
+public data class PreparedShadowLayer(
+    /** Цвет. */ val color: Color,
+    /** Смещение по X. */ val offsetX: Dp,
+    /** Смещение по Y. */ val offsetY: Dp,
+    /** Радиус размытия. */ val blurRadius: Dp,
+    /** Растяжение. */ val spreadRadius: Dp,
+)
+
+/** Накладывает прозрачность [alpha] на альфа-канал цвета. */
+public fun Color.withAlphaFactor(alpha: Float): Color = copy(alpha = this.alpha * alpha)
 
 /** Преобразует поддержанные theme tokens, игнорируя неизвестные и неподготовленные значения. */
 public fun PreviewPayload.prepareComposeTheme(
@@ -59,8 +77,14 @@ public fun PreviewPayload.prepareComposeTheme(
     }.toMap()
     val shadows = theme.mapNotNullValues { value ->
         (value as? TokenValue.Shadow)?.layers?.mapNotNull { layer ->
-            layer.color.toComposeColorOrNull()?.let { Shadow(color = it, blurRadius = layer.blur.toFloat()) }
+            layer.color.toComposeColorOrNull()?.let {
+                PreparedShadowLayer(it, layer.x.dp, layer.y.dp, layer.blur.dp, layer.spread.dp)
+            }
         }
+    }
+    // Brush не умеет накладывать слои, поэтому для токена используется первый слой градиента.
+    val gradients = theme.mapNotNullValues { value ->
+        (value as? TokenValue.Gradient)?.layers?.firstOrNull()?.toBrushOrNull()
     }
     val typography = theme.mapNotNullValues { value ->
         (value as? TokenValue.Typography)?.let { token ->
@@ -74,7 +98,15 @@ public fun PreviewPayload.prepareComposeTheme(
             )
         }
     }
-    return PreparedComposeTheme(colors, dimensions, shapes, shadows, preparedFontFamilies, typography)
+    return PreparedComposeTheme(
+        colors = colors,
+        dimensions = dimensions,
+        shapes = shapes,
+        shadows = shadows,
+        gradients = gradients,
+        fontFamilies = preparedFontFamilies,
+        typography = typography,
+    )
 }
 
 /**
@@ -117,6 +149,12 @@ public fun String.toComposeColorOrNull(): Color? {
     val rgba = rgbaText?.toULongOrNull(16) ?: return null
     val argb = ((rgba and 0xFFu) shl 24) or (rgba shr 8)
     return Color(argb.toLong())
+}
+
+private fun GradientLayer.toBrushOrNull(): Brush? {
+    val colors = stops.map { it.color.toComposeColorOrNull() ?: return null }
+    // Угол по соглашению CSS и UIKit: 0° — снизу вверх, 90° — слева направо, 180° — сверху вниз.
+    return if (colors.size < 2) null else Gradients.Linear(colors, stops.map { it.position.toFloat() }, angle.toFloat())
 }
 
 private inline fun <K, V, R : Any> Map<K, V>.mapNotNullValues(transform: (V) -> R?): Map<K, R> =

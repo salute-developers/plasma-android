@@ -3,6 +3,7 @@ package com.sdds.preview.compose.plugin
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.ButtonStyle
@@ -15,6 +16,7 @@ import com.sdds.preview.compose.ResolvedProperty
 import com.sdds.preview.compose.resolve
 import com.sdds.preview.compose.resolveStates
 import com.sdds.preview.compose.toComposeColorOrNull
+import com.sdds.preview.compose.withAlphaFactor
 import com.sdds.preview.contract.PreviewComponent
 import com.sdds.preview.contract.PreviewPropertyValue
 import kotlinx.serialization.json.JsonElement
@@ -31,6 +33,8 @@ public object BasicButtonPreviewStyleFactory : ComposePreviewStyleFactory<Button
         "height", "paddingStart", "paddingEnd", "minWidth", "iconSize", "spinnerSize",
         "spinnerStrokeWidth", "iconMargin", "valueMargin",
     )
+
+    override val supportedStates: Set<String> = INTERACTIVE_STATES.keys
 
     @Composable
     override fun create(component: PreviewComponent, theme: PreparedComposeTheme): ButtonStyle {
@@ -78,27 +82,42 @@ private fun PreviewPropertyValue.dpValue(theme: PreparedComposeTheme): StatefulV
     resolveStates({ (it as? JsonPrimitive)?.doubleOrNull?.toFloat()?.let(::Dp) }, theme::dimension)?.toStateful()
 
 private fun PreviewPropertyValue.colorValue(theme: PreparedComposeTheme) =
-    resolveStates({ (it as? JsonPrimitive)?.content?.toComposeColorOrNull() }, theme::color)
+    resolveStates(
+        literal = { (it as? JsonPrimitive)?.content?.toComposeColorOrNull() },
+        token = theme::color,
+        applyAlpha = Color::withAlphaFactor,
+    )
 
 private fun PreviewPropertyValue.brushValue(theme: PreparedComposeTheme): StatefulValue<Brush>? =
-    colorValue(theme)?.let { resolved ->
-        ResolvedProperty<Brush>(
-            SolidColor(resolved.base),
-            resolved.states.mapValues { SolidColor(it.value) },
-        ).toStateful()
+    resolveStates<Brush>(
+        literal = { element -> (element as? JsonPrimitive)?.content?.toComposeColorOrNull()?.let(::SolidColor) },
+        token = { id -> theme.gradient(id) ?: theme.color(id)?.let(::SolidColor) },
+        applyAlpha = { brush, alpha ->
+            if (brush is SolidColor) SolidColor(brush.value.withAlphaFactor(alpha)) else brush
+        },
+    )?.toStateful()
+
+/**
+ * Преобразует записи состояний в [StatefulValue]. UIKit при равном числе состояний выбирает первую
+ * подходящую запись, а протокол — последнюю, поэтому порядок записей разворачивается.
+ */
+internal fun <T> ResolvedProperty<T>.toStateful(): StatefulValue<T> {
+    val entries = states.reversed().mapNotNull { state ->
+        val interactive = state.names.map { INTERACTIVE_STATES[it] ?: return@mapNotNull null }.toSet()
+        interactive to state.value
     }
-
-private fun <T> ResolvedProperty<T>.toStateful(): StatefulValue<T> = StatefulValue.from(
-    states = states.mapNotNull { (name, _) -> name.toInteractiveState()?.let { setOf(it) } },
-    values = states.mapNotNull { (name, value) -> name.toInteractiveState()?.let { value } },
-    defaultValue = base,
-)
-
-private fun String.toInteractiveState(): InteractiveState? = when (lowercase()) {
-    "pressed" -> InteractiveState.Pressed
-    "hovered" -> InteractiveState.Hovered
-    "focused" -> InteractiveState.Focused
-    "activated" -> InteractiveState.Activated
-    "selected" -> InteractiveState.Selected
-    else -> null
+    return StatefulValue.from(
+        states = entries.map { it.first },
+        values = entries.map { it.second },
+        defaultValue = base,
+    )
 }
+
+/** Единственный источник имён состояний, которые factory сопоставляет с UIKit; регистр имён значим. */
+private val INTERACTIVE_STATES: Map<String, InteractiveState> = mapOf(
+    "pressed" to InteractiveState.Pressed,
+    "hovered" to InteractiveState.Hovered,
+    "focused" to InteractiveState.Focused,
+    "activated" to InteractiveState.Activated,
+    "selected" to InteractiveState.Selected,
+)

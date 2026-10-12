@@ -4,19 +4,72 @@
   "oneOf": [
     {
       "type": "object",
-      "required": ["type", "requestId"],
-      "properties": { "type": { "const": "success" }, "requestId": { "type": "string", "minLength": 1 } },
+      "required": [
+        "type",
+        "requestId"
+      ],
+      "properties": {
+        "type": {
+          "const": "success"
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "minLength": 1
+              },
+              "message": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
       "additionalProperties": false
     },
     {
       "type": "object",
-      "required": ["type", "requestId", "code", "message"],
+      "required": [
+        "type",
+        "requestId",
+        "code",
+        "message"
+      ],
       "properties": {
-        "type": { "const": "failure" },
-        "requestId": { "type": "string", "minLength": 1 },
-        "code": { "type": "string", "minLength": 1 },
-        "message": { "type": "string", "minLength": 1 },
-        "path": { "type": "string" }
+        "type": {
+          "const": "failure"
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     }

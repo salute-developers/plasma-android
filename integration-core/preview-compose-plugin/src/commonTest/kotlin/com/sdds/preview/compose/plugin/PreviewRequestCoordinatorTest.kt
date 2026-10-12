@@ -2,12 +2,14 @@ package com.sdds.preview.compose.plugin
 
 import androidx.compose.runtime.Composable
 import com.sdds.preview.compose.PreparedComposePreview
+import com.sdds.preview.compose.PreviewPreparationException
 import com.sdds.preview.contract.PreviewComponent
 import com.sdds.preview.contract.PreviewContractJson
 import com.sdds.preview.contract.PreviewExample
 import com.sdds.preview.contract.PreviewPayload
 import com.sdds.preview.contract.PreviewPlatform
 import com.sdds.preview.contract.PreviewResult
+import com.sdds.preview.contract.PreviewWarning
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
@@ -31,6 +33,32 @@ class PreviewRequestCoordinatorTest {
 
         assertEquals(listOf("first"), applied)
         assertEquals(PreviewResult.Success("first"), result)
+    }
+
+    @Test
+    fun `warnings of the prepared preview are returned with success`() = runTest {
+        val warning = PreviewWarning("unknown_state", "fancy", "$.component.properties.a.states[0]")
+        val coordinator = PreviewRequestCoordinator(
+            prepare = { FakePreview("first", listOf(warning)) },
+            apply = {},
+        )
+
+        assertEquals(PreviewResult.Success("first", listOf(warning)), coordinator.submit(payloadJson("first")))
+    }
+
+    @Test
+    fun `reference errors keep their stable code and path and leave state untouched`() = runTest {
+        var applied = "previous"
+        val coordinator = PreviewRequestCoordinator(
+            prepare = { throw PreviewPreparationException("style_ref_cycle", "cycle", "$.styles.a") },
+            apply = { applied = it.requestId },
+        )
+
+        val result = assertIs<PreviewResult.Failure>(coordinator.submit(payloadJson("first")))
+
+        assertEquals("style_ref_cycle", result.code)
+        assertEquals("$.styles.a", result.path)
+        assertEquals("previous", applied)
     }
 
     @Test
@@ -113,7 +141,10 @@ class PreviewRequestCoordinatorTest {
     private fun requestId(json: String): String =
         PreviewContractJson.decodeFromString<PreviewPayload>(json).requestId
 
-    private class FakePreview(override val requestId: String) : PreparedComposePreview {
+    private class FakePreview(
+        override val requestId: String,
+        override val warnings: List<PreviewWarning> = emptyList(),
+    ) : PreparedComposePreview {
         @Composable
         override fun Content() = Unit
     }

@@ -37,12 +37,14 @@
     "properties": {
       "shape": {"base": {"type": "tokenRef", "tokenId": "shape.button"}},
       "labelStyle": {"base": {"type": "tokenRef", "tokenId": "typography.button"}},
-      "contentColor": {"base": {"type": "tokenRef", "tokenId": "color.content"}},
+      "contentColor": {"base": {"type": "tokenRef", "tokenId": "color.content", "alpha": 0.9}},
       "backgroundColor": {
         "base": {"type": "tokenRef", "tokenId": "color.background"},
-        "states": {
-          "pressed": {"type": "tokenRef", "tokenId": "color.background.pressed"}
-        }
+        "states": [
+          {"when": ["pressed"], "source": {"type": "tokenRef", "tokenId": "color.background.pressed"}},
+          {"when": ["pressed", "selected"], "source": {"type": "tokenRef", "tokenId": "color.background.pressed", "alpha": 0.5}},
+          {"when": ["fancy"], "source": {"type": "tokenRef", "tokenId": "color.background.pressed"}}
+        ]
       },
       "height": {"base": {"type": "tokenRef", "tokenId": "size.height"}},
       "paddingStart": {"base": {"type": "tokenRef", "tokenId": "size.padding"}},
