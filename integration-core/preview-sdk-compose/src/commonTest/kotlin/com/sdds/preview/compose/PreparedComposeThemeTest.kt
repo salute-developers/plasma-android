@@ -21,6 +21,15 @@ class PreparedComposeThemeTest {
     }
 
     @Test
+    fun `malformed color is rejected`() {
+        assertNull("".toComposeColorOrNull())
+        assertNull("001122".toComposeColorOrNull())
+        assertNull("00112244".toComposeColorOrNull())
+        assertNull("#00112G".toComposeColorOrNull())
+        assertNull("#00112G44".toComposeColorOrNull())
+    }
+
+    @Test
     fun `dimension uses dp and unknown token is ignored`() {
         val prepared = payload(mapOf("spacing" to TokenValue.Dimension(12.5))).prepareComposeTheme()
         assertEquals(12.5.dp, prepared.dimension("spacing"))

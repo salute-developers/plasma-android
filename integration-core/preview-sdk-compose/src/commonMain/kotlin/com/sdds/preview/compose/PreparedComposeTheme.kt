@@ -108,13 +108,13 @@ public suspend fun PreviewPayload.prepareComposeTheme(
 
 /** Преобразует `#RRGGBB` или `#RRGGBBAA` в Compose ARGB [Color]. */
 public fun String.toComposeColorOrNull(): Color? {
-    if (firstOrNull() != '#') return null
-    val rgbaText = when (length) {
-        7 -> "${drop(1)}FF"
-        9 -> drop(1)
-        else -> return null
+    val rgbaText = when {
+        firstOrNull() != '#' -> null
+        length == 7 -> "${drop(1)}FF"
+        length == 9 -> drop(1)
+        else -> null
     }
-    val rgba = rgbaText.toULongOrNull(16) ?: return null
+    val rgba = rgbaText?.toULongOrNull(16) ?: return null
     val argb = ((rgba and 0xFFu) shl 24) or (rgba shr 8)
     return Color(argb.toLong())
 }
