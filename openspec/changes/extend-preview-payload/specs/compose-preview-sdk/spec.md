@@ -19,7 +19,7 @@ The `preview-compose-plugin` assembly SHALL provide a hand-written `BasicButtonP
 
 ## ADDED Requirements
 
-### Requirement: SDK разрешает значения Preview Protocol v2
+### Requirement: SDK разрешает значения Preview Protocol v1
 
 SDK SHALL разрешать source каждого свойства в Compose-значение: применять `alpha` к цвету, превращать gradient token в `Brush`, учитывать `spread` тени и выбирать запись `states` по набору активных состояний. При нескольких подходящих записях SDK MUST выбирать запись с наибольшим числом имён в `when`, а при равенстве последнюю.
 

@@ -2,7 +2,7 @@
 
 ### Requirement: Нормализованные theme values
 
-Theme MUST быть отображением token ID в типизированное normalized value. v2 MUST
+Theme MUST быть отображением token ID в типизированное normalized value. v1 MUST
 поддерживать color, dimension, shape, shadow, gradient, font family и typography без
 Android/Compose типов. Слой shadow MUST содержать `x`, `y`, `blur`, `spread` и `color`.
 Gradient MUST содержать слои `{kind: "linear", angle, stops}`, где `stops` включает не менее
@@ -38,7 +38,7 @@ Component MUST содержать component ID, выбранные styles по v
 `states` из записей `{when, source}`, где `when` это непустой набор уникальных имён состояний.
 Source MUST быть `literal`, `tokenRef`, `styleRef` или `assetRef`; `literal` и `tokenRef`
 MAY содержать `alpha` от 0 до 1. Вложенные стили MUST передаваться словарём верхнего уровня
-`styles`. История adjustments, combinations и reuse MUST NOT входить в v2.
+`styles`. История adjustments, combinations и reuse MUST NOT входить в v1.
 
 #### Scenario: Stateful property
 
@@ -84,10 +84,10 @@ Host MUST вернуть коррелированный по `requestId` success
 ### Requirement: Версионированные schemas
 
 Payload и result MUST иметь JSON Schema Draft 2020-12 со стабильными `$id` и
-canonical fixtures версии 2. Kotlin-модели MUST проходить schema/serialization round trip.
+canonical fixtures. Kotlin-модели MUST проходить schema/serialization round trip.
 Schema payload и общие фикстуры `valid` и `invalid` MUST быть побайтово идентичны каноническим
-файлам в DS Builder (`backend-kt/preview/contract/schemas/v2`), расхождение MUST обнаруживаться
-проверкой. Версия 1 MUST быть удалена.
+файлам в DS Builder (`backend-kt/preview/contract/schemas/v1`), расхождение MUST обнаруживаться
+проверкой.
 
 #### Scenario: Schema round trip
 
@@ -107,7 +107,7 @@ Schema payload и общие фикстуры `valid` и `invalid` MUST быть
 ### Requirement: Preview payload describes runtime assets
 
 `PreviewPayload` MUST содержать runtime-neutral descriptors ресурсов, необходимых
-renderer, с stable ID, type, URL и optional digest. Preview Protocol v2 SHALL
+renderer, с stable ID, type, URL и optional digest. Preview Protocol v1 SHALL
 поддерживать font assets форматов TTF и OTF и image assets форматов SVG и PNG.
 
 #### Scenario: Font asset is available to renderer

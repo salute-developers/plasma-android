@@ -1,12 +1,12 @@
 ## Context
 
-Парный change в DS Builder (`preview-payload-v2`) задаёт каноническую схему и фикстуры; подробные решения D1 и D7 этого change (замена v1 на v2, состояния массивом наборов, источники, вложенные стили, единый владелец схемы) приведены там. Здесь описана реализация в контракте, SDK и плагине.
+Парный change в DS Builder (`extend-preview-payload`) задаёт каноническую схему и фикстуры; подробные решения D1 и D7 этого change (расширение v1 на месте без повышения версии, состояния массивом наборов, источники, вложенные стили, единый владелец схемы) приведены там. Здесь описана реализация в контракте, SDK и плагине.
 
 ## Decisions
 
 ### D1. Контракт повторяет каноническую схему
 
-Kotlin-модели `PreviewContract.kt` приводятся к схеме v2: `PreviewPropertyValue(base, states: List<PreviewStateEntry>)`, `PreviewStateEntry(when: Set<String>, source)`, sealed `PreviewPropertySource` с `Literal`, `TokenReference`, `StyleReference`, `AssetReference`, поле `styles`, токен `Gradient`, `spread` в слое тени, `PreviewResult.Success.warnings`. Копии схем и фикстур в `src/commonMain/resources/{schemas,fixtures}/v2` берутся побайтово из DS Builder; тест сравнения хэшей файлов с дайджестом (`schemas/v2/DIGEST`) ловит ручную правку.
+Kotlin-модели `PreviewContract.kt` приводятся к расширенной схеме v1: `PreviewPropertyValue(base, states: List<PreviewStateEntry>)`, `PreviewStateEntry(when: Set<String>, source)`, sealed `PreviewPropertySource` с `Literal`, `TokenReference`, `StyleReference`, `AssetReference`, поле `styles`, токен `Gradient`, `spread` в слое тени, `PreviewResult.Success.warnings`. Копии схем и фикстур в `src/commonMain/resources/{schemas,fixtures}/v1` берутся побайтово из DS Builder; тест сравнения хэшей файлов с дайджестом (`schemas/v1/DIGEST`) ловит ручную правку.
 
 ### D2. Разрешение состояний в SDK
 
