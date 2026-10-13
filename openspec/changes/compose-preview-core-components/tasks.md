@@ -14,6 +14,14 @@
 - [ ] 2.3 Проставить `componentId` во всех 74 историях `uikit-compose-fixtures`
 - [ ] 2.4 Тесты процессора: история без `componentId` не попадает в preview, но остаётся в `StoryRegistry`; несовпадение идентификатора, дубликат, определение класса стиля
 
+## 2a. Истории для дочерних компонентов (uikit-compose-fixtures, sandbox-core)
+
+- [ ] 2a.1 Для каждого компонента меты без истории определить, есть ли публичный composable и `ComponentKey`; зафиксировать решение по `ModalBottomSheet`, `DropdownEmptyState`, `DropdownLoadingState` в `design.md`
+- [ ] 2a.2 Добавить недостающие `ComponentKey`/группы в `sandbox-core`
+- [ ] 2a.3 Написать истории для `AccordionItem`, `IconTabItem`, `ListItem`, `NavigationDrawerItem`, `SelectItem`, `TabBarItem`, `TabItem` (айтемы, зависящие от родителя, рисуются внутри минимального родителя)
+- [ ] 2a.4 Проставить `componentId`, убедиться, что новые истории появились в `StoryRegistry` и демо-приложении собирается
+- [ ] 2a.5 Внести в список исключений теста покрытия компоненты без истории (с причиной)
+
 ## 3. Генерация фабрик (интеграция по результату спайка)
 
 - [ ] 3.1 Генерация фабрик и карты `componentId` на фабрику по всем записям меты, фазы A–C
