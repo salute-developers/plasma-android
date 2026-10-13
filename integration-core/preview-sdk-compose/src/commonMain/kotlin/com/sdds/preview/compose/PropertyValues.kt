@@ -37,13 +37,13 @@ public fun <T> PreviewPropertyValue.resolveStates(
 }
 
 /** Разрешённое значение для набора одновременно активных состояний. */
-public data class ResolvedState<T>(
+public data class ResolvedState<out T>(
     /** Имена состояний, которые должны быть активны одновременно. */ val names: Set<String>,
     /** Значение для этого набора. */ val value: T,
 )
 
 /** Разрешённое базовое значение и значения для наборов состояний в порядке payload. */
-public data class ResolvedProperty<T>(
+public data class ResolvedProperty<out T>(
     /** Базовое значение property. */ val base: T,
     /** Значения для наборов состояний. */ val states: List<ResolvedState<T>>,
 ) {

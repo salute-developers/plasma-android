@@ -2,6 +2,8 @@ import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsTargetDsl
 import org.gradle.api.tasks.bundling.Zip
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.Sync
+import org.gradle.api.attributes.Usage
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import utils.addDefaultTargets
 
 plugins {
@@ -48,6 +50,42 @@ val previewPluginBrowserTest by tasks.registering(Exec::class) {
 
 group = "integration-core"
 
+// Фабрики стилей генерируются по api-мете, которая лежит ресурсом в JVM-артефакте uikit-compose.
+val previewApiMeta: Configuration by configurations.creating {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+        attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
+    }
+}
+val previewGenerator: Configuration by configurations.creating {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+}
+dependencies {
+    previewApiMeta(libs.sdds.uikit.compose)
+    previewGenerator(project(":preview-generator"))
+}
+
+val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factories")
+val generatePreviewFactories by tasks.registering(JavaExec::class) {
+    group = "build"
+    description = "Генерирует фабрики стилей Compose preview по uikit-compose-api-meta.json."
+    classpath = previewGenerator
+    mainClass.set("com.sdds.preview.generator.MainKt")
+    inputs.files(previewApiMeta)
+    inputs.files(previewGenerator)
+    outputs.dir(generatedFactoriesDir)
+    val components = providers.gradleProperty("previewComponents")
+    doFirst {
+        val metaJar = previewApiMeta.files.single {
+            it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.")
+        }
+        setArgs(listOfNotNull(metaJar.absolutePath, generatedFactoriesDir.get().asFile.absolutePath, components.orNull))
+    }
+}
+
 android { namespace = "com.sdds.preview.compose.plugin" }
 
 kotlin {
@@ -57,6 +95,9 @@ kotlin {
     }
 
     sourceSets {
+        commonMain {
+            kotlin.srcDir(generatePreviewFactories.map { generatedFactoriesDir.get().asFile })
+        }
         commonMain.dependencies {
             implementation(project(":preview-contract"))
             implementation(project(":preview-sdk-compose"))

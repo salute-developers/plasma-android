@@ -56,6 +56,22 @@ public fun <State : UiState, S : Style> previewComponent(
     styleFactory: ComposePreviewStyleFactory<S>,
 ): ComposePreviewComponent = TypedComposePreviewComponent(story, styleFactory)
 
+/**
+ * Создаёт preview binding из type-erased истории и фабрики (записи реестра). Совместимость классов стиля
+ * истории и фабрики
+ * должна быть проверена вызывающим (реестр знает `styleQualifiedName`).
+ */
+@Suppress("UNCHECKED_CAST")
+public fun previewComponentOf(
+    componentId: String,
+    story: ComposeBaseStory<*, *>,
+    styleFactory: ComposePreviewStyleFactory<*>,
+): ComposePreviewComponent = TypedComposePreviewComponent(
+    story as ComposeBaseStory<UiState, Style>,
+    styleFactory as ComposePreviewStyleFactory<Style>,
+    componentId,
+)
+
 /** Общий runtime: JSON decode, theme preparation и выбор binding по component ID. */
 public class ComposePreviewRuntime(
     private val assetResolver: PreviewAssetResolver,
@@ -107,8 +123,8 @@ public class ComposePreviewRuntime(
 private class TypedComposePreviewComponent<State : UiState, S : Style>(
     private val story: ComposeBaseStory<State, S>,
     private val styleFactory: ComposePreviewStyleFactory<S>,
+    override val componentId: String = story.component.value,
 ) : ComposePreviewComponent {
-    override val componentId: String = story.component.value
     override val description: PreviewComponentDescription by lazy {
         PreviewComponentDescription(
             componentId = componentId,
@@ -149,12 +165,15 @@ private class TypedPreparedComposePreview<State : UiState, S : Style>(
     private val state: State,
 ) : PreparedComposePreview {
     override val requestId: String = payload.requestId
-    override val warnings: List<PreviewWarning> = payload.collectWarnings(styleFactory.supportedStates)
+    override val warnings: List<PreviewWarning> = payload.collectWarnings(
+        styleFactory::supportsState,
+        (styleFactory as? GeneratedStyleFactory<*>)?.unsupportedProperties.orEmpty(),
+    )
     override val surfaceBackground: Color? = payload.surface?.background?.toComposeColorOrNull()
 
     @Composable
     override fun Content() {
-        val style = styleFactory.create(payload.component, theme)
+        val style = styleFactory.create(payload, theme)
         Box {
             with(story) { Content(style, state) }
         }

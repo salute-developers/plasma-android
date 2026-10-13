@@ -231,6 +231,88 @@
             "latest render marker",
         );
 
+        const spikePayload = (componentId, requestId, properties, styles) => {
+            const payload = structuredClone(fixture);
+            payload.requestId = requestId;
+            payload.component = {id: componentId, variations: {}, properties};
+            if (styles) payload.styles = styles;
+            payload.example = {id: componentId, props: {}};
+            return payload;
+        };
+        const tok = (tokenId, extra) => ({type: "tokenRef", tokenId, ...(extra || {})});
+        const noWarnings = (result, message) => assert(!result.warnings || result.warnings.length === 0, message);
+
+        const checkBox = await send(spikePayload("CheckBox", "spike-checkbox", {
+            shape: {base: tok("shape.button")},
+            labelStyle: {base: tok("typography.button")},
+            labelColor: {base: tok("color.content")},
+            toggleColor: {
+                base: tok("color.background"),
+                states: [
+                    {when: ["checked"], source: tok("color.background.pressed")},
+                    {when: ["Indeterminate"], source: tok("color.background.pressed", {alpha: 0.5})},
+                    {when: ["checked", "pressed"], source: tok("color.background")},
+                ],
+            },
+        }));
+        assert(checkBox.type === "success", "CheckBox custom states success: " + JSON.stringify(checkBox));
+        noWarnings(checkBox, "CheckBox known states produce no warnings");
+
+        const checkBoxFancy = spikePayload("CheckBox", "spike-checkbox-fancy", {
+            toggleColor: {base: tok("color.background"), states: [{when: ["fancy"], source: tok("color.content")}]},
+        });
+        const fancyResult = await send(checkBoxFancy);
+        assert(
+            fancyResult.type === "success" && fancyResult.warnings?.[0]?.code === "unknown_state",
+            "CheckBox unknown state warning",
+        );
+
+        const textField = await send(spikePayload("TextField", "spike-textfield", {
+            shape: {base: tok("shape.button")},
+            labelStyle: {base: tok("typography.button")},
+            valueStyle: {base: tok("typography.button")},
+            labelPlacement: {base: {type: "literal", value: "outer"}},
+            captionPlacement: {base: {type: "literal", value: "Inner"}},
+            fieldType: {base: {type: "literal", value: "RequiredEnd"}},
+        }));
+        assert(textField.type === "success", "TextField enum values success: " + JSON.stringify(textField));
+        noWarnings(textField, "TextField produces no warnings");
+        const textFieldBogus = await send(spikePayload("TextField", "spike-textfield-bogus", {
+            labelPlacement: {base: {type: "literal", value: "bogus"}},
+        }));
+        assert(textFieldBogus.type === "success", "TextField unknown enum value is ignored");
+
+        const avatar = await send(spikePayload(
+            "Avatar",
+            "spike-avatar",
+            {badgeStyle: {base: {type: "styleRef", styleId: "badge"}}},
+            {badge: {component: "Badge", properties: {shape: {base: tok("shape.button")}}}},
+        ));
+        assert(avatar.type === "success", "Avatar nested Badge success: " + JSON.stringify(avatar));
+        noWarnings(avatar, "Avatar nested style produces no warnings");
+
+        const tabs = await send(spikePayload(
+            "Tabs",
+            "spike-tabs",
+            {
+                tabItemStyle: {base: {type: "styleRef", styleId: "item"}},
+                dividerStyle: {base: {type: "styleRef", styleId: "divider"}},
+            },
+            {
+                item: {
+                    component: "TabItem",
+                    properties: {shape: {base: tok("shape.button")}, labelStyle: {base: tok("typography.button")}},
+                },
+                divider: {component: "Divider", properties: {backgroundColor: {base: tok("color.background")}}},
+            },
+        ));
+        assert(tabs.type === "success", "Tabs nested styles success: " + JSON.stringify(tabs));
+        noWarnings(tabs, "Tabs nested styles produce no warnings");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "spike-tabs",
+            "spike render marker",
+        );
+
         output.textContent = JSON.stringify({
             status: "passed",
             firstRenderLatencyMs,

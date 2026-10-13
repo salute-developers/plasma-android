@@ -11,14 +11,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.ComposeViewport
-import com.sdds.compose.uikit.fixtures.stories.button.BasicButtonStory
+import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.fixtures.stories.registerStories
 import com.sdds.preview.compose.ComposePreviewRuntime
 import com.sdds.preview.compose.PreparedComposePreview
 import com.sdds.preview.compose.WasmLoadedFontFamilyFactory
-import com.sdds.preview.compose.previewComponent
+import com.sdds.preview.compose.generated.GeneratedPreviewStyleFactories
+import com.sdds.preview.compose.previewComponentOf
 import com.sdds.preview.contract.PREVIEW_PROTOCOL_VERSION
 import com.sdds.preview.contract.PreviewContractJson
+import com.sdds.sandbox.ComponentKey
+import com.sdds.sandbox.StoryRegistry
 import kotlinx.browser.document
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -30,12 +33,26 @@ private sealed interface RenderState {
     data class Ready(val preview: PreparedComposePreview) : RenderState
 }
 
+/** Компоненты спайка: для остальных историй генерируются фабрики, но в плагине они пока не регистрируются. */
+private val SPIKE_COMPONENTS = listOf(
+    ComponentKey.BasicButton to "BasicButton",
+    // ComponentKey.CheckBox.value == "Checkbox", а в мете компонент называется "CheckBox": идентификатор из меты.
+    ComponentKey.CheckBox to "CheckBox",
+    ComponentKey.TextField to "TextField",
+    ComponentKey.Avatar to "Avatar",
+    ComponentKey.Tabs to "Tabs",
+)
+
 private val scope = MainScope()
 private var renderState: RenderState by mutableStateOf(RenderState.Empty)
 private val runtime = ComposePreviewRuntime(
     assetResolver = HttpPreviewAssetResolver,
     fontFamilyFactory = WasmLoadedFontFamilyFactory,
-    components = listOf(previewComponent(BasicButtonStory, BasicButtonPreviewStyleFactory)),
+    components = SPIKE_COMPONENTS.also { registerStories() }.mapNotNull { (key, componentId) ->
+        val story = StoryRegistry.get(key) as? ComposeBaseStory<*, *>
+        val factory = GeneratedPreviewStyleFactories.all[componentId]
+        if (story != null && factory != null) previewComponentOf(componentId, story, factory) else null
+    },
 )
 private val coordinator = PreviewRequestCoordinator(
     prepare = runtime::prepare,
@@ -64,7 +81,6 @@ public fun describePreviewComponent(componentId: String, requestId: String): Str
 /** Browser entrypoint типизированного BasicButton PoC. */
 @OptIn(ExperimentalComposeUiApi::class)
 public fun main() {
-    registerStories()
     if (document.getElementById("root") == null) {
         document.body?.appendChild(document.createElement("div").apply { id = "root" })
     }

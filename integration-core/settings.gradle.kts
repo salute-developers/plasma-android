@@ -34,6 +34,7 @@ include(
     ":preview-contract",
     ":preview-sdk-compose",
     ":preview-compose-plugin",
+    ":preview-generator",
     ":sandbox-core",
     ":sandbox-compose",
     ":sandbox-view",

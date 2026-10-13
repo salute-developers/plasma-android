@@ -67,15 +67,31 @@ private class ReferenceValidator(private val payload: PreviewPayload) {
  * Собирает предупреждения, не прерывающие render: состояния вне [supportedStates] и ресурсы SVG/PNG,
  * которые SDK пока не умеет превращать в painter.
  */
-public fun PreviewPayload.collectWarnings(supportedStates: Set<String>): List<PreviewWarning> {
+public fun PreviewPayload.collectWarnings(
+    supportedStates: Set<String>,
+    unsupportedProperties: Set<String> = emptySet(),
+): List<PreviewWarning> = collectWarnings({ it in supportedStates }, unsupportedProperties)
+
+/** То же, что [collectWarnings] по набору, но поддержка состояния определяется предикатом [isStateSupported]. */
+public fun PreviewPayload.collectWarnings(
+    isStateSupported: (String) -> Boolean,
+    unsupportedProperties: Set<String> = emptySet(),
+): List<PreviewWarning> {
     val warnings = mutableListOf<PreviewWarning>()
     val imageAssets = assets.filter { it.type == PreviewAssetType.SVG || it.type == PreviewAssetType.PNG }
         .mapTo(HashSet()) { it.id }
 
     fun collect(properties: Map<String, PreviewPropertyValue>, path: String) {
         for ((name, value) in properties) {
+            if (name in unsupportedProperties) {
+                warnings += PreviewWarning(
+                    code = "unsupported_property",
+                    message = "Свойство $name не поддержано и пропущено",
+                    path = "$path.$name",
+                )
+            }
             value.states.forEachIndexed { index, entry ->
-                entry.states.filter { it !in supportedStates }.forEach { unknown ->
+                entry.states.filterNot(isStateSupported).forEach { unknown ->
                     warnings += PreviewWarning(
                         code = "unknown_state",
                         message = "Состояние $unknown не поддерживается и запись пропущена",
@@ -99,4 +115,4 @@ public fun PreviewPayload.collectWarnings(supportedStates: Set<String>): List<Pr
     return warnings
 }
 
-private fun PreviewPropertyValue.sources(): List<PreviewPropertySource> = listOf(base) + states.map { it.source }
+internal fun PreviewPropertyValue.sources(): List<PreviewPropertySource> = listOf(base) + states.map { it.source }

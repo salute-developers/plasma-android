@@ -4,15 +4,21 @@
 
 Параметр `componentId` аннотации `@Story` SHALL быть необязательным (значение по умолчанию пустая строка), чтобы не ломать
 существующие истории внешних потребителей `sandbox-*`. История, пригодная для preview, SHALL задавать `@Story(componentId = "...")`,
-где `componentId` равен `ComponentKey.value` истории и имени компонента в `uikit-compose-api-meta.json`. Идентификатор MUST быть
-стабильным между сборками и MUST NOT выводиться из имени класса истории. История с пустым `componentId` MUST NOT попадать
+где `componentId` равен имени компонента (`componentName`) в `uikit-compose-api-meta.json`. `componentId` MAY отличаться от
+`ComponentKey.value` истории: например, `ComponentKey.CheckBox.value` это `Checkbox`, а компонент меты называется `CheckBox`.
+Идентификатор MUST быть стабильным между сборками и MUST NOT выводиться из имени класса истории или из `ComponentKey.value`. История с пустым `componentId` MUST NOT попадать
 в реестр preview и MUST NOT приводить к ошибке сборки.
 
-#### Scenario: Идентификатор совпадает с ключом
+#### Scenario: Идентификатор отличается от ключа
 
-- **WHEN** KSP обрабатывает историю с `@Story(componentId = "BasicButton")`
-- **THEN** процессор MUST проверить, что `componentId` совпадает с `ComponentKey.value`, который история передаёт в конструктор
-- **AND** при несовпадении сборка MUST завершиться ошибкой с именем класса истории.
+- **WHEN** история `CheckBoxStory` с `ComponentKey.CheckBox` объявлена как `@Story(componentId = "CheckBox")`
+- **THEN** запись реестра MUST использовать `CheckBox` (идентификатор меты), а не `Checkbox` (значение ключа)
+- **AND** payload с `component.id = "CheckBox"` MUST находить эту историю.
+
+#### Scenario: Идентификатора нет в мете
+
+- **WHEN** `componentId` истории не совпадает ни с одним `componentName` api-меты
+- **THEN** сборка плагина (тест покрытия) MUST завершиться ошибкой с именем истории и идентификатором.
 
 #### Scenario: Идентификатор не задан
 
