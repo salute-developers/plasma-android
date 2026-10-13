@@ -1,0 +1,47 @@
+{
+  "protocolVersion": 1,
+  "requestId": "fixture-1",
+  "platform": "COMPOSE",
+  "assets": [
+    {
+      "id": "icon.close",
+      "type": "SVG",
+      "url": "https://example.test/close.svg",
+      "digest": "abc"
+    }
+  ],
+  "theme": {
+    "color.bg": {
+      "type": "color",
+      "value": "#112233FF"
+    }
+  },
+  "component": {
+    "id": "button",
+    "variations": {},
+    "properties": {
+      "backgroundColor": {
+        "base": {
+          "type": "tokenRef",
+          "tokenId": "color.bg"
+        },
+        "states": []
+      },
+      "icon": {
+        "base": {
+          "type": "assetRef",
+          "assetId": "icon.close"
+        }
+      }
+    }
+  },
+  "example": {
+    "id": "default",
+    "props": {}
+  },
+  "surface": {
+    "width": 320,
+    "height": 120,
+    "background": "#FFFFFFFF"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "protocolVersion": 1,
+  "requestId": "fixture-1",
+  "platform": "COMPOSE",
+  "assets": [],
+  "theme": {
+    "color.bg": {
+      "type": "color",
+      "value": "#112233FF"
+    },
+    "gradient.main": {
+      "type": "gradient",
+      "layers": [
+        {
+          "kind": "linear",
+          "angle": 90,
+          "stops": [
+            {
+              "color": "#FF0000FF",
+              "position": 0
+            },
+            {
+              "color": "#0000FFFF",
+              "position": 1
+            }
+          ]
+        }
+      ]
+    },
+    "shadow.s": {
+      "type": "shadow",
+      "layers": [
+        {
+          "x": 0,
+          "y": 2,
+          "blur": 4,
+          "spread": -1,
+          "color": "#00000040"
+        }
+      ]
+    }
+  },
+  "component": {
+    "id": "button",
+    "variations": {},
+    "properties": {
+      "backgroundColor": {
+        "base": {
+          "type": "tokenRef",
+          "tokenId": "color.bg"
+        },
+        "states": []
+      }
+    }
+  },
+  "example": {
+    "id": "default",
+    "props": {}
+  },
+  "surface": {
+    "width": 320,
+    "height": 120,
+    "background": "#FFFFFFFF"
+  }
+}

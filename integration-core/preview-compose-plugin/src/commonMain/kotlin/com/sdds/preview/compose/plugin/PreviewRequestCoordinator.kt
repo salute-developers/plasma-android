@@ -1,6 +1,7 @@
 package com.sdds.preview.compose.plugin
 
 import com.sdds.preview.compose.PreparedComposePreview
+import com.sdds.preview.compose.PreviewPreparationException
 import com.sdds.preview.contract.PREVIEW_PROTOCOL_VERSION
 import com.sdds.preview.contract.PreviewContractJson
 import com.sdds.preview.contract.PreviewPayload
@@ -37,6 +38,8 @@ internal class PreviewRequestCoordinator(
 
         val preview = try {
             prepare(json)
+        } catch (error: PreviewPreparationException) {
+            return PreviewResult.Failure(payload.requestId, error.code, error.message.orEmpty(), error.path)
         } catch (error: Throwable) {
             return PreviewResult.Failure(
                 requestId = payload.requestId,
@@ -55,7 +58,7 @@ internal class PreviewRequestCoordinator(
 
         return try {
             apply(preview)
-            PreviewResult.Success(payload.requestId)
+            PreviewResult.Success(payload.requestId, preview.warnings)
         } catch (error: Throwable) {
             PreviewResult.Failure(
                 requestId = payload.requestId,

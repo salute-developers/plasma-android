@@ -10,6 +10,7 @@ import com.sdds.preview.contract.PreviewComponentDescriptionResult
 import com.sdds.preview.contract.PreviewContractJson
 import com.sdds.preview.contract.PreviewExamplePropertyDescription
 import com.sdds.preview.contract.PreviewPayload
+import com.sdds.preview.contract.PreviewWarning
 import com.sdds.preview.contract.validate
 import com.sdds.preview.contract.validateVersion
 import com.sdds.sandbox.Property
@@ -20,6 +21,10 @@ import kotlinx.serialization.decodeFromString
 public interface PreparedComposePreview {
     /** Идентификатор исходного render request. */
     public val requestId: String
+
+    /** Предупреждения, которые нужно вернуть вместе с успешным результатом. */
+    public val warnings: List<PreviewWarning>
+        get() = emptyList()
 
     /** Фон viewport из `PreviewPayload.surface`, если он задан корректным цветом. */
     public val surfaceBackground: Color?
@@ -66,6 +71,7 @@ public class ComposePreviewRuntime(
         val component = requireNotNull(componentsById[payload.component.id]) {
             "Preview component ${payload.component.id} не зарегистрирован"
         }
+        payload.validateReferences()
         val theme = payload.prepareComposeTheme(assetResolver, fontFamilyFactory)
         return component.prepare(payload, theme)
     }
@@ -143,6 +149,7 @@ private class TypedPreparedComposePreview<State : UiState, S : Style>(
     private val state: State,
 ) : PreparedComposePreview {
     override val requestId: String = payload.requestId
+    override val warnings: List<PreviewWarning> = payload.collectWarnings(styleFactory.supportedStates)
     override val surfaceBackground: Color? = payload.surface?.background?.toComposeColorOrNull()
 
     @Composable
