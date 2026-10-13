@@ -2,14 +2,38 @@
 
 ### Requirement: Фабрика стиля генерируется для каждого компонента api-меты
 
-Процессор `preview-ksp` SHALL читать `uikit-compose-api-meta.json` и для каждой записи меты (`componentName`,
-`builderFunName`, `styleQualifiedName`, `params`) порождать фабрику `ComposePreviewStyleFactory`, которая строит стиль
-через соответствующий билдер UIKit. Фабрики MUST собираться в карту `componentId` на фабрику.
+Генератор SHALL читать `uikit-compose-api-meta.json` и для каждой записи меты (`componentName`, `qualifiedName` билдера,
+`styleQualifiedName`, `params`) порождать фабрику `ComposePreviewStyleFactory`, которая строит стиль
+через соответствующий билдер UIKit. Фабрики MUST собираться в карту `componentId` на фабрику. Способ реализации генератора
+(KSP-процессор или Gradle-задача, пишущая исходники) определяется спайком и не меняет требований этой спеки.
 
 #### Scenario: Фабрика создана для записи меты
 
 - **WHEN** мета содержит запись `BasicButton` с `builderFunName = basicButtonBuilder` и `styleQualifiedName = ButtonStyle`
 - **THEN** сгенерированная карта MUST содержать фабрику `BasicButton`, строящую `ButtonStyle` через `ButtonStyle.basicButtonBuilder()`.
+
+### Requirement: Точка входа в билдер определяется по мете и соглашению
+
+Генератор SHALL создавать билдер стиля так: если запись меты содержит `builderFunName`, вызывать эту функцию стиля
+(`ButtonStyle.basicButtonBuilder()`); иначе вызывать `<Style>.builder()` из companion стиля. Функция MUST возвращать класс билдера,
+указанный в `qualifiedName` записи. Запись, для которой точка входа не найдена, MUST приводить к ошибке сборки с именем компонента.
+(На момент написания `builderFunName` задан у 5 из 79 записей: `Badge`, `BasicButton`, `IconBadge`, `IconButton`, `LinkButton`;
+у остальных 74 в исходниках есть `fun builder(...)` с нужным типом билдера.)
+
+#### Scenario: Именованная точка входа
+
+- **WHEN** запись содержит `builderFunName`
+- **THEN** фабрика MUST вызвать именно эту функцию, потому что один класс стиля может иметь несколько билдеров (`ButtonStyle` имеют три записи меты).
+
+#### Scenario: Точка входа по соглашению
+
+- **WHEN** запись не содержит `builderFunName`
+- **THEN** фабрика MUST вызвать `<Style>.builder()` (например, `CheckBoxStyle.builder()`).
+
+#### Scenario: Точка входа не найдена
+
+- **WHEN** для записи нет ни `builderFunName`, ни функции `builder()`, возвращающей нужный билдер
+- **THEN** сборка MUST завершиться ошибкой с именем компонента и ожидаемым типом билдера.
 
 #### Scenario: Генерация детерминирована
 
@@ -18,7 +42,7 @@
 
 ### Requirement: Мета подключается как зависимость сборки
 
-Api-мета SHALL подключаться к `preview-ksp` как ресурс артефакта `uikit-compose` через Gradle-зависимость. Копия
+Api-мета SHALL подключаться к генератору как ресурс артефакта `uikit-compose` через Gradle-зависимость. Копия
 файла в репозитории MUST NOT создаваться.
 
 #### Scenario: Версия меты совпадает с версией UIKit
@@ -213,3 +237,14 @@ MUST быть именем константы `stateEnum` с первой бук
 
 - **WHEN** сгенерированная фабрика применяет значение иначе, чем прямой вызов билдера
 - **THEN** тест MUST упасть и сохранить оба скриншота и разницу для просмотра.
+
+### Requirement: Генератор фабрик не публикуется
+
+Код генератора (модуль `integration-core:preview-ksp`, если выбран KSP, либо Gradle-задача в `integration-core`) SHALL использоваться
+только при сборке плагина внутри `integration-core` и MUST NOT применять `convention.maven-publish`. Публичные модули `sandbox-core`,
+`sandbox-ksp`, `preview-contract` и `preview-sdk-compose` MUST NOT получать зависимость от генератора.
+
+#### Scenario: Артефакты публикации
+
+- **WHEN** выполняется публикация модулей `integration-core`
+- **THEN** набор публикуемых артефактов MUST NOT включать генератор фабрик.

@@ -1,6 +1,7 @@
-## 1. Спайк (integration-core/preview-ksp, preview-sdk-compose)
+## 1. Спайк (генератор фабрик, preview-sdk-compose)
 
-- [ ] 1.1 Создать модуль `integration-core:preview-ksp` с зависимостью на ресурс api-меты артефакта `uikit-compose`
+- [ ] 1.1 Проверить точки входа в билдер для всех 79 записей меты (`builderFunName` либо `<Style>.builder()` с нужным типом билдера) и тип каждого параметра; решить A (KSP) или B (Gradle-задача), записать в `design.md` (D0)
+- [ ] 1.1a Создать неопубликуемый генератор (модуль `integration-core:preview-ksp` либо Gradle-задача, без `convention.maven-publish`) с зависимостью на ресурс api-меты артефакта `uikit-compose`
 - [ ] 1.2 Реализовать выбор перегрузки и оформление значения для BasicButton, CheckBox, TextField, Avatar, Tabs
 - [ ] 1.3 Дифференциальный тест выбора вызова билдера против Theme Builder на конфигах golden-тестов для этих пяти компонентов
 - [ ] 1.4 Выяснить, есть ли в клиенте DS Builder соответствия свойств Compose и метаданные `Meta.preview.compose` для компонентов кроме кнопки; записать результат в `design.md` (D9b)
@@ -8,12 +9,12 @@
 
 ## 2. Реестр (sandbox-core, sandbox-ksp, uikit-compose-fixtures)
 
-- [ ] 2.1 Добавить `componentId` в `@Story` и проверку равенства `ComponentKey.value` и уникальности в `sandbox-ksp`
+- [ ] 2.1 Добавить необязательный `componentId` в `@Story` (значение по умолчанию пустая строка) и проверку равенства `ComponentKey.value` и уникальности в `sandbox-ksp`
 - [ ] 2.2 Добавить перечисление историй в `StoryRegistry` и генерацию записей `{componentId, story, styleQualifiedName}`
 - [ ] 2.3 Проставить `componentId` во всех 74 историях `uikit-compose-fixtures`
-- [ ] 2.4 Тесты процессора: несовпадение идентификатора, дубликат, определение класса стиля
+- [ ] 2.4 Тесты процессора: история без `componentId` не попадает в preview, но остаётся в `StoryRegistry`; несовпадение идентификатора, дубликат, определение класса стиля
 
-## 3. Генерация фабрик (preview-ksp)
+## 3. Генерация фабрик (интеграция по результату спайка)
 
 - [ ] 3.1 Генерация фабрик и карты `componentId` на фабрику по всем записям меты, фазы A–C
 - [ ] 3.2 Состояния: интерактивные и `stateEnum`, пропуск неизвестных с предупреждением

@@ -2,15 +2,23 @@
 
 ### Requirement: История объявляет стабильный componentId
 
-Каждая история, пригодная для preview, SHALL объявлять `@Story(componentId = "...")`, где `componentId` равен
-`ComponentKey.value` истории и имени компонента в `uikit-compose-api-meta.json`. Идентификатор MUST быть
-стабильным между сборками и MUST NOT выводиться из имени класса истории.
+Параметр `componentId` аннотации `@Story` SHALL быть необязательным (значение по умолчанию пустая строка), чтобы не ломать
+существующие истории внешних потребителей `sandbox-*`. История, пригодная для preview, SHALL задавать `@Story(componentId = "...")`,
+где `componentId` равен `ComponentKey.value` истории и имени компонента в `uikit-compose-api-meta.json`. Идентификатор MUST быть
+стабильным между сборками и MUST NOT выводиться из имени класса истории. История с пустым `componentId` MUST NOT попадать
+в реестр preview и MUST NOT приводить к ошибке сборки.
 
 #### Scenario: Идентификатор совпадает с ключом
 
 - **WHEN** KSP обрабатывает историю с `@Story(componentId = "BasicButton")`
 - **THEN** процессор MUST проверить, что `componentId` совпадает с `ComponentKey.value`, который история передаёт в конструктор
 - **AND** при несовпадении сборка MUST завершиться ошибкой с именем класса истории.
+
+#### Scenario: Идентификатор не задан
+
+- **WHEN** история объявлена как `@Story` без `componentId`
+- **THEN** она MUST регистрироваться в `StoryRegistry` как раньше
+- **AND** она MUST NOT попадать в перечисление preview и в manifest плагина.
 
 #### Scenario: Идентификатор не уникален
 

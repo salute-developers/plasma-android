@@ -17,8 +17,8 @@ alpha, градиенты, вложенные стили, `spread` тени). Э
   - `@Story` получает явный `componentId`; уникальность проверяется при сборке.
   - `components` в `preview-plugin.json` формируется из реестра и не пишется вручную.
 - **Генерация фабрик стилей.**
-  - Новый KSP-процессор в модуле `preview-ksp` читает `uikit-compose-api-meta.json` и для каждого компонента меты
-    порождает фабрику стиля. Мета подключается как Gradle-зависимость (ресурс артефакта `uikit-compose`), а не копией.
+  - Новый генератор читает `uikit-compose-api-meta.json` и для каждого компонента меты порождает фабрику стиля.
+    Форма генератора (KSP-процессор в новом модуле `preview-ksp` или Gradle-задача с KotlinPoet) выбирается спайком, см. `design.md`. Мета подключается как Gradle-зависимость (ресурс артефакта `uikit-compose`), а не копией.
   - Выбор перегрузки билдера и оформление значения (`SolidColor`, `asStatefulValue`, `multiplyAlpha`, `asLayered`)
     записаны как спецификация и реализованы в генераторе заново; Theme Builder не меняется.
   - Вызовы билдеров по имени свойства порождаются как `when` (в Kotlin/Wasm нет рефлексии).
@@ -29,7 +29,8 @@ alpha, градиенты, вложенные стили, `spread` тени). Э
 - Фазы покрытия: A (простые), B (кастомные состояния), C (вложенные стили) входят в change. Фаза D (иконки и тени)
   зависит от painter'ов для SVG/PNG и вынесена за рамки (см. `design.md`); свойства иконок и теней игнорируются с предупреждением.
 
-Публичный API затронут: `@Story`, `StoryRegistry`, SDK `ComposePreviewStyleFactory`/`ComposePreviewComponent`.
+Публичный API затронут только совместимо: `@Story` получает необязательный `componentId`, `StoryRegistry` — перечисление,
+`ComposePreviewStyleFactory` — члены с реализацией по умолчанию. Генератор не публикуется (используется только при сборке плагина).
 Theme Builder, токены, docs generation и Gradle-конвенции приложений не затрагиваются.
 
 ## Capabilities
@@ -49,7 +50,7 @@ Theme Builder, токены, docs generation и Gradle-конвенции при
 ## Impact
 
 - `integration-core/sandbox-core` (`@Story`, `StoryRegistry`), `integration-core/sandbox-ksp` (реестр),
-  новый `integration-core/preview-ksp`, `integration-core/uikit-compose-fixtures` (аннотации), `integration-core/preview-sdk-compose`
+  генератор фабрик (новый модуль `integration-core/preview-ksp` либо Gradle-задача в `preview-compose-plugin`), `integration-core/uikit-compose-fixtures` (аннотации), `integration-core/preview-sdk-compose`
   (type-erased сборка компонента, вложенные стили), `integration-core/preview-compose-plugin` (сборка из реестра, manifest).
 - `sdds-core/uikit-compose`: только как источник api-меты (код не меняется); `sdds-core/plugin_theme_builder`: только чтение для теста
   соответствия (код не меняется).

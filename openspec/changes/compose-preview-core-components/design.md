@@ -9,13 +9,19 @@ Preview Protocol уже умеет передавать всё, что нужн�
   У пяти историй записи нет: `BottomSheet`, `Icon`, `IconTabs`, `Mask`, `Text`. Десять компонентов меты историй не имеют
   (`AccordionItem`, `DropdownEmptyState`, `DropdownLoadingState`, `IconTabItem`, `ListItem`, `ModalBottomSheet`,
   `NavigationDrawerItem`, `SelectItem`, `TabBarItem`, `TabItem`): они нужны только как вложенные стили.
-- Мета описывает для каждого компонента `componentName`, `builderFunName`, `styleQualifiedName` и список параметров
+- Мета описывает для каждого компонента `componentName`, `qualifiedName` класса билдера, `styleQualifiedName` и список параметров
   с перегрузками (`id`, `methodName`, `paramQualifiedType`, `valueQualifiedType`, `group`, `type`). Виды параметров:
   color, dimension, typography, shape, component_style, value, float, icon, shadow, boolean, integer. `stateEnum` есть у 20 компонентов.
+- `builderFunName` (имя функции стиля, создающей билдер) задан только у 5 из 79 записей (`Badge`, `BasicButton`, `IconBadge`, `IconButton`, `LinkButton`),
+  потому что у `BadgeStyle` и `ButtonStyle` несколько билдеров. У остальных 74 вход в билдер это `<Style>.builder()` из companion стиля: проверено текстовым поиском
+  `fun builder(...): <Builder>` в исходниках `uikit-compose` для всех 74 записей; корректность по companion и сигнатуре подтверждается компиляцией.
 - Среди 69 компонентов с историями: простые (A) 17; только кастомные состояния (B) 10; только вложенные стили (C) 17;
   B и C вместе 6; иконки или тени (D) без остального 3; C и D вместе 13; B, C и D вместе 3.
 - `StoryRegistry` хранит истории по `ComponentKey`, но не умеет их перечислять; `registerStories()` генерирует `sandbox-ksp`.
 - В Kotlin/Wasm нет рефлексии: вызовы билдеров по имени метода должны быть сгенерированы заранее.
+
+Публикация: `preview-contract`, `preview-sdk-compose`, `sandbox-core`, `sandbox-ksp`, `sandbox-compose` и `uikit-compose-fixtures` применяют `convention.maven-publish`;
+`preview-compose-plugin` нет (это архив для браузера). Релизные workflow в `.github/workflows` есть только для `sandbox-*`.
 
 ## Goals / Non-Goals
 
@@ -33,9 +39,20 @@ Preview Protocol уже умеет передавать всё, что нужн�
 
 ## Decisions
 
+### D0. Форма генератора выбирается спайком: KSP (A) или Gradle-задача (B)
+
+Два варианта, оба выдают одни и те же фабрики:
+
+- **A. KSP-процессор** в новом модуле `preview-ksp`. Видит настоящие классы UIKit: может проверить перегрузки и найти точку входа в билдер, узнать значения enum'ов.
+- **B. Gradle-задача** с KotlinPoet, читающая JSON и пишущая исходники в `build/generated/`. Проще в отладке и не зависит от KSP, но не видит классы: точку входа берёт из меты
+  и соглашения `Style.builder()`, enum'ы разбирает через `valueOf(...)`, ошибки типов находит только компиляция сгенерированного кода.
+
+Спайк выбирает B, если для 79 записей хватает меты и соглашения (первая задача спайка: проверка точек входа и типов), и A, если часть компонентов нельзя обработать без анализа классов.
+Остальные решения (D1–D9) не зависят от выбора. Результат фиксируется здесь же.
+
 ### D1. Фабрики порождаются для всех компонентов меты, а не для историй
 
-Процессор `preview-ksp` не видит истории (они лежат в другом модуле), но ему они и не нужны: фабрика зависит только от записи меты.
+Генератор (в любом из вариантов D0) не видит истории (они лежат в другом модуле), но ему они и не нужны: фабрика зависит только от записи меты.
 Это же даёт фабрики для компонентов без историй, которые нужны как вложенные стили (`ListItem`, `TabItem` и др.).
 Связь «история и фабрика» устанавливается во время запуска по `componentId`. Альтернатива (генерировать фабрики там, где лежат истории) отвергнута:
 вложенные стили без историй остались бы без фабрик.
@@ -46,6 +63,12 @@ Preview Protocol уже умеет передавать всё, что нужн�
 `styleQualifiedName` берётся из аргументов типа `ComposeBaseStory<State, Style>`. `componentId` задаётся в `@Story` явно, потому что KSP
 не может надёжно вычислить `ComponentKey.value` из выражения в конструкторе; процессор проверяет, что явный идентификатор равен значению в конструкторе.
 
+### D2a. Совместимость публичного API
+
+`sandbox-core`/`sandbox-ksp` публикуются и могут использоваться внешними историями, поэтому `@Story(componentId)` необязателен (пустая строка): история без идентификатора
+работает в `StoryRegistry` как раньше и просто не участвует в preview. Забытый идентификатор у нашей истории ловит тест покрытия (история без фабрики должна быть в списке исключений).
+Генератор фабрик не публикуется и не становится зависимостью публичных модулей.
+
 ### D3. Сборка компонента из type-erased записей
 
 `previewComponent(story, factory)` типизирован дженериками. Для реестра добавляется функция, принимающая `ComposeBaseStory<*, *>` и
@@ -54,7 +77,7 @@ Preview Protocol уже умеет передавать всё, что нужн�
 
 ### D4. Правила выбора перегрузки и оформления значения живут в генераторе
 
-Правила записаны в спеке и реализованы в `preview-ksp` заново. Theme Builder не меняется. Страховка от расхождения — дифференциальный тест на конфигах golden-тестов
+Правила записаны в спеке и реализованы в генераторе фабрик заново. Theme Builder не меняется. Страховка от расхождения — дифференциальный тест на конфигах golden-тестов
 Theme Builder (`UniversalComposeVariationGeneratorTest`, `GenerateComponentsTaskTest`). Без него preview может разойтись с кодом, который Theme Builder
 генерирует для приложения. Альтернатива (общий модуль) отложена; рекомендация плана при возврате: начать с вынесения только выбора перегрузки.
 
@@ -113,12 +136,12 @@ Tabs (вложенные стили). Спайк подтверждает пра
 ## Migration Plan
 
 1. Спайк на 5 компонентах, правка правил в этом документе.
-2. Реестр и manifest, `preview-ksp` с генерацией, SDK-обобщение.
+2. Реестр и manifest, генератор фабрик (форма по результату спайка, D0), SDK-обобщение.
 3. Удаление `BasicButtonPreviewStyleFactory` после того, как сгенерированная фабрика `BasicButton` проходит прежние браузерные проверки.
 4. Откат: вернуть ручную фабрику и запись в `Main.kt` (одна ветка, данные не мигрируют).
 
 Документация: KDoc публичного API (`@Story`, `StoryRegistry`, сборка компонента), раздел в README плагина о том, как добавить компонент в preview (теперь это аннотация, а не код).
-Команды валидации: `./gradlew :integration-core:preview-ksp:test :integration-core:sandbox-ksp:test :integration-core:preview-sdk-compose:jvmTest :integration-core:preview-compose-plugin:jvmTest :integration-core:preview-compose-plugin:previewPluginBrowserTest`, затем `./gradlew testAll detektAll spotlessApplyAll`.
+Команды валидации: `./gradlew :integration-core:sandbox-ksp:test (и тесты генератора: `:integration-core:preview-ksp:test`, если выбран KSP) :integration-core:preview-sdk-compose:jvmTest :integration-core:preview-compose-plugin:jvmTest :integration-core:preview-compose-plugin:previewPluginBrowserTest`, затем `./gradlew testAll detektAll spotlessApplyAll`.
 
 ## Open Questions
 
