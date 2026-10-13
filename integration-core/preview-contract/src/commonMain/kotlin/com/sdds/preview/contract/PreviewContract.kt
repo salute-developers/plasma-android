@@ -32,6 +32,12 @@ public enum class PreviewAssetType {
 
     /** Шрифт OpenType. */
     OTF,
+
+    /** Векторное изображение SVG. */
+    SVG,
+
+    /** Растровое изображение PNG. */
+    PNG,
 }
 
 /** Описание ресурса, доступного renderer во время выполнения. */
@@ -84,6 +90,11 @@ public sealed interface TokenValue {
     @SerialName("shadow")
     public data class Shadow(/** Слои тени. */ val layers: List<ShadowLayer>) : TokenValue
 
+    /** Градиент из линейных слоёв. */
+    @Serializable
+    @SerialName("gradient")
+    public data class Gradient(/** Слои градиента. */ val layers: List<GradientLayer>) : TokenValue
+
     /** Семейство runtime-шрифтов. */
     @Serializable
     @SerialName("fontFamily")
@@ -110,20 +121,66 @@ public sealed interface PreviewPropertySource {
     /** Нормализованное literal-значение. */
     @Serializable
     @SerialName("literal")
-    public data class Literal(/** Значение без platform UI типов. */ val value: JsonElement) : PreviewPropertySource
+    public data class Literal(
+        /** Значение без platform UI типов. */ val value: JsonElement,
+        /** Прозрачность от 0 до 1, применяемая к цвету. */ val alpha: Double? = null,
+    ) : PreviewPropertySource
 
     /** Ссылка на token из [PreviewPayload.theme]. */
     @Serializable
     @SerialName("tokenRef")
-    public data class TokenReference(/** Идентификатор token. */ val tokenId: String) : PreviewPropertySource
+    public data class TokenReference(
+        /** Идентификатор token. */ val tokenId: String,
+        /** Прозрачность от 0 до 1, применяемая к цвету. */ val alpha: Double? = null,
+    ) : PreviewPropertySource
+
+    /** Ссылка на вложенный стиль из [PreviewPayload.styles]. */
+    @Serializable
+    @SerialName("styleRef")
+    public data class StyleReference(/** Идентификатор стиля. */ val styleId: String) : PreviewPropertySource
+
+    /** Ссылка на ресурс из [PreviewPayload.assets]. */
+    @Serializable
+    @SerialName("assetRef")
+    public data class AssetReference(/** Идентификатор ресурса. */ val assetId: String) : PreviewPropertySource
 }
 
-/** Effective-значение property с необязательными значениями interaction states. */
+/** Значение property для набора одновременно активных состояний. */
+@Serializable
+public data class PreviewStateEntry(
+    /** Имена состояний; запись действует, когда активны все. */
+    @SerialName("when") val states: List<String>,
+    /** Значение для этого набора состояний. */ val source: PreviewPropertySource,
+)
+
+/** Effective-значение property с необязательными значениями для наборов состояний. */
 @Serializable
 public data class PreviewPropertyValue(
     /** Базовое значение. */ val base: PreviewPropertySource,
-    /** Вычисленные значения по идентификаторам interaction states. */
-    val states: Map<String, PreviewPropertySource> = emptyMap(),
+    /** Упорядоченные значения для наборов состояний. */
+    val states: List<PreviewStateEntry> = emptyList(),
+)
+
+/** Вложенный стиль компонента, на который ссылается [PreviewPropertySource.StyleReference]. */
+@Serializable
+public data class PreviewStyle(
+    /** Идентификатор компонента, которому принадлежит стиль. */ val component: String,
+    /** Вычисленные properties стиля. */ val properties: Map<String, PreviewPropertyValue> = emptyMap(),
+)
+
+/** Точка градиента. */
+@Serializable
+public data class GradientStop(
+    /** Цвет в формате `#RRGGBBAA`. */ val color: String,
+    /** Позиция от 0 до 1. */ val position: Double,
+)
+
+/** Линейный слой градиента. */
+@Serializable
+public data class GradientLayer(
+    /** Угол в градусах по соглашению CSS: 0° снизу вверх, 90° слева направо. */ val angle: Double,
+    /** Точки градиента, не менее двух. */ val stops: List<GradientStop>,
+    /** Вид слоя. */ val kind: String = "linear",
 )
 
 /** Один слой тени. */
@@ -132,6 +189,7 @@ public data class ShadowLayer(
     /** X-смещение в dp. */ val x: Double,
     /** Y-смещение в dp. */ val y: Double,
     /** Радиус размытия в dp. */ val blur: Double,
+    /** Растяжение в dp. */ val spread: Double,
     /** Цвет. */ val color: String,
 )
 
@@ -167,6 +225,7 @@ public data class PreviewPayload(
     /** Runtime-ресурсы, необходимые renderer. */ val assets: List<PreviewAsset> = emptyList(),
     /** Вычисленные значения темы по token ID. */ val theme: Map<String, TokenValue>,
     /** Effective-конфигурация компонента. */ val component: PreviewComponent,
+    /** Вложенные стили по идентификаторам. */ val styles: Map<String, PreviewStyle> = emptyMap(),
     /** Runtime-данные примера. */ val example: PreviewExample,
     /** Параметры области rendering. */ val surface: PreviewSurface? = null,
 )
@@ -180,7 +239,10 @@ public sealed interface PreviewResult {
     /** Rendering успешно завершён. */
     @Serializable
     @SerialName("success")
-    public data class Success(override val requestId: String) : PreviewResult
+    public data class Success(
+        override val requestId: String,
+        /** Предупреждения, не меняющие статус результата. */ val warnings: List<PreviewWarning> = emptyList(),
+    ) : PreviewResult
 
     /** Rendering завершён ошибкой. */
     @Serializable
@@ -192,6 +254,14 @@ public sealed interface PreviewResult {
         /** Путь к проблемному полю. */ val path: String? = null,
     ) : PreviewResult
 }
+
+/** Предупреждение успешного результата. */
+@Serializable
+public data class PreviewWarning(
+    /** Стабильный код предупреждения. */ val code: String,
+    /** Сообщение для человека. */ val message: String,
+    /** Путь к проблемному полю. */ val path: String? = null,
+)
 
 /** JSON-конфигурация Preview Protocol. */
 public val PreviewContractJson: Json = Json {

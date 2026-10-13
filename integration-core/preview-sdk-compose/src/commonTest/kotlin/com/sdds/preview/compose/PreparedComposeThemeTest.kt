@@ -3,10 +3,14 @@ package com.sdds.preview.compose
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.Gradients
+import com.sdds.preview.contract.GradientLayer
+import com.sdds.preview.contract.GradientStop
 import com.sdds.preview.contract.PreviewComponent
 import com.sdds.preview.contract.PreviewExample
 import com.sdds.preview.contract.PreviewPayload
 import com.sdds.preview.contract.PreviewPlatform
+import com.sdds.preview.contract.ShadowLayer
 import com.sdds.preview.contract.TokenValue
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -43,6 +47,36 @@ class PreparedComposeThemeTest {
         ).prepareComposeTheme()
 
         assertEquals(CircleShape, prepared.shape("round.circle"))
+    }
+
+    @Test
+    fun `shadow keeps spread and gradient becomes a brush`() {
+        val prepared = payload(
+            mapOf(
+                "shadow.s" to TokenValue.Shadow(listOf(ShadowLayer(1.0, 2.0, 4.0, -1.0, "#00000040"))),
+                "gradient.g" to TokenValue.Gradient(
+                    listOf(
+                        GradientLayer(
+                            angle = 90.0,
+                            stops = listOf(GradientStop("#FF0000FF", 0.0), GradientStop("#0000FFFF", 1.0)),
+                        ),
+                    ),
+                ),
+                "gradient.bad" to TokenValue.Gradient(
+                    listOf(GradientLayer(0.0, listOf(GradientStop("#FF0000FF", 0.0), GradientStop("oops", 1.0)))),
+                ),
+            ),
+        ).prepareComposeTheme()
+
+        assertEquals(
+            PreparedShadowLayer(Color(0x40000000), 1.dp, 2.dp, 4.dp, (-1).dp),
+            prepared.shadow("shadow.s")?.single(),
+        )
+        assertEquals(
+            Gradients.Linear(listOf(Color(0xFFFF0000), Color(0xFF0000FF)), listOf(0f, 1f), 90f),
+            prepared.gradient("gradient.g"),
+        )
+        assertNull(prepared.gradient("gradient.bad"))
     }
 
     private fun payload(theme: Map<String, TokenValue>) = PreviewPayload(
