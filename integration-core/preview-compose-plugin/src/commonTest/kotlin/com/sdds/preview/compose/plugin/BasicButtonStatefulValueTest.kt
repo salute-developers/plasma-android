@@ -39,6 +39,9 @@ class BasicButtonStatefulValueTest {
         val value = ResolvedProperty("base", listOf(ResolvedState(setOf("Pressed"), "x"))).toStateful()
 
         assertEquals("base", value.getValue(setOf(InteractiveState.Pressed)))
-        assertEquals(emptySet(), BasicButtonPreviewStyleFactory.supportedStates - setOf("pressed", "hovered", "focused", "activated", "selected"))
+        assertEquals(
+            setOf("pressed", "hovered", "focused", "activated", "selected"),
+            BasicButtonPreviewStyleFactory.supportedStates,
+        )
     }
 }

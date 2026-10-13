@@ -22,7 +22,8 @@ class ComposePreviewRuntimeTest {
 
     private val component = object : ComposePreviewComponent {
         override val componentId: String = "button"
-        override val description: PreviewComponentDescription = PreviewComponentDescription(componentId = "button", storyId = "button", properties = emptyList())
+        override val description: PreviewComponentDescription =
+            PreviewComponentDescription(componentId = "button", storyId = "button", properties = emptyList())
         override fun prepare(payload: PreviewPayload, theme: PreparedComposeTheme): PreparedComposePreview {
             prepared++
             return object : PreparedComposePreview {
