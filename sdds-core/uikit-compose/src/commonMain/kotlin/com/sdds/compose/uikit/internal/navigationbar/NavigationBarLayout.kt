@@ -154,7 +154,7 @@ private class NavBarMeasurePolicy(
         ).coerceAtLeast(minContentHeight.roundToPx())
         onMainContentSizeChanged.invoke(contentHeight + paddingTop + paddingBottom)
         val offset = (offsetPx?.invoke()?.roundToInt() ?: 0)
-        val height = contentHeight + offset + paddingTop + paddingBottom
+        val height = (contentHeight + offset + paddingTop + paddingBottom).coerceAtLeast(0)
         val width = constraints.constrainWidth(
             startContent.widthOrZero() +
                 centerContent.widthOrZero() +

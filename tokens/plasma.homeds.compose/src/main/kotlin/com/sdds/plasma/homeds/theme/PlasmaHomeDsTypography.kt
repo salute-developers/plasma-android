@@ -94,10 +94,6 @@ public data class PlasmaHomeDsTypography internal constructor(
      */
     public val displayMBold: TextStyle = TextStyle.Default,
     /**
-     * typography l display-m-medium
-     */
-    public val displayMMedium: TextStyle = TextStyle.Default,
-    /**
      * typography l display-m
      */
     public val displayMNormal: TextStyle = TextStyle.Default,
@@ -218,10 +214,6 @@ public data class PlasmaHomeDsTypography internal constructor(
      */
     public val textSNormal: TextStyle = TextStyle.Default,
     /**
-     * typography l text-xs-bold
-     */
-    public val textXsBold: TextStyle = TextStyle.Default,
-    /**
      * typography l text-xs-medium
      */
     public val textXsMedium: TextStyle = TextStyle.Default,
@@ -233,6 +225,14 @@ public data class PlasmaHomeDsTypography internal constructor(
      * typography l header-h2-medium
      */
     public val headerH2Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-xs-bold
+     */
+    public val textXsBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-m-medium
+     */
+    public val displayMMedium: TextStyle = TextStyle.Default,
 )
 
 internal val LocalPlasmaHomeDsTypography: ProvidableCompositionLocal<PlasmaHomeDsTypography> =
@@ -263,7 +263,6 @@ public fun smallPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     displayLMedium = TypographySmallTokens.DisplayLMedium,
     displayLNormal = TypographySmallTokens.DisplayLNormal,
     displayMBold = TypographySmallTokens.DisplayMBold,
-    displayMMedium = TypographySmallTokens.DisplayMMedium,
     displayMNormal = TypographySmallTokens.DisplayMNormal,
     displaySBold = TypographySmallTokens.DisplaySBold,
     displaySMedium = TypographySmallTokens.DisplaySMedium,
@@ -294,10 +293,11 @@ public fun smallPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     textSBold = TypographySmallTokens.TextSBold,
     textSMedium = TypographySmallTokens.TextSMedium,
     textSNormal = TypographySmallTokens.TextSNormal,
-    textXsBold = TypographySmallTokens.TextXsBold,
     textXsMedium = TypographySmallTokens.TextXsMedium,
     textXsNormal = TypographySmallTokens.TextXsNormal,
     headerH2Medium = TypographySmallTokens.HeaderH2Medium,
+    textXsBold = TypographySmallTokens.TextXsBold,
+    displayMMedium = TypographySmallTokens.DisplayMMedium,
 )
 
 /**
@@ -323,7 +323,6 @@ public fun mediumPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDs
     displayLMedium = TypographyMediumTokens.DisplayLMedium,
     displayLNormal = TypographyMediumTokens.DisplayLNormal,
     displayMBold = TypographyMediumTokens.DisplayMBold,
-    displayMMedium = TypographyMediumTokens.DisplayMMedium,
     displayMNormal = TypographyMediumTokens.DisplayMNormal,
     displaySBold = TypographyMediumTokens.DisplaySBold,
     displaySMedium = TypographyMediumTokens.DisplaySMedium,
@@ -354,10 +353,11 @@ public fun mediumPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDs
     textSBold = TypographyMediumTokens.TextSBold,
     textSMedium = TypographyMediumTokens.TextSMedium,
     textSNormal = TypographyMediumTokens.TextSNormal,
-    textXsBold = TypographyMediumTokens.TextXsBold,
     textXsMedium = TypographyMediumTokens.TextXsMedium,
     textXsNormal = TypographyMediumTokens.TextXsNormal,
     headerH2Medium = TypographyMediumTokens.HeaderH2Medium,
+    textXsBold = TypographyMediumTokens.TextXsBold,
+    displayMMedium = TypographyMediumTokens.DisplayMMedium,
 )
 
 /**
@@ -383,7 +383,6 @@ public fun largePlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     displayLMedium = TypographyLargeTokens.DisplayLMedium,
     displayLNormal = TypographyLargeTokens.DisplayLNormal,
     displayMBold = TypographyLargeTokens.DisplayMBold,
-    displayMMedium = TypographyLargeTokens.DisplayMMedium,
     displayMNormal = TypographyLargeTokens.DisplayMNormal,
     displaySBold = TypographyLargeTokens.DisplaySBold,
     displaySMedium = TypographyLargeTokens.DisplaySMedium,
@@ -414,10 +413,11 @@ public fun largePlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     textSBold = TypographyLargeTokens.TextSBold,
     textSMedium = TypographyLargeTokens.TextSMedium,
     textSNormal = TypographyLargeTokens.TextSNormal,
-    textXsBold = TypographyLargeTokens.TextXsBold,
     textXsMedium = TypographyLargeTokens.TextXsMedium,
     textXsNormal = TypographyLargeTokens.TextXsNormal,
     headerH2Medium = TypographyLargeTokens.HeaderH2Medium,
+    textXsBold = TypographyLargeTokens.TextXsBold,
+    displayMMedium = TypographyLargeTokens.DisplayMMedium,
 )
 
 /**
