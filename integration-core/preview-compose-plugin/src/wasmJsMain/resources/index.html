@@ -47,11 +47,18 @@
     }
 
     function submit(payload, destination) {
+        // Отказ, найденный до передачи в Kotlin, хост тоже должен получить сообщением, а не только значением promise.
+        const refuse = (result) => {
+            if (destination) {
+                destination.source.postMessage({type: "sdds.preview.result", result}, destination.origin);
+            }
+            return Promise.resolve(result);
+        };
         let normalized;
         try {
             normalized = normalizePayload(payload);
         } catch (error) {
-            return Promise.resolve({
+            return refuse({
                 type: "failure",
                 requestId: "",
                 code: "invalid_payload",
@@ -59,7 +66,7 @@
             });
         }
         if (typeof normalized.requestId !== "string" || normalized.requestId.length === 0) {
-            return Promise.resolve({
+            return refuse({
                 type: "failure",
                 requestId: "",
                 code: "invalid_payload",
@@ -69,7 +76,7 @@
         }
 
         if (crashMessage !== null) {
-            return Promise.resolve({
+            return refuse({
                 type: "failure",
                 requestId: normalized.requestId,
                 code: "plugin_crashed",

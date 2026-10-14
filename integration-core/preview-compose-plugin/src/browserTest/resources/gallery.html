@@ -130,6 +130,20 @@
             ]);
             return {componentId, result, propertyCount: Object.keys(payload.component.properties).length, styleCount: Object.keys(payload.styles || {}).length};
         };
+        // Сбой layout: размер, который `Constraints` не может представить, останавливает Compose. Плагин обязан
+        // ответить отказом `render_crashed`, а не успехом, и отказывать следующим payload кодом `plugin_crashed`.
+        window.__galleryCrash = async () => {
+            const withTimeout = (promise) => Promise.race([
+                promise,
+                new Promise((resolve) => setTimeout(() => resolve({type: "failure", code: "timeout", message: "Нет ответа за 20 секунд"}), 20000)),
+            ]);
+            const crashing = galleryPayload(fixture, metaByName.BasicButton, metaByName, "crash-" + (++renderCount));
+            crashing.theme["size.padding"] = {type: "dimension", value: 900000000};
+            const first = await withTimeout(send(crashing));
+            const next = galleryPayload(fixture, metaByName.BasicButton, metaByName, "after-crash-" + (++renderCount));
+            const second = await withTimeout(send(next));
+            return {first, second};
+        };
         document.getElementById("result").textContent = "ready";
         return manifest.components;
       } catch (error) {

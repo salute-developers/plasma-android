@@ -260,6 +260,15 @@ async function runGallery(socket, port) {
         cards.push({componentId, problems, statistics, opened: opened !== null, propertyCount: rendered.propertyCount, styleCount: rendered.styleCount});
     }
 
+    // Остановившийся Compose не должен сообщать успех (последний шаг: после него плагин мёртв).
+    const crash = await evaluateAsync(socket, "window.__galleryCrash()");
+    if (crash.first.type !== "failure" || crash.first.code !== "render_crashed") {
+        issues.push(`сбой layout: ожидался отказ render_crashed, получено ${crash.first.type}/${crash.first.code ?? ""} ${crash.first.message ?? ""}`);
+    }
+    if (crash.second.type !== "failure" || crash.second.code !== "plugin_crashed") {
+        issues.push(`после сбоя: ожидался отказ plugin_crashed, получено ${crash.second.type}/${crash.second.code ?? ""}`);
+    }
+
     // Одинаковые кадры у разных компонентов допустимы только из списка (общий стиль или общая история-триггер).
     const byContent = new Map();
     for (const [componentId, png] of shots) {
