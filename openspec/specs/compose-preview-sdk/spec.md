@@ -38,31 +38,18 @@ The SDK SHALL load required `.ttf` and `.otf` font assets as bytes, create Wasm/
 - **WHEN** a required font asset is absent, invalid or cannot be loaded and no explicit fallback is available
 - **THEN** the SDK MUST fail preparation and MUST NOT report the preview as successfully rendered.
 
-### Requirement: BasicButton style is built from effective component properties
-
-The `preview-compose-plugin` assembly SHALL provide a hand-written `BasicButtonPreviewStyleFactory` that builds a `ButtonStyle` through the UIKit builder API using effective properties from `PreviewComponent` and prepared theme lookups.
-
-#### Scenario: Button style uses literal and token values
-- **WHEN** Button properties contain supported literals and token references for colors, dimensions, typography, shape or primitive builder values
-- **THEN** the factory MUST apply resolved values to the matching root, `colors` or `dimensions` builder methods.
-
-#### Scenario: Button style uses interactive values
-- **WHEN** a supported Button property contains base value and `states` entries for interaction states
-- **THEN** the factory MUST build the corresponding UIKit stateful or interactive value using the resolution rule for state sets
-- **AND** entries whose `when` contains an unsupported state name MUST be skipped with an `unknown_state` warning.
-
-#### Scenario: Unknown Button property is ignored
-- **WHEN** the payload contains a property that is not supported by `BasicButtonPreviewStyleFactory`
-- **THEN** the factory MUST ignore it and allow the builder default to remain in effect.
-
 ### Requirement: Compose preview reuses sandbox stories
 
-The SDK SHALL select the existing story by `ComponentKey.value`, derive state from its default state and runtime example props, and invoke its existing Compose `Content` renderer with the prepared style.
+The SDK SHALL select the existing story by `ComponentKey.value` of any registered component, derive state from its default state and runtime example props, and invoke its existing Compose `Content` renderer with the prepared style.
 
-#### Scenario: BasicButton story is rendered
-- **WHEN** `PreviewComponent.id` equals the registered BasicButton `ComponentKey.value`
-- **THEN** the runtime MUST resolve the existing BasicButton story
-- **AND** it MUST render `Content` with the dynamically prepared `ButtonStyle` and state.
+#### Scenario: Registered story is rendered
+- **WHEN** `PreviewComponent.id` equals the `ComponentKey.value` of a story registered in the preview registry
+- **THEN** the runtime MUST resolve the existing story
+- **AND** it MUST render `Content` with the style built by the generated factory with the same `componentId` and the prepared state.
+
+#### Scenario: Unregistered component
+- **WHEN** `PreviewComponent.id` is not in the preview registry
+- **THEN** the runtime MUST return `PreviewResult.Failure` with code `component_not_found`.
 
 #### Scenario: Runtime props update default state
 - **WHEN** `PreviewExample.props` contains supported properties
