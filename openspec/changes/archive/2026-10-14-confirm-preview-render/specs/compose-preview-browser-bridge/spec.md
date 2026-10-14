@@ -36,3 +36,12 @@ Plugin SHALL отправлять `PreviewResult.Success` только посл�
 
 - **WHEN** хост отправляет payload в уже остановленный plugin
 - **THEN** plugin MUST ответить `failure` с кодом `plugin_crashed` без попытки рендера.
+
+### Requirement: Отказ до рендера доставляется хосту
+
+Browser bridge SHALL отправлять хосту сообщением `sdds.preview.result` любой `failure`, найденный до передачи payload в Kotlin (нечитаемый payload, отсутствующий `requestId`, остановленный plugin), а не только возвращать его значением вызова.
+
+#### Scenario: Нечитаемый payload
+
+- **WHEN** хост отправляет payload, который нельзя разобрать
+- **THEN** plugin MUST отправить хосту `failure` с кодом `invalid_payload`.

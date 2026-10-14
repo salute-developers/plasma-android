@@ -6,4 +6,6 @@
 - [x] 1.4 Browser-тест галереи кликает по каждому из 79 компонентов и проверяет, что плагин остался живым
   (нет ошибок страницы, повторный render успешен). Фильтр `GALLERY_ONLY` для отладки одного компонента.
 - [x] 1.5 `PreviewStateOwner`: локальный владелец состояния story в `TypedPreparedComposePreview.Content`.
-- [ ] 1.6 Browser-тест на сбой layout (payload с размером, который не представить в `Constraints`).
+- [x] 1.6 Browser-тест на сбой layout: payload с размером, который не представить в `Constraints`, даёт
+  `render_crashed`, следующий payload — `plugin_crashed`. Тест нашёл дефект: отказы, найденные в `index.html` до
+  передачи в Kotlin (в том числе `invalid_payload`), возвращались значением promise, но хосту сообщением не уходили.
