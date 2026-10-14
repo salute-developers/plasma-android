@@ -102,6 +102,10 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
                 PropertySpec.builder("componentName", String::class, KModifier.OVERRIDE)
                     .initializer("%S", component.componentName).build(),
             )
+            .addProperty(
+                PropertySpec.builder("styleQualifiedName", String::class, KModifier.OVERRIDE)
+                    .initializer("%S", component.styleQualifiedName).build(),
+            )
             .addProperty(statesProperty)
             .addProperty(
                 PropertySpec.builder(
@@ -109,6 +113,34 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
                     Set::class.asClassName().parameterizedBy(String::class.asTypeName()),
                     KModifier.OVERRIDE,
                 ).initializer("setOf(%L)", unsupportedLiteral(component)).build(),
+            )
+            .addProperty(
+                PropertySpec.builder(
+                    "gradientUnsupportedProperties",
+                    Set::class.asClassName().parameterizedBy(String::class.asTypeName()),
+                    KModifier.OVERRIDE,
+                ).initializer("setOf(%L)", gradientUnsupportedLiteral(component)).build(),
+            )
+            .addProperty(
+                PropertySpec.builder(
+                    "nestedStyleTypes",
+                    Map::class.asClassName().parameterizedBy(String::class.asTypeName(), String::class.asTypeName()),
+                    KModifier.OVERRIDE,
+                ).initializer("mapOf(%L)", nestedStyleTypesLiteral(component)).build(),
+            )
+            .addProperty(
+                PropertySpec.builder(
+                    "registry",
+                    Map::class.asClassName().parameterizedBy(
+                        String::class.asTypeName(),
+                        GENERATED_FACTORY.parameterizedBy(com.squareup.kotlinpoet.STAR),
+                    ),
+                    KModifier.OVERRIDE,
+                ).getter(
+                    FunSpec.getterBuilder()
+                        .addStatement("return %T.all", ClassName(GENERATED_PACKAGE, "GeneratedPreviewStyleFactories"))
+                        .build(),
+                ).build(),
             )
             .addFunction(build)
             .addFunction(create)
@@ -125,8 +157,24 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
             .build()
     }
 
+    /** Цветовые свойства без перегрузки с `Brush`: градиент для них пропускается. */
+    private fun gradientUnsupportedLiteral(component: ComponentMeta): String =
+        supportedParams(component).filter { it.type == "color" }.groupBy { it.id }
+            .filterValues { overloads -> overloads.selectBrushOverload() == null }
+            .keys.sorted().joinToString(", ") { "\"$it\"" }
+
+    /** Свойство-стиль и ожидаемый класс стиля: по ним SDK проверяет вложенные стили до отрисовки. */
+    private fun nestedStyleTypesLiteral(component: ComponentMeta): String =
+        supportedParams(component).filter { it.type == "component_style" }.groupBy { it.id }
+            .toSortedMap()
+            .map { (id, overloads) -> "\"$id\" to \"${overloads.selectOverload().paramQualifiedType}\"" }
+            .joinToString(", ")
+
+    private fun supportedParams(component: ComponentMeta) =
+        component.params.filter { it.deprecated == null && it.isSupportedValueType() }
+
     private fun unsupportedLiteral(component: ComponentMeta): String =
-        component.params.filter { it.type == "icon" || it.type == "shadow" }.map { it.id }.distinct()
+        supportedParams(component).filter { it.type == "icon" || it.type == "shadow" }.map { it.id }.distinct()
             .joinToString(", ") { "\"$it\"" }
 
     private fun stateMapProperty(component: ComponentMeta): PropertySpec {
@@ -245,6 +293,11 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         val solidCall = colorCall(solid)
         val gradientBranch = brush?.let { colorCall(it, gradient = true) }
         val body = CodeBlock.builder()
+        // Если для градиента и для сплошного цвета выбрана одна и та же перегрузка, ветвление не нужно.
+        if (gradientBranch != null && gradientBranch.toString() == solidCall.toString()) {
+            body.addNb("%L?.let { v -> %L }", property(solid), solidCall)
+            return body.build()
+        }
         body.addNb("%L?.let { v -> ", property(solid))
         if (gradientBranch != null) {
             body.addNb("if (v.%M(theme)) { %L } else { %L } }", sdk("hasGradient"), gradientBranch, solidCall)
@@ -327,7 +380,7 @@ private val EXPECTED_VALUE_TYPES: Map<String, Set<String>> = mapOf(
  * `AvatarGroup`
  * принимает объект `AvatarGroupDimensions`). Такие перегрузки не относятся к виду свойства и пропускаются.
  */
-private fun ParamMeta.isSupportedValueType(): Boolean {
+internal fun ParamMeta.isSupportedValueType(): Boolean {
     val expected = EXPECTED_VALUE_TYPES[type] ?: return true
     return valueQualifiedType.isBlank() || valueQualifiedType in expected
 }

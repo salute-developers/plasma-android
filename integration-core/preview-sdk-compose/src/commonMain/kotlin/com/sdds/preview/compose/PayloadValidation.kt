@@ -5,12 +5,14 @@ import com.sdds.preview.contract.PreviewPayload
 import com.sdds.preview.contract.PreviewPropertySource
 import com.sdds.preview.contract.PreviewPropertyValue
 import com.sdds.preview.contract.PreviewWarning
+import com.sdds.preview.contract.TokenValue
 
 private const val STYLES_PATH = "$.styles"
 
 /**
  * Проверяет ссылки на стили и ресурсы до построения стиля.
- * Бросает [PreviewPreparationException] с кодом `unknown_style_ref`, `style_ref_cycle` или `unknown_asset_ref`.
+ * Бросает [PreviewPreparationException] с кодом `unknown_style_ref`, `style_ref_cycle`, `unknown_asset_ref`
+ * или `invalid_state_entry` (запись состояния без имён).
  */
 public fun PreviewPayload.validateReferences() {
     val validator = ReferenceValidator(this)
@@ -26,7 +28,21 @@ private class ReferenceValidator(private val payload: PreviewPayload) {
 
     fun visit(properties: Map<String, PreviewPropertyValue>, path: String, stack: List<String>) {
         for ((name, value) in properties) {
+            checkStateEntries(value, "$path.$name")
             value.sources().forEach { checkSource(it, "$path.$name", stack) }
+        }
+    }
+
+    /** Запись состояния без имён (или с пустым именем) нарушает контракт и иначе перекрыла бы базовое значение. */
+    private fun checkStateEntries(value: PreviewPropertyValue, path: String) {
+        value.states.forEachIndexed { index, entry ->
+            if (entry.states.isEmpty() || entry.states.any { it.isBlank() }) {
+                throw PreviewPreparationException(
+                    "invalid_state_entry",
+                    "Запись states должна содержать непустые имена состояний",
+                    "$path.states[$index]",
+                )
+            }
         }
     }
 
@@ -63,6 +79,15 @@ private class ReferenceValidator(private val payload: PreviewPayload) {
     }
 }
 
+/** Правила предупреждений одного компонента: что он не умеет и что пропускает. */
+public class PreviewWarningRules(
+    /** Известно ли имя состояния. */ public val isStateSupported: (String) -> Boolean,
+    /** Свойства, которые компонент пропускает (иконки и тени). */
+    public val unsupportedProperties: Set<String> = emptySet(),
+    /** Цветовые свойства без перегрузки с `Brush`: градиент для них игнорируется. */
+    public val gradientUnsupportedProperties: Set<String> = emptySet(),
+)
+
 /**
  * Собирает предупреждения, не прерывающие render: состояния вне [supportedStates] и ресурсы SVG/PNG,
  * которые SDK пока не умеет превращать в painter.
@@ -70,28 +95,40 @@ private class ReferenceValidator(private val payload: PreviewPayload) {
 public fun PreviewPayload.collectWarnings(
     supportedStates: Set<String>,
     unsupportedProperties: Set<String> = emptySet(),
-): List<PreviewWarning> = collectWarnings({ it in supportedStates }, unsupportedProperties)
+): List<PreviewWarning> = collectWarnings(PreviewWarningRules({ it in supportedStates }, unsupportedProperties))
 
-/** То же, что [collectWarnings] по набору, но поддержка состояния определяется предикатом [isStateSupported]. */
+/**
+ * Собирает предупреждения по [root] для свойств компонента. Свойства вложенных стилей проверяются по правилам
+ * компонента, которому принадлежит стиль ([nested] по `componentId`); `null` означает, что правил нет и свойства
+ * не проверяются.
+ * По умолчанию вложенные стили проверяются теми же правилами, что и корневой компонент.
+ */
 public fun PreviewPayload.collectWarnings(
-    isStateSupported: (String) -> Boolean,
-    unsupportedProperties: Set<String> = emptySet(),
+    root: PreviewWarningRules,
+    nested: (String) -> PreviewWarningRules? = { root },
 ): List<PreviewWarning> {
     val warnings = mutableListOf<PreviewWarning>()
     val imageAssets = assets.filter { it.type == PreviewAssetType.SVG || it.type == PreviewAssetType.PNG }
         .mapTo(HashSet()) { it.id }
 
-    fun collect(properties: Map<String, PreviewPropertyValue>, path: String) {
+    fun collect(properties: Map<String, PreviewPropertyValue>, path: String, rules: PreviewWarningRules) {
         for ((name, value) in properties) {
-            if (name in unsupportedProperties) {
+            if (name in rules.unsupportedProperties) {
                 warnings += PreviewWarning(
-                    code = "unsupported_property",
-                    message = "Свойство $name не поддержано и пропущено",
-                    path = "$path.$name",
+                    "unsupported_property",
+                    "Свойство $name не поддержано и пропущено",
+                    "$path.$name",
+                )
+            }
+            if (name in rules.gradientUnsupportedProperties && value.usesGradient(theme)) {
+                warnings += PreviewWarning(
+                    "unsupported_property",
+                    "Свойство $name не принимает градиент, значение пропущено",
+                    "$path.$name",
                 )
             }
             value.states.forEachIndexed { index, entry ->
-                entry.states.filterNot(isStateSupported).forEach { unknown ->
+                entry.states.filterNot(rules.isStateSupported).forEach { unknown ->
                     warnings += PreviewWarning(
                         code = "unknown_state",
                         message = "Состояние $unknown не поддерживается и запись пропущена",
@@ -110,9 +147,14 @@ public fun PreviewPayload.collectWarnings(
                 }
         }
     }
-    collect(component.properties, "$.component.properties")
-    styles.forEach { (id, style) -> collect(style.properties, "$STYLES_PATH.$id.properties") }
+    collect(component.properties, "$.component.properties", root)
+    styles.forEach { (id, style) ->
+        nested(style.component)?.let { collect(style.properties, "$STYLES_PATH.$id.properties", it) }
+    }
     return warnings
 }
+
+private fun PreviewPropertyValue.usesGradient(theme: Map<String, TokenValue>): Boolean =
+    sources().any { it is PreviewPropertySource.TokenReference && theme[it.tokenId] is TokenValue.Gradient }
 
 internal fun PreviewPropertyValue.sources(): List<PreviewPropertySource> = listOf(base) + states.map { it.source }

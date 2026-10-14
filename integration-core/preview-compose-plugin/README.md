@@ -1,7 +1,8 @@
 # Compose Preview Plugin
 
 Self-contained Wasm-плагин для отображения SDDS Compose-компонентов из полного
-`PreviewPayload`. Текущая версия поддерживает `BasicButton`.
+`PreviewPayload`. Плагин поддерживает все компоненты `uikit-compose` (79 компонентов api-меты); список лежит
+в `components` manifest.
 
 ## Сборка
 
@@ -20,9 +21,11 @@ integration-core/preview-compose-plugin/build/distributions/preview-compose-plug
 Архив содержит:
 
 - `index.html` — browser entrypoint;
-- `preview-plugin.json` — manifest;
+- `preview-plugin.json` — manifest (собирается при сборке, см. «Как добавить компонент»);
 - `preview-compose-plugin.js` — загрузчик приложения;
-- Kotlin/Wasm и Skiko Wasm binaries.
+- Kotlin/Wasm и Skiko Wasm binaries;
+- `composeResources/` — Compose-ресурсы историй (иллюстрации и т.п.); без них истории, использующие ресурсы,
+  падают при отрисовке.
 
 ## Размещение
 
@@ -33,6 +36,7 @@ https://preview.example.com/compose/
 ├── index.html
 ├── preview-plugin.json
 ├── preview-compose-plugin.js
+├── composeResources/
 └── *.wasm
 ```
 
@@ -48,6 +52,22 @@ python3 -m http.server 8080 --directory /tmp/preview-compose-plugin
 ```
 
 После этого плагин доступен по адресу `http://localhost:8080/`.
+
+## Как добавить компонент
+
+Компонент попадает в preview без кода в плагине: достаточно истории и записи в api-мете.
+
+1. Компонент должен быть в `uikit-compose-api-meta.json` (его строит `uikit-compose`). Для каждой записи меты при сборке
+   плагина генерируется фабрика стиля (`:integration-core:preview-generator`, задача `generatePreviewFactories`):
+   метод билдера выбирается по тем же правилам, что и в Theme Builder, вызовы порождаются как обычный код.
+2. В `uikit-compose-fixtures` для компонента должна быть история `@Story(componentId = "<componentName из меты>")`.
+   `componentId` совпадает с именем компонента в мете и может отличаться от `ComponentKey.value`
+   (`CheckBox` и `Checkbox`). История без `componentId` остаётся в демо, но в preview не участвует.
+3. `previewComponentsFrom` собирает компоненты плагина из записей `StoryRegistry.previewEntries()` и сгенерированных
+   фабрик; `components` в `preview-plugin.json` генерируется из списка фабрик (шаблон в `src/manifest`).
+
+Проверки: `StyleFactoryCoverageTest` сверяет мету, фабрики и истории (исключения перечислены в тесте с причиной),
+браузерный тест рисует каждый компонент (галерея) и сверяет manifest с описаниями компонентов.
 
 ## Передача payload
 
@@ -199,6 +219,7 @@ const manifest = await fetch(
 ```
 
 Текущий идентификатор plugin: `sdds.compose.preview`, версия Preview Protocol: `1`.
+Список `components` формируется при сборке из сгенерированных фабрик, вручную его править не нужно.
 `payloadBridge` объявляет direct render/describe API и transport message types:
 `sdds.preview.payload`, `sdds.preview.ready`, `sdds.preview.result`,
 `sdds.preview.describe` и `sdds.preview.description`.
@@ -214,12 +235,20 @@ Focused JVM tests, artifact и browser lifecycle запускаются из к�
   :preview-compose-plugin:previewPluginBrowserTest
 ```
 
-Browser test использует headless Chrome и настоящий OTF asset. Путь к Chrome можно переопределить
-через `-PpreviewChromePath=/path/to/chrome`.
+Browser test использует headless Chrome (с программным WebGL) и настоящий OTF asset. Путь к Chrome можно
+переопределить через `-PpreviewChromePath=/path/to/chrome`.
+
+Кроме функциональных проверок тест запускает галерею: каждый компонент из manifest отрисовывается с пробными
+значениями свойств из api-меты, проверяются успех, отсутствие предупреждений и непустой кадр, ошибки страницы
+и застывший рендер. Скриншоты и страница `index.html` для просмотра лежат в
+`integration-core/preview-compose-plugin/build/browser-test/gallery/`. Тест падает со списком всех проблемных компонентов.
 
 ## Ограничения
 
-- Реализован только `BasicButton`.
+- Иконки (`ImageSource`) и тени (`ShadowAppearance`) в preview пока не поддерживаются: такие свойства
+  пропускаются с предупреждением `unsupported_property`.
+- Исключение при композиции компонента (например, нехватка ресурса) останавливает рендер до перезагрузки
+  страницы: результат `success` отправляется после применения состояния, до отрисовки.
 - Каждый update передаёт полный payload.
 - WOFF/WOFF2 и variable-font axes не поддерживаются.
 - Проверка доверенного origin, подпись artifact и publication pipeline пока не реализованы.

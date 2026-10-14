@@ -30,10 +30,12 @@ tasks.register<JavaExec>("runGenerator") {
 }
 
 // Theme Builder (зависимость дифференциального теста) собран под JVM 17.
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+// Theme Builder (зависимость только дифференциального теста) собран под JVM 17, а конвенции репозитория задают 11:
+// поднимаем цель только для тестовых задач.
+tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>("compileTestKotlin") {
     compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
 }
-tasks.withType<JavaCompile>().configureEach {
+tasks.named<JavaCompile>("compileTestJava") {
     sourceCompatibility = "17"
     targetCompatibility = "17"
 }

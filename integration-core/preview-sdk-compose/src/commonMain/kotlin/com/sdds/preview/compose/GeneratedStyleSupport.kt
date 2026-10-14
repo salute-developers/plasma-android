@@ -145,9 +145,68 @@ public interface GeneratedStyleFactory<S : Style> : ComposePreviewStyleFactory<S
 
     override fun supportsState(name: String): Boolean = states.knows(name)
 
-    /** Идентификаторы свойств, которые фабрика пропускает (иконки и тени): для предупреждения `unsupported_property`. */
+    /** Полное имя класса стиля, который строит фабрика. */
+    public val styleQualifiedName: String
+
+    /** Свойства, которые фабрика пропускает (иконки и тени): для предупреждения `unsupported_property`. */
     public val unsupportedProperties: Set<String>
         get() = emptySet()
+
+    /** Цветовые свойства без перегрузки с `Brush`: градиент для них игнорируется с предупреждением. */
+    public val gradientUnsupportedProperties: Set<String>
+        get() = emptySet()
+
+    /** Ожидаемый класс стиля для свойств-стилей: идентификатор свойства на полное имя класса стиля. */
+    public val nestedStyleTypes: Map<String, String>
+        get() = emptyMap()
+
+    /** Реестр фабрик по `componentId` для построения и проверки вложенных стилей. */
+    public val registry: Map<String, GeneratedStyleFactory<*>>
+
+    /** Правила предупреждений этого компонента. */
+    public val warningRules: PreviewWarningRules
+        get() = PreviewWarningRules(::supportsState, unsupportedProperties, gradientUnsupportedProperties)
+
+    /**
+     * Проверяет, что стили, на которые ссылаются свойства, принадлежат компонентам с ожидаемым классом стиля.
+     * Бросает [PreviewPreparationException] с кодом `style_component_not_found` или `style_type_mismatch`.
+     * Ссылки на отсутствующие стили и циклы должна отсекать [validateReferences].
+     */
+    public fun validateNestedStyles(
+        payload: PreviewPayload,
+        properties: Map<String, PreviewPropertyValue>,
+        path: String,
+    ) {
+        for ((name, value) in properties) {
+            validateNestedProperty(payload, name, value, path)
+        }
+    }
+
+    private fun validateNestedProperty(
+        payload: PreviewPayload,
+        name: String,
+        value: PreviewPropertyValue,
+        path: String,
+    ) {
+        val expected = nestedStyleTypes[name]
+        val reference = value.base as? PreviewPropertySource.StyleReference
+        val style = reference?.let { payload.styles[it.styleId] }
+        if (expected == null || reference == null || style == null) return
+        val factory = registry[style.component] ?: throw PreviewPreparationException(
+            "style_component_not_found",
+            "Для стиля ${reference.styleId} нет фабрики компонента ${style.component}",
+            "$path.$name",
+        )
+        if (factory.styleQualifiedName != expected) {
+            throw PreviewPreparationException(
+                "style_type_mismatch",
+                "Свойство $name ожидает стиль $expected, а стиль ${reference.styleId} построит " +
+                    "${style.component} (${factory.styleQualifiedName})",
+                "$path.$name",
+            )
+        }
+        factory.validateNestedStyles(payload, style.properties, "\$.styles.${reference.styleId}.properties")
+    }
 
     /** Строит стиль из [properties]; вложенные стили берутся из [context]. */
     @Composable

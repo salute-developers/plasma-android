@@ -2,6 +2,10 @@ package com.sdds.preview.compose
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.style.Style
@@ -14,6 +18,7 @@ import com.sdds.preview.contract.PreviewWarning
 import com.sdds.preview.contract.validate
 import com.sdds.preview.contract.validateVersion
 import com.sdds.sandbox.Property
+import com.sdds.sandbox.StoryEntry
 import com.sdds.sandbox.UiState
 import kotlinx.serialization.decodeFromString
 
@@ -42,6 +47,9 @@ public interface ComposePreviewComponent {
 
     /** Описание example properties зарегистрированной story. */
     public val description: PreviewComponentDescription
+
+    /** Проверяет payload, специфичный для компонента (например, типы вложенных стилей), до подготовки темы. */
+    public fun validate(payload: PreviewPayload) {}
 
     /** Подготавливает component-specific state после подготовки общей темы. */
     public fun prepare(payload: PreviewPayload, theme: PreparedComposeTheme): PreparedComposePreview
@@ -72,6 +80,27 @@ public fun previewComponentOf(
     componentId,
 )
 
+/**
+ * Собирает компоненты preview из записей реестра историй и сгенерированных фабрик по `componentId`.
+ *
+ * Запись без фабрики пропускается: такой компонент не регистрируется, а payload для него получит `component_not_found`.
+ * Если класс стиля истории не совпал с классом стиля фабрики или не определён, бросается [IllegalStateException]:
+ * это ошибка сборки плагина, а не пользовательского payload.
+ */
+public fun previewComponentsFrom(
+    entries: List<StoryEntry>,
+    factories: Map<String, GeneratedStyleFactory<*>>,
+): List<ComposePreviewComponent> = entries.mapNotNull { entry ->
+    val factory = factories[entry.componentId] ?: return@mapNotNull null
+    check(entry.styleQualifiedName == factory.styleQualifiedName) {
+        "История ${entry.componentId} строит стиль ${entry.styleQualifiedName}, а фабрика ${factory.styleQualifiedName}"
+    }
+    val story = checkNotNull(entry.story as? ComposeBaseStory<*, *>) {
+        "История ${entry.componentId} не является ComposeBaseStory"
+    }
+    previewComponentOf(entry.componentId, story, factory)
+}
+
 /** Общий runtime: JSON decode, theme preparation и выбор binding по component ID. */
 public class ComposePreviewRuntime(
     private val assetResolver: PreviewAssetResolver,
@@ -88,6 +117,7 @@ public class ComposePreviewRuntime(
             "Preview component ${payload.component.id} не зарегистрирован"
         }
         payload.validateReferences()
+        component.validate(payload)
         val theme = payload.prepareComposeTheme(assetResolver, fontFamilyFactory)
         return component.prepare(payload, theme)
     }
@@ -138,6 +168,11 @@ private class TypedComposePreviewComponent<State : UiState, S : Style>(
         }
     }
 
+    override fun validate(payload: PreviewPayload) {
+        (styleFactory as? GeneratedStyleFactory<*>)
+            ?.validateNestedStyles(payload, payload.component.properties, "$.component.properties")
+    }
+
     override fun prepare(payload: PreviewPayload, theme: PreparedComposeTheme): PreparedComposePreview {
         val state = payload.example.applyToState(
             defaultState = story.defaultState,
@@ -165,17 +200,23 @@ private class TypedPreparedComposePreview<State : UiState, S : Style>(
     private val state: State,
 ) : PreparedComposePreview {
     override val requestId: String = payload.requestId
-    override val warnings: List<PreviewWarning> = payload.collectWarnings(
-        styleFactory::supportsState,
-        (styleFactory as? GeneratedStyleFactory<*>)?.unsupportedProperties.orEmpty(),
-    )
+    override val warnings: List<PreviewWarning> = (styleFactory as? GeneratedStyleFactory<*>)
+        ?.let { factory -> payload.collectWarnings(factory.warningRules) { id -> factory.registry[id]?.warningRules } }
+        ?: payload.collectWarnings(PreviewWarningRules(styleFactory::supportsState))
     override val surfaceBackground: Color? = payload.surface?.background?.toComposeColorOrNull()
 
     @Composable
     override fun Content() {
         val style = styleFactory.create(payload, theme)
+        // Story меняют состояние на нажатиях через StateOwner; в preview его даёт локальный владелец.
+        val owner = remember(payload.requestId) { PreviewStateOwner(state) }
+        DisposableEffect(owner) {
+            story.attachStateOwner(owner)
+            onDispose { story.detachStateOwner(owner) }
+        }
+        val current by owner.uiState.collectAsState()
         Box {
-            with(story) { Content(style, state) }
+            with(story) { Content(style, current) }
         }
     }
 }

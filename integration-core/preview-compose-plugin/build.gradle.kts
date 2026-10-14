@@ -14,10 +14,41 @@ val cleanPreviewPluginWebpackOutput by tasks.registering(Delete::class) {
     delete(layout.buildDirectory.dir("kotlin-webpack/wasmJs/productionExecutable"))
 }
 
+val generatedManifestDir = layout.buildDirectory.dir("generated/preview-manifest")
+val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factories")
+
+// Список `components` manifest берётся из генератора фабрик, а не пишется вручную; тест покрытия и браузерный тест
+// сверяют его с реестром историй плагина.
+val generatePreviewManifest by tasks.registering {
+    group = "build"
+    description = "Собирает preview-plugin.json из шаблона и списка компонентов сгенерированных фабрик."
+    dependsOn("generatePreviewFactories")
+    val template = layout.projectDirectory.file("src/manifest/preview-plugin.template.json")
+    val components = generatedFactoriesDir.map { it.file("components.txt") }
+    val output = generatedManifestDir
+    inputs.file(template)
+    inputs.file(components)
+    outputs.dir(output)
+    doLast {
+        @Suppress("UNCHECKED_CAST")
+        val manifest = groovy.json.JsonSlurper().parse(template.asFile) as MutableMap<String, Any?>
+        manifest["components"] = components.get().asFile.readLines().filter { it.isNotBlank() }
+        val directory = output.get().asFile
+        directory.mkdirs()
+        File(directory, "preview-plugin.json")
+            .writeText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(manifest)) + "\n")
+    }
+}
+
 val previewPluginArtifact by tasks.registering(Zip::class) {
     group = "distribution"
     description = "Собирает self-contained Compose preview plugin artifact."
-    dependsOn("wasmJsBrowserProductionWebpack")
+    dependsOn("wasmJsBrowserProductionWebpack", "wasmJsProcessResources", generatePreviewManifest)
+    from(generatedManifestDir)
+    // Compose-ресурсы историй (иллюстрации, шрифты) загружаются во время работы относительно страницы плагина.
+    from(layout.buildDirectory.dir("processedResources/wasmJs/main")) {
+        include("composeResources/**")
+    }
     from(layout.buildDirectory.dir("kotlin-webpack/wasmJs/productionExecutable")) {
         include("*.js", "*.wasm")
     }
@@ -32,10 +63,20 @@ val unpackPreviewPluginArtifact by tasks.registering(Sync::class) {
     into(layout.buildDirectory.dir("browser-test/artifact"))
 }
 
+// Api-мета для галереи браузерного теста: тот же ресурс JVM-артефакта uikit-compose, что и при генерации фабрик.
+val extractApiMetaForBrowserTest by tasks.registering(Copy::class) {
+    from(provider { zipTree(previewApiMeta.files.single { it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.") }) }) {
+        include("sdds/api/uikit-compose-api-meta.json")
+        eachFile { path = "api-meta.json" }
+        includeEmptyDirs = false
+    }
+    into(layout.buildDirectory.dir("browser-test/api-meta"))
+}
+
 val previewPluginBrowserTest by tasks.registering(Exec::class) {
     group = "verification"
     description = "Проверяет production Compose preview artifact в headless Chrome."
-    dependsOn(unpackPreviewPluginArtifact)
+    dependsOn(unpackPreviewPluginArtifact, extractApiMetaForBrowserTest)
     val chromePath = providers.gradleProperty("previewChromePath")
         .orElse("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
     commandLine(
@@ -45,6 +86,8 @@ val previewPluginBrowserTest by tasks.registering(Exec::class) {
         file("src/browserTest/resources").absolutePath,
         file("../sandbox-compose/src/commonMain/composeResources/font/s_b_sans_text_regular.otf").absolutePath,
         chromePath.get(),
+        layout.buildDirectory.dir("browser-test/gallery").get().asFile.absolutePath,
+        layout.buildDirectory.dir("browser-test/api-meta").get().asFile.absolutePath,
     )
 }
 
@@ -68,7 +111,8 @@ dependencies {
     previewGenerator(project(":preview-generator"))
 }
 
-val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factories")
+private val JVM_FOR_GENERATOR = 17
+
 val generatePreviewFactories by tasks.registering(JavaExec::class) {
     group = "build"
     description = "Генерирует фабрики стилей Compose preview по uikit-compose-api-meta.json."
@@ -78,6 +122,9 @@ val generatePreviewFactories by tasks.registering(JavaExec::class) {
     inputs.files(previewGenerator)
     outputs.dir(generatedFactoriesDir)
     val components = providers.gradleProperty("previewComponents")
+    inputs.property("previewComponents", components.orElse(""))
+    // Генератор и Theme Builder собраны под JVM 17, поэтому запускаем его на нём независимо от JVM самого Gradle.
+    javaLauncher.set(javaToolchains.launcherFor { languageVersion.set(JavaLanguageVersion.of(JVM_FOR_GENERATOR)) })
     doFirst {
         val metaJar = previewApiMeta.files.single {
             it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.")

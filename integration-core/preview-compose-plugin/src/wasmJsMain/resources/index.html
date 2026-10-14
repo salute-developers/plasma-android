@@ -22,6 +22,17 @@
     const pendingDescriptions = new Map();
     let describeSequence = 0;
     let runtimeReady = false;
+    // Необработанная ошибка в кадре останавливает Compose: дальше плагин не рисует, пока iframe не перезагружен.
+    let crashMessage = null;
+    // Исключение в кадре Compose не всегда доходит до `error`: рантайм пишет его в console.error. Последняя такая
+    // запись объясняет, почему запрос остался без ответа.
+    let lastConsoleError = null;
+    const originalConsoleError = console.error.bind(console);
+    console.error = function (...args) {
+        lastConsoleError = args.map((arg) => (arg && arg.message) || String(arg)).join(" ");
+        originalConsoleError(...args);
+    };
+    const CRASH_CHECK_DELAY_MS = 3000;
 
     async function pluginApi() {
         return await globalThis["preview-compose-plugin"];
@@ -56,6 +67,23 @@
                 path: "$.requestId",
             });
         }
+
+        if (crashMessage !== null) {
+            return Promise.resolve({
+                type: "failure",
+                requestId: normalized.requestId,
+                code: "plugin_crashed",
+                message: crashMessage,
+            });
+        }
+
+        lastConsoleError = null;
+        // Запрос без ответа и с ошибкой в консоли после отправки считается сбоем: ждать таймаута хоста незачем.
+        setTimeout(function () {
+            if (pendingRequests.has(normalized.requestId) && lastConsoleError !== null) {
+                reportCrash(new Error(lastConsoleError));
+            }
+        }, CRASH_CHECK_DELAY_MS);
 
         return new Promise(async (resolve) => {
             pendingRequests.set(normalized.requestId, {resolve, destination});
@@ -126,6 +154,29 @@
             );
         }
     };
+
+    function reportCrash(reason) {
+        if (crashMessage !== null) return;
+        crashMessage = "Compose preview stopped: " + (reason && reason.message ? reason.message : String(reason));
+        for (const [requestId, pending] of [...pendingRequests]) {
+            pendingRequests.delete(requestId);
+            const result = {type: "failure", requestId, code: "render_crashed", message: crashMessage};
+            pending.resolve(result);
+            if (pending.destination) {
+                pending.destination.source.postMessage(
+                    {type: "sdds.preview.result", result},
+                    pending.destination.origin,
+                );
+            }
+        }
+    }
+
+    globalThis.addEventListener("error", function (event) {
+        reportCrash(event.error || event.message);
+    });
+    globalThis.addEventListener("unhandledrejection", function (event) {
+        reportCrash(event.reason);
+    });
 
     globalThis.__sddsPreviewReady = function (protocolVersion) {
         if (runtimeReady) return;

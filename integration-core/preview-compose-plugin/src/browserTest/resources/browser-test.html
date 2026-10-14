@@ -73,6 +73,20 @@
         const messageDescription = await describe("BasicButton", "describe-message");
         assert(messageDescription.type === "success", "message description success");
         assert(messageDescription.requestId === "describe-message", "description correlation");
+        const manifest = await fetch("/preview-plugin.json").then((response) => response.json());
+        assert(Array.isArray(manifest.components) && manifest.components.length > 0, "manifest lists components");
+        assert(manifest.components.includes("BasicButton"), "manifest lists BasicButton");
+        assert(!manifest.components.includes("Text"), "manifest does not list stories without preview");
+        for (const componentId of manifest.components) {
+            const result = await describe(componentId, "describe-manifest-" + componentId);
+            assert(result.type === "success", "manifest component " + componentId + ": " + JSON.stringify(result));
+            assert(result.description.componentId === componentId, "description id of " + componentId);
+        }
+        const unlisted = await describe("Text", "describe-unlisted");
+        assert(
+            unlisted.type === "failure" && unlisted.code === "unknown_component",
+            "component outside the manifest is unknown",
+        );
         const unknownDescription = await describe("Missing", "describe-missing");
         assert(
             unknownDescription.type === "failure" && unknownDescription.code === "unknown_component",

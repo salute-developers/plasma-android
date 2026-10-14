@@ -2,6 +2,9 @@ package com.sdds.preview.generator
 
 import java.io.File
 
+/** Имя файла со списком компонентов рядом со сгенерированными исходниками. */
+internal const val COMPONENTS_FILE = "components.txt"
+
 /**
  * Точка входа генератора фабрик стилей preview.
  *
@@ -20,5 +23,8 @@ public fun main(args: Array<String>) {
     val output = File(args[1])
     output.deleteRecursively()
     output.mkdirs()
-    FactoryGenerator(selected.sortedBy { it.componentName }).generate(output)
+    val sorted = selected.sortedBy { it.componentName }
+    FactoryGenerator(sorted).generate(output)
+    // Список компонентов для manifest плагина: те же имена, что и в реестре сгенерированных фабрик.
+    File(output, COMPONENTS_FILE).writeText(sorted.joinToString("\n", postfix = "\n") { it.componentName })
 }

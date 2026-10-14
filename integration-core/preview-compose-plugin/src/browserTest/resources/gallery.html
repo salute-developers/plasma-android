@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<body style="margin:0;background:rgb(231, 44, 91)">
+<iframe id="plugin" src="/index.html" style="width:480px;height:320px;border:0"></iframe>
+<pre id="result">running</pre>
+<script>
+    const iframe = document.getElementById("plugin");
+    const waiters = new Map();
+    let readyResolve;
+    const ready = new Promise((resolve) => readyResolve = resolve);
+
+    addEventListener("message", (event) => {
+        if (event.source !== iframe.contentWindow) return;
+        if (event.data?.type === "sdds.preview.ready") {
+            readyResolve(event.data);
+        } else if (event.data?.type === "sdds.preview.result") {
+            waiters.get(event.data.result.requestId)?.(event.data.result);
+            waiters.delete(event.data.result.requestId);
+        }
+    });
+
+    function send(payload) {
+        return new Promise((resolve) => {
+            waiters.set(payload.requestId, resolve);
+            iframe.contentWindow.postMessage({type: "sdds.preview.payload", payload}, location.origin);
+        });
+    }
+
+    const DIMENSION_VALUE_TYPES = ["androidx.compose.ui.unit.Dp"];
+    const TYPOGRAPHY_VALUE_TYPES = ["androidx.compose.ui.text.TextStyle"];
+    const SHAPE_VALUE_TYPES = ["androidx.compose.foundation.shape.CornerBasedShape", "androidx.compose.ui.graphics.Shape"];
+    const MAX_DEPTH = 3;
+    const TEXT_COLOUR = /text|label|content|icon|value|caption|title|description|helper|counter|placeholder|hint|prefix|suffix/i;
+
+    /** Уведомления по умолчанию скрываются сами; для снимка автоскрытие выключается. */
+    const EXAMPLE_PROPS = {Toast: {autoDismiss: false}, Notification: {autoDismiss: false}};
+
+    const tok = (tokenId, extra) => ({type: "tokenRef", tokenId, ...(extra || {})});
+
+    /** Пробное значение для каждого свойства меты; иконки и тени пропускаются (их плагин не поддерживает). */
+    function sampleProperties(component, metaByName, styles, trail) {
+        const properties = {};
+        const groups = new Map();
+        component.params.filter((param) => !param.deprecated).forEach((param) => {
+            groups.set(param.id, [...(groups.get(param.id) || []), param]);
+        });
+        const customState = component.stateEnum?.values?.[0];
+        for (const [id, overloads] of groups) {
+            const param = overloads[0];
+            const accepted = (types) => overloads.some((it) => !it.valueQualifiedType || types.includes(it.valueQualifiedType));
+            switch (param.type) {
+                case "color": {
+                    const base = TEXT_COLOUR.test(id) ? "color.content" : "color.background";
+                    const states = [{when: ["pressed"], source: tok("color.background.pressed")}];
+                    if (customState) {
+                        states.push({when: [(customState.configName || customState.name).toLowerCase()], source: tok("color.background.pressed")});
+                    }
+                    properties[id] = {base: tok(base), states};
+                    break;
+                }
+                case "dimension":
+                    if (accepted(DIMENSION_VALUE_TYPES)) properties[id] = {base: tok("size.padding")};
+                    break;
+                case "typography":
+                    if (accepted(TYPOGRAPHY_VALUE_TYPES)) properties[id] = {base: tok("typography.button")};
+                    break;
+                case "shape":
+                    if (accepted(SHAPE_VALUE_TYPES)) properties[id] = {base: tok("shape.button")};
+                    break;
+                case "float":
+                    properties[id] = {base: {type: "literal", value: 0.5}};
+                    break;
+                case "boolean":
+                    properties[id] = {base: {type: "literal", value: true}};
+                    break;
+                case "integer":
+                    properties[id] = {base: {type: "literal", value: 1}};
+                    break;
+                case "value": {
+                    const first = param.values?.[0];
+                    if (first) properties[id] = {base: {type: "literal", value: first.configName || first.name}};
+                    break;
+                }
+                case "component_style": {
+                    const target = Object.values(metaByName).find((it) => it.styleQualifiedName === param.paramQualifiedType);
+                    if (!target || trail.length >= MAX_DEPTH || trail.includes(target.componentName)) break;
+                    const styleId = `${target.componentName}-${Object.keys(styles).length}`;
+                    styles[styleId] = {component: target.componentName, properties: {}};
+                    styles[styleId].properties = sampleProperties(target, metaByName, styles, [...trail, target.componentName]);
+                    properties[id] = {base: {type: "styleRef", styleId}};
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+        return properties;
+    }
+
+    function galleryPayload(fixture, component, metaByName, requestId) {
+        const payload = structuredClone(fixture);
+        payload.requestId = requestId;
+        payload.theme["color.content"] = {type: "color", value: "#202124FF"};
+        const styles = {};
+        payload.component = {id: component.componentName, variations: {}, properties: sampleProperties(component, metaByName, styles, [component.componentName])};
+        if (Object.keys(styles).length) payload.styles = styles;
+        payload.example = {id: component.componentName, props: EXAMPLE_PROPS[component.componentName] || {}};
+        return payload;
+    }
+
+    window.__galleryReady = (async () => {
+      try {
+        await ready;
+        const [manifest, meta, fixtureText] = await Promise.all([
+            fetch("/preview-plugin.json").then((response) => response.json()),
+            fetch("/api-meta.json").then((response) => response.json()),
+            fetch("/canonical-basic-button.json").then((response) => response.text()),
+        ]);
+        const fixture = JSON.parse(fixtureText.replaceAll("__BASE_URL__", location.origin));
+        const metaByName = Object.fromEntries(meta.map((component) => [component.componentName, component]));
+        let renderCount = 0;
+        window.__galleryRender = async (componentId) => {
+            const payload = galleryPayload(fixture, metaByName[componentId], metaByName, "gallery-" + componentId + "-" + (++renderCount));
+            const result = await Promise.race([
+                send(payload),
+                new Promise((resolve) => setTimeout(
+                    () => resolve({type: "failure", code: "timeout", message: "Нет ответа за 20 секунд"}),
+                    20000,
+                )),
+            ]);
+            return {componentId, result, propertyCount: Object.keys(payload.component.properties).length, styleCount: Object.keys(payload.styles || {}).length};
+        };
+        document.getElementById("result").textContent = "ready";
+        return manifest.components;
+      } catch (error) {
+        document.getElementById("result").textContent = "failed: " + (error?.stack || error);
+        throw error;
+      }
+    })();
+</script>
+</body>
+</html>

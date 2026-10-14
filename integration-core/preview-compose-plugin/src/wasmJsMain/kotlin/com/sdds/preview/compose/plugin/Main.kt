@@ -4,23 +4,28 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.ComposeViewport
-import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.fixtures.stories.registerStories
+import com.sdds.compose.uikit.overlay.OverlayHost
+import com.sdds.compose.uikit.overlay.OverlayManagerLifecycle
+import com.sdds.compose.uikit.overlay.overlayManager
 import com.sdds.preview.compose.ComposePreviewRuntime
 import com.sdds.preview.compose.PreparedComposePreview
 import com.sdds.preview.compose.WasmLoadedFontFamilyFactory
 import com.sdds.preview.compose.generated.GeneratedPreviewStyleFactories
-import com.sdds.preview.compose.previewComponentOf
+import com.sdds.preview.compose.previewComponentsFrom
 import com.sdds.preview.contract.PREVIEW_PROTOCOL_VERSION
 import com.sdds.preview.contract.PreviewContractJson
-import com.sdds.sandbox.ComponentKey
+import com.sdds.preview.contract.PreviewResult
 import com.sdds.sandbox.StoryRegistry
 import kotlinx.browser.document
 import kotlinx.coroutines.MainScope
@@ -33,25 +38,14 @@ private sealed interface RenderState {
     data class Ready(val preview: PreparedComposePreview) : RenderState
 }
 
-/** Компоненты спайка: для остальных историй генерируются фабрики, но в плагине они пока не регистрируются. */
-private val SPIKE_COMPONENTS = listOf(
-    ComponentKey.BasicButton to "BasicButton",
-    // ComponentKey.CheckBox.value == "Checkbox", а в мете компонент называется "CheckBox": идентификатор из меты.
-    ComponentKey.CheckBox to "CheckBox",
-    ComponentKey.TextField to "TextField",
-    ComponentKey.Avatar to "Avatar",
-    ComponentKey.Tabs to "Tabs",
-)
-
 private val scope = MainScope()
 private var renderState: RenderState by mutableStateOf(RenderState.Empty)
 private val runtime = ComposePreviewRuntime(
     assetResolver = HttpPreviewAssetResolver,
     fontFamilyFactory = WasmLoadedFontFamilyFactory,
-    components = SPIKE_COMPONENTS.also { registerStories() }.mapNotNull { (key, componentId) ->
-        val story = StoryRegistry.get(key) as? ComposeBaseStory<*, *>
-        val factory = GeneratedPreviewStyleFactories.all[componentId]
-        if (story != null && factory != null) previewComponentOf(componentId, story, factory) else null
+    components = run {
+        registerStories()
+        previewComponentsFrom(StoryRegistry.previewEntries(), GeneratedPreviewStyleFactories.all)
     },
 )
 private val coordinator = PreviewRequestCoordinator(
@@ -62,13 +56,22 @@ private val coordinator = PreviewRequestCoordinator(
     },
 )
 
-/** Принимает следующий полный payload и сообщает browser bridge результат после применения state. */
+private val pendingRenders = PendingRenderResults { result ->
+    notifyPreviewResult(PreviewContractJson.encodeToString(result))
+}
+
+/**
+ * Принимает следующий полный payload. Успех сообщается browser bridge только после отрисовки содержимого,
+ * ошибки подготовки и применения state сообщаются сразу.
+ */
 @OptIn(ExperimentalJsExport::class)
 @JsExport
 public fun submitPreviewPayload(json: String) {
     scope.launch {
-        val result = coordinator.submit(json)
-        notifyPreviewResult(PreviewContractJson.encodeToString(result))
+        when (val result = coordinator.submit(json)) {
+            is PreviewResult.Success -> pendingRenders.await(result)
+            else -> notifyPreviewResult(PreviewContractJson.encodeToString(result))
+        }
     }
 }
 
@@ -101,7 +104,23 @@ private fun PreviewViewport() {
     ) {
         when (state) {
             RenderState.Empty -> Unit
-            is RenderState.Ready -> state.preview.Content()
+            // Toast и Notification показываются через LocalOverlayManager: как и песочница, плагин предоставляет хост оверлеев.
+            // Каждый payload получает свой менеджер оверлеев: уведомления прошлого render не должны оставаться на экране.
+            is RenderState.Ready -> key(state.preview.requestId) {
+                // Эффект запускается после композиции содержимого; два кадра подтверждают, что layout и draw прошли.
+                // Исключение в кадре останавливает Compose, и подтверждения не будет.
+                LaunchedEffect(state.preview.requestId) {
+                    withFrameNanos { }
+                    withFrameNanos { }
+                    pendingRenders.confirm(state.preview.requestId)
+                }
+                OverlayHost(overlayManager = overlayManager(OverlayManagerLifecycle.ComposableScoped)) {
+                    // OverlayHost кладёт содержимое в левый верхний угол, поэтому центрируем его внутри хоста.
+                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        state.preview.Content()
+                    }
+                }
+            }
         }
     }
 }
