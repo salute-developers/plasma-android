@@ -349,16 +349,17 @@ private class NoteMeasurePolicy(
         val contentBefore = measurable(CONTENT_BEFORE)?.measure(remaining)
         remaining = remaining.offset(horizontal = -contentBefore.widthOrZero())
         val contentAfter = measurable(CONTENT_AFTER)?.measure(remaining)
-        val textConstraints = remaining.offset(horizontal = -contentAfter.widthOrZero())
+        var textConstraints = remaining.offset(horizontal = -contentAfter.widthOrZero())
 
         val title = measurable(TITLE)?.measure(textConstraints)
-        val text = measurable(TEXT)?.measure(textConstraints)
-        // Экшн идёт отдельной строкой под текстовым блоком, поэтому contentAfter его ширину не уменьшает
-        val action = measurable(ACTION)?.measure(remaining)
-
         val titleHeight = title.heightOrZero()
-        // Высота текста уже включает textTopMargin, так как паддинг задан внутри самого слота
+        textConstraints = textConstraints.offset(vertical = -titleHeight)
+        val text = measurable(TEXT)?.measure(textConstraints)
         val textHeight = text.heightOrZero()
+        // Экшн идёт отдельной строкой под текстовым блоком, поэтому contentAfter его ширину не уменьшает
+        remaining = remaining.offset(vertical = -(titleHeight + textHeight))
+        val action = measurable(ACTION)?.measure(remaining)
+        // Высота текста уже включает textTopMargin, так как паддинг задан внутри самого слота
         val textBlockHeight = titleHeight + textHeight
         val anchorHeight = if (titleHeight > 0) titleHeight else textHeight
 

@@ -322,12 +322,13 @@ private class NoteCompactMeasurePolicy(
         val action = measurable(ACTION)?.measure(remaining)
         remaining = remaining.offset(horizontal = -action.widthOrZero())
         val close = measurable(CLOSE)?.measure(remaining)
-        val textConstraints = remaining.offset(horizontal = -close.widthOrZero())
+        var textConstraints = remaining.offset(horizontal = -close.widthOrZero())
 
         val title = measurable(TITLE)?.measure(textConstraints)
+        val titleHeight = title.heightOrZero()
+        textConstraints = textConstraints.offset(vertical = -titleHeight)
         val text = measurable(TEXT)?.measure(textConstraints)
 
-        val titleHeight = title.heightOrZero()
         // Высота текста уже включает textTopMargin, так как паддинг задан внутри самого слота
         val textHeight = text.heightOrZero()
         val textBlockHeight = titleHeight + textHeight
