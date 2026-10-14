@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TooltipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -50,7 +49,7 @@ private val TooltipStyleBuilder.invariantProps: TooltipStyleBuilder
         .colors {
             backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue())
             textColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
-            contentStartColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            contentStartColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .dimensions {
             contentStartSize(16.0.dp)
