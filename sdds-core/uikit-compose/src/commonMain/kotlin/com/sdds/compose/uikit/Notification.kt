@@ -39,6 +39,41 @@ fun Notification(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable BoxScope.() -> Unit,
 ) {
+    Notification(
+        modifier = modifier,
+        style = style,
+        hasClose = hasClose,
+        closeIcon = closeIcon,
+        onClose = onClose,
+        interactionSource = interactionSource,
+        closeContentDescription = "",
+        content = content,
+    )
+}
+
+/**
+ * Компонент Notification
+ *
+ * @param closeContentDescription описание иконки закрытия [closeIcon] для accessibility
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param hasClose включение иконки закрытия [closeIcon]
+ * @param closeIcon иконка закрытия
+ * @param onClose колбэк клика на иконку закрытия [closeIcon]
+ * @param interactionSource источник взаимодействий
+ * @param content контент
+ */
+@Composable
+fun Notification(
+    closeContentDescription: String,
+    modifier: Modifier = Modifier,
+    style: NotificationStyle = LocalNotificationStyle.current,
+    hasClose: Boolean = false,
+    closeIcon: Painter? = null,
+    onClose: (() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable BoxScope.() -> Unit,
+) {
     val backgroundColor = style.colors.backgroundColor.getValue(interactionSource)
     Box(
         modifier = modifier
@@ -70,7 +105,7 @@ fun Notification(
                         indication = LocalIndication.current,
                     ) { onClose?.invoke() },
                 painter = closeIcon,
-                contentDescription = "",
+                contentDescription = closeContentDescription,
                 tint = closeColor,
             )
         }
