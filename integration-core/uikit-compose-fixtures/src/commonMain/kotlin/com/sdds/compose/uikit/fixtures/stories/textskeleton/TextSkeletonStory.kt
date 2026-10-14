@@ -39,7 +39,7 @@ enum class TextSkeletonWidth {
     FullWidth,
 }
 
-@Story
+@Story(componentId = "TextSkeleton")
 object TextSkeletonStory : ComposeBaseStory<TextSkeletonUiState, TextSkeletonStyle>(
     ComponentKey.TextSkeleton,
     TextSkeletonUiState(),

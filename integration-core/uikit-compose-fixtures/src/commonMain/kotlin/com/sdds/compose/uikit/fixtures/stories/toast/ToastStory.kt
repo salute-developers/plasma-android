@@ -74,7 +74,7 @@ object ModalGravityProperty : PropertyProducer<ToastUiState> {
     }
 }
 
-@Story
+@Story(componentId = "Toast")
 object ToastStory : ComposeBaseStory<ToastUiState, ToastStyle>(
     ComponentKey.Toast,
     ToastUiState(),

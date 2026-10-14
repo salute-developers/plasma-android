@@ -54,7 +54,7 @@ enum class FileContentType {
     Icon, Image
 }
 
-@Story
+@Story(componentId = "File")
 object FileStory : ComposeBaseStory<FileUiState, FileStyle>(
     ComponentKey.File,
     FileUiState(),

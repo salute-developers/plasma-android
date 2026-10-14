@@ -41,7 +41,7 @@ data class ToolBarUiState(
     }
 }
 
-@Story
+@Story(componentId = "ToolBar")
 object ToolBarStory : ComposeBaseStory<ToolBarUiState, ToolBarStyle>(
     ComponentKey.ToolBar,
     ToolBarUiState(),

@@ -28,7 +28,7 @@ data class DividerUiState(
     }
 }
 
-@Story
+@Story(componentId = "Divider")
 object DividerStory : ComposeBaseStory<DividerUiState, DividerStyle>(
     ComponentKey.Divider,
     DividerUiState(),

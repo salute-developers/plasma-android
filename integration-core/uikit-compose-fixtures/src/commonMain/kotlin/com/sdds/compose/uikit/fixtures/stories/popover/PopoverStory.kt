@@ -82,7 +82,7 @@ internal enum class HideMode {
 
 internal fun Boolean.autoHideToMs(): Long? = if (this) 3000L else null
 
-@Story
+@Story(componentId = "Popover")
 object PopoverStory : ComposeBaseStory<PopoverUiState, PopoverStyle>(
     ComponentKey.Popover,
     PopoverUiState(),

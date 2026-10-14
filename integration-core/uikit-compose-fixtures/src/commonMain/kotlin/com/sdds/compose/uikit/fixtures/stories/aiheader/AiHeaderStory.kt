@@ -42,7 +42,7 @@ data class AiHeaderUiState(
     }
 }
 
-@Story
+@Story(componentId = "AiHeader")
 object AiHeaderStory : ComposeBaseStory<AiHeaderUiState, AiHeaderStyle>(
     ComponentKey.AiHeader,
     AiHeaderUiState(),

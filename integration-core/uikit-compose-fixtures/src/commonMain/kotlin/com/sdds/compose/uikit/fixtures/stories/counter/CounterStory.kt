@@ -27,7 +27,7 @@ data class CounterUiState(
     }
 }
 
-@Story
+@Story(componentId = "Counter")
 object CounterStory : ComposeBaseStory<CounterUiState, CounterStyle>(
     ComponentKey.Counter,
     CounterUiState(),

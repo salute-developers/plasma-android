@@ -34,7 +34,7 @@ enum class ButtonIcon {
     No,
 }
 
-@Story
+@Story(componentId = "IconButton")
 object IconBasicButtonStory : ComposeBaseStory<IconButtonUiState, ButtonStyle>(
     ComponentKey.IconButton,
     IconButtonUiState(),

@@ -54,7 +54,7 @@ data class FormItemUiState(
     }
 }
 
-@Story
+@Story(componentId = "FormItem")
 object FormItemStory : ComposeBaseStory<FormItemUiState, FormItemStyle>(
     ComponentKey.FormItem,
     FormItemUiState(),

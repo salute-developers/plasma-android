@@ -10,4 +10,5 @@ dependencies {
     implementation(libs.base.kotlin.ksp)
     implementation(libs.base.kotlin.poet)
     implementation(libs.base.kotlin.poetKsp)
+    testImplementation(kotlin("test"))
 }

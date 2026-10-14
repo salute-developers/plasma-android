@@ -42,7 +42,7 @@ data class NoteUiState(
     }
 }
 
-@Story
+@Story(componentId = "Note")
 object NoteStory : ComposeBaseStory<NoteUiState, NoteStyle>(
     ComponentKey.Note,
     NoteUiState(),
@@ -103,7 +103,7 @@ object NoteStory : ComposeBaseStory<NoteUiState, NoteStyle>(
     }
 }
 
-@Story
+@Story(componentId = "NoteCompact")
 object NoteCompactStory : ComposeBaseStory<NoteUiState, NoteCompactStyle>(
     ComponentKey.NoteCompact,
     NoteUiState(),
