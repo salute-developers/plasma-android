@@ -30,8 +30,12 @@ function resolveFile(pathname) {
     return null;
 }
 
+// Сколько раз скачан шрифт галереи: плагин должен переиспользовать его между payload.
+let fontRequests = 0;
+
 const server = createServer((request, response) => {
     const pathname = new URL(request.url, "http://localhost").pathname;
+    if (pathname === "/test-assets/font.otf") fontRequests += 1;
     const file = resolveFile(pathname);
     if (!file) {
         response.writeHead(404);
@@ -175,6 +179,7 @@ async function runGallery(socket, port) {
             pageErrors.push(message.params.args.map((arg) => arg.value ?? arg.description).join(" "));
         }
     });
+    const fontRequestsBeforeGallery = fontRequests;
     const cards = [];
     const issues = [];
     let previousShot = null;
@@ -258,6 +263,12 @@ async function runGallery(socket, port) {
         }
         if (problems.length) issues.push(`${componentId}: ${problems.join(" | ")}`);
         cards.push({componentId, problems, statistics, opened: opened !== null, propertyCount: rendered.propertyCount, styleCount: rendered.styleCount});
+    }
+
+    // Все payload галереи ссылаются на один и тот же шрифт: после первой загрузки его не скачивают повторно.
+    const galleryFontRequests = fontRequests - fontRequestsBeforeGallery;
+    if (galleryFontRequests > 1) {
+        issues.push(`шрифт скачан ${galleryFontRequests} раз за ${cards.length} payload (ожидалась одна загрузка)`);
     }
 
     // Остановившийся Compose не должен сообщать успех (последний шаг: после него плагин мёртв).

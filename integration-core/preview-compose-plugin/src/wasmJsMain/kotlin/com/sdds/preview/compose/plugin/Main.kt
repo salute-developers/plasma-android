@@ -18,6 +18,8 @@ import com.sdds.compose.uikit.fixtures.stories.registerStories
 import com.sdds.compose.uikit.overlay.OverlayHost
 import com.sdds.compose.uikit.overlay.OverlayManagerLifecycle
 import com.sdds.compose.uikit.overlay.overlayManager
+import com.sdds.preview.compose.CachingLoadedFontFamilyFactory
+import com.sdds.preview.compose.CachingPreviewAssetResolver
 import com.sdds.preview.compose.ComposePreviewRuntime
 import com.sdds.preview.compose.PreparedComposePreview
 import com.sdds.preview.compose.WasmLoadedFontFamilyFactory
@@ -41,8 +43,9 @@ private sealed interface RenderState {
 private val scope = MainScope()
 private var renderState: RenderState by mutableStateOf(RenderState.Empty)
 private val runtime = ComposePreviewRuntime(
-    assetResolver = HttpPreviewAssetResolver,
-    fontFamilyFactory = WasmLoadedFontFamilyFactory,
+    // Редактор присылает одни и те же шрифты при каждом переключении компонента: байты и семейства переиспользуются.
+    assetResolver = CachingPreviewAssetResolver(HttpPreviewAssetResolver),
+    fontFamilyFactory = CachingLoadedFontFamilyFactory(WasmLoadedFontFamilyFactory),
     components = run {
         registerStories()
         previewComponentsFrom(StoryRegistry.previewEntries(), GeneratedPreviewStyleFactories.all)
