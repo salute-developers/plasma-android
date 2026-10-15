@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.ImageSource
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.StatefulValue
@@ -108,6 +109,10 @@ public fun PreviewPropertyValue.brushValue(theme: PreparedComposeTheme): Resolve
 public fun PreviewPropertyValue.hasGradient(theme: PreparedComposeTheme): Boolean =
     sources().any { it is PreviewPropertySource.TokenReference && theme.gradient(it.tokenId) != null }
 
+/** Иконка по имени из literal-значения (`disclosure.down.fill.16`); `null`, если значения нет или имя неизвестно. */
+public fun PreviewPropertyValue.iconValue(theme: PreparedComposeTheme): ImageSource? =
+    stringValue()?.let(theme::icon)
+
 /** Базовое literal-значение с плавающей точкой. */
 public fun PreviewPropertyValue.floatValue(): Float? = (literalPrimitive())?.floatOrNull
 
@@ -148,12 +153,16 @@ public interface GeneratedStyleFactory<S : Style> : ComposePreviewStyleFactory<S
     /** Полное имя класса стиля, который строит фабрика. */
     public val styleQualifiedName: String
 
-    /** Свойства, которые фабрика пропускает (иконки и тени): для предупреждения `unsupported_property`. */
+    /** Свойства, которые фабрика пропускает (тени): для предупреждения `unsupported_property`. */
     public val unsupportedProperties: Set<String>
         get() = emptySet()
 
     /** Цветовые свойства без перегрузки с `Brush`: градиент для них игнорируется с предупреждением. */
     public val gradientUnsupportedProperties: Set<String>
+        get() = emptySet()
+
+    /** Свойства-иконки: для предупреждения `unknown_icon`, если имени нет в реестре плагина. */
+    public val iconProperties: Set<String>
         get() = emptySet()
 
     /** Ожидаемый класс стиля для свойств-стилей: идентификатор свойства на полное имя класса стиля. */
@@ -165,7 +174,12 @@ public interface GeneratedStyleFactory<S : Style> : ComposePreviewStyleFactory<S
 
     /** Правила предупреждений этого компонента. */
     public val warningRules: PreviewWarningRules
-        get() = PreviewWarningRules(::supportsState, unsupportedProperties, gradientUnsupportedProperties)
+        get() = PreviewWarningRules(
+            ::supportsState,
+            unsupportedProperties,
+            gradientUnsupportedProperties,
+            iconProperties,
+        )
 
     /**
      * Проверяет, что стили, на которые ссылаются свойства, принадлежат компонентам с ожидаемым классом стиля.

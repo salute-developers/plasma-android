@@ -30,6 +30,8 @@
     const TYPOGRAPHY_VALUE_TYPES = ["androidx.compose.ui.text.TextStyle"];
     const SHAPE_VALUE_TYPES = ["androidx.compose.foundation.shape.CornerBasedShape", "androidx.compose.ui.graphics.Shape"];
     const MAX_DEPTH = 3;
+    /** Иконка из `preview-icons.txt`: плагин рисует её по имени из конфигурации. */
+    const KNOWN_ICON = "disclosure.down.fill.16";
     const TEXT_COLOUR = /text|label|content|icon|value|caption|title|description|helper|counter|placeholder|hint|prefix|suffix/i;
 
     /** Уведомления по умолчанию скрываются сами; для снимка автоскрытие выключается. */
@@ -37,7 +39,7 @@
 
     const tok = (tokenId, extra) => ({type: "tokenRef", tokenId, ...(extra || {})});
 
-    /** Пробное значение для каждого свойства меты; иконки и тени пропускаются (их плагин не поддерживает). */
+    /** Пробное значение для каждого свойства меты; тени пропускаются (их плагин не поддерживает), иконка одна и та же. */
     function sampleProperties(component, metaByName, styles, trail) {
         const properties = {};
         const groups = new Map();
@@ -66,6 +68,9 @@
                     break;
                 case "shape":
                     if (accepted(SHAPE_VALUE_TYPES)) properties[id] = {base: tok("shape.button")};
+                    break;
+                case "icon":
+                    properties[id] = {base: {type: "literal", value: KNOWN_ICON}};
                     break;
                 case "float":
                     properties[id] = {base: {type: "literal", value: 0.5}};
@@ -129,6 +134,18 @@
                 )),
             ]);
             return {componentId, result, propertyCount: Object.keys(payload.component.properties).length, styleCount: Object.keys(payload.styles || {}).length};
+        };
+        // Тот же render, но с другим значением одного свойства (например, иконкой, которой нет в реестре плагина).
+        window.__galleryRenderWithProperty = async (componentId, propertyName, base) => {
+            const payload = galleryPayload(fixture, metaByName[componentId], metaByName, "gallery-with-" + componentId + "-" + (++renderCount));
+            payload.component.properties[propertyName] = {base};
+            return Promise.race([
+                send(payload),
+                new Promise((resolve) => setTimeout(
+                    () => resolve({type: "failure", code: "timeout", message: "Нет ответа за 20 секунд"}),
+                    20000,
+                )),
+            ]);
         };
         // Тот же render, но без одного свойства: конфигурация компонента может его не содержать.
         window.__galleryRenderWithout = async (componentId, propertyName) => {

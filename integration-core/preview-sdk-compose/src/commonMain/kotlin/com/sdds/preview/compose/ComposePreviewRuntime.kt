@@ -106,6 +106,7 @@ public class ComposePreviewRuntime(
     private val assetResolver: PreviewAssetResolver,
     private val fontFamilyFactory: LoadedFontFamilyFactory,
     components: List<ComposePreviewComponent>,
+    private val icons: PreviewIconRegistry = PreviewIconRegistry(),
 ) {
     private val componentsById = components.associateBy { it.componentId }
 
@@ -118,7 +119,7 @@ public class ComposePreviewRuntime(
         }
         payload.validateReferences()
         component.validate(payload)
-        val theme = payload.prepareComposeTheme(assetResolver, fontFamilyFactory)
+        val theme = payload.prepareComposeTheme(assetResolver, fontFamilyFactory).withIcons(icons)
         return component.prepare(payload, theme)
     }
 
@@ -201,7 +202,11 @@ private class TypedPreparedComposePreview<State : UiState, S : Style>(
 ) : PreparedComposePreview {
     override val requestId: String = payload.requestId
     override val warnings: List<PreviewWarning> = (styleFactory as? GeneratedStyleFactory<*>)
-        ?.let { factory -> payload.collectWarnings(factory.warningRules) { id -> factory.registry[id]?.warningRules } }
+        ?.let { factory ->
+            payload.collectWarnings(factory.warningRules, hasIcon = theme::hasIcon) { id ->
+                factory.registry[id]?.warningRules
+            }
+        }
         ?: payload.collectWarnings(PreviewWarningRules(styleFactory::supportsState))
     override val surfaceBackground: Color? = payload.surface?.background?.toComposeColorOrNull()
 

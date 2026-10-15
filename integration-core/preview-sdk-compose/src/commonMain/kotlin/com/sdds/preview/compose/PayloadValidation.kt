@@ -6,6 +6,7 @@ import com.sdds.preview.contract.PreviewPropertySource
 import com.sdds.preview.contract.PreviewPropertyValue
 import com.sdds.preview.contract.PreviewWarning
 import com.sdds.preview.contract.TokenValue
+import kotlinx.serialization.json.JsonPrimitive
 
 private const val STYLES_PATH = "$.styles"
 
@@ -82,10 +83,12 @@ private class ReferenceValidator(private val payload: PreviewPayload) {
 /** Правила предупреждений одного компонента: что он не умеет и что пропускает. */
 public class PreviewWarningRules(
     /** Известно ли имя состояния. */ public val isStateSupported: (String) -> Boolean,
-    /** Свойства, которые компонент пропускает (иконки и тени). */
+    /** Свойства, которые компонент пропускает (тени). */
     public val unsupportedProperties: Set<String> = emptySet(),
     /** Цветовые свойства без перегрузки с `Brush`: градиент для них игнорируется. */
     public val gradientUnsupportedProperties: Set<String> = emptySet(),
+    /** Свойства-иконки: имя, которого нет в реестре, даёт предупреждение `unknown_icon`. */
+    public val iconProperties: Set<String> = emptySet(),
 )
 
 /**
@@ -105,6 +108,7 @@ public fun PreviewPayload.collectWarnings(
  */
 public fun PreviewPayload.collectWarnings(
     root: PreviewWarningRules,
+    hasIcon: (String) -> Boolean = { true },
     nested: (String) -> PreviewWarningRules? = { root },
 ): List<PreviewWarning> {
     val warnings = mutableListOf<PreviewWarning>()
@@ -119,6 +123,16 @@ public fun PreviewPayload.collectWarnings(
                     "Свойство $name не поддержано и пропущено",
                     "$path.$name",
                 )
+            }
+            if (name in rules.iconProperties) {
+                val icon = ((value.base as? PreviewPropertySource.Literal)?.value as? JsonPrimitive)?.content
+                if (icon != null && !hasIcon(icon)) {
+                    warnings += PreviewWarning(
+                        "unknown_icon",
+                        "Иконка $icon не найдена, значение по умолчанию сохранено",
+                        "$path.$name",
+                    )
+                }
             }
             if (name in rules.gradientUnsupportedProperties && value.usesGradient(theme)) {
                 warnings += PreviewWarning(

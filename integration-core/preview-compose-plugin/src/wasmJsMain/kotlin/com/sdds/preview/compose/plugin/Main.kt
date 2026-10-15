@@ -24,6 +24,7 @@ import com.sdds.preview.compose.CachingPreviewAssetResolver
 import com.sdds.preview.compose.ComposePreviewRuntime
 import com.sdds.preview.compose.PreparedComposePreview
 import com.sdds.preview.compose.WasmLoadedFontFamilyFactory
+import com.sdds.preview.compose.generated.GeneratedPreviewIcons
 import com.sdds.preview.compose.generated.GeneratedPreviewStyleFactories
 import com.sdds.preview.compose.previewComponentsFrom
 import com.sdds.preview.contract.PREVIEW_PROTOCOL_VERSION
@@ -47,6 +48,7 @@ private val runtime = ComposePreviewRuntime(
     // Редактор присылает одни и те же шрифты при каждом переключении компонента: байты и семейства переиспользуются.
     assetResolver = CachingPreviewAssetResolver(HttpPreviewAssetResolver),
     fontFamilyFactory = CachingLoadedFontFamilyFactory(WasmLoadedFontFamilyFactory),
+    icons = GeneratedPreviewIcons.all,
     components = run {
         registerStories()
         previewComponentsFrom(StoryRegistry.previewEntries(), GeneratedPreviewStyleFactories.all)
@@ -134,6 +136,7 @@ private fun PreviewViewport() {
  * фиксируем здесь: [measure] содержимого выполняется внутри `try`, а текст и stack уходят в `reportCrashCause`.
  * Размер и положение содержимого остаются теми же, что без обёртки. Сбои композиции и отрисовки обёртка не видит.
  */
+@Suppress("TooGenericExceptionCaught") // Любое исключение фиксируется и бросается дальше без изменений.
 @Composable
 private fun CrashCause(content: @Composable () -> Unit) {
     Layout(content = content) { measurables, constraints ->

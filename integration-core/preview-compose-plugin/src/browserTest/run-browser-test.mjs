@@ -271,6 +271,16 @@ async function runGallery(socket, port) {
         issues.push(`шрифт скачан ${galleryFontRequests} раз за ${cards.length} payload (ожидалась одна загрузка)`);
     }
 
+    // Иконка, которой нет в реестре плагина, не останавливает Compose: компонент рисуется, а результат предупреждает.
+    if (!only || only.includes("AccordionItem")) {
+        const unknownIcon = await evaluateAsync(
+            socket,
+            `window.__galleryRenderWithProperty("AccordionItem", "closedIcon", {type: "literal", value: "no.such.icon.16"})`,
+        );
+        if (unknownIcon.type !== "success" || !unknownIcon.warnings?.some((w) => w.code === "unknown_icon")) {
+            issues.push(`AccordionItem с неизвестной иконкой: ожидались success и unknown_icon, получено ${JSON.stringify(unknownIcon)}`);
+        }
+    }
     // Конфигурация может не содержать `textStyle`: TextSkeleton всё равно должен нарисоваться, а не остановить Compose.
     if (!only || only.includes("TextSkeleton")) {
         const withoutTextStyle = await evaluateAsync(socket, `window.__galleryRenderWithout("TextSkeleton", "textStyle")`);

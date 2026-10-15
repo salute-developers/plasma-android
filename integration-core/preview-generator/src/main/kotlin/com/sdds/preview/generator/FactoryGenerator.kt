@@ -123,6 +123,13 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
             )
             .addProperty(
                 PropertySpec.builder(
+                    "iconProperties",
+                    Set::class.asClassName().parameterizedBy(String::class.asTypeName()),
+                    KModifier.OVERRIDE,
+                ).initializer("setOf(%L)", iconPropertiesLiteral(component)).build(),
+            )
+            .addProperty(
+                PropertySpec.builder(
                     "nestedStyleTypes",
                     Map::class.asClassName().parameterizedBy(String::class.asTypeName(), String::class.asTypeName()),
                     KModifier.OVERRIDE,
@@ -174,7 +181,12 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         component.params.filter { it.deprecated == null && it.isSupportedValueType() }
 
     private fun unsupportedLiteral(component: ComponentMeta): String =
-        supportedParams(component).filter { it.type == "icon" || it.type == "shadow" }.map { it.id }.distinct()
+        supportedParams(component).filter { it.type == "shadow" }.map { it.id }.distinct()
+            .joinToString(", ") { "\"$it\"" }
+
+    /** Свойства-иконки: имя, которого нет в реестре плагина, даёт предупреждение `unknown_icon`. */
+    private fun iconPropertiesLiteral(component: ComponentMeta): String =
+        supportedParams(component).filter { it.type == "icon" }.map { it.id }.distinct().sorted()
             .joinToString(", ") { "\"$it\"" }
 
     private fun stateMapProperty(component: ComponentMeta): PropertySpec {
@@ -234,7 +246,8 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
             "value" -> enumValue(overloads.selectOverload())
             "component_style" -> nestedStyle(overloads.selectOverload())
             "color" -> color(overloads)
-            "icon", "shadow" -> {
+            "icon" -> icon(overloads.selectOverload())
+            "shadow" -> {
                 unsupported += first.id
                 null
             }
@@ -277,6 +290,10 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
             call(sel),
         )
     }
+
+    /** Иконка по имени из payload: `ImageSource` строит реестр плагина, неизвестное имя оставляет значение по умолчанию. */
+    private fun icon(sel: ParamMeta): CodeBlock =
+        cb("%L?.%M(theme)?.let { %L(it) }", property(sel), sdk("iconValue"), call(sel))
 
     private fun nestedStyle(sel: ParamMeta): CodeBlock =
         cb(

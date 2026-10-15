@@ -10,6 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sdds.compose.uikit.ImageSource
 import com.sdds.compose.uikit.graphics.Gradients
 import com.sdds.preview.contract.GradientLayer
 import com.sdds.preview.contract.PreviewFontStyle
@@ -25,6 +26,7 @@ public class PreparedComposeTheme internal constructor(
     private val gradients: Map<String, Brush> = emptyMap(),
     private val fontFamilies: Map<String, FontFamily>,
     private val typography: Map<String, TextStyle>,
+    private val icons: PreviewIconRegistry = PreviewIconRegistry(),
 ) {
     /** Возвращает цвет по token ID. */
     public fun color(id: String): Color? = colors[id]
@@ -46,6 +48,24 @@ public class PreparedComposeTheme internal constructor(
 
     /** Возвращает подготовленный стиль текста по token ID. */
     public fun typography(id: String): TextStyle? = typography[id]
+
+    /** Та же тема с реестром иконок [icons]: имена иконок из payload ищутся в нём. */
+    public fun withIcons(icons: PreviewIconRegistry): PreparedComposeTheme = PreparedComposeTheme(
+        colors = colors,
+        dimensions = dimensions,
+        shapes = shapes,
+        shadows = shadows,
+        gradients = gradients,
+        fontFamilies = fontFamilies,
+        typography = typography,
+        icons = icons,
+    )
+
+    /** Возвращает источник иконки по имени из конфигурации (`disclosure.down.fill.16`). */
+    public fun icon(name: String): ImageSource? = icons.find(name)
+
+    /** Известна ли иконка с таким именем. */
+    public fun hasIcon(name: String): Boolean = icons.contains(name)
 }
 
 /** Слой тени в значениях Compose; Compose [androidx.compose.ui.graphics.Shadow] не хранит spread. */
@@ -63,6 +83,7 @@ public fun Color.withAlphaFactor(alpha: Float): Color = copy(alpha = this.alpha 
 /** Преобразует поддержанные theme tokens, игнорируя неизвестные и неподготовленные значения. */
 public fun PreviewPayload.prepareComposeTheme(
     preparedFontFamilies: Map<String, FontFamily> = emptyMap(),
+    icons: PreviewIconRegistry = PreviewIconRegistry(),
 ): PreparedComposeTheme {
     val colors = theme.mapNotNullValues { (it as? TokenValue.Color)?.value?.toComposeColorOrNull() }
     val dimensions = theme.mapNotNullValues { (it as? TokenValue.Dimension)?.value?.dp }
@@ -106,6 +127,7 @@ public fun PreviewPayload.prepareComposeTheme(
         gradients = gradients,
         fontFamilies = preparedFontFamilies,
         typography = typography,
+        icons = icons,
     )
 }
 
