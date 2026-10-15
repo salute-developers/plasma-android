@@ -17,23 +17,57 @@ val cleanPreviewPluginWebpackOutput by tasks.registering(Delete::class) {
 val generatedManifestDir = layout.buildDirectory.dir("generated/preview-manifest")
 val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factories")
 val generatedIconsDir = layout.buildDirectory.dir("generated/preview-icons")
+val generatedGroupsFile = layout.buildDirectory.file("generated/preview-groups/preview-groups.json")
+
+// Группы компонентов берутся из реестра историй песочницы (`ComponentKey.group`): их знает только Kotlin-код,
+// поэтому JSON строит главная функция JVM-цели модуля.
+val generatePreviewGroups by tasks.registering(JavaExec::class) {
+    group = "build"
+    description = "Формирует группы компонентов Compose preview по реестру историй песочницы."
+    dependsOn("compileKotlinJvm")
+    val jvmMain = provider { kotlin.targets.getByName("jvm").compilations.getByName("main") }
+    classpath = files(
+        provider { jvmMain.get().output.allOutputs },
+        provider { jvmMain.get().runtimeDependencyFiles },
+    )
+    mainClass.set("com.sdds.preview.compose.plugin.PreviewComponentGroupKt")
+    val output = generatedGroupsFile
+    outputs.file(output)
+    javaLauncher.set(javaToolchains.launcherFor { languageVersion.set(JavaLanguageVersion.of(17)) })
+    doFirst { setArgs(listOf(output.get().asFile.absolutePath)) }
+}
 
 // Список `components` manifest берётся из генератора фабрик, а не пишется вручную; тест покрытия и браузерный тест
 // сверяют его с реестром историй плагина.
 val generatePreviewManifest by tasks.registering {
     group = "build"
     description = "Собирает preview-plugin.json из шаблона и списка компонентов сгенерированных фабрик."
-    dependsOn("generatePreviewFactories")
+    dependsOn("generatePreviewFactories", generatePreviewGroups)
     val template = layout.projectDirectory.file("src/manifest/preview-plugin.template.json")
     val components = generatedFactoriesDir.map { it.file("components.txt") }
     val output = generatedManifestDir
     inputs.file(template)
+    val groupsFile = generatedGroupsFile
     inputs.file(components)
+    inputs.file(groupsFile)
     outputs.dir(output)
     doLast {
         @Suppress("UNCHECKED_CAST")
         val manifest = groovy.json.JsonSlurper().parse(template.asFile) as MutableMap<String, Any?>
-        manifest["components"] = components.get().asFile.readLines().filter { it.isNotBlank() }
+        val componentNames = components.get().asFile.readLines().filter { it.isNotBlank() }
+        manifest["components"] = componentNames
+        @Suppress("UNCHECKED_CAST")
+        val groups = (groovy.json.JsonSlurper().parse(groupsFile.get().asFile) as Map<String, Any?>)["groups"]
+            as List<Map<String, Any?>>
+        // Каждый компонент манифеста входит ровно в одну группу, и групп без компонентов манифеста нет.
+        val grouped = groups.flatMap { (it["components"] as List<*>).map(Any?::toString) }
+        val missing = componentNames - grouped.toSet()
+        val unknown = grouped.toSet() - componentNames.toSet()
+        val duplicated = grouped.groupBy { it }.filterValues { it.size > 1 }.keys
+        check(missing.isEmpty() && unknown.isEmpty() && duplicated.isEmpty()) {
+            "Группы манифеста расходятся с компонентами: без группы $missing, вне манифеста $unknown, в нескольких группах $duplicated"
+        }
+        manifest["groups"] = groups
         val directory = output.get().asFile
         directory.mkdirs()
         File(directory, "preview-plugin.json")
