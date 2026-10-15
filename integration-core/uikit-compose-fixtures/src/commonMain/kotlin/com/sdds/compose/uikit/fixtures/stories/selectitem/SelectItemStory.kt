@@ -2,12 +2,16 @@ package com.sdds.compose.uikit.fixtures.stories.selectitem
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SelectItem
 import com.sdds.compose.uikit.SelectItemStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.SelectItemUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.SelectItemUiStateTransformer
+import com.sdds.icons.compose.DisclosureRightOutline24
+import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -48,6 +52,10 @@ object SelectItemStory : ComposeBaseStory<SelectItemUiState, SelectItemStyle>(
             style = style,
             enabled = state.enabled,
             disclosureEnabled = state.disclosure,
+            // Без `disclosureContent` переключатель `disclosureEnabled` ничего не рисует: компонент показывает только переданное содержимое.
+            disclosureContent = {
+                Icon(painter = rememberVectorPainter(SddsIcons.DisclosureRightOutline24), contentDescription = "")
+            },
             labelContent = state.label.takeIf { it.isNotEmpty() }?.let { label -> { Text(label) } },
             subtitleContent = state.subtitle.takeIf { it.isNotEmpty() }?.let { subtitle -> { Text(subtitle) } },
             titleContent = { Text(state.title) },

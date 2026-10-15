@@ -135,6 +135,21 @@
             ]);
             return {componentId, result, propertyCount: Object.keys(payload.component.properties).length, styleCount: Object.keys(payload.styles || {}).length};
         };
+        // Тот же render со стилями и текстом по умолчанию, которые клиент собирает из темы дизайн-системы.
+        window.__galleryRenderWithHostDefaults = async (componentId) => {
+            const payload = galleryPayload(fixture, metaByName[componentId], metaByName, "gallery-defaults-" + componentId + "-" + (++renderCount));
+            const styles = payload.styles || {};
+            styles["host.button"] = {component: "BasicButton", properties: sampleProperties(metaByName.BasicButton, metaByName, styles, ["BasicButton"])};
+            payload.styles = styles;
+            payload.defaults = {text: {color: "color.content"}, styles: {button: "host.button"}};
+            return Promise.race([
+                send(payload),
+                new Promise((resolve) => setTimeout(
+                    () => resolve({type: "failure", code: "timeout", message: "Нет ответа за 20 секунд"}),
+                    20000,
+                )),
+            ]);
+        };
         // Тот же render, но с другим значением одного свойства (например, иконкой, которой нет в реестре плагина).
         window.__galleryRenderWithProperty = async (componentId, propertyName, base) => {
             const payload = galleryPayload(fixture, metaByName[componentId], metaByName, "gallery-with-" + componentId + "-" + (++renderCount));

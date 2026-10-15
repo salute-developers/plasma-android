@@ -105,6 +105,43 @@
       "additionalProperties": {
         "$ref": "#/$defs/style"
       }
+    },
+    "defaults": {
+      "type": "object",
+      "description": "Стили и текст по умолчанию для вспомогательных элементов истории компонента (кнопки, Switch, Spinner, текст); значения берутся из темы дизайн-системы.",
+      "properties": {
+        "text": {
+          "type": "object",
+          "properties": {
+            "style": {
+              "type": "string",
+              "description": "Идентификатор токена typography."
+            },
+            "color": {
+              "type": "string",
+              "description": "Идентификатор токена color."
+            }
+          },
+          "additionalProperties": false
+        },
+        "styles": {
+          "type": "object",
+          "description": "Идентификаторы стилей из `styles` для компонентов, которые истории рисуют без собственного стиля.",
+          "properties": {
+            "button": {
+              "type": "string"
+            },
+            "switch": {
+              "type": "string"
+            },
+            "spinner": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": true,

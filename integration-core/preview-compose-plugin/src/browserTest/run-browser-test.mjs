@@ -271,6 +271,13 @@ async function runGallery(socket, port) {
         issues.push(`шрифт скачан ${galleryFontRequests} раз за ${cards.length} payload (ожидалась одна загрузка)`);
     }
 
+    // Стили и текст по умолчанию из payload не ломают render истории со вспомогательными элементами.
+    if (!only || only.includes("DropZone")) {
+        const withDefaults = await evaluateAsync(socket, `window.__galleryRenderWithHostDefaults("DropZone")`);
+        if (withDefaults.type !== "success" || withDefaults.warnings?.length) {
+            issues.push(`DropZone со стилями по умолчанию: ожидался success без предупреждений, получено ${JSON.stringify(withDefaults)}`);
+        }
+    }
     // Иконка, которой нет в реестре плагина, не останавливает Compose: компонент рисуется, а результат предупреждает.
     if (!only || only.includes("AccordionItem")) {
         const unknownIcon = await evaluateAsync(

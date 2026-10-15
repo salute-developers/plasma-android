@@ -220,8 +220,12 @@ private class TypedPreparedComposePreview<State : UiState, S : Style>(
             onDispose { story.detachStateOwner(owner) }
         }
         val current by owner.uiState.collectAsState()
-        Box {
-            with(story) { Content(style, current) }
+        val factories = (styleFactory as? GeneratedStyleFactory<*>)?.registry.orEmpty()
+        // Стили и текст по умолчанию вспомогательных элементов истории (как тема песочницы), если клиент их передал.
+        ProvideHostDefaults(payload, theme, factories) {
+            Box {
+                with(story) { Content(style, current) }
+            }
         }
     }
 }
