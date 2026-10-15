@@ -103,6 +103,10 @@ public fun PreviewPropertyValue.brushValue(theme: PreparedComposeTheme): Resolve
         applyAlpha = { brush, alpha ->
             if (brush is SolidColor) SolidColor(brush.value.withAlphaFactor(alpha)) else brush
         },
+        // Кисть градиента нельзя сделать прозрачнее после построения, поэтому её строят заново с альфой стопов.
+        tokenWithAlpha = { id, alpha ->
+            theme.gradient(id, alpha) ?: theme.color(id)?.let { SolidColor(it.withAlphaFactor(alpha)) }
+        },
     )
 
 /** `true`, если база или любое состояние ссылаются на градиентный токен (тогда нужна перегрузка с `Brush`). */

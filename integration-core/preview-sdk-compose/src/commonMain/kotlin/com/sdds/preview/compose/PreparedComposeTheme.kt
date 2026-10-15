@@ -24,6 +24,7 @@ public class PreparedComposeTheme internal constructor(
     private val shapes: Map<String, RoundedCornerShape>,
     private val shadows: Map<String, List<PreparedShadowLayer>>,
     private val gradients: Map<String, Brush> = emptyMap(),
+    private val gradientLayers: Map<String, GradientLayer> = emptyMap(),
     private val fontFamilies: Map<String, FontFamily>,
     private val typography: Map<String, TextStyle>,
     private val icons: PreviewIconRegistry = PreviewIconRegistry(),
@@ -43,6 +44,9 @@ public class PreparedComposeTheme internal constructor(
     /** Возвращает линейный градиент по token ID. */
     public fun gradient(id: String): Brush? = gradients[id]
 
+    /** Возвращает градиент по token ID с множителем прозрачности [alpha] для каждого цвета стопа. */
+    public fun gradient(id: String, alpha: Float): Brush? = gradientLayers[id]?.toBrushOrNull(alpha)
+
     /** Возвращает подготовленное семейство шрифтов по token ID. */
     public fun fontFamily(id: String): FontFamily? = fontFamilies[id]
 
@@ -56,6 +60,7 @@ public class PreparedComposeTheme internal constructor(
         shapes = shapes,
         shadows = shadows,
         gradients = gradients,
+        gradientLayers = gradientLayers,
         fontFamilies = fontFamilies,
         typography = typography,
         icons = icons,
@@ -107,6 +112,9 @@ public fun PreviewPayload.prepareComposeTheme(
     val gradients = theme.mapNotNullValues { value ->
         (value as? TokenValue.Gradient)?.layers?.firstOrNull()?.toBrushOrNull()
     }
+    val gradientLayers = theme.mapNotNullValues { value ->
+        (value as? TokenValue.Gradient)?.layers?.firstOrNull()
+    }
     val typography = theme.mapNotNullValues { value ->
         (value as? TokenValue.Typography)?.let { token ->
             val family = preparedFontFamilies[token.fontFamilyTokenId] ?: return@mapNotNullValues null
@@ -125,6 +133,7 @@ public fun PreviewPayload.prepareComposeTheme(
         shapes = shapes,
         shadows = shadows,
         gradients = gradients,
+        gradientLayers = gradientLayers,
         fontFamilies = preparedFontFamilies,
         typography = typography,
         icons = icons,
@@ -173,8 +182,8 @@ public fun String.toComposeColorOrNull(): Color? {
     return Color(argb.toLong())
 }
 
-private fun GradientLayer.toBrushOrNull(): Brush? {
-    val colors = stops.map { it.color.toComposeColorOrNull() ?: return null }
+private fun GradientLayer.toBrushOrNull(alpha: Float = 1f): Brush? {
+    val colors = stops.map { (it.color.toComposeColorOrNull() ?: return null).withAlphaFactor(alpha) }
     // Угол по соглашению CSS и UIKit: 0° — снизу вверх, 90° — слева направо, 180° — сверху вниз.
     return if (colors.size < 2) null else Gradients.Linear(colors, stops.map { it.position.toFloat() }, angle.toFloat())
 }

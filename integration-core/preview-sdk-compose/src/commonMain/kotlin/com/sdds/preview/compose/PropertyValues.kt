@@ -12,9 +12,14 @@ public fun <T> PreviewPropertySource.resolve(
     literal: (JsonElement) -> T?,
     token: (String) -> T?,
     applyAlpha: (T, Float) -> T = { value, _ -> value },
+    tokenWithAlpha: ((String, Float) -> T?)? = null,
 ): T? = when (this) {
     is PreviewPropertySource.Literal -> literal(value)?.withAlpha(alpha, applyAlpha)
-    is PreviewPropertySource.TokenReference -> token(tokenId)?.withAlpha(alpha, applyAlpha)
+    is PreviewPropertySource.TokenReference -> {
+        // Значение, которое нельзя изменить после построения (градиент), строится сразу с прозрачностью.
+        val withAlpha = alpha?.let { factor -> tokenWithAlpha?.invoke(tokenId, factor.toFloat()) }
+        withAlpha ?: token(tokenId)?.withAlpha(alpha, applyAlpha)
+    }
     is PreviewPropertySource.StyleReference, is PreviewPropertySource.AssetReference -> null
 }
 
@@ -26,12 +31,18 @@ public fun <T> PreviewPropertyValue.resolveStates(
     literal: (JsonElement) -> T?,
     token: (String) -> T?,
     applyAlpha: (T, Float) -> T = { value, _ -> value },
+    tokenWithAlpha: ((String, Float) -> T?)? = null,
 ): ResolvedProperty<T>? {
-    val resolvedBase = base.resolve(literal, token, applyAlpha) ?: return null
+    val resolvedBase = base.resolve(literal, token, applyAlpha, tokenWithAlpha) ?: return null
     return ResolvedProperty(
         resolvedBase,
         states.mapNotNull { entry ->
-            entry.source.resolve(literal, token, applyAlpha)?.let { ResolvedState(entry.states.toSet(), it) }
+            entry.source.resolve(
+                literal,
+                token,
+                applyAlpha,
+                tokenWithAlpha,
+            )?.let { ResolvedState(entry.states.toSet(), it) }
         },
     )
 }
