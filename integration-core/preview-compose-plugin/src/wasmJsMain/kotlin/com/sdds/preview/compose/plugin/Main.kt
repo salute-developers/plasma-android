@@ -13,6 +13,7 @@ import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.window.ComposeViewport
 import com.sdds.compose.uikit.fixtures.stories.registerStories
 import com.sdds.compose.uikit.overlay.OverlayHost
@@ -120,10 +121,33 @@ private fun PreviewViewport() {
                 OverlayHost(overlayManager = overlayManager(OverlayManagerLifecycle.ComposableScoped)) {
                     // OverlayHost кладёт содержимое в левый верхний угол, поэтому центрируем его внутри хоста.
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        state.preview.Content()
+                        CrashCause { state.preview.Content() }
                     }
                 }
             }
+        }
+    }
+}
+
+/**
+ * Исключение Kotlin/Wasm доходит до браузера как `WebAssembly.Exception` без текста и stack, поэтому причину сбоя layout
+ * фиксируем здесь: [measure] содержимого выполняется внутри `try`, а текст и stack уходят в `reportCrashCause`.
+ * Размер и положение содержимого остаются теми же, что без обёртки. Сбои композиции и отрисовки обёртка не видит.
+ */
+@Composable
+private fun CrashCause(content: @Composable () -> Unit) {
+    Layout(content = content) { measurables, constraints ->
+        val placeables = try {
+            measurables.map { it.measure(constraints) }
+        } catch (error: Throwable) {
+            reportCrashCause(error.toString(), error.stackTraceToString())
+            throw error
+        }
+        layout(
+            width = placeables.maxOfOrNull { it.width } ?: constraints.minWidth,
+            height = placeables.maxOfOrNull { it.height } ?: constraints.minHeight,
+        ) {
+            placeables.forEach { it.place(0, 0) }
         }
     }
 }
@@ -133,3 +157,6 @@ private external fun notifyPreviewResult(result: String)
 
 @JsFun("(protocolVersion) => globalThis.__sddsPreviewReady(protocolVersion)")
 private external fun notifyPreviewReady(protocolVersion: Int)
+
+@JsFun("(message, stack) => { globalThis.__sddsPreviewCrashCause = { message, stack }; }")
+private external fun reportCrashCause(message: String, stack: String)

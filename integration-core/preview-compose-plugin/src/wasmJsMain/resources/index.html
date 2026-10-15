@@ -27,9 +27,17 @@
     // Исключение в кадре Compose не всегда доходит до `error`: рантайм пишет его в console.error. Последняя такая
     // запись объясняет, почему запрос остался без ответа.
     let lastConsoleError = null;
+    // Причина остановки для хоста: stack исключения и последняя запись console.error (`details` в failure).
+    let crashDetails = null;
+    const MAX_DETAILS_LENGTH = 8000;
+    const clip = (text) => (text.length > MAX_DETAILS_LENGTH ? text.slice(0, MAX_DETAILS_LENGTH) + "…" : text);
     const originalConsoleError = console.error.bind(console);
     console.error = function (...args) {
-        lastConsoleError = args.map((arg) => (arg && arg.message) || String(arg)).join(" ");
+        const withStack = args.find((arg) => arg && typeof arg.stack === "string");
+        lastConsoleError = {
+            message: args.map((arg) => (arg && arg.message) || String(arg)).join(" "),
+            stack: withStack ? withStack.stack : undefined,
+        };
         originalConsoleError(...args);
     };
     const CRASH_CHECK_DELAY_MS = 3000;
@@ -81,14 +89,17 @@
                 requestId: normalized.requestId,
                 code: "plugin_crashed",
                 message: crashMessage,
+                ...(crashDetails ? {details: crashDetails} : {}),
             });
         }
 
         lastConsoleError = null;
+        globalThis.__sddsPreviewCrashCause = undefined;
         // Запрос без ответа и с ошибкой в консоли после отправки считается сбоем: ждать таймаута хоста незачем.
         setTimeout(function () {
             if (pendingRequests.has(normalized.requestId) && lastConsoleError !== null) {
-                reportCrash(new Error(lastConsoleError));
+                // Stack искусственного Error из таймера ничего не объясняет: берём stack из записи консоли.
+                reportCrash({message: lastConsoleError.message, stack: lastConsoleError.stack});
             }
         }, CRASH_CHECK_DELAY_MS);
 
@@ -164,10 +175,28 @@
 
     function reportCrash(reason) {
         if (crashMessage !== null) return;
-        crashMessage = "Compose preview stopped: " + (reason && reason.message ? reason.message : String(reason));
+        // Исключение Kotlin/Wasm приходит в JS как `WebAssembly.Exception` без текста и stack: причину отдаёт сам Kotlin
+        // (`__sddsPreviewCrashCause`), пока исключение проходит через обёртку над содержимым превью.
+        const kotlinCause = globalThis.__sddsPreviewCrashCause;
+        const reasonText = reason && reason.message ? reason.message : kotlinCause ? kotlinCause.message : String(reason);
+        crashMessage = "Compose preview stopped: " + reasonText;
+        const details = {};
+        const stack = reason && typeof reason.stack === "string" ? reason.stack
+            : kotlinCause ? kotlinCause.stack
+            : lastConsoleError && lastConsoleError.stack;
+        if (stack) details.stack = clip(stack);
+        const consoleError = kotlinCause ? kotlinCause.message : lastConsoleError && lastConsoleError.message;
+        if (consoleError) details.consoleError = clip(consoleError);
+        crashDetails = Object.keys(details).length > 0 ? details : null;
         for (const [requestId, pending] of [...pendingRequests]) {
             pendingRequests.delete(requestId);
-            const result = {type: "failure", requestId, code: "render_crashed", message: crashMessage};
+            const result = {
+                type: "failure",
+                requestId,
+                code: "render_crashed",
+                message: crashMessage,
+                ...(crashDetails ? {details: crashDetails} : {}),
+            };
             pending.resolve(result);
             if (pending.destination) {
                 pending.destination.source.postMessage(

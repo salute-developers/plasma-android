@@ -279,6 +279,18 @@ async function runGallery(socket, port) {
     if (crash.second.type !== "failure" || crash.second.code !== "plugin_crashed") {
         issues.push(`после сбоя: ожидался отказ plugin_crashed, получено ${crash.second.type}/${crash.second.code ?? ""}`);
     }
+    // Причина сбоя доходит до хоста: stack или запись консоли, одинаковые у первого и последующих отказов.
+    for (const [name, result] of [["render_crashed", crash.first], ["plugin_crashed", crash.second]]) {
+        if (!result.details || (!result.details.stack && !result.details.consoleError)) {
+            issues.push(`${name}: в отказе нет details.stack и details.consoleError (${result.message ?? ""})`);
+        }
+    }
+    if (!/Constraints/.test(crash.first.message) || !/Constraints/.test(crash.first.details?.consoleError ?? "")) {
+        issues.push(`render_crashed: ожидалась причина сбоя layout (Constraints), получено ${crash.first.message}`);
+    }
+    if (JSON.stringify(crash.first.details) !== JSON.stringify(crash.second.details)) {
+        issues.push("plugin_crashed отдаёт details, отличные от первого сбоя");
+    }
 
     // Одинаковые кадры у разных компонентов допустимы только из списка (общий стиль или общая история-триггер).
     const byContent = new Map();
