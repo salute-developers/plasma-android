@@ -242,6 +242,11 @@ interface NoteCompactColors {
     val iconColor: InteractiveColor
 
     /**
+     * Цвет иконки disclosure
+     */
+    val disclosureColor: InteractiveColor
+
+    /**
      * Цвет фона
      */
     val backgroundColor: StatefulValue<Brush>
@@ -298,6 +303,17 @@ interface NoteCompactColorsBuilder {
         iconColor(iconColor.asInteractive())
 
     /**
+     * Устанавливает цвет иконки disclosure [disclosureColor]
+     */
+    fun disclosureColor(disclosureColor: InteractiveColor): NoteCompactColorsBuilder
+
+    /**
+     * Устанавливает цвет иконки disclosure[disclosureColor]
+     */
+    fun disclosureColor(disclosureColor: Color): NoteCompactColorsBuilder =
+        disclosureColor(disclosureColor.asInteractive())
+
+    /**
      * Устанавливает фон [backgroundColor] компонента.
      */
     fun backgroundColor(backgroundColor: Brush): NoteCompactColorsBuilder =
@@ -332,6 +348,7 @@ private data class DefaultNoteCompactColors(
     override val titleColor: InteractiveColor,
     override val textColor: InteractiveColor,
     override val iconColor: InteractiveColor,
+    override val disclosureColor: InteractiveColor,
 ) : NoteCompactColors {
 
     class Builder : NoteCompactColorsBuilder {
@@ -340,6 +357,7 @@ private data class DefaultNoteCompactColors(
         private var titleColor: InteractiveColor? = null
         private var textColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
+        private var disclosureColor: InteractiveColor? = null
 
         override fun titleColor(titleColor: InteractiveColor): NoteCompactColorsBuilder = apply {
             this.titleColor = titleColor
@@ -351,6 +369,10 @@ private data class DefaultNoteCompactColors(
 
         override fun iconColor(iconColor: InteractiveColor): NoteCompactColorsBuilder = apply {
             this.iconColor = iconColor
+        }
+
+        override fun disclosureColor(disclosureColor: InteractiveColor): NoteCompactColorsBuilder = apply {
+            this.disclosureColor = disclosureColor
         }
 
         override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
@@ -368,6 +390,7 @@ private data class DefaultNoteCompactColors(
                 titleColor = titleColor ?: Color.Black.asInteractive(),
                 textColor = textColor ?: Color.DarkGray.asInteractive(),
                 iconColor = iconColor ?: Color.DarkGray.asInteractive(),
+                disclosureColor = disclosureColor ?: Color.DarkGray.asInteractive(),
             )
         }
     }
@@ -389,6 +412,11 @@ interface NoteCompactDimensions {
     val iconSize: Dp
 
     /**
+     * Размер иконки для contentAfter
+     */
+    val disclosureSize: Dp
+
+    /**
      * Отступ вначале иконки close
      */
     val closeStartMargin: Dp
@@ -397,6 +425,11 @@ interface NoteCompactDimensions {
      * Отступ вконце contentBefore
      */
     val contentBeforeEndMargin: Dp
+
+    /**
+     * Отступ вначале contentAfter
+     */
+    val contentAfterStartMargin: Dp
 
     /**
      * Отступ между text и title
@@ -457,6 +490,11 @@ interface NoteCompactDimensionsBuilder {
     fun iconSize(iconSize: Dp): NoteCompactDimensionsBuilder
 
     /**
+     * Устанавливает размер иконки для contentAfter [disclosureSize]
+     */
+    fun disclosureSize(disclosureSize: Dp): NoteCompactDimensionsBuilder
+
+    /**
      * Устанавливает отступ в начале иконки закрытия [closeStartMargin]
      */
     fun closeStartMargin(closeStartMargin: Dp): NoteCompactDimensionsBuilder
@@ -465,6 +503,11 @@ interface NoteCompactDimensionsBuilder {
      * Устанавливает отступ вконце contentBefore [contentBeforeEndMargin]
      */
     fun contentBeforeEndMargin(contentBeforeEndMargin: Dp): NoteCompactDimensionsBuilder
+
+    /**
+     * Устанавливает отступ вначале contentAfter [contentAfterStartMargin]
+     */
+    fun contentAfterStartMargin(contentAfterStartMargin: Dp): NoteCompactDimensionsBuilder
 
     /**
      * Устанавливает отступ между text и title [textTopMargin]
@@ -519,14 +562,18 @@ private class DefaultNoteCompactDimensions(
     override val closeStartMargin: Dp,
     override val contentBeforeEndMargin: Dp,
     override val actionEndMargin: Dp,
+    override val disclosureSize: Dp,
+    override val contentAfterStartMargin: Dp,
 ) : NoteCompactDimensions {
 
     class Builder : NoteCompactDimensionsBuilder {
 
         private var closeSize: Dp? = null
         private var iconSize: Dp? = null
+        private var disclosureSize: Dp? = null
         private var closeStartMargin: Dp? = null
         private var contentBeforeEndMargin: Dp? = null
+        private var contentAfterStartMargin: Dp? = null
         private var paddingStart: Dp? = null
         private var paddingEnd: Dp? = null
         private var paddingTop: Dp? = null
@@ -543,12 +590,20 @@ private class DefaultNoteCompactDimensions(
             this.iconSize = iconSize
         }
 
+        override fun disclosureSize(disclosureSize: Dp) = apply {
+            this.disclosureSize = disclosureSize
+        }
+
         override fun closeStartMargin(closeStartMargin: Dp) = apply {
             this.closeStartMargin = closeStartMargin
         }
 
         override fun contentBeforeEndMargin(contentBeforeEndMargin: Dp) = apply {
             this.contentBeforeEndMargin = contentBeforeEndMargin
+        }
+
+        override fun contentAfterStartMargin(contentAfterStartMargin: Dp) = apply {
+            this.contentAfterStartMargin = contentAfterStartMargin
         }
 
         override fun textTopMargin(textTopMargin: Dp) = apply {
@@ -587,8 +642,10 @@ private class DefaultNoteCompactDimensions(
                 paddingBottom = paddingBottom ?: 0.dp,
                 closeSize = closeSize ?: 24.dp,
                 iconSize = iconSize ?: Dp.Unspecified,
+                disclosureSize = disclosureSize ?: Dp.Unspecified,
                 closeStartMargin = closeStartMargin ?: 0.dp,
                 contentBeforeEndMargin = contentBeforeEndMargin ?: 0.dp,
+                contentAfterStartMargin = contentAfterStartMargin ?: 0.dp,
                 textTopMargin = textTopMargin ?: 0.dp,
                 actionStartMargin = actionStartMargin ?: 0.dp,
                 actionEndMargin = actionEndMargin ?: 0.dp,
