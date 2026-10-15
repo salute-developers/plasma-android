@@ -130,6 +130,18 @@
             ]);
             return {componentId, result, propertyCount: Object.keys(payload.component.properties).length, styleCount: Object.keys(payload.styles || {}).length};
         };
+        // Тот же render, но без одного свойства: конфигурация компонента может его не содержать.
+        window.__galleryRenderWithout = async (componentId, propertyName) => {
+            const payload = galleryPayload(fixture, metaByName[componentId], metaByName, "gallery-without-" + componentId + "-" + (++renderCount));
+            delete payload.component.properties[propertyName];
+            return Promise.race([
+                send(payload),
+                new Promise((resolve) => setTimeout(
+                    () => resolve({type: "failure", code: "timeout", message: "Нет ответа за 20 секунд"}),
+                    20000,
+                )),
+            ]);
+        };
         // Сбой layout: размер, который `Constraints` не может представить, останавливает Compose. Плагин обязан
         // ответить отказом `render_crashed`, а не успехом, и отказывать следующим payload кодом `plugin_crashed`.
         window.__galleryCrash = async () => {

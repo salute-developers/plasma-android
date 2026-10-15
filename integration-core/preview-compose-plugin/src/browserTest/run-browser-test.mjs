@@ -271,6 +271,14 @@ async function runGallery(socket, port) {
         issues.push(`шрифт скачан ${galleryFontRequests} раз за ${cards.length} payload (ожидалась одна загрузка)`);
     }
 
+    // Конфигурация может не содержать `textStyle`: TextSkeleton всё равно должен нарисоваться, а не остановить Compose.
+    if (!only || only.includes("TextSkeleton")) {
+        const withoutTextStyle = await evaluateAsync(socket, `window.__galleryRenderWithout("TextSkeleton", "textStyle")`);
+        if (withoutTextStyle.type !== "success") {
+            issues.push(`TextSkeleton без textStyle: ${withoutTextStyle.type}/${withoutTextStyle.code ?? ""} ${withoutTextStyle.message ?? ""}`);
+        }
+    }
+
     // Остановившийся Compose не должен сообщать успех (последний шаг: после него плагин мёртв).
     const crash = await evaluateAsync(socket, "window.__galleryCrash()");
     if (crash.first.type !== "failure" || crash.first.code !== "render_crashed") {

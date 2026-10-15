@@ -7,6 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.isSpecified
+import androidx.compose.ui.unit.sp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.LocalTextStyle
 import com.sdds.compose.uikit.SkeletonLineWidthProvider
@@ -53,7 +55,7 @@ object TextSkeletonStory : ComposeBaseStory<TextSkeletonUiState, TextSkeletonSty
     ) {
         Box(contentAlignment = Alignment.TopStart) {
             val defaultTextStyle = if (style.textStyle == TextStyle.Default) {
-                LocalTextStyle.current
+                LocalTextStyle.current.withLineHeight()
             } else {
                 style.textStyle.copy(color = LocalTextStyle.current.color)
             }
@@ -93,3 +95,18 @@ object TextSkeletonStory : ComposeBaseStory<TextSkeletonUiState, TextSkeletonSty
         )
     }
 }
+
+/**
+ * У [TextStyle.Default] размер строки не задан, а [TextSkeleton] переводит его в пиксели и без него останавливает Compose
+ * (`Only Sp can convert to Px`). Так бывает, когда в стиле скелетона нет `textStyle`, а тема не задаёт `LocalTextStyle`.
+ */
+private fun TextStyle.withLineHeight(): TextStyle {
+    val size = if (fontSize.isSpecified) fontSize else DefaultFontSize
+    return copy(
+        fontSize = size,
+        lineHeight = if (lineHeight.isSpecified) lineHeight else size * LINE_HEIGHT_FACTOR,
+    )
+}
+
+private val DefaultFontSize = 14.sp
+private const val LINE_HEIGHT_FACTOR = 1.4f
