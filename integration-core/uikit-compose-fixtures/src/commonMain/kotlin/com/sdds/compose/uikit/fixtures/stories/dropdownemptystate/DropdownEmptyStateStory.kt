@@ -14,7 +14,6 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.DropdownEmptyStateUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.DropdownEmptyStateUiStateTransformer
-import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.icons.compose.Plasma24
 import com.sdds.icons.compose.SddsIcons
 import com.sdds.sandbox.ComponentKey
@@ -51,12 +50,14 @@ object DropdownEmptyStateStory : ComposeBaseStory<DropdownEmptyStateUiState, Dro
         // EmptyState объявлен на DropdownScope (маркерный интерфейс): вне меню рисуем его через пустой scope.
         // Берём перегрузку со слотами: только она использует переданный `style`, а перегрузка со строками и `iconSource`
         // его вложенному EmptyState не передаёт.
+        // Иконку рисуем перегрузкой `Icon(imageVector)`: EmptyState красит иконку через устаревший `LocalTint`, а
+        // перегрузка `Icon(source: ImageSource)` читает только `LocalTintBrushProducer` и оставляет родную заливку.
         val scope = remember { object : DropdownScope {} }
         with(scope) {
             EmptyState(
                 style = style,
                 image = if (state.icon) {
-                    { Icon(source = imageVectorSource(SddsIcons.Plasma24), contentDescription = null) }
+                    { Icon(imageVector = SddsIcons.Plasma24, contentDescription = null) }
                 } else {
                     null
                 },
