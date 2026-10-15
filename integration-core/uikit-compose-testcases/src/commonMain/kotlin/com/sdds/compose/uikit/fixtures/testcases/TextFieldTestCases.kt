@@ -9,15 +9,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
-import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.icons.compose.Close24
 import com.sdds.icons.compose.ScribbleDiagonal16
 import com.sdds.icons.compose.ScribbleDiagonal24

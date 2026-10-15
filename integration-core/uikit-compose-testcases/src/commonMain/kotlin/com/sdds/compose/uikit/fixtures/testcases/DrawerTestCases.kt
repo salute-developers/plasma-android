@@ -11,8 +11,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
@@ -23,14 +23,14 @@ import com.sdds.compose.uikit.Drawer
 import com.sdds.compose.uikit.DrawerAlignment
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DrawerValue
-import com.sdds.compose.uikit.fs.focusSelector
-import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListItemStyle
-import com.sdds.compose.uikit.rememberDrawerState
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.rememberDrawerState
 import com.sdds.icons.compose.Close24
 import com.sdds.icons.compose.SddsIcons
 import kotlinx.coroutines.launch

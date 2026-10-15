@@ -3,9 +3,9 @@ package com.sdds.compose.uikit.fixtures.testcases
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.ImageStyle

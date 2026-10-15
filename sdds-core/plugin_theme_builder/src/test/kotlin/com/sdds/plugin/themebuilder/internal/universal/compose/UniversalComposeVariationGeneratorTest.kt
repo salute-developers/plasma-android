@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.universal.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.universal.BindingType
 import com.sdds.plugin.themebuilder.internal.universal.Bindings
@@ -29,6 +30,7 @@ class UniversalComposeVariationGeneratorTest {
         stateEnum: ComposeStateEnum? = null,
         multiplatform: Boolean = false,
         dimensionsConfig: DimensionsConfig = DimensionsConfig(fromResources = false, multiplier = 1f),
+        dimensAggregator: DimensAggregator = mockk(relaxed = true),
     ): UniversalComposeVariationGenerator {
         val componentMeta = ComposeComponentMeta(
             componentName = "Badge",
@@ -42,7 +44,7 @@ class UniversalComposeVariationGeneratorTest {
             themeClassName = "TestTheme",
             componentName = "badge",
             componentXmlPrefix = "badge",
-            dimensAggregator = mockk(relaxed = true),
+            dimensAggregator = dimensAggregator,
             dimensionsConfig = dimensionsConfig,
             resourceReferenceProvider = mockk(relaxed = true),
             themeStylesPackage = "com.test.styles",
@@ -178,6 +180,57 @@ class UniversalComposeVariationGeneratorTest {
     }
 
     @Test
+    fun `deprecated свойство не генерируется, актуальное генерируется`() {
+        val aggregator = mockk<DimensAggregator>(relaxed = true)
+        val generator = createGenerator(
+            params = listOf(
+                dimensionMeta("padding", deprecated = ComposeDeprecatedMeta("Use paddingStart")),
+                dimensionMeta("paddingStart"),
+            ),
+            dimensionsConfig = DimensionsConfig(fromResources = true, multiplier = 1f),
+            dimensAggregator = aggregator,
+        )
+        val config = UniversalComponentConfig(
+            props = UniversalPropertyOwner(
+                buildJsonObject {
+                    putJsonObject("padding") { put("value", 12f) }
+                    putJsonObject("paddingStart") { put("value", 8f) }
+                },
+            ),
+        )
+
+        generator.generate(config)
+
+        // Ресурсы заводятся только для актуального свойства: deprecated отфильтрован до генерации.
+        verify { aggregator.addDimen(match { it.name.startsWith("badge_padding_start") }) }
+        verify(exactly = 0) {
+            aggregator.addDimen(match { it.name == "badge_padding" || it.name.startsWith("badge_padding_Default") })
+        }
+    }
+
+    @Test
+    fun `все перегрузки id помечены deprecated - свойство целиком не генерируется`() {
+        val aggregator = mockk<DimensAggregator>(relaxed = true)
+        val generator = createGenerator(
+            params = listOf(
+                dimensionMeta("padding", deprecated = ComposeDeprecatedMeta("")),
+                dimensionMeta("padding", deprecated = ComposeDeprecatedMeta("")),
+            ),
+            dimensionsConfig = DimensionsConfig(fromResources = true, multiplier = 1f),
+            dimensAggregator = aggregator,
+        )
+        val config = UniversalComponentConfig(
+            props = UniversalPropertyOwner(
+                buildJsonObject { putJsonObject("padding") { put("value", 12f) } },
+            ),
+        )
+
+        generator.generate(config)
+
+        verify(exactly = 0) { aggregator.addDimen(any()) }
+    }
+
+    @Test
     fun `разные типы свойств проходят через общий compose generator`() {
         val generator = createGenerator(
             params = listOf(
@@ -267,13 +320,14 @@ class UniversalComposeVariationGeneratorTest {
         group = group,
     )
 
-    private fun dimensionMeta(id: String) = ComposeDimensionPropertyMeta(
+    private fun dimensionMeta(id: String, deprecated: ComposeDeprecatedMeta? = null) = ComposeDimensionPropertyMeta(
         id = id,
         methodName = id,
         paramName = id,
         paramQualifiedType = "",
         paramSimpleType = "",
         group = "",
+        deprecated = deprecated,
     )
 
     private fun shapeMeta(id: String, group: String) = ComposeShapePropertyMeta(

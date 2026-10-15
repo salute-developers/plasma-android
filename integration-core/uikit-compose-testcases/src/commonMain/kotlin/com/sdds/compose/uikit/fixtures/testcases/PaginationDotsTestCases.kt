@@ -3,8 +3,8 @@ package com.sdds.compose.uikit.fixtures.testcases
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -15,9 +15,9 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.PaginationDots
 import com.sdds.compose.uikit.PaginationDotsStyle
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.icons.compose.ArrowLeft24
 import com.sdds.icons.compose.ArrowRight24
 import com.sdds.icons.compose.SddsIcons

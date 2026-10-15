@@ -1,23 +1,23 @@
 package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.foundation.focusable
-import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.Counter
-import com.sdds.compose.uikit.fs.focusSelector
-import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.icons.compose.Plasma24
 import com.sdds.icons.compose.Plasma36
 import com.sdds.icons.compose.SddsIcons

@@ -148,6 +148,9 @@ enum class ColorStateScope(val key: String) {
  *  Атрибут в стиле один на всех, поэтому владелец может быть только один: по умолчанию это
  *  основной `<prefix>shapeAppearance`, а прочие shape-атрибуты (`sd_externalShapeAppearance`,
  *  `sd_itemShapeAppearance`, …) adjustment не эмитят, пока не помечены явно.
+ * @property deprecated пометка `sdds:api_deprecated`: задана — свойство устарело. Относится к
+ *  одному `<attr>` и не распространяется на другие атрибуты с тем же [id]. `null` не
+ *  сериализуется (Gson опускает null-поля).
  */
 data class PropertyMeta(
     val id: String,
@@ -162,6 +165,17 @@ data class PropertyMeta(
     val valueExpr: String = "",
     val condition: String = "",
     val shapeAdjustment: Boolean = false,
+    val deprecated: DeprecatedMeta? = null,
+)
+
+/**
+ * Пометка свойства устаревшим.
+ *
+ * @property message сообщение об устаревании; может быть пустым — сам факт разметки означает,
+ *  что свойство устарело.
+ */
+data class DeprecatedMeta(
+    val message: String,
 )
 
 /**

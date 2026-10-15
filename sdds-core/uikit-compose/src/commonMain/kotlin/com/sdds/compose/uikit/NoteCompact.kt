@@ -6,9 +6,7 @@ import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -22,6 +20,7 @@ import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
@@ -29,6 +28,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
@@ -36,7 +36,6 @@ import com.sdds.compose.uikit.interactions.SemanticStateSource
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
-import kotlin.math.abs
 
 /**
  * Компонент [NoteCompact]
@@ -86,6 +85,56 @@ fun NoteCompact(
  *
  * @param modifier модификатор
  * @param style стиль компонента
+ * @param title заголовок
+ * @param text текст
+ * @param closeIconSource источник иконки закрытия
+ * @param onClose колбэк клика на иконку закрытия [closeIconSource]
+ * @param contentBefore контент перед текстовым блоком
+ * @param contentAfter контент за текстовым блоком
+ * @param interactionSource источник взаимодействий
+ * @param action дополнительный контент для взаимодейстивия с компонентом
+ */
+@Suppress("LongMethod")
+@Composable
+fun NoteCompact(
+    modifier: Modifier = Modifier,
+    style: NoteCompactStyle = LocalNoteCompactStyle.current,
+    title: String = "",
+    text: String = "",
+    closeIconSource: ImageSource? = null,
+    onClose: (() -> Unit)? = null,
+    contentBefore: (@Composable BoxScope.() -> Unit)? = null,
+    contentAfter: (@Composable BoxScope.() -> Unit)? = null,
+    action: (@Composable BoxScope.() -> Unit)? = null,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+) {
+    NoteCompact(
+        modifier = modifier,
+        style = style,
+        titleContent = { Text(title) },
+        textContent = if (text.isNotBlank()) {
+            { Text(text) }
+        } else {
+            null
+        },
+        closeIcon = (closeIconSource ?: style.closeIconSource)
+            ?.let { source -> { CloseIcon(source, onClose, style) } },
+        contentBefore = contentBefore,
+        contentAfter = contentAfter,
+        interactionSource = interactionSource,
+        action = action,
+    )
+}
+
+/**
+ * Компонент [NoteCompact]
+ *
+ * Нота оборачивает контент по умолчанию: текстовый блок зажат между [contentBefore] и слотами
+ * [contentAfter], [action], [closeIcon], которые стоят сразу за текстом. Если ширину задать извне
+ * (`modifier = Modifier.fillMaxWidth()`), нота растянется, а эти слоты прижмутся к её концу.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
  * @param titleContent заголовок
  * @param textContent текст
  * @param closeIcon иконка закрытия
@@ -93,6 +142,7 @@ fun NoteCompact(
  * @param action дополнительный контент для взаимодейстивия с компонентом
  * @param interactionSource источник взаимодействий
  * @param semanticStateSource источник состояния семантики
+ * @param contentAfter контент за текстовым блоком
  */
 @Suppress("LongMethod")
 @Composable
@@ -106,13 +156,20 @@ fun NoteCompact(
     action: (@Composable BoxScope.() -> Unit)? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     semanticStateSource: SemanticStateSource = remember { MutableSemanticStateSource() },
+    contentAfter: (@Composable BoxScope.() -> Unit)? = null,
 ) {
     val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
+    val disclosureColor = style.colors.disclosureColor.colorForInteraction(interactionSource)
     val contentBeforeArrangement = style.contentBeforeArrangement
     val backgroundColor = style.colors.backgroundColor.getValue(interactionSource)
-    val measurePolicy = remember(contentBeforeArrangement) { NoteCompactMeasurePolicy(contentBeforeArrangement) }
-    val extraTopPadding = style.dimensions.paddingBottom - style.dimensions.paddingTop
-    Box(
+    val extraTopPadding = (style.dimensions.paddingBottom - style.dimensions.paddingTop).coerceAtLeast(0.dp)
+    val spacerHeight = with(LocalDensity.current) { extraTopPadding.roundToPx() }
+    val measurePolicy = remember(contentBeforeArrangement, spacerHeight) {
+        NoteCompactMeasurePolicy(contentBeforeArrangement, spacerHeight)
+    }
+    // Нота оборачивает контент и растягивается только тогда, когда ширину требует родитель
+    // (например модификатором fillMaxWidth)
+    Layout(
         modifier = modifier
             .background(backgroundColor, style.shape)
             .padding(
@@ -122,99 +179,105 @@ fun NoteCompact(
                 bottom = style.dimensions.paddingBottom,
             )
             .clipToBounds(),
-    ) {
-        Layout(
-            measurePolicy = measurePolicy,
-            content = {
-                contentBefore?.let {
-                    Box(
-                        modifier = Modifier
-                            .layoutId(CONTENT_BEFORE)
-                            .padding(
-                                end = style.dimensions.contentBeforeEndMargin,
-                            ),
+        measurePolicy = measurePolicy,
+        content = {
+            contentBefore?.let {
+                Box(
+                    modifier = Modifier
+                        .layoutId(CONTENT_BEFORE)
+                        .padding(
+                            end = style.dimensions.contentBeforeEndMargin,
+                        ),
+                ) {
+                    val iconSize = style.dimensions.iconSize
+                    val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
+                    CompositionLocalProvider(
+                        LocalTint provides iconColor,
+                        LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
                     ) {
-                        val iconSize = style.dimensions.iconSize
-                        val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
-                        CompositionLocalProvider(
-                            LocalTint provides iconColor,
-                            LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
-                        ) {
-                            contentBefore.invoke(this)
-                        }
+                        contentBefore.invoke(this)
                     }
                 }
-                if (extraTopPadding > 0.dp) {
-                    Spacer(
-                        modifier = Modifier
-                            .layoutId(SPACER)
-                            .height(extraTopPadding),
+            }
+            Box(
+                modifier = Modifier.layoutId(TITLE),
+            ) {
+                ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
+                    val textColor = style.colors.titleColor.colorForInteractionAsState(
+                        interactionSource,
+                        semanticStateSource,
                     )
+                    ProvideTextStyle(style.titleStyle, color = { textColor.value }) {
+                        titleContent()
+                    }
                 }
+            }
+            if (textContent != null) {
                 Box(
-                    modifier = Modifier.layoutId(TITLE),
+                    modifier = Modifier
+                        .layoutId(TEXT)
+                        .padding(top = style.dimensions.textTopMargin),
                 ) {
                     ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
-                        val textColor = style.colors.titleColor.colorForInteractionAsState(
+                        val textColor = style.colors.textColor.colorForInteractionAsState(
                             interactionSource,
                             semanticStateSource,
                         )
-                        ProvideTextStyle(style.titleStyle, color = { textColor.value }) {
-                            titleContent()
+                        ProvideTextStyle(style.textStyle, color = { textColor.value }) {
+                            textContent()
                         }
                     }
                 }
-                if (textContent != null) {
-                    Box(
-                        modifier = Modifier
-                            .layoutId(TEXT)
-                            .padding(top = style.dimensions.textTopMargin),
+            }
+            contentAfter?.let {
+                Box(
+                    modifier = Modifier
+                        .layoutId(CONTENT_AFTER)
+                        .padding(start = style.dimensions.contentAfterStartMargin),
+                ) {
+                    val iconSize = style.dimensions.disclosureSize
+                    val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
+                    CompositionLocalProvider(
+                        LocalTint provides disclosureColor,
+                        LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
                     ) {
-                        ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
-                            val textColor = style.colors.textColor.colorForInteractionAsState(
-                                interactionSource,
-                                semanticStateSource,
-                            )
-                            ProvideTextStyle(style.textStyle, color = { textColor.value }) {
-                                textContent()
-                            }
-                        }
+                        it.invoke(this)
                     }
                 }
-                action?.let {
-                    Box(
-                        modifier = Modifier
-                            .layoutId(ACTION)
-                            .padding(
-                                start = style.dimensions.actionStartMargin,
-                                end = style.dimensions.actionEndMargin,
-                            ),
+            }
+            action?.let {
+                Box(
+                    modifier = Modifier
+                        .layoutId(ACTION)
+                        .padding(
+                            start = style.dimensions.actionStartMargin,
+                            end = style.dimensions.actionEndMargin,
+                        ),
+                ) {
+                    CompositionLocalProvider(
+                        LocalLinkButtonStyle provides style.linkButtonStyle,
                     ) {
-                        CompositionLocalProvider(
-                            LocalLinkButtonStyle provides style.linkButtonStyle,
-                        ) {
-                            action.invoke(this)
-                        }
+                        action.invoke(this)
                     }
                 }
-                if (closeIcon != null) {
-                    val closeSize = style.dimensions.closeSize
-                    Box(
-                        modifier = Modifier
-                            .layoutId(CLOSE)
-                            .padding(start = style.dimensions.closeStartMargin)
-                            .defaultMinSize(),
+            }
+            if (closeIcon != null) {
+                val closeSize = style.dimensions.closeSize
+                Box(
+                    modifier = Modifier
+                        .layoutId(CLOSE)
+                        .padding(start = style.dimensions.closeStartMargin)
+                        .defaultMinSize(),
+                ) {
+                    CompositionLocalProvider(
+                        LocalIconDefaultSize provides DpSize(closeSize, closeSize),
                     ) {
-                        CompositionLocalProvider(
-                            LocalIconDefaultSize provides DpSize(closeSize, closeSize),
-                        ) {
-                            closeIcon()
-                        }
+                        closeIcon()
                     }
                 }
-            },
-        )
-    }
+            }
+        },
+    )
 }
 
 @Composable
@@ -241,191 +304,100 @@ private fun BoxScope.CloseIcon(
 @Suppress("LongMethod")
 private class NoteCompactMeasurePolicy(
     private val arrangement: ContentBeforeVerticalArrangement,
+    private val spacerHeight: Int,
 ) : MeasurePolicy {
     override fun MeasureScope.measure(
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
-        val contentBefore = measurables.find { it.layoutId == CONTENT_BEFORE }
-        val spacer = measurables.find { it.layoutId == SPACER }
-        val title = measurables.find { it.layoutId == TITLE }
-        val text = measurables.find { it.layoutId == TEXT }
-        val action = measurables.find { it.layoutId == ACTION }
-        val close = measurables.find { it.layoutId == CLOSE }
+        val childConstraints = constraints.copy(minWidth = 0, minHeight = 0)
+        fun measurable(id: String): Measurable? = measurables.find { it.layoutId == id }
 
-        val contentBeforePlaceable = contentBefore?.measure(constraints)
-        val contentBeforeWidth = contentBeforePlaceable.widthOrZero()
-        val contentBeforeHeight = contentBeforePlaceable.heightOrZero()
+        // Боковые слоты измеряются до текстового блока и забирают у него ширину
+        var remaining = childConstraints
+        val contentBefore = measurable(CONTENT_BEFORE)?.measure(remaining)
+        remaining = remaining.offset(horizontal = -contentBefore.widthOrZero())
+        val contentAfter = measurable(CONTENT_AFTER)?.measure(remaining)
+        remaining = remaining.offset(horizontal = -contentAfter.widthOrZero())
+        val action = measurable(ACTION)?.measure(remaining)
+        remaining = remaining.offset(horizontal = -action.widthOrZero())
+        val close = measurable(CLOSE)?.measure(remaining)
+        var textConstraints = remaining.offset(horizontal = -close.widthOrZero())
 
-        val actionPlaceable = action?.measure(constraints)
-        val actionWidth = actionPlaceable.widthOrZero()
-        val actionHeight = actionPlaceable.heightOrZero()
+        val title = measurable(TITLE)?.measure(textConstraints)
+        val titleHeight = title.heightOrZero()
+        textConstraints = textConstraints.offset(vertical = -titleHeight)
+        val text = measurable(TEXT)?.measure(textConstraints)
 
-        val closePlaceable = close?.measure(constraints)
-        val closeWidth = closePlaceable.widthOrZero()
-        val closeHeight = closePlaceable.heightOrZero()
+        // Высота текста уже включает textTopMargin, так как паддинг задан внутри самого слота
+        val textHeight = text.heightOrZero()
+        val textBlockHeight = titleHeight + textHeight
+        // Экшн и close центрируются относительно строки заголовка, а не всего текстового блока
+        val anchorHeight = if (titleHeight > 0) titleHeight else textHeight
 
-        var newConstraints = constraints.copy(
-            maxWidth = (constraints.maxWidth - contentBeforeWidth - actionWidth - closeWidth).coerceAtLeast(0),
+        // Смещения слотов относительно верха текстового блока.
+        // Отрицательное смещение означает, что слот выпирает над текстовым блоком
+        val contentBeforeHeight = contentBefore.heightOrZero()
+        val contentBeforeOffset = when (arrangement) {
+            ContentBeforeVerticalArrangement.Top -> (anchorHeight - contentBeforeHeight) / 2
+            ContentBeforeVerticalArrangement.Center -> (textBlockHeight - contentBeforeHeight) / 2
+            ContentBeforeVerticalArrangement.Bottom -> textBlockHeight - contentBeforeHeight
+        }
+        val contentAfterHeight = contentAfter.heightOrZero()
+        val contentAfterOffset = (textBlockHeight - contentAfterHeight) / 2
+        val actionHeight = action.heightOrZero()
+        val actionOffset = (anchorHeight - actionHeight) / 2
+        // Close центрируется по заголовку, но на высоту не влияет
+        val closeOffset = (anchorHeight - close.heightOrZero()) / 2
+
+        // Смещение отсутствующего слота (нулевая высота) в расчёт высоты не идёт
+        fun topInsetOf(offset: Int, height: Int) = if (height == 0) 0 else offset
+        val minOffset = minOf(
+            0,
+            topInsetOf(contentBeforeOffset, contentBeforeHeight),
+            topInsetOf(contentAfterOffset, contentAfterHeight),
+            topInsetOf(actionOffset, actionHeight),
+        )
+        // Компенсирующий паддинг и выпирающий над заголовком контент занимают одно и то же место,
+        // поэтому берётся максимум, а не сумма
+        val topInset = maxOf(spacerHeight, -minOffset)
+
+        val textBlockWidth = maxOf(title.widthOrZero(), text.widthOrZero())
+        val closeW = close.widthOrZero()
+        val actionW = action.widthOrZero()
+        val contentAW = contentAfter.widthOrZero()
+        val contentBW = contentBefore.widthOrZero()
+        val layoutWidth = contentBW + textBlockWidth + contentAW + actionW + closeW
+
+        // Дно слота считается относительно низа текстового блока, topInset здесь сокращается
+        fun bottomInsetOf(offset: Int, height: Int) = if (height == 0) 0 else offset + height - textBlockHeight
+        val bottomInset = maxOf(
+            0,
+            bottomInsetOf(contentBeforeOffset, contentBeforeHeight),
+            bottomInsetOf(contentAfterOffset, contentAfterHeight),
+            bottomInsetOf(actionOffset, actionHeight),
         )
 
-        val spacerPlaceable = spacer?.measure(newConstraints)
-        val spacerHeight = spacerPlaceable.heightOrZero()
-
-        val titlePlaceable = title?.measure(newConstraints)
-        val titleWidth = titlePlaceable.widthOrZero()
-        val titleHeight = titlePlaceable.heightOrZero()
-
-        newConstraints = newConstraints.copy(maxHeight = newConstraints.maxHeight - titleHeight)
-
-        val textPlaceable = text?.measure(newConstraints)
-        val textWidth = textPlaceable.widthOrZero()
-        val textHeight = textPlaceable.heightOrZero()
-
-        val layoutWidth = contentBeforeWidth + maxOf(textWidth, titleWidth) + actionWidth + closeWidth
-        val layoutHeight = calculateLayoutHeight(
-            contentBeforeHeight,
-            spacerHeight,
-            titleHeight,
-            textHeight,
-            actionHeight,
-            arrangement,
-        )
         val finalWidth = constraints.constrainWidth(layoutWidth)
-        val finalHeight = constraints.constrainHeight(layoutHeight)
+        val finalHeight = constraints.constrainHeight(topInset + textBlockHeight + bottomInset)
 
-        var contentOffsetY = when (arrangement) {
-            ContentBeforeVerticalArrangement.Top -> spacerHeight + (titleHeight - contentBeforeHeight) / 2
-            ContentBeforeVerticalArrangement.Center -> {
-                spacerHeight + (titleHeight + textHeight - contentBeforeHeight) / 2
-            }
-
-            ContentBeforeVerticalArrangement.Bottom -> spacerHeight + titleHeight + textHeight - contentBeforeHeight
-        }
-        var actionOffsetY = spacerHeight + (titleHeight - actionHeight) / 2
-        var spacerOffsetY = 0
-        val actionStartX = contentBeforeWidth + maxOf(titleWidth, textWidth)
-        val closeStartX = actionStartX + actionWidth
-        val firstPlaceContent = (contentOffsetY < actionOffsetY) && contentOffsetY < 0
-        val firstPlaceAction = (actionOffsetY < contentOffsetY) && actionOffsetY < 0
-        if (firstPlaceContent) {
-            spacerOffsetY += abs(contentOffsetY)
-            actionOffsetY += abs(contentOffsetY)
-            contentOffsetY = 0
-        }
-        if (firstPlaceAction) {
-            spacerOffsetY += abs(actionOffsetY)
-            contentOffsetY += abs(actionOffsetY)
-            actionOffsetY = 0
-        }
         return layout(finalWidth, finalHeight) {
-            contentBeforePlaceable?.placeRelative(x = 0, y = contentOffsetY)
-            spacerPlaceable?.placeRelative(x = contentBeforeWidth, spacerOffsetY)
-            titlePlaceable?.placeRelative(x = contentBeforeWidth, y = spacerOffsetY + spacerHeight)
-            textPlaceable?.placeRelative(x = contentBeforeWidth, y = spacerOffsetY + spacerHeight + titleHeight)
-            actionPlaceable?.placeRelative(x = actionStartX, y = actionOffsetY)
-            closePlaceable?.placeRelative(
-                x = closeStartX,
-                y = (spacerOffsetY + spacerHeight + titleHeight / 2 - closeHeight / 2),
-            )
+            contentBefore?.placeRelative(x = 0, y = topInset + contentBeforeOffset)
+            title?.placeRelative(x = contentBW, y = topInset)
+            text?.placeRelative(x = contentBW, y = topInset + titleHeight)
+            var x = finalWidth - closeW
+            close?.placeRelative(x = x, y = topInset + closeOffset)
+            x -= actionW
+            action?.placeRelative(x = x, y = topInset + actionOffset)
+            x -= contentAW
+            contentAfter?.placeRelative(x = x, y = topInset + contentAfterOffset)
         }
     }
-}
-
-private fun calculateLayoutHeight(
-    cbHeight: Int,
-    spacerHeight: Int,
-    titleHeight: Int,
-    textHeight: Int,
-    aHeight: Int,
-    arrangement: ContentBeforeVerticalArrangement,
-): Int {
-    return when (arrangement) {
-        ContentBeforeVerticalArrangement.Top ->
-            calculateHeightWhenTop(cbHeight, spacerHeight, titleHeight, textHeight, aHeight)
-
-        ContentBeforeVerticalArrangement.Center ->
-            calculateHeightWhenCenter(cbHeight, spacerHeight, titleHeight, textHeight, aHeight)
-
-        ContentBeforeVerticalArrangement.Bottom ->
-            calculateHeightWhenBottom(cbHeight, spacerHeight, titleHeight, textHeight, aHeight)
-    }
-}
-
-private fun calculateHeightWhenTop(
-    cbHeight: Int,
-    spacerHeight: Int,
-    titleHeight: Int,
-    textHeight: Int,
-    aHeight: Int,
-): Int {
-    val maxHalf = maxOf(cbHeight / 2, aHeight / 2)
-    val bigSpacer = spacerHeight > (maxHalf - titleHeight / 2)
-    return when {
-        maxHalf >= (titleHeight / 2 + textHeight) -> {
-            if (bigSpacer) {
-                spacerHeight + titleHeight / 2 + maxHalf
-            } else {
-                maxHalf * 2
-            }
-        }
-
-        maxHalf > titleHeight / 2 -> {
-            if (bigSpacer) {
-                spacerHeight + titleHeight + textHeight
-            } else {
-                maxHalf + titleHeight / 2 + textHeight
-            }
-        }
-
-        else -> {
-            if (bigSpacer) {
-                spacerHeight + titleHeight + textHeight
-            } else {
-                (maxHalf - titleHeight / 2) + titleHeight + textHeight
-            }
-        }
-    }
-}
-
-private fun calculateHeightWhenCenter(
-    cbHeight: Int,
-    spacerHeight: Int,
-    titleHeight: Int,
-    textHeight: Int,
-    aHeight: Int,
-): Int {
-    val offsetPartContent = cbHeight / 2 - (titleHeight + textHeight) / 2
-    val offsetTopPartAction = aHeight / 2 - titleHeight / 2
-    val offsetBottomPartAction = aHeight / 2 - (titleHeight / 2 + textHeight)
-    val maxTopOffset = maxOf(offsetPartContent, offsetTopPartAction, spacerHeight)
-    val maxBottomOffset = maxOf(offsetPartContent, offsetBottomPartAction)
-    var result = titleHeight + textHeight
-    if (maxTopOffset > 0) result += maxTopOffset
-    if (maxBottomOffset > 0) result += maxBottomOffset
-    return result
-}
-
-private fun calculateHeightWhenBottom(
-    cbHeight: Int,
-    spacerHeight: Int,
-    titleHeight: Int,
-    textHeight: Int,
-    aHeight: Int,
-): Int {
-    val offsetPartContent = cbHeight - (titleHeight + textHeight)
-    val offsetTopPartAction = aHeight / 2 - titleHeight / 2
-    val maxTopOffset = maxOf(offsetPartContent, offsetTopPartAction, spacerHeight)
-    val offsetBottomPartAction = aHeight / 2 - (titleHeight / 2 + textHeight)
-    var result = titleHeight + textHeight
-    if (maxTopOffset > 0) result += maxTopOffset
-    if (offsetBottomPartAction > 0) result += offsetBottomPartAction
-    return result
 }
 
 private const val CONTENT_BEFORE = "contentBefore"
+private const val CONTENT_AFTER = "contentAfter"
 private const val TITLE = "title"
 private const val TEXT = "text"
 private const val ACTION = "action"
 private const val CLOSE = "close"
-private const val SPACER = "spacer"

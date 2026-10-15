@@ -21,7 +21,7 @@
         <!-- Количество слотов для контента -->
         <attr name="sd_slotsAmount" format="integer" />
         <!-- Ориентация компонента -->
-        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="integer" />
+        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="value" />
         <!-- Отступ от краев Divider в горизонтальной ориентации marginTop и marginBottom
              в вертикальной - marginStart и marginEnd -->
         <attr name="sd_dividerMargin" format="dimension" />

@@ -1,5 +1,6 @@
 package tasks.viewapi
 
+import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertThrows
@@ -708,6 +709,73 @@ class MarkupVocabularyTest {
 
         // неразмеченный framework-атрибут в мету не попадает, размеченный placement'ом — попадает
         assertEquals(listOf("android:theme"), params.map { it.attrName })
+    }
+
+    // endregion
+
+    // region deprecated
+
+    private val deprecatedFile
+        get() = xml(
+            "toast_attrs.xml",
+            resources(
+                """
+                <declare-styleable name="Toast" sdds:api_info="Toast"
+                    sdds:api_def_style_attr="sd_toastStyle"
+                    sdds:api_parent="Sdds.Components.Toast">
+                    <attr name="sd_textColor" format="color|reference"
+                        sdds:api_name="textColor" sdds:api_deprecated="Use android:textColor" />
+                    <attr name="android:textColor" sdds:api_type="color" sdds:api_name="textColor" />
+                    <attr name="sd_shape" format="reference" sdds:api_type="shape" />
+                    <attr name="sd_legacyIcon" format="reference" sdds:api_type="icon"
+                        sdds:api_deprecated="" />
+                </declare-styleable>
+                """,
+            ),
+        )
+
+    @Test
+    fun `api_deprecated puts message into property meta`() {
+        val params = parser.parse(listOf(deprecatedFile)).components.single().params
+
+        assertEquals(
+            DeprecatedMeta("Use android:textColor"),
+            params.single { it.attrName == "sd_textColor" }.deprecated,
+        )
+    }
+
+    @Test
+    fun `empty api_deprecated is valid and still means deprecated`() {
+        val params = parser.parse(listOf(deprecatedFile)).components.single().params
+
+        assertEquals(DeprecatedMeta(""), params.single { it.attrName == "sd_legacyIcon" }.deprecated)
+    }
+
+    @Test
+    fun `api_deprecated does not propagate to another attr with the same id`() {
+        val params = parser.parse(listOf(deprecatedFile)).components.single().params
+
+        val sameId = params.filter { it.id == "textColor" }
+        assertEquals(listOf("sd_textColor", "android:textColor"), sameId.map { it.attrName })
+        assertEquals(null, sameId.single { it.attrName == "android:textColor" }.deprecated)
+    }
+
+    @Test
+    fun `serialized meta carries deprecated only on marked properties`() {
+        val meta = parser.parse(listOf(deprecatedFile))
+
+        val json = GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(meta)
+
+        val params = org.jetbrains.kotlin.com.google.gson.JsonParser.parseString(json).asJsonObject
+            .getAsJsonArray("components").single().asJsonObject
+            .getAsJsonArray("params").map { it.asJsonObject }
+        assertEquals(
+            "Use android:textColor",
+            params.single { it["attrName"].asString == "sd_textColor" }
+                .getAsJsonObject("deprecated")["message"].asString,
+        )
+        assertFalse(params.single { it["attrName"].asString == "android:textColor" }.has("deprecated"))
+        assertFalse(params.single { it["attrName"].asString == "sd_shape" }.has("deprecated"))
     }
 
     // endregion

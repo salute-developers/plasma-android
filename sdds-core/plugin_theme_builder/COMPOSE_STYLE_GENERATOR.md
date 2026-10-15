@@ -115,7 +115,7 @@ ExampleStyle.builder()
 KSP обрабатывает объявленные в интерфейсе методы, кроме:
 
 - `style`, `build`, `equals`, `hashCode`, `toString`;
-- методов с `@Deprecated`;
+- методов с `@Deprecated`, если на них нет `@ApiDeprecated` (см. [`@ApiDeprecated`](#apideprecated));
 - методов без параметров.
 
 Обычный метод становится свойством корневого билдера. Метод с extension-lambda
@@ -269,6 +269,36 @@ enum class NavigationBarTextPlacement {
     Bottom,
 }
 ```
+
+### `@ApiDeprecated`
+
+`@ApiDeprecated(message = "")` помечает свойство устаревшим **в API-мете**
+(`uikit-compose-api-meta.json`). Это не то же самое, что `@Deprecated`:
+
+| | `@Deprecated` | `@ApiDeprecated` |
+|---|---|---|
+| Что это | нативная разметка Kotlin-кода | разметка API-меты |
+| Для кого | компилятор и IDE (предупреждения, `ReplaceWith`) | потребители меты и генератор |
+| Влияет на компиляцию | да | нет, предупреждений не создаёт |
+| Метод в мете | исключается | попадает с полем `deprecated: { message }` |
+
+Аннотации независимы. Если нужны и предупреждение компилятора, и пометка в мете,
+ставятся обе: метод с обеими аннотациями попадает в мету с `deprecated`.
+
+```kotlin
+@Deprecated("Use iconClosedSource", replaceWith = ReplaceWith("iconClosedSource"))
+@ApiDeprecated("Use iconClosedSource")
+@ApiName(name = "closedIcon")
+fun iconClosed(@DrawableRes iconClosed: Int?): AccordionItemStyleBuilder
+```
+
+Статус относится к свойству целиком. Если `@ApiDeprecated` стоит хотя бы на одной
+перегрузке, в мете `deprecated` получают **все** записи с тем же `id` (`@ApiName` либо
+имя метода), в том числе перегрузки без аннотации. `message` берётся у первой помеченной
+перегрузки в порядке объявления; разные сообщения ошибкой не являются. Пустой `message`
+допустим: сам факт аннотации означает, что свойство устарело.
+
+Генератор стилей пропускает свойства с `deprecated`, они не попадают в сгенерированный код.
 
 ### `@ApiStateSet`
 

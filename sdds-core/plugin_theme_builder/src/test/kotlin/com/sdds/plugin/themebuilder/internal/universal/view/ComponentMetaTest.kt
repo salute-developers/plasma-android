@@ -203,4 +203,52 @@ class ComponentMetaTest {
         val fields = StateInfo::class.java.declaredFields.map { it.name }
         assertTrue("Модель привязки состояния не должна нести ordinal", "ordinal" !in fields)
     }
+
+    @Test
+    fun `decodes deprecated with and without message and keeps absent as null`() {
+        val producerJson = """
+            {
+              "components": [
+                {
+                  "componentNames": ["Toast"],
+                  "styleableName": "Toast",
+                  "params": [
+                    {
+                      "id": "textColor", "attrName": "sd_textColor", "type": "color",
+                      "resSuffix": "text_color", "deprecated": { "message": "Use android:textColor" }
+                    },
+                    {
+                      "id": "textColor", "attrName": "android:textColor", "type": "color",
+                      "resSuffix": "text_color", "deprecated": { "message": "" }
+                    },
+                    { "id": "shape", "attrName": "sd_shape", "type": "shape", "resSuffix": "shape" }
+                  ]
+                }
+              ]
+            }
+        """.trimIndent()
+
+        val params = json.decodeFromString<ApiMeta>(producerJson).components.single().params
+
+        assertEquals(DeprecatedMeta("Use android:textColor"), params[0].deprecated)
+        assertEquals(DeprecatedMeta(""), params[1].deprecated)
+        assertEquals(null, params[2].deprecated)
+    }
+
+    @Test
+    fun `property without deprecated is serialized without the field`() {
+        val meta = ApiMeta(
+            components = listOf(
+                ComponentMeta(
+                    componentNames = listOf("Toast"),
+                    styleableName = "Toast",
+                    params = listOf(PropertyMeta(id = "shape", attrName = "sd_shape", type = "shape")),
+                ),
+            ),
+        )
+
+        val encoded = json.encodeToString(ApiMeta.serializer(), meta)
+
+        assertTrue("deprecated" !in encoded)
+    }
 }

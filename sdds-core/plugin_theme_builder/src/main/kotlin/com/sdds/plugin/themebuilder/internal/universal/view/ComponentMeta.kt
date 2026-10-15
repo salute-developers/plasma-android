@@ -113,6 +113,8 @@ internal const val COLOR_STATE_SCOPE_VARIETY = "variety"
  * @property shapeAdjustment владеет ли shape-свойство единственным на стиль атрибутом
  *  `sd_shapeAppearanceAdjustment`. У компонента с несколькими формами владелец один,
  *  иначе стиль получил бы одинаковый `<item>` дважды.
+ * @property deprecated пометка `sdds:api_deprecated`; `null` — свойство актуально. Относится к
+ *  одной записи (атрибуту) и не распространяется на другие атрибуты с тем же [id].
  */
 @Serializable
 internal data class PropertyMeta(
@@ -128,6 +130,17 @@ internal data class PropertyMeta(
     val valueExpr: String = "",
     val condition: String = "",
     val shapeAdjustment: Boolean = false,
+    val deprecated: DeprecatedMeta? = null,
+)
+
+/**
+ * Пометка свойства устаревшим.
+ *
+ * @property message сообщение об устаревании; может быть пустым.
+ */
+@Serializable
+internal data class DeprecatedMeta(
+    val message: String,
 )
 
 /**

@@ -383,3 +383,42 @@ Framework-атрибуты (`android:*`) SHALL попадать в мету не
 - **WHEN** `declare-styleable` содержит два `<attr>` с одинаковым `name`
 - **THEN** `lintDebug` модуля `uikit` SHALL падать с `DuplicateDefinition`, и разметка SHALL исправляться удалением дубля
 
+### Requirement: Значения enum без собственных вложенных элементов
+Если атрибут с `sdds:api_type="value"` (или `format="enum"`) не содержит собственных `<enum>`, его значения SHALL определяться в порядке приоритета: определение атрибута с тем же именем и `<enum>` в ресурсах модуля, затем встроенный словарь генератора значений framework-enum атрибутов. Собственные `<enum>` атрибута SHALL иметь наивысший приоритет. Встроенный словарь SHALL содержать для `android:orientation` значения `horizontal=0` и `vertical=1`, и ресурсы модуля SHALL NOT дублировать эти значения ради генератора.
+
+Свойство `orientation` SHALL иметь тип `value` у всех компонентов меты и нести значения `horizontal=0` и `vertical=1`.
+
+#### Scenario: Framework-атрибут получает значения из встроенного словаря
+- **WHEN** `declare-styleable` компонента содержит `<attr name="android:orientation" sdds:api_type="value" sdds:api_name="orientation" />` без `<enum>`, и в ресурсах модуля определения этого атрибута нет
+- **THEN** свойство `orientation` SHALL иметь тип `value` и значения `horizontal=0`, `vertical=1` с `configName`, совпадающим с `name`
+
+#### Scenario: Собственные enum приоритетнее встроенного словаря
+- **WHEN** атрибут `android:orientation` в `declare-styleable` содержит собственные `<enum>`
+- **THEN** в мету SHALL попасть собственные значения
+
+#### Scenario: Определение в модуле приоритетнее встроенного словаря
+- **WHEN** ресурсы модуля определяют `<attr name="android:orientation">` с `<enum>`, а `declare-styleable` ссылается на атрибут без `<enum>`
+- **THEN** в мету SHALL попасть значения из определения модуля
+
+#### Scenario: Orientation единообразен у всех компонентов
+- **WHEN** мета сгенерирована для uikit
+- **THEN** свойства `orientation` у Slider, Tabs, ToolBar, PaginationDots и ScrollBar SHALL иметь тип `value`, и ни одно из них SHALL NOT иметь тип `integer`
+
+### Requirement: Пометка устаревшего свойства через sdds:api_deprecated
+Словарь `sdds` SHALL содержать атрибут `sdds:api_deprecated`, значением которого является сообщение об устаревании. Наличие атрибута на `<attr>` внутри размеченного `declare-styleable` SHALL означать, что свойство устарело; значение SHALL NOT проверяться на непустоту, и пустое значение SHALL NOT быть ошибкой разметки. Пометка SHALL относиться только к тому `<attr>`, на котором стоит, и SHALL NOT распространяться на другие `<attr>` с тем же `id`.
+
+#### Scenario: Атрибут с сообщением помечается устаревшим
+- **WHEN** `<attr name="sd_textColor" sdds:api_deprecated="Use android:textColor" />` находится в размеченном `declare-styleable`
+- **THEN** свойство `sd_textColor` SHALL иметь в мете `deprecated.message == "Use android:textColor"`
+
+#### Scenario: Пустое значение допустимо
+- **WHEN** на `<attr>` стоит `sdds:api_deprecated=""`
+- **THEN** парсер SHALL NOT завершаться ошибкой, и свойство SHALL иметь `deprecated.message == ""`
+
+#### Scenario: Пометка не распространяется на атрибуты с тем же id
+- **WHEN** `sd_textColor` помечен `sdds:api_deprecated`, а `android:textColor` с тем же `id` `textColor` не помечен
+- **THEN** `deprecated` SHALL присутствовать только у записи `sd_textColor`
+
+#### Scenario: Свойство без разметки не получает deprecated
+- **WHEN** на `<attr>` нет `sdds:api_deprecated`
+- **THEN** поле `deprecated` SHALL отсутствовать в JSON этого свойства

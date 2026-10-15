@@ -142,11 +142,15 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
         .colors {
             titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
             textColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            disclosureColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
             closeColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            disclosureSize(24.0.dp)
             closeTopMargin(0.0.dp)
             closeEndMargin(0.0.dp)
+            contentAfterStartMargin(12.0.dp)
+            contentAfterEndMargin(0.0.dp)
             textTopMargin(2.0.dp)
             actionTopMargin(0.0.dp)
             paddingStart(20.0.dp)
@@ -177,6 +181,7 @@ public val WrapperNoteContentBeforeScalable.HasClose: WrapperNoteContentBeforeSc
             closeSize(24.0.dp)
             closeTopMargin(10.0.dp)
             closeEndMargin(10.0.dp)
+            contentAfterEndMargin(28.0.dp)
             titlePaddingEnd(26.0.dp)
         }
         .wrap(::WrapperNoteContentBeforeScalableHasClose)
@@ -189,7 +194,7 @@ public val Note.ContentBeforeFixed: WrapperNoteContentBeforeFixed
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
             iconSize(16.0.dp)
-            contentBeforeEndMargin(8.0.dp)
+            contentBeforeEndMargin(12.0.dp)
         }
         .wrap(::WrapperNoteContentBeforeFixed)
 
@@ -202,6 +207,7 @@ public val WrapperNoteContentBeforeFixed.HasClose: WrapperNoteContentBeforeFixed
             closeSize(24.0.dp)
             closeTopMargin(10.0.dp)
             closeEndMargin(10.0.dp)
+            contentAfterEndMargin(28.0.dp)
             titlePaddingEnd(26.0.dp)
         }
         .wrap(::WrapperNoteContentBeforeFixedHasClose)

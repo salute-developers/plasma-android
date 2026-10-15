@@ -3,13 +3,13 @@ package com.sdds.compose.uikit.fixtures.testcases
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.ai.AiHeader
 import com.sdds.compose.uikit.ai.AiHeaderSeparationType
 import com.sdds.compose.uikit.ai.AiHeaderStyle
 import com.sdds.compose.uikit.ai.AiHeaderTitleAlignment
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.imageVectorSource
-import com.sdds.compose.uikit.Text
 import com.sdds.icons.compose.Close24
 import com.sdds.icons.compose.PanelSidebarLOutline24
 import com.sdds.icons.compose.SddsIcons

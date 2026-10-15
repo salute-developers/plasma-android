@@ -242,6 +242,11 @@ interface NoteColors {
     val iconColor: InteractiveColor
 
     /**
+     * Цвет иконки disclosure
+     */
+    val disclosureColor: InteractiveColor
+
+    /**
      * Цвет фона
      */
     val backgroundColor: StatefulValue<Brush>
@@ -285,6 +290,17 @@ interface NoteColorsBuilder {
      */
     fun textColor(textColor: Color): NoteColorsBuilder =
         textColor(textColor.asInteractive())
+
+    /**
+     * Устанавливает цвет иконки disclosure [disclosureColor]
+     */
+    fun disclosureColor(disclosureColor: InteractiveColor): NoteColorsBuilder
+
+    /**
+     * Устанавливает цвет иконки disclosure[disclosureColor]
+     */
+    fun disclosureColor(disclosureColor: Color): NoteColorsBuilder =
+        disclosureColor(disclosureColor.asInteractive())
 
     /**
      * Устанавливает цвет иконки [iconColor]
@@ -332,6 +348,7 @@ private data class DefaultNoteColors(
     override val titleColor: InteractiveColor,
     override val textColor: InteractiveColor,
     override val iconColor: InteractiveColor,
+    override val disclosureColor: InteractiveColor,
 ) : NoteColors {
 
     class Builder : NoteColorsBuilder {
@@ -340,6 +357,7 @@ private data class DefaultNoteColors(
         private var titleColor: InteractiveColor? = null
         private var textColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
+        private var disclosureColor: InteractiveColor? = null
 
         override fun titleColor(titleColor: InteractiveColor): NoteColorsBuilder = apply {
             this.titleColor = titleColor
@@ -351,6 +369,10 @@ private data class DefaultNoteColors(
 
         override fun iconColor(iconColor: InteractiveColor): NoteColorsBuilder = apply {
             this.iconColor = iconColor
+        }
+
+        override fun disclosureColor(disclosureColor: InteractiveColor): NoteColorsBuilder = apply {
+            this.disclosureColor = disclosureColor
         }
 
         override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
@@ -368,6 +390,7 @@ private data class DefaultNoteColors(
                 titleColor = titleColor ?: Color.Black.asInteractive(),
                 textColor = textColor ?: Color.DarkGray.asInteractive(),
                 iconColor = iconColor ?: Color.DarkGray.asInteractive(),
+                disclosureColor = disclosureColor ?: Color.DarkGray.asInteractive(),
             )
         }
     }
@@ -389,6 +412,11 @@ interface NoteDimensions {
     val iconSize: Dp
 
     /**
+     * Размер иконки для contentAfter
+     */
+    val disclosureSize: Dp
+
+    /**
      * Отступ иконки close от верхнего края компонента
      */
     val closeTopMargin: Dp
@@ -402,6 +430,16 @@ interface NoteDimensions {
      * Отступ вконце contentBefore
      */
     val contentBeforeEndMargin: Dp
+
+    /**
+     * Отступ вначле contentAfter
+     */
+    val contentAfterStartMargin: Dp
+
+    /**
+     * Отступ вконце contentAfter
+     */
+    val contentAfterEndMargin: Dp
 
     /**
      * Отступ между text и title
@@ -462,6 +500,11 @@ interface NoteDimensionsBuilder {
     fun iconSize(iconSize: Dp): NoteDimensionsBuilder
 
     /**
+     * Устанавливает размер иконки для contentAfter [disclosureSize]
+     */
+    fun disclosureSize(disclosureSize: Dp): NoteDimensionsBuilder
+
+    /**
      * Устанавливает отступ иконки закрытия от края [closeSize]
      */
     fun closeTopMargin(closeTopMargin: Dp): NoteDimensionsBuilder
@@ -475,6 +518,16 @@ interface NoteDimensionsBuilder {
      * Устанавливает отступ вконце contentBefore [contentBeforeEndMargin]
      */
     fun contentBeforeEndMargin(contentBeforeEndMargin: Dp): NoteDimensionsBuilder
+
+    /**
+     * Устанавливает отступ вначале contentAfter [contentAfterEndMargin]
+     */
+    fun contentAfterStartMargin(contentAfterStartMargin: Dp): NoteDimensionsBuilder
+
+    /**
+     * Устанавливает отступ вконце contentAfter [contentAfterEndMargin]
+     */
+    fun contentAfterEndMargin(contentAfterEndMargin: Dp): NoteDimensionsBuilder
 
     /**
      * Устанавливает отступ между text и title [textTopMargin]
@@ -517,6 +570,7 @@ interface NoteDimensionsBuilder {
     fun build(): NoteDimensions
 }
 
+@Suppress("CyclomaticComplexMethod")
 private class DefaultNoteDimensions(
     override val paddingStart: Dp,
     override val paddingEnd: Dp,
@@ -530,15 +584,21 @@ private class DefaultNoteDimensions(
     override val closeEndMargin: Dp,
     override val titlePaddingEnd: Dp,
     override val contentBeforeEndMargin: Dp,
+    override val disclosureSize: Dp,
+    override val contentAfterEndMargin: Dp,
+    override val contentAfterStartMargin: Dp,
 ) : NoteDimensions {
 
     class Builder : NoteDimensionsBuilder {
 
         private var closeSize: Dp? = null
         private var iconSize: Dp? = null
+        private var disclosureSize: Dp? = null
         private var closeTopMargin: Dp? = null
         private var closeEndMargin: Dp? = null
         private var contentBeforeEndMargin: Dp? = null
+        private var contentAfterStartMargin: Dp? = null
+        private var contentAfterEndMargin: Dp? = null
         private var paddingStart: Dp? = null
         private var paddingEnd: Dp? = null
         private var paddingTop: Dp? = null
@@ -555,6 +615,10 @@ private class DefaultNoteDimensions(
             this.iconSize = iconSize
         }
 
+        override fun disclosureSize(disclosureSize: Dp) = apply {
+            this.disclosureSize = disclosureSize
+        }
+
         override fun closeTopMargin(closeTopMargin: Dp) = apply {
             this.closeTopMargin = closeTopMargin
         }
@@ -565,6 +629,14 @@ private class DefaultNoteDimensions(
 
         override fun contentBeforeEndMargin(contentBeforeEndMargin: Dp) = apply {
             this.contentBeforeEndMargin = contentBeforeEndMargin
+        }
+
+        override fun contentAfterStartMargin(contentAfterStartMargin: Dp) = apply {
+            this.contentAfterStartMargin = contentAfterStartMargin
+        }
+
+        override fun contentAfterEndMargin(contentAfterEndMargin: Dp) = apply {
+            this.contentAfterEndMargin = contentAfterEndMargin
         }
 
         override fun textTopMargin(textTopMargin: Dp) = apply {
@@ -603,9 +675,12 @@ private class DefaultNoteDimensions(
                 paddingBottom = paddingBottom ?: 0.dp,
                 closeSize = closeSize ?: 24.dp,
                 iconSize = iconSize ?: Dp.Unspecified,
+                disclosureSize = disclosureSize ?: Dp.Unspecified,
                 closeTopMargin = closeTopMargin ?: 0.dp,
                 closeEndMargin = closeEndMargin ?: 0.dp,
                 contentBeforeEndMargin = contentBeforeEndMargin ?: 0.dp,
+                contentAfterEndMargin = contentAfterEndMargin ?: 0.dp,
+                contentAfterStartMargin = contentAfterStartMargin ?: 0.dp,
                 textTopMargin = textTopMargin ?: 0.dp,
                 actionTopMargin = actionTopMargin ?: 0.dp,
                 titlePaddingEnd = titlePaddingEnd ?: 0.dp,

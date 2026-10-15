@@ -55,7 +55,7 @@ object NoteStory : ComposeBaseStory<NoteUiState, NoteStyle>(
         state: NoteUiState,
     ) {
         Note(
-            modifier = Modifier.sizeIn(maxWidth = 300.dp, maxHeight = 200.dp),
+            modifier = Modifier.sizeIn(minWidth = 300.dp, maxHeight = 200.dp),
             style = style,
             text = state.text,
             title = state.title,

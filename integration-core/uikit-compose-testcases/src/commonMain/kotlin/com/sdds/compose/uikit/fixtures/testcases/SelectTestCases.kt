@@ -2,18 +2,18 @@ package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
@@ -22,10 +22,8 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.DropdownProperties
 import com.sdds.compose.uikit.EmptyState
 import com.sdds.compose.uikit.Icon
-import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
-import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.Select
 import com.sdds.compose.uikit.SelectButton
 import com.sdds.compose.uikit.SelectItem
@@ -36,6 +34,8 @@ import com.sdds.compose.uikit.SelectTextField
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.imageVectorSource
+import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.icons.compose.ChevronDown24
 import com.sdds.icons.compose.ChevronUp24
 import com.sdds.icons.compose.Plasma36

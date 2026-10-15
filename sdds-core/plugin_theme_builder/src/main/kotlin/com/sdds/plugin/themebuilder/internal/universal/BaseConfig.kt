@@ -141,6 +141,20 @@ internal class FloatState(
 }
 
 @Serializable
+internal class IntegerState(
+    override val state: List<String>,
+    override val value: Int,
+) : State<Int> {
+    override fun clone(value: Int, state: List<String>): State<Int> {
+        return IntegerState(state, value)
+    }
+
+    override fun toString(): String {
+        return "IntegerState(state=$state, value=$value)"
+    }
+}
+
+@Serializable
 internal data class ColorState(
     override val state: List<String>,
     override val value: String,
@@ -225,6 +239,17 @@ internal data class FloatValue(
 ) : Stateful<Float, FloatState> {
 
     override fun clone(value: Float, states: List<FloatState>?): FloatValue {
+        return copy(value = value, states = states)
+    }
+}
+
+@Serializable
+internal data class IntegerValue(
+    override val value: Int,
+    override val states: List<IntegerState>? = null,
+) : Stateful<Int, IntegerState> {
+
+    override fun clone(value: Int, states: List<IntegerState>?): IntegerValue {
         return copy(value = value, states = states)
     }
 }
@@ -341,6 +366,12 @@ internal fun Dimension.combine(other: Dimension, withState: String): Dimension {
 internal fun FloatValue.combine(other: FloatValue, withState: String): FloatValue {
     return this.combine(other, withState) {
         FloatState(listOf(withState), it.value)
+    }
+}
+
+internal fun IntegerValue.combine(other: IntegerValue, withState: String): IntegerValue {
+    return this.combine(other, withState) {
+        IntegerState(listOf(withState), it.value)
     }
 }
 

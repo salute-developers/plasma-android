@@ -7,8 +7,8 @@ import com.sdds.compose.uikit.FileActionPlacement
 import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.compose.uikit.ProgressBar
+import com.sdds.compose.uikit.imageVectorSource
 import com.sdds.icons.compose.Close16
 import com.sdds.icons.compose.Close36
 import com.sdds.icons.compose.FileCheckFill36

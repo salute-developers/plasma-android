@@ -353,6 +353,76 @@ class DeclareStyleableParserTest {
     }
 
     @Test
+    fun `framework attribute without own enum takes values from built-in dictionary`() {
+        val component = xml(
+            "slider_attrs.xml",
+            """
+            <resources xmlns:sdds="http://schemas.sdds.ru/android/sdds">
+                <declare-styleable name="Slider" sdds:api_info="Slider">
+                    <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="value" />
+                </declare-styleable>
+            </resources>
+            """.trimIndent(),
+        )
+
+        val orientation = parser.parse(listOf(component)).components.single().param("orientation")!!
+
+        assertEquals("value", orientation.type)
+        assertEquals(
+            listOf(EnumValue("horizontal", "0", "horizontal"), EnumValue("vertical", "1", "vertical")),
+            orientation.values,
+        )
+    }
+
+    @Test
+    fun `own enum values take precedence over built-in dictionary`() {
+        val component = xml(
+            "custom_attrs.xml",
+            """
+            <resources xmlns:sdds="http://schemas.sdds.ru/android/sdds">
+                <declare-styleable name="Custom" sdds:api_info="Custom">
+                    <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="value">
+                        <enum name="row" value="0" />
+                    </attr>
+                </declare-styleable>
+            </resources>
+            """.trimIndent(),
+        )
+
+        val orientation = parser.parse(listOf(component)).components.single().param("orientation")!!
+
+        assertEquals(listOf(EnumValue("row", "0", "row")), orientation.values)
+    }
+
+    @Test
+    fun `module enum definition takes precedence over built-in dictionary`() {
+        val shared = xml(
+            "shared_enums.xml",
+            """
+            <resources>
+                <attr name="android:orientation">
+                    <enum name="row" value="0" />
+                </attr>
+            </resources>
+            """.trimIndent(),
+        )
+        val component = xml(
+            "custom_attrs.xml",
+            """
+            <resources xmlns:sdds="http://schemas.sdds.ru/android/sdds">
+                <declare-styleable name="Custom" sdds:api_info="Custom">
+                    <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="value" />
+                </declare-styleable>
+            </resources>
+            """.trimIndent(),
+        )
+
+        val orientation = parser.parse(listOf(shared, component)).components.single().param("orientation")!!
+
+        assertEquals(listOf(EnumValue("row", "0", "row")), orientation.values)
+    }
+
+    @Test
     fun `one config key can bind to several attributes with own suffixes`() {
         val file = xml(
             "avatar_attrs.xml",

@@ -8,7 +8,7 @@
         sdds:api_def_style_attr="sd_sliderStyle"
         sdds:api_parent="Sdds.Components.Slider" tools:ignore="ResourceName">
         <!-- Ориентация  -->
-        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="integer" />
+        <attr name="android:orientation" sdds:api_name="orientation" sdds:api_type="value" />
 
         <!-- Текст в title  -->
         <attr name="sd_title" />

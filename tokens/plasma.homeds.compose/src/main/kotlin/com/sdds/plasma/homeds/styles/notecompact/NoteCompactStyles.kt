@@ -142,10 +142,13 @@ private val NoteCompactStyleBuilder.invariantProps: NoteCompactStyleBuilder
         .colors {
             titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
             textColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            disclosureColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
             closeColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
         }
         .dimensions {
+            disclosureSize(24.0.dp)
             closeStartMargin(0.0.dp)
+            contentAfterStartMargin(12.0.dp)
             textTopMargin(2.0.dp)
             actionStartMargin(12.0.dp)
             actionEndMargin(0.0.dp)
@@ -163,7 +166,7 @@ public val NoteCompact.ContentBeforeFixed: WrapperNoteCompactContentBeforeFixed
         .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
         .dimensions {
             iconSize(16.0.dp)
-            contentBeforeEndMargin(8.0.dp)
+            contentBeforeEndMargin(12.0.dp)
         }
         .wrap(::WrapperNoteCompactContentBeforeFixed)
 

@@ -2,12 +2,12 @@ package com.sdds.compose.uikit.fixtures.testcases
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.uikit.CollapsingNavigationBar
 import com.sdds.compose.uikit.CollapsingNavigationBarDefaults
 import com.sdds.compose.uikit.CollapsingNavigationBarStyle
@@ -15,8 +15,8 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarScrollBehavior
 import com.sdds.compose.uikit.NavigationBarTextAlign
-import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
 import com.sdds.icons.compose.Menu24
 import com.sdds.icons.compose.Plus24
 import com.sdds.icons.compose.SddsIcons

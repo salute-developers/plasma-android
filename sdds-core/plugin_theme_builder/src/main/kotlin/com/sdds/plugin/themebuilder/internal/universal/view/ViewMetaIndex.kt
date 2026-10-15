@@ -28,14 +28,21 @@ internal class ViewMetaIndex(private val meta: ApiMeta) {
         val entries = byComponent[componentName] ?: return null
         val identity = entries.firstNotNullOfOrNull { it.identity[componentName] } ?: return null
         val (subStyleEntries, ownEntries) = entries.partition { it.subStyle != null }
-        val params = ownEntries.flatMap { it.params }.distinctBy { it.attrName to it.id }
+        // Устаревшие записи (`sdds:api_deprecated`) отсекаются по записи, а не по id: актуальные
+        // атрибуты с тем же ключом конфига продолжают генерироваться.
+        val params = ownEntries.flatMap { it.params }
+            .filter { it.deprecated == null }
+            .distinctBy { it.attrName to it.id }
         return MergedComponentMeta(
             componentName = componentName,
             identity = identity,
             params = params,
             stateSets = entries.flatMap { it.stateSets },
             subStyles = subStyleEntries.map { entry ->
-                SubStyleMeta(info = requireNotNull(entry.subStyle), params = entry.params)
+                SubStyleMeta(
+                    info = requireNotNull(entry.subStyle),
+                    params = entry.params.filter { it.deprecated == null },
+                )
             },
         )
     }

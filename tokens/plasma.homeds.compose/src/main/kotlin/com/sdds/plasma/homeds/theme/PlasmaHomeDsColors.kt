@@ -26,83 +26,6 @@ public class PlasmaHomeDsColors(
     private val colors: Map<String, Color>,
 ) {
     /**
-     * Цвет обводки информация на темном фоне
-     */
-    public var outlineOnDarkInfo: Color by colors.obtain("outlineOnDarkInfo")
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public var textDefaultAccentMinorActive: Color by colors.obtain("textDefaultAccentMinorActive")
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public var textDefaultAccentMinorHover: Color by colors.obtain("textDefaultAccentMinorHover")
-
-    /**
-     * Прозрачный цвет обводки успех
-     */
-    public var outlineDefaultTransparentPositiveHover: Color by
-        colors.obtain("outlineDefaultTransparentPositiveHover")
-
-    /**
-     * Цвет информации
-     */
-    public var textDefaultInfo: Color by colors.obtain("textDefaultInfo")
-
-    /**
-     * Цвет информации
-     */
-    public var textDefaultInfoActive: Color by colors.obtain("textDefaultInfoActive")
-
-    /**
-     * Цвет информации
-     */
-    public var textDefaultInfoHover: Color by colors.obtain("textDefaultInfoHover")
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public var outlineDefaultTransparentPrimary: Color by
-        colors.obtain("outlineDefaultTransparentPrimary")
-
-    /**
-     * Минорный цвет информации
-     */
-    public var textDefaultInfoMinor: Color by colors.obtain("textDefaultInfoMinor")
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public var outlineDefaultTransparentPrimaryActive: Color by
-        colors.obtain("outlineDefaultTransparentPrimaryActive")
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public var outlineDefaultTransparentPrimaryHover: Color by
-        colors.obtain("outlineDefaultTransparentPrimaryHover")
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public var outlineDefaultTransparentSecondary: Color by
-        colors.obtain("outlineDefaultTransparentSecondary")
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public var outlineDefaultTransparentSecondaryActive: Color by
-        colors.obtain("outlineDefaultTransparentSecondaryActive")
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public var outlineDefaultTransparentSecondaryHover: Color by
-        colors.obtain("outlineDefaultTransparentSecondaryHover")
-
-    /**
      * Третичный прозрачный цвет обводки
      */
     public var outlineDefaultTransparentTertiary: Color by
@@ -181,14 +104,16 @@ public class PlasmaHomeDsColors(
     public var outlineInverseAccentActive: Color by colors.obtain("outlineInverseAccentActive")
 
     /**
-     * Минорный цвет информации
+     * Вторичный прозрачный цвет обводки
      */
-    public var textDefaultInfoMinorActive: Color by colors.obtain("textDefaultInfoMinorActive")
+    public var outlineDefaultTransparentSecondaryActive: Color by
+        colors.obtain("outlineDefaultTransparentSecondaryActive")
 
     /**
-     * Инвертированный акцентный цвет обводки
+     * Вторичный прозрачный цвет обводки
      */
-    public var outlineInverseAccentHover: Color by colors.obtain("outlineInverseAccentHover")
+    public var outlineDefaultTransparentSecondaryHover: Color by
+        colors.obtain("outlineDefaultTransparentSecondaryHover")
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
@@ -196,10 +121,9 @@ public class PlasmaHomeDsColors(
     public var outlineInverseAccentMinor: Color by colors.obtain("outlineInverseAccentMinor")
 
     /**
-     * Инвертированный акцентный минорный непрозрачный цвет обводки
+     * Инвертированный акцентный цвет обводки
      */
-    public var outlineInverseAccentMinorActive: Color by
-        colors.obtain("outlineInverseAccentMinorActive")
+    public var outlineInverseAccentHover: Color by colors.obtain("outlineInverseAccentHover")
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
@@ -269,44 +193,9 @@ public class PlasmaHomeDsColors(
     public var outlineInverseNegativeHover: Color by colors.obtain("outlineInverseNegativeHover")
 
     /**
-     * Вторичный фон на темном фоне
-     */
-    public var backgroundDarkSecondary: Color by colors.obtain("backgroundDarkSecondary")
-
-    /**
-     * Третичный фон на темном фоне
-     */
-    public var backgroundDarkTertiary: Color by colors.obtain("backgroundDarkTertiary")
-
-    /**
-     * Основной фон
-     */
-    public var backgroundDefaultPrimary: Color by colors.obtain("backgroundDefaultPrimary")
-
-    /**
-     * Вторичный фон
-     */
-    public var backgroundDefaultSecondary: Color by colors.obtain("backgroundDefaultSecondary")
-
-    /**
-     * Третичный фон
-     */
-    public var backgroundDefaultTertiary: Color by colors.obtain("backgroundDefaultTertiary")
-
-    /**
      * Инвертированный основной фон
      */
     public var backgroundInversePrimary: Color by colors.obtain("backgroundInversePrimary")
-
-    /**
-     * Инвертированный вторичный фон
-     */
-    public var backgroundInverseSecondary: Color by colors.obtain("backgroundInverseSecondary")
-
-    /**
-     * Инвертированный третичный фон
-     */
-    public var backgroundInverseTertiary: Color by colors.obtain("backgroundInverseTertiary")
 
     /**
      * Основной фон на светлом фоне
@@ -314,24 +203,9 @@ public class PlasmaHomeDsColors(
     public var backgroundLightPrimary: Color by colors.obtain("backgroundLightPrimary")
 
     /**
-     * Вторичный фон на светлом фоне
-     */
-    public var backgroundLightSecondary: Color by colors.obtain("backgroundLightSecondary")
-
-    /**
-     * Третичный фон на светлом фоне
-     */
-    public var backgroundLightTertiary: Color by colors.obtain("backgroundLightTertiary")
-
-    /**
      * Желтый цвет для данных
      */
     public var dataDefaultYellow: Color by colors.obtain("dataDefaultYellow")
-
-    /**
-     * Прозрачный желтый цвет для данных
-     */
-    public var dataDefaultYellowTransparent: Color by colors.obtain("dataDefaultYellowTransparent")
 
     /**
      * Инвертированный желтый цвет для данных
@@ -349,19 +223,9 @@ public class PlasmaHomeDsColors(
     public var dataInverseYellowTransparent: Color by colors.obtain("dataInverseYellowTransparent")
 
     /**
-     * Минорный желтый цвет для данных на темном фоне
+     * Основной фон
      */
-    public var dataOnDarkYellowMinor: Color by colors.obtain("dataOnDarkYellowMinor")
-
-    /**
-     * Прозрачный желтый цвет для данных на темном фоне
-     */
-    public var dataOnDarkYellowTransparent: Color by colors.obtain("dataOnDarkYellowTransparent")
-
-    /**
-     * Желтый цвет для данных на светлом фоне
-     */
-    public var dataOnLightYellow: Color by colors.obtain("dataOnLightYellow")
+    public var backgroundDefaultPrimary: Color by colors.obtain("backgroundDefaultPrimary")
 
     /**
      * Минорный желтый цвет для данных на светлом фоне
@@ -374,20 +238,14 @@ public class PlasmaHomeDsColors(
     public var dataOnLightYellowTransparent: Color by colors.obtain("dataOnLightYellowTransparent")
 
     /**
-     * Акцентный цвет обводки
+     * Прозрачный желтый цвет для данных на темном фоне
      */
-    public var outlineDefaultAccentHover: Color by colors.obtain("outlineDefaultAccentHover")
+    public var dataOnDarkYellowTransparent: Color by colors.obtain("dataOnDarkYellowTransparent")
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки
+     * Желтый цвет для данных на светлом фоне
      */
-    public var outlineDefaultAccentMinor: Color by colors.obtain("outlineDefaultAccentMinor")
-
-    /**
-     * Акцентный минорный непрозрачный цвет обводки
-     */
-    public var outlineDefaultAccentMinorActive: Color by
-        colors.obtain("outlineDefaultAccentMinorActive")
+    public var dataOnLightYellow: Color by colors.obtain("dataOnLightYellow")
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
@@ -442,9 +300,9 @@ public class PlasmaHomeDsColors(
     public var outlineDefaultInfoMinorHover: Color by colors.obtain("outlineDefaultInfoMinorHover")
 
     /**
-     * Цвет обводки ошибка
+     * Акцентный минорный непрозрачный цвет обводки
      */
-    public var outlineDefaultNegativeActive: Color by colors.obtain("outlineDefaultNegativeActive")
+    public var outlineDefaultAccentMinor: Color by colors.obtain("outlineDefaultAccentMinor")
 
     /**
      * Цвет обводки ошибка
@@ -452,30 +310,9 @@ public class PlasmaHomeDsColors(
     public var outlineDefaultNegativeHover: Color by colors.obtain("outlineDefaultNegativeHover")
 
     /**
-     * Минорный цвет обводки ошибка
-     */
-    public var outlineDefaultNegativeMinorHover: Color by
-        colors.obtain("outlineDefaultNegativeMinorHover")
-
-    /**
-     * Цвет обводки успех
-     */
-    public var outlineDefaultPositive: Color by colors.obtain("outlineDefaultPositive")
-
-    /**
-     * Цвет обводки успех
-     */
-    public var outlineDefaultPositiveActive: Color by colors.obtain("outlineDefaultPositiveActive")
-
-    /**
      * Цвет обводки успех
      */
     public var outlineDefaultPositiveHover: Color by colors.obtain("outlineDefaultPositiveHover")
-
-    /**
-     * Минорный цвет обводки успех
-     */
-    public var outlineDefaultPositiveMinor: Color by colors.obtain("outlineDefaultPositiveMinor")
 
     /**
      * Минорный цвет обводки успех
@@ -488,38 +325,6 @@ public class PlasmaHomeDsColors(
      */
     public var outlineDefaultPositiveMinorHover: Color by
         colors.obtain("outlineDefaultPositiveMinorHover")
-
-    /**
-     * Промо цвет обводки
-     */
-    public var outlineDefaultPromo: Color by colors.obtain("outlineDefaultPromo")
-
-    /**
-     * Промо цвет обводки
-     */
-    public var outlineDefaultPromoActive: Color by colors.obtain("outlineDefaultPromoActive")
-
-    /**
-     * Промо цвет обводки
-     */
-    public var outlineDefaultPromoHover: Color by colors.obtain("outlineDefaultPromoHover")
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public var outlineDefaultPromoMinor: Color by colors.obtain("outlineDefaultPromoMinor")
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public var outlineDefaultPromoMinorActive: Color by
-        colors.obtain("outlineDefaultPromoMinorActive")
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public var outlineDefaultPromoMinorHover: Color by
-        colors.obtain("outlineDefaultPromoMinorHover")
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию
@@ -576,12 +381,6 @@ public class PlasmaHomeDsColors(
      * Третичный непрозрачный цвет обводки
      */
     public var outlineDefaultSolidTertiary: Color by colors.obtain("outlineDefaultSolidTertiary")
-
-    /**
-     * Третичный непрозрачный цвет обводки
-     */
-    public var outlineDefaultSolidTertiaryActive: Color by
-        colors.obtain("outlineDefaultSolidTertiaryActive")
 
     /**
      * Третичный непрозрачный цвет обводки
@@ -656,21 +455,14 @@ public class PlasmaHomeDsColors(
         colors.obtain("outlineDefaultTransparentPositiveActive")
 
     /**
-     * Инвертированный минорный цвет обводки ошибка
+     * Цвет обводки успех
      */
-    public var outlineInverseNegativeMinorActive: Color by
-        colors.obtain("outlineInverseNegativeMinorActive")
+    public var outlineDefaultPositive: Color by colors.obtain("outlineDefaultPositive")
 
     /**
-     * Инвертированный минорный цвет обводки ошибка
+     * Цвет обводки успех
      */
-    public var outlineInverseNegativeMinorHover: Color by
-        colors.obtain("outlineInverseNegativeMinorHover")
-
-    /**
-     * Инвертированный цвет обводки успех
-     */
-    public var outlineInversePositive: Color by colors.obtain("outlineInversePositive")
+    public var outlineDefaultPositiveActive: Color by colors.obtain("outlineDefaultPositiveActive")
 
     /**
      * Инвертированный цвет обводки успех
@@ -692,38 +484,6 @@ public class PlasmaHomeDsColors(
      */
     public var outlineInversePositiveMinorHover: Color by
         colors.obtain("outlineInversePositiveMinorHover")
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public var outlineInversePromo: Color by colors.obtain("outlineInversePromo")
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public var outlineInversePromoActive: Color by colors.obtain("outlineInversePromoActive")
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public var outlineInversePromoHover: Color by colors.obtain("outlineInversePromoHover")
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public var outlineInversePromoMinor: Color by colors.obtain("outlineInversePromoMinor")
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public var outlineInversePromoMinorActive: Color by
-        colors.obtain("outlineInversePromoMinorActive")
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public var outlineInversePromoMinorHover: Color by
-        colors.obtain("outlineInversePromoMinorHover")
 
     /**
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
@@ -830,22 +590,15 @@ public class PlasmaHomeDsColors(
         colors.obtain("outlineInverseTransparentInfoHover")
 
     /**
-     * Прозрачный инвертированный цвет обводки предупреждение
+     * Инвертированный минорный цвет обводки ошибка
      */
-    public var outlineInverseTransparentNegativeActive: Color by
-        colors.obtain("outlineInverseTransparentNegativeActive")
+    public var outlineInverseNegativeMinorHover: Color by
+        colors.obtain("outlineInverseNegativeMinorHover")
 
     /**
-     * Прозрачный инвертированный цвет обводки предупреждение
+     * Инвертированный цвет обводки успех
      */
-    public var outlineInverseTransparentNegativeHover: Color by
-        colors.obtain("outlineInverseTransparentNegativeHover")
-
-    /**
-     * Прозрачный инвертированный цвет обводки успех
-     */
-    public var outlineInverseTransparentPositive: Color by
-        colors.obtain("outlineInverseTransparentPositive")
+    public var outlineInversePositive: Color by colors.obtain("outlineInversePositive")
 
     /**
      * Прозрачный инвертированный цвет обводки успех
@@ -864,12 +617,6 @@ public class PlasmaHomeDsColors(
      */
     public var outlineInverseTransparentPrimary: Color by
         colors.obtain("outlineInverseTransparentPrimary")
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public var outlineInverseTransparentPrimaryActive: Color by
-        colors.obtain("outlineInverseTransparentPrimaryActive")
 
     /**
      * Инвертированный основной прозрачный цвет обводки
@@ -1005,19 +752,10 @@ public class PlasmaHomeDsColors(
     public var outlineOnDarkClearHover: Color by colors.obtain("outlineOnDarkClearHover")
 
     /**
-     * Цвет обводки информация на темном фоне
+     * Прозрачный инвертированный цвет обводки успех
      */
-    public var outlineOnDarkInfoHover: Color by colors.obtain("outlineOnDarkInfoHover")
-
-    /**
-     * Минорный цвет обводки информация на темном фоне
-     */
-    public var outlineOnDarkInfoMinor: Color by colors.obtain("outlineOnDarkInfoMinor")
-
-    /**
-     * Минорный цвет обводки информация на темном фоне
-     */
-    public var outlineOnDarkInfoMinorActive: Color by colors.obtain("outlineOnDarkInfoMinorActive")
+    public var outlineInverseTransparentPositive: Color by
+        colors.obtain("outlineInverseTransparentPositive")
 
     /**
      * Минорный цвет обводки информация на темном фоне
@@ -1089,37 +827,6 @@ public class PlasmaHomeDsColors(
         colors.obtain("outlineOnDarkPositiveMinorHover")
 
     /**
-     * Промо цвет обводки на темном фоне
-     */
-    public var outlineOnDarkPromo: Color by colors.obtain("outlineOnDarkPromo")
-
-    /**
-     * Промо цвет обводки на темном фоне
-     */
-    public var outlineOnDarkPromoActive: Color by colors.obtain("outlineOnDarkPromoActive")
-
-    /**
-     * Промо цвет обводки на темном фоне
-     */
-    public var outlineOnDarkPromoHover: Color by colors.obtain("outlineOnDarkPromoHover")
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public var outlineOnDarkPromoMinor: Color by colors.obtain("outlineOnDarkPromoMinor")
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public var outlineOnDarkPromoMinorActive: Color by
-        colors.obtain("outlineOnDarkPromoMinorActive")
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public var outlineOnDarkPromoMinorHover: Color by colors.obtain("outlineOnDarkPromoMinorHover")
-
-    /**
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
      */
     public var outlineOnDarkSolidDefault: Color by colors.obtain("outlineOnDarkSolidDefault")
@@ -1172,31 +879,18 @@ public class PlasmaHomeDsColors(
     /**
      * Третичный непрозрачный цвет обводки на темном фоне
      */
-    public var outlineOnDarkSolidTertiaryActive: Color by
-        colors.obtain("outlineOnDarkSolidTertiaryActive")
-
-    /**
-     * Третичный непрозрачный цвет обводки на темном фоне
-     */
     public var outlineOnDarkSolidTertiaryHover: Color by
         colors.obtain("outlineOnDarkSolidTertiaryHover")
 
     /**
-     * Прозрачный акцентный цвет обводки на темном фоне
+     * Минорный цвет обводки информация на темном фоне
      */
-    public var outlineOnDarkTransparentAccentActive: Color by
-        colors.obtain("outlineOnDarkTransparentAccentActive")
+    public var outlineOnDarkInfoMinor: Color by colors.obtain("outlineOnDarkInfoMinor")
 
     /**
-     * Прозрачный акцентный цвет обводки на темном фоне
+     * Минорный цвет обводки информация на темном фоне
      */
-    public var outlineOnDarkTransparentAccentHover: Color by
-        colors.obtain("outlineOnDarkTransparentAccentHover")
-
-    /**
-     * Прозрачный цвет обводки информация на темном фоне
-     */
-    public var outlineOnDarkTransparentInfo: Color by colors.obtain("outlineOnDarkTransparentInfo")
+    public var outlineOnDarkInfoMinorActive: Color by colors.obtain("outlineOnDarkInfoMinorActive")
 
     /**
      * Прозрачный цвет обводки информация на темном фоне
@@ -1360,21 +1054,15 @@ public class PlasmaHomeDsColors(
     public var outlineOnLightAccentHover: Color by colors.obtain("outlineOnLightAccentHover")
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public var outlineOnLightAccentMinorActive: Color by
-        colors.obtain("outlineOnLightAccentMinorActive")
+    public var outlineOnDarkTransparentAccentHover: Color by
+        colors.obtain("outlineOnDarkTransparentAccentHover")
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     * Прозрачный цвет обводки информация на темном фоне
      */
-    public var outlineOnLightAccentMinorHover: Color by
-        colors.obtain("outlineOnLightAccentMinorHover")
-
-    /**
-     * Бесцветная обводка на светлом фоне
-     */
-    public var outlineOnLightClear: Color by colors.obtain("outlineOnLightClear")
+    public var outlineOnDarkTransparentInfo: Color by colors.obtain("outlineOnDarkTransparentInfo")
 
     /**
      * Бесцветная обводка на светлом фоне
@@ -1472,46 +1160,8 @@ public class PlasmaHomeDsColors(
     /**
      * Минорный цвет обводки успех на светлом фоне
      */
-    public var outlineOnLightPositiveMinorActive: Color by
-        colors.obtain("outlineOnLightPositiveMinorActive")
-
-    /**
-     * Минорный цвет обводки успех на светлом фоне
-     */
     public var outlineOnLightPositiveMinorHover: Color by
         colors.obtain("outlineOnLightPositiveMinorHover")
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public var outlineOnLightPromo: Color by colors.obtain("outlineOnLightPromo")
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public var outlineOnLightPromoActive: Color by colors.obtain("outlineOnLightPromoActive")
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public var outlineOnLightPromoHover: Color by colors.obtain("outlineOnLightPromoHover")
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public var outlineOnLightPromoMinor: Color by colors.obtain("outlineOnLightPromoMinor")
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public var outlineOnLightPromoMinorActive: Color by
-        colors.obtain("outlineOnLightPromoMinorActive")
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public var outlineOnLightPromoMinorHover: Color by
-        colors.obtain("outlineOnLightPromoMinorHover")
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
@@ -1536,21 +1186,9 @@ public class PlasmaHomeDsColors(
         colors.obtain("outlineOnLightSolidPrimaryActive")
 
     /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
+     * Бесцветная обводка на светлом фоне
      */
-    public var outlineOnLightSolidSecondary: Color by colors.obtain("outlineOnLightSolidSecondary")
-
-    /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
-     */
-    public var outlineOnLightSolidSecondaryActive: Color by
-        colors.obtain("outlineOnLightSolidSecondaryActive")
-
-    /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
-     */
-    public var outlineOnLightSolidSecondaryHover: Color by
-        colors.obtain("outlineOnLightSolidSecondaryHover")
+    public var outlineOnLightClear: Color by colors.obtain("outlineOnLightClear")
 
     /**
      * Третичный непрозрачный цвет обводки на светлом фоне
@@ -1698,12 +1336,6 @@ public class PlasmaHomeDsColors(
     /**
      * Прозрачный цвет обводки предупреждение на светлом фоне
      */
-    public var outlineOnLightTransparentWarningActive: Color by
-        colors.obtain("outlineOnLightTransparentWarningActive")
-
-    /**
-     * Прозрачный цвет обводки предупреждение на светлом фоне
-     */
     public var outlineOnLightTransparentWarningHover: Color by
         colors.obtain("outlineOnLightTransparentWarningHover")
 
@@ -1713,19 +1345,16 @@ public class PlasmaHomeDsColors(
     public var textDefaultInfoMinorHover: Color by colors.obtain("textDefaultInfoMinorHover")
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Вторичный непрозрачный цвет обводки на светлом фоне
      */
-    public var outlineOnLightWarningActive: Color by colors.obtain("outlineOnLightWarningActive")
+    public var outlineOnLightSolidSecondaryActive: Color by
+        colors.obtain("outlineOnLightSolidSecondaryActive")
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Вторичный непрозрачный цвет обводки на светлом фоне
      */
-    public var outlineOnLightWarningHover: Color by colors.obtain("outlineOnLightWarningHover")
-
-    /**
-     * Минорный цвет обводки предупреждение на светлом фоне
-     */
-    public var outlineOnLightWarningMinor: Color by colors.obtain("outlineOnLightWarningMinor")
+    public var outlineOnLightSolidSecondaryHover: Color by
+        colors.obtain("outlineOnLightSolidSecondaryHover")
 
     /**
      * Минорный цвет обводки предупреждение на светлом фоне
@@ -1899,19 +1528,9 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceDefaultNegativeMinorActive")
 
     /**
-     * Цвет фона поверхности/контрола успех
+     * Цвет обводки предупреждение на светлом фоне
      */
-    public var surfaceDefaultPositive: Color by colors.obtain("surfaceDefaultPositive")
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public var surfaceDefaultPositiveActive: Color by colors.obtain("surfaceDefaultPositiveActive")
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public var surfaceDefaultPositiveHover: Color by colors.obtain("surfaceDefaultPositiveHover")
+    public var outlineOnLightWarningHover: Color by colors.obtain("outlineOnLightWarningHover")
 
     /**
      * Минорный цвет фона поверхности/контрола успех
@@ -1929,38 +1548,6 @@ public class PlasmaHomeDsColors(
      */
     public var surfaceDefaultPositiveMinorHover: Color by
         colors.obtain("surfaceDefaultPositiveMinorHover")
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public var surfaceDefaultPromo: Color by colors.obtain("surfaceDefaultPromo")
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public var surfaceDefaultPromoActive: Color by colors.obtain("surfaceDefaultPromoActive")
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public var surfaceDefaultPromoHover: Color by colors.obtain("surfaceDefaultPromoHover")
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public var surfaceDefaultPromoMinor: Color by colors.obtain("surfaceDefaultPromoMinor")
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public var surfaceDefaultPromoMinorActive: Color by
-        colors.obtain("surfaceDefaultPromoMinorActive")
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public var surfaceDefaultPromoMinorHover: Color by
-        colors.obtain("surfaceDefaultPromoMinorHover")
 
     /**
      * Основной фон для карточек
@@ -2096,22 +1683,14 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceDefaultTransparentCardHover")
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола
+     * Цвет фона поверхности/контрола успех
      */
-    public var surfaceDefaultTransparentDeepActive: Color by
-        colors.obtain("surfaceDefaultTransparentDeepActive")
+    public var surfaceDefaultPositiveActive: Color by colors.obtain("surfaceDefaultPositiveActive")
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола
+     * Цвет фона поверхности/контрола успех
      */
-    public var surfaceDefaultTransparentDeepHover: Color by
-        colors.obtain("surfaceDefaultTransparentDeepHover")
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола информация
-     */
-    public var surfaceDefaultTransparentInfo: Color by
-        colors.obtain("surfaceDefaultTransparentInfo")
+    public var surfaceDefaultPositiveHover: Color by colors.obtain("surfaceDefaultPositiveHover")
 
     /**
      * Прозрачный цвет фона поверхности/контрола информация
@@ -2124,12 +1703,6 @@ public class PlasmaHomeDsColors(
      */
     public var surfaceDefaultTransparentInfoHover: Color by
         colors.obtain("surfaceDefaultTransparentInfoHover")
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public var surfaceDefaultTransparentNegative: Color by
-        colors.obtain("surfaceDefaultTransparentNegative")
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
@@ -2178,24 +1751,6 @@ public class PlasmaHomeDsColors(
      */
     public var surfaceDefaultTransparentPrimaryHover: Color by
         colors.obtain("surfaceDefaultTransparentPrimaryHover")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public var surfaceDefaultTransparentPromo: Color by
-        colors.obtain("surfaceDefaultTransparentPromo")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public var surfaceDefaultTransparentPromoActive: Color by
-        colors.obtain("surfaceDefaultTransparentPromoActive")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public var surfaceDefaultTransparentPromoHover: Color by
-        colors.obtain("surfaceDefaultTransparentPromoHover")
 
     /**
      * Вторичный прозрачный фон поверхности/контрола
@@ -2278,25 +1833,16 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceDefaultWarningMinorHover")
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Глубокий прозрачный фон поверхности/контрола
      */
-    public var surfaceInverseAccentActive: Color by colors.obtain("surfaceInverseAccentActive")
+    public var surfaceDefaultTransparentDeepActive: Color by
+        colors.obtain("surfaceDefaultTransparentDeepActive")
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола информация
      */
-    public var surfaceInverseAccentHover: Color by colors.obtain("surfaceInverseAccentHover")
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public var surfaceInverseAccentMinor: Color by colors.obtain("surfaceInverseAccentMinor")
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public var surfaceInverseAccentMinorActive: Color by
-        colors.obtain("surfaceInverseAccentMinorActive")
+    public var surfaceDefaultTransparentInfo: Color by
+        colors.obtain("surfaceDefaultTransparentInfo")
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
@@ -2409,47 +1955,14 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceInversePositiveMinorHover")
 
     /**
-     * Инвертированный промо фон поверхности/контрола
+     * Инвертированный акцентный фон поверхности/контрола
      */
-    public var surfaceInversePromo: Color by colors.obtain("surfaceInversePromo")
+    public var surfaceInverseAccentActive: Color by colors.obtain("surfaceInverseAccentActive")
 
     /**
-     * Инвертированный промо фон поверхности/контрола
+     * Инвертированный акцентный фон поверхности/контрола
      */
-    public var surfaceInversePromoActive: Color by colors.obtain("surfaceInversePromoActive")
-
-    /**
-     * Инвертированный промо фон поверхности/контрола
-     */
-    public var surfaceInversePromoHover: Color by colors.obtain("surfaceInversePromoHover")
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public var surfaceInversePromoMinor: Color by colors.obtain("surfaceInversePromoMinor")
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public var surfaceInversePromoMinorActive: Color by
-        colors.obtain("surfaceInversePromoMinorActive")
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public var surfaceInverseSolidCard: Color by colors.obtain("surfaceInverseSolidCard")
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public var surfaceInverseSolidCardActive: Color by
-        colors.obtain("surfaceInverseSolidCardActive")
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public var surfaceInverseSolidCardBrightness: Color by
-        colors.obtain("surfaceInverseSolidCardBrightness")
+    public var surfaceInverseAccentHover: Color by colors.obtain("surfaceInverseAccentHover")
 
     /**
      * Инвертированный основной фон для карточек
@@ -2591,33 +2104,26 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceInverseTransparentInfo")
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола информация
-     */
-    public var surfaceInverseTransparentInfoActive: Color by
-        colors.obtain("surfaceInverseTransparentInfoActive")
-
-    /**
      * Цвет ошибки
      */
     public var textDefaultNegative: Color by colors.obtain("textDefaultNegative")
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public var surfaceInverseTransparentNegative: Color by
-        colors.obtain("surfaceInverseTransparentNegative")
+    public var surfaceInverseSolidCard: Color by colors.obtain("surfaceInverseSolidCard")
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public var surfaceInverseTransparentNegativeActive: Color by
-        colors.obtain("surfaceInverseTransparentNegativeActive")
+    public var surfaceInverseSolidCardActive: Color by
+        colors.obtain("surfaceInverseSolidCardActive")
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public var surfaceInverseTransparentNegativeHover: Color by
-        colors.obtain("surfaceInverseTransparentNegativeHover")
+    public var surfaceInverseSolidCardBrightness: Color by
+        colors.obtain("surfaceInverseSolidCardBrightness")
 
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола успех
@@ -2654,24 +2160,6 @@ public class PlasmaHomeDsColors(
      */
     public var surfaceInverseTransparentPrimaryHover: Color by
         colors.obtain("surfaceInverseTransparentPrimaryHover")
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public var surfaceInverseTransparentPromo: Color by
-        colors.obtain("surfaceInverseTransparentPromo")
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public var surfaceInverseTransparentPromoActive: Color by
-        colors.obtain("surfaceInverseTransparentPromoActive")
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public var surfaceInverseTransparentPromoHover: Color by
-        colors.obtain("surfaceInverseTransparentPromoHover")
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
@@ -2759,20 +2247,10 @@ public class PlasmaHomeDsColors(
     public var textDefaultNegativeActive: Color by colors.obtain("textDefaultNegativeActive")
 
     /**
-     * Акцентный фон поверхности/контрола на темном фоне
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
      */
-    public var surfaceOnDarkAccentActive: Color by colors.obtain("surfaceOnDarkAccentActive")
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkAccentHover: Color by colors.obtain("surfaceOnDarkAccentHover")
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkAccentMinorActive: Color by
-        colors.obtain("surfaceOnDarkAccentMinorActive")
+    public var surfaceInverseTransparentNegativeHover: Color by
+        colors.obtain("surfaceInverseTransparentNegativeHover")
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
@@ -2848,12 +2326,6 @@ public class PlasmaHomeDsColors(
     /**
      * Минорный цвет фона поверхности/контрола ошибка на темном фоне
      */
-    public var surfaceOnDarkNegativeMinorActive: Color by
-        colors.obtain("surfaceOnDarkNegativeMinorActive")
-
-    /**
-     * Минорный цвет фона поверхности/контрола ошибка на темном фоне
-     */
     public var surfaceOnDarkNegativeMinorHover: Color by
         colors.obtain("surfaceOnDarkNegativeMinorHover")
 
@@ -2890,51 +2362,20 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceOnDarkPositiveMinorHover")
 
     /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkPromo: Color by colors.obtain("surfaceOnDarkPromo")
-
-    /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkPromoActive: Color by colors.obtain("surfaceOnDarkPromoActive")
-
-    /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkPromoHover: Color by colors.obtain("surfaceOnDarkPromoHover")
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkPromoMinor: Color by colors.obtain("surfaceOnDarkPromoMinor")
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkPromoMinorActive: Color by
-        colors.obtain("surfaceOnDarkPromoMinorActive")
-
-    /**
      * Цвет ошибки
      */
     public var textDefaultNegativeHover: Color by colors.obtain("textDefaultNegativeHover")
 
     /**
-     * Основной фон для карточек на темном фоне
+     * Акцентный фон поверхности/контрола на темном фоне
      */
-    public var surfaceOnDarkSolidCard: Color by colors.obtain("surfaceOnDarkSolidCard")
+    public var surfaceOnDarkAccentHover: Color by colors.obtain("surfaceOnDarkAccentHover")
 
     /**
-     * Основной фон для карточек на темном фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public var surfaceOnDarkSolidCardActive: Color by colors.obtain("surfaceOnDarkSolidCardActive")
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public var surfaceOnDarkSolidCardBrightness: Color by
-        colors.obtain("surfaceOnDarkSolidCardBrightness")
+    public var surfaceOnDarkAccentMinorActive: Color by
+        colors.obtain("surfaceOnDarkAccentMinorActive")
 
     /**
      * Основной фон для карточек на темном фоне
@@ -3085,22 +2526,9 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceOnDarkTransparentInfoHover")
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     * Основной фон для карточек на темном фоне
      */
-    public var surfaceOnDarkTransparentNegativeActive: Color by
-        colors.obtain("surfaceOnDarkTransparentNegativeActive")
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
-     */
-    public var surfaceOnDarkTransparentPositive: Color by
-        colors.obtain("surfaceOnDarkTransparentPositive")
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
-     */
-    public var surfaceOnDarkTransparentPositiveActive: Color by
-        colors.obtain("surfaceOnDarkTransparentPositiveActive")
+    public var surfaceOnDarkSolidCardActive: Color by colors.obtain("surfaceOnDarkSolidCardActive")
 
     /**
      * Прозрачный цвет фона поверхности/контрола успех на темном фоне
@@ -3125,24 +2553,6 @@ public class PlasmaHomeDsColors(
      */
     public var surfaceOnDarkTransparentPrimaryHover: Color by
         colors.obtain("surfaceOnDarkTransparentPrimaryHover")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkTransparentPromo: Color by
-        colors.obtain("surfaceOnDarkTransparentPromo")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkTransparentPromoActive: Color by
-        colors.obtain("surfaceOnDarkTransparentPromoActive")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkTransparentPromoHover: Color by
-        colors.obtain("surfaceOnDarkTransparentPromoHover")
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на темном фоне
@@ -3241,21 +2651,16 @@ public class PlasmaHomeDsColors(
     public var surfaceOnLightAccentActive: Color by colors.obtain("surfaceOnLightAccentActive")
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
-    public var surfaceOnLightAccentMinor: Color by colors.obtain("surfaceOnLightAccentMinor")
+    public var surfaceOnDarkTransparentPositive: Color by
+        colors.obtain("surfaceOnDarkTransparentPositive")
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
-    public var surfaceOnLightAccentMinorActive: Color by
-        colors.obtain("surfaceOnLightAccentMinorActive")
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightAccentMinorHover: Color by
-        colors.obtain("surfaceOnLightAccentMinorHover")
+    public var surfaceOnDarkTransparentPositiveActive: Color by
+        colors.obtain("surfaceOnDarkTransparentPositiveActive")
 
     /**
      * Фон поверхности/контрола без заливки на светлом фоне
@@ -3362,57 +2767,21 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceOnLightPositiveMinorHover")
 
     /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightPromo: Color by colors.obtain("surfaceOnLightPromo")
-
-    /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightPromoActive: Color by colors.obtain("surfaceOnLightPromoActive")
-
-    /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightPromoHover: Color by colors.obtain("surfaceOnLightPromoHover")
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightPromoMinor: Color by colors.obtain("surfaceOnLightPromoMinor")
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightPromoMinorActive: Color by
-        colors.obtain("surfaceOnLightPromoMinorActive")
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightPromoMinorHover: Color by
-        colors.obtain("surfaceOnLightPromoMinorHover")
-
-    /**
      * Основной фон для карточек на светлом фоне
      */
     public var surfaceOnLightSolidCard: Color by colors.obtain("surfaceOnLightSolidCard")
 
     /**
-     * Основной фон для карточек на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public var surfaceOnLightSolidCardBrightness: Color by
-        colors.obtain("surfaceOnLightSolidCardBrightness")
+    public var surfaceOnLightAccentMinorActive: Color by
+        colors.obtain("surfaceOnLightAccentMinorActive")
 
     /**
-     * Основной фон для карточек на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public var surfaceOnLightSolidCardHover: Color by colors.obtain("surfaceOnLightSolidCardHover")
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public var surfaceOnLightSolidDefault: Color by colors.obtain("surfaceOnLightSolidDefault")
+    public var surfaceOnLightAccentMinorHover: Color by
+        colors.obtain("surfaceOnLightAccentMinorHover")
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
@@ -3470,12 +2839,6 @@ public class PlasmaHomeDsColors(
      * Третичный непрозрачный фон поверхности/контрола на светлом фоне
      */
     public var surfaceOnLightSolidTertiary: Color by colors.obtain("surfaceOnLightSolidTertiary")
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightSolidTertiaryActive: Color by
-        colors.obtain("surfaceOnLightSolidTertiaryActive")
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
@@ -3562,22 +2925,14 @@ public class PlasmaHomeDsColors(
         colors.obtain("surfaceOnLightTransparentNegative")
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     * Основной фон для карточек на светлом фоне
      */
-    public var surfaceOnLightTransparentNegativeHover: Color by
-        colors.obtain("surfaceOnLightTransparentNegativeHover")
+    public var surfaceOnLightSolidCardHover: Color by colors.obtain("surfaceOnLightSolidCardHover")
 
     /**
-     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public var surfaceOnLightTransparentPositive: Color by
-        colors.obtain("surfaceOnLightTransparentPositive")
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
-     */
-    public var surfaceOnLightTransparentPositiveActive: Color by
-        colors.obtain("surfaceOnLightTransparentPositiveActive")
+    public var surfaceOnLightSolidDefault: Color by colors.obtain("surfaceOnLightSolidDefault")
 
     /**
      * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
@@ -3602,24 +2957,6 @@ public class PlasmaHomeDsColors(
      */
     public var surfaceOnLightTransparentPrimaryHover: Color by
         colors.obtain("surfaceOnLightTransparentPrimaryHover")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightTransparentPromo: Color by
-        colors.obtain("surfaceOnLightTransparentPromo")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightTransparentPromoActive: Color by
-        colors.obtain("surfaceOnLightTransparentPromoActive")
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public var surfaceOnLightTransparentPromoHover: Color by
-        colors.obtain("surfaceOnLightTransparentPromoHover")
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на светлом фоне
@@ -3728,21 +3065,10 @@ public class PlasmaHomeDsColors(
     public var textDefaultAccentMinor: Color by colors.obtain("textDefaultAccentMinor")
 
     /**
-     * Минорный цвет ошибки
+     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
      */
-    public var textDefaultNegativeMinorActive: Color by
-        colors.obtain("textDefaultNegativeMinorActive")
-
-    /**
-     * Минорный цвет ошибки
-     */
-    public var textDefaultNegativeMinorHover: Color by
-        colors.obtain("textDefaultNegativeMinorHover")
-
-    /**
-     * Сплошной наборный текст
-     */
-    public var textDefaultParagraph: Color by colors.obtain("textDefaultParagraph")
+    public var surfaceOnLightTransparentPositiveActive: Color by
+        colors.obtain("surfaceOnLightTransparentPositiveActive")
 
     /**
      * Сплошной наборный текст
@@ -3800,36 +3126,6 @@ public class PlasmaHomeDsColors(
      * Основной цвет текста
      */
     public var textDefaultPrimaryHover: Color by colors.obtain("textDefaultPrimaryHover")
-
-    /**
-     * Промо цвет
-     */
-    public var textDefaultPromo: Color by colors.obtain("textDefaultPromo")
-
-    /**
-     * Промо цвет
-     */
-    public var textDefaultPromoActive: Color by colors.obtain("textDefaultPromoActive")
-
-    /**
-     * Промо цвет
-     */
-    public var textDefaultPromoHover: Color by colors.obtain("textDefaultPromoHover")
-
-    /**
-     * Минорный промо цвет
-     */
-    public var textDefaultPromoMinor: Color by colors.obtain("textDefaultPromoMinor")
-
-    /**
-     * Минорный промо цвет
-     */
-    public var textDefaultPromoMinorActive: Color by colors.obtain("textDefaultPromoMinorActive")
-
-    /**
-     * Минорный промо цвет
-     */
-    public var textDefaultPromoMinorHover: Color by colors.obtain("textDefaultPromoMinorHover")
 
     /**
      * Вторичный цвет текста
@@ -3938,24 +3234,15 @@ public class PlasmaHomeDsColors(
     public var textInverseInfoMinor: Color by colors.obtain("textInverseInfoMinor")
 
     /**
-     * Инвертированный минорный цвет информации
+     * Минорный цвет ошибки
      */
-    public var textInverseInfoMinorActive: Color by colors.obtain("textInverseInfoMinorActive")
+    public var textDefaultNegativeMinorHover: Color by
+        colors.obtain("textDefaultNegativeMinorHover")
 
     /**
-     * Инвертированный цвет ошибки
+     * Сплошной наборный текст
      */
-    public var textInverseNegative: Color by colors.obtain("textInverseNegative")
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public var textInverseNegativeActive: Color by colors.obtain("textInverseNegativeActive")
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public var textInverseNegativeHover: Color by colors.obtain("textInverseNegativeHover")
+    public var textDefaultParagraph: Color by colors.obtain("textDefaultParagraph")
 
     /**
      * Инвертированный минорный цвет ошибки
@@ -4036,36 +3323,6 @@ public class PlasmaHomeDsColors(
     public var textInversePrimaryHover: Color by colors.obtain("textInversePrimaryHover")
 
     /**
-     * Инвертированный промо цвет
-     */
-    public var textInversePromo: Color by colors.obtain("textInversePromo")
-
-    /**
-     * Инвертированный промо цвет
-     */
-    public var textInversePromoActive: Color by colors.obtain("textInversePromoActive")
-
-    /**
-     * Инвертированный промо цвет
-     */
-    public var textInversePromoHover: Color by colors.obtain("textInversePromoHover")
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public var textInversePromoMinor: Color by colors.obtain("textInversePromoMinor")
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public var textInversePromoMinorActive: Color by colors.obtain("textInversePromoMinorActive")
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public var textInversePromoMinorHover: Color by colors.obtain("textInversePromoMinorHover")
-
-    /**
      * Инвертированный вторичный цвет текста
      */
     public var textInverseSecondary: Color by colors.obtain("textInverseSecondary")
@@ -4132,19 +3389,14 @@ public class PlasmaHomeDsColors(
     public var textOnDarkAccent: Color by colors.obtain("textOnDarkAccent")
 
     /**
-     * Акцентный цвет на темном фоне
+     * Инвертированный цвет ошибки
      */
-    public var textOnDarkAccentHover: Color by colors.obtain("textOnDarkAccentHover")
+    public var textInverseNegativeActive: Color by colors.obtain("textInverseNegativeActive")
 
     /**
-     * Акцентный минорный цвет на темном фоне
+     * Инвертированный цвет ошибки
      */
-    public var textOnDarkAccentMinor: Color by colors.obtain("textOnDarkAccentMinor")
-
-    /**
-     * Акцентный минорный цвет на темном фоне
-     */
-    public var textOnDarkAccentMinorActive: Color by colors.obtain("textOnDarkAccentMinorActive")
+    public var textInverseNegativeHover: Color by colors.obtain("textInverseNegativeHover")
 
     /**
      * Акцентный минорный цвет на темном фоне
@@ -4195,12 +3447,6 @@ public class PlasmaHomeDsColors(
      * Минорный цвет ошибки на темном фоне
      */
     public var textOnDarkNegativeMinor: Color by colors.obtain("textOnDarkNegativeMinor")
-
-    /**
-     * Минорный цвет ошибки на темном фоне
-     */
-    public var textOnDarkNegativeMinorActive: Color by
-        colors.obtain("textOnDarkNegativeMinorActive")
 
     /**
      * Минорный цвет ошибки на темном фоне
@@ -4274,36 +3520,6 @@ public class PlasmaHomeDsColors(
     public var textOnDarkPrimaryHover: Color by colors.obtain("textOnDarkPrimaryHover")
 
     /**
-     * Промо цвет на темном фоне
-     */
-    public var textOnDarkPromo: Color by colors.obtain("textOnDarkPromo")
-
-    /**
-     * Промо цвет на темном фоне
-     */
-    public var textOnDarkPromoActive: Color by colors.obtain("textOnDarkPromoActive")
-
-    /**
-     * Промо цвет на темном фоне
-     */
-    public var textOnDarkPromoHover: Color by colors.obtain("textOnDarkPromoHover")
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public var textOnDarkPromoMinor: Color by colors.obtain("textOnDarkPromoMinor")
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public var textOnDarkPromoMinorActive: Color by colors.obtain("textOnDarkPromoMinorActive")
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public var textOnDarkPromoMinorHover: Color by colors.obtain("textOnDarkPromoMinorHover")
-
-    /**
      * Вторичный цвет текста на темном фоне
      */
     public var textOnDarkSecondary: Color by colors.obtain("textOnDarkSecondary")
@@ -4324,19 +3540,14 @@ public class PlasmaHomeDsColors(
     public var textOnDarkTertiary: Color by colors.obtain("textOnDarkTertiary")
 
     /**
-     * Третичный цвет текста на темном фоне
+     * Акцентный минорный цвет на темном фоне
      */
-    public var textOnDarkTertiaryHover: Color by colors.obtain("textOnDarkTertiaryHover")
+    public var textOnDarkAccentMinor: Color by colors.obtain("textOnDarkAccentMinor")
 
     /**
-     * Цвет предупреждения на темном фоне
+     * Акцентный минорный цвет на темном фоне
      */
-    public var textOnDarkWarning: Color by colors.obtain("textOnDarkWarning")
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public var textOnDarkWarningActive: Color by colors.obtain("textOnDarkWarningActive")
+    public var textOnDarkAccentMinorActive: Color by colors.obtain("textOnDarkAccentMinorActive")
 
     /**
      * Цвет предупреждения на темном фоне
@@ -4347,11 +3558,6 @@ public class PlasmaHomeDsColors(
      * Минорный цвет предупреждения на темном фоне
      */
     public var textOnDarkWarningMinor: Color by colors.obtain("textOnDarkWarningMinor")
-
-    /**
-     * Минорный цвет предупреждения на темном фоне
-     */
-    public var textOnDarkWarningMinorActive: Color by colors.obtain("textOnDarkWarningMinorActive")
 
     /**
      * Минорный цвет предупреждения на темном фоне
@@ -4513,39 +3719,19 @@ public class PlasmaHomeDsColors(
     public var textOnLightPrimaryHover: Color by colors.obtain("textOnLightPrimaryHover")
 
     /**
-     * Промо цвет на светлом фоне
+     * Цвет предупреждения на темном фоне
      */
-    public var textOnLightPromoActive: Color by colors.obtain("textOnLightPromoActive")
+    public var textOnDarkWarning: Color by colors.obtain("textOnDarkWarning")
 
     /**
-     * Промо цвет на светлом фоне
+     * Цвет предупреждения на темном фоне
      */
-    public var textOnLightPromoHover: Color by colors.obtain("textOnLightPromoHover")
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public var textOnLightPromoMinor: Color by colors.obtain("textOnLightPromoMinor")
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public var textOnLightPromoMinorActive: Color by colors.obtain("textOnLightPromoMinorActive")
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public var textOnLightPromoMinorHover: Color by colors.obtain("textOnLightPromoMinorHover")
+    public var textOnDarkWarningActive: Color by colors.obtain("textOnDarkWarningActive")
 
     /**
      * Вторичный цвет текста на светлом фоне
      */
     public var textOnLightSecondary: Color by colors.obtain("textOnLightSecondary")
-
-    /**
-     * Вторичный цвет текста на светлом фоне
-     */
-    public var textOnLightSecondaryActive: Color by colors.obtain("textOnLightSecondaryActive")
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -4592,26 +3778,6 @@ public class PlasmaHomeDsColors(
      * Минорный цвет предупреждения на светлом фоне
      */
     public var textOnLightWarningMinorHover: Color by colors.obtain("textOnLightWarningMinorHover")
-
-    /**
-     * Основной фон на темном фоне
-     */
-    public var backgroundDarkPrimary: Color by colors.obtain("backgroundDarkPrimary")
-
-    /**
-     * Минорный желтый цвет для данных
-     */
-    public var dataDefaultYellowMinor: Color by colors.obtain("dataDefaultYellowMinor")
-
-    /**
-     * Желтый цвет для данных на темном фоне
-     */
-    public var dataOnDarkYellow: Color by colors.obtain("dataOnDarkYellow")
-
-    /**
-     * Акцентный цвет обводки
-     */
-    public var outlineDefaultAccent: Color by colors.obtain("outlineDefaultAccent")
 
     /**
      * Акцентный цвет обводки
@@ -4663,12 +3829,6 @@ public class PlasmaHomeDsColors(
     public var outlineOnDarkInfoActive: Color by colors.obtain("outlineOnDarkInfoActive")
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
-     */
-    public var outlineOnDarkSolidDefaultActive: Color by
-        colors.obtain("outlineOnDarkSolidDefaultActive")
-
-    /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
     public var outlineOnDarkTransparentAccent: Color by
@@ -4686,45 +3846,25 @@ public class PlasmaHomeDsColors(
     public var outlineOnLightAccentMinor: Color by colors.obtain("outlineOnLightAccentMinor")
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     * Минорный желтый цвет для данных
      */
-    public var outlineOnLightSolidDefaultHover: Color by
-        colors.obtain("outlineOnLightSolidDefaultHover")
+    public var dataDefaultYellowMinor: Color by colors.obtain("dataDefaultYellowMinor")
 
     /**
-     * Основной непрозрачный цвет обводки на светлом фоне
+     * Желтый цвет для данных на темном фоне
      */
-    public var outlineOnLightSolidPrimaryHover: Color by
-        colors.obtain("outlineOnLightSolidPrimaryHover")
+    public var dataOnDarkYellow: Color by colors.obtain("dataOnDarkYellow")
 
     /**
-     * Минорный цвет фона поверхности/контрола ошибка
+     * Акцентный цвет обводки
      */
-    public var surfaceDefaultNegativeMinorHover: Color by
-        colors.obtain("surfaceDefaultNegativeMinorHover")
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола
-     */
-    public var surfaceDefaultTransparentSecondaryHover: Color by
-        colors.obtain("surfaceDefaultTransparentSecondaryHover")
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public var surfaceInversePromoMinorHover: Color by
-        colors.obtain("surfaceInversePromoMinorHover")
+    public var outlineDefaultAccent: Color by colors.obtain("outlineDefaultAccent")
 
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола информация
      */
     public var surfaceInverseTransparentInfoHover: Color by
         colors.obtain("surfaceInverseTransparentInfoHover")
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkPromoMinorHover: Color by colors.obtain("surfaceOnDarkPromoMinorHover")
 
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
@@ -4753,6 +3893,24 @@ public class PlasmaHomeDsColors(
     public var textOnLightTertiaryActive: Color by colors.obtain("textOnLightTertiaryActive")
 
     /**
+     * Основной непрозрачный цвет обводки на светлом фоне
+     */
+    public var outlineOnLightSolidPrimaryHover: Color by
+        colors.obtain("outlineOnLightSolidPrimaryHover")
+
+    /**
+     * Минорный цвет фона поверхности/контрола ошибка
+     */
+    public var surfaceDefaultNegativeMinorHover: Color by
+        colors.obtain("surfaceDefaultNegativeMinorHover")
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public var surfaceDefaultTransparentSecondaryHover: Color by
+        colors.obtain("surfaceDefaultTransparentSecondaryHover")
+
+    /**
      * Третичный непрозрачный цвет обводки на светлом фоне
      */
     public var outlineOnLightSolidTertiaryActive: Color by
@@ -4764,21 +3922,14 @@ public class PlasmaHomeDsColors(
     public var surfaceDefaultAccentActive: Color by colors.obtain("surfaceDefaultAccentActive")
 
     /**
+     * Основной фон на темном фоне
+     */
+    public var backgroundDarkPrimary: Color by colors.obtain("backgroundDarkPrimary")
+
+    /**
      * Непрозрачный фон поверхности/контрола по умолчанию
      */
     public var surfaceDefaultSolidDefault: Color by colors.obtain("surfaceDefaultSolidDefault")
-
-    /**
-     * Инвертированный минорный цвет фона поверхности/контрола информация
-     */
-    public var surfaceInverseInfoMinorActive: Color by
-        colors.obtain("surfaceInverseInfoMinorActive")
-
-    /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
-     */
-    public var surfaceInverseTransparentSecondaryActive: Color by
-        colors.obtain("surfaceInverseTransparentSecondaryActive")
 
     /**
      * Минорный цвет фона поверхности/контрола ошибка на светлом фоне
@@ -4815,14 +3966,15 @@ public class PlasmaHomeDsColors(
     public var textOnLightParagraphActive: Color by colors.obtain("textOnLightParagraphActive")
 
     /**
-     * Промо цвет на светлом фоне
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
-    public var textOnLightPromo: Color by colors.obtain("textOnLightPromo")
+    public var surfaceInverseTransparentSecondaryActive: Color by
+        colors.obtain("surfaceInverseTransparentSecondaryActive")
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public var outlineOnLightWarning: Color by colors.obtain("outlineOnLightWarning")
+    public var surfaceOnDarkAccentMinor: Color by colors.obtain("surfaceOnDarkAccentMinor")
 
     /**
      * Глубокий прозрачный фон поверхности/контрола
@@ -4836,22 +3988,6 @@ public class PlasmaHomeDsColors(
     public var surfaceInverseAccent: Color by colors.obtain("surfaceInverseAccent")
 
     /**
-     * Инвертированный вторичный непрозрачный фон поверхности/контрола
-     */
-    public var surfaceInverseSolidSecondaryActive: Color by
-        colors.obtain("surfaceInverseSolidSecondaryActive")
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkAccent: Color by colors.obtain("surfaceOnDarkAccent")
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public var surfaceOnDarkAccentMinor: Color by colors.obtain("surfaceOnDarkAccentMinor")
-
-    /**
      * Третичный непрозрачный фон поверхности/контрола на темном фоне
      */
     public var surfaceOnDarkSolidTertiaryActive: Color by
@@ -4862,6 +3998,12 @@ public class PlasmaHomeDsColors(
      */
     public var surfaceOnDarkTransparentNegative: Color by
         colors.obtain("surfaceOnDarkTransparentNegative")
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public var surfaceOnDarkTransparentNegativeHover: Color by
+        colors.obtain("surfaceOnDarkTransparentNegativeHover")
 
     /**
      * Минорный цвет ошибки
@@ -4884,10 +4026,382 @@ public class PlasmaHomeDsColors(
     public var textOnDarkAccentActive: Color by colors.obtain("textOnDarkAccentActive")
 
     /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public var surfaceOnDarkAccent: Color by colors.obtain("surfaceOnDarkAccent")
+
+    /**
+     * Акцентный цвет обводки
+     */
+    public var outlineDefaultAccentHover: Color by colors.obtain("outlineDefaultAccentHover")
+
+    /**
+     * Цвет обводки ошибка
+     */
+    public var outlineDefaultNegativeActive: Color by colors.obtain("outlineDefaultNegativeActive")
+
+    /**
+     * Минорный цвет обводки ошибка
+     */
+    public var outlineDefaultNegativeMinorHover: Color by
+        colors.obtain("outlineDefaultNegativeMinorHover")
+
+    /**
+     * Минорный цвет обводки успех
+     */
+    public var outlineDefaultPositiveMinor: Color by colors.obtain("outlineDefaultPositiveMinor")
+
+    /**
+     * Третичный непрозрачный цвет обводки
+     */
+    public var outlineDefaultSolidTertiaryActive: Color by
+        colors.obtain("outlineDefaultSolidTertiaryActive")
+
+    /**
+     * Прозрачный цвет обводки успех
+     */
+    public var outlineDefaultTransparentPositiveHover: Color by
+        colors.obtain("outlineDefaultTransparentPositiveHover")
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public var outlineDefaultTransparentPrimary: Color by
+        colors.obtain("outlineDefaultTransparentPrimary")
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public var outlineDefaultTransparentPrimaryActive: Color by
+        colors.obtain("outlineDefaultTransparentPrimaryActive")
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public var outlineDefaultTransparentPrimaryHover: Color by
+        colors.obtain("outlineDefaultTransparentPrimaryHover")
+
+    /**
+     * Вторичный прозрачный цвет обводки
+     */
+    public var outlineDefaultTransparentSecondary: Color by
+        colors.obtain("outlineDefaultTransparentSecondary")
+
+    /**
+     * Инвертированный минорный цвет обводки ошибка
+     */
+    public var outlineInverseNegativeMinorActive: Color by
+        colors.obtain("outlineInverseNegativeMinorActive")
+
+    /**
+     * Прозрачный инвертированный цвет обводки предупреждение
+     */
+    public var outlineInverseTransparentNegativeActive: Color by
+        colors.obtain("outlineInverseTransparentNegativeActive")
+
+    /**
+     * Прозрачный инвертированный цвет обводки предупреждение
+     */
+    public var outlineInverseTransparentNegativeHover: Color by
+        colors.obtain("outlineInverseTransparentNegativeHover")
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public var outlineInverseTransparentPrimaryActive: Color by
+        colors.obtain("outlineInverseTransparentPrimaryActive")
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public var outlineOnDarkInfo: Color by colors.obtain("outlineOnDarkInfo")
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public var outlineOnDarkInfoHover: Color by colors.obtain("outlineOnDarkInfoHover")
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public var outlineOnDarkSolidDefaultActive: Color by
+        colors.obtain("outlineOnDarkSolidDefaultActive")
+
+    /**
+     * Третичный непрозрачный цвет обводки на темном фоне
+     */
+    public var outlineOnDarkSolidTertiaryActive: Color by
+        colors.obtain("outlineOnDarkSolidTertiaryActive")
+
+    /**
+     * Прозрачный акцентный цвет обводки на темном фоне
+     */
+    public var outlineOnDarkTransparentAccentActive: Color by
+        colors.obtain("outlineOnDarkTransparentAccentActive")
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     */
+    public var outlineOnLightAccentMinorActive: Color by
+        colors.obtain("outlineOnLightAccentMinorActive")
+
+    /**
+     * Минорный цвет обводки успех на светлом фоне
+     */
+    public var outlineOnLightPositiveMinorActive: Color by
+        colors.obtain("outlineOnLightPositiveMinorActive")
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public var outlineOnLightSolidDefaultHover: Color by
+        colors.obtain("outlineOnLightSolidDefaultHover")
+
+    /**
+     * Вторичный непрозрачный цвет обводки на светлом фоне
+     */
+    public var outlineOnLightSolidSecondary: Color by colors.obtain("outlineOnLightSolidSecondary")
+
+    /**
+     * Прозрачный цвет обводки предупреждение на светлом фоне
+     */
+    public var outlineOnLightTransparentWarningActive: Color by
+        colors.obtain("outlineOnLightTransparentWarningActive")
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public var outlineOnLightWarning: Color by colors.obtain("outlineOnLightWarning")
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public var outlineOnLightWarningActive: Color by colors.obtain("outlineOnLightWarningActive")
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public var surfaceInverseAccentMinorActive: Color by
+        colors.obtain("surfaceInverseAccentMinorActive")
+
+    /**
+     * Инвертированный минорный цвет фона поверхности/контрола информация
+     */
+    public var surfaceInverseInfoMinorActive: Color by
+        colors.obtain("surfaceInverseInfoMinorActive")
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public var surfaceOnDarkAccentActive: Color by colors.obtain("surfaceOnDarkAccentActive")
+
+    /**
+     * Минорный цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public var surfaceOnDarkNegativeMinorActive: Color by
+        colors.obtain("surfaceOnDarkNegativeMinorActive")
+
+    /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public var surfaceOnDarkTransparentNegativeHover: Color by
-        colors.obtain("surfaceOnDarkTransparentNegativeHover")
+    public var surfaceOnDarkTransparentNegativeActive: Color by
+        colors.obtain("surfaceOnDarkTransparentNegativeActive")
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public var textDefaultAccentMinorActive: Color by colors.obtain("textDefaultAccentMinorActive")
+
+    /**
+     * Цвет информации
+     */
+    public var textDefaultInfoActive: Color by colors.obtain("textDefaultInfoActive")
+
+    /**
+     * Минорный цвет информации
+     */
+    public var textDefaultInfoMinorActive: Color by colors.obtain("textDefaultInfoMinorActive")
+
+    /**
+     * Минорный цвет ошибки
+     */
+    public var textDefaultNegativeMinorActive: Color by
+        colors.obtain("textDefaultNegativeMinorActive")
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public var textInverseNegative: Color by colors.obtain("textInverseNegative")
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public var textOnDarkAccentHover: Color by colors.obtain("textOnDarkAccentHover")
+
+    /**
+     * Минорный цвет предупреждения на темном фоне
+     */
+    public var textOnDarkWarningMinorActive: Color by colors.obtain("textOnDarkWarningMinorActive")
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowMinor: Color by colors.obtain("dataOnDarkYellowMinor")
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки
+     */
+    public var outlineDefaultAccentMinorActive: Color by
+        colors.obtain("outlineDefaultAccentMinorActive")
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный цвет обводки
+     */
+    public var outlineInverseAccentMinorActive: Color by
+        colors.obtain("outlineInverseAccentMinorActive")
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола информация
+     */
+    public var surfaceInverseTransparentInfoActive: Color by
+        colors.obtain("surfaceInverseTransparentInfoActive")
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public var surfaceInverseTransparentNegativeActive: Color by
+        colors.obtain("surfaceInverseTransparentNegativeActive")
+
+    /**
+     * Цвет фона поверхности/контрола успех
+     */
+    public var surfaceDefaultPositive: Color by colors.obtain("surfaceDefaultPositive")
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение
+     */
+    public var surfaceDefaultTransparentNegative: Color by
+        colors.obtain("surfaceDefaultTransparentNegative")
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public var surfaceInverseAccentMinor: Color by colors.obtain("surfaceInverseAccentMinor")
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public var surfaceInverseSolidSecondaryActive: Color by
+        colors.obtain("surfaceInverseSolidSecondaryActive")
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public var surfaceInverseTransparentNegative: Color by
+        colors.obtain("surfaceInverseTransparentNegative")
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public var surfaceOnDarkSolidCard: Color by colors.obtain("surfaceOnDarkSolidCard")
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public var surfaceOnLightAccentMinor: Color by colors.obtain("surfaceOnLightAccentMinor")
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public var surfaceOnLightSolidTertiaryActive: Color by
+        colors.obtain("surfaceOnLightSolidTertiaryActive")
+
+    /**
+     * Цвет информации
+     */
+    public var textDefaultInfo: Color by colors.obtain("textDefaultInfo")
+
+    /**
+     * Минорный цвет информации
+     */
+    public var textDefaultInfoMinor: Color by colors.obtain("textDefaultInfoMinor")
+
+    /**
+     * Минорный цвет ошибки на темном фоне
+     */
+    public var textOnDarkNegativeMinorActive: Color by
+        colors.obtain("textOnDarkNegativeMinorActive")
+
+    /**
+     * Минорный цвет обводки предупреждение на светлом фоне
+     */
+    public var outlineOnLightWarningMinor: Color by colors.obtain("outlineOnLightWarningMinor")
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
+     */
+    public var surfaceOnLightTransparentPositive: Color by
+        colors.obtain("surfaceOnLightTransparentPositive")
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public var surfaceDefaultTransparentDeepHover: Color by
+        colors.obtain("surfaceDefaultTransparentDeepHover")
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public var surfaceOnDarkSolidCardBrightness: Color by
+        colors.obtain("surfaceOnDarkSolidCardBrightness")
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public var surfaceOnLightSolidCardBrightness: Color by
+        colors.obtain("surfaceOnLightSolidCardBrightness")
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public var surfaceOnLightTransparentNegativeHover: Color by
+        colors.obtain("surfaceOnLightTransparentNegativeHover")
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public var textDefaultAccentMinorHover: Color by colors.obtain("textDefaultAccentMinorHover")
+
+    /**
+     * Цвет информации
+     */
+    public var textDefaultInfoHover: Color by colors.obtain("textDefaultInfoHover")
+
+    /**
+     * Инвертированный минорный цвет информации
+     */
+    public var textInverseInfoMinorActive: Color by colors.obtain("textInverseInfoMinorActive")
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public var textOnDarkTertiaryHover: Color by colors.obtain("textOnDarkTertiaryHover")
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public var textOnLightSecondaryActive: Color by colors.obtain("textOnLightSecondaryActive")
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public var dataDefaultYellowTransparent: Color by colors.obtain("dataDefaultYellowTransparent")
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     */
+    public var outlineOnLightAccentMinorHover: Color by
+        colors.obtain("outlineOnLightAccentMinorHover")
 
     /**
      * Возвращает копию [PlasmaHomeDsColors]. Предоставляет возможность переопределять цвета.
@@ -4920,81 +4434,6 @@ public class ColorOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkInfo: String = "outlineOnDarkInfo"
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public val textDefaultAccentMinorActive: String = "textDefaultAccentMinorActive"
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public val textDefaultAccentMinorHover: String = "textDefaultAccentMinorHover"
-
-    /**
-     * Прозрачный цвет обводки успех
-     */
-    public val outlineDefaultTransparentPositiveHover: String =
-        "outlineDefaultTransparentPositiveHover"
-
-    /**
-     * Цвет информации
-     */
-    public val textDefaultInfo: String = "textDefaultInfo"
-
-    /**
-     * Цвет информации
-     */
-    public val textDefaultInfoActive: String = "textDefaultInfoActive"
-
-    /**
-     * Цвет информации
-     */
-    public val textDefaultInfoHover: String = "textDefaultInfoHover"
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentPrimary: String = "outlineDefaultTransparentPrimary"
-
-    /**
-     * Минорный цвет информации
-     */
-    public val textDefaultInfoMinor: String = "textDefaultInfoMinor"
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentPrimaryActive: String =
-        "outlineDefaultTransparentPrimaryActive"
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentPrimaryHover: String =
-        "outlineDefaultTransparentPrimaryHover"
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentSecondary: String = "outlineDefaultTransparentSecondary"
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentSecondaryActive: String =
-        "outlineDefaultTransparentSecondaryActive"
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentSecondaryHover: String =
-        "outlineDefaultTransparentSecondaryHover"
-
-    /**
      * Третичный прозрачный цвет обводки
      */
     public val outlineDefaultTransparentTertiary: String = "outlineDefaultTransparentTertiary"
@@ -5069,14 +4508,16 @@ public class ColorOverrideScope {
     public val outlineInverseAccentActive: String = "outlineInverseAccentActive"
 
     /**
-     * Минорный цвет информации
+     * Вторичный прозрачный цвет обводки
      */
-    public val textDefaultInfoMinorActive: String = "textDefaultInfoMinorActive"
+    public val outlineDefaultTransparentSecondaryActive: String =
+        "outlineDefaultTransparentSecondaryActive"
 
     /**
-     * Инвертированный акцентный цвет обводки
+     * Вторичный прозрачный цвет обводки
      */
-    public val outlineInverseAccentHover: String = "outlineInverseAccentHover"
+    public val outlineDefaultTransparentSecondaryHover: String =
+        "outlineDefaultTransparentSecondaryHover"
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
@@ -5084,9 +4525,9 @@ public class ColorOverrideScope {
     public val outlineInverseAccentMinor: String = "outlineInverseAccentMinor"
 
     /**
-     * Инвертированный акцентный минорный непрозрачный цвет обводки
+     * Инвертированный акцентный цвет обводки
      */
-    public val outlineInverseAccentMinorActive: String = "outlineInverseAccentMinorActive"
+    public val outlineInverseAccentHover: String = "outlineInverseAccentHover"
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
@@ -5154,44 +4595,9 @@ public class ColorOverrideScope {
     public val outlineInverseNegativeHover: String = "outlineInverseNegativeHover"
 
     /**
-     * Вторичный фон на темном фоне
-     */
-    public val backgroundDarkSecondary: String = "backgroundDarkSecondary"
-
-    /**
-     * Третичный фон на темном фоне
-     */
-    public val backgroundDarkTertiary: String = "backgroundDarkTertiary"
-
-    /**
-     * Основной фон
-     */
-    public val backgroundDefaultPrimary: String = "backgroundDefaultPrimary"
-
-    /**
-     * Вторичный фон
-     */
-    public val backgroundDefaultSecondary: String = "backgroundDefaultSecondary"
-
-    /**
-     * Третичный фон
-     */
-    public val backgroundDefaultTertiary: String = "backgroundDefaultTertiary"
-
-    /**
      * Инвертированный основной фон
      */
     public val backgroundInversePrimary: String = "backgroundInversePrimary"
-
-    /**
-     * Инвертированный вторичный фон
-     */
-    public val backgroundInverseSecondary: String = "backgroundInverseSecondary"
-
-    /**
-     * Инвертированный третичный фон
-     */
-    public val backgroundInverseTertiary: String = "backgroundInverseTertiary"
 
     /**
      * Основной фон на светлом фоне
@@ -5199,24 +4605,9 @@ public class ColorOverrideScope {
     public val backgroundLightPrimary: String = "backgroundLightPrimary"
 
     /**
-     * Вторичный фон на светлом фоне
-     */
-    public val backgroundLightSecondary: String = "backgroundLightSecondary"
-
-    /**
-     * Третичный фон на светлом фоне
-     */
-    public val backgroundLightTertiary: String = "backgroundLightTertiary"
-
-    /**
      * Желтый цвет для данных
      */
     public val dataDefaultYellow: String = "dataDefaultYellow"
-
-    /**
-     * Прозрачный желтый цвет для данных
-     */
-    public val dataDefaultYellowTransparent: String = "dataDefaultYellowTransparent"
 
     /**
      * Инвертированный желтый цвет для данных
@@ -5234,19 +4625,9 @@ public class ColorOverrideScope {
     public val dataInverseYellowTransparent: String = "dataInverseYellowTransparent"
 
     /**
-     * Минорный желтый цвет для данных на темном фоне
+     * Основной фон
      */
-    public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
-
-    /**
-     * Прозрачный желтый цвет для данных на темном фоне
-     */
-    public val dataOnDarkYellowTransparent: String = "dataOnDarkYellowTransparent"
-
-    /**
-     * Желтый цвет для данных на светлом фоне
-     */
-    public val dataOnLightYellow: String = "dataOnLightYellow"
+    public val backgroundDefaultPrimary: String = "backgroundDefaultPrimary"
 
     /**
      * Минорный желтый цвет для данных на светлом фоне
@@ -5259,19 +4640,14 @@ public class ColorOverrideScope {
     public val dataOnLightYellowTransparent: String = "dataOnLightYellowTransparent"
 
     /**
-     * Акцентный цвет обводки
+     * Прозрачный желтый цвет для данных на темном фоне
      */
-    public val outlineDefaultAccentHover: String = "outlineDefaultAccentHover"
+    public val dataOnDarkYellowTransparent: String = "dataOnDarkYellowTransparent"
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки
+     * Желтый цвет для данных на светлом фоне
      */
-    public val outlineDefaultAccentMinor: String = "outlineDefaultAccentMinor"
-
-    /**
-     * Акцентный минорный непрозрачный цвет обводки
-     */
-    public val outlineDefaultAccentMinorActive: String = "outlineDefaultAccentMinorActive"
+    public val dataOnLightYellow: String = "dataOnLightYellow"
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
@@ -5324,9 +4700,9 @@ public class ColorOverrideScope {
     public val outlineDefaultInfoMinorHover: String = "outlineDefaultInfoMinorHover"
 
     /**
-     * Цвет обводки ошибка
+     * Акцентный минорный непрозрачный цвет обводки
      */
-    public val outlineDefaultNegativeActive: String = "outlineDefaultNegativeActive"
+    public val outlineDefaultAccentMinor: String = "outlineDefaultAccentMinor"
 
     /**
      * Цвет обводки ошибка
@@ -5334,29 +4710,9 @@ public class ColorOverrideScope {
     public val outlineDefaultNegativeHover: String = "outlineDefaultNegativeHover"
 
     /**
-     * Минорный цвет обводки ошибка
-     */
-    public val outlineDefaultNegativeMinorHover: String = "outlineDefaultNegativeMinorHover"
-
-    /**
-     * Цвет обводки успех
-     */
-    public val outlineDefaultPositive: String = "outlineDefaultPositive"
-
-    /**
-     * Цвет обводки успех
-     */
-    public val outlineDefaultPositiveActive: String = "outlineDefaultPositiveActive"
-
-    /**
      * Цвет обводки успех
      */
     public val outlineDefaultPositiveHover: String = "outlineDefaultPositiveHover"
-
-    /**
-     * Минорный цвет обводки успех
-     */
-    public val outlineDefaultPositiveMinor: String = "outlineDefaultPositiveMinor"
 
     /**
      * Минорный цвет обводки успех
@@ -5367,36 +4723,6 @@ public class ColorOverrideScope {
      * Минорный цвет обводки успех
      */
     public val outlineDefaultPositiveMinorHover: String = "outlineDefaultPositiveMinorHover"
-
-    /**
-     * Промо цвет обводки
-     */
-    public val outlineDefaultPromo: String = "outlineDefaultPromo"
-
-    /**
-     * Промо цвет обводки
-     */
-    public val outlineDefaultPromoActive: String = "outlineDefaultPromoActive"
-
-    /**
-     * Промо цвет обводки
-     */
-    public val outlineDefaultPromoHover: String = "outlineDefaultPromoHover"
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public val outlineDefaultPromoMinor: String = "outlineDefaultPromoMinor"
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public val outlineDefaultPromoMinorActive: String = "outlineDefaultPromoMinorActive"
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public val outlineDefaultPromoMinorHover: String = "outlineDefaultPromoMinorHover"
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию
@@ -5447,11 +4773,6 @@ public class ColorOverrideScope {
      * Третичный непрозрачный цвет обводки
      */
     public val outlineDefaultSolidTertiary: String = "outlineDefaultSolidTertiary"
-
-    /**
-     * Третичный непрозрачный цвет обводки
-     */
-    public val outlineDefaultSolidTertiaryActive: String = "outlineDefaultSolidTertiaryActive"
 
     /**
      * Третичный непрозрачный цвет обводки
@@ -5518,19 +4839,14 @@ public class ColorOverrideScope {
         "outlineDefaultTransparentPositiveActive"
 
     /**
-     * Инвертированный минорный цвет обводки ошибка
+     * Цвет обводки успех
      */
-    public val outlineInverseNegativeMinorActive: String = "outlineInverseNegativeMinorActive"
+    public val outlineDefaultPositive: String = "outlineDefaultPositive"
 
     /**
-     * Инвертированный минорный цвет обводки ошибка
+     * Цвет обводки успех
      */
-    public val outlineInverseNegativeMinorHover: String = "outlineInverseNegativeMinorHover"
-
-    /**
-     * Инвертированный цвет обводки успех
-     */
-    public val outlineInversePositive: String = "outlineInversePositive"
+    public val outlineDefaultPositiveActive: String = "outlineDefaultPositiveActive"
 
     /**
      * Инвертированный цвет обводки успех
@@ -5551,36 +4867,6 @@ public class ColorOverrideScope {
      * Инвертированный минорный цвет обводки успех
      */
     public val outlineInversePositiveMinorHover: String = "outlineInversePositiveMinorHover"
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public val outlineInversePromo: String = "outlineInversePromo"
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public val outlineInversePromoActive: String = "outlineInversePromoActive"
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public val outlineInversePromoHover: String = "outlineInversePromoHover"
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public val outlineInversePromoMinor: String = "outlineInversePromoMinor"
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public val outlineInversePromoMinorActive: String = "outlineInversePromoMinorActive"
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public val outlineInversePromoMinorHover: String = "outlineInversePromoMinorHover"
 
     /**
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
@@ -5674,21 +4960,14 @@ public class ColorOverrideScope {
     public val outlineInverseTransparentInfoHover: String = "outlineInverseTransparentInfoHover"
 
     /**
-     * Прозрачный инвертированный цвет обводки предупреждение
+     * Инвертированный минорный цвет обводки ошибка
      */
-    public val outlineInverseTransparentNegativeActive: String =
-        "outlineInverseTransparentNegativeActive"
+    public val outlineInverseNegativeMinorHover: String = "outlineInverseNegativeMinorHover"
 
     /**
-     * Прозрачный инвертированный цвет обводки предупреждение
+     * Инвертированный цвет обводки успех
      */
-    public val outlineInverseTransparentNegativeHover: String =
-        "outlineInverseTransparentNegativeHover"
-
-    /**
-     * Прозрачный инвертированный цвет обводки успех
-     */
-    public val outlineInverseTransparentPositive: String = "outlineInverseTransparentPositive"
+    public val outlineInversePositive: String = "outlineInversePositive"
 
     /**
      * Прозрачный инвертированный цвет обводки успех
@@ -5706,12 +4985,6 @@ public class ColorOverrideScope {
      * Инвертированный основной прозрачный цвет обводки
      */
     public val outlineInverseTransparentPrimary: String = "outlineInverseTransparentPrimary"
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val outlineInverseTransparentPrimaryActive: String =
-        "outlineInverseTransparentPrimaryActive"
 
     /**
      * Инвертированный основной прозрачный цвет обводки
@@ -5841,19 +5114,9 @@ public class ColorOverrideScope {
     public val outlineOnDarkClearHover: String = "outlineOnDarkClearHover"
 
     /**
-     * Цвет обводки информация на темном фоне
+     * Прозрачный инвертированный цвет обводки успех
      */
-    public val outlineOnDarkInfoHover: String = "outlineOnDarkInfoHover"
-
-    /**
-     * Минорный цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkInfoMinor: String = "outlineOnDarkInfoMinor"
-
-    /**
-     * Минорный цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkInfoMinorActive: String = "outlineOnDarkInfoMinorActive"
+    public val outlineInverseTransparentPositive: String = "outlineInverseTransparentPositive"
 
     /**
      * Минорный цвет обводки информация на темном фоне
@@ -5921,36 +5184,6 @@ public class ColorOverrideScope {
     public val outlineOnDarkPositiveMinorHover: String = "outlineOnDarkPositiveMinorHover"
 
     /**
-     * Промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromo: String = "outlineOnDarkPromo"
-
-    /**
-     * Промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoActive: String = "outlineOnDarkPromoActive"
-
-    /**
-     * Промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoHover: String = "outlineOnDarkPromoHover"
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoMinor: String = "outlineOnDarkPromoMinor"
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoMinorActive: String = "outlineOnDarkPromoMinorActive"
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoMinorHover: String = "outlineOnDarkPromoMinorHover"
-
-    /**
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
      */
     public val outlineOnDarkSolidDefault: String = "outlineOnDarkSolidDefault"
@@ -5998,27 +5231,17 @@ public class ColorOverrideScope {
     /**
      * Третичный непрозрачный цвет обводки на темном фоне
      */
-    public val outlineOnDarkSolidTertiaryActive: String = "outlineOnDarkSolidTertiaryActive"
-
-    /**
-     * Третичный непрозрачный цвет обводки на темном фоне
-     */
     public val outlineOnDarkSolidTertiaryHover: String = "outlineOnDarkSolidTertiaryHover"
 
     /**
-     * Прозрачный акцентный цвет обводки на темном фоне
+     * Минорный цвет обводки информация на темном фоне
      */
-    public val outlineOnDarkTransparentAccentActive: String = "outlineOnDarkTransparentAccentActive"
+    public val outlineOnDarkInfoMinor: String = "outlineOnDarkInfoMinor"
 
     /**
-     * Прозрачный акцентный цвет обводки на темном фоне
+     * Минорный цвет обводки информация на темном фоне
      */
-    public val outlineOnDarkTransparentAccentHover: String = "outlineOnDarkTransparentAccentHover"
-
-    /**
-     * Прозрачный цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkTransparentInfo: String = "outlineOnDarkTransparentInfo"
+    public val outlineOnDarkInfoMinorActive: String = "outlineOnDarkInfoMinorActive"
 
     /**
      * Прозрачный цвет обводки информация на темном фоне
@@ -6171,19 +5394,14 @@ public class ColorOverrideScope {
     public val outlineOnLightAccentHover: String = "outlineOnLightAccentHover"
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val outlineOnLightAccentMinorActive: String = "outlineOnLightAccentMinorActive"
+    public val outlineOnDarkTransparentAccentHover: String = "outlineOnDarkTransparentAccentHover"
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     * Прозрачный цвет обводки информация на темном фоне
      */
-    public val outlineOnLightAccentMinorHover: String = "outlineOnLightAccentMinorHover"
-
-    /**
-     * Бесцветная обводка на светлом фоне
-     */
-    public val outlineOnLightClear: String = "outlineOnLightClear"
+    public val outlineOnDarkTransparentInfo: String = "outlineOnDarkTransparentInfo"
 
     /**
      * Бесцветная обводка на светлом фоне
@@ -6278,42 +5496,7 @@ public class ColorOverrideScope {
     /**
      * Минорный цвет обводки успех на светлом фоне
      */
-    public val outlineOnLightPositiveMinorActive: String = "outlineOnLightPositiveMinorActive"
-
-    /**
-     * Минорный цвет обводки успех на светлом фоне
-     */
     public val outlineOnLightPositiveMinorHover: String = "outlineOnLightPositiveMinorHover"
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromo: String = "outlineOnLightPromo"
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoActive: String = "outlineOnLightPromoActive"
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoHover: String = "outlineOnLightPromoHover"
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoMinor: String = "outlineOnLightPromoMinor"
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoMinorActive: String = "outlineOnLightPromoMinorActive"
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoMinorHover: String = "outlineOnLightPromoMinorHover"
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
@@ -6336,19 +5519,9 @@ public class ColorOverrideScope {
     public val outlineOnLightSolidPrimaryActive: String = "outlineOnLightSolidPrimaryActive"
 
     /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
+     * Бесцветная обводка на светлом фоне
      */
-    public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
-
-    /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
-     */
-    public val outlineOnLightSolidSecondaryActive: String = "outlineOnLightSolidSecondaryActive"
-
-    /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
-     */
-    public val outlineOnLightSolidSecondaryHover: String = "outlineOnLightSolidSecondaryHover"
+    public val outlineOnLightClear: String = "outlineOnLightClear"
 
     /**
      * Третичный непрозрачный цвет обводки на светлом фоне
@@ -6484,12 +5657,6 @@ public class ColorOverrideScope {
     /**
      * Прозрачный цвет обводки предупреждение на светлом фоне
      */
-    public val outlineOnLightTransparentWarningActive: String =
-        "outlineOnLightTransparentWarningActive"
-
-    /**
-     * Прозрачный цвет обводки предупреждение на светлом фоне
-     */
     public val outlineOnLightTransparentWarningHover: String =
         "outlineOnLightTransparentWarningHover"
 
@@ -6499,19 +5666,14 @@ public class ColorOverrideScope {
     public val textDefaultInfoMinorHover: String = "textDefaultInfoMinorHover"
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Вторичный непрозрачный цвет обводки на светлом фоне
      */
-    public val outlineOnLightWarningActive: String = "outlineOnLightWarningActive"
+    public val outlineOnLightSolidSecondaryActive: String = "outlineOnLightSolidSecondaryActive"
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Вторичный непрозрачный цвет обводки на светлом фоне
      */
-    public val outlineOnLightWarningHover: String = "outlineOnLightWarningHover"
-
-    /**
-     * Минорный цвет обводки предупреждение на светлом фоне
-     */
-    public val outlineOnLightWarningMinor: String = "outlineOnLightWarningMinor"
+    public val outlineOnLightSolidSecondaryHover: String = "outlineOnLightSolidSecondaryHover"
 
     /**
      * Минорный цвет обводки предупреждение на светлом фоне
@@ -6679,19 +5841,9 @@ public class ColorOverrideScope {
     public val surfaceDefaultNegativeMinorActive: String = "surfaceDefaultNegativeMinorActive"
 
     /**
-     * Цвет фона поверхности/контрола успех
+     * Цвет обводки предупреждение на светлом фоне
      */
-    public val surfaceDefaultPositive: String = "surfaceDefaultPositive"
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public val surfaceDefaultPositiveActive: String = "surfaceDefaultPositiveActive"
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public val surfaceDefaultPositiveHover: String = "surfaceDefaultPositiveHover"
+    public val outlineOnLightWarningHover: String = "outlineOnLightWarningHover"
 
     /**
      * Минорный цвет фона поверхности/контрола успех
@@ -6707,36 +5859,6 @@ public class ColorOverrideScope {
      * Минорный цвет фона поверхности/контрола успех
      */
     public val surfaceDefaultPositiveMinorHover: String = "surfaceDefaultPositiveMinorHover"
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromo: String = "surfaceDefaultPromo"
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoActive: String = "surfaceDefaultPromoActive"
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoHover: String = "surfaceDefaultPromoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoMinor: String = "surfaceDefaultPromoMinor"
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoMinorActive: String = "surfaceDefaultPromoMinorActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoMinorHover: String = "surfaceDefaultPromoMinorHover"
 
     /**
      * Основной фон для карточек
@@ -6856,19 +5978,14 @@ public class ColorOverrideScope {
     public val surfaceDefaultTransparentCardHover: String = "surfaceDefaultTransparentCardHover"
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола
+     * Цвет фона поверхности/контрола успех
      */
-    public val surfaceDefaultTransparentDeepActive: String = "surfaceDefaultTransparentDeepActive"
+    public val surfaceDefaultPositiveActive: String = "surfaceDefaultPositiveActive"
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола
+     * Цвет фона поверхности/контрола успех
      */
-    public val surfaceDefaultTransparentDeepHover: String = "surfaceDefaultTransparentDeepHover"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола информация
-     */
-    public val surfaceDefaultTransparentInfo: String = "surfaceDefaultTransparentInfo"
+    public val surfaceDefaultPositiveHover: String = "surfaceDefaultPositiveHover"
 
     /**
      * Прозрачный цвет фона поверхности/контрола информация
@@ -6879,11 +5996,6 @@ public class ColorOverrideScope {
      * Прозрачный цвет фона поверхности/контрола информация
      */
     public val surfaceDefaultTransparentInfoHover: String = "surfaceDefaultTransparentInfoHover"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public val surfaceDefaultTransparentNegative: String = "surfaceDefaultTransparentNegative"
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
@@ -6930,21 +6042,6 @@ public class ColorOverrideScope {
      */
     public val surfaceDefaultTransparentPrimaryHover: String =
         "surfaceDefaultTransparentPrimaryHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentPromo: String = "surfaceDefaultTransparentPromo"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentPromoActive: String = "surfaceDefaultTransparentPromoActive"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentPromoHover: String = "surfaceDefaultTransparentPromoHover"
 
     /**
      * Вторичный прозрачный фон поверхности/контрола
@@ -7022,24 +6119,14 @@ public class ColorOverrideScope {
     public val surfaceDefaultWarningMinorHover: String = "surfaceDefaultWarningMinorHover"
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Глубокий прозрачный фон поверхности/контрола
      */
-    public val surfaceInverseAccentActive: String = "surfaceInverseAccentActive"
+    public val surfaceDefaultTransparentDeepActive: String = "surfaceDefaultTransparentDeepActive"
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола информация
      */
-    public val surfaceInverseAccentHover: String = "surfaceInverseAccentHover"
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseAccentMinor: String = "surfaceInverseAccentMinor"
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseAccentMinorActive: String = "surfaceInverseAccentMinorActive"
+    public val surfaceDefaultTransparentInfo: String = "surfaceDefaultTransparentInfo"
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
@@ -7147,44 +6234,14 @@ public class ColorOverrideScope {
     public val surfaceInversePositiveMinorHover: String = "surfaceInversePositiveMinorHover"
 
     /**
-     * Инвертированный промо фон поверхности/контрола
+     * Инвертированный акцентный фон поверхности/контрола
      */
-    public val surfaceInversePromo: String = "surfaceInversePromo"
+    public val surfaceInverseAccentActive: String = "surfaceInverseAccentActive"
 
     /**
-     * Инвертированный промо фон поверхности/контрола
+     * Инвертированный акцентный фон поверхности/контрола
      */
-    public val surfaceInversePromoActive: String = "surfaceInversePromoActive"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoHover: String = "surfaceInversePromoHover"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoMinor: String = "surfaceInversePromoMinor"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoMinorActive: String = "surfaceInversePromoMinorActive"
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val surfaceInverseSolidCard: String = "surfaceInverseSolidCard"
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val surfaceInverseSolidCardActive: String = "surfaceInverseSolidCardActive"
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val surfaceInverseSolidCardBrightness: String = "surfaceInverseSolidCardBrightness"
+    public val surfaceInverseAccentHover: String = "surfaceInverseAccentHover"
 
     /**
      * Инвертированный основной фон для карточек
@@ -7309,31 +6366,24 @@ public class ColorOverrideScope {
     public val surfaceInverseTransparentInfo: String = "surfaceInverseTransparentInfo"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола информация
-     */
-    public val surfaceInverseTransparentInfoActive: String = "surfaceInverseTransparentInfoActive"
-
-    /**
      * Цвет ошибки
      */
     public val textDefaultNegative: String = "textDefaultNegative"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public val surfaceInverseTransparentNegative: String = "surfaceInverseTransparentNegative"
+    public val surfaceInverseSolidCard: String = "surfaceInverseSolidCard"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public val surfaceInverseTransparentNegativeActive: String =
-        "surfaceInverseTransparentNegativeActive"
+    public val surfaceInverseSolidCardActive: String = "surfaceInverseSolidCardActive"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public val surfaceInverseTransparentNegativeHover: String =
-        "surfaceInverseTransparentNegativeHover"
+    public val surfaceInverseSolidCardBrightness: String = "surfaceInverseSolidCardBrightness"
 
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола успех
@@ -7368,21 +6418,6 @@ public class ColorOverrideScope {
      */
     public val surfaceInverseTransparentPrimaryHover: String =
         "surfaceInverseTransparentPrimaryHover"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentPromo: String = "surfaceInverseTransparentPromo"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentPromoActive: String = "surfaceInverseTransparentPromoActive"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentPromoHover: String = "surfaceInverseTransparentPromoHover"
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
@@ -7465,19 +6500,10 @@ public class ColorOverrideScope {
     public val textDefaultNegativeActive: String = "textDefaultNegativeActive"
 
     /**
-     * Акцентный фон поверхности/контрола на темном фоне
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
      */
-    public val surfaceOnDarkAccentActive: String = "surfaceOnDarkAccentActive"
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccentHover: String = "surfaceOnDarkAccentHover"
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccentMinorActive: String = "surfaceOnDarkAccentMinorActive"
+    public val surfaceInverseTransparentNegativeHover: String =
+        "surfaceInverseTransparentNegativeHover"
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
@@ -7552,11 +6578,6 @@ public class ColorOverrideScope {
     /**
      * Минорный цвет фона поверхности/контрола ошибка на темном фоне
      */
-    public val surfaceOnDarkNegativeMinorActive: String = "surfaceOnDarkNegativeMinorActive"
-
-    /**
-     * Минорный цвет фона поверхности/контрола ошибка на темном фоне
-     */
     public val surfaceOnDarkNegativeMinorHover: String = "surfaceOnDarkNegativeMinorHover"
 
     /**
@@ -7590,49 +6611,19 @@ public class ColorOverrideScope {
     public val surfaceOnDarkPositiveMinorHover: String = "surfaceOnDarkPositiveMinorHover"
 
     /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromo: String = "surfaceOnDarkPromo"
-
-    /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoActive: String = "surfaceOnDarkPromoActive"
-
-    /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoHover: String = "surfaceOnDarkPromoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoMinor: String = "surfaceOnDarkPromoMinor"
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoMinorActive: String = "surfaceOnDarkPromoMinorActive"
-
-    /**
      * Цвет ошибки
      */
     public val textDefaultNegativeHover: String = "textDefaultNegativeHover"
 
     /**
-     * Основной фон для карточек на темном фоне
+     * Акцентный фон поверхности/контрола на темном фоне
      */
-    public val surfaceOnDarkSolidCard: String = "surfaceOnDarkSolidCard"
+    public val surfaceOnDarkAccentHover: String = "surfaceOnDarkAccentHover"
 
     /**
-     * Основной фон для карточек на темном фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val surfaceOnDarkSolidCardActive: String = "surfaceOnDarkSolidCardActive"
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val surfaceOnDarkSolidCardBrightness: String = "surfaceOnDarkSolidCardBrightness"
+    public val surfaceOnDarkAccentMinorActive: String = "surfaceOnDarkAccentMinorActive"
 
     /**
      * Основной фон для карточек на темном фоне
@@ -7766,21 +6757,9 @@ public class ColorOverrideScope {
     public val surfaceOnDarkTransparentInfoHover: String = "surfaceOnDarkTransparentInfoHover"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     * Основной фон для карточек на темном фоне
      */
-    public val surfaceOnDarkTransparentNegativeActive: String =
-        "surfaceOnDarkTransparentNegativeActive"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
-     */
-    public val surfaceOnDarkTransparentPositive: String = "surfaceOnDarkTransparentPositive"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
-     */
-    public val surfaceOnDarkTransparentPositiveActive: String =
-        "surfaceOnDarkTransparentPositiveActive"
+    public val surfaceOnDarkSolidCardActive: String = "surfaceOnDarkSolidCardActive"
 
     /**
      * Прозрачный цвет фона поверхности/контрола успех на темном фоне
@@ -7803,21 +6782,6 @@ public class ColorOverrideScope {
      * Основной прозрачный фон поверхности/контрола на темном фоне
      */
     public val surfaceOnDarkTransparentPrimaryHover: String = "surfaceOnDarkTransparentPrimaryHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromo: String = "surfaceOnDarkTransparentPromo"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromoActive: String = "surfaceOnDarkTransparentPromoActive"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromoHover: String = "surfaceOnDarkTransparentPromoHover"
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на темном фоне
@@ -7910,19 +6874,15 @@ public class ColorOverrideScope {
     public val surfaceOnLightAccentActive: String = "surfaceOnLightAccentActive"
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
-    public val surfaceOnLightAccentMinor: String = "surfaceOnLightAccentMinor"
+    public val surfaceOnDarkTransparentPositive: String = "surfaceOnDarkTransparentPositive"
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
-    public val surfaceOnLightAccentMinorActive: String = "surfaceOnLightAccentMinorActive"
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightAccentMinorHover: String = "surfaceOnLightAccentMinorHover"
+    public val surfaceOnDarkTransparentPositiveActive: String =
+        "surfaceOnDarkTransparentPositiveActive"
 
     /**
      * Фон поверхности/контрола без заливки на светлом фоне
@@ -8025,54 +6985,19 @@ public class ColorOverrideScope {
     public val surfaceOnLightPositiveMinorHover: String = "surfaceOnLightPositiveMinorHover"
 
     /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromo: String = "surfaceOnLightPromo"
-
-    /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoActive: String = "surfaceOnLightPromoActive"
-
-    /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoHover: String = "surfaceOnLightPromoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoMinor: String = "surfaceOnLightPromoMinor"
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorActive: String = "surfaceOnLightPromoMinorActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorHover: String = "surfaceOnLightPromoMinorHover"
-
-    /**
      * Основной фон для карточек на светлом фоне
      */
     public val surfaceOnLightSolidCard: String = "surfaceOnLightSolidCard"
 
     /**
-     * Основной фон для карточек на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val surfaceOnLightSolidCardBrightness: String = "surfaceOnLightSolidCardBrightness"
+    public val surfaceOnLightAccentMinorActive: String = "surfaceOnLightAccentMinorActive"
 
     /**
-     * Основной фон для карточек на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val surfaceOnLightSolidCardHover: String = "surfaceOnLightSolidCardHover"
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val surfaceOnLightSolidDefault: String = "surfaceOnLightSolidDefault"
+    public val surfaceOnLightAccentMinorHover: String = "surfaceOnLightAccentMinorHover"
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
@@ -8123,11 +7048,6 @@ public class ColorOverrideScope {
      * Третичный непрозрачный фон поверхности/контрола на светлом фоне
      */
     public val surfaceOnLightSolidTertiary: String = "surfaceOnLightSolidTertiary"
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightSolidTertiaryActive: String = "surfaceOnLightSolidTertiaryActive"
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
@@ -8202,21 +7122,14 @@ public class ColorOverrideScope {
     public val surfaceOnLightTransparentNegative: String = "surfaceOnLightTransparentNegative"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     * Основной фон для карточек на светлом фоне
      */
-    public val surfaceOnLightTransparentNegativeHover: String =
-        "surfaceOnLightTransparentNegativeHover"
+    public val surfaceOnLightSolidCardHover: String = "surfaceOnLightSolidCardHover"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public val surfaceOnLightTransparentPositive: String = "surfaceOnLightTransparentPositive"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
-     */
-    public val surfaceOnLightTransparentPositiveActive: String =
-        "surfaceOnLightTransparentPositiveActive"
+    public val surfaceOnLightSolidDefault: String = "surfaceOnLightSolidDefault"
 
     /**
      * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
@@ -8240,21 +7153,6 @@ public class ColorOverrideScope {
      */
     public val surfaceOnLightTransparentPrimaryHover: String =
         "surfaceOnLightTransparentPrimaryHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromo: String = "surfaceOnLightTransparentPromo"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromoActive: String = "surfaceOnLightTransparentPromoActive"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromoHover: String = "surfaceOnLightTransparentPromoHover"
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на светлом фоне
@@ -8358,19 +7256,10 @@ public class ColorOverrideScope {
     public val textDefaultAccentMinor: String = "textDefaultAccentMinor"
 
     /**
-     * Минорный цвет ошибки
+     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
      */
-    public val textDefaultNegativeMinorActive: String = "textDefaultNegativeMinorActive"
-
-    /**
-     * Минорный цвет ошибки
-     */
-    public val textDefaultNegativeMinorHover: String = "textDefaultNegativeMinorHover"
-
-    /**
-     * Сплошной наборный текст
-     */
-    public val textDefaultParagraph: String = "textDefaultParagraph"
+    public val surfaceOnLightTransparentPositiveActive: String =
+        "surfaceOnLightTransparentPositiveActive"
 
     /**
      * Сплошной наборный текст
@@ -8426,36 +7315,6 @@ public class ColorOverrideScope {
      * Основной цвет текста
      */
     public val textDefaultPrimaryHover: String = "textDefaultPrimaryHover"
-
-    /**
-     * Промо цвет
-     */
-    public val textDefaultPromo: String = "textDefaultPromo"
-
-    /**
-     * Промо цвет
-     */
-    public val textDefaultPromoActive: String = "textDefaultPromoActive"
-
-    /**
-     * Промо цвет
-     */
-    public val textDefaultPromoHover: String = "textDefaultPromoHover"
-
-    /**
-     * Минорный промо цвет
-     */
-    public val textDefaultPromoMinor: String = "textDefaultPromoMinor"
-
-    /**
-     * Минорный промо цвет
-     */
-    public val textDefaultPromoMinorActive: String = "textDefaultPromoMinorActive"
-
-    /**
-     * Минорный промо цвет
-     */
-    public val textDefaultPromoMinorHover: String = "textDefaultPromoMinorHover"
 
     /**
      * Вторичный цвет текста
@@ -8563,24 +7422,14 @@ public class ColorOverrideScope {
     public val textInverseInfoMinor: String = "textInverseInfoMinor"
 
     /**
-     * Инвертированный минорный цвет информации
+     * Минорный цвет ошибки
      */
-    public val textInverseInfoMinorActive: String = "textInverseInfoMinorActive"
+    public val textDefaultNegativeMinorHover: String = "textDefaultNegativeMinorHover"
 
     /**
-     * Инвертированный цвет ошибки
+     * Сплошной наборный текст
      */
-    public val textInverseNegative: String = "textInverseNegative"
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val textInverseNegativeActive: String = "textInverseNegativeActive"
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val textInverseNegativeHover: String = "textInverseNegativeHover"
+    public val textDefaultParagraph: String = "textDefaultParagraph"
 
     /**
      * Инвертированный минорный цвет ошибки
@@ -8658,36 +7507,6 @@ public class ColorOverrideScope {
     public val textInversePrimaryHover: String = "textInversePrimaryHover"
 
     /**
-     * Инвертированный промо цвет
-     */
-    public val textInversePromo: String = "textInversePromo"
-
-    /**
-     * Инвертированный промо цвет
-     */
-    public val textInversePromoActive: String = "textInversePromoActive"
-
-    /**
-     * Инвертированный промо цвет
-     */
-    public val textInversePromoHover: String = "textInversePromoHover"
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public val textInversePromoMinor: String = "textInversePromoMinor"
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public val textInversePromoMinorActive: String = "textInversePromoMinorActive"
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public val textInversePromoMinorHover: String = "textInversePromoMinorHover"
-
-    /**
      * Инвертированный вторичный цвет текста
      */
     public val textInverseSecondary: String = "textInverseSecondary"
@@ -8753,19 +7572,14 @@ public class ColorOverrideScope {
     public val textOnDarkAccent: String = "textOnDarkAccent"
 
     /**
-     * Акцентный цвет на темном фоне
+     * Инвертированный цвет ошибки
      */
-    public val textOnDarkAccentHover: String = "textOnDarkAccentHover"
+    public val textInverseNegativeActive: String = "textInverseNegativeActive"
 
     /**
-     * Акцентный минорный цвет на темном фоне
+     * Инвертированный цвет ошибки
      */
-    public val textOnDarkAccentMinor: String = "textOnDarkAccentMinor"
-
-    /**
-     * Акцентный минорный цвет на темном фоне
-     */
-    public val textOnDarkAccentMinorActive: String = "textOnDarkAccentMinorActive"
+    public val textInverseNegativeHover: String = "textInverseNegativeHover"
 
     /**
      * Акцентный минорный цвет на темном фоне
@@ -8816,11 +7630,6 @@ public class ColorOverrideScope {
      * Минорный цвет ошибки на темном фоне
      */
     public val textOnDarkNegativeMinor: String = "textOnDarkNegativeMinor"
-
-    /**
-     * Минорный цвет ошибки на темном фоне
-     */
-    public val textOnDarkNegativeMinorActive: String = "textOnDarkNegativeMinorActive"
 
     /**
      * Минорный цвет ошибки на темном фоне
@@ -8893,36 +7702,6 @@ public class ColorOverrideScope {
     public val textOnDarkPrimaryHover: String = "textOnDarkPrimaryHover"
 
     /**
-     * Промо цвет на темном фоне
-     */
-    public val textOnDarkPromo: String = "textOnDarkPromo"
-
-    /**
-     * Промо цвет на темном фоне
-     */
-    public val textOnDarkPromoActive: String = "textOnDarkPromoActive"
-
-    /**
-     * Промо цвет на темном фоне
-     */
-    public val textOnDarkPromoHover: String = "textOnDarkPromoHover"
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public val textOnDarkPromoMinor: String = "textOnDarkPromoMinor"
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public val textOnDarkPromoMinorActive: String = "textOnDarkPromoMinorActive"
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public val textOnDarkPromoMinorHover: String = "textOnDarkPromoMinorHover"
-
-    /**
      * Вторичный цвет текста на темном фоне
      */
     public val textOnDarkSecondary: String = "textOnDarkSecondary"
@@ -8943,19 +7722,14 @@ public class ColorOverrideScope {
     public val textOnDarkTertiary: String = "textOnDarkTertiary"
 
     /**
-     * Третичный цвет текста на темном фоне
+     * Акцентный минорный цвет на темном фоне
      */
-    public val textOnDarkTertiaryHover: String = "textOnDarkTertiaryHover"
+    public val textOnDarkAccentMinor: String = "textOnDarkAccentMinor"
 
     /**
-     * Цвет предупреждения на темном фоне
+     * Акцентный минорный цвет на темном фоне
      */
-    public val textOnDarkWarning: String = "textOnDarkWarning"
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val textOnDarkWarningActive: String = "textOnDarkWarningActive"
+    public val textOnDarkAccentMinorActive: String = "textOnDarkAccentMinorActive"
 
     /**
      * Цвет предупреждения на темном фоне
@@ -8966,11 +7740,6 @@ public class ColorOverrideScope {
      * Минорный цвет предупреждения на темном фоне
      */
     public val textOnDarkWarningMinor: String = "textOnDarkWarningMinor"
-
-    /**
-     * Минорный цвет предупреждения на темном фоне
-     */
-    public val textOnDarkWarningMinorActive: String = "textOnDarkWarningMinorActive"
 
     /**
      * Минорный цвет предупреждения на темном фоне
@@ -9128,39 +7897,19 @@ public class ColorOverrideScope {
     public val textOnLightPrimaryHover: String = "textOnLightPrimaryHover"
 
     /**
-     * Промо цвет на светлом фоне
+     * Цвет предупреждения на темном фоне
      */
-    public val textOnLightPromoActive: String = "textOnLightPromoActive"
+    public val textOnDarkWarning: String = "textOnDarkWarning"
 
     /**
-     * Промо цвет на светлом фоне
+     * Цвет предупреждения на темном фоне
      */
-    public val textOnLightPromoHover: String = "textOnLightPromoHover"
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public val textOnLightPromoMinor: String = "textOnLightPromoMinor"
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public val textOnLightPromoMinorActive: String = "textOnLightPromoMinorActive"
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public val textOnLightPromoMinorHover: String = "textOnLightPromoMinorHover"
+    public val textOnDarkWarningActive: String = "textOnDarkWarningActive"
 
     /**
      * Вторичный цвет текста на светлом фоне
      */
     public val textOnLightSecondary: String = "textOnLightSecondary"
-
-    /**
-     * Вторичный цвет текста на светлом фоне
-     */
-    public val textOnLightSecondaryActive: String = "textOnLightSecondaryActive"
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -9208,26 +7957,6 @@ public class ColorOverrideScope {
     public val textOnLightWarningMinorHover: String = "textOnLightWarningMinorHover"
 
     /**
-     * Основной фон на темном фоне
-     */
-    public val backgroundDarkPrimary: String = "backgroundDarkPrimary"
-
-    /**
-     * Минорный желтый цвет для данных
-     */
-    public val dataDefaultYellowMinor: String = "dataDefaultYellowMinor"
-
-    /**
-     * Желтый цвет для данных на темном фоне
-     */
-    public val dataOnDarkYellow: String = "dataOnDarkYellow"
-
-    /**
-     * Акцентный цвет обводки
-     */
-    public val outlineDefaultAccent: String = "outlineDefaultAccent"
-
-    /**
      * Акцентный цвет обводки
      */
     public val outlineDefaultAccentActive: String = "outlineDefaultAccentActive"
@@ -9273,11 +8002,6 @@ public class ColorOverrideScope {
     public val outlineOnDarkInfoActive: String = "outlineOnDarkInfoActive"
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
-     */
-    public val outlineOnDarkSolidDefaultActive: String = "outlineOnDarkSolidDefaultActive"
-
-    /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
     public val outlineOnDarkTransparentAccent: String = "outlineOnDarkTransparentAccent"
@@ -9293,40 +8017,24 @@ public class ColorOverrideScope {
     public val outlineOnLightAccentMinor: String = "outlineOnLightAccentMinor"
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     * Минорный желтый цвет для данных
      */
-    public val outlineOnLightSolidDefaultHover: String = "outlineOnLightSolidDefaultHover"
+    public val dataDefaultYellowMinor: String = "dataDefaultYellowMinor"
 
     /**
-     * Основной непрозрачный цвет обводки на светлом фоне
+     * Желтый цвет для данных на темном фоне
      */
-    public val outlineOnLightSolidPrimaryHover: String = "outlineOnLightSolidPrimaryHover"
+    public val dataOnDarkYellow: String = "dataOnDarkYellow"
 
     /**
-     * Минорный цвет фона поверхности/контрола ошибка
+     * Акцентный цвет обводки
      */
-    public val surfaceDefaultNegativeMinorHover: String = "surfaceDefaultNegativeMinorHover"
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentSecondaryHover: String =
-        "surfaceDefaultTransparentSecondaryHover"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoMinorHover: String = "surfaceInversePromoMinorHover"
+    public val outlineDefaultAccent: String = "outlineDefaultAccent"
 
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола информация
      */
     public val surfaceInverseTransparentInfoHover: String = "surfaceInverseTransparentInfoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoMinorHover: String = "surfaceOnDarkPromoMinorHover"
 
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
@@ -9354,6 +8062,22 @@ public class ColorOverrideScope {
     public val textOnLightTertiaryActive: String = "textOnLightTertiaryActive"
 
     /**
+     * Основной непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightSolidPrimaryHover: String = "outlineOnLightSolidPrimaryHover"
+
+    /**
+     * Минорный цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceDefaultNegativeMinorHover: String = "surfaceDefaultNegativeMinorHover"
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentSecondaryHover: String =
+        "surfaceDefaultTransparentSecondaryHover"
+
+    /**
      * Третичный непрозрачный цвет обводки на светлом фоне
      */
     public val outlineOnLightSolidTertiaryActive: String = "outlineOnLightSolidTertiaryActive"
@@ -9364,20 +8088,14 @@ public class ColorOverrideScope {
     public val surfaceDefaultAccentActive: String = "surfaceDefaultAccentActive"
 
     /**
+     * Основной фон на темном фоне
+     */
+    public val backgroundDarkPrimary: String = "backgroundDarkPrimary"
+
+    /**
      * Непрозрачный фон поверхности/контрола по умолчанию
      */
     public val surfaceDefaultSolidDefault: String = "surfaceDefaultSolidDefault"
-
-    /**
-     * Инвертированный минорный цвет фона поверхности/контрола информация
-     */
-    public val surfaceInverseInfoMinorActive: String = "surfaceInverseInfoMinorActive"
-
-    /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentSecondaryActive: String =
-        "surfaceInverseTransparentSecondaryActive"
 
     /**
      * Минорный цвет фона поверхности/контрола ошибка на светлом фоне
@@ -9411,14 +8129,15 @@ public class ColorOverrideScope {
     public val textOnLightParagraphActive: String = "textOnLightParagraphActive"
 
     /**
-     * Промо цвет на светлом фоне
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
-    public val textOnLightPromo: String = "textOnLightPromo"
+    public val surfaceInverseTransparentSecondaryActive: String =
+        "surfaceInverseTransparentSecondaryActive"
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val outlineOnLightWarning: String = "outlineOnLightWarning"
+    public val surfaceOnDarkAccentMinor: String = "surfaceOnDarkAccentMinor"
 
     /**
      * Глубокий прозрачный фон поверхности/контрола
@@ -9431,21 +8150,6 @@ public class ColorOverrideScope {
     public val surfaceInverseAccent: String = "surfaceInverseAccent"
 
     /**
-     * Инвертированный вторичный непрозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseSolidSecondaryActive: String = "surfaceInverseSolidSecondaryActive"
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccent: String = "surfaceOnDarkAccent"
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccentMinor: String = "surfaceOnDarkAccentMinor"
-
-    /**
      * Третичный непрозрачный фон поверхности/контрола на темном фоне
      */
     public val surfaceOnDarkSolidTertiaryActive: String = "surfaceOnDarkSolidTertiaryActive"
@@ -9454,6 +8158,12 @@ public class ColorOverrideScope {
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
     public val surfaceOnDarkTransparentNegative: String = "surfaceOnDarkTransparentNegative"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val surfaceOnDarkTransparentNegativeHover: String =
+        "surfaceOnDarkTransparentNegativeHover"
 
     /**
      * Минорный цвет ошибки
@@ -9476,10 +8186,354 @@ public class ColorOverrideScope {
     public val textOnDarkAccentActive: String = "textOnDarkAccentActive"
 
     /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkAccent: String = "surfaceOnDarkAccent"
+
+    /**
+     * Акцентный цвет обводки
+     */
+    public val outlineDefaultAccentHover: String = "outlineDefaultAccentHover"
+
+    /**
+     * Цвет обводки ошибка
+     */
+    public val outlineDefaultNegativeActive: String = "outlineDefaultNegativeActive"
+
+    /**
+     * Минорный цвет обводки ошибка
+     */
+    public val outlineDefaultNegativeMinorHover: String = "outlineDefaultNegativeMinorHover"
+
+    /**
+     * Минорный цвет обводки успех
+     */
+    public val outlineDefaultPositiveMinor: String = "outlineDefaultPositiveMinor"
+
+    /**
+     * Третичный непрозрачный цвет обводки
+     */
+    public val outlineDefaultSolidTertiaryActive: String = "outlineDefaultSolidTertiaryActive"
+
+    /**
+     * Прозрачный цвет обводки успех
+     */
+    public val outlineDefaultTransparentPositiveHover: String =
+        "outlineDefaultTransparentPositiveHover"
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentPrimary: String = "outlineDefaultTransparentPrimary"
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentPrimaryActive: String =
+        "outlineDefaultTransparentPrimaryActive"
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentPrimaryHover: String =
+        "outlineDefaultTransparentPrimaryHover"
+
+    /**
+     * Вторичный прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentSecondary: String = "outlineDefaultTransparentSecondary"
+
+    /**
+     * Инвертированный минорный цвет обводки ошибка
+     */
+    public val outlineInverseNegativeMinorActive: String = "outlineInverseNegativeMinorActive"
+
+    /**
+     * Прозрачный инвертированный цвет обводки предупреждение
+     */
+    public val outlineInverseTransparentNegativeActive: String =
+        "outlineInverseTransparentNegativeActive"
+
+    /**
+     * Прозрачный инвертированный цвет обводки предупреждение
+     */
+    public val outlineInverseTransparentNegativeHover: String =
+        "outlineInverseTransparentNegativeHover"
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val outlineInverseTransparentPrimaryActive: String =
+        "outlineInverseTransparentPrimaryActive"
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public val outlineOnDarkInfo: String = "outlineOnDarkInfo"
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public val outlineOnDarkInfoHover: String = "outlineOnDarkInfoHover"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val outlineOnDarkSolidDefaultActive: String = "outlineOnDarkSolidDefaultActive"
+
+    /**
+     * Третичный непрозрачный цвет обводки на темном фоне
+     */
+    public val outlineOnDarkSolidTertiaryActive: String = "outlineOnDarkSolidTertiaryActive"
+
+    /**
+     * Прозрачный акцентный цвет обводки на темном фоне
+     */
+    public val outlineOnDarkTransparentAccentActive: String = "outlineOnDarkTransparentAccentActive"
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightAccentMinorActive: String = "outlineOnLightAccentMinorActive"
+
+    /**
+     * Минорный цвет обводки успех на светлом фоне
+     */
+    public val outlineOnLightPositiveMinorActive: String = "outlineOnLightPositiveMinorActive"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val outlineOnLightSolidDefaultHover: String = "outlineOnLightSolidDefaultHover"
+
+    /**
+     * Вторичный непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
+
+    /**
+     * Прозрачный цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightTransparentWarningActive: String =
+        "outlineOnLightTransparentWarningActive"
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightWarning: String = "outlineOnLightWarning"
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightWarningActive: String = "outlineOnLightWarningActive"
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseAccentMinorActive: String = "surfaceInverseAccentMinorActive"
+
+    /**
+     * Инвертированный минорный цвет фона поверхности/контрола информация
+     */
+    public val surfaceInverseInfoMinorActive: String = "surfaceInverseInfoMinorActive"
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkAccentActive: String = "surfaceOnDarkAccentActive"
+
+    /**
+     * Минорный цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val surfaceOnDarkNegativeMinorActive: String = "surfaceOnDarkNegativeMinorActive"
+
+    /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public val surfaceOnDarkTransparentNegativeHover: String =
-        "surfaceOnDarkTransparentNegativeHover"
+    public val surfaceOnDarkTransparentNegativeActive: String =
+        "surfaceOnDarkTransparentNegativeActive"
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val textDefaultAccentMinorActive: String = "textDefaultAccentMinorActive"
+
+    /**
+     * Цвет информации
+     */
+    public val textDefaultInfoActive: String = "textDefaultInfoActive"
+
+    /**
+     * Минорный цвет информации
+     */
+    public val textDefaultInfoMinorActive: String = "textDefaultInfoMinorActive"
+
+    /**
+     * Минорный цвет ошибки
+     */
+    public val textDefaultNegativeMinorActive: String = "textDefaultNegativeMinorActive"
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val textInverseNegative: String = "textInverseNegative"
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val textOnDarkAccentHover: String = "textOnDarkAccentHover"
+
+    /**
+     * Минорный цвет предупреждения на темном фоне
+     */
+    public val textOnDarkWarningMinorActive: String = "textOnDarkWarningMinorActive"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки
+     */
+    public val outlineDefaultAccentMinorActive: String = "outlineDefaultAccentMinorActive"
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный цвет обводки
+     */
+    public val outlineInverseAccentMinorActive: String = "outlineInverseAccentMinorActive"
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола информация
+     */
+    public val surfaceInverseTransparentInfoActive: String = "surfaceInverseTransparentInfoActive"
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceInverseTransparentNegativeActive: String =
+        "surfaceInverseTransparentNegativeActive"
+
+    /**
+     * Цвет фона поверхности/контрола успех
+     */
+    public val surfaceDefaultPositive: String = "surfaceDefaultPositive"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceDefaultTransparentNegative: String = "surfaceDefaultTransparentNegative"
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseAccentMinor: String = "surfaceInverseAccentMinor"
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidSecondaryActive: String = "surfaceInverseSolidSecondaryActive"
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceInverseTransparentNegative: String = "surfaceInverseTransparentNegative"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCard: String = "surfaceOnDarkSolidCard"
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightAccentMinor: String = "surfaceOnLightAccentMinor"
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidTertiaryActive: String = "surfaceOnLightSolidTertiaryActive"
+
+    /**
+     * Цвет информации
+     */
+    public val textDefaultInfo: String = "textDefaultInfo"
+
+    /**
+     * Минорный цвет информации
+     */
+    public val textDefaultInfoMinor: String = "textDefaultInfoMinor"
+
+    /**
+     * Минорный цвет ошибки на темном фоне
+     */
+    public val textOnDarkNegativeMinorActive: String = "textOnDarkNegativeMinorActive"
+
+    /**
+     * Минорный цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightWarningMinor: String = "outlineOnLightWarningMinor"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
+     */
+    public val surfaceOnLightTransparentPositive: String = "surfaceOnLightTransparentPositive"
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentDeepHover: String = "surfaceDefaultTransparentDeepHover"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCardBrightness: String = "surfaceOnDarkSolidCardBrightness"
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightSolidCardBrightness: String = "surfaceOnLightSolidCardBrightness"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val surfaceOnLightTransparentNegativeHover: String =
+        "surfaceOnLightTransparentNegativeHover"
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val textDefaultAccentMinorHover: String = "textDefaultAccentMinorHover"
+
+    /**
+     * Цвет информации
+     */
+    public val textDefaultInfoHover: String = "textDefaultInfoHover"
+
+    /**
+     * Инвертированный минорный цвет информации
+     */
+    public val textInverseInfoMinorActive: String = "textInverseInfoMinorActive"
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val textOnDarkTertiaryHover: String = "textOnDarkTertiaryHover"
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val textOnLightSecondaryActive: String = "textOnLightSecondaryActive"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparent: String = "dataDefaultYellowTransparent"
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightAccentMinorHover: String = "outlineOnLightAccentMinorHover"
 
     /**
      * Переопределяет аттрибут цвета.
@@ -9499,81 +8553,6 @@ internal class ColorAttrOverrideScope {
         get() = _overrideMap.toMap()
 
     /**
-     * Цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkInfo: String = "outlineOnDarkInfo"
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public val textDefaultAccentMinorActive: String = "textDefaultAccentMinorActive"
-
-    /**
-     * Акцентный минорный цвет
-     */
-    public val textDefaultAccentMinorHover: String = "textDefaultAccentMinorHover"
-
-    /**
-     * Прозрачный цвет обводки успех
-     */
-    public val outlineDefaultTransparentPositiveHover: String =
-        "outlineDefaultTransparentPositiveHover"
-
-    /**
-     * Цвет информации
-     */
-    public val textDefaultInfo: String = "textDefaultInfo"
-
-    /**
-     * Цвет информации
-     */
-    public val textDefaultInfoActive: String = "textDefaultInfoActive"
-
-    /**
-     * Цвет информации
-     */
-    public val textDefaultInfoHover: String = "textDefaultInfoHover"
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentPrimary: String = "outlineDefaultTransparentPrimary"
-
-    /**
-     * Минорный цвет информации
-     */
-    public val textDefaultInfoMinor: String = "textDefaultInfoMinor"
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentPrimaryActive: String =
-        "outlineDefaultTransparentPrimaryActive"
-
-    /**
-     * Основной прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentPrimaryHover: String =
-        "outlineDefaultTransparentPrimaryHover"
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentSecondary: String = "outlineDefaultTransparentSecondary"
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentSecondaryActive: String =
-        "outlineDefaultTransparentSecondaryActive"
-
-    /**
-     * Вторичный прозрачный цвет обводки
-     */
-    public val outlineDefaultTransparentSecondaryHover: String =
-        "outlineDefaultTransparentSecondaryHover"
-
-    /**
      * Третичный прозрачный цвет обводки
      */
     public val outlineDefaultTransparentTertiary: String = "outlineDefaultTransparentTertiary"
@@ -9648,14 +8627,16 @@ internal class ColorAttrOverrideScope {
     public val outlineInverseAccentActive: String = "outlineInverseAccentActive"
 
     /**
-     * Минорный цвет информации
+     * Вторичный прозрачный цвет обводки
      */
-    public val textDefaultInfoMinorActive: String = "textDefaultInfoMinorActive"
+    public val outlineDefaultTransparentSecondaryActive: String =
+        "outlineDefaultTransparentSecondaryActive"
 
     /**
-     * Инвертированный акцентный цвет обводки
+     * Вторичный прозрачный цвет обводки
      */
-    public val outlineInverseAccentHover: String = "outlineInverseAccentHover"
+    public val outlineDefaultTransparentSecondaryHover: String =
+        "outlineDefaultTransparentSecondaryHover"
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
@@ -9663,9 +8644,9 @@ internal class ColorAttrOverrideScope {
     public val outlineInverseAccentMinor: String = "outlineInverseAccentMinor"
 
     /**
-     * Инвертированный акцентный минорный непрозрачный цвет обводки
+     * Инвертированный акцентный цвет обводки
      */
-    public val outlineInverseAccentMinorActive: String = "outlineInverseAccentMinorActive"
+    public val outlineInverseAccentHover: String = "outlineInverseAccentHover"
 
     /**
      * Инвертированный акцентный минорный непрозрачный цвет обводки
@@ -9733,44 +8714,9 @@ internal class ColorAttrOverrideScope {
     public val outlineInverseNegativeHover: String = "outlineInverseNegativeHover"
 
     /**
-     * Вторичный фон на темном фоне
-     */
-    public val backgroundDarkSecondary: String = "backgroundDarkSecondary"
-
-    /**
-     * Третичный фон на темном фоне
-     */
-    public val backgroundDarkTertiary: String = "backgroundDarkTertiary"
-
-    /**
-     * Основной фон
-     */
-    public val backgroundDefaultPrimary: String = "backgroundDefaultPrimary"
-
-    /**
-     * Вторичный фон
-     */
-    public val backgroundDefaultSecondary: String = "backgroundDefaultSecondary"
-
-    /**
-     * Третичный фон
-     */
-    public val backgroundDefaultTertiary: String = "backgroundDefaultTertiary"
-
-    /**
      * Инвертированный основной фон
      */
     public val backgroundInversePrimary: String = "backgroundInversePrimary"
-
-    /**
-     * Инвертированный вторичный фон
-     */
-    public val backgroundInverseSecondary: String = "backgroundInverseSecondary"
-
-    /**
-     * Инвертированный третичный фон
-     */
-    public val backgroundInverseTertiary: String = "backgroundInverseTertiary"
 
     /**
      * Основной фон на светлом фоне
@@ -9778,24 +8724,9 @@ internal class ColorAttrOverrideScope {
     public val backgroundLightPrimary: String = "backgroundLightPrimary"
 
     /**
-     * Вторичный фон на светлом фоне
-     */
-    public val backgroundLightSecondary: String = "backgroundLightSecondary"
-
-    /**
-     * Третичный фон на светлом фоне
-     */
-    public val backgroundLightTertiary: String = "backgroundLightTertiary"
-
-    /**
      * Желтый цвет для данных
      */
     public val dataDefaultYellow: String = "dataDefaultYellow"
-
-    /**
-     * Прозрачный желтый цвет для данных
-     */
-    public val dataDefaultYellowTransparent: String = "dataDefaultYellowTransparent"
 
     /**
      * Инвертированный желтый цвет для данных
@@ -9813,19 +8744,9 @@ internal class ColorAttrOverrideScope {
     public val dataInverseYellowTransparent: String = "dataInverseYellowTransparent"
 
     /**
-     * Минорный желтый цвет для данных на темном фоне
+     * Основной фон
      */
-    public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
-
-    /**
-     * Прозрачный желтый цвет для данных на темном фоне
-     */
-    public val dataOnDarkYellowTransparent: String = "dataOnDarkYellowTransparent"
-
-    /**
-     * Желтый цвет для данных на светлом фоне
-     */
-    public val dataOnLightYellow: String = "dataOnLightYellow"
+    public val backgroundDefaultPrimary: String = "backgroundDefaultPrimary"
 
     /**
      * Минорный желтый цвет для данных на светлом фоне
@@ -9838,19 +8759,14 @@ internal class ColorAttrOverrideScope {
     public val dataOnLightYellowTransparent: String = "dataOnLightYellowTransparent"
 
     /**
-     * Акцентный цвет обводки
+     * Прозрачный желтый цвет для данных на темном фоне
      */
-    public val outlineDefaultAccentHover: String = "outlineDefaultAccentHover"
+    public val dataOnDarkYellowTransparent: String = "dataOnDarkYellowTransparent"
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки
+     * Желтый цвет для данных на светлом фоне
      */
-    public val outlineDefaultAccentMinor: String = "outlineDefaultAccentMinor"
-
-    /**
-     * Акцентный минорный непрозрачный цвет обводки
-     */
-    public val outlineDefaultAccentMinorActive: String = "outlineDefaultAccentMinorActive"
+    public val dataOnLightYellow: String = "dataOnLightYellow"
 
     /**
      * Акцентный минорный непрозрачный цвет обводки
@@ -9903,9 +8819,9 @@ internal class ColorAttrOverrideScope {
     public val outlineDefaultInfoMinorHover: String = "outlineDefaultInfoMinorHover"
 
     /**
-     * Цвет обводки ошибка
+     * Акцентный минорный непрозрачный цвет обводки
      */
-    public val outlineDefaultNegativeActive: String = "outlineDefaultNegativeActive"
+    public val outlineDefaultAccentMinor: String = "outlineDefaultAccentMinor"
 
     /**
      * Цвет обводки ошибка
@@ -9913,29 +8829,9 @@ internal class ColorAttrOverrideScope {
     public val outlineDefaultNegativeHover: String = "outlineDefaultNegativeHover"
 
     /**
-     * Минорный цвет обводки ошибка
-     */
-    public val outlineDefaultNegativeMinorHover: String = "outlineDefaultNegativeMinorHover"
-
-    /**
-     * Цвет обводки успех
-     */
-    public val outlineDefaultPositive: String = "outlineDefaultPositive"
-
-    /**
-     * Цвет обводки успех
-     */
-    public val outlineDefaultPositiveActive: String = "outlineDefaultPositiveActive"
-
-    /**
      * Цвет обводки успех
      */
     public val outlineDefaultPositiveHover: String = "outlineDefaultPositiveHover"
-
-    /**
-     * Минорный цвет обводки успех
-     */
-    public val outlineDefaultPositiveMinor: String = "outlineDefaultPositiveMinor"
 
     /**
      * Минорный цвет обводки успех
@@ -9946,36 +8842,6 @@ internal class ColorAttrOverrideScope {
      * Минорный цвет обводки успех
      */
     public val outlineDefaultPositiveMinorHover: String = "outlineDefaultPositiveMinorHover"
-
-    /**
-     * Промо цвет обводки
-     */
-    public val outlineDefaultPromo: String = "outlineDefaultPromo"
-
-    /**
-     * Промо цвет обводки
-     */
-    public val outlineDefaultPromoActive: String = "outlineDefaultPromoActive"
-
-    /**
-     * Промо цвет обводки
-     */
-    public val outlineDefaultPromoHover: String = "outlineDefaultPromoHover"
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public val outlineDefaultPromoMinor: String = "outlineDefaultPromoMinor"
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public val outlineDefaultPromoMinorActive: String = "outlineDefaultPromoMinorActive"
-
-    /**
-     * Минорный промо цвет обводки
-     */
-    public val outlineDefaultPromoMinorHover: String = "outlineDefaultPromoMinorHover"
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию
@@ -10026,11 +8892,6 @@ internal class ColorAttrOverrideScope {
      * Третичный непрозрачный цвет обводки
      */
     public val outlineDefaultSolidTertiary: String = "outlineDefaultSolidTertiary"
-
-    /**
-     * Третичный непрозрачный цвет обводки
-     */
-    public val outlineDefaultSolidTertiaryActive: String = "outlineDefaultSolidTertiaryActive"
 
     /**
      * Третичный непрозрачный цвет обводки
@@ -10097,19 +8958,14 @@ internal class ColorAttrOverrideScope {
         "outlineDefaultTransparentPositiveActive"
 
     /**
-     * Инвертированный минорный цвет обводки ошибка
+     * Цвет обводки успех
      */
-    public val outlineInverseNegativeMinorActive: String = "outlineInverseNegativeMinorActive"
+    public val outlineDefaultPositive: String = "outlineDefaultPositive"
 
     /**
-     * Инвертированный минорный цвет обводки ошибка
+     * Цвет обводки успех
      */
-    public val outlineInverseNegativeMinorHover: String = "outlineInverseNegativeMinorHover"
-
-    /**
-     * Инвертированный цвет обводки успех
-     */
-    public val outlineInversePositive: String = "outlineInversePositive"
+    public val outlineDefaultPositiveActive: String = "outlineDefaultPositiveActive"
 
     /**
      * Инвертированный цвет обводки успех
@@ -10130,36 +8986,6 @@ internal class ColorAttrOverrideScope {
      * Инвертированный минорный цвет обводки успех
      */
     public val outlineInversePositiveMinorHover: String = "outlineInversePositiveMinorHover"
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public val outlineInversePromo: String = "outlineInversePromo"
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public val outlineInversePromoActive: String = "outlineInversePromoActive"
-
-    /**
-     * Инвертированный промо цвет обводки
-     */
-    public val outlineInversePromoHover: String = "outlineInversePromoHover"
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public val outlineInversePromoMinor: String = "outlineInversePromoMinor"
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public val outlineInversePromoMinorActive: String = "outlineInversePromoMinorActive"
-
-    /**
-     * Инвертированный минорный промо цвет обводки
-     */
-    public val outlineInversePromoMinorHover: String = "outlineInversePromoMinorHover"
 
     /**
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
@@ -10253,21 +9079,14 @@ internal class ColorAttrOverrideScope {
     public val outlineInverseTransparentInfoHover: String = "outlineInverseTransparentInfoHover"
 
     /**
-     * Прозрачный инвертированный цвет обводки предупреждение
+     * Инвертированный минорный цвет обводки ошибка
      */
-    public val outlineInverseTransparentNegativeActive: String =
-        "outlineInverseTransparentNegativeActive"
+    public val outlineInverseNegativeMinorHover: String = "outlineInverseNegativeMinorHover"
 
     /**
-     * Прозрачный инвертированный цвет обводки предупреждение
+     * Инвертированный цвет обводки успех
      */
-    public val outlineInverseTransparentNegativeHover: String =
-        "outlineInverseTransparentNegativeHover"
-
-    /**
-     * Прозрачный инвертированный цвет обводки успех
-     */
-    public val outlineInverseTransparentPositive: String = "outlineInverseTransparentPositive"
+    public val outlineInversePositive: String = "outlineInversePositive"
 
     /**
      * Прозрачный инвертированный цвет обводки успех
@@ -10285,12 +9104,6 @@ internal class ColorAttrOverrideScope {
      * Инвертированный основной прозрачный цвет обводки
      */
     public val outlineInverseTransparentPrimary: String = "outlineInverseTransparentPrimary"
-
-    /**
-     * Инвертированный основной прозрачный цвет обводки
-     */
-    public val outlineInverseTransparentPrimaryActive: String =
-        "outlineInverseTransparentPrimaryActive"
 
     /**
      * Инвертированный основной прозрачный цвет обводки
@@ -10420,19 +9233,9 @@ internal class ColorAttrOverrideScope {
     public val outlineOnDarkClearHover: String = "outlineOnDarkClearHover"
 
     /**
-     * Цвет обводки информация на темном фоне
+     * Прозрачный инвертированный цвет обводки успех
      */
-    public val outlineOnDarkInfoHover: String = "outlineOnDarkInfoHover"
-
-    /**
-     * Минорный цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkInfoMinor: String = "outlineOnDarkInfoMinor"
-
-    /**
-     * Минорный цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkInfoMinorActive: String = "outlineOnDarkInfoMinorActive"
+    public val outlineInverseTransparentPositive: String = "outlineInverseTransparentPositive"
 
     /**
      * Минорный цвет обводки информация на темном фоне
@@ -10500,36 +9303,6 @@ internal class ColorAttrOverrideScope {
     public val outlineOnDarkPositiveMinorHover: String = "outlineOnDarkPositiveMinorHover"
 
     /**
-     * Промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromo: String = "outlineOnDarkPromo"
-
-    /**
-     * Промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoActive: String = "outlineOnDarkPromoActive"
-
-    /**
-     * Промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoHover: String = "outlineOnDarkPromoHover"
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoMinor: String = "outlineOnDarkPromoMinor"
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoMinorActive: String = "outlineOnDarkPromoMinorActive"
-
-    /**
-     * Минорный промо цвет обводки на темном фоне
-     */
-    public val outlineOnDarkPromoMinorHover: String = "outlineOnDarkPromoMinorHover"
-
-    /**
      * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
      */
     public val outlineOnDarkSolidDefault: String = "outlineOnDarkSolidDefault"
@@ -10577,27 +9350,17 @@ internal class ColorAttrOverrideScope {
     /**
      * Третичный непрозрачный цвет обводки на темном фоне
      */
-    public val outlineOnDarkSolidTertiaryActive: String = "outlineOnDarkSolidTertiaryActive"
-
-    /**
-     * Третичный непрозрачный цвет обводки на темном фоне
-     */
     public val outlineOnDarkSolidTertiaryHover: String = "outlineOnDarkSolidTertiaryHover"
 
     /**
-     * Прозрачный акцентный цвет обводки на темном фоне
+     * Минорный цвет обводки информация на темном фоне
      */
-    public val outlineOnDarkTransparentAccentActive: String = "outlineOnDarkTransparentAccentActive"
+    public val outlineOnDarkInfoMinor: String = "outlineOnDarkInfoMinor"
 
     /**
-     * Прозрачный акцентный цвет обводки на темном фоне
+     * Минорный цвет обводки информация на темном фоне
      */
-    public val outlineOnDarkTransparentAccentHover: String = "outlineOnDarkTransparentAccentHover"
-
-    /**
-     * Прозрачный цвет обводки информация на темном фоне
-     */
-    public val outlineOnDarkTransparentInfo: String = "outlineOnDarkTransparentInfo"
+    public val outlineOnDarkInfoMinorActive: String = "outlineOnDarkInfoMinorActive"
 
     /**
      * Прозрачный цвет обводки информация на темном фоне
@@ -10750,19 +9513,14 @@ internal class ColorAttrOverrideScope {
     public val outlineOnLightAccentHover: String = "outlineOnLightAccentHover"
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     * Прозрачный акцентный цвет обводки на темном фоне
      */
-    public val outlineOnLightAccentMinorActive: String = "outlineOnLightAccentMinorActive"
+    public val outlineOnDarkTransparentAccentHover: String = "outlineOnDarkTransparentAccentHover"
 
     /**
-     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     * Прозрачный цвет обводки информация на темном фоне
      */
-    public val outlineOnLightAccentMinorHover: String = "outlineOnLightAccentMinorHover"
-
-    /**
-     * Бесцветная обводка на светлом фоне
-     */
-    public val outlineOnLightClear: String = "outlineOnLightClear"
+    public val outlineOnDarkTransparentInfo: String = "outlineOnDarkTransparentInfo"
 
     /**
      * Бесцветная обводка на светлом фоне
@@ -10857,42 +9615,7 @@ internal class ColorAttrOverrideScope {
     /**
      * Минорный цвет обводки успех на светлом фоне
      */
-    public val outlineOnLightPositiveMinorActive: String = "outlineOnLightPositiveMinorActive"
-
-    /**
-     * Минорный цвет обводки успех на светлом фоне
-     */
     public val outlineOnLightPositiveMinorHover: String = "outlineOnLightPositiveMinorHover"
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromo: String = "outlineOnLightPromo"
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoActive: String = "outlineOnLightPromoActive"
-
-    /**
-     * Промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoHover: String = "outlineOnLightPromoHover"
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoMinor: String = "outlineOnLightPromoMinor"
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoMinorActive: String = "outlineOnLightPromoMinorActive"
-
-    /**
-     * Минорный промо цвет обводки на светлом фоне
-     */
-    public val outlineOnLightPromoMinorHover: String = "outlineOnLightPromoMinorHover"
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
@@ -10915,19 +9638,9 @@ internal class ColorAttrOverrideScope {
     public val outlineOnLightSolidPrimaryActive: String = "outlineOnLightSolidPrimaryActive"
 
     /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
+     * Бесцветная обводка на светлом фоне
      */
-    public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
-
-    /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
-     */
-    public val outlineOnLightSolidSecondaryActive: String = "outlineOnLightSolidSecondaryActive"
-
-    /**
-     * Вторичный непрозрачный цвет обводки на светлом фоне
-     */
-    public val outlineOnLightSolidSecondaryHover: String = "outlineOnLightSolidSecondaryHover"
+    public val outlineOnLightClear: String = "outlineOnLightClear"
 
     /**
      * Третичный непрозрачный цвет обводки на светлом фоне
@@ -11063,12 +9776,6 @@ internal class ColorAttrOverrideScope {
     /**
      * Прозрачный цвет обводки предупреждение на светлом фоне
      */
-    public val outlineOnLightTransparentWarningActive: String =
-        "outlineOnLightTransparentWarningActive"
-
-    /**
-     * Прозрачный цвет обводки предупреждение на светлом фоне
-     */
     public val outlineOnLightTransparentWarningHover: String =
         "outlineOnLightTransparentWarningHover"
 
@@ -11078,19 +9785,14 @@ internal class ColorAttrOverrideScope {
     public val textDefaultInfoMinorHover: String = "textDefaultInfoMinorHover"
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Вторичный непрозрачный цвет обводки на светлом фоне
      */
-    public val outlineOnLightWarningActive: String = "outlineOnLightWarningActive"
+    public val outlineOnLightSolidSecondaryActive: String = "outlineOnLightSolidSecondaryActive"
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Вторичный непрозрачный цвет обводки на светлом фоне
      */
-    public val outlineOnLightWarningHover: String = "outlineOnLightWarningHover"
-
-    /**
-     * Минорный цвет обводки предупреждение на светлом фоне
-     */
-    public val outlineOnLightWarningMinor: String = "outlineOnLightWarningMinor"
+    public val outlineOnLightSolidSecondaryHover: String = "outlineOnLightSolidSecondaryHover"
 
     /**
      * Минорный цвет обводки предупреждение на светлом фоне
@@ -11258,19 +9960,9 @@ internal class ColorAttrOverrideScope {
     public val surfaceDefaultNegativeMinorActive: String = "surfaceDefaultNegativeMinorActive"
 
     /**
-     * Цвет фона поверхности/контрола успех
+     * Цвет обводки предупреждение на светлом фоне
      */
-    public val surfaceDefaultPositive: String = "surfaceDefaultPositive"
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public val surfaceDefaultPositiveActive: String = "surfaceDefaultPositiveActive"
-
-    /**
-     * Цвет фона поверхности/контрола успех
-     */
-    public val surfaceDefaultPositiveHover: String = "surfaceDefaultPositiveHover"
+    public val outlineOnLightWarningHover: String = "outlineOnLightWarningHover"
 
     /**
      * Минорный цвет фона поверхности/контрола успех
@@ -11286,36 +9978,6 @@ internal class ColorAttrOverrideScope {
      * Минорный цвет фона поверхности/контрола успех
      */
     public val surfaceDefaultPositiveMinorHover: String = "surfaceDefaultPositiveMinorHover"
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromo: String = "surfaceDefaultPromo"
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoActive: String = "surfaceDefaultPromoActive"
-
-    /**
-     * Промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoHover: String = "surfaceDefaultPromoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoMinor: String = "surfaceDefaultPromoMinor"
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoMinorActive: String = "surfaceDefaultPromoMinorActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultPromoMinorHover: String = "surfaceDefaultPromoMinorHover"
 
     /**
      * Основной фон для карточек
@@ -11435,19 +10097,14 @@ internal class ColorAttrOverrideScope {
     public val surfaceDefaultTransparentCardHover: String = "surfaceDefaultTransparentCardHover"
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола
+     * Цвет фона поверхности/контрола успех
      */
-    public val surfaceDefaultTransparentDeepActive: String = "surfaceDefaultTransparentDeepActive"
+    public val surfaceDefaultPositiveActive: String = "surfaceDefaultPositiveActive"
 
     /**
-     * Глубокий прозрачный фон поверхности/контрола
+     * Цвет фона поверхности/контрола успех
      */
-    public val surfaceDefaultTransparentDeepHover: String = "surfaceDefaultTransparentDeepHover"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола информация
-     */
-    public val surfaceDefaultTransparentInfo: String = "surfaceDefaultTransparentInfo"
+    public val surfaceDefaultPositiveHover: String = "surfaceDefaultPositiveHover"
 
     /**
      * Прозрачный цвет фона поверхности/контрола информация
@@ -11458,11 +10115,6 @@ internal class ColorAttrOverrideScope {
      * Прозрачный цвет фона поверхности/контрола информация
      */
     public val surfaceDefaultTransparentInfoHover: String = "surfaceDefaultTransparentInfoHover"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение
-     */
-    public val surfaceDefaultTransparentNegative: String = "surfaceDefaultTransparentNegative"
 
     /**
      * Прозрачный цвет фона поверхности/контрола предупреждение
@@ -11509,21 +10161,6 @@ internal class ColorAttrOverrideScope {
      */
     public val surfaceDefaultTransparentPrimaryHover: String =
         "surfaceDefaultTransparentPrimaryHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentPromo: String = "surfaceDefaultTransparentPromo"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentPromoActive: String = "surfaceDefaultTransparentPromoActive"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentPromoHover: String = "surfaceDefaultTransparentPromoHover"
 
     /**
      * Вторичный прозрачный фон поверхности/контрола
@@ -11601,24 +10238,14 @@ internal class ColorAttrOverrideScope {
     public val surfaceDefaultWarningMinorHover: String = "surfaceDefaultWarningMinorHover"
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Глубокий прозрачный фон поверхности/контрола
      */
-    public val surfaceInverseAccentActive: String = "surfaceInverseAccentActive"
+    public val surfaceDefaultTransparentDeepActive: String = "surfaceDefaultTransparentDeepActive"
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * Прозрачный цвет фона поверхности/контрола информация
      */
-    public val surfaceInverseAccentHover: String = "surfaceInverseAccentHover"
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseAccentMinor: String = "surfaceInverseAccentMinor"
-
-    /**
-     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseAccentMinorActive: String = "surfaceInverseAccentMinorActive"
+    public val surfaceDefaultTransparentInfo: String = "surfaceDefaultTransparentInfo"
 
     /**
      * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
@@ -11726,44 +10353,14 @@ internal class ColorAttrOverrideScope {
     public val surfaceInversePositiveMinorHover: String = "surfaceInversePositiveMinorHover"
 
     /**
-     * Инвертированный промо фон поверхности/контрола
+     * Инвертированный акцентный фон поверхности/контрола
      */
-    public val surfaceInversePromo: String = "surfaceInversePromo"
+    public val surfaceInverseAccentActive: String = "surfaceInverseAccentActive"
 
     /**
-     * Инвертированный промо фон поверхности/контрола
+     * Инвертированный акцентный фон поверхности/контрола
      */
-    public val surfaceInversePromoActive: String = "surfaceInversePromoActive"
-
-    /**
-     * Инвертированный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoHover: String = "surfaceInversePromoHover"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoMinor: String = "surfaceInversePromoMinor"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoMinorActive: String = "surfaceInversePromoMinorActive"
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val surfaceInverseSolidCard: String = "surfaceInverseSolidCard"
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val surfaceInverseSolidCardActive: String = "surfaceInverseSolidCardActive"
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val surfaceInverseSolidCardBrightness: String = "surfaceInverseSolidCardBrightness"
+    public val surfaceInverseAccentHover: String = "surfaceInverseAccentHover"
 
     /**
      * Инвертированный основной фон для карточек
@@ -11888,31 +10485,24 @@ internal class ColorAttrOverrideScope {
     public val surfaceInverseTransparentInfo: String = "surfaceInverseTransparentInfo"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола информация
-     */
-    public val surfaceInverseTransparentInfoActive: String = "surfaceInverseTransparentInfoActive"
-
-    /**
      * Цвет ошибки
      */
     public val textDefaultNegative: String = "textDefaultNegative"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public val surfaceInverseTransparentNegative: String = "surfaceInverseTransparentNegative"
+    public val surfaceInverseSolidCard: String = "surfaceInverseSolidCard"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public val surfaceInverseTransparentNegativeActive: String =
-        "surfaceInverseTransparentNegativeActive"
+    public val surfaceInverseSolidCardActive: String = "surfaceInverseSolidCardActive"
 
     /**
-     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     * Инвертированный основной фон для карточек
      */
-    public val surfaceInverseTransparentNegativeHover: String =
-        "surfaceInverseTransparentNegativeHover"
+    public val surfaceInverseSolidCardBrightness: String = "surfaceInverseSolidCardBrightness"
 
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола успех
@@ -11947,21 +10537,6 @@ internal class ColorAttrOverrideScope {
      */
     public val surfaceInverseTransparentPrimaryHover: String =
         "surfaceInverseTransparentPrimaryHover"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentPromo: String = "surfaceInverseTransparentPromo"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentPromoActive: String = "surfaceInverseTransparentPromoActive"
-
-    /**
-     * Инвертированный прозрачный промо фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentPromoHover: String = "surfaceInverseTransparentPromoHover"
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
@@ -12044,19 +10619,10 @@ internal class ColorAttrOverrideScope {
     public val textDefaultNegativeActive: String = "textDefaultNegativeActive"
 
     /**
-     * Акцентный фон поверхности/контрола на темном фоне
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
      */
-    public val surfaceOnDarkAccentActive: String = "surfaceOnDarkAccentActive"
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccentHover: String = "surfaceOnDarkAccentHover"
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccentMinorActive: String = "surfaceOnDarkAccentMinorActive"
+    public val surfaceInverseTransparentNegativeHover: String =
+        "surfaceInverseTransparentNegativeHover"
 
     /**
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
@@ -12131,11 +10697,6 @@ internal class ColorAttrOverrideScope {
     /**
      * Минорный цвет фона поверхности/контрола ошибка на темном фоне
      */
-    public val surfaceOnDarkNegativeMinorActive: String = "surfaceOnDarkNegativeMinorActive"
-
-    /**
-     * Минорный цвет фона поверхности/контрола ошибка на темном фоне
-     */
     public val surfaceOnDarkNegativeMinorHover: String = "surfaceOnDarkNegativeMinorHover"
 
     /**
@@ -12169,49 +10730,19 @@ internal class ColorAttrOverrideScope {
     public val surfaceOnDarkPositiveMinorHover: String = "surfaceOnDarkPositiveMinorHover"
 
     /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromo: String = "surfaceOnDarkPromo"
-
-    /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoActive: String = "surfaceOnDarkPromoActive"
-
-    /**
-     * Промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoHover: String = "surfaceOnDarkPromoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoMinor: String = "surfaceOnDarkPromoMinor"
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoMinorActive: String = "surfaceOnDarkPromoMinorActive"
-
-    /**
      * Цвет ошибки
      */
     public val textDefaultNegativeHover: String = "textDefaultNegativeHover"
 
     /**
-     * Основной фон для карточек на темном фоне
+     * Акцентный фон поверхности/контрола на темном фоне
      */
-    public val surfaceOnDarkSolidCard: String = "surfaceOnDarkSolidCard"
+    public val surfaceOnDarkAccentHover: String = "surfaceOnDarkAccentHover"
 
     /**
-     * Основной фон для карточек на темном фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val surfaceOnDarkSolidCardActive: String = "surfaceOnDarkSolidCardActive"
-
-    /**
-     * Основной фон для карточек на темном фоне
-     */
-    public val surfaceOnDarkSolidCardBrightness: String = "surfaceOnDarkSolidCardBrightness"
+    public val surfaceOnDarkAccentMinorActive: String = "surfaceOnDarkAccentMinorActive"
 
     /**
      * Основной фон для карточек на темном фоне
@@ -12345,21 +10876,9 @@ internal class ColorAttrOverrideScope {
     public val surfaceOnDarkTransparentInfoHover: String = "surfaceOnDarkTransparentInfoHover"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     * Основной фон для карточек на темном фоне
      */
-    public val surfaceOnDarkTransparentNegativeActive: String =
-        "surfaceOnDarkTransparentNegativeActive"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
-     */
-    public val surfaceOnDarkTransparentPositive: String = "surfaceOnDarkTransparentPositive"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
-     */
-    public val surfaceOnDarkTransparentPositiveActive: String =
-        "surfaceOnDarkTransparentPositiveActive"
+    public val surfaceOnDarkSolidCardActive: String = "surfaceOnDarkSolidCardActive"
 
     /**
      * Прозрачный цвет фона поверхности/контрола успех на темном фоне
@@ -12382,21 +10901,6 @@ internal class ColorAttrOverrideScope {
      * Основной прозрачный фон поверхности/контрола на темном фоне
      */
     public val surfaceOnDarkTransparentPrimaryHover: String = "surfaceOnDarkTransparentPrimaryHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromo: String = "surfaceOnDarkTransparentPromo"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromoActive: String = "surfaceOnDarkTransparentPromoActive"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkTransparentPromoHover: String = "surfaceOnDarkTransparentPromoHover"
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на темном фоне
@@ -12489,19 +10993,15 @@ internal class ColorAttrOverrideScope {
     public val surfaceOnLightAccentActive: String = "surfaceOnLightAccentActive"
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
-    public val surfaceOnLightAccentMinor: String = "surfaceOnLightAccentMinor"
+    public val surfaceOnDarkTransparentPositive: String = "surfaceOnDarkTransparentPositive"
 
     /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     * Прозрачный цвет фона поверхности/контрола успех на темном фоне
      */
-    public val surfaceOnLightAccentMinorActive: String = "surfaceOnLightAccentMinorActive"
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightAccentMinorHover: String = "surfaceOnLightAccentMinorHover"
+    public val surfaceOnDarkTransparentPositiveActive: String =
+        "surfaceOnDarkTransparentPositiveActive"
 
     /**
      * Фон поверхности/контрола без заливки на светлом фоне
@@ -12604,54 +11104,19 @@ internal class ColorAttrOverrideScope {
     public val surfaceOnLightPositiveMinorHover: String = "surfaceOnLightPositiveMinorHover"
 
     /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromo: String = "surfaceOnLightPromo"
-
-    /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoActive: String = "surfaceOnLightPromoActive"
-
-    /**
-     * Промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoHover: String = "surfaceOnLightPromoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoMinor: String = "surfaceOnLightPromoMinor"
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorActive: String = "surfaceOnLightPromoMinorActive"
-
-    /**
-     * Минорный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightPromoMinorHover: String = "surfaceOnLightPromoMinorHover"
-
-    /**
      * Основной фон для карточек на светлом фоне
      */
     public val surfaceOnLightSolidCard: String = "surfaceOnLightSolidCard"
 
     /**
-     * Основной фон для карточек на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val surfaceOnLightSolidCardBrightness: String = "surfaceOnLightSolidCardBrightness"
+    public val surfaceOnLightAccentMinorActive: String = "surfaceOnLightAccentMinorActive"
 
     /**
-     * Основной фон для карточек на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
-    public val surfaceOnLightSolidCardHover: String = "surfaceOnLightSolidCardHover"
-
-    /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val surfaceOnLightSolidDefault: String = "surfaceOnLightSolidDefault"
+    public val surfaceOnLightAccentMinorHover: String = "surfaceOnLightAccentMinorHover"
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
@@ -12702,11 +11167,6 @@ internal class ColorAttrOverrideScope {
      * Третичный непрозрачный фон поверхности/контрола на светлом фоне
      */
     public val surfaceOnLightSolidTertiary: String = "surfaceOnLightSolidTertiary"
-
-    /**
-     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightSolidTertiaryActive: String = "surfaceOnLightSolidTertiaryActive"
 
     /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
@@ -12781,21 +11241,14 @@ internal class ColorAttrOverrideScope {
     public val surfaceOnLightTransparentNegative: String = "surfaceOnLightTransparentNegative"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     * Основной фон для карточек на светлом фоне
      */
-    public val surfaceOnLightTransparentNegativeHover: String =
-        "surfaceOnLightTransparentNegativeHover"
+    public val surfaceOnLightSolidCardHover: String = "surfaceOnLightSolidCardHover"
 
     /**
-     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public val surfaceOnLightTransparentPositive: String = "surfaceOnLightTransparentPositive"
-
-    /**
-     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
-     */
-    public val surfaceOnLightTransparentPositiveActive: String =
-        "surfaceOnLightTransparentPositiveActive"
+    public val surfaceOnLightSolidDefault: String = "surfaceOnLightSolidDefault"
 
     /**
      * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
@@ -12819,21 +11272,6 @@ internal class ColorAttrOverrideScope {
      */
     public val surfaceOnLightTransparentPrimaryHover: String =
         "surfaceOnLightTransparentPrimaryHover"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromo: String = "surfaceOnLightTransparentPromo"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromoActive: String = "surfaceOnLightTransparentPromoActive"
-
-    /**
-     * Прозрачный промо фон поверхности/контрола на светлом фоне
-     */
-    public val surfaceOnLightTransparentPromoHover: String = "surfaceOnLightTransparentPromoHover"
 
     /**
      * Вторичный прозрачный фон поверхности/контрола на светлом фоне
@@ -12937,19 +11375,10 @@ internal class ColorAttrOverrideScope {
     public val textDefaultAccentMinor: String = "textDefaultAccentMinor"
 
     /**
-     * Минорный цвет ошибки
+     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
      */
-    public val textDefaultNegativeMinorActive: String = "textDefaultNegativeMinorActive"
-
-    /**
-     * Минорный цвет ошибки
-     */
-    public val textDefaultNegativeMinorHover: String = "textDefaultNegativeMinorHover"
-
-    /**
-     * Сплошной наборный текст
-     */
-    public val textDefaultParagraph: String = "textDefaultParagraph"
+    public val surfaceOnLightTransparentPositiveActive: String =
+        "surfaceOnLightTransparentPositiveActive"
 
     /**
      * Сплошной наборный текст
@@ -13005,36 +11434,6 @@ internal class ColorAttrOverrideScope {
      * Основной цвет текста
      */
     public val textDefaultPrimaryHover: String = "textDefaultPrimaryHover"
-
-    /**
-     * Промо цвет
-     */
-    public val textDefaultPromo: String = "textDefaultPromo"
-
-    /**
-     * Промо цвет
-     */
-    public val textDefaultPromoActive: String = "textDefaultPromoActive"
-
-    /**
-     * Промо цвет
-     */
-    public val textDefaultPromoHover: String = "textDefaultPromoHover"
-
-    /**
-     * Минорный промо цвет
-     */
-    public val textDefaultPromoMinor: String = "textDefaultPromoMinor"
-
-    /**
-     * Минорный промо цвет
-     */
-    public val textDefaultPromoMinorActive: String = "textDefaultPromoMinorActive"
-
-    /**
-     * Минорный промо цвет
-     */
-    public val textDefaultPromoMinorHover: String = "textDefaultPromoMinorHover"
 
     /**
      * Вторичный цвет текста
@@ -13142,24 +11541,14 @@ internal class ColorAttrOverrideScope {
     public val textInverseInfoMinor: String = "textInverseInfoMinor"
 
     /**
-     * Инвертированный минорный цвет информации
+     * Минорный цвет ошибки
      */
-    public val textInverseInfoMinorActive: String = "textInverseInfoMinorActive"
+    public val textDefaultNegativeMinorHover: String = "textDefaultNegativeMinorHover"
 
     /**
-     * Инвертированный цвет ошибки
+     * Сплошной наборный текст
      */
-    public val textInverseNegative: String = "textInverseNegative"
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val textInverseNegativeActive: String = "textInverseNegativeActive"
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val textInverseNegativeHover: String = "textInverseNegativeHover"
+    public val textDefaultParagraph: String = "textDefaultParagraph"
 
     /**
      * Инвертированный минорный цвет ошибки
@@ -13237,36 +11626,6 @@ internal class ColorAttrOverrideScope {
     public val textInversePrimaryHover: String = "textInversePrimaryHover"
 
     /**
-     * Инвертированный промо цвет
-     */
-    public val textInversePromo: String = "textInversePromo"
-
-    /**
-     * Инвертированный промо цвет
-     */
-    public val textInversePromoActive: String = "textInversePromoActive"
-
-    /**
-     * Инвертированный промо цвет
-     */
-    public val textInversePromoHover: String = "textInversePromoHover"
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public val textInversePromoMinor: String = "textInversePromoMinor"
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public val textInversePromoMinorActive: String = "textInversePromoMinorActive"
-
-    /**
-     * Инвертированный минорный промо цвет
-     */
-    public val textInversePromoMinorHover: String = "textInversePromoMinorHover"
-
-    /**
      * Инвертированный вторичный цвет текста
      */
     public val textInverseSecondary: String = "textInverseSecondary"
@@ -13332,19 +11691,14 @@ internal class ColorAttrOverrideScope {
     public val textOnDarkAccent: String = "textOnDarkAccent"
 
     /**
-     * Акцентный цвет на темном фоне
+     * Инвертированный цвет ошибки
      */
-    public val textOnDarkAccentHover: String = "textOnDarkAccentHover"
+    public val textInverseNegativeActive: String = "textInverseNegativeActive"
 
     /**
-     * Акцентный минорный цвет на темном фоне
+     * Инвертированный цвет ошибки
      */
-    public val textOnDarkAccentMinor: String = "textOnDarkAccentMinor"
-
-    /**
-     * Акцентный минорный цвет на темном фоне
-     */
-    public val textOnDarkAccentMinorActive: String = "textOnDarkAccentMinorActive"
+    public val textInverseNegativeHover: String = "textInverseNegativeHover"
 
     /**
      * Акцентный минорный цвет на темном фоне
@@ -13395,11 +11749,6 @@ internal class ColorAttrOverrideScope {
      * Минорный цвет ошибки на темном фоне
      */
     public val textOnDarkNegativeMinor: String = "textOnDarkNegativeMinor"
-
-    /**
-     * Минорный цвет ошибки на темном фоне
-     */
-    public val textOnDarkNegativeMinorActive: String = "textOnDarkNegativeMinorActive"
 
     /**
      * Минорный цвет ошибки на темном фоне
@@ -13472,36 +11821,6 @@ internal class ColorAttrOverrideScope {
     public val textOnDarkPrimaryHover: String = "textOnDarkPrimaryHover"
 
     /**
-     * Промо цвет на темном фоне
-     */
-    public val textOnDarkPromo: String = "textOnDarkPromo"
-
-    /**
-     * Промо цвет на темном фоне
-     */
-    public val textOnDarkPromoActive: String = "textOnDarkPromoActive"
-
-    /**
-     * Промо цвет на темном фоне
-     */
-    public val textOnDarkPromoHover: String = "textOnDarkPromoHover"
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public val textOnDarkPromoMinor: String = "textOnDarkPromoMinor"
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public val textOnDarkPromoMinorActive: String = "textOnDarkPromoMinorActive"
-
-    /**
-     * Минорный промо цвет на темном фоне
-     */
-    public val textOnDarkPromoMinorHover: String = "textOnDarkPromoMinorHover"
-
-    /**
      * Вторичный цвет текста на темном фоне
      */
     public val textOnDarkSecondary: String = "textOnDarkSecondary"
@@ -13522,19 +11841,14 @@ internal class ColorAttrOverrideScope {
     public val textOnDarkTertiary: String = "textOnDarkTertiary"
 
     /**
-     * Третичный цвет текста на темном фоне
+     * Акцентный минорный цвет на темном фоне
      */
-    public val textOnDarkTertiaryHover: String = "textOnDarkTertiaryHover"
+    public val textOnDarkAccentMinor: String = "textOnDarkAccentMinor"
 
     /**
-     * Цвет предупреждения на темном фоне
+     * Акцентный минорный цвет на темном фоне
      */
-    public val textOnDarkWarning: String = "textOnDarkWarning"
-
-    /**
-     * Цвет предупреждения на темном фоне
-     */
-    public val textOnDarkWarningActive: String = "textOnDarkWarningActive"
+    public val textOnDarkAccentMinorActive: String = "textOnDarkAccentMinorActive"
 
     /**
      * Цвет предупреждения на темном фоне
@@ -13545,11 +11859,6 @@ internal class ColorAttrOverrideScope {
      * Минорный цвет предупреждения на темном фоне
      */
     public val textOnDarkWarningMinor: String = "textOnDarkWarningMinor"
-
-    /**
-     * Минорный цвет предупреждения на темном фоне
-     */
-    public val textOnDarkWarningMinorActive: String = "textOnDarkWarningMinorActive"
 
     /**
      * Минорный цвет предупреждения на темном фоне
@@ -13707,39 +12016,19 @@ internal class ColorAttrOverrideScope {
     public val textOnLightPrimaryHover: String = "textOnLightPrimaryHover"
 
     /**
-     * Промо цвет на светлом фоне
+     * Цвет предупреждения на темном фоне
      */
-    public val textOnLightPromoActive: String = "textOnLightPromoActive"
+    public val textOnDarkWarning: String = "textOnDarkWarning"
 
     /**
-     * Промо цвет на светлом фоне
+     * Цвет предупреждения на темном фоне
      */
-    public val textOnLightPromoHover: String = "textOnLightPromoHover"
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public val textOnLightPromoMinor: String = "textOnLightPromoMinor"
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public val textOnLightPromoMinorActive: String = "textOnLightPromoMinorActive"
-
-    /**
-     * Минорный промо цвет на светлом фоне
-     */
-    public val textOnLightPromoMinorHover: String = "textOnLightPromoMinorHover"
+    public val textOnDarkWarningActive: String = "textOnDarkWarningActive"
 
     /**
      * Вторичный цвет текста на светлом фоне
      */
     public val textOnLightSecondary: String = "textOnLightSecondary"
-
-    /**
-     * Вторичный цвет текста на светлом фоне
-     */
-    public val textOnLightSecondaryActive: String = "textOnLightSecondaryActive"
 
     /**
      * Вторичный цвет текста на светлом фоне
@@ -13787,26 +12076,6 @@ internal class ColorAttrOverrideScope {
     public val textOnLightWarningMinorHover: String = "textOnLightWarningMinorHover"
 
     /**
-     * Основной фон на темном фоне
-     */
-    public val backgroundDarkPrimary: String = "backgroundDarkPrimary"
-
-    /**
-     * Минорный желтый цвет для данных
-     */
-    public val dataDefaultYellowMinor: String = "dataDefaultYellowMinor"
-
-    /**
-     * Желтый цвет для данных на темном фоне
-     */
-    public val dataOnDarkYellow: String = "dataOnDarkYellow"
-
-    /**
-     * Акцентный цвет обводки
-     */
-    public val outlineDefaultAccent: String = "outlineDefaultAccent"
-
-    /**
      * Акцентный цвет обводки
      */
     public val outlineDefaultAccentActive: String = "outlineDefaultAccentActive"
@@ -13852,11 +12121,6 @@ internal class ColorAttrOverrideScope {
     public val outlineOnDarkInfoActive: String = "outlineOnDarkInfoActive"
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
-     */
-    public val outlineOnDarkSolidDefaultActive: String = "outlineOnDarkSolidDefaultActive"
-
-    /**
      * Прозрачный акцентный цвет обводки на темном фоне
      */
     public val outlineOnDarkTransparentAccent: String = "outlineOnDarkTransparentAccent"
@@ -13872,40 +12136,24 @@ internal class ColorAttrOverrideScope {
     public val outlineOnLightAccentMinor: String = "outlineOnLightAccentMinor"
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     * Минорный желтый цвет для данных
      */
-    public val outlineOnLightSolidDefaultHover: String = "outlineOnLightSolidDefaultHover"
+    public val dataDefaultYellowMinor: String = "dataDefaultYellowMinor"
 
     /**
-     * Основной непрозрачный цвет обводки на светлом фоне
+     * Желтый цвет для данных на темном фоне
      */
-    public val outlineOnLightSolidPrimaryHover: String = "outlineOnLightSolidPrimaryHover"
+    public val dataOnDarkYellow: String = "dataOnDarkYellow"
 
     /**
-     * Минорный цвет фона поверхности/контрола ошибка
+     * Акцентный цвет обводки
      */
-    public val surfaceDefaultNegativeMinorHover: String = "surfaceDefaultNegativeMinorHover"
-
-    /**
-     * Вторичный прозрачный фон поверхности/контрола
-     */
-    public val surfaceDefaultTransparentSecondaryHover: String =
-        "surfaceDefaultTransparentSecondaryHover"
-
-    /**
-     * Инвертированный минорный промо фон поверхности/контрола
-     */
-    public val surfaceInversePromoMinorHover: String = "surfaceInversePromoMinorHover"
+    public val outlineDefaultAccent: String = "outlineDefaultAccent"
 
     /**
      * Прозрачный инвертированный цвет фона поверхности/контрола информация
      */
     public val surfaceInverseTransparentInfoHover: String = "surfaceInverseTransparentInfoHover"
-
-    /**
-     * Минорный промо фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkPromoMinorHover: String = "surfaceOnDarkPromoMinorHover"
 
     /**
      * Акцентный фон поверхности/контрола на светлом фоне
@@ -13933,6 +12181,22 @@ internal class ColorAttrOverrideScope {
     public val textOnLightTertiaryActive: String = "textOnLightTertiaryActive"
 
     /**
+     * Основной непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightSolidPrimaryHover: String = "outlineOnLightSolidPrimaryHover"
+
+    /**
+     * Минорный цвет фона поверхности/контрола ошибка
+     */
+    public val surfaceDefaultNegativeMinorHover: String = "surfaceDefaultNegativeMinorHover"
+
+    /**
+     * Вторичный прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentSecondaryHover: String =
+        "surfaceDefaultTransparentSecondaryHover"
+
+    /**
      * Третичный непрозрачный цвет обводки на светлом фоне
      */
     public val outlineOnLightSolidTertiaryActive: String = "outlineOnLightSolidTertiaryActive"
@@ -13943,20 +12207,14 @@ internal class ColorAttrOverrideScope {
     public val surfaceDefaultAccentActive: String = "surfaceDefaultAccentActive"
 
     /**
+     * Основной фон на темном фоне
+     */
+    public val backgroundDarkPrimary: String = "backgroundDarkPrimary"
+
+    /**
      * Непрозрачный фон поверхности/контрола по умолчанию
      */
     public val surfaceDefaultSolidDefault: String = "surfaceDefaultSolidDefault"
-
-    /**
-     * Инвертированный минорный цвет фона поверхности/контрола информация
-     */
-    public val surfaceInverseInfoMinorActive: String = "surfaceInverseInfoMinorActive"
-
-    /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseTransparentSecondaryActive: String =
-        "surfaceInverseTransparentSecondaryActive"
 
     /**
      * Минорный цвет фона поверхности/контрола ошибка на светлом фоне
@@ -13990,14 +12248,15 @@ internal class ColorAttrOverrideScope {
     public val textOnLightParagraphActive: String = "textOnLightParagraphActive"
 
     /**
-     * Промо цвет на светлом фоне
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
-    public val textOnLightPromo: String = "textOnLightPromo"
+    public val surfaceInverseTransparentSecondaryActive: String =
+        "surfaceInverseTransparentSecondaryActive"
 
     /**
-     * Цвет обводки предупреждение на светлом фоне
+     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
-    public val outlineOnLightWarning: String = "outlineOnLightWarning"
+    public val surfaceOnDarkAccentMinor: String = "surfaceOnDarkAccentMinor"
 
     /**
      * Глубокий прозрачный фон поверхности/контрола
@@ -14010,21 +12269,6 @@ internal class ColorAttrOverrideScope {
     public val surfaceInverseAccent: String = "surfaceInverseAccent"
 
     /**
-     * Инвертированный вторичный непрозрачный фон поверхности/контрола
-     */
-    public val surfaceInverseSolidSecondaryActive: String = "surfaceInverseSolidSecondaryActive"
-
-    /**
-     * Акцентный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccent: String = "surfaceOnDarkAccent"
-
-    /**
-     * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
-     */
-    public val surfaceOnDarkAccentMinor: String = "surfaceOnDarkAccentMinor"
-
-    /**
      * Третичный непрозрачный фон поверхности/контрола на темном фоне
      */
     public val surfaceOnDarkSolidTertiaryActive: String = "surfaceOnDarkSolidTertiaryActive"
@@ -14033,6 +12277,12 @@ internal class ColorAttrOverrideScope {
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
     public val surfaceOnDarkTransparentNegative: String = "surfaceOnDarkTransparentNegative"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
+     */
+    public val surfaceOnDarkTransparentNegativeHover: String =
+        "surfaceOnDarkTransparentNegativeHover"
 
     /**
      * Минорный цвет ошибки
@@ -14055,10 +12305,354 @@ internal class ColorAttrOverrideScope {
     public val textOnDarkAccentActive: String = "textOnDarkAccentActive"
 
     /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkAccent: String = "surfaceOnDarkAccent"
+
+    /**
+     * Акцентный цвет обводки
+     */
+    public val outlineDefaultAccentHover: String = "outlineDefaultAccentHover"
+
+    /**
+     * Цвет обводки ошибка
+     */
+    public val outlineDefaultNegativeActive: String = "outlineDefaultNegativeActive"
+
+    /**
+     * Минорный цвет обводки ошибка
+     */
+    public val outlineDefaultNegativeMinorHover: String = "outlineDefaultNegativeMinorHover"
+
+    /**
+     * Минорный цвет обводки успех
+     */
+    public val outlineDefaultPositiveMinor: String = "outlineDefaultPositiveMinor"
+
+    /**
+     * Третичный непрозрачный цвет обводки
+     */
+    public val outlineDefaultSolidTertiaryActive: String = "outlineDefaultSolidTertiaryActive"
+
+    /**
+     * Прозрачный цвет обводки успех
+     */
+    public val outlineDefaultTransparentPositiveHover: String =
+        "outlineDefaultTransparentPositiveHover"
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentPrimary: String = "outlineDefaultTransparentPrimary"
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentPrimaryActive: String =
+        "outlineDefaultTransparentPrimaryActive"
+
+    /**
+     * Основной прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentPrimaryHover: String =
+        "outlineDefaultTransparentPrimaryHover"
+
+    /**
+     * Вторичный прозрачный цвет обводки
+     */
+    public val outlineDefaultTransparentSecondary: String = "outlineDefaultTransparentSecondary"
+
+    /**
+     * Инвертированный минорный цвет обводки ошибка
+     */
+    public val outlineInverseNegativeMinorActive: String = "outlineInverseNegativeMinorActive"
+
+    /**
+     * Прозрачный инвертированный цвет обводки предупреждение
+     */
+    public val outlineInverseTransparentNegativeActive: String =
+        "outlineInverseTransparentNegativeActive"
+
+    /**
+     * Прозрачный инвертированный цвет обводки предупреждение
+     */
+    public val outlineInverseTransparentNegativeHover: String =
+        "outlineInverseTransparentNegativeHover"
+
+    /**
+     * Инвертированный основной прозрачный цвет обводки
+     */
+    public val outlineInverseTransparentPrimaryActive: String =
+        "outlineInverseTransparentPrimaryActive"
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public val outlineOnDarkInfo: String = "outlineOnDarkInfo"
+
+    /**
+     * Цвет обводки информация на темном фоне
+     */
+    public val outlineOnDarkInfoHover: String = "outlineOnDarkInfoHover"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на темном фоне
+     */
+    public val outlineOnDarkSolidDefaultActive: String = "outlineOnDarkSolidDefaultActive"
+
+    /**
+     * Третичный непрозрачный цвет обводки на темном фоне
+     */
+    public val outlineOnDarkSolidTertiaryActive: String = "outlineOnDarkSolidTertiaryActive"
+
+    /**
+     * Прозрачный акцентный цвет обводки на темном фоне
+     */
+    public val outlineOnDarkTransparentAccentActive: String = "outlineOnDarkTransparentAccentActive"
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightAccentMinorActive: String = "outlineOnLightAccentMinorActive"
+
+    /**
+     * Минорный цвет обводки успех на светлом фоне
+     */
+    public val outlineOnLightPositiveMinorActive: String = "outlineOnLightPositiveMinorActive"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val outlineOnLightSolidDefaultHover: String = "outlineOnLightSolidDefaultHover"
+
+    /**
+     * Вторичный непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
+
+    /**
+     * Прозрачный цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightTransparentWarningActive: String =
+        "outlineOnLightTransparentWarningActive"
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightWarning: String = "outlineOnLightWarning"
+
+    /**
+     * Цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightWarningActive: String = "outlineOnLightWarningActive"
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseAccentMinorActive: String = "surfaceInverseAccentMinorActive"
+
+    /**
+     * Инвертированный минорный цвет фона поверхности/контрола информация
+     */
+    public val surfaceInverseInfoMinorActive: String = "surfaceInverseInfoMinorActive"
+
+    /**
+     * Акцентный фон поверхности/контрола на темном фоне
+     */
+    public val surfaceOnDarkAccentActive: String = "surfaceOnDarkAccentActive"
+
+    /**
+     * Минорный цвет фона поверхности/контрола ошибка на темном фоне
+     */
+    public val surfaceOnDarkNegativeMinorActive: String = "surfaceOnDarkNegativeMinorActive"
+
+    /**
      * Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне
      */
-    public val surfaceOnDarkTransparentNegativeHover: String =
-        "surfaceOnDarkTransparentNegativeHover"
+    public val surfaceOnDarkTransparentNegativeActive: String =
+        "surfaceOnDarkTransparentNegativeActive"
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val textDefaultAccentMinorActive: String = "textDefaultAccentMinorActive"
+
+    /**
+     * Цвет информации
+     */
+    public val textDefaultInfoActive: String = "textDefaultInfoActive"
+
+    /**
+     * Минорный цвет информации
+     */
+    public val textDefaultInfoMinorActive: String = "textDefaultInfoMinorActive"
+
+    /**
+     * Минорный цвет ошибки
+     */
+    public val textDefaultNegativeMinorActive: String = "textDefaultNegativeMinorActive"
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val textInverseNegative: String = "textInverseNegative"
+
+    /**
+     * Акцентный цвет на темном фоне
+     */
+    public val textOnDarkAccentHover: String = "textOnDarkAccentHover"
+
+    /**
+     * Минорный цвет предупреждения на темном фоне
+     */
+    public val textOnDarkWarningMinorActive: String = "textOnDarkWarningMinorActive"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки
+     */
+    public val outlineDefaultAccentMinorActive: String = "outlineDefaultAccentMinorActive"
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный цвет обводки
+     */
+    public val outlineInverseAccentMinorActive: String = "outlineInverseAccentMinorActive"
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола информация
+     */
+    public val surfaceInverseTransparentInfoActive: String = "surfaceInverseTransparentInfoActive"
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceInverseTransparentNegativeActive: String =
+        "surfaceInverseTransparentNegativeActive"
+
+    /**
+     * Цвет фона поверхности/контрола успех
+     */
+    public val surfaceDefaultPositive: String = "surfaceDefaultPositive"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceDefaultTransparentNegative: String = "surfaceDefaultTransparentNegative"
+
+    /**
+     * Инвертированный акцентный минорный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseAccentMinor: String = "surfaceInverseAccentMinor"
+
+    /**
+     * Инвертированный вторичный непрозрачный фон поверхности/контрола
+     */
+    public val surfaceInverseSolidSecondaryActive: String = "surfaceInverseSolidSecondaryActive"
+
+    /**
+     * Прозрачный инвертированный цвет фона поверхности/контрола предупреждение
+     */
+    public val surfaceInverseTransparentNegative: String = "surfaceInverseTransparentNegative"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCard: String = "surfaceOnDarkSolidCard"
+
+    /**
+     * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightAccentMinor: String = "surfaceOnLightAccentMinor"
+
+    /**
+     * Третичный непрозрачный фон поверхности/контрола на светлом фоне
+     */
+    public val surfaceOnLightSolidTertiaryActive: String = "surfaceOnLightSolidTertiaryActive"
+
+    /**
+     * Цвет информации
+     */
+    public val textDefaultInfo: String = "textDefaultInfo"
+
+    /**
+     * Минорный цвет информации
+     */
+    public val textDefaultInfoMinor: String = "textDefaultInfoMinor"
+
+    /**
+     * Минорный цвет ошибки на темном фоне
+     */
+    public val textOnDarkNegativeMinorActive: String = "textOnDarkNegativeMinorActive"
+
+    /**
+     * Минорный цвет обводки предупреждение на светлом фоне
+     */
+    public val outlineOnLightWarningMinor: String = "outlineOnLightWarningMinor"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола успех на светлом фоне
+     */
+    public val surfaceOnLightTransparentPositive: String = "surfaceOnLightTransparentPositive"
+
+    /**
+     * Глубокий прозрачный фон поверхности/контрола
+     */
+    public val surfaceDefaultTransparentDeepHover: String = "surfaceDefaultTransparentDeepHover"
+
+    /**
+     * Основной фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkSolidCardBrightness: String = "surfaceOnDarkSolidCardBrightness"
+
+    /**
+     * Основной фон для карточек на светлом фоне
+     */
+    public val surfaceOnLightSolidCardBrightness: String = "surfaceOnLightSolidCardBrightness"
+
+    /**
+     * Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне
+     */
+    public val surfaceOnLightTransparentNegativeHover: String =
+        "surfaceOnLightTransparentNegativeHover"
+
+    /**
+     * Акцентный минорный цвет
+     */
+    public val textDefaultAccentMinorHover: String = "textDefaultAccentMinorHover"
+
+    /**
+     * Цвет информации
+     */
+    public val textDefaultInfoHover: String = "textDefaultInfoHover"
+
+    /**
+     * Инвертированный минорный цвет информации
+     */
+    public val textInverseInfoMinorActive: String = "textInverseInfoMinorActive"
+
+    /**
+     * Третичный цвет текста на темном фоне
+     */
+    public val textOnDarkTertiaryHover: String = "textOnDarkTertiaryHover"
+
+    /**
+     * Вторичный цвет текста на светлом фоне
+     */
+    public val textOnLightSecondaryActive: String = "textOnLightSecondaryActive"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparent: String = "dataDefaultYellowTransparent"
+
+    /**
+     * Акцентный минорный непрозрачный цвет обводки на светлом фоне
+     */
+    public val outlineOnLightAccentMinorHover: String = "outlineOnLightAccentMinorHover"
 
     /**
      * Переопределяет аттрибут цвета.
@@ -14075,20 +12669,6 @@ internal val LocalPlasmaHomeDsColors: ProvidableCompositionLocal<PlasmaHomeDsCol
 
 @Suppress("LongMethod")
 internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
-    outlineOnDarkInfo = other.outlineOnDarkInfo
-    textDefaultAccentMinorActive = other.textDefaultAccentMinorActive
-    textDefaultAccentMinorHover = other.textDefaultAccentMinorHover
-    outlineDefaultTransparentPositiveHover = other.outlineDefaultTransparentPositiveHover
-    textDefaultInfo = other.textDefaultInfo
-    textDefaultInfoActive = other.textDefaultInfoActive
-    textDefaultInfoHover = other.textDefaultInfoHover
-    outlineDefaultTransparentPrimary = other.outlineDefaultTransparentPrimary
-    textDefaultInfoMinor = other.textDefaultInfoMinor
-    outlineDefaultTransparentPrimaryActive = other.outlineDefaultTransparentPrimaryActive
-    outlineDefaultTransparentPrimaryHover = other.outlineDefaultTransparentPrimaryHover
-    outlineDefaultTransparentSecondary = other.outlineDefaultTransparentSecondary
-    outlineDefaultTransparentSecondaryActive = other.outlineDefaultTransparentSecondaryActive
-    outlineDefaultTransparentSecondaryHover = other.outlineDefaultTransparentSecondaryHover
     outlineDefaultTransparentTertiary = other.outlineDefaultTransparentTertiary
     outlineDefaultTransparentTertiaryActive = other.outlineDefaultTransparentTertiaryActive
     outlineDefaultTransparentTertiaryHover = other.outlineDefaultTransparentTertiaryHover
@@ -14103,10 +12683,10 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineDefaultWarningMinorHover = other.outlineDefaultWarningMinorHover
     outlineInverseAccent = other.outlineInverseAccent
     outlineInverseAccentActive = other.outlineInverseAccentActive
-    textDefaultInfoMinorActive = other.textDefaultInfoMinorActive
-    outlineInverseAccentHover = other.outlineInverseAccentHover
+    outlineDefaultTransparentSecondaryActive = other.outlineDefaultTransparentSecondaryActive
+    outlineDefaultTransparentSecondaryHover = other.outlineDefaultTransparentSecondaryHover
     outlineInverseAccentMinor = other.outlineInverseAccentMinor
-    outlineInverseAccentMinorActive = other.outlineInverseAccentMinorActive
+    outlineInverseAccentHover = other.outlineInverseAccentHover
     outlineInverseAccentMinorHover = other.outlineInverseAccentMinorHover
     outlineInverseClear = other.outlineInverseClear
     outlineInverseClearActive = other.outlineInverseClearActive
@@ -14120,30 +12700,17 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineInverseNegative = other.outlineInverseNegative
     outlineInverseNegativeActive = other.outlineInverseNegativeActive
     outlineInverseNegativeHover = other.outlineInverseNegativeHover
-    backgroundDarkSecondary = other.backgroundDarkSecondary
-    backgroundDarkTertiary = other.backgroundDarkTertiary
-    backgroundDefaultPrimary = other.backgroundDefaultPrimary
-    backgroundDefaultSecondary = other.backgroundDefaultSecondary
-    backgroundDefaultTertiary = other.backgroundDefaultTertiary
     backgroundInversePrimary = other.backgroundInversePrimary
-    backgroundInverseSecondary = other.backgroundInverseSecondary
-    backgroundInverseTertiary = other.backgroundInverseTertiary
     backgroundLightPrimary = other.backgroundLightPrimary
-    backgroundLightSecondary = other.backgroundLightSecondary
-    backgroundLightTertiary = other.backgroundLightTertiary
     dataDefaultYellow = other.dataDefaultYellow
-    dataDefaultYellowTransparent = other.dataDefaultYellowTransparent
     dataInverseYellow = other.dataInverseYellow
     dataInverseYellowMinor = other.dataInverseYellowMinor
     dataInverseYellowTransparent = other.dataInverseYellowTransparent
-    dataOnDarkYellowMinor = other.dataOnDarkYellowMinor
-    dataOnDarkYellowTransparent = other.dataOnDarkYellowTransparent
-    dataOnLightYellow = other.dataOnLightYellow
+    backgroundDefaultPrimary = other.backgroundDefaultPrimary
     dataOnLightYellowMinor = other.dataOnLightYellowMinor
     dataOnLightYellowTransparent = other.dataOnLightYellowTransparent
-    outlineDefaultAccentHover = other.outlineDefaultAccentHover
-    outlineDefaultAccentMinor = other.outlineDefaultAccentMinor
-    outlineDefaultAccentMinorActive = other.outlineDefaultAccentMinorActive
+    dataOnDarkYellowTransparent = other.dataOnDarkYellowTransparent
+    dataOnLightYellow = other.dataOnLightYellow
     outlineDefaultAccentMinorHover = other.outlineDefaultAccentMinorHover
     outlineDefaultClear = other.outlineDefaultClear
     outlineDefaultClearActive = other.outlineDefaultClearActive
@@ -14154,21 +12721,11 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineDefaultInfoMinor = other.outlineDefaultInfoMinor
     outlineDefaultInfoMinorActive = other.outlineDefaultInfoMinorActive
     outlineDefaultInfoMinorHover = other.outlineDefaultInfoMinorHover
-    outlineDefaultNegativeActive = other.outlineDefaultNegativeActive
+    outlineDefaultAccentMinor = other.outlineDefaultAccentMinor
     outlineDefaultNegativeHover = other.outlineDefaultNegativeHover
-    outlineDefaultNegativeMinorHover = other.outlineDefaultNegativeMinorHover
-    outlineDefaultPositive = other.outlineDefaultPositive
-    outlineDefaultPositiveActive = other.outlineDefaultPositiveActive
     outlineDefaultPositiveHover = other.outlineDefaultPositiveHover
-    outlineDefaultPositiveMinor = other.outlineDefaultPositiveMinor
     outlineDefaultPositiveMinorActive = other.outlineDefaultPositiveMinorActive
     outlineDefaultPositiveMinorHover = other.outlineDefaultPositiveMinorHover
-    outlineDefaultPromo = other.outlineDefaultPromo
-    outlineDefaultPromoActive = other.outlineDefaultPromoActive
-    outlineDefaultPromoHover = other.outlineDefaultPromoHover
-    outlineDefaultPromoMinor = other.outlineDefaultPromoMinor
-    outlineDefaultPromoMinorActive = other.outlineDefaultPromoMinorActive
-    outlineDefaultPromoMinorHover = other.outlineDefaultPromoMinorHover
     outlineDefaultSolidDefault = other.outlineDefaultSolidDefault
     outlineDefaultSolidDefaultActive = other.outlineDefaultSolidDefaultActive
     outlineDefaultSolidDefaultHover = other.outlineDefaultSolidDefaultHover
@@ -14179,7 +12736,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineDefaultSolidSecondaryActive = other.outlineDefaultSolidSecondaryActive
     outlineDefaultSolidSecondaryHover = other.outlineDefaultSolidSecondaryHover
     outlineDefaultSolidTertiary = other.outlineDefaultSolidTertiary
-    outlineDefaultSolidTertiaryActive = other.outlineDefaultSolidTertiaryActive
     outlineDefaultSolidTertiaryHover = other.outlineDefaultSolidTertiaryHover
     outlineDefaultTransparentAccent = other.outlineDefaultTransparentAccent
     outlineDefaultTransparentAccentActive = other.outlineDefaultTransparentAccentActive
@@ -14192,19 +12748,12 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineDefaultTransparentNegativeHover = other.outlineDefaultTransparentNegativeHover
     outlineDefaultTransparentPositive = other.outlineDefaultTransparentPositive
     outlineDefaultTransparentPositiveActive = other.outlineDefaultTransparentPositiveActive
-    outlineInverseNegativeMinorActive = other.outlineInverseNegativeMinorActive
-    outlineInverseNegativeMinorHover = other.outlineInverseNegativeMinorHover
-    outlineInversePositive = other.outlineInversePositive
+    outlineDefaultPositive = other.outlineDefaultPositive
+    outlineDefaultPositiveActive = other.outlineDefaultPositiveActive
     outlineInversePositiveActive = other.outlineInversePositiveActive
     outlineInversePositiveHover = other.outlineInversePositiveHover
     outlineInversePositiveMinor = other.outlineInversePositiveMinor
     outlineInversePositiveMinorHover = other.outlineInversePositiveMinorHover
-    outlineInversePromo = other.outlineInversePromo
-    outlineInversePromoActive = other.outlineInversePromoActive
-    outlineInversePromoHover = other.outlineInversePromoHover
-    outlineInversePromoMinor = other.outlineInversePromoMinor
-    outlineInversePromoMinorActive = other.outlineInversePromoMinorActive
-    outlineInversePromoMinorHover = other.outlineInversePromoMinorHover
     outlineInverseSolidDefault = other.outlineInverseSolidDefault
     outlineInverseSolidDefaultActive = other.outlineInverseSolidDefaultActive
     outlineInverseSolidDefaultHover = other.outlineInverseSolidDefaultHover
@@ -14223,13 +12772,11 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineInverseTransparentInfo = other.outlineInverseTransparentInfo
     outlineInverseTransparentInfoActive = other.outlineInverseTransparentInfoActive
     outlineInverseTransparentInfoHover = other.outlineInverseTransparentInfoHover
-    outlineInverseTransparentNegativeActive = other.outlineInverseTransparentNegativeActive
-    outlineInverseTransparentNegativeHover = other.outlineInverseTransparentNegativeHover
-    outlineInverseTransparentPositive = other.outlineInverseTransparentPositive
+    outlineInverseNegativeMinorHover = other.outlineInverseNegativeMinorHover
+    outlineInversePositive = other.outlineInversePositive
     outlineInverseTransparentPositiveActive = other.outlineInverseTransparentPositiveActive
     outlineInverseTransparentPositiveHover = other.outlineInverseTransparentPositiveHover
     outlineInverseTransparentPrimary = other.outlineInverseTransparentPrimary
-    outlineInverseTransparentPrimaryActive = other.outlineInverseTransparentPrimaryActive
     outlineInverseTransparentPrimaryHover = other.outlineInverseTransparentPrimaryHover
     outlineInverseTransparentSecondary = other.outlineInverseTransparentSecondary
     outlineInverseTransparentSecondaryActive = other.outlineInverseTransparentSecondaryActive
@@ -14254,9 +12801,7 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineOnDarkClear = other.outlineOnDarkClear
     outlineOnDarkClearActive = other.outlineOnDarkClearActive
     outlineOnDarkClearHover = other.outlineOnDarkClearHover
-    outlineOnDarkInfoHover = other.outlineOnDarkInfoHover
-    outlineOnDarkInfoMinor = other.outlineOnDarkInfoMinor
-    outlineOnDarkInfoMinorActive = other.outlineOnDarkInfoMinorActive
+    outlineInverseTransparentPositive = other.outlineInverseTransparentPositive
     outlineOnDarkInfoMinorHover = other.outlineOnDarkInfoMinorHover
     outlineOnDarkNegative = other.outlineOnDarkNegative
     outlineOnDarkNegativeActive = other.outlineOnDarkNegativeActive
@@ -14270,12 +12815,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineOnDarkPositiveMinor = other.outlineOnDarkPositiveMinor
     outlineOnDarkPositiveMinorActive = other.outlineOnDarkPositiveMinorActive
     outlineOnDarkPositiveMinorHover = other.outlineOnDarkPositiveMinorHover
-    outlineOnDarkPromo = other.outlineOnDarkPromo
-    outlineOnDarkPromoActive = other.outlineOnDarkPromoActive
-    outlineOnDarkPromoHover = other.outlineOnDarkPromoHover
-    outlineOnDarkPromoMinor = other.outlineOnDarkPromoMinor
-    outlineOnDarkPromoMinorActive = other.outlineOnDarkPromoMinorActive
-    outlineOnDarkPromoMinorHover = other.outlineOnDarkPromoMinorHover
     outlineOnDarkSolidDefault = other.outlineOnDarkSolidDefault
     outlineOnDarkSolidDefaultHover = other.outlineOnDarkSolidDefaultHover
     outlineOnDarkSolidPrimary = other.outlineOnDarkSolidPrimary
@@ -14285,11 +12824,9 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineOnDarkSolidSecondaryActive = other.outlineOnDarkSolidSecondaryActive
     outlineOnDarkSolidSecondaryHover = other.outlineOnDarkSolidSecondaryHover
     outlineOnDarkSolidTertiary = other.outlineOnDarkSolidTertiary
-    outlineOnDarkSolidTertiaryActive = other.outlineOnDarkSolidTertiaryActive
     outlineOnDarkSolidTertiaryHover = other.outlineOnDarkSolidTertiaryHover
-    outlineOnDarkTransparentAccentActive = other.outlineOnDarkTransparentAccentActive
-    outlineOnDarkTransparentAccentHover = other.outlineOnDarkTransparentAccentHover
-    outlineOnDarkTransparentInfo = other.outlineOnDarkTransparentInfo
+    outlineOnDarkInfoMinor = other.outlineOnDarkInfoMinor
+    outlineOnDarkInfoMinorActive = other.outlineOnDarkInfoMinorActive
     outlineOnDarkTransparentInfoHover = other.outlineOnDarkTransparentInfoHover
     outlineOnDarkTransparentNegative = other.outlineOnDarkTransparentNegative
     outlineOnDarkTransparentNegativeActive = other.outlineOnDarkTransparentNegativeActive
@@ -14318,9 +12855,8 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineOnLightAccent = other.outlineOnLightAccent
     outlineOnLightAccentActive = other.outlineOnLightAccentActive
     outlineOnLightAccentHover = other.outlineOnLightAccentHover
-    outlineOnLightAccentMinorActive = other.outlineOnLightAccentMinorActive
-    outlineOnLightAccentMinorHover = other.outlineOnLightAccentMinorHover
-    outlineOnLightClear = other.outlineOnLightClear
+    outlineOnDarkTransparentAccentHover = other.outlineOnDarkTransparentAccentHover
+    outlineOnDarkTransparentInfo = other.outlineOnDarkTransparentInfo
     outlineOnLightClearActive = other.outlineOnLightClearActive
     outlineOnLightClearHover = other.outlineOnLightClearHover
     outlineOnLightInfo = other.outlineOnLightInfo
@@ -14339,21 +12875,12 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineOnLightPositiveActive = other.outlineOnLightPositiveActive
     outlineOnLightPositiveHover = other.outlineOnLightPositiveHover
     outlineOnLightPositiveMinor = other.outlineOnLightPositiveMinor
-    outlineOnLightPositiveMinorActive = other.outlineOnLightPositiveMinorActive
     outlineOnLightPositiveMinorHover = other.outlineOnLightPositiveMinorHover
-    outlineOnLightPromo = other.outlineOnLightPromo
-    outlineOnLightPromoActive = other.outlineOnLightPromoActive
-    outlineOnLightPromoHover = other.outlineOnLightPromoHover
-    outlineOnLightPromoMinor = other.outlineOnLightPromoMinor
-    outlineOnLightPromoMinorActive = other.outlineOnLightPromoMinorActive
-    outlineOnLightPromoMinorHover = other.outlineOnLightPromoMinorHover
     outlineOnLightSolidDefault = other.outlineOnLightSolidDefault
     outlineOnLightSolidDefaultActive = other.outlineOnLightSolidDefaultActive
     outlineOnLightSolidPrimary = other.outlineOnLightSolidPrimary
     outlineOnLightSolidPrimaryActive = other.outlineOnLightSolidPrimaryActive
-    outlineOnLightSolidSecondary = other.outlineOnLightSolidSecondary
-    outlineOnLightSolidSecondaryActive = other.outlineOnLightSolidSecondaryActive
-    outlineOnLightSolidSecondaryHover = other.outlineOnLightSolidSecondaryHover
+    outlineOnLightClear = other.outlineOnLightClear
     outlineOnLightSolidTertiary = other.outlineOnLightSolidTertiary
     outlineOnLightSolidTertiaryHover = other.outlineOnLightSolidTertiaryHover
     outlineOnLightTransparentAccent = other.outlineOnLightTransparentAccent
@@ -14378,12 +12905,10 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineOnLightTransparentTertiaryActive = other.outlineOnLightTransparentTertiaryActive
     outlineOnLightTransparentTertiaryHover = other.outlineOnLightTransparentTertiaryHover
     outlineOnLightTransparentWarning = other.outlineOnLightTransparentWarning
-    outlineOnLightTransparentWarningActive = other.outlineOnLightTransparentWarningActive
     outlineOnLightTransparentWarningHover = other.outlineOnLightTransparentWarningHover
     textDefaultInfoMinorHover = other.textDefaultInfoMinorHover
-    outlineOnLightWarningActive = other.outlineOnLightWarningActive
-    outlineOnLightWarningHover = other.outlineOnLightWarningHover
-    outlineOnLightWarningMinor = other.outlineOnLightWarningMinor
+    outlineOnLightSolidSecondaryActive = other.outlineOnLightSolidSecondaryActive
+    outlineOnLightSolidSecondaryHover = other.outlineOnLightSolidSecondaryHover
     outlineOnLightWarningMinorActive = other.outlineOnLightWarningMinorActive
     outlineOnLightWarningMinorHover = other.outlineOnLightWarningMinorHover
     overlayDefaultBlur = other.overlayDefaultBlur
@@ -14417,18 +12942,10 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceDefaultNegativeHover = other.surfaceDefaultNegativeHover
     surfaceDefaultNegativeMinor = other.surfaceDefaultNegativeMinor
     surfaceDefaultNegativeMinorActive = other.surfaceDefaultNegativeMinorActive
-    surfaceDefaultPositive = other.surfaceDefaultPositive
-    surfaceDefaultPositiveActive = other.surfaceDefaultPositiveActive
-    surfaceDefaultPositiveHover = other.surfaceDefaultPositiveHover
+    outlineOnLightWarningHover = other.outlineOnLightWarningHover
     surfaceDefaultPositiveMinor = other.surfaceDefaultPositiveMinor
     surfaceDefaultPositiveMinorActive = other.surfaceDefaultPositiveMinorActive
     surfaceDefaultPositiveMinorHover = other.surfaceDefaultPositiveMinorHover
-    surfaceDefaultPromo = other.surfaceDefaultPromo
-    surfaceDefaultPromoActive = other.surfaceDefaultPromoActive
-    surfaceDefaultPromoHover = other.surfaceDefaultPromoHover
-    surfaceDefaultPromoMinor = other.surfaceDefaultPromoMinor
-    surfaceDefaultPromoMinorActive = other.surfaceDefaultPromoMinorActive
-    surfaceDefaultPromoMinorHover = other.surfaceDefaultPromoMinorHover
     surfaceDefaultSolidCard = other.surfaceDefaultSolidCard
     surfaceDefaultSolidCardActive = other.surfaceDefaultSolidCardActive
     surfaceDefaultSolidCardBrightness = other.surfaceDefaultSolidCardBrightness
@@ -14452,12 +12969,10 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceDefaultTransparentCardActive = other.surfaceDefaultTransparentCardActive
     surfaceDefaultTransparentCardBrightness = other.surfaceDefaultTransparentCardBrightness
     surfaceDefaultTransparentCardHover = other.surfaceDefaultTransparentCardHover
-    surfaceDefaultTransparentDeepActive = other.surfaceDefaultTransparentDeepActive
-    surfaceDefaultTransparentDeepHover = other.surfaceDefaultTransparentDeepHover
-    surfaceDefaultTransparentInfo = other.surfaceDefaultTransparentInfo
+    surfaceDefaultPositiveActive = other.surfaceDefaultPositiveActive
+    surfaceDefaultPositiveHover = other.surfaceDefaultPositiveHover
     surfaceDefaultTransparentInfoActive = other.surfaceDefaultTransparentInfoActive
     surfaceDefaultTransparentInfoHover = other.surfaceDefaultTransparentInfoHover
-    surfaceDefaultTransparentNegative = other.surfaceDefaultTransparentNegative
     surfaceDefaultTransparentNegativeActive = other.surfaceDefaultTransparentNegativeActive
     surfaceDefaultTransparentNegativeHover = other.surfaceDefaultTransparentNegativeHover
     surfaceDefaultTransparentPositive = other.surfaceDefaultTransparentPositive
@@ -14466,9 +12981,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceDefaultTransparentPrimary = other.surfaceDefaultTransparentPrimary
     surfaceDefaultTransparentPrimaryActive = other.surfaceDefaultTransparentPrimaryActive
     surfaceDefaultTransparentPrimaryHover = other.surfaceDefaultTransparentPrimaryHover
-    surfaceDefaultTransparentPromo = other.surfaceDefaultTransparentPromo
-    surfaceDefaultTransparentPromoActive = other.surfaceDefaultTransparentPromoActive
-    surfaceDefaultTransparentPromoHover = other.surfaceDefaultTransparentPromoHover
     surfaceDefaultTransparentSecondary = other.surfaceDefaultTransparentSecondary
     surfaceDefaultTransparentSecondaryActive = other.surfaceDefaultTransparentSecondaryActive
     surfaceDefaultTransparentTertiary = other.surfaceDefaultTransparentTertiary
@@ -14483,10 +12995,8 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceDefaultWarningMinor = other.surfaceDefaultWarningMinor
     surfaceDefaultWarningMinorActive = other.surfaceDefaultWarningMinorActive
     surfaceDefaultWarningMinorHover = other.surfaceDefaultWarningMinorHover
-    surfaceInverseAccentActive = other.surfaceInverseAccentActive
-    surfaceInverseAccentHover = other.surfaceInverseAccentHover
-    surfaceInverseAccentMinor = other.surfaceInverseAccentMinor
-    surfaceInverseAccentMinorActive = other.surfaceInverseAccentMinorActive
+    surfaceDefaultTransparentDeepActive = other.surfaceDefaultTransparentDeepActive
+    surfaceDefaultTransparentInfo = other.surfaceDefaultTransparentInfo
     surfaceInverseAccentMinorHover = other.surfaceInverseAccentMinorHover
     surfaceInverseClear = other.surfaceInverseClear
     surfaceInverseClearActive = other.surfaceInverseClearActive
@@ -14508,14 +13018,8 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceInversePositiveMinor = other.surfaceInversePositiveMinor
     surfaceInversePositiveMinorActive = other.surfaceInversePositiveMinorActive
     surfaceInversePositiveMinorHover = other.surfaceInversePositiveMinorHover
-    surfaceInversePromo = other.surfaceInversePromo
-    surfaceInversePromoActive = other.surfaceInversePromoActive
-    surfaceInversePromoHover = other.surfaceInversePromoHover
-    surfaceInversePromoMinor = other.surfaceInversePromoMinor
-    surfaceInversePromoMinorActive = other.surfaceInversePromoMinorActive
-    surfaceInverseSolidCard = other.surfaceInverseSolidCard
-    surfaceInverseSolidCardActive = other.surfaceInverseSolidCardActive
-    surfaceInverseSolidCardBrightness = other.surfaceInverseSolidCardBrightness
+    surfaceInverseAccentActive = other.surfaceInverseAccentActive
+    surfaceInverseAccentHover = other.surfaceInverseAccentHover
     surfaceInverseSolidCardHover = other.surfaceInverseSolidCardHover
     surfaceInverseSolidDefault = other.surfaceInverseSolidDefault
     surfaceInverseSolidDefaultActive = other.surfaceInverseSolidDefaultActive
@@ -14540,20 +13044,16 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceInverseTransparentDeepActive = other.surfaceInverseTransparentDeepActive
     surfaceInverseTransparentDeepHover = other.surfaceInverseTransparentDeepHover
     surfaceInverseTransparentInfo = other.surfaceInverseTransparentInfo
-    surfaceInverseTransparentInfoActive = other.surfaceInverseTransparentInfoActive
     textDefaultNegative = other.textDefaultNegative
-    surfaceInverseTransparentNegative = other.surfaceInverseTransparentNegative
-    surfaceInverseTransparentNegativeActive = other.surfaceInverseTransparentNegativeActive
-    surfaceInverseTransparentNegativeHover = other.surfaceInverseTransparentNegativeHover
+    surfaceInverseSolidCard = other.surfaceInverseSolidCard
+    surfaceInverseSolidCardActive = other.surfaceInverseSolidCardActive
+    surfaceInverseSolidCardBrightness = other.surfaceInverseSolidCardBrightness
     surfaceInverseTransparentPositive = other.surfaceInverseTransparentPositive
     surfaceInverseTransparentPositiveActive = other.surfaceInverseTransparentPositiveActive
     surfaceInverseTransparentPositiveHover = other.surfaceInverseTransparentPositiveHover
     surfaceInverseTransparentPrimary = other.surfaceInverseTransparentPrimary
     surfaceInverseTransparentPrimaryActive = other.surfaceInverseTransparentPrimaryActive
     surfaceInverseTransparentPrimaryHover = other.surfaceInverseTransparentPrimaryHover
-    surfaceInverseTransparentPromo = other.surfaceInverseTransparentPromo
-    surfaceInverseTransparentPromoActive = other.surfaceInverseTransparentPromoActive
-    surfaceInverseTransparentPromoHover = other.surfaceInverseTransparentPromoHover
     surfaceInverseTransparentSecondary = other.surfaceInverseTransparentSecondary
     surfaceInverseTransparentSecondaryHover = other.surfaceInverseTransparentSecondaryHover
     surfaceInverseTransparentTertiary = other.surfaceInverseTransparentTertiary
@@ -14569,9 +13069,7 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceInverseWarningMinorActive = other.surfaceInverseWarningMinorActive
     surfaceInverseWarningMinorHover = other.surfaceInverseWarningMinorHover
     textDefaultNegativeActive = other.textDefaultNegativeActive
-    surfaceOnDarkAccentActive = other.surfaceOnDarkAccentActive
-    surfaceOnDarkAccentHover = other.surfaceOnDarkAccentHover
-    surfaceOnDarkAccentMinorActive = other.surfaceOnDarkAccentMinorActive
+    surfaceInverseTransparentNegativeHover = other.surfaceInverseTransparentNegativeHover
     surfaceOnDarkAccentMinorHover = other.surfaceOnDarkAccentMinorHover
     surfaceOnDarkClear = other.surfaceOnDarkClear
     surfaceOnDarkClearActive = other.surfaceOnDarkClearActive
@@ -14586,7 +13084,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnDarkNegativeActive = other.surfaceOnDarkNegativeActive
     surfaceOnDarkNegativeHover = other.surfaceOnDarkNegativeHover
     surfaceOnDarkNegativeMinor = other.surfaceOnDarkNegativeMinor
-    surfaceOnDarkNegativeMinorActive = other.surfaceOnDarkNegativeMinorActive
     surfaceOnDarkNegativeMinorHover = other.surfaceOnDarkNegativeMinorHover
     surfaceOnDarkPositive = other.surfaceOnDarkPositive
     surfaceOnDarkPositiveActive = other.surfaceOnDarkPositiveActive
@@ -14594,15 +13091,9 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnDarkPositiveMinor = other.surfaceOnDarkPositiveMinor
     surfaceOnDarkPositiveMinorActive = other.surfaceOnDarkPositiveMinorActive
     surfaceOnDarkPositiveMinorHover = other.surfaceOnDarkPositiveMinorHover
-    surfaceOnDarkPromo = other.surfaceOnDarkPromo
-    surfaceOnDarkPromoActive = other.surfaceOnDarkPromoActive
-    surfaceOnDarkPromoHover = other.surfaceOnDarkPromoHover
-    surfaceOnDarkPromoMinor = other.surfaceOnDarkPromoMinor
-    surfaceOnDarkPromoMinorActive = other.surfaceOnDarkPromoMinorActive
     textDefaultNegativeHover = other.textDefaultNegativeHover
-    surfaceOnDarkSolidCard = other.surfaceOnDarkSolidCard
-    surfaceOnDarkSolidCardActive = other.surfaceOnDarkSolidCardActive
-    surfaceOnDarkSolidCardBrightness = other.surfaceOnDarkSolidCardBrightness
+    surfaceOnDarkAccentHover = other.surfaceOnDarkAccentHover
+    surfaceOnDarkAccentMinorActive = other.surfaceOnDarkAccentMinorActive
     surfaceOnDarkSolidCardHover = other.surfaceOnDarkSolidCardHover
     surfaceOnDarkSolidDefault = other.surfaceOnDarkSolidDefault
     surfaceOnDarkSolidDefaultActive = other.surfaceOnDarkSolidDefaultActive
@@ -14629,16 +13120,11 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnDarkTransparentInfo = other.surfaceOnDarkTransparentInfo
     surfaceOnDarkTransparentInfoActive = other.surfaceOnDarkTransparentInfoActive
     surfaceOnDarkTransparentInfoHover = other.surfaceOnDarkTransparentInfoHover
-    surfaceOnDarkTransparentNegativeActive = other.surfaceOnDarkTransparentNegativeActive
-    surfaceOnDarkTransparentPositive = other.surfaceOnDarkTransparentPositive
-    surfaceOnDarkTransparentPositiveActive = other.surfaceOnDarkTransparentPositiveActive
+    surfaceOnDarkSolidCardActive = other.surfaceOnDarkSolidCardActive
     surfaceOnDarkTransparentPositiveHover = other.surfaceOnDarkTransparentPositiveHover
     surfaceOnDarkTransparentPrimary = other.surfaceOnDarkTransparentPrimary
     surfaceOnDarkTransparentPrimaryActive = other.surfaceOnDarkTransparentPrimaryActive
     surfaceOnDarkTransparentPrimaryHover = other.surfaceOnDarkTransparentPrimaryHover
-    surfaceOnDarkTransparentPromo = other.surfaceOnDarkTransparentPromo
-    surfaceOnDarkTransparentPromoActive = other.surfaceOnDarkTransparentPromoActive
-    surfaceOnDarkTransparentPromoHover = other.surfaceOnDarkTransparentPromoHover
     surfaceOnDarkTransparentSecondary = other.surfaceOnDarkTransparentSecondary
     surfaceOnDarkTransparentSecondaryActive = other.surfaceOnDarkTransparentSecondaryActive
     surfaceOnDarkTransparentSecondaryHover = other.surfaceOnDarkTransparentSecondaryHover
@@ -14656,9 +13142,8 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnDarkWarningMinorHover = other.surfaceOnDarkWarningMinorHover
     surfaceOnLightAccent = other.surfaceOnLightAccent
     surfaceOnLightAccentActive = other.surfaceOnLightAccentActive
-    surfaceOnLightAccentMinor = other.surfaceOnLightAccentMinor
-    surfaceOnLightAccentMinorActive = other.surfaceOnLightAccentMinorActive
-    surfaceOnLightAccentMinorHover = other.surfaceOnLightAccentMinorHover
+    surfaceOnDarkTransparentPositive = other.surfaceOnDarkTransparentPositive
+    surfaceOnDarkTransparentPositiveActive = other.surfaceOnDarkTransparentPositiveActive
     surfaceOnLightClear = other.surfaceOnLightClear
     surfaceOnLightClearActive = other.surfaceOnLightClearActive
     surfaceOnLightClearHover = other.surfaceOnLightClearHover
@@ -14679,16 +13164,9 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnLightPositiveMinor = other.surfaceOnLightPositiveMinor
     surfaceOnLightPositiveMinorActive = other.surfaceOnLightPositiveMinorActive
     surfaceOnLightPositiveMinorHover = other.surfaceOnLightPositiveMinorHover
-    surfaceOnLightPromo = other.surfaceOnLightPromo
-    surfaceOnLightPromoActive = other.surfaceOnLightPromoActive
-    surfaceOnLightPromoHover = other.surfaceOnLightPromoHover
-    surfaceOnLightPromoMinor = other.surfaceOnLightPromoMinor
-    surfaceOnLightPromoMinorActive = other.surfaceOnLightPromoMinorActive
-    surfaceOnLightPromoMinorHover = other.surfaceOnLightPromoMinorHover
     surfaceOnLightSolidCard = other.surfaceOnLightSolidCard
-    surfaceOnLightSolidCardBrightness = other.surfaceOnLightSolidCardBrightness
-    surfaceOnLightSolidCardHover = other.surfaceOnLightSolidCardHover
-    surfaceOnLightSolidDefault = other.surfaceOnLightSolidDefault
+    surfaceOnLightAccentMinorActive = other.surfaceOnLightAccentMinorActive
+    surfaceOnLightAccentMinorHover = other.surfaceOnLightAccentMinorHover
     surfaceOnLightSolidDefaultActive = other.surfaceOnLightSolidDefaultActive
     surfaceOnLightSolidDefaultHover = other.surfaceOnLightSolidDefaultHover
     surfaceOnLightSolidPrimary = other.surfaceOnLightSolidPrimary
@@ -14699,7 +13177,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnLightSolidSecondaryActive = other.surfaceOnLightSolidSecondaryActive
     surfaceOnLightSolidSecondaryHover = other.surfaceOnLightSolidSecondaryHover
     surfaceOnLightSolidTertiary = other.surfaceOnLightSolidTertiary
-    surfaceOnLightSolidTertiaryActive = other.surfaceOnLightSolidTertiaryActive
     surfaceOnLightTransparentAccent = other.surfaceOnLightTransparentAccent
     surfaceOnLightTransparentAccentActive = other.surfaceOnLightTransparentAccentActive
     surfaceOnLightTransparentAccentHover = other.surfaceOnLightTransparentAccentHover
@@ -14714,16 +13191,12 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     surfaceOnLightTransparentInfoActive = other.surfaceOnLightTransparentInfoActive
     surfaceOnLightTransparentInfoHover = other.surfaceOnLightTransparentInfoHover
     surfaceOnLightTransparentNegative = other.surfaceOnLightTransparentNegative
-    surfaceOnLightTransparentNegativeHover = other.surfaceOnLightTransparentNegativeHover
-    surfaceOnLightTransparentPositive = other.surfaceOnLightTransparentPositive
-    surfaceOnLightTransparentPositiveActive = other.surfaceOnLightTransparentPositiveActive
+    surfaceOnLightSolidCardHover = other.surfaceOnLightSolidCardHover
+    surfaceOnLightSolidDefault = other.surfaceOnLightSolidDefault
     surfaceOnLightTransparentPositiveHover = other.surfaceOnLightTransparentPositiveHover
     surfaceOnLightTransparentPrimary = other.surfaceOnLightTransparentPrimary
     surfaceOnLightTransparentPrimaryActive = other.surfaceOnLightTransparentPrimaryActive
     surfaceOnLightTransparentPrimaryHover = other.surfaceOnLightTransparentPrimaryHover
-    surfaceOnLightTransparentPromo = other.surfaceOnLightTransparentPromo
-    surfaceOnLightTransparentPromoActive = other.surfaceOnLightTransparentPromoActive
-    surfaceOnLightTransparentPromoHover = other.surfaceOnLightTransparentPromoHover
     surfaceOnLightTransparentSecondary = other.surfaceOnLightTransparentSecondary
     surfaceOnLightTransparentSecondaryActive = other.surfaceOnLightTransparentSecondaryActive
     surfaceOnLightTransparentSecondaryHover = other.surfaceOnLightTransparentSecondaryHover
@@ -14743,9 +13216,7 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textDefaultAccentActive = other.textDefaultAccentActive
     textDefaultAccentHover = other.textDefaultAccentHover
     textDefaultAccentMinor = other.textDefaultAccentMinor
-    textDefaultNegativeMinorActive = other.textDefaultNegativeMinorActive
-    textDefaultNegativeMinorHover = other.textDefaultNegativeMinorHover
-    textDefaultParagraph = other.textDefaultParagraph
+    surfaceOnLightTransparentPositiveActive = other.surfaceOnLightTransparentPositiveActive
     textDefaultParagraphActive = other.textDefaultParagraphActive
     textDefaultParagraphHover = other.textDefaultParagraphHover
     textDefaultPositive = other.textDefaultPositive
@@ -14757,12 +13228,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textDefaultPrimaryActive = other.textDefaultPrimaryActive
     textDefaultPrimaryBrightness = other.textDefaultPrimaryBrightness
     textDefaultPrimaryHover = other.textDefaultPrimaryHover
-    textDefaultPromo = other.textDefaultPromo
-    textDefaultPromoActive = other.textDefaultPromoActive
-    textDefaultPromoHover = other.textDefaultPromoHover
-    textDefaultPromoMinor = other.textDefaultPromoMinor
-    textDefaultPromoMinorActive = other.textDefaultPromoMinorActive
-    textDefaultPromoMinorHover = other.textDefaultPromoMinorHover
     textDefaultSecondary = other.textDefaultSecondary
     textDefaultSecondaryActive = other.textDefaultSecondaryActive
     textDefaultSecondaryHover = other.textDefaultSecondaryHover
@@ -14784,10 +13249,8 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textInverseInfoActive = other.textInverseInfoActive
     textInverseInfoHover = other.textInverseInfoHover
     textInverseInfoMinor = other.textInverseInfoMinor
-    textInverseInfoMinorActive = other.textInverseInfoMinorActive
-    textInverseNegative = other.textInverseNegative
-    textInverseNegativeActive = other.textInverseNegativeActive
-    textInverseNegativeHover = other.textInverseNegativeHover
+    textDefaultNegativeMinorHover = other.textDefaultNegativeMinorHover
+    textDefaultParagraph = other.textDefaultParagraph
     textInverseNegativeMinor = other.textInverseNegativeMinor
     textInverseNegativeMinorHover = other.textInverseNegativeMinorHover
     textInverseParagraph = other.textInverseParagraph
@@ -14803,12 +13266,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textInversePrimaryActive = other.textInversePrimaryActive
     textInversePrimaryBrightness = other.textInversePrimaryBrightness
     textInversePrimaryHover = other.textInversePrimaryHover
-    textInversePromo = other.textInversePromo
-    textInversePromoActive = other.textInversePromoActive
-    textInversePromoHover = other.textInversePromoHover
-    textInversePromoMinor = other.textInversePromoMinor
-    textInversePromoMinorActive = other.textInversePromoMinorActive
-    textInversePromoMinorHover = other.textInversePromoMinorHover
     textInverseSecondary = other.textInverseSecondary
     textInverseSecondaryActive = other.textInverseSecondaryActive
     textInverseSecondaryHover = other.textInverseSecondaryHover
@@ -14822,9 +13279,8 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textInverseWarningMinorActive = other.textInverseWarningMinorActive
     textInverseWarningMinorHover = other.textInverseWarningMinorHover
     textOnDarkAccent = other.textOnDarkAccent
-    textOnDarkAccentHover = other.textOnDarkAccentHover
-    textOnDarkAccentMinor = other.textOnDarkAccentMinor
-    textOnDarkAccentMinorActive = other.textOnDarkAccentMinorActive
+    textInverseNegativeActive = other.textInverseNegativeActive
+    textInverseNegativeHover = other.textInverseNegativeHover
     textOnDarkAccentMinorHover = other.textOnDarkAccentMinorHover
     textOnDarkInfo = other.textOnDarkInfo
     textOnDarkInfoActive = other.textOnDarkInfoActive
@@ -14835,7 +13291,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textOnDarkNegativeActive = other.textOnDarkNegativeActive
     textOnDarkNegativeHover = other.textOnDarkNegativeHover
     textOnDarkNegativeMinor = other.textOnDarkNegativeMinor
-    textOnDarkNegativeMinorActive = other.textOnDarkNegativeMinorActive
     textOnDarkNegativeMinorHover = other.textOnDarkNegativeMinorHover
     textOnDarkParagraph = other.textOnDarkParagraph
     textOnDarkParagraphActive = other.textOnDarkParagraphActive
@@ -14850,22 +13305,14 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textOnDarkPrimaryActive = other.textOnDarkPrimaryActive
     textOnDarkPrimaryBrightness = other.textOnDarkPrimaryBrightness
     textOnDarkPrimaryHover = other.textOnDarkPrimaryHover
-    textOnDarkPromo = other.textOnDarkPromo
-    textOnDarkPromoActive = other.textOnDarkPromoActive
-    textOnDarkPromoHover = other.textOnDarkPromoHover
-    textOnDarkPromoMinor = other.textOnDarkPromoMinor
-    textOnDarkPromoMinorActive = other.textOnDarkPromoMinorActive
-    textOnDarkPromoMinorHover = other.textOnDarkPromoMinorHover
     textOnDarkSecondary = other.textOnDarkSecondary
     textOnDarkSecondaryActive = other.textOnDarkSecondaryActive
     textOnDarkSecondaryHover = other.textOnDarkSecondaryHover
     textOnDarkTertiary = other.textOnDarkTertiary
-    textOnDarkTertiaryHover = other.textOnDarkTertiaryHover
-    textOnDarkWarning = other.textOnDarkWarning
-    textOnDarkWarningActive = other.textOnDarkWarningActive
+    textOnDarkAccentMinor = other.textOnDarkAccentMinor
+    textOnDarkAccentMinorActive = other.textOnDarkAccentMinorActive
     textOnDarkWarningHover = other.textOnDarkWarningHover
     textOnDarkWarningMinor = other.textOnDarkWarningMinor
-    textOnDarkWarningMinorActive = other.textOnDarkWarningMinorActive
     textOnDarkWarningMinorHover = other.textOnDarkWarningMinorHover
     textOnLightAccent = other.textOnLightAccent
     textOnLightAccentActive = other.textOnLightAccentActive
@@ -14897,13 +13344,9 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textOnLightPrimaryActive = other.textOnLightPrimaryActive
     textOnLightPrimaryBrightness = other.textOnLightPrimaryBrightness
     textOnLightPrimaryHover = other.textOnLightPrimaryHover
-    textOnLightPromoActive = other.textOnLightPromoActive
-    textOnLightPromoHover = other.textOnLightPromoHover
-    textOnLightPromoMinor = other.textOnLightPromoMinor
-    textOnLightPromoMinorActive = other.textOnLightPromoMinorActive
-    textOnLightPromoMinorHover = other.textOnLightPromoMinorHover
+    textOnDarkWarning = other.textOnDarkWarning
+    textOnDarkWarningActive = other.textOnDarkWarningActive
     textOnLightSecondary = other.textOnLightSecondary
-    textOnLightSecondaryActive = other.textOnLightSecondaryActive
     textOnLightSecondaryHover = other.textOnLightSecondaryHover
     textOnLightTertiary = other.textOnLightTertiary
     textOnLightTertiaryHover = other.textOnLightTertiaryHover
@@ -14913,10 +13356,6 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     textOnLightWarningMinor = other.textOnLightWarningMinor
     textOnLightWarningMinorActive = other.textOnLightWarningMinorActive
     textOnLightWarningMinorHover = other.textOnLightWarningMinorHover
-    backgroundDarkPrimary = other.backgroundDarkPrimary
-    dataDefaultYellowMinor = other.dataDefaultYellowMinor
-    dataOnDarkYellow = other.dataOnDarkYellow
-    outlineDefaultAccent = other.outlineDefaultAccent
     outlineDefaultAccentActive = other.outlineDefaultAccentActive
     outlineDefaultNegative = other.outlineDefaultNegative
     outlineDefaultNegativeMinor = other.outlineDefaultNegativeMinor
@@ -14926,47 +13365,110 @@ internal fun PlasmaHomeDsColors.updateColorsFrom(other: PlasmaHomeDsColors) {
     outlineInverseTransparentNegative = other.outlineInverseTransparentNegative
     outlineInverseWarningMinorActive = other.outlineInverseWarningMinorActive
     outlineOnDarkInfoActive = other.outlineOnDarkInfoActive
-    outlineOnDarkSolidDefaultActive = other.outlineOnDarkSolidDefaultActive
     outlineOnDarkTransparentAccent = other.outlineOnDarkTransparentAccent
     outlineOnDarkTransparentInfoActive = other.outlineOnDarkTransparentInfoActive
     outlineOnLightAccentMinor = other.outlineOnLightAccentMinor
-    outlineOnLightSolidDefaultHover = other.outlineOnLightSolidDefaultHover
-    outlineOnLightSolidPrimaryHover = other.outlineOnLightSolidPrimaryHover
-    surfaceDefaultNegativeMinorHover = other.surfaceDefaultNegativeMinorHover
-    surfaceDefaultTransparentSecondaryHover = other.surfaceDefaultTransparentSecondaryHover
-    surfaceInversePromoMinorHover = other.surfaceInversePromoMinorHover
+    dataDefaultYellowMinor = other.dataDefaultYellowMinor
+    dataOnDarkYellow = other.dataOnDarkYellow
+    outlineDefaultAccent = other.outlineDefaultAccent
     surfaceInverseTransparentInfoHover = other.surfaceInverseTransparentInfoHover
-    surfaceOnDarkPromoMinorHover = other.surfaceOnDarkPromoMinorHover
     surfaceOnLightAccentHover = other.surfaceOnLightAccentHover
     textInverseAccentMinorActive = other.textInverseAccentMinorActive
     textInverseNegativeMinorActive = other.textInverseNegativeMinorActive
     textOnDarkInfoMinor = other.textOnDarkInfoMinor
     textOnLightTertiaryActive = other.textOnLightTertiaryActive
+    outlineOnLightSolidPrimaryHover = other.outlineOnLightSolidPrimaryHover
+    surfaceDefaultNegativeMinorHover = other.surfaceDefaultNegativeMinorHover
+    surfaceDefaultTransparentSecondaryHover = other.surfaceDefaultTransparentSecondaryHover
     outlineOnLightSolidTertiaryActive = other.outlineOnLightSolidTertiaryActive
     surfaceDefaultAccentActive = other.surfaceDefaultAccentActive
+    backgroundDarkPrimary = other.backgroundDarkPrimary
     surfaceDefaultSolidDefault = other.surfaceDefaultSolidDefault
-    surfaceInverseInfoMinorActive = other.surfaceInverseInfoMinorActive
-    surfaceInverseTransparentSecondaryActive = other.surfaceInverseTransparentSecondaryActive
     surfaceOnLightNegativeMinorActive = other.surfaceOnLightNegativeMinorActive
     surfaceOnLightSolidCardActive = other.surfaceOnLightSolidCardActive
     surfaceOnLightSolidTertiaryHover = other.surfaceOnLightSolidTertiaryHover
     surfaceOnLightTransparentNegativeActive = other.surfaceOnLightTransparentNegativeActive
     textOnDarkTertiaryActive = other.textOnDarkTertiaryActive
     textOnLightParagraphActive = other.textOnLightParagraphActive
-    textOnLightPromo = other.textOnLightPromo
-    outlineOnLightWarning = other.outlineOnLightWarning
+    surfaceInverseTransparentSecondaryActive = other.surfaceInverseTransparentSecondaryActive
+    surfaceOnDarkAccentMinor = other.surfaceOnDarkAccentMinor
     surfaceDefaultTransparentDeep = other.surfaceDefaultTransparentDeep
     surfaceInverseAccent = other.surfaceInverseAccent
-    surfaceInverseSolidSecondaryActive = other.surfaceInverseSolidSecondaryActive
-    surfaceOnDarkAccent = other.surfaceOnDarkAccent
-    surfaceOnDarkAccentMinor = other.surfaceOnDarkAccentMinor
     surfaceOnDarkSolidTertiaryActive = other.surfaceOnDarkSolidTertiaryActive
     surfaceOnDarkTransparentNegative = other.surfaceOnDarkTransparentNegative
+    surfaceOnDarkTransparentNegativeHover = other.surfaceOnDarkTransparentNegativeHover
     textDefaultNegativeMinor = other.textDefaultNegativeMinor
     textDefaultPositiveMinor = other.textDefaultPositiveMinor
     textInverseInfoMinorHover = other.textInverseInfoMinorHover
     textOnDarkAccentActive = other.textOnDarkAccentActive
-    surfaceOnDarkTransparentNegativeHover = other.surfaceOnDarkTransparentNegativeHover
+    surfaceOnDarkAccent = other.surfaceOnDarkAccent
+    outlineDefaultAccentHover = other.outlineDefaultAccentHover
+    outlineDefaultNegativeActive = other.outlineDefaultNegativeActive
+    outlineDefaultNegativeMinorHover = other.outlineDefaultNegativeMinorHover
+    outlineDefaultPositiveMinor = other.outlineDefaultPositiveMinor
+    outlineDefaultSolidTertiaryActive = other.outlineDefaultSolidTertiaryActive
+    outlineDefaultTransparentPositiveHover = other.outlineDefaultTransparentPositiveHover
+    outlineDefaultTransparentPrimary = other.outlineDefaultTransparentPrimary
+    outlineDefaultTransparentPrimaryActive = other.outlineDefaultTransparentPrimaryActive
+    outlineDefaultTransparentPrimaryHover = other.outlineDefaultTransparentPrimaryHover
+    outlineDefaultTransparentSecondary = other.outlineDefaultTransparentSecondary
+    outlineInverseNegativeMinorActive = other.outlineInverseNegativeMinorActive
+    outlineInverseTransparentNegativeActive = other.outlineInverseTransparentNegativeActive
+    outlineInverseTransparentNegativeHover = other.outlineInverseTransparentNegativeHover
+    outlineInverseTransparentPrimaryActive = other.outlineInverseTransparentPrimaryActive
+    outlineOnDarkInfo = other.outlineOnDarkInfo
+    outlineOnDarkInfoHover = other.outlineOnDarkInfoHover
+    outlineOnDarkSolidDefaultActive = other.outlineOnDarkSolidDefaultActive
+    outlineOnDarkSolidTertiaryActive = other.outlineOnDarkSolidTertiaryActive
+    outlineOnDarkTransparentAccentActive = other.outlineOnDarkTransparentAccentActive
+    outlineOnLightAccentMinorActive = other.outlineOnLightAccentMinorActive
+    outlineOnLightPositiveMinorActive = other.outlineOnLightPositiveMinorActive
+    outlineOnLightSolidDefaultHover = other.outlineOnLightSolidDefaultHover
+    outlineOnLightSolidSecondary = other.outlineOnLightSolidSecondary
+    outlineOnLightTransparentWarningActive = other.outlineOnLightTransparentWarningActive
+    outlineOnLightWarning = other.outlineOnLightWarning
+    outlineOnLightWarningActive = other.outlineOnLightWarningActive
+    surfaceInverseAccentMinorActive = other.surfaceInverseAccentMinorActive
+    surfaceInverseInfoMinorActive = other.surfaceInverseInfoMinorActive
+    surfaceOnDarkAccentActive = other.surfaceOnDarkAccentActive
+    surfaceOnDarkNegativeMinorActive = other.surfaceOnDarkNegativeMinorActive
+    surfaceOnDarkTransparentNegativeActive = other.surfaceOnDarkTransparentNegativeActive
+    textDefaultAccentMinorActive = other.textDefaultAccentMinorActive
+    textDefaultInfoActive = other.textDefaultInfoActive
+    textDefaultInfoMinorActive = other.textDefaultInfoMinorActive
+    textDefaultNegativeMinorActive = other.textDefaultNegativeMinorActive
+    textInverseNegative = other.textInverseNegative
+    textOnDarkAccentHover = other.textOnDarkAccentHover
+    textOnDarkWarningMinorActive = other.textOnDarkWarningMinorActive
+    dataOnDarkYellowMinor = other.dataOnDarkYellowMinor
+    outlineDefaultAccentMinorActive = other.outlineDefaultAccentMinorActive
+    outlineInverseAccentMinorActive = other.outlineInverseAccentMinorActive
+    surfaceInverseTransparentInfoActive = other.surfaceInverseTransparentInfoActive
+    surfaceInverseTransparentNegativeActive = other.surfaceInverseTransparentNegativeActive
+    surfaceDefaultPositive = other.surfaceDefaultPositive
+    surfaceDefaultTransparentNegative = other.surfaceDefaultTransparentNegative
+    surfaceInverseAccentMinor = other.surfaceInverseAccentMinor
+    surfaceInverseSolidSecondaryActive = other.surfaceInverseSolidSecondaryActive
+    surfaceInverseTransparentNegative = other.surfaceInverseTransparentNegative
+    surfaceOnDarkSolidCard = other.surfaceOnDarkSolidCard
+    surfaceOnLightAccentMinor = other.surfaceOnLightAccentMinor
+    surfaceOnLightSolidTertiaryActive = other.surfaceOnLightSolidTertiaryActive
+    textDefaultInfo = other.textDefaultInfo
+    textDefaultInfoMinor = other.textDefaultInfoMinor
+    textOnDarkNegativeMinorActive = other.textOnDarkNegativeMinorActive
+    outlineOnLightWarningMinor = other.outlineOnLightWarningMinor
+    surfaceOnLightTransparentPositive = other.surfaceOnLightTransparentPositive
+    surfaceDefaultTransparentDeepHover = other.surfaceDefaultTransparentDeepHover
+    surfaceOnDarkSolidCardBrightness = other.surfaceOnDarkSolidCardBrightness
+    surfaceOnLightSolidCardBrightness = other.surfaceOnLightSolidCardBrightness
+    surfaceOnLightTransparentNegativeHover = other.surfaceOnLightTransparentNegativeHover
+    textDefaultAccentMinorHover = other.textDefaultAccentMinorHover
+    textDefaultInfoHover = other.textDefaultInfoHover
+    textInverseInfoMinorActive = other.textInverseInfoMinorActive
+    textOnDarkTertiaryHover = other.textOnDarkTertiaryHover
+    textOnLightSecondaryActive = other.textOnLightSecondaryActive
+    dataDefaultYellowTransparent = other.dataDefaultYellowTransparent
+    outlineOnLightAccentMinorHover = other.outlineOnLightAccentMinorHover
 }
 
 private fun MutableMap<String, Color>.add(
@@ -14986,56 +13488,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     overrideColors.invoke(colorOverrideScope)
     val overwrite = colorOverrideScope.overrideMap
     val initial = mutableMapOf<String, Color>()
-    initial.add("outlineOnDarkInfo", LightColorTokens.OutlineOnDarkInfo, overwrite)
-    initial.add(
-        "textDefaultAccentMinorActive",
-        LightColorTokens.TextDefaultAccentMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "textDefaultAccentMinorHover",
-        LightColorTokens.TextDefaultAccentMinorHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentPositiveHover",
-        LightColorTokens.OutlineDefaultTransparentPositiveHover,
-        overwrite,
-    )
-    initial.add("textDefaultInfo", LightColorTokens.TextDefaultInfo, overwrite)
-    initial.add("textDefaultInfoActive", LightColorTokens.TextDefaultInfoActive, overwrite)
-    initial.add("textDefaultInfoHover", LightColorTokens.TextDefaultInfoHover, overwrite)
-    initial.add(
-        "outlineDefaultTransparentPrimary",
-        LightColorTokens.OutlineDefaultTransparentPrimary,
-        overwrite,
-    )
-    initial.add("textDefaultInfoMinor", LightColorTokens.TextDefaultInfoMinor, overwrite)
-    initial.add(
-        "outlineDefaultTransparentPrimaryActive",
-        LightColorTokens.OutlineDefaultTransparentPrimaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentPrimaryHover",
-        LightColorTokens.OutlineDefaultTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSecondary",
-        LightColorTokens.OutlineDefaultTransparentSecondary,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSecondaryActive",
-        LightColorTokens.OutlineDefaultTransparentSecondaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSecondaryHover",
-        LightColorTokens.OutlineDefaultTransparentSecondaryHover,
-        overwrite,
-    )
     initial.add(
         "outlineDefaultTransparentTertiary",
         LightColorTokens.OutlineDefaultTransparentTertiary,
@@ -15099,17 +13551,17 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "textDefaultInfoMinorActive",
-        LightColorTokens.TextDefaultInfoMinorActive,
+        "outlineDefaultTransparentSecondaryActive",
+        LightColorTokens.OutlineDefaultTransparentSecondaryActive,
         overwrite,
     )
-    initial.add("outlineInverseAccentHover", LightColorTokens.OutlineInverseAccentHover, overwrite)
-    initial.add("outlineInverseAccentMinor", LightColorTokens.OutlineInverseAccentMinor, overwrite)
     initial.add(
-        "outlineInverseAccentMinorActive",
-        LightColorTokens.OutlineInverseAccentMinorActive,
+        "outlineDefaultTransparentSecondaryHover",
+        LightColorTokens.OutlineDefaultTransparentSecondaryHover,
         overwrite,
     )
+    initial.add("outlineInverseAccentMinor", LightColorTokens.OutlineInverseAccentMinor, overwrite)
+    initial.add("outlineInverseAccentHover", LightColorTokens.OutlineInverseAccentHover, overwrite)
     initial.add(
         "outlineInverseAccentMinorHover",
         LightColorTokens.OutlineInverseAccentMinorHover,
@@ -15143,31 +13595,9 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.OutlineInverseNegativeHover,
         overwrite,
     )
-    initial.add("backgroundDarkSecondary", LightColorTokens.BackgroundDarkSecondary, overwrite)
-    initial.add("backgroundDarkTertiary", LightColorTokens.BackgroundDarkTertiary, overwrite)
-    initial.add("backgroundDefaultPrimary", LightColorTokens.BackgroundDefaultPrimary, overwrite)
-    initial.add(
-        "backgroundDefaultSecondary",
-        LightColorTokens.BackgroundDefaultSecondary,
-        overwrite,
-    )
-    initial.add("backgroundDefaultTertiary", LightColorTokens.BackgroundDefaultTertiary, overwrite)
     initial.add("backgroundInversePrimary", LightColorTokens.BackgroundInversePrimary, overwrite)
-    initial.add(
-        "backgroundInverseSecondary",
-        LightColorTokens.BackgroundInverseSecondary,
-        overwrite,
-    )
-    initial.add("backgroundInverseTertiary", LightColorTokens.BackgroundInverseTertiary, overwrite)
     initial.add("backgroundLightPrimary", LightColorTokens.BackgroundLightPrimary, overwrite)
-    initial.add("backgroundLightSecondary", LightColorTokens.BackgroundLightSecondary, overwrite)
-    initial.add("backgroundLightTertiary", LightColorTokens.BackgroundLightTertiary, overwrite)
     initial.add("dataDefaultYellow", LightColorTokens.DataDefaultYellow, overwrite)
-    initial.add(
-        "dataDefaultYellowTransparent",
-        LightColorTokens.DataDefaultYellowTransparent,
-        overwrite,
-    )
     initial.add("dataInverseYellow", LightColorTokens.DataInverseYellow, overwrite)
     initial.add("dataInverseYellowMinor", LightColorTokens.DataInverseYellowMinor, overwrite)
     initial.add(
@@ -15175,26 +13605,19 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.DataInverseYellowTransparent,
         overwrite,
     )
-    initial.add("dataOnDarkYellowMinor", LightColorTokens.DataOnDarkYellowMinor, overwrite)
-    initial.add(
-        "dataOnDarkYellowTransparent",
-        LightColorTokens.DataOnDarkYellowTransparent,
-        overwrite,
-    )
-    initial.add("dataOnLightYellow", LightColorTokens.DataOnLightYellow, overwrite)
+    initial.add("backgroundDefaultPrimary", LightColorTokens.BackgroundDefaultPrimary, overwrite)
     initial.add("dataOnLightYellowMinor", LightColorTokens.DataOnLightYellowMinor, overwrite)
     initial.add(
         "dataOnLightYellowTransparent",
         LightColorTokens.DataOnLightYellowTransparent,
         overwrite,
     )
-    initial.add("outlineDefaultAccentHover", LightColorTokens.OutlineDefaultAccentHover, overwrite)
-    initial.add("outlineDefaultAccentMinor", LightColorTokens.OutlineDefaultAccentMinor, overwrite)
     initial.add(
-        "outlineDefaultAccentMinorActive",
-        LightColorTokens.OutlineDefaultAccentMinorActive,
+        "dataOnDarkYellowTransparent",
+        LightColorTokens.DataOnDarkYellowTransparent,
         overwrite,
     )
+    initial.add("dataOnLightYellow", LightColorTokens.DataOnLightYellow, overwrite)
     initial.add(
         "outlineDefaultAccentMinorHover",
         LightColorTokens.OutlineDefaultAccentMinorHover,
@@ -15217,35 +13640,15 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.OutlineDefaultInfoMinorHover,
         overwrite,
     )
-    initial.add(
-        "outlineDefaultNegativeActive",
-        LightColorTokens.OutlineDefaultNegativeActive,
-        overwrite,
-    )
+    initial.add("outlineDefaultAccentMinor", LightColorTokens.OutlineDefaultAccentMinor, overwrite)
     initial.add(
         "outlineDefaultNegativeHover",
         LightColorTokens.OutlineDefaultNegativeHover,
         overwrite,
     )
     initial.add(
-        "outlineDefaultNegativeMinorHover",
-        LightColorTokens.OutlineDefaultNegativeMinorHover,
-        overwrite,
-    )
-    initial.add("outlineDefaultPositive", LightColorTokens.OutlineDefaultPositive, overwrite)
-    initial.add(
-        "outlineDefaultPositiveActive",
-        LightColorTokens.OutlineDefaultPositiveActive,
-        overwrite,
-    )
-    initial.add(
         "outlineDefaultPositiveHover",
         LightColorTokens.OutlineDefaultPositiveHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultPositiveMinor",
-        LightColorTokens.OutlineDefaultPositiveMinor,
         overwrite,
     )
     initial.add(
@@ -15256,20 +13659,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "outlineDefaultPositiveMinorHover",
         LightColorTokens.OutlineDefaultPositiveMinorHover,
-        overwrite,
-    )
-    initial.add("outlineDefaultPromo", LightColorTokens.OutlineDefaultPromo, overwrite)
-    initial.add("outlineDefaultPromoActive", LightColorTokens.OutlineDefaultPromoActive, overwrite)
-    initial.add("outlineDefaultPromoHover", LightColorTokens.OutlineDefaultPromoHover, overwrite)
-    initial.add("outlineDefaultPromoMinor", LightColorTokens.OutlineDefaultPromoMinor, overwrite)
-    initial.add(
-        "outlineDefaultPromoMinorActive",
-        LightColorTokens.OutlineDefaultPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultPromoMinorHover",
-        LightColorTokens.OutlineDefaultPromoMinorHover,
         overwrite,
     )
     initial.add(
@@ -15320,11 +13709,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "outlineDefaultSolidTertiary",
         LightColorTokens.OutlineDefaultSolidTertiary,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultSolidTertiaryActive",
-        LightColorTokens.OutlineDefaultSolidTertiaryActive,
         overwrite,
     )
     initial.add(
@@ -15387,17 +13771,12 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.OutlineDefaultTransparentPositiveActive,
         overwrite,
     )
+    initial.add("outlineDefaultPositive", LightColorTokens.OutlineDefaultPositive, overwrite)
     initial.add(
-        "outlineInverseNegativeMinorActive",
-        LightColorTokens.OutlineInverseNegativeMinorActive,
+        "outlineDefaultPositiveActive",
+        LightColorTokens.OutlineDefaultPositiveActive,
         overwrite,
     )
-    initial.add(
-        "outlineInverseNegativeMinorHover",
-        LightColorTokens.OutlineInverseNegativeMinorHover,
-        overwrite,
-    )
-    initial.add("outlineInversePositive", LightColorTokens.OutlineInversePositive, overwrite)
     initial.add(
         "outlineInversePositiveActive",
         LightColorTokens.OutlineInversePositiveActive,
@@ -15416,20 +13795,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "outlineInversePositiveMinorHover",
         LightColorTokens.OutlineInversePositiveMinorHover,
-        overwrite,
-    )
-    initial.add("outlineInversePromo", LightColorTokens.OutlineInversePromo, overwrite)
-    initial.add("outlineInversePromoActive", LightColorTokens.OutlineInversePromoActive, overwrite)
-    initial.add("outlineInversePromoHover", LightColorTokens.OutlineInversePromoHover, overwrite)
-    initial.add("outlineInversePromoMinor", LightColorTokens.OutlineInversePromoMinor, overwrite)
-    initial.add(
-        "outlineInversePromoMinorActive",
-        LightColorTokens.OutlineInversePromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoMinorHover",
-        LightColorTokens.OutlineInversePromoMinorHover,
         overwrite,
     )
     initial.add(
@@ -15523,20 +13888,11 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentNegativeActive",
-        LightColorTokens.OutlineInverseTransparentNegativeActive,
+        "outlineInverseNegativeMinorHover",
+        LightColorTokens.OutlineInverseNegativeMinorHover,
         overwrite,
     )
-    initial.add(
-        "outlineInverseTransparentNegativeHover",
-        LightColorTokens.OutlineInverseTransparentNegativeHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentPositive",
-        LightColorTokens.OutlineInverseTransparentPositive,
-        overwrite,
-    )
+    initial.add("outlineInversePositive", LightColorTokens.OutlineInversePositive, overwrite)
     initial.add(
         "outlineInverseTransparentPositiveActive",
         LightColorTokens.OutlineInverseTransparentPositiveActive,
@@ -15550,11 +13906,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "outlineInverseTransparentPrimary",
         LightColorTokens.OutlineInverseTransparentPrimary,
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentPrimaryActive",
-        LightColorTokens.OutlineInverseTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
@@ -15645,11 +13996,9 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add("outlineOnDarkClear", LightColorTokens.OutlineOnDarkClear, overwrite)
     initial.add("outlineOnDarkClearActive", LightColorTokens.OutlineOnDarkClearActive, overwrite)
     initial.add("outlineOnDarkClearHover", LightColorTokens.OutlineOnDarkClearHover, overwrite)
-    initial.add("outlineOnDarkInfoHover", LightColorTokens.OutlineOnDarkInfoHover, overwrite)
-    initial.add("outlineOnDarkInfoMinor", LightColorTokens.OutlineOnDarkInfoMinor, overwrite)
     initial.add(
-        "outlineOnDarkInfoMinorActive",
-        LightColorTokens.OutlineOnDarkInfoMinorActive,
+        "outlineInverseTransparentPositive",
+        LightColorTokens.OutlineInverseTransparentPositive,
         overwrite,
     )
     initial.add(
@@ -15709,20 +14058,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.OutlineOnDarkPositiveMinorHover,
         overwrite,
     )
-    initial.add("outlineOnDarkPromo", LightColorTokens.OutlineOnDarkPromo, overwrite)
-    initial.add("outlineOnDarkPromoActive", LightColorTokens.OutlineOnDarkPromoActive, overwrite)
-    initial.add("outlineOnDarkPromoHover", LightColorTokens.OutlineOnDarkPromoHover, overwrite)
-    initial.add("outlineOnDarkPromoMinor", LightColorTokens.OutlineOnDarkPromoMinor, overwrite)
-    initial.add(
-        "outlineOnDarkPromoMinorActive",
-        LightColorTokens.OutlineOnDarkPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorHover",
-        LightColorTokens.OutlineOnDarkPromoMinorHover,
-        overwrite,
-    )
     initial.add("outlineOnDarkSolidDefault", LightColorTokens.OutlineOnDarkSolidDefault, overwrite)
     initial.add(
         "outlineOnDarkSolidDefaultHover",
@@ -15761,28 +14096,14 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "outlineOnDarkSolidTertiaryActive",
-        LightColorTokens.OutlineOnDarkSolidTertiaryActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnDarkSolidTertiaryHover",
         LightColorTokens.OutlineOnDarkSolidTertiaryHover,
         overwrite,
     )
+    initial.add("outlineOnDarkInfoMinor", LightColorTokens.OutlineOnDarkInfoMinor, overwrite)
     initial.add(
-        "outlineOnDarkTransparentAccentActive",
-        LightColorTokens.OutlineOnDarkTransparentAccentActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentAccentHover",
-        LightColorTokens.OutlineOnDarkTransparentAccentHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentInfo",
-        LightColorTokens.OutlineOnDarkTransparentInfo,
+        "outlineOnDarkInfoMinorActive",
+        LightColorTokens.OutlineOnDarkInfoMinorActive,
         overwrite,
     )
     initial.add(
@@ -15906,16 +14227,15 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     )
     initial.add("outlineOnLightAccentHover", LightColorTokens.OutlineOnLightAccentHover, overwrite)
     initial.add(
-        "outlineOnLightAccentMinorActive",
-        LightColorTokens.OutlineOnLightAccentMinorActive,
+        "outlineOnDarkTransparentAccentHover",
+        LightColorTokens.OutlineOnDarkTransparentAccentHover,
         overwrite,
     )
     initial.add(
-        "outlineOnLightAccentMinorHover",
-        LightColorTokens.OutlineOnLightAccentMinorHover,
+        "outlineOnDarkTransparentInfo",
+        LightColorTokens.OutlineOnDarkTransparentInfo,
         overwrite,
     )
-    initial.add("outlineOnLightClear", LightColorTokens.OutlineOnLightClear, overwrite)
     initial.add("outlineOnLightClearActive", LightColorTokens.OutlineOnLightClearActive, overwrite)
     initial.add("outlineOnLightClearHover", LightColorTokens.OutlineOnLightClearHover, overwrite)
     initial.add("outlineOnLightInfo", LightColorTokens.OutlineOnLightInfo, overwrite)
@@ -15975,27 +14295,8 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "outlineOnLightPositiveMinorActive",
-        LightColorTokens.OutlineOnLightPositiveMinorActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightPositiveMinorHover",
         LightColorTokens.OutlineOnLightPositiveMinorHover,
-        overwrite,
-    )
-    initial.add("outlineOnLightPromo", LightColorTokens.OutlineOnLightPromo, overwrite)
-    initial.add("outlineOnLightPromoActive", LightColorTokens.OutlineOnLightPromoActive, overwrite)
-    initial.add("outlineOnLightPromoHover", LightColorTokens.OutlineOnLightPromoHover, overwrite)
-    initial.add("outlineOnLightPromoMinor", LightColorTokens.OutlineOnLightPromoMinor, overwrite)
-    initial.add(
-        "outlineOnLightPromoMinorActive",
-        LightColorTokens.OutlineOnLightPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorHover",
-        LightColorTokens.OutlineOnLightPromoMinorHover,
         overwrite,
     )
     initial.add(
@@ -16018,21 +14319,7 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.OutlineOnLightSolidPrimaryActive,
         overwrite,
     )
-    initial.add(
-        "outlineOnLightSolidSecondary",
-        LightColorTokens.OutlineOnLightSolidSecondary,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidSecondaryActive",
-        LightColorTokens.OutlineOnLightSolidSecondaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidSecondaryHover",
-        LightColorTokens.OutlineOnLightSolidSecondaryHover,
-        overwrite,
-    )
+    initial.add("outlineOnLightClear", LightColorTokens.OutlineOnLightClear, overwrite)
     initial.add(
         "outlineOnLightSolidTertiary",
         LightColorTokens.OutlineOnLightSolidTertiary,
@@ -16154,29 +14441,19 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "outlineOnLightTransparentWarningActive",
-        LightColorTokens.OutlineOnLightTransparentWarningActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightTransparentWarningHover",
         LightColorTokens.OutlineOnLightTransparentWarningHover,
         overwrite,
     )
     initial.add("textDefaultInfoMinorHover", LightColorTokens.TextDefaultInfoMinorHover, overwrite)
     initial.add(
-        "outlineOnLightWarningActive",
-        LightColorTokens.OutlineOnLightWarningActive,
+        "outlineOnLightSolidSecondaryActive",
+        LightColorTokens.OutlineOnLightSolidSecondaryActive,
         overwrite,
     )
     initial.add(
-        "outlineOnLightWarningHover",
-        LightColorTokens.OutlineOnLightWarningHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightWarningMinor",
-        LightColorTokens.OutlineOnLightWarningMinor,
+        "outlineOnLightSolidSecondaryHover",
+        LightColorTokens.OutlineOnLightSolidSecondaryHover,
         overwrite,
     )
     initial.add(
@@ -16252,15 +14529,9 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceDefaultNegativeMinorActive,
         overwrite,
     )
-    initial.add("surfaceDefaultPositive", LightColorTokens.SurfaceDefaultPositive, overwrite)
     initial.add(
-        "surfaceDefaultPositiveActive",
-        LightColorTokens.SurfaceDefaultPositiveActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultPositiveHover",
-        LightColorTokens.SurfaceDefaultPositiveHover,
+        "outlineOnLightWarningHover",
+        LightColorTokens.OutlineOnLightWarningHover,
         overwrite,
     )
     initial.add(
@@ -16276,20 +14547,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "surfaceDefaultPositiveMinorHover",
         LightColorTokens.SurfaceDefaultPositiveMinorHover,
-        overwrite,
-    )
-    initial.add("surfaceDefaultPromo", LightColorTokens.SurfaceDefaultPromo, overwrite)
-    initial.add("surfaceDefaultPromoActive", LightColorTokens.SurfaceDefaultPromoActive, overwrite)
-    initial.add("surfaceDefaultPromoHover", LightColorTokens.SurfaceDefaultPromoHover, overwrite)
-    initial.add("surfaceDefaultPromoMinor", LightColorTokens.SurfaceDefaultPromoMinor, overwrite)
-    initial.add(
-        "surfaceDefaultPromoMinorActive",
-        LightColorTokens.SurfaceDefaultPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultPromoMinorHover",
-        LightColorTokens.SurfaceDefaultPromoMinorHover,
         overwrite,
     )
     initial.add("surfaceDefaultSolidCard", LightColorTokens.SurfaceDefaultSolidCard, overwrite)
@@ -16404,18 +14661,13 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentDeepActive",
-        LightColorTokens.SurfaceDefaultTransparentDeepActive,
+        "surfaceDefaultPositiveActive",
+        LightColorTokens.SurfaceDefaultPositiveActive,
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentDeepHover",
-        LightColorTokens.SurfaceDefaultTransparentDeepHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentInfo",
-        LightColorTokens.SurfaceDefaultTransparentInfo,
+        "surfaceDefaultPositiveHover",
+        LightColorTokens.SurfaceDefaultPositiveHover,
         overwrite,
     )
     initial.add(
@@ -16426,11 +14678,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "surfaceDefaultTransparentInfoHover",
         LightColorTokens.SurfaceDefaultTransparentInfoHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentNegative",
-        LightColorTokens.SurfaceDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -16471,21 +14718,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "surfaceDefaultTransparentPrimaryHover",
         LightColorTokens.SurfaceDefaultTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentPromo",
-        LightColorTokens.SurfaceDefaultTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentPromoActive",
-        LightColorTokens.SurfaceDefaultTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentPromoHover",
-        LightColorTokens.SurfaceDefaultTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -16555,15 +14787,13 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "surfaceInverseAccentActive",
-        LightColorTokens.SurfaceInverseAccentActive,
+        "surfaceDefaultTransparentDeepActive",
+        LightColorTokens.SurfaceDefaultTransparentDeepActive,
         overwrite,
     )
-    initial.add("surfaceInverseAccentHover", LightColorTokens.SurfaceInverseAccentHover, overwrite)
-    initial.add("surfaceInverseAccentMinor", LightColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
-        "surfaceInverseAccentMinorActive",
-        LightColorTokens.SurfaceInverseAccentMinorActive,
+        "surfaceDefaultTransparentInfo",
+        LightColorTokens.SurfaceDefaultTransparentInfo,
         overwrite,
     )
     initial.add(
@@ -16635,26 +14865,12 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceInversePositiveMinorHover,
         overwrite,
     )
-    initial.add("surfaceInversePromo", LightColorTokens.SurfaceInversePromo, overwrite)
-    initial.add("surfaceInversePromoActive", LightColorTokens.SurfaceInversePromoActive, overwrite)
-    initial.add("surfaceInversePromoHover", LightColorTokens.SurfaceInversePromoHover, overwrite)
-    initial.add("surfaceInversePromoMinor", LightColorTokens.SurfaceInversePromoMinor, overwrite)
     initial.add(
-        "surfaceInversePromoMinorActive",
-        LightColorTokens.SurfaceInversePromoMinorActive,
+        "surfaceInverseAccentActive",
+        LightColorTokens.SurfaceInverseAccentActive,
         overwrite,
     )
-    initial.add("surfaceInverseSolidCard", LightColorTokens.SurfaceInverseSolidCard, overwrite)
-    initial.add(
-        "surfaceInverseSolidCardActive",
-        LightColorTokens.SurfaceInverseSolidCardActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSolidCardBrightness",
-        LightColorTokens.SurfaceInverseSolidCardBrightness,
-        overwrite,
-    )
+    initial.add("surfaceInverseAccentHover", LightColorTokens.SurfaceInverseAccentHover, overwrite)
     initial.add(
         "surfaceInverseSolidCardHover",
         LightColorTokens.SurfaceInverseSolidCardHover,
@@ -16775,25 +14991,16 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceInverseTransparentInfo,
         overwrite,
     )
-    initial.add(
-        "surfaceInverseTransparentInfoActive",
-        LightColorTokens.SurfaceInverseTransparentInfoActive,
-        overwrite,
-    )
     initial.add("textDefaultNegative", LightColorTokens.TextDefaultNegative, overwrite)
+    initial.add("surfaceInverseSolidCard", LightColorTokens.SurfaceInverseSolidCard, overwrite)
     initial.add(
-        "surfaceInverseTransparentNegative",
-        LightColorTokens.SurfaceInverseTransparentNegative,
+        "surfaceInverseSolidCardActive",
+        LightColorTokens.SurfaceInverseSolidCardActive,
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentNegativeActive",
-        LightColorTokens.SurfaceInverseTransparentNegativeActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentNegativeHover",
-        LightColorTokens.SurfaceInverseTransparentNegativeHover,
+        "surfaceInverseSolidCardBrightness",
+        LightColorTokens.SurfaceInverseSolidCardBrightness,
         overwrite,
     )
     initial.add(
@@ -16824,21 +15031,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "surfaceInverseTransparentPrimaryHover",
         LightColorTokens.SurfaceInverseTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentPromo",
-        LightColorTokens.SurfaceInverseTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentPromoActive",
-        LightColorTokens.SurfaceInverseTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentPromoHover",
-        LightColorTokens.SurfaceInverseTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -16908,11 +15100,9 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add("textDefaultNegativeActive", LightColorTokens.TextDefaultNegativeActive, overwrite)
-    initial.add("surfaceOnDarkAccentActive", LightColorTokens.SurfaceOnDarkAccentActive, overwrite)
-    initial.add("surfaceOnDarkAccentHover", LightColorTokens.SurfaceOnDarkAccentHover, overwrite)
     initial.add(
-        "surfaceOnDarkAccentMinorActive",
-        LightColorTokens.SurfaceOnDarkAccentMinorActive,
+        "surfaceInverseTransparentNegativeHover",
+        LightColorTokens.SurfaceInverseTransparentNegativeHover,
         overwrite,
     )
     initial.add(
@@ -16954,11 +15144,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkNegativeMinorActive",
-        LightColorTokens.SurfaceOnDarkNegativeMinorActive,
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkNegativeMinorHover",
         LightColorTokens.SurfaceOnDarkNegativeMinorHover,
         overwrite,
@@ -16989,25 +15174,11 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceOnDarkPositiveMinorHover,
         overwrite,
     )
-    initial.add("surfaceOnDarkPromo", LightColorTokens.SurfaceOnDarkPromo, overwrite)
-    initial.add("surfaceOnDarkPromoActive", LightColorTokens.SurfaceOnDarkPromoActive, overwrite)
-    initial.add("surfaceOnDarkPromoHover", LightColorTokens.SurfaceOnDarkPromoHover, overwrite)
-    initial.add("surfaceOnDarkPromoMinor", LightColorTokens.SurfaceOnDarkPromoMinor, overwrite)
-    initial.add(
-        "surfaceOnDarkPromoMinorActive",
-        LightColorTokens.SurfaceOnDarkPromoMinorActive,
-        overwrite,
-    )
     initial.add("textDefaultNegativeHover", LightColorTokens.TextDefaultNegativeHover, overwrite)
-    initial.add("surfaceOnDarkSolidCard", LightColorTokens.SurfaceOnDarkSolidCard, overwrite)
+    initial.add("surfaceOnDarkAccentHover", LightColorTokens.SurfaceOnDarkAccentHover, overwrite)
     initial.add(
-        "surfaceOnDarkSolidCardActive",
-        LightColorTokens.SurfaceOnDarkSolidCardActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSolidCardBrightness",
-        LightColorTokens.SurfaceOnDarkSolidCardBrightness,
+        "surfaceOnDarkAccentMinorActive",
+        LightColorTokens.SurfaceOnDarkAccentMinorActive,
         overwrite,
     )
     initial.add(
@@ -17133,18 +15304,8 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentNegativeActive",
-        LightColorTokens.SurfaceOnDarkTransparentNegativeActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPositive",
-        LightColorTokens.SurfaceOnDarkTransparentPositive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPositiveActive",
-        LightColorTokens.SurfaceOnDarkTransparentPositiveActive,
+        "surfaceOnDarkSolidCardActive",
+        LightColorTokens.SurfaceOnDarkSolidCardActive,
         overwrite,
     )
     initial.add(
@@ -17165,21 +15326,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "surfaceOnDarkTransparentPrimaryHover",
         LightColorTokens.SurfaceOnDarkTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPromo",
-        LightColorTokens.SurfaceOnDarkTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPromoActive",
-        LightColorTokens.SurfaceOnDarkTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPromoHover",
-        LightColorTokens.SurfaceOnDarkTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -17251,15 +15397,14 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceOnLightAccentActive,
         overwrite,
     )
-    initial.add("surfaceOnLightAccentMinor", LightColorTokens.SurfaceOnLightAccentMinor, overwrite)
     initial.add(
-        "surfaceOnLightAccentMinorActive",
-        LightColorTokens.SurfaceOnLightAccentMinorActive,
+        "surfaceOnDarkTransparentPositive",
+        LightColorTokens.SurfaceOnDarkTransparentPositive,
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentMinorHover",
-        LightColorTokens.SurfaceOnLightAccentMinorHover,
+        "surfaceOnDarkTransparentPositiveActive",
+        LightColorTokens.SurfaceOnDarkTransparentPositiveActive,
         overwrite,
     )
     initial.add("surfaceOnLightClear", LightColorTokens.SurfaceOnLightClear, overwrite)
@@ -17326,34 +15471,15 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceOnLightPositiveMinorHover,
         overwrite,
     )
-    initial.add("surfaceOnLightPromo", LightColorTokens.SurfaceOnLightPromo, overwrite)
-    initial.add("surfaceOnLightPromoActive", LightColorTokens.SurfaceOnLightPromoActive, overwrite)
-    initial.add("surfaceOnLightPromoHover", LightColorTokens.SurfaceOnLightPromoHover, overwrite)
-    initial.add("surfaceOnLightPromoMinor", LightColorTokens.SurfaceOnLightPromoMinor, overwrite)
-    initial.add(
-        "surfaceOnLightPromoMinorActive",
-        LightColorTokens.SurfaceOnLightPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightPromoMinorHover",
-        LightColorTokens.SurfaceOnLightPromoMinorHover,
-        overwrite,
-    )
     initial.add("surfaceOnLightSolidCard", LightColorTokens.SurfaceOnLightSolidCard, overwrite)
     initial.add(
-        "surfaceOnLightSolidCardBrightness",
-        LightColorTokens.SurfaceOnLightSolidCardBrightness,
+        "surfaceOnLightAccentMinorActive",
+        LightColorTokens.SurfaceOnLightAccentMinorActive,
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSolidCardHover",
-        LightColorTokens.SurfaceOnLightSolidCardHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSolidDefault",
-        LightColorTokens.SurfaceOnLightSolidDefault,
+        "surfaceOnLightAccentMinorHover",
+        LightColorTokens.SurfaceOnLightAccentMinorHover,
         overwrite,
     )
     initial.add(
@@ -17404,11 +15530,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "surfaceOnLightSolidTertiary",
         LightColorTokens.SurfaceOnLightSolidTertiary,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSolidTertiaryActive",
-        LightColorTokens.SurfaceOnLightSolidTertiaryActive,
         overwrite,
     )
     initial.add(
@@ -17482,18 +15603,13 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add(
-        "surfaceOnLightTransparentNegativeHover",
-        LightColorTokens.SurfaceOnLightTransparentNegativeHover,
+        "surfaceOnLightSolidCardHover",
+        LightColorTokens.SurfaceOnLightSolidCardHover,
         overwrite,
     )
     initial.add(
-        "surfaceOnLightTransparentPositive",
-        LightColorTokens.SurfaceOnLightTransparentPositive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPositiveActive",
-        LightColorTokens.SurfaceOnLightTransparentPositiveActive,
+        "surfaceOnLightSolidDefault",
+        LightColorTokens.SurfaceOnLightSolidDefault,
         overwrite,
     )
     initial.add(
@@ -17514,21 +15630,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add(
         "surfaceOnLightTransparentPrimaryHover",
         LightColorTokens.SurfaceOnLightTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromo",
-        LightColorTokens.SurfaceOnLightTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoActive",
-        LightColorTokens.SurfaceOnLightTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoHover",
-        LightColorTokens.SurfaceOnLightTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -17607,16 +15708,10 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add("textDefaultAccentHover", LightColorTokens.TextDefaultAccentHover, overwrite)
     initial.add("textDefaultAccentMinor", LightColorTokens.TextDefaultAccentMinor, overwrite)
     initial.add(
-        "textDefaultNegativeMinorActive",
-        LightColorTokens.TextDefaultNegativeMinorActive,
+        "surfaceOnLightTransparentPositiveActive",
+        LightColorTokens.SurfaceOnLightTransparentPositiveActive,
         overwrite,
     )
-    initial.add(
-        "textDefaultNegativeMinorHover",
-        LightColorTokens.TextDefaultNegativeMinorHover,
-        overwrite,
-    )
-    initial.add("textDefaultParagraph", LightColorTokens.TextDefaultParagraph, overwrite)
     initial.add(
         "textDefaultParagraphActive",
         LightColorTokens.TextDefaultParagraphActive,
@@ -17644,20 +15739,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add("textDefaultPrimaryHover", LightColorTokens.TextDefaultPrimaryHover, overwrite)
-    initial.add("textDefaultPromo", LightColorTokens.TextDefaultPromo, overwrite)
-    initial.add("textDefaultPromoActive", LightColorTokens.TextDefaultPromoActive, overwrite)
-    initial.add("textDefaultPromoHover", LightColorTokens.TextDefaultPromoHover, overwrite)
-    initial.add("textDefaultPromoMinor", LightColorTokens.TextDefaultPromoMinor, overwrite)
-    initial.add(
-        "textDefaultPromoMinorActive",
-        LightColorTokens.TextDefaultPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "textDefaultPromoMinorHover",
-        LightColorTokens.TextDefaultPromoMinorHover,
-        overwrite,
-    )
     initial.add("textDefaultSecondary", LightColorTokens.TextDefaultSecondary, overwrite)
     initial.add(
         "textDefaultSecondaryActive",
@@ -17696,13 +15777,11 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add("textInverseInfoHover", LightColorTokens.TextInverseInfoHover, overwrite)
     initial.add("textInverseInfoMinor", LightColorTokens.TextInverseInfoMinor, overwrite)
     initial.add(
-        "textInverseInfoMinorActive",
-        LightColorTokens.TextInverseInfoMinorActive,
+        "textDefaultNegativeMinorHover",
+        LightColorTokens.TextDefaultNegativeMinorHover,
         overwrite,
     )
-    initial.add("textInverseNegative", LightColorTokens.TextInverseNegative, overwrite)
-    initial.add("textInverseNegativeActive", LightColorTokens.TextInverseNegativeActive, overwrite)
-    initial.add("textInverseNegativeHover", LightColorTokens.TextInverseNegativeHover, overwrite)
+    initial.add("textDefaultParagraph", LightColorTokens.TextDefaultParagraph, overwrite)
     initial.add("textInverseNegativeMinor", LightColorTokens.TextInverseNegativeMinor, overwrite)
     initial.add(
         "textInverseNegativeMinorHover",
@@ -17738,20 +15817,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add("textInversePrimaryHover", LightColorTokens.TextInversePrimaryHover, overwrite)
-    initial.add("textInversePromo", LightColorTokens.TextInversePromo, overwrite)
-    initial.add("textInversePromoActive", LightColorTokens.TextInversePromoActive, overwrite)
-    initial.add("textInversePromoHover", LightColorTokens.TextInversePromoHover, overwrite)
-    initial.add("textInversePromoMinor", LightColorTokens.TextInversePromoMinor, overwrite)
-    initial.add(
-        "textInversePromoMinorActive",
-        LightColorTokens.TextInversePromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "textInversePromoMinorHover",
-        LightColorTokens.TextInversePromoMinorHover,
-        overwrite,
-    )
     initial.add("textInverseSecondary", LightColorTokens.TextInverseSecondary, overwrite)
     initial.add(
         "textInverseSecondaryActive",
@@ -17777,13 +15842,8 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add("textOnDarkAccent", LightColorTokens.TextOnDarkAccent, overwrite)
-    initial.add("textOnDarkAccentHover", LightColorTokens.TextOnDarkAccentHover, overwrite)
-    initial.add("textOnDarkAccentMinor", LightColorTokens.TextOnDarkAccentMinor, overwrite)
-    initial.add(
-        "textOnDarkAccentMinorActive",
-        LightColorTokens.TextOnDarkAccentMinorActive,
-        overwrite,
-    )
+    initial.add("textInverseNegativeActive", LightColorTokens.TextInverseNegativeActive, overwrite)
+    initial.add("textInverseNegativeHover", LightColorTokens.TextInverseNegativeHover, overwrite)
     initial.add(
         "textOnDarkAccentMinorHover",
         LightColorTokens.TextOnDarkAccentMinorHover,
@@ -17798,11 +15858,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add("textOnDarkNegativeActive", LightColorTokens.TextOnDarkNegativeActive, overwrite)
     initial.add("textOnDarkNegativeHover", LightColorTokens.TextOnDarkNegativeHover, overwrite)
     initial.add("textOnDarkNegativeMinor", LightColorTokens.TextOnDarkNegativeMinor, overwrite)
-    initial.add(
-        "textOnDarkNegativeMinorActive",
-        LightColorTokens.TextOnDarkNegativeMinorActive,
-        overwrite,
-    )
     initial.add(
         "textOnDarkNegativeMinorHover",
         LightColorTokens.TextOnDarkNegativeMinorHover,
@@ -17833,30 +15888,18 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add("textOnDarkPrimaryHover", LightColorTokens.TextOnDarkPrimaryHover, overwrite)
-    initial.add("textOnDarkPromo", LightColorTokens.TextOnDarkPromo, overwrite)
-    initial.add("textOnDarkPromoActive", LightColorTokens.TextOnDarkPromoActive, overwrite)
-    initial.add("textOnDarkPromoHover", LightColorTokens.TextOnDarkPromoHover, overwrite)
-    initial.add("textOnDarkPromoMinor", LightColorTokens.TextOnDarkPromoMinor, overwrite)
-    initial.add(
-        "textOnDarkPromoMinorActive",
-        LightColorTokens.TextOnDarkPromoMinorActive,
-        overwrite,
-    )
-    initial.add("textOnDarkPromoMinorHover", LightColorTokens.TextOnDarkPromoMinorHover, overwrite)
     initial.add("textOnDarkSecondary", LightColorTokens.TextOnDarkSecondary, overwrite)
     initial.add("textOnDarkSecondaryActive", LightColorTokens.TextOnDarkSecondaryActive, overwrite)
     initial.add("textOnDarkSecondaryHover", LightColorTokens.TextOnDarkSecondaryHover, overwrite)
     initial.add("textOnDarkTertiary", LightColorTokens.TextOnDarkTertiary, overwrite)
-    initial.add("textOnDarkTertiaryHover", LightColorTokens.TextOnDarkTertiaryHover, overwrite)
-    initial.add("textOnDarkWarning", LightColorTokens.TextOnDarkWarning, overwrite)
-    initial.add("textOnDarkWarningActive", LightColorTokens.TextOnDarkWarningActive, overwrite)
-    initial.add("textOnDarkWarningHover", LightColorTokens.TextOnDarkWarningHover, overwrite)
-    initial.add("textOnDarkWarningMinor", LightColorTokens.TextOnDarkWarningMinor, overwrite)
+    initial.add("textOnDarkAccentMinor", LightColorTokens.TextOnDarkAccentMinor, overwrite)
     initial.add(
-        "textOnDarkWarningMinorActive",
-        LightColorTokens.TextOnDarkWarningMinorActive,
+        "textOnDarkAccentMinorActive",
+        LightColorTokens.TextOnDarkAccentMinorActive,
         overwrite,
     )
+    initial.add("textOnDarkWarningHover", LightColorTokens.TextOnDarkWarningHover, overwrite)
+    initial.add("textOnDarkWarningMinor", LightColorTokens.TextOnDarkWarningMinor, overwrite)
     initial.add(
         "textOnDarkWarningMinorHover",
         LightColorTokens.TextOnDarkWarningMinorHover,
@@ -17924,25 +15967,9 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add("textOnLightPrimaryHover", LightColorTokens.TextOnLightPrimaryHover, overwrite)
-    initial.add("textOnLightPromoActive", LightColorTokens.TextOnLightPromoActive, overwrite)
-    initial.add("textOnLightPromoHover", LightColorTokens.TextOnLightPromoHover, overwrite)
-    initial.add("textOnLightPromoMinor", LightColorTokens.TextOnLightPromoMinor, overwrite)
-    initial.add(
-        "textOnLightPromoMinorActive",
-        LightColorTokens.TextOnLightPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "textOnLightPromoMinorHover",
-        LightColorTokens.TextOnLightPromoMinorHover,
-        overwrite,
-    )
+    initial.add("textOnDarkWarning", LightColorTokens.TextOnDarkWarning, overwrite)
+    initial.add("textOnDarkWarningActive", LightColorTokens.TextOnDarkWarningActive, overwrite)
     initial.add("textOnLightSecondary", LightColorTokens.TextOnLightSecondary, overwrite)
-    initial.add(
-        "textOnLightSecondaryActive",
-        LightColorTokens.TextOnLightSecondaryActive,
-        overwrite,
-    )
     initial.add("textOnLightSecondaryHover", LightColorTokens.TextOnLightSecondaryHover, overwrite)
     initial.add("textOnLightTertiary", LightColorTokens.TextOnLightTertiary, overwrite)
     initial.add("textOnLightTertiaryHover", LightColorTokens.TextOnLightTertiaryHover, overwrite)
@@ -17960,10 +15987,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.TextOnLightWarningMinorHover,
         overwrite,
     )
-    initial.add("backgroundDarkPrimary", LightColorTokens.BackgroundDarkPrimary, overwrite)
-    initial.add("dataDefaultYellowMinor", LightColorTokens.DataDefaultYellowMinor, overwrite)
-    initial.add("dataOnDarkYellow", LightColorTokens.DataOnDarkYellow, overwrite)
-    initial.add("outlineDefaultAccent", LightColorTokens.OutlineDefaultAccent, overwrite)
     initial.add(
         "outlineDefaultAccentActive",
         LightColorTokens.OutlineDefaultAccentActive,
@@ -18002,11 +16025,6 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     )
     initial.add("outlineOnDarkInfoActive", LightColorTokens.OutlineOnDarkInfoActive, overwrite)
     initial.add(
-        "outlineOnDarkSolidDefaultActive",
-        LightColorTokens.OutlineOnDarkSolidDefaultActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnDarkTransparentAccent",
         LightColorTokens.OutlineOnDarkTransparentAccent,
         overwrite,
@@ -18017,39 +16035,12 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         overwrite,
     )
     initial.add("outlineOnLightAccentMinor", LightColorTokens.OutlineOnLightAccentMinor, overwrite)
-    initial.add(
-        "outlineOnLightSolidDefaultHover",
-        LightColorTokens.OutlineOnLightSolidDefaultHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidPrimaryHover",
-        LightColorTokens.OutlineOnLightSolidPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultNegativeMinorHover",
-        LightColorTokens.SurfaceDefaultNegativeMinorHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentSecondaryHover",
-        LightColorTokens.SurfaceDefaultTransparentSecondaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInversePromoMinorHover",
-        LightColorTokens.SurfaceInversePromoMinorHover,
-        overwrite,
-    )
+    initial.add("dataDefaultYellowMinor", LightColorTokens.DataDefaultYellowMinor, overwrite)
+    initial.add("dataOnDarkYellow", LightColorTokens.DataOnDarkYellow, overwrite)
+    initial.add("outlineDefaultAccent", LightColorTokens.OutlineDefaultAccent, overwrite)
     initial.add(
         "surfaceInverseTransparentInfoHover",
         LightColorTokens.SurfaceInverseTransparentInfoHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkPromoMinorHover",
-        LightColorTokens.SurfaceOnDarkPromoMinorHover,
         overwrite,
     )
     initial.add("surfaceOnLightAccentHover", LightColorTokens.SurfaceOnLightAccentHover, overwrite)
@@ -18066,6 +16057,21 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
     initial.add("textOnDarkInfoMinor", LightColorTokens.TextOnDarkInfoMinor, overwrite)
     initial.add("textOnLightTertiaryActive", LightColorTokens.TextOnLightTertiaryActive, overwrite)
     initial.add(
+        "outlineOnLightSolidPrimaryHover",
+        LightColorTokens.OutlineOnLightSolidPrimaryHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultNegativeMinorHover",
+        LightColorTokens.SurfaceDefaultNegativeMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultTransparentSecondaryHover",
+        LightColorTokens.SurfaceDefaultTransparentSecondaryHover,
+        overwrite,
+    )
+    initial.add(
         "outlineOnLightSolidTertiaryActive",
         LightColorTokens.OutlineOnLightSolidTertiaryActive,
         overwrite,
@@ -18075,19 +16081,10 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceDefaultAccentActive,
         overwrite,
     )
+    initial.add("backgroundDarkPrimary", LightColorTokens.BackgroundDarkPrimary, overwrite)
     initial.add(
         "surfaceDefaultSolidDefault",
         LightColorTokens.SurfaceDefaultSolidDefault,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseInfoMinorActive",
-        LightColorTokens.SurfaceInverseInfoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentSecondaryActive",
-        LightColorTokens.SurfaceInverseTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
@@ -18116,21 +16113,18 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.TextOnLightParagraphActive,
         overwrite,
     )
-    initial.add("textOnLightPromo", LightColorTokens.TextOnLightPromo, overwrite)
-    initial.add("outlineOnLightWarning", LightColorTokens.OutlineOnLightWarning, overwrite)
+    initial.add(
+        "surfaceInverseTransparentSecondaryActive",
+        LightColorTokens.SurfaceInverseTransparentSecondaryActive,
+        overwrite,
+    )
+    initial.add("surfaceOnDarkAccentMinor", LightColorTokens.SurfaceOnDarkAccentMinor, overwrite)
     initial.add(
         "surfaceDefaultTransparentDeep",
         LightColorTokens.SurfaceDefaultTransparentDeep,
         overwrite,
     )
     initial.add("surfaceInverseAccent", LightColorTokens.SurfaceInverseAccent, overwrite)
-    initial.add(
-        "surfaceInverseSolidSecondaryActive",
-        LightColorTokens.SurfaceInverseSolidSecondaryActive,
-        overwrite,
-    )
-    initial.add("surfaceOnDarkAccent", LightColorTokens.SurfaceOnDarkAccent, overwrite)
-    initial.add("surfaceOnDarkAccentMinor", LightColorTokens.SurfaceOnDarkAccentMinor, overwrite)
     initial.add(
         "surfaceOnDarkSolidTertiaryActive",
         LightColorTokens.SurfaceOnDarkSolidTertiaryActive,
@@ -18141,13 +16135,281 @@ public fun lightPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.SurfaceOnDarkTransparentNegative,
         overwrite,
     )
+    initial.add(
+        "surfaceOnDarkTransparentNegativeHover",
+        LightColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        overwrite,
+    )
     initial.add("textDefaultNegativeMinor", LightColorTokens.TextDefaultNegativeMinor, overwrite)
     initial.add("textDefaultPositiveMinor", LightColorTokens.TextDefaultPositiveMinor, overwrite)
     initial.add("textInverseInfoMinorHover", LightColorTokens.TextInverseInfoMinorHover, overwrite)
     initial.add("textOnDarkAccentActive", LightColorTokens.TextOnDarkAccentActive, overwrite)
+    initial.add("surfaceOnDarkAccent", LightColorTokens.SurfaceOnDarkAccent, overwrite)
+    initial.add("outlineDefaultAccentHover", LightColorTokens.OutlineDefaultAccentHover, overwrite)
     initial.add(
-        "surfaceOnDarkTransparentNegativeHover",
-        LightColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        "outlineDefaultNegativeActive",
+        LightColorTokens.OutlineDefaultNegativeActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultNegativeMinorHover",
+        LightColorTokens.OutlineDefaultNegativeMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultPositiveMinor",
+        LightColorTokens.OutlineDefaultPositiveMinor,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidTertiaryActive",
+        LightColorTokens.OutlineDefaultSolidTertiaryActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPositiveHover",
+        LightColorTokens.OutlineDefaultTransparentPositiveHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPrimary",
+        LightColorTokens.OutlineDefaultTransparentPrimary,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPrimaryActive",
+        LightColorTokens.OutlineDefaultTransparentPrimaryActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPrimaryHover",
+        LightColorTokens.OutlineDefaultTransparentPrimaryHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentSecondary",
+        LightColorTokens.OutlineDefaultTransparentSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseNegativeMinorActive",
+        LightColorTokens.OutlineInverseNegativeMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseTransparentNegativeActive",
+        LightColorTokens.OutlineInverseTransparentNegativeActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseTransparentNegativeHover",
+        LightColorTokens.OutlineInverseTransparentNegativeHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseTransparentPrimaryActive",
+        LightColorTokens.OutlineInverseTransparentPrimaryActive,
+        overwrite,
+    )
+    initial.add("outlineOnDarkInfo", LightColorTokens.OutlineOnDarkInfo, overwrite)
+    initial.add("outlineOnDarkInfoHover", LightColorTokens.OutlineOnDarkInfoHover, overwrite)
+    initial.add(
+        "outlineOnDarkSolidDefaultActive",
+        LightColorTokens.OutlineOnDarkSolidDefaultActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkSolidTertiaryActive",
+        LightColorTokens.OutlineOnDarkSolidTertiaryActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkTransparentAccentActive",
+        LightColorTokens.OutlineOnDarkTransparentAccentActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightAccentMinorActive",
+        LightColorTokens.OutlineOnLightAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightPositiveMinorActive",
+        LightColorTokens.OutlineOnLightPositiveMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidDefaultHover",
+        LightColorTokens.OutlineOnLightSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidSecondary",
+        LightColorTokens.OutlineOnLightSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightTransparentWarningActive",
+        LightColorTokens.OutlineOnLightTransparentWarningActive,
+        overwrite,
+    )
+    initial.add("outlineOnLightWarning", LightColorTokens.OutlineOnLightWarning, overwrite)
+    initial.add(
+        "outlineOnLightWarningActive",
+        LightColorTokens.OutlineOnLightWarningActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseAccentMinorActive",
+        LightColorTokens.SurfaceInverseAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseInfoMinorActive",
+        LightColorTokens.SurfaceInverseInfoMinorActive,
+        overwrite,
+    )
+    initial.add("surfaceOnDarkAccentActive", LightColorTokens.SurfaceOnDarkAccentActive, overwrite)
+    initial.add(
+        "surfaceOnDarkNegativeMinorActive",
+        LightColorTokens.SurfaceOnDarkNegativeMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentNegativeActive",
+        LightColorTokens.SurfaceOnDarkTransparentNegativeActive,
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentMinorActive",
+        LightColorTokens.TextDefaultAccentMinorActive,
+        overwrite,
+    )
+    initial.add("textDefaultInfoActive", LightColorTokens.TextDefaultInfoActive, overwrite)
+    initial.add(
+        "textDefaultInfoMinorActive",
+        LightColorTokens.TextDefaultInfoMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "textDefaultNegativeMinorActive",
+        LightColorTokens.TextDefaultNegativeMinorActive,
+        overwrite,
+    )
+    initial.add("textInverseNegative", LightColorTokens.TextInverseNegative, overwrite)
+    initial.add("textOnDarkAccentHover", LightColorTokens.TextOnDarkAccentHover, overwrite)
+    initial.add(
+        "textOnDarkWarningMinorActive",
+        LightColorTokens.TextOnDarkWarningMinorActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkYellowMinor", LightColorTokens.DataOnDarkYellowMinor, overwrite)
+    initial.add(
+        "outlineDefaultAccentMinorActive",
+        LightColorTokens.OutlineDefaultAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseAccentMinorActive",
+        LightColorTokens.OutlineInverseAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentInfoActive",
+        LightColorTokens.SurfaceInverseTransparentInfoActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentNegativeActive",
+        LightColorTokens.SurfaceInverseTransparentNegativeActive,
+        overwrite,
+    )
+    initial.add("surfaceDefaultPositive", LightColorTokens.SurfaceDefaultPositive, overwrite)
+    initial.add(
+        "surfaceDefaultTransparentNegative",
+        LightColorTokens.SurfaceDefaultTransparentNegative,
+        overwrite,
+    )
+    initial.add("surfaceInverseAccentMinor", LightColorTokens.SurfaceInverseAccentMinor, overwrite)
+    initial.add(
+        "surfaceInverseSolidSecondaryActive",
+        LightColorTokens.SurfaceInverseSolidSecondaryActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentNegative",
+        LightColorTokens.SurfaceInverseTransparentNegative,
+        overwrite,
+    )
+    initial.add("surfaceOnDarkSolidCard", LightColorTokens.SurfaceOnDarkSolidCard, overwrite)
+    initial.add("surfaceOnLightAccentMinor", LightColorTokens.SurfaceOnLightAccentMinor, overwrite)
+    initial.add(
+        "surfaceOnLightSolidTertiaryActive",
+        LightColorTokens.SurfaceOnLightSolidTertiaryActive,
+        overwrite,
+    )
+    initial.add("textDefaultInfo", LightColorTokens.TextDefaultInfo, overwrite)
+    initial.add("textDefaultInfoMinor", LightColorTokens.TextDefaultInfoMinor, overwrite)
+    initial.add(
+        "textOnDarkNegativeMinorActive",
+        LightColorTokens.TextOnDarkNegativeMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightWarningMinor",
+        LightColorTokens.OutlineOnLightWarningMinor,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightTransparentPositive",
+        LightColorTokens.SurfaceOnLightTransparentPositive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultTransparentDeepHover",
+        LightColorTokens.SurfaceDefaultTransparentDeepHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSolidCardBrightness",
+        LightColorTokens.SurfaceOnDarkSolidCardBrightness,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightSolidCardBrightness",
+        LightColorTokens.SurfaceOnLightSolidCardBrightness,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightTransparentNegativeHover",
+        LightColorTokens.SurfaceOnLightTransparentNegativeHover,
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentMinorHover",
+        LightColorTokens.TextDefaultAccentMinorHover,
+        overwrite,
+    )
+    initial.add("textDefaultInfoHover", LightColorTokens.TextDefaultInfoHover, overwrite)
+    initial.add(
+        "textInverseInfoMinorActive",
+        LightColorTokens.TextInverseInfoMinorActive,
+        overwrite,
+    )
+    initial.add("textOnDarkTertiaryHover", LightColorTokens.TextOnDarkTertiaryHover, overwrite)
+    initial.add(
+        "textOnLightSecondaryActive",
+        LightColorTokens.TextOnLightSecondaryActive,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparent",
+        LightColorTokens.DataDefaultYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightAccentMinorHover",
+        LightColorTokens.OutlineOnLightAccentMinorHover,
         overwrite,
     )
     return PlasmaHomeDsColors(initial)
@@ -18162,56 +16424,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     overrideColors.invoke(colorOverrideScope)
     val overwrite = colorOverrideScope.overrideMap
     val initial = mutableMapOf<String, Color>()
-    initial.add("outlineOnDarkInfo", DarkColorTokens.OutlineOnDarkInfo, overwrite)
-    initial.add(
-        "textDefaultAccentMinorActive",
-        DarkColorTokens.TextDefaultAccentMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "textDefaultAccentMinorHover",
-        DarkColorTokens.TextDefaultAccentMinorHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentPositiveHover",
-        DarkColorTokens.OutlineDefaultTransparentPositiveHover,
-        overwrite,
-    )
-    initial.add("textDefaultInfo", DarkColorTokens.TextDefaultInfo, overwrite)
-    initial.add("textDefaultInfoActive", DarkColorTokens.TextDefaultInfoActive, overwrite)
-    initial.add("textDefaultInfoHover", DarkColorTokens.TextDefaultInfoHover, overwrite)
-    initial.add(
-        "outlineDefaultTransparentPrimary",
-        DarkColorTokens.OutlineDefaultTransparentPrimary,
-        overwrite,
-    )
-    initial.add("textDefaultInfoMinor", DarkColorTokens.TextDefaultInfoMinor, overwrite)
-    initial.add(
-        "outlineDefaultTransparentPrimaryActive",
-        DarkColorTokens.OutlineDefaultTransparentPrimaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentPrimaryHover",
-        DarkColorTokens.OutlineDefaultTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSecondary",
-        DarkColorTokens.OutlineDefaultTransparentSecondary,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSecondaryActive",
-        DarkColorTokens.OutlineDefaultTransparentSecondaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultTransparentSecondaryHover",
-        DarkColorTokens.OutlineDefaultTransparentSecondaryHover,
-        overwrite,
-    )
     initial.add(
         "outlineDefaultTransparentTertiary",
         DarkColorTokens.OutlineDefaultTransparentTertiary,
@@ -18262,14 +16474,18 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     )
     initial.add("outlineInverseAccent", DarkColorTokens.OutlineInverseAccent, overwrite)
     initial.add("outlineInverseAccentActive", DarkColorTokens.OutlineInverseAccentActive, overwrite)
-    initial.add("textDefaultInfoMinorActive", DarkColorTokens.TextDefaultInfoMinorActive, overwrite)
-    initial.add("outlineInverseAccentHover", DarkColorTokens.OutlineInverseAccentHover, overwrite)
-    initial.add("outlineInverseAccentMinor", DarkColorTokens.OutlineInverseAccentMinor, overwrite)
     initial.add(
-        "outlineInverseAccentMinorActive",
-        DarkColorTokens.OutlineInverseAccentMinorActive,
+        "outlineDefaultTransparentSecondaryActive",
+        DarkColorTokens.OutlineDefaultTransparentSecondaryActive,
         overwrite,
     )
+    initial.add(
+        "outlineDefaultTransparentSecondaryHover",
+        DarkColorTokens.OutlineDefaultTransparentSecondaryHover,
+        overwrite,
+    )
+    initial.add("outlineInverseAccentMinor", DarkColorTokens.OutlineInverseAccentMinor, overwrite)
+    initial.add("outlineInverseAccentHover", DarkColorTokens.OutlineInverseAccentHover, overwrite)
     initial.add(
         "outlineInverseAccentMinorHover",
         DarkColorTokens.OutlineInverseAccentMinorHover,
@@ -18303,23 +16519,9 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.OutlineInverseNegativeHover,
         overwrite,
     )
-    initial.add("backgroundDarkSecondary", DarkColorTokens.BackgroundDarkSecondary, overwrite)
-    initial.add("backgroundDarkTertiary", DarkColorTokens.BackgroundDarkTertiary, overwrite)
-    initial.add("backgroundDefaultPrimary", DarkColorTokens.BackgroundDefaultPrimary, overwrite)
-    initial.add("backgroundDefaultSecondary", DarkColorTokens.BackgroundDefaultSecondary, overwrite)
-    initial.add("backgroundDefaultTertiary", DarkColorTokens.BackgroundDefaultTertiary, overwrite)
     initial.add("backgroundInversePrimary", DarkColorTokens.BackgroundInversePrimary, overwrite)
-    initial.add("backgroundInverseSecondary", DarkColorTokens.BackgroundInverseSecondary, overwrite)
-    initial.add("backgroundInverseTertiary", DarkColorTokens.BackgroundInverseTertiary, overwrite)
     initial.add("backgroundLightPrimary", DarkColorTokens.BackgroundLightPrimary, overwrite)
-    initial.add("backgroundLightSecondary", DarkColorTokens.BackgroundLightSecondary, overwrite)
-    initial.add("backgroundLightTertiary", DarkColorTokens.BackgroundLightTertiary, overwrite)
     initial.add("dataDefaultYellow", DarkColorTokens.DataDefaultYellow, overwrite)
-    initial.add(
-        "dataDefaultYellowTransparent",
-        DarkColorTokens.DataDefaultYellowTransparent,
-        overwrite,
-    )
     initial.add("dataInverseYellow", DarkColorTokens.DataInverseYellow, overwrite)
     initial.add("dataInverseYellowMinor", DarkColorTokens.DataInverseYellowMinor, overwrite)
     initial.add(
@@ -18327,26 +16529,19 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.DataInverseYellowTransparent,
         overwrite,
     )
-    initial.add("dataOnDarkYellowMinor", DarkColorTokens.DataOnDarkYellowMinor, overwrite)
-    initial.add(
-        "dataOnDarkYellowTransparent",
-        DarkColorTokens.DataOnDarkYellowTransparent,
-        overwrite,
-    )
-    initial.add("dataOnLightYellow", DarkColorTokens.DataOnLightYellow, overwrite)
+    initial.add("backgroundDefaultPrimary", DarkColorTokens.BackgroundDefaultPrimary, overwrite)
     initial.add("dataOnLightYellowMinor", DarkColorTokens.DataOnLightYellowMinor, overwrite)
     initial.add(
         "dataOnLightYellowTransparent",
         DarkColorTokens.DataOnLightYellowTransparent,
         overwrite,
     )
-    initial.add("outlineDefaultAccentHover", DarkColorTokens.OutlineDefaultAccentHover, overwrite)
-    initial.add("outlineDefaultAccentMinor", DarkColorTokens.OutlineDefaultAccentMinor, overwrite)
     initial.add(
-        "outlineDefaultAccentMinorActive",
-        DarkColorTokens.OutlineDefaultAccentMinorActive,
+        "dataOnDarkYellowTransparent",
+        DarkColorTokens.DataOnDarkYellowTransparent,
         overwrite,
     )
+    initial.add("dataOnLightYellow", DarkColorTokens.DataOnLightYellow, overwrite)
     initial.add(
         "outlineDefaultAccentMinorHover",
         DarkColorTokens.OutlineDefaultAccentMinorHover,
@@ -18369,35 +16564,15 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.OutlineDefaultInfoMinorHover,
         overwrite,
     )
-    initial.add(
-        "outlineDefaultNegativeActive",
-        DarkColorTokens.OutlineDefaultNegativeActive,
-        overwrite,
-    )
+    initial.add("outlineDefaultAccentMinor", DarkColorTokens.OutlineDefaultAccentMinor, overwrite)
     initial.add(
         "outlineDefaultNegativeHover",
         DarkColorTokens.OutlineDefaultNegativeHover,
         overwrite,
     )
     initial.add(
-        "outlineDefaultNegativeMinorHover",
-        DarkColorTokens.OutlineDefaultNegativeMinorHover,
-        overwrite,
-    )
-    initial.add("outlineDefaultPositive", DarkColorTokens.OutlineDefaultPositive, overwrite)
-    initial.add(
-        "outlineDefaultPositiveActive",
-        DarkColorTokens.OutlineDefaultPositiveActive,
-        overwrite,
-    )
-    initial.add(
         "outlineDefaultPositiveHover",
         DarkColorTokens.OutlineDefaultPositiveHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultPositiveMinor",
-        DarkColorTokens.OutlineDefaultPositiveMinor,
         overwrite,
     )
     initial.add(
@@ -18408,20 +16583,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "outlineDefaultPositiveMinorHover",
         DarkColorTokens.OutlineDefaultPositiveMinorHover,
-        overwrite,
-    )
-    initial.add("outlineDefaultPromo", DarkColorTokens.OutlineDefaultPromo, overwrite)
-    initial.add("outlineDefaultPromoActive", DarkColorTokens.OutlineDefaultPromoActive, overwrite)
-    initial.add("outlineDefaultPromoHover", DarkColorTokens.OutlineDefaultPromoHover, overwrite)
-    initial.add("outlineDefaultPromoMinor", DarkColorTokens.OutlineDefaultPromoMinor, overwrite)
-    initial.add(
-        "outlineDefaultPromoMinorActive",
-        DarkColorTokens.OutlineDefaultPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultPromoMinorHover",
-        DarkColorTokens.OutlineDefaultPromoMinorHover,
         overwrite,
     )
     initial.add("outlineDefaultSolidDefault", DarkColorTokens.OutlineDefaultSolidDefault, overwrite)
@@ -18464,11 +16625,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "outlineDefaultSolidTertiary",
         DarkColorTokens.OutlineDefaultSolidTertiary,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultSolidTertiaryActive",
-        DarkColorTokens.OutlineDefaultSolidTertiaryActive,
         overwrite,
     )
     initial.add(
@@ -18531,17 +16687,12 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.OutlineDefaultTransparentPositiveActive,
         overwrite,
     )
+    initial.add("outlineDefaultPositive", DarkColorTokens.OutlineDefaultPositive, overwrite)
     initial.add(
-        "outlineInverseNegativeMinorActive",
-        DarkColorTokens.OutlineInverseNegativeMinorActive,
+        "outlineDefaultPositiveActive",
+        DarkColorTokens.OutlineDefaultPositiveActive,
         overwrite,
     )
-    initial.add(
-        "outlineInverseNegativeMinorHover",
-        DarkColorTokens.OutlineInverseNegativeMinorHover,
-        overwrite,
-    )
-    initial.add("outlineInversePositive", DarkColorTokens.OutlineInversePositive, overwrite)
     initial.add(
         "outlineInversePositiveActive",
         DarkColorTokens.OutlineInversePositiveActive,
@@ -18560,20 +16711,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "outlineInversePositiveMinorHover",
         DarkColorTokens.OutlineInversePositiveMinorHover,
-        overwrite,
-    )
-    initial.add("outlineInversePromo", DarkColorTokens.OutlineInversePromo, overwrite)
-    initial.add("outlineInversePromoActive", DarkColorTokens.OutlineInversePromoActive, overwrite)
-    initial.add("outlineInversePromoHover", DarkColorTokens.OutlineInversePromoHover, overwrite)
-    initial.add("outlineInversePromoMinor", DarkColorTokens.OutlineInversePromoMinor, overwrite)
-    initial.add(
-        "outlineInversePromoMinorActive",
-        DarkColorTokens.OutlineInversePromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineInversePromoMinorHover",
-        DarkColorTokens.OutlineInversePromoMinorHover,
         overwrite,
     )
     initial.add("outlineInverseSolidDefault", DarkColorTokens.OutlineInverseSolidDefault, overwrite)
@@ -18659,20 +16796,11 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add(
-        "outlineInverseTransparentNegativeActive",
-        DarkColorTokens.OutlineInverseTransparentNegativeActive,
+        "outlineInverseNegativeMinorHover",
+        DarkColorTokens.OutlineInverseNegativeMinorHover,
         overwrite,
     )
-    initial.add(
-        "outlineInverseTransparentNegativeHover",
-        DarkColorTokens.OutlineInverseTransparentNegativeHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentPositive",
-        DarkColorTokens.OutlineInverseTransparentPositive,
-        overwrite,
-    )
+    initial.add("outlineInversePositive", DarkColorTokens.OutlineInversePositive, overwrite)
     initial.add(
         "outlineInverseTransparentPositiveActive",
         DarkColorTokens.OutlineInverseTransparentPositiveActive,
@@ -18686,11 +16814,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "outlineInverseTransparentPrimary",
         DarkColorTokens.OutlineInverseTransparentPrimary,
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseTransparentPrimaryActive",
-        DarkColorTokens.OutlineInverseTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
@@ -18773,11 +16896,9 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("outlineOnDarkClear", DarkColorTokens.OutlineOnDarkClear, overwrite)
     initial.add("outlineOnDarkClearActive", DarkColorTokens.OutlineOnDarkClearActive, overwrite)
     initial.add("outlineOnDarkClearHover", DarkColorTokens.OutlineOnDarkClearHover, overwrite)
-    initial.add("outlineOnDarkInfoHover", DarkColorTokens.OutlineOnDarkInfoHover, overwrite)
-    initial.add("outlineOnDarkInfoMinor", DarkColorTokens.OutlineOnDarkInfoMinor, overwrite)
     initial.add(
-        "outlineOnDarkInfoMinorActive",
-        DarkColorTokens.OutlineOnDarkInfoMinorActive,
+        "outlineInverseTransparentPositive",
+        DarkColorTokens.OutlineInverseTransparentPositive,
         overwrite,
     )
     initial.add(
@@ -18821,20 +16942,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.OutlineOnDarkPositiveMinorHover,
         overwrite,
     )
-    initial.add("outlineOnDarkPromo", DarkColorTokens.OutlineOnDarkPromo, overwrite)
-    initial.add("outlineOnDarkPromoActive", DarkColorTokens.OutlineOnDarkPromoActive, overwrite)
-    initial.add("outlineOnDarkPromoHover", DarkColorTokens.OutlineOnDarkPromoHover, overwrite)
-    initial.add("outlineOnDarkPromoMinor", DarkColorTokens.OutlineOnDarkPromoMinor, overwrite)
-    initial.add(
-        "outlineOnDarkPromoMinorActive",
-        DarkColorTokens.OutlineOnDarkPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkPromoMinorHover",
-        DarkColorTokens.OutlineOnDarkPromoMinorHover,
-        overwrite,
-    )
     initial.add("outlineOnDarkSolidDefault", DarkColorTokens.OutlineOnDarkSolidDefault, overwrite)
     initial.add(
         "outlineOnDarkSolidDefaultHover",
@@ -18869,28 +16976,14 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     )
     initial.add("outlineOnDarkSolidTertiary", DarkColorTokens.OutlineOnDarkSolidTertiary, overwrite)
     initial.add(
-        "outlineOnDarkSolidTertiaryActive",
-        DarkColorTokens.OutlineOnDarkSolidTertiaryActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnDarkSolidTertiaryHover",
         DarkColorTokens.OutlineOnDarkSolidTertiaryHover,
         overwrite,
     )
+    initial.add("outlineOnDarkInfoMinor", DarkColorTokens.OutlineOnDarkInfoMinor, overwrite)
     initial.add(
-        "outlineOnDarkTransparentAccentActive",
-        DarkColorTokens.OutlineOnDarkTransparentAccentActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentAccentHover",
-        DarkColorTokens.OutlineOnDarkTransparentAccentHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnDarkTransparentInfo",
-        DarkColorTokens.OutlineOnDarkTransparentInfo,
+        "outlineOnDarkInfoMinorActive",
+        DarkColorTokens.OutlineOnDarkInfoMinorActive,
         overwrite,
     )
     initial.add(
@@ -19006,16 +17099,15 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("outlineOnLightAccentActive", DarkColorTokens.OutlineOnLightAccentActive, overwrite)
     initial.add("outlineOnLightAccentHover", DarkColorTokens.OutlineOnLightAccentHover, overwrite)
     initial.add(
-        "outlineOnLightAccentMinorActive",
-        DarkColorTokens.OutlineOnLightAccentMinorActive,
+        "outlineOnDarkTransparentAccentHover",
+        DarkColorTokens.OutlineOnDarkTransparentAccentHover,
         overwrite,
     )
     initial.add(
-        "outlineOnLightAccentMinorHover",
-        DarkColorTokens.OutlineOnLightAccentMinorHover,
+        "outlineOnDarkTransparentInfo",
+        DarkColorTokens.OutlineOnDarkTransparentInfo,
         overwrite,
     )
-    initial.add("outlineOnLightClear", DarkColorTokens.OutlineOnLightClear, overwrite)
     initial.add("outlineOnLightClearActive", DarkColorTokens.OutlineOnLightClearActive, overwrite)
     initial.add("outlineOnLightClearHover", DarkColorTokens.OutlineOnLightClearHover, overwrite)
     initial.add("outlineOnLightInfo", DarkColorTokens.OutlineOnLightInfo, overwrite)
@@ -19075,27 +17167,8 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add(
-        "outlineOnLightPositiveMinorActive",
-        DarkColorTokens.OutlineOnLightPositiveMinorActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightPositiveMinorHover",
         DarkColorTokens.OutlineOnLightPositiveMinorHover,
-        overwrite,
-    )
-    initial.add("outlineOnLightPromo", DarkColorTokens.OutlineOnLightPromo, overwrite)
-    initial.add("outlineOnLightPromoActive", DarkColorTokens.OutlineOnLightPromoActive, overwrite)
-    initial.add("outlineOnLightPromoHover", DarkColorTokens.OutlineOnLightPromoHover, overwrite)
-    initial.add("outlineOnLightPromoMinor", DarkColorTokens.OutlineOnLightPromoMinor, overwrite)
-    initial.add(
-        "outlineOnLightPromoMinorActive",
-        DarkColorTokens.OutlineOnLightPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightPromoMinorHover",
-        DarkColorTokens.OutlineOnLightPromoMinorHover,
         overwrite,
     )
     initial.add("outlineOnLightSolidDefault", DarkColorTokens.OutlineOnLightSolidDefault, overwrite)
@@ -19110,21 +17183,7 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.OutlineOnLightSolidPrimaryActive,
         overwrite,
     )
-    initial.add(
-        "outlineOnLightSolidSecondary",
-        DarkColorTokens.OutlineOnLightSolidSecondary,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidSecondaryActive",
-        DarkColorTokens.OutlineOnLightSolidSecondaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidSecondaryHover",
-        DarkColorTokens.OutlineOnLightSolidSecondaryHover,
-        overwrite,
-    )
+    initial.add("outlineOnLightClear", DarkColorTokens.OutlineOnLightClear, overwrite)
     initial.add(
         "outlineOnLightSolidTertiary",
         DarkColorTokens.OutlineOnLightSolidTertiary,
@@ -19246,23 +17305,21 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add(
-        "outlineOnLightTransparentWarningActive",
-        DarkColorTokens.OutlineOnLightTransparentWarningActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightTransparentWarningHover",
         DarkColorTokens.OutlineOnLightTransparentWarningHover,
         overwrite,
     )
     initial.add("textDefaultInfoMinorHover", DarkColorTokens.TextDefaultInfoMinorHover, overwrite)
     initial.add(
-        "outlineOnLightWarningActive",
-        DarkColorTokens.OutlineOnLightWarningActive,
+        "outlineOnLightSolidSecondaryActive",
+        DarkColorTokens.OutlineOnLightSolidSecondaryActive,
         overwrite,
     )
-    initial.add("outlineOnLightWarningHover", DarkColorTokens.OutlineOnLightWarningHover, overwrite)
-    initial.add("outlineOnLightWarningMinor", DarkColorTokens.OutlineOnLightWarningMinor, overwrite)
+    initial.add(
+        "outlineOnLightSolidSecondaryHover",
+        DarkColorTokens.OutlineOnLightSolidSecondaryHover,
+        overwrite,
+    )
     initial.add(
         "outlineOnLightWarningMinorActive",
         DarkColorTokens.OutlineOnLightWarningMinorActive,
@@ -19336,17 +17393,7 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.SurfaceDefaultNegativeMinorActive,
         overwrite,
     )
-    initial.add("surfaceDefaultPositive", DarkColorTokens.SurfaceDefaultPositive, overwrite)
-    initial.add(
-        "surfaceDefaultPositiveActive",
-        DarkColorTokens.SurfaceDefaultPositiveActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultPositiveHover",
-        DarkColorTokens.SurfaceDefaultPositiveHover,
-        overwrite,
-    )
+    initial.add("outlineOnLightWarningHover", DarkColorTokens.OutlineOnLightWarningHover, overwrite)
     initial.add(
         "surfaceDefaultPositiveMinor",
         DarkColorTokens.SurfaceDefaultPositiveMinor,
@@ -19360,20 +17407,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "surfaceDefaultPositiveMinorHover",
         DarkColorTokens.SurfaceDefaultPositiveMinorHover,
-        overwrite,
-    )
-    initial.add("surfaceDefaultPromo", DarkColorTokens.SurfaceDefaultPromo, overwrite)
-    initial.add("surfaceDefaultPromoActive", DarkColorTokens.SurfaceDefaultPromoActive, overwrite)
-    initial.add("surfaceDefaultPromoHover", DarkColorTokens.SurfaceDefaultPromoHover, overwrite)
-    initial.add("surfaceDefaultPromoMinor", DarkColorTokens.SurfaceDefaultPromoMinor, overwrite)
-    initial.add(
-        "surfaceDefaultPromoMinorActive",
-        DarkColorTokens.SurfaceDefaultPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultPromoMinorHover",
-        DarkColorTokens.SurfaceDefaultPromoMinorHover,
         overwrite,
     )
     initial.add("surfaceDefaultSolidCard", DarkColorTokens.SurfaceDefaultSolidCard, overwrite)
@@ -19484,18 +17517,13 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentDeepActive",
-        DarkColorTokens.SurfaceDefaultTransparentDeepActive,
+        "surfaceDefaultPositiveActive",
+        DarkColorTokens.SurfaceDefaultPositiveActive,
         overwrite,
     )
     initial.add(
-        "surfaceDefaultTransparentDeepHover",
-        DarkColorTokens.SurfaceDefaultTransparentDeepHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentInfo",
-        DarkColorTokens.SurfaceDefaultTransparentInfo,
+        "surfaceDefaultPositiveHover",
+        DarkColorTokens.SurfaceDefaultPositiveHover,
         overwrite,
     )
     initial.add(
@@ -19506,11 +17534,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "surfaceDefaultTransparentInfoHover",
         DarkColorTokens.SurfaceDefaultTransparentInfoHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentNegative",
-        DarkColorTokens.SurfaceDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
@@ -19551,21 +17574,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "surfaceDefaultTransparentPrimaryHover",
         DarkColorTokens.SurfaceDefaultTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentPromo",
-        DarkColorTokens.SurfaceDefaultTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentPromoActive",
-        DarkColorTokens.SurfaceDefaultTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentPromoHover",
-        DarkColorTokens.SurfaceDefaultTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -19626,12 +17634,14 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.SurfaceDefaultWarningMinorHover,
         overwrite,
     )
-    initial.add("surfaceInverseAccentActive", DarkColorTokens.SurfaceInverseAccentActive, overwrite)
-    initial.add("surfaceInverseAccentHover", DarkColorTokens.SurfaceInverseAccentHover, overwrite)
-    initial.add("surfaceInverseAccentMinor", DarkColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
-        "surfaceInverseAccentMinorActive",
-        DarkColorTokens.SurfaceInverseAccentMinorActive,
+        "surfaceDefaultTransparentDeepActive",
+        DarkColorTokens.SurfaceDefaultTransparentDeepActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultTransparentInfo",
+        DarkColorTokens.SurfaceDefaultTransparentInfo,
         overwrite,
     )
     initial.add(
@@ -19703,26 +17713,8 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.SurfaceInversePositiveMinorHover,
         overwrite,
     )
-    initial.add("surfaceInversePromo", DarkColorTokens.SurfaceInversePromo, overwrite)
-    initial.add("surfaceInversePromoActive", DarkColorTokens.SurfaceInversePromoActive, overwrite)
-    initial.add("surfaceInversePromoHover", DarkColorTokens.SurfaceInversePromoHover, overwrite)
-    initial.add("surfaceInversePromoMinor", DarkColorTokens.SurfaceInversePromoMinor, overwrite)
-    initial.add(
-        "surfaceInversePromoMinorActive",
-        DarkColorTokens.SurfaceInversePromoMinorActive,
-        overwrite,
-    )
-    initial.add("surfaceInverseSolidCard", DarkColorTokens.SurfaceInverseSolidCard, overwrite)
-    initial.add(
-        "surfaceInverseSolidCardActive",
-        DarkColorTokens.SurfaceInverseSolidCardActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseSolidCardBrightness",
-        DarkColorTokens.SurfaceInverseSolidCardBrightness,
-        overwrite,
-    )
+    initial.add("surfaceInverseAccentActive", DarkColorTokens.SurfaceInverseAccentActive, overwrite)
+    initial.add("surfaceInverseAccentHover", DarkColorTokens.SurfaceInverseAccentHover, overwrite)
     initial.add(
         "surfaceInverseSolidCardHover",
         DarkColorTokens.SurfaceInverseSolidCardHover,
@@ -19835,25 +17827,16 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.SurfaceInverseTransparentInfo,
         overwrite,
     )
-    initial.add(
-        "surfaceInverseTransparentInfoActive",
-        DarkColorTokens.SurfaceInverseTransparentInfoActive,
-        overwrite,
-    )
     initial.add("textDefaultNegative", DarkColorTokens.TextDefaultNegative, overwrite)
+    initial.add("surfaceInverseSolidCard", DarkColorTokens.SurfaceInverseSolidCard, overwrite)
     initial.add(
-        "surfaceInverseTransparentNegative",
-        DarkColorTokens.SurfaceInverseTransparentNegative,
+        "surfaceInverseSolidCardActive",
+        DarkColorTokens.SurfaceInverseSolidCardActive,
         overwrite,
     )
     initial.add(
-        "surfaceInverseTransparentNegativeActive",
-        DarkColorTokens.SurfaceInverseTransparentNegativeActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentNegativeHover",
-        DarkColorTokens.SurfaceInverseTransparentNegativeHover,
+        "surfaceInverseSolidCardBrightness",
+        DarkColorTokens.SurfaceInverseSolidCardBrightness,
         overwrite,
     )
     initial.add(
@@ -19884,21 +17867,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "surfaceInverseTransparentPrimaryHover",
         DarkColorTokens.SurfaceInverseTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentPromo",
-        DarkColorTokens.SurfaceInverseTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentPromoActive",
-        DarkColorTokens.SurfaceInverseTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentPromoHover",
-        DarkColorTokens.SurfaceInverseTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -19960,11 +17928,9 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add("textDefaultNegativeActive", DarkColorTokens.TextDefaultNegativeActive, overwrite)
-    initial.add("surfaceOnDarkAccentActive", DarkColorTokens.SurfaceOnDarkAccentActive, overwrite)
-    initial.add("surfaceOnDarkAccentHover", DarkColorTokens.SurfaceOnDarkAccentHover, overwrite)
     initial.add(
-        "surfaceOnDarkAccentMinorActive",
-        DarkColorTokens.SurfaceOnDarkAccentMinorActive,
+        "surfaceInverseTransparentNegativeHover",
+        DarkColorTokens.SurfaceInverseTransparentNegativeHover,
         overwrite,
     )
     initial.add(
@@ -19998,11 +17964,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("surfaceOnDarkNegativeHover", DarkColorTokens.SurfaceOnDarkNegativeHover, overwrite)
     initial.add("surfaceOnDarkNegativeMinor", DarkColorTokens.SurfaceOnDarkNegativeMinor, overwrite)
     initial.add(
-        "surfaceOnDarkNegativeMinorActive",
-        DarkColorTokens.SurfaceOnDarkNegativeMinorActive,
-        overwrite,
-    )
-    initial.add(
         "surfaceOnDarkNegativeMinorHover",
         DarkColorTokens.SurfaceOnDarkNegativeMinorHover,
         overwrite,
@@ -20025,25 +17986,11 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.SurfaceOnDarkPositiveMinorHover,
         overwrite,
     )
-    initial.add("surfaceOnDarkPromo", DarkColorTokens.SurfaceOnDarkPromo, overwrite)
-    initial.add("surfaceOnDarkPromoActive", DarkColorTokens.SurfaceOnDarkPromoActive, overwrite)
-    initial.add("surfaceOnDarkPromoHover", DarkColorTokens.SurfaceOnDarkPromoHover, overwrite)
-    initial.add("surfaceOnDarkPromoMinor", DarkColorTokens.SurfaceOnDarkPromoMinor, overwrite)
-    initial.add(
-        "surfaceOnDarkPromoMinorActive",
-        DarkColorTokens.SurfaceOnDarkPromoMinorActive,
-        overwrite,
-    )
     initial.add("textDefaultNegativeHover", DarkColorTokens.TextDefaultNegativeHover, overwrite)
-    initial.add("surfaceOnDarkSolidCard", DarkColorTokens.SurfaceOnDarkSolidCard, overwrite)
+    initial.add("surfaceOnDarkAccentHover", DarkColorTokens.SurfaceOnDarkAccentHover, overwrite)
     initial.add(
-        "surfaceOnDarkSolidCardActive",
-        DarkColorTokens.SurfaceOnDarkSolidCardActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkSolidCardBrightness",
-        DarkColorTokens.SurfaceOnDarkSolidCardBrightness,
+        "surfaceOnDarkAccentMinorActive",
+        DarkColorTokens.SurfaceOnDarkAccentMinorActive,
         overwrite,
     )
     initial.add(
@@ -20165,18 +18112,8 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add(
-        "surfaceOnDarkTransparentNegativeActive",
-        DarkColorTokens.SurfaceOnDarkTransparentNegativeActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPositive",
-        DarkColorTokens.SurfaceOnDarkTransparentPositive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPositiveActive",
-        DarkColorTokens.SurfaceOnDarkTransparentPositiveActive,
+        "surfaceOnDarkSolidCardActive",
+        DarkColorTokens.SurfaceOnDarkSolidCardActive,
         overwrite,
     )
     initial.add(
@@ -20197,21 +18134,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "surfaceOnDarkTransparentPrimaryHover",
         DarkColorTokens.SurfaceOnDarkTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPromo",
-        DarkColorTokens.SurfaceOnDarkTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPromoActive",
-        DarkColorTokens.SurfaceOnDarkTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkTransparentPromoHover",
-        DarkColorTokens.SurfaceOnDarkTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -20275,15 +18197,14 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     )
     initial.add("surfaceOnLightAccent", DarkColorTokens.SurfaceOnLightAccent, overwrite)
     initial.add("surfaceOnLightAccentActive", DarkColorTokens.SurfaceOnLightAccentActive, overwrite)
-    initial.add("surfaceOnLightAccentMinor", DarkColorTokens.SurfaceOnLightAccentMinor, overwrite)
     initial.add(
-        "surfaceOnLightAccentMinorActive",
-        DarkColorTokens.SurfaceOnLightAccentMinorActive,
+        "surfaceOnDarkTransparentPositive",
+        DarkColorTokens.SurfaceOnDarkTransparentPositive,
         overwrite,
     )
     initial.add(
-        "surfaceOnLightAccentMinorHover",
-        DarkColorTokens.SurfaceOnLightAccentMinorHover,
+        "surfaceOnDarkTransparentPositiveActive",
+        DarkColorTokens.SurfaceOnDarkTransparentPositiveActive,
         overwrite,
     )
     initial.add("surfaceOnLightClear", DarkColorTokens.SurfaceOnLightClear, overwrite)
@@ -20350,32 +18271,17 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.SurfaceOnLightPositiveMinorHover,
         overwrite,
     )
-    initial.add("surfaceOnLightPromo", DarkColorTokens.SurfaceOnLightPromo, overwrite)
-    initial.add("surfaceOnLightPromoActive", DarkColorTokens.SurfaceOnLightPromoActive, overwrite)
-    initial.add("surfaceOnLightPromoHover", DarkColorTokens.SurfaceOnLightPromoHover, overwrite)
-    initial.add("surfaceOnLightPromoMinor", DarkColorTokens.SurfaceOnLightPromoMinor, overwrite)
-    initial.add(
-        "surfaceOnLightPromoMinorActive",
-        DarkColorTokens.SurfaceOnLightPromoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightPromoMinorHover",
-        DarkColorTokens.SurfaceOnLightPromoMinorHover,
-        overwrite,
-    )
     initial.add("surfaceOnLightSolidCard", DarkColorTokens.SurfaceOnLightSolidCard, overwrite)
     initial.add(
-        "surfaceOnLightSolidCardBrightness",
-        DarkColorTokens.SurfaceOnLightSolidCardBrightness,
+        "surfaceOnLightAccentMinorActive",
+        DarkColorTokens.SurfaceOnLightAccentMinorActive,
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSolidCardHover",
-        DarkColorTokens.SurfaceOnLightSolidCardHover,
+        "surfaceOnLightAccentMinorHover",
+        DarkColorTokens.SurfaceOnLightAccentMinorHover,
         overwrite,
     )
-    initial.add("surfaceOnLightSolidDefault", DarkColorTokens.SurfaceOnLightSolidDefault, overwrite)
     initial.add(
         "surfaceOnLightSolidDefaultActive",
         DarkColorTokens.SurfaceOnLightSolidDefaultActive,
@@ -20420,11 +18326,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "surfaceOnLightSolidTertiary",
         DarkColorTokens.SurfaceOnLightSolidTertiary,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightSolidTertiaryActive",
-        DarkColorTokens.SurfaceOnLightSolidTertiaryActive,
         overwrite,
     )
     initial.add(
@@ -20498,20 +18399,11 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add(
-        "surfaceOnLightTransparentNegativeHover",
-        DarkColorTokens.SurfaceOnLightTransparentNegativeHover,
+        "surfaceOnLightSolidCardHover",
+        DarkColorTokens.SurfaceOnLightSolidCardHover,
         overwrite,
     )
-    initial.add(
-        "surfaceOnLightTransparentPositive",
-        DarkColorTokens.SurfaceOnLightTransparentPositive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPositiveActive",
-        DarkColorTokens.SurfaceOnLightTransparentPositiveActive,
-        overwrite,
-    )
+    initial.add("surfaceOnLightSolidDefault", DarkColorTokens.SurfaceOnLightSolidDefault, overwrite)
     initial.add(
         "surfaceOnLightTransparentPositiveHover",
         DarkColorTokens.SurfaceOnLightTransparentPositiveHover,
@@ -20530,21 +18422,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "surfaceOnLightTransparentPrimaryHover",
         DarkColorTokens.SurfaceOnLightTransparentPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromo",
-        DarkColorTokens.SurfaceOnLightTransparentPromo,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoActive",
-        DarkColorTokens.SurfaceOnLightTransparentPromoActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnLightTransparentPromoHover",
-        DarkColorTokens.SurfaceOnLightTransparentPromoHover,
         overwrite,
     )
     initial.add(
@@ -20615,16 +18492,10 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("textDefaultAccentHover", DarkColorTokens.TextDefaultAccentHover, overwrite)
     initial.add("textDefaultAccentMinor", DarkColorTokens.TextDefaultAccentMinor, overwrite)
     initial.add(
-        "textDefaultNegativeMinorActive",
-        DarkColorTokens.TextDefaultNegativeMinorActive,
+        "surfaceOnLightTransparentPositiveActive",
+        DarkColorTokens.SurfaceOnLightTransparentPositiveActive,
         overwrite,
     )
-    initial.add(
-        "textDefaultNegativeMinorHover",
-        DarkColorTokens.TextDefaultNegativeMinorHover,
-        overwrite,
-    )
-    initial.add("textDefaultParagraph", DarkColorTokens.TextDefaultParagraph, overwrite)
     initial.add("textDefaultParagraphActive", DarkColorTokens.TextDefaultParagraphActive, overwrite)
     initial.add("textDefaultParagraphHover", DarkColorTokens.TextDefaultParagraphHover, overwrite)
     initial.add("textDefaultPositive", DarkColorTokens.TextDefaultPositive, overwrite)
@@ -20648,16 +18519,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add("textDefaultPrimaryHover", DarkColorTokens.TextDefaultPrimaryHover, overwrite)
-    initial.add("textDefaultPromo", DarkColorTokens.TextDefaultPromo, overwrite)
-    initial.add("textDefaultPromoActive", DarkColorTokens.TextDefaultPromoActive, overwrite)
-    initial.add("textDefaultPromoHover", DarkColorTokens.TextDefaultPromoHover, overwrite)
-    initial.add("textDefaultPromoMinor", DarkColorTokens.TextDefaultPromoMinor, overwrite)
-    initial.add(
-        "textDefaultPromoMinorActive",
-        DarkColorTokens.TextDefaultPromoMinorActive,
-        overwrite,
-    )
-    initial.add("textDefaultPromoMinorHover", DarkColorTokens.TextDefaultPromoMinorHover, overwrite)
     initial.add("textDefaultSecondary", DarkColorTokens.TextDefaultSecondary, overwrite)
     initial.add("textDefaultSecondaryActive", DarkColorTokens.TextDefaultSecondaryActive, overwrite)
     initial.add("textDefaultSecondaryHover", DarkColorTokens.TextDefaultSecondaryHover, overwrite)
@@ -20691,10 +18552,12 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("textInverseInfoActive", DarkColorTokens.TextInverseInfoActive, overwrite)
     initial.add("textInverseInfoHover", DarkColorTokens.TextInverseInfoHover, overwrite)
     initial.add("textInverseInfoMinor", DarkColorTokens.TextInverseInfoMinor, overwrite)
-    initial.add("textInverseInfoMinorActive", DarkColorTokens.TextInverseInfoMinorActive, overwrite)
-    initial.add("textInverseNegative", DarkColorTokens.TextInverseNegative, overwrite)
-    initial.add("textInverseNegativeActive", DarkColorTokens.TextInverseNegativeActive, overwrite)
-    initial.add("textInverseNegativeHover", DarkColorTokens.TextInverseNegativeHover, overwrite)
+    initial.add(
+        "textDefaultNegativeMinorHover",
+        DarkColorTokens.TextDefaultNegativeMinorHover,
+        overwrite,
+    )
+    initial.add("textDefaultParagraph", DarkColorTokens.TextDefaultParagraph, overwrite)
     initial.add("textInverseNegativeMinor", DarkColorTokens.TextInverseNegativeMinor, overwrite)
     initial.add(
         "textInverseNegativeMinorHover",
@@ -20726,16 +18589,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add("textInversePrimaryHover", DarkColorTokens.TextInversePrimaryHover, overwrite)
-    initial.add("textInversePromo", DarkColorTokens.TextInversePromo, overwrite)
-    initial.add("textInversePromoActive", DarkColorTokens.TextInversePromoActive, overwrite)
-    initial.add("textInversePromoHover", DarkColorTokens.TextInversePromoHover, overwrite)
-    initial.add("textInversePromoMinor", DarkColorTokens.TextInversePromoMinor, overwrite)
-    initial.add(
-        "textInversePromoMinorActive",
-        DarkColorTokens.TextInversePromoMinorActive,
-        overwrite,
-    )
-    initial.add("textInversePromoMinorHover", DarkColorTokens.TextInversePromoMinorHover, overwrite)
     initial.add("textInverseSecondary", DarkColorTokens.TextInverseSecondary, overwrite)
     initial.add("textInverseSecondaryActive", DarkColorTokens.TextInverseSecondaryActive, overwrite)
     initial.add("textInverseSecondaryHover", DarkColorTokens.TextInverseSecondaryHover, overwrite)
@@ -20757,13 +18610,8 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add("textOnDarkAccent", DarkColorTokens.TextOnDarkAccent, overwrite)
-    initial.add("textOnDarkAccentHover", DarkColorTokens.TextOnDarkAccentHover, overwrite)
-    initial.add("textOnDarkAccentMinor", DarkColorTokens.TextOnDarkAccentMinor, overwrite)
-    initial.add(
-        "textOnDarkAccentMinorActive",
-        DarkColorTokens.TextOnDarkAccentMinorActive,
-        overwrite,
-    )
+    initial.add("textInverseNegativeActive", DarkColorTokens.TextInverseNegativeActive, overwrite)
+    initial.add("textInverseNegativeHover", DarkColorTokens.TextInverseNegativeHover, overwrite)
     initial.add("textOnDarkAccentMinorHover", DarkColorTokens.TextOnDarkAccentMinorHover, overwrite)
     initial.add("textOnDarkInfo", DarkColorTokens.TextOnDarkInfo, overwrite)
     initial.add("textOnDarkInfoActive", DarkColorTokens.TextOnDarkInfoActive, overwrite)
@@ -20774,11 +18622,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("textOnDarkNegativeActive", DarkColorTokens.TextOnDarkNegativeActive, overwrite)
     initial.add("textOnDarkNegativeHover", DarkColorTokens.TextOnDarkNegativeHover, overwrite)
     initial.add("textOnDarkNegativeMinor", DarkColorTokens.TextOnDarkNegativeMinor, overwrite)
-    initial.add(
-        "textOnDarkNegativeMinorActive",
-        DarkColorTokens.TextOnDarkNegativeMinorActive,
-        overwrite,
-    )
     initial.add(
         "textOnDarkNegativeMinorHover",
         DarkColorTokens.TextOnDarkNegativeMinorHover,
@@ -20809,26 +18652,18 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add("textOnDarkPrimaryHover", DarkColorTokens.TextOnDarkPrimaryHover, overwrite)
-    initial.add("textOnDarkPromo", DarkColorTokens.TextOnDarkPromo, overwrite)
-    initial.add("textOnDarkPromoActive", DarkColorTokens.TextOnDarkPromoActive, overwrite)
-    initial.add("textOnDarkPromoHover", DarkColorTokens.TextOnDarkPromoHover, overwrite)
-    initial.add("textOnDarkPromoMinor", DarkColorTokens.TextOnDarkPromoMinor, overwrite)
-    initial.add("textOnDarkPromoMinorActive", DarkColorTokens.TextOnDarkPromoMinorActive, overwrite)
-    initial.add("textOnDarkPromoMinorHover", DarkColorTokens.TextOnDarkPromoMinorHover, overwrite)
     initial.add("textOnDarkSecondary", DarkColorTokens.TextOnDarkSecondary, overwrite)
     initial.add("textOnDarkSecondaryActive", DarkColorTokens.TextOnDarkSecondaryActive, overwrite)
     initial.add("textOnDarkSecondaryHover", DarkColorTokens.TextOnDarkSecondaryHover, overwrite)
     initial.add("textOnDarkTertiary", DarkColorTokens.TextOnDarkTertiary, overwrite)
-    initial.add("textOnDarkTertiaryHover", DarkColorTokens.TextOnDarkTertiaryHover, overwrite)
-    initial.add("textOnDarkWarning", DarkColorTokens.TextOnDarkWarning, overwrite)
-    initial.add("textOnDarkWarningActive", DarkColorTokens.TextOnDarkWarningActive, overwrite)
-    initial.add("textOnDarkWarningHover", DarkColorTokens.TextOnDarkWarningHover, overwrite)
-    initial.add("textOnDarkWarningMinor", DarkColorTokens.TextOnDarkWarningMinor, overwrite)
+    initial.add("textOnDarkAccentMinor", DarkColorTokens.TextOnDarkAccentMinor, overwrite)
     initial.add(
-        "textOnDarkWarningMinorActive",
-        DarkColorTokens.TextOnDarkWarningMinorActive,
+        "textOnDarkAccentMinorActive",
+        DarkColorTokens.TextOnDarkAccentMinorActive,
         overwrite,
     )
+    initial.add("textOnDarkWarningHover", DarkColorTokens.TextOnDarkWarningHover, overwrite)
+    initial.add("textOnDarkWarningMinor", DarkColorTokens.TextOnDarkWarningMinor, overwrite)
     initial.add(
         "textOnDarkWarningMinorHover",
         DarkColorTokens.TextOnDarkWarningMinorHover,
@@ -20892,17 +18727,9 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add("textOnLightPrimaryHover", DarkColorTokens.TextOnLightPrimaryHover, overwrite)
-    initial.add("textOnLightPromoActive", DarkColorTokens.TextOnLightPromoActive, overwrite)
-    initial.add("textOnLightPromoHover", DarkColorTokens.TextOnLightPromoHover, overwrite)
-    initial.add("textOnLightPromoMinor", DarkColorTokens.TextOnLightPromoMinor, overwrite)
-    initial.add(
-        "textOnLightPromoMinorActive",
-        DarkColorTokens.TextOnLightPromoMinorActive,
-        overwrite,
-    )
-    initial.add("textOnLightPromoMinorHover", DarkColorTokens.TextOnLightPromoMinorHover, overwrite)
+    initial.add("textOnDarkWarning", DarkColorTokens.TextOnDarkWarning, overwrite)
+    initial.add("textOnDarkWarningActive", DarkColorTokens.TextOnDarkWarningActive, overwrite)
     initial.add("textOnLightSecondary", DarkColorTokens.TextOnLightSecondary, overwrite)
-    initial.add("textOnLightSecondaryActive", DarkColorTokens.TextOnLightSecondaryActive, overwrite)
     initial.add("textOnLightSecondaryHover", DarkColorTokens.TextOnLightSecondaryHover, overwrite)
     initial.add("textOnLightTertiary", DarkColorTokens.TextOnLightTertiary, overwrite)
     initial.add("textOnLightTertiaryHover", DarkColorTokens.TextOnLightTertiaryHover, overwrite)
@@ -20920,10 +18747,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.TextOnLightWarningMinorHover,
         overwrite,
     )
-    initial.add("backgroundDarkPrimary", DarkColorTokens.BackgroundDarkPrimary, overwrite)
-    initial.add("dataDefaultYellowMinor", DarkColorTokens.DataDefaultYellowMinor, overwrite)
-    initial.add("dataOnDarkYellow", DarkColorTokens.DataOnDarkYellow, overwrite)
-    initial.add("outlineDefaultAccent", DarkColorTokens.OutlineDefaultAccent, overwrite)
     initial.add("outlineDefaultAccentActive", DarkColorTokens.OutlineDefaultAccentActive, overwrite)
     initial.add("outlineDefaultNegative", DarkColorTokens.OutlineDefaultNegative, overwrite)
     initial.add(
@@ -20958,11 +18781,6 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     )
     initial.add("outlineOnDarkInfoActive", DarkColorTokens.OutlineOnDarkInfoActive, overwrite)
     initial.add(
-        "outlineOnDarkSolidDefaultActive",
-        DarkColorTokens.OutlineOnDarkSolidDefaultActive,
-        overwrite,
-    )
-    initial.add(
         "outlineOnDarkTransparentAccent",
         DarkColorTokens.OutlineOnDarkTransparentAccent,
         overwrite,
@@ -20973,39 +18791,12 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         overwrite,
     )
     initial.add("outlineOnLightAccentMinor", DarkColorTokens.OutlineOnLightAccentMinor, overwrite)
-    initial.add(
-        "outlineOnLightSolidDefaultHover",
-        DarkColorTokens.OutlineOnLightSolidDefaultHover,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidPrimaryHover",
-        DarkColorTokens.OutlineOnLightSolidPrimaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultNegativeMinorHover",
-        DarkColorTokens.SurfaceDefaultNegativeMinorHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceDefaultTransparentSecondaryHover",
-        DarkColorTokens.SurfaceDefaultTransparentSecondaryHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInversePromoMinorHover",
-        DarkColorTokens.SurfaceInversePromoMinorHover,
-        overwrite,
-    )
+    initial.add("dataDefaultYellowMinor", DarkColorTokens.DataDefaultYellowMinor, overwrite)
+    initial.add("dataOnDarkYellow", DarkColorTokens.DataOnDarkYellow, overwrite)
+    initial.add("outlineDefaultAccent", DarkColorTokens.OutlineDefaultAccent, overwrite)
     initial.add(
         "surfaceInverseTransparentInfoHover",
         DarkColorTokens.SurfaceInverseTransparentInfoHover,
-        overwrite,
-    )
-    initial.add(
-        "surfaceOnDarkPromoMinorHover",
-        DarkColorTokens.SurfaceOnDarkPromoMinorHover,
         overwrite,
     )
     initial.add("surfaceOnLightAccentHover", DarkColorTokens.SurfaceOnLightAccentHover, overwrite)
@@ -21022,22 +18813,28 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add("textOnDarkInfoMinor", DarkColorTokens.TextOnDarkInfoMinor, overwrite)
     initial.add("textOnLightTertiaryActive", DarkColorTokens.TextOnLightTertiaryActive, overwrite)
     initial.add(
+        "outlineOnLightSolidPrimaryHover",
+        DarkColorTokens.OutlineOnLightSolidPrimaryHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultNegativeMinorHover",
+        DarkColorTokens.SurfaceDefaultNegativeMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultTransparentSecondaryHover",
+        DarkColorTokens.SurfaceDefaultTransparentSecondaryHover,
+        overwrite,
+    )
+    initial.add(
         "outlineOnLightSolidTertiaryActive",
         DarkColorTokens.OutlineOnLightSolidTertiaryActive,
         overwrite,
     )
     initial.add("surfaceDefaultAccentActive", DarkColorTokens.SurfaceDefaultAccentActive, overwrite)
+    initial.add("backgroundDarkPrimary", DarkColorTokens.BackgroundDarkPrimary, overwrite)
     initial.add("surfaceDefaultSolidDefault", DarkColorTokens.SurfaceDefaultSolidDefault, overwrite)
-    initial.add(
-        "surfaceInverseInfoMinorActive",
-        DarkColorTokens.SurfaceInverseInfoMinorActive,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentSecondaryActive",
-        DarkColorTokens.SurfaceInverseTransparentSecondaryActive,
-        overwrite,
-    )
     initial.add(
         "surfaceOnLightNegativeMinorActive",
         DarkColorTokens.SurfaceOnLightNegativeMinorActive,
@@ -21060,21 +18857,18 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
     )
     initial.add("textOnDarkTertiaryActive", DarkColorTokens.TextOnDarkTertiaryActive, overwrite)
     initial.add("textOnLightParagraphActive", DarkColorTokens.TextOnLightParagraphActive, overwrite)
-    initial.add("textOnLightPromo", DarkColorTokens.TextOnLightPromo, overwrite)
-    initial.add("outlineOnLightWarning", DarkColorTokens.OutlineOnLightWarning, overwrite)
+    initial.add(
+        "surfaceInverseTransparentSecondaryActive",
+        DarkColorTokens.SurfaceInverseTransparentSecondaryActive,
+        overwrite,
+    )
+    initial.add("surfaceOnDarkAccentMinor", DarkColorTokens.SurfaceOnDarkAccentMinor, overwrite)
     initial.add(
         "surfaceDefaultTransparentDeep",
         DarkColorTokens.SurfaceDefaultTransparentDeep,
         overwrite,
     )
     initial.add("surfaceInverseAccent", DarkColorTokens.SurfaceInverseAccent, overwrite)
-    initial.add(
-        "surfaceInverseSolidSecondaryActive",
-        DarkColorTokens.SurfaceInverseSolidSecondaryActive,
-        overwrite,
-    )
-    initial.add("surfaceOnDarkAccent", DarkColorTokens.SurfaceOnDarkAccent, overwrite)
-    initial.add("surfaceOnDarkAccentMinor", DarkColorTokens.SurfaceOnDarkAccentMinor, overwrite)
     initial.add(
         "surfaceOnDarkSolidTertiaryActive",
         DarkColorTokens.SurfaceOnDarkSolidTertiaryActive,
@@ -21085,13 +18879,265 @@ public fun darkPlasmaHomeDsColors(overrideColors: ColorOverrideScope.() -> Unit 
         DarkColorTokens.SurfaceOnDarkTransparentNegative,
         overwrite,
     )
+    initial.add(
+        "surfaceOnDarkTransparentNegativeHover",
+        DarkColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        overwrite,
+    )
     initial.add("textDefaultNegativeMinor", DarkColorTokens.TextDefaultNegativeMinor, overwrite)
     initial.add("textDefaultPositiveMinor", DarkColorTokens.TextDefaultPositiveMinor, overwrite)
     initial.add("textInverseInfoMinorHover", DarkColorTokens.TextInverseInfoMinorHover, overwrite)
     initial.add("textOnDarkAccentActive", DarkColorTokens.TextOnDarkAccentActive, overwrite)
+    initial.add("surfaceOnDarkAccent", DarkColorTokens.SurfaceOnDarkAccent, overwrite)
+    initial.add("outlineDefaultAccentHover", DarkColorTokens.OutlineDefaultAccentHover, overwrite)
     initial.add(
-        "surfaceOnDarkTransparentNegativeHover",
-        DarkColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        "outlineDefaultNegativeActive",
+        DarkColorTokens.OutlineDefaultNegativeActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultNegativeMinorHover",
+        DarkColorTokens.OutlineDefaultNegativeMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultPositiveMinor",
+        DarkColorTokens.OutlineDefaultPositiveMinor,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidTertiaryActive",
+        DarkColorTokens.OutlineDefaultSolidTertiaryActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPositiveHover",
+        DarkColorTokens.OutlineDefaultTransparentPositiveHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPrimary",
+        DarkColorTokens.OutlineDefaultTransparentPrimary,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPrimaryActive",
+        DarkColorTokens.OutlineDefaultTransparentPrimaryActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentPrimaryHover",
+        DarkColorTokens.OutlineDefaultTransparentPrimaryHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultTransparentSecondary",
+        DarkColorTokens.OutlineDefaultTransparentSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseNegativeMinorActive",
+        DarkColorTokens.OutlineInverseNegativeMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseTransparentNegativeActive",
+        DarkColorTokens.OutlineInverseTransparentNegativeActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseTransparentNegativeHover",
+        DarkColorTokens.OutlineInverseTransparentNegativeHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseTransparentPrimaryActive",
+        DarkColorTokens.OutlineInverseTransparentPrimaryActive,
+        overwrite,
+    )
+    initial.add("outlineOnDarkInfo", DarkColorTokens.OutlineOnDarkInfo, overwrite)
+    initial.add("outlineOnDarkInfoHover", DarkColorTokens.OutlineOnDarkInfoHover, overwrite)
+    initial.add(
+        "outlineOnDarkSolidDefaultActive",
+        DarkColorTokens.OutlineOnDarkSolidDefaultActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkSolidTertiaryActive",
+        DarkColorTokens.OutlineOnDarkSolidTertiaryActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkTransparentAccentActive",
+        DarkColorTokens.OutlineOnDarkTransparentAccentActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightAccentMinorActive",
+        DarkColorTokens.OutlineOnLightAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightPositiveMinorActive",
+        DarkColorTokens.OutlineOnLightPositiveMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidDefaultHover",
+        DarkColorTokens.OutlineOnLightSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidSecondary",
+        DarkColorTokens.OutlineOnLightSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightTransparentWarningActive",
+        DarkColorTokens.OutlineOnLightTransparentWarningActive,
+        overwrite,
+    )
+    initial.add("outlineOnLightWarning", DarkColorTokens.OutlineOnLightWarning, overwrite)
+    initial.add(
+        "outlineOnLightWarningActive",
+        DarkColorTokens.OutlineOnLightWarningActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseAccentMinorActive",
+        DarkColorTokens.SurfaceInverseAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseInfoMinorActive",
+        DarkColorTokens.SurfaceInverseInfoMinorActive,
+        overwrite,
+    )
+    initial.add("surfaceOnDarkAccentActive", DarkColorTokens.SurfaceOnDarkAccentActive, overwrite)
+    initial.add(
+        "surfaceOnDarkNegativeMinorActive",
+        DarkColorTokens.SurfaceOnDarkNegativeMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkTransparentNegativeActive",
+        DarkColorTokens.SurfaceOnDarkTransparentNegativeActive,
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentMinorActive",
+        DarkColorTokens.TextDefaultAccentMinorActive,
+        overwrite,
+    )
+    initial.add("textDefaultInfoActive", DarkColorTokens.TextDefaultInfoActive, overwrite)
+    initial.add("textDefaultInfoMinorActive", DarkColorTokens.TextDefaultInfoMinorActive, overwrite)
+    initial.add(
+        "textDefaultNegativeMinorActive",
+        DarkColorTokens.TextDefaultNegativeMinorActive,
+        overwrite,
+    )
+    initial.add("textInverseNegative", DarkColorTokens.TextInverseNegative, overwrite)
+    initial.add("textOnDarkAccentHover", DarkColorTokens.TextOnDarkAccentHover, overwrite)
+    initial.add(
+        "textOnDarkWarningMinorActive",
+        DarkColorTokens.TextOnDarkWarningMinorActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkYellowMinor", DarkColorTokens.DataOnDarkYellowMinor, overwrite)
+    initial.add(
+        "outlineDefaultAccentMinorActive",
+        DarkColorTokens.OutlineDefaultAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseAccentMinorActive",
+        DarkColorTokens.OutlineInverseAccentMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentInfoActive",
+        DarkColorTokens.SurfaceInverseTransparentInfoActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentNegativeActive",
+        DarkColorTokens.SurfaceInverseTransparentNegativeActive,
+        overwrite,
+    )
+    initial.add("surfaceDefaultPositive", DarkColorTokens.SurfaceDefaultPositive, overwrite)
+    initial.add(
+        "surfaceDefaultTransparentNegative",
+        DarkColorTokens.SurfaceDefaultTransparentNegative,
+        overwrite,
+    )
+    initial.add("surfaceInverseAccentMinor", DarkColorTokens.SurfaceInverseAccentMinor, overwrite)
+    initial.add(
+        "surfaceInverseSolidSecondaryActive",
+        DarkColorTokens.SurfaceInverseSolidSecondaryActive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceInverseTransparentNegative",
+        DarkColorTokens.SurfaceInverseTransparentNegative,
+        overwrite,
+    )
+    initial.add("surfaceOnDarkSolidCard", DarkColorTokens.SurfaceOnDarkSolidCard, overwrite)
+    initial.add("surfaceOnLightAccentMinor", DarkColorTokens.SurfaceOnLightAccentMinor, overwrite)
+    initial.add(
+        "surfaceOnLightSolidTertiaryActive",
+        DarkColorTokens.SurfaceOnLightSolidTertiaryActive,
+        overwrite,
+    )
+    initial.add("textDefaultInfo", DarkColorTokens.TextDefaultInfo, overwrite)
+    initial.add("textDefaultInfoMinor", DarkColorTokens.TextDefaultInfoMinor, overwrite)
+    initial.add(
+        "textOnDarkNegativeMinorActive",
+        DarkColorTokens.TextOnDarkNegativeMinorActive,
+        overwrite,
+    )
+    initial.add("outlineOnLightWarningMinor", DarkColorTokens.OutlineOnLightWarningMinor, overwrite)
+    initial.add(
+        "surfaceOnLightTransparentPositive",
+        DarkColorTokens.SurfaceOnLightTransparentPositive,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultTransparentDeepHover",
+        DarkColorTokens.SurfaceDefaultTransparentDeepHover,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnDarkSolidCardBrightness",
+        DarkColorTokens.SurfaceOnDarkSolidCardBrightness,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightSolidCardBrightness",
+        DarkColorTokens.SurfaceOnLightSolidCardBrightness,
+        overwrite,
+    )
+    initial.add(
+        "surfaceOnLightTransparentNegativeHover",
+        DarkColorTokens.SurfaceOnLightTransparentNegativeHover,
+        overwrite,
+    )
+    initial.add(
+        "textDefaultAccentMinorHover",
+        DarkColorTokens.TextDefaultAccentMinorHover,
+        overwrite,
+    )
+    initial.add("textDefaultInfoHover", DarkColorTokens.TextDefaultInfoHover, overwrite)
+    initial.add("textInverseInfoMinorActive", DarkColorTokens.TextInverseInfoMinorActive, overwrite)
+    initial.add("textOnDarkTertiaryHover", DarkColorTokens.TextOnDarkTertiaryHover, overwrite)
+    initial.add("textOnLightSecondaryActive", DarkColorTokens.TextOnLightSecondaryActive, overwrite)
+    initial.add(
+        "dataDefaultYellowTransparent",
+        DarkColorTokens.DataDefaultYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightAccentMinorHover",
+        DarkColorTokens.OutlineOnLightAccentMinorHover,
         overwrite,
     )
     return PlasmaHomeDsColors(initial)
