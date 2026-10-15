@@ -2,11 +2,13 @@ package com.sdds.compose.uikit.fixtures.stories.dropdownemptystate
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.DropdownEmptyStateStyle
 import com.sdds.compose.uikit.DropdownScope
 import com.sdds.compose.uikit.EmptyState
+import com.sdds.compose.uikit.LocalDropdownEmptyStateStyle
 import com.sdds.compose.uikit.fixtures.stories.DropdownEmptyStateUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.DropdownEmptyStateUiStateTransformer
 import com.sdds.compose.uikit.imageVectorSource
@@ -44,15 +46,19 @@ object DropdownEmptyStateStory : ComposeBaseStory<DropdownEmptyStateUiState, Dro
         state: DropdownEmptyStateUiState,
     ) {
         // EmptyState объявлен на DropdownScope (маркерный интерфейс): вне меню рисуем его через пустой scope.
+        // Перегрузка с `iconSource` не передаёт `style` вложенному EmptyState, и тот берёт стиль из composition local,
+        // как внутри DropdownMenu: без него пропадают цвета, кнопка и отступы стиля.
         val scope = remember { object : DropdownScope {} }
-        with(scope) {
-            EmptyState(
-                style = style,
-                iconSource = if (state.icon) imageVectorSource(SddsIcons.Plasma24) else null,
-                description = state.description,
-                buttonLabel = state.buttonLabel.takeIf { it.isNotEmpty() },
-                onClick = {},
-            )
+        CompositionLocalProvider(LocalDropdownEmptyStateStyle provides style) {
+            with(scope) {
+                EmptyState(
+                    style = style,
+                    iconSource = if (state.icon) imageVectorSource(SddsIcons.Plasma24) else null,
+                    description = state.description,
+                    buttonLabel = state.buttonLabel.takeIf { it.isNotEmpty() },
+                    onClick = {},
+                )
+            }
         }
     }
 
@@ -62,6 +68,8 @@ object DropdownEmptyStateStory : ComposeBaseStory<DropdownEmptyStateUiState, Dro
         key: ComponentKey,
     ) {
         val scope = remember { object : DropdownScope {} }
-        with(scope) { EmptyState(style = style, description = "Ничего не найдено") }
+        CompositionLocalProvider(LocalDropdownEmptyStateStyle provides style) {
+            with(scope) { EmptyState(style = style, description = "Ничего не найдено") }
+        }
     }
 }
