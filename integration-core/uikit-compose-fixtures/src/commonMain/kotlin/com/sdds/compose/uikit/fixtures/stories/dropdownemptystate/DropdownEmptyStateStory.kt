@@ -1,14 +1,17 @@
 package com.sdds.compose.uikit.fixtures.stories.dropdownemptystate
 
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.DropdownEmptyStateStyle
 import com.sdds.compose.uikit.DropdownScope
 import com.sdds.compose.uikit.EmptyState
-import com.sdds.compose.uikit.LocalDropdownEmptyStateStyle
+import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.DropdownEmptyStateUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.DropdownEmptyStateUiStateTransformer
 import com.sdds.compose.uikit.imageVectorSource
@@ -46,19 +49,24 @@ object DropdownEmptyStateStory : ComposeBaseStory<DropdownEmptyStateUiState, Dro
         state: DropdownEmptyStateUiState,
     ) {
         // EmptyState объявлен на DropdownScope (маркерный интерфейс): вне меню рисуем его через пустой scope.
-        // Перегрузка с `iconSource` не передаёт `style` вложенному EmptyState, и тот берёт стиль из composition local,
-        // как внутри DropdownMenu: без него пропадают цвета, кнопка и отступы стиля.
+        // Берём перегрузку со слотами: только она использует переданный `style`, а перегрузка со строками и `iconSource`
+        // его вложенному EmptyState не передаёт.
         val scope = remember { object : DropdownScope {} }
-        CompositionLocalProvider(LocalDropdownEmptyStateStyle provides style) {
-            with(scope) {
-                EmptyState(
-                    style = style,
-                    iconSource = if (state.icon) imageVectorSource(SddsIcons.Plasma24) else null,
-                    description = state.description,
-                    buttonLabel = state.buttonLabel.takeIf { it.isNotEmpty() },
-                    onClick = {},
-                )
-            }
+        with(scope) {
+            EmptyState(
+                style = style,
+                image = if (state.icon) {
+                    { Icon(source = imageVectorSource(SddsIcons.Plasma24), contentDescription = null) }
+                } else {
+                    null
+                },
+                description = { Text(text = state.description) },
+                button = state.buttonLabel.takeIf { it.isNotEmpty() }?.let { label ->
+                    {
+                        Button(modifier = Modifier.fillMaxWidth(), label = label, onClick = {})
+                    }
+                },
+            )
         }
     }
 
@@ -68,8 +76,6 @@ object DropdownEmptyStateStory : ComposeBaseStory<DropdownEmptyStateUiState, Dro
         key: ComponentKey,
     ) {
         val scope = remember { object : DropdownScope {} }
-        CompositionLocalProvider(LocalDropdownEmptyStateStyle provides style) {
-            with(scope) { EmptyState(style = style, description = "Ничего не найдено") }
-        }
+        with(scope) { EmptyState(style = style, description = { Text(text = "Ничего не найдено") }) }
     }
 }
