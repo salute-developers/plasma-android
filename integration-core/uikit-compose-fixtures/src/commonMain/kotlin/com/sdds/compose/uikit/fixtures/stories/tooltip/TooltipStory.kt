@@ -51,7 +51,7 @@ data class TooltipUiState(
     }
 }
 
-@Story
+@Story(componentId = "Tooltip")
 object TooltipStory : ComposeBaseStory<TooltipUiState, TooltipStyle>(
     ComponentKey.Tooltip,
     TooltipUiState(),

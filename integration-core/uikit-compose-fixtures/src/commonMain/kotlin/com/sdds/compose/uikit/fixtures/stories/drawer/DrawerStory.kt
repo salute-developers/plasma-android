@@ -59,7 +59,7 @@ data class DrawerUiState(
     }
 }
 
-@Story
+@Story(componentId = "Drawer")
 object DrawerStory : ComposeBaseStory<DrawerUiState, DrawerStyle>(
     ComponentKey.Drawer,
     DrawerUiState(),

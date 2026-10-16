@@ -147,4 +147,20 @@ class PayloadValidationTest {
         assertEquals("style_ref_cycle", cycle.code)
         assertEquals("unknown_asset_ref", asset.code)
     }
+
+    @Test
+    fun `state entry without names is rejected with its path`() {
+        listOf(emptyList(), listOf(""), listOf("pressed", " ")).forEach { names ->
+            val error = assertFailsWith<PreviewPreparationException> {
+                payload(
+                    mapOf(
+                        "color" to PreviewPropertyValue(black, listOf(PreviewStateEntry(names, black))),
+                    ),
+                ).validateReferences()
+            }
+
+            assertEquals("invalid_state_entry", error.code)
+            assertEquals("$.component.properties.color.states[0]", error.path)
+        }
+    }
 }

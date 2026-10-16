@@ -27,7 +27,7 @@ data class IconBadgeUiState(
     }
 }
 
-@Story
+@Story(componentId = "IconBadge")
 object IconBadgeStory : ComposeBaseStory<IconBadgeUiState, BadgeStyle>(
     ComponentKey.IconBadge,
     IconBadgeUiState(),

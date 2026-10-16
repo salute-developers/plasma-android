@@ -10,4 +10,8 @@ internal data class StoriesRegistryData(
 internal data class StoryData(
     val storyClass: KSType,
     val sourceFile: KSFile?,
+    /** Значение `@Story(componentId)`; пустая строка, если история не участвует в Compose preview. */
+    val componentId: String = "",
+    /** Полное имя класса стиля из `ComposeBaseStory<State, Style>`; пустая строка для историй без Compose-стиля. */
+    val styleQualifiedName: String = "",
 )

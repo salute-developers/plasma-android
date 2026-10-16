@@ -65,7 +65,7 @@ data class DropdownMenuUiState(
     }
 }
 
-@Story
+@Story(componentId = "DropdownMenu")
 object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuStyle>(
     ComponentKey.DropdownMenu,
     DropdownMenuUiState(),

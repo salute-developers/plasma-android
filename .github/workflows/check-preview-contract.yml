@@ -1,0 +1,40 @@
+name: 'Preview contract check'
+
+permissions:
+  contents: read
+
+# Копия схемы Preview Protocol должна совпадать с каноническим контрактом из design-system-builder.
+# В pull request расхождение даёт предупреждение (копия может отставать, пока схема не влита в dev design-system-builder),
+# в релизных ветках, main и в ночном запуске - ошибку.
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+      - feature/*
+      - release/*
+      - hotfix/*
+    paths:
+      - 'integration-core/preview-contract/**'
+      - '.github/scripts/check-preview-contract.sh'
+      - '.github/workflows/check-preview-contract.yml'
+  push:
+    branches:
+      - main
+      - release/*
+      - hotfix/*
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Compare with design-system-builder
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare fingerprints
+        env:
+          DSB_CONTRACT_REF: ${{ vars.DSB_CONTRACT_REF || 'dev' }}
+          MODE: ${{ github.event_name == 'pull_request' && 'warn' || 'error' }}
+        run: .github/scripts/check-preview-contract.sh

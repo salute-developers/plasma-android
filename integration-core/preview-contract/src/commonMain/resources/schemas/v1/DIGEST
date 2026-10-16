@@ -13,4 +13,4 @@ facc8f3fb1358419fa745de6434e1fc5d918024b7dbe1ab149afea8b01fa5bb0  fixtures/v1/sh
 421f953f07649127aa869ed5383163937c9cb78f3b142e4871b9edec0d4a7272  fixtures/v1/shared/valid/minimal.json
 264877cdfd91e70b7542ea2a0614ca8c9d0db4e42638eb4a692c3eccfa9ace31  fixtures/v1/shared/valid/state-set.json
 45e4ff829d415f0ad2b30de119b7bf7da8d392c23b50914bd6d4a51ca7965014  fixtures/v1/shared/valid/style-ref.json
-bc5e6042b8c6b787dca3f38841e37fd125a21217a3e668bd42b3ff77692caa85  schemas/v1/preview-payload.schema.json
+79da7d4ee214f65f8c7275167ceccf3938940839ec87883e5cd73390198d33db  schemas/v1/preview-payload.schema.json

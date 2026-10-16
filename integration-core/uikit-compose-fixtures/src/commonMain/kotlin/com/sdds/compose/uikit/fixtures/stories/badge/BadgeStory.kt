@@ -37,7 +37,7 @@ data class BadgeUiState(
     }
 }
 
-@Story
+@Story(componentId = "Badge")
 object BadgeStory : ComposeBaseStory<BadgeUiState, BadgeStyle>(
     ComponentKey.Badge,
     BadgeUiState(),

@@ -68,7 +68,7 @@ enum class ListItemEndContent {
     None,
 }
 
-@Story
+@Story(componentId = "List")
 object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
     ComponentKey.List,
     ListUiState(),

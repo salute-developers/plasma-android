@@ -32,7 +32,7 @@ data class ProgressUiState(
     }
 }
 
-@Story
+@Story(componentId = "ProgressBar")
 object ProgressStory : ComposeBaseStory<ProgressUiState, ProgressBarStyle>(
     ComponentKey.ProgressBar,
     ProgressUiState(),

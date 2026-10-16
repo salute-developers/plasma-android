@@ -54,7 +54,7 @@ data class CollapsingNavigationBarUiState(
     }
 }
 
-@Story
+@Story(componentId = "CollapsingNavigationBar")
 object CollapsingNavigationBarStory :
     ComposeBaseStory<CollapsingNavigationBarUiState, CollapsingNavigationBarStyle>(
         ComponentKey.CollapsingNavigationBar,

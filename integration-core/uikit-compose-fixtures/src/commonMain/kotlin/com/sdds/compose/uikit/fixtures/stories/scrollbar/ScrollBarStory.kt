@@ -51,7 +51,7 @@ data class ScrollBarUiState(
     }
 }
 
-@Story
+@Story(componentId = "ScrollBar")
 object ScrollBarStory : ComposeBaseStory<ScrollBarUiState, ScrollBarStyle>(
     ComponentKey.ScrollBar,
     ScrollBarUiState(),

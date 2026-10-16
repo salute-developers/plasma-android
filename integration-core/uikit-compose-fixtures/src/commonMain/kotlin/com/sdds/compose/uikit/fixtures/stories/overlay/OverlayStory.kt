@@ -42,7 +42,7 @@ data class OverlayUiState(
     }
 }
 
-@Story
+@Story(componentId = "Overlay")
 object OverlayStory : ComposeBaseStory<OverlayUiState, OverlayStyle>(
     ComponentKey.Overlay,
     OverlayUiState(),

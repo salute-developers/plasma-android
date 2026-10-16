@@ -216,6 +216,28 @@ public data class PreviewSurface(
     /** Цвет фона. */ val background: String? = null,
 )
 
+/** Текст по умолчанию: идентификаторы токенов `typography` и `color` темы. */
+@Serializable
+public data class PreviewDefaultText(
+    /** Токен стиля текста. */ val style: String? = null,
+    /** Токен цвета текста. */ val color: String? = null,
+)
+
+/** Стили по умолчанию: идентификаторы вложенных стилей из `styles` для компонентов, которые истории рисуют без стиля. */
+@Serializable
+public data class PreviewDefaultStyles(
+    /** Стиль кнопок. */ val button: String? = null,
+    /** Стиль Switch. */ val switch: String? = null,
+    /** Стиль Spinner. */ val spinner: String? = null,
+)
+
+/** Стили и текст по умолчанию вспомогательных элементов истории; значения берутся из темы дизайн-системы. */
+@Serializable
+public data class PreviewDefaults(
+    /** Текст по умолчанию. */ val text: PreviewDefaultText? = null,
+    /** Стили по умолчанию. */ val styles: PreviewDefaultStyles? = null,
+)
+
 /** Полная инструкция для одного preview render. */
 @Serializable
 public data class PreviewPayload(
@@ -228,6 +250,7 @@ public data class PreviewPayload(
     /** Вложенные стили по идентификаторам. */ val styles: Map<String, PreviewStyle> = emptyMap(),
     /** Runtime-данные примера. */ val example: PreviewExample,
     /** Параметры области rendering. */ val surface: PreviewSurface? = null,
+    /** Стили и текст по умолчанию вспомогательных элементов истории. */ val defaults: PreviewDefaults? = null,
 )
 
 /** Результат обработки preview request. */

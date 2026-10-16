@@ -46,7 +46,7 @@ data class AccordionUiState(
     }
 }
 
-@Story
+@Story(componentId = "Accordion")
 object AccordionStory : ComposeBaseStory<AccordionUiState, AccordionStyle>(
     ComponentKey.Accordion,
     AccordionUiState(),

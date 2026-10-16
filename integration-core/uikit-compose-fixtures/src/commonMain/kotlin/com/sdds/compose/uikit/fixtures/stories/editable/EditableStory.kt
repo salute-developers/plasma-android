@@ -51,7 +51,7 @@ enum class EditableTextAlign(val align: TextAlign) {
     End(TextAlign.End),
 }
 
-@Story
+@Story(componentId = "Editable")
 object EditableStory : ComposeBaseStory<EditableUiState, EditableStyle>(
     ComponentKey.Editable,
     EditableUiState(),

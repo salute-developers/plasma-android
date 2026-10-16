@@ -85,7 +85,7 @@ enum class ComboBoxTriggerAlignment(val alignment: Alignment) {
     BottomCenter(Alignment.BottomCenter),
 }
 
-@Story
+@Story(componentId = "ComboBox")
 object ComboBoxStory : ComposeBaseStory<ComboBoxUiState, ComboBoxStyle>(
     ComponentKey.ComboBox,
     ComboBoxUiState(),

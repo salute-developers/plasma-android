@@ -41,7 +41,7 @@ data class ModalUiState(
     }
 }
 
-@Story
+@Story(componentId = "Modal")
 object ModalStory : ComposeBaseStory<ModalUiState, ModalStyle>(
     ComponentKey.Modal,
     ModalUiState(),

@@ -20,6 +20,28 @@ class PreviewAssetsTest {
     }
 
     @Test
+    fun `the same url under different ids is loaded once`() = runTest {
+        var calls = 0
+        val resolver = CachingPreviewAssetResolver { byteArrayOf((++calls).toByte()) }
+        val display = PreviewAsset("fontFamily.display.regular", PreviewAssetType.TTF, "font.ttf", null)
+        val header = PreviewAsset("fontFamily.header.regular", PreviewAssetType.TTF, "font.ttf", null)
+
+        assertContentEquals(resolver.resolve(display), resolver.resolve(header))
+        assertEquals(1, calls)
+    }
+
+    @Test
+    fun `different urls are loaded separately`() = runTest {
+        var calls = 0
+        val resolver = CachingPreviewAssetResolver { byteArrayOf((++calls).toByte()) }
+
+        resolver.resolve(PreviewAsset("a", PreviewAssetType.TTF, "a.ttf", null))
+        resolver.resolve(PreviewAsset("b", PreviewAssetType.TTF, "b.ttf", null))
+
+        assertEquals(2, calls)
+    }
+
+    @Test
     fun `empty font is rejected`() = runTest {
         val resolver = CachingPreviewAssetResolver { byteArrayOf() }
         assertFailsWith<IllegalArgumentException> { resolver.resolve(asset("empty", null)) }

@@ -43,7 +43,7 @@ data class PaginationDotsUiState(
     }
 }
 
-@Story
+@Story(componentId = "PaginationDots")
 object PaginationDotsStory : ComposeBaseStory<PaginationDotsUiState, PaginationDotsStyle>(
     ComponentKey.PaginationDots,
     PaginationDotsUiState(),
