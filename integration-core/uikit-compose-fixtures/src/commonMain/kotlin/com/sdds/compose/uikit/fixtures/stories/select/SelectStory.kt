@@ -87,7 +87,7 @@ enum class SelectTriggerAlignment(val alignment: Alignment) {
     BottomCenter(Alignment.BottomCenter),
 }
 
-@Story
+@Story(componentId = "Select")
 object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
     ComponentKey.Select,
     SelectUiState(),

@@ -31,7 +31,7 @@ data class LoaderUiState(
     }
 }
 
-@Story
+@Story(componentId = "Loader")
 object LoaderStory : ComposeBaseStory<LoaderUiState, LoaderStyle>(
     ComponentKey.Loader,
     LoaderUiState(),

@@ -59,7 +59,7 @@ enum class CellContent {
     RADIOBOX,
 }
 
-@Story
+@Story(componentId = "Cell")
 object CellStory : ComposeBaseStory<CellUiState, CellStyle>(
     ComponentKey.Cell,
     CellUiState(),

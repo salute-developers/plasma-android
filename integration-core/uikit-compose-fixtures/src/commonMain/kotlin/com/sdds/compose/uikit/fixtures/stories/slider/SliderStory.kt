@@ -38,7 +38,7 @@ data class SliderUiState(
     }
 }
 
-@Story
+@Story(componentId = "Slider")
 object SliderStory : ComposeBaseStory<SliderUiState, SliderStyle>(
     ComponentKey.Slider,
     SliderUiState(),

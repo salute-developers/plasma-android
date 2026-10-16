@@ -62,7 +62,7 @@ data class TextFieldUiState(
     }
 }
 
-@Story
+@Story(componentId = "TextField")
 object TextFieldStory : ComposeBaseStory<TextFieldUiState, TextFieldStyle>(
     ComponentKey.TextField,
     TextFieldUiState(),

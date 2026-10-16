@@ -26,7 +26,7 @@ data class IndicatorUiState(
     }
 }
 
-@Story
+@Story(componentId = "Indicator")
 object IndicatorStory : ComposeBaseStory<IndicatorUiState, IndicatorStyle>(
     ComponentKey.Indicator,
     IndicatorUiState(),

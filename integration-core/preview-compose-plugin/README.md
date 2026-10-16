@@ -1,0 +1,259 @@
+# Compose Preview Plugin
+
+Self-contained Wasm-плагин для отображения SDDS Compose-компонентов из полного
+`PreviewPayload`. Плагин поддерживает все компоненты `uikit-compose` (79 компонентов api-меты); список лежит
+в `components` manifest.
+
+## Сборка
+
+Из корня репозитория:
+
+```bash
+./gradlew -p integration-core :preview-compose-plugin:previewPluginArtifact
+```
+
+Готовый архив:
+
+```text
+integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip
+```
+
+Архив содержит:
+
+- `index.html` — browser entrypoint;
+- `preview-plugin.json` — manifest (собирается при сборке, см. «Как добавить компонент»);
+- `preview-compose-plugin.js` — загрузчик приложения;
+- Kotlin/Wasm и Skiko Wasm binaries;
+- `composeResources/` — Compose-ресурсы историй (иллюстрации и т.п.); без них истории, использующие ресурсы,
+  падают при отрисовке.
+
+## Размещение
+
+Распакуйте архив в отдельный каталог web-сервера и публикуйте его содержимое из одного URL:
+
+```text
+https://preview.example.com/compose/
+├── index.html
+├── preview-plugin.json
+├── preview-compose-plugin.js
+├── composeResources/
+└── *.wasm
+```
+
+Плагин необходимо открывать по HTTP/HTTPS. Запуск `index.html` через `file://` не поддерживается,
+поскольку браузеру требуется загружать Wasm-файлы и font assets.
+
+Для локальной проверки можно распаковать архив и запустить любой статический HTTP-сервер:
+
+```bash
+unzip integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
+  -d /tmp/preview-compose-plugin
+python3 -m http.server 8080 --directory /tmp/preview-compose-plugin
+```
+
+После этого плагин доступен по адресу `http://localhost:8080/`.
+
+## Как добавить компонент
+
+Компонент попадает в preview без кода в плагине: достаточно истории и записи в api-мете.
+
+1. Компонент должен быть в `uikit-compose-api-meta.json` (его строит `uikit-compose`). Для каждой записи меты при сборке
+   плагина генерируется фабрика стиля (`:integration-core:preview-generator`, задача `generatePreviewFactories`):
+   метод билдера выбирается по тем же правилам, что и в Theme Builder, вызовы порождаются как обычный код.
+2. В `uikit-compose-fixtures` для компонента должна быть история `@Story(componentId = "<componentName из меты>")`.
+   `componentId` совпадает с именем компонента в мете и может отличаться от `ComponentKey.value`
+   (`CheckBox` и `Checkbox`). История без `componentId` остаётся в демо, но в preview не участвует.
+3. `previewComponentsFrom` собирает компоненты плагина из записей `StoryRegistry.previewEntries()` и сгенерированных
+   фабрик; `components` в `preview-plugin.json` генерируется из списка фабрик (шаблон в `src/manifest`).
+
+Проверки: `StyleFactoryCoverageTest` сверяет мету, фабрики и истории (исключения перечислены в тесте с причиной),
+браузерный тест рисует каждый компонент (галерея) и сверяет manifest с описаниями компонентов.
+
+## Передача payload
+
+Плагин принимает полный `PreviewPayload`, а не patch. Поддерживаются два способа подключения.
+
+### Прямой вызов
+
+Если host и плагин работают в одном window:
+
+```javascript
+const result = await window.submitPreviewPayload(payload);
+if (result.type === "failure") {
+  console.error(result.code, result.message);
+}
+```
+
+`payload` может быть JavaScript-объектом или сериализованной JSON-строкой:
+
+```javascript
+await window.submitPreviewPayload(JSON.stringify(payload));
+```
+
+Функция становится доступна после загрузки `index.html`, самостоятельно ожидает Wasm runtime и
+завершает Promise только после подготовки payload и применения актуального Compose state.
+Результат — существующий `PreviewResult.Success` или `PreviewResult.Failure` с тем же
+`requestId`.
+
+Описание controls зарегистрированной story доступно независимо от render state:
+
+```javascript
+const result = await window.describePreviewComponent("BasicButton");
+if (result.type === "success") {
+  console.log(result.description.properties);
+}
+```
+
+### iframe и postMessage
+
+Host может загрузить плагин в iframe:
+
+```html
+<iframe
+  id="compose-preview"
+  src="https://preview.example.com/compose/index.html"
+></iframe>
+```
+
+Полный payload передаётся сообщением типа `sdds.preview.payload`:
+
+```javascript
+const iframe = document.getElementById("compose-preview");
+
+iframe.contentWindow.postMessage(
+  {
+    type: "sdds.preview.payload",
+    payload,
+  },
+  "https://preview.example.com",
+);
+```
+
+Событие iframe `load` не означает готовность Wasm. Host должен дождаться lifecycle message:
+
+```javascript
+window.addEventListener("message", (event) => {
+  if (
+    event.source === iframe.contentWindow &&
+    event.data?.type === "sdds.preview.ready" &&
+    event.data.protocolVersion === 1
+  ) {
+    // Plugin готов принять первый полный payload.
+  }
+});
+```
+
+После обработки plugin отправляет результат в исходный `event.source`, используя исходный
+`event.origin` как `targetOrigin`:
+
+```javascript
+window.addEventListener("message", (event) => {
+  if (event.source !== iframe.contentWindow) return;
+  if (event.data?.type !== "sdds.preview.result") return;
+  const result = event.data.result;
+  console.log(result.requestId, result.type);
+});
+```
+
+Для получения description через iframe host отправляет отдельный коррелированный request:
+
+```javascript
+iframe.contentWindow.postMessage(
+  {
+    type: "sdds.preview.describe",
+    requestId: "describe-1",
+    componentId: "BasicButton",
+  },
+  "https://preview.example.com",
+);
+
+window.addEventListener("message", (event) => {
+  if (event.source !== iframe.contentWindow) return;
+  if (event.data?.type !== "sdds.preview.description") return;
+  console.log(event.data.result.requestId, event.data.result);
+});
+```
+
+Describe requests имеют собственный lifecycle и не отменяют render requests.
+
+Каждый host request должен иметь уникальный непустой `requestId`. Следующий полный payload
+заменяет предыдущие theme, component properties и example state без перезапуска Wasm application.
+Если более старый запрос заканчивает подготовку после нового, он получает failure с code
+`superseded` и не заменяет актуальный render.
+
+## Font assets
+
+Font-family tokens могут ссылаться на TTF/OTF assets из payload:
+
+```json
+{
+  "assets": [
+    {
+      "id": "font.body.regular",
+      "type": "TTF",
+      "url": "https://assets.example.com/fonts/body-regular.ttf",
+      "digest": "sha256:..."
+    }
+  ]
+}
+```
+
+URL загружается браузером через `fetch`. Сервер assets должен:
+
+- разрешать CORS для origin плагина;
+- возвращать успешный HTTP status;
+- отдавать непустое содержимое TTF/OTF.
+
+Если обязательный font недоступен и `allowFallback=false`, подготовка payload завершается ошибкой.
+При `allowFallback=true` используется `FontFamily.Default`.
+
+## Manifest
+
+`preview-plugin.json` описывает entrypoint, protocol version, bridge и поддержанные компоненты.
+Перед подключением host может прочитать manifest:
+
+```javascript
+const manifest = await fetch(
+  "https://preview.example.com/compose/preview-plugin.json",
+).then((response) => response.json());
+```
+
+Текущий идентификатор plugin: `sdds.compose.preview`, версия Preview Protocol: `1`.
+Список `components` формируется при сборке из сгенерированных фабрик, вручную его править не нужно.
+`payloadBridge` объявляет direct render/describe API и transport message types:
+`sdds.preview.payload`, `sdds.preview.ready`, `sdds.preview.result`,
+`sdds.preview.describe` и `sdds.preview.description`.
+
+## Проверка production artifact
+
+Focused JVM tests, artifact и browser lifecycle запускаются из корня репозитория:
+
+```bash
+./gradlew -p integration-core \
+  :preview-compose-plugin:jvmTest \
+  :preview-compose-plugin:previewPluginArtifact \
+  :preview-compose-plugin:previewPluginBrowserTest
+```
+
+Browser test использует headless Chrome (с программным WebGL) и настоящий OTF asset. Путь к Chrome можно
+переопределить через `-PpreviewChromePath=/path/to/chrome`.
+
+Кроме функциональных проверок тест запускает галерею: каждый компонент из manifest отрисовывается с пробными
+значениями свойств из api-меты, проверяются успех, отсутствие предупреждений и непустой кадр, ошибки страницы
+и застывший рендер. Скриншоты и страница `index.html` для просмотра лежат в
+`integration-core/preview-compose-plugin/build/browser-test/gallery/`. Тест падает со списком всех проблемных компонентов.
+
+## Ограничения
+
+- Иконки (`ImageSource`) и тени (`ShadowAppearance`) в preview пока не поддерживаются: такие свойства
+  пропускаются с предупреждением `unsupported_property`.
+- Исключение при композиции компонента (например, нехватка ресурса) останавливает рендер до перезагрузки
+  страницы: результат `success` отправляется после применения состояния, до отрисовки.
+- Каждый update передаёт полный payload.
+- WOFF/WOFF2 и variable-font axes не поддерживаются.
+- Проверка доверенного origin, подпись artifact и publication pipeline пока не реализованы.
+- Ready message временно отправляется parent с `targetOrigin="*"`, поскольку production origin
+  allowlist относится к отдельному trust-policy change. Payload results всегда направляются
+  только исходному sender/origin.
+- Host отвечает за sandbox/CSP iframe, проверку `event.source`, `event.origin` и совместимости
+  manifest.

@@ -49,7 +49,7 @@ data class CodeInputUiState(
     }
 }
 
-@Story
+@Story(componentId = "CodeInput")
 object CodeInputStory : ComposeBaseStory<CodeInputUiState, CodeInputStyle>(
     ComponentKey.CodeInput,
     CodeInputUiState(),

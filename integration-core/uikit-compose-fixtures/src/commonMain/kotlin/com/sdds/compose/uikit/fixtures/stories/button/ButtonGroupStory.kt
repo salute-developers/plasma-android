@@ -80,7 +80,7 @@ data class ButtonGroupUiState(
  * @see ComponentKey.ButtonGroup
  * @see ButtonGroupStyle
  */
-@Story
+@Story(componentId = "ButtonGroup")
 object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>(
     ComponentKey.ButtonGroup,
     ButtonGroupUiState(),

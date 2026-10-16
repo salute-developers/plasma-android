@@ -54,7 +54,7 @@ internal object AvatarGroupPlaceholderPropertyProducer : PropertyProducer<Avatar
     private val AvatarPlaceholder.name get() = (this as? AvatarPlaceholder.Name)?.fullName
 }
 
-@Story
+@Story(componentId = "AvatarGroup")
 object AvatarGroupStory : ComposeBaseStory<AvatarGroupUiState, AvatarGroupStyle>(
     ComponentKey.AvatarGroup,
     AvatarGroupUiState(),

@@ -35,7 +35,7 @@ data class ImageUiState(
     }
 }
 
-@Story
+@Story(componentId = "Image")
 object ImageStory : ComposeBaseStory<ImageUiState, ImageStyle>(
     ComponentKey.Image,
     ImageUiState(),

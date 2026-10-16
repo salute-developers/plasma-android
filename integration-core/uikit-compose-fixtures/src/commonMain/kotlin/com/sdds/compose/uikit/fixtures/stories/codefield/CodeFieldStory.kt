@@ -34,7 +34,7 @@ data class CodeFieldUiState(
     }
 }
 
-@Story
+@Story(componentId = "CodeField")
 object CodeFieldStory : ComposeBaseStory<CodeFieldUiState, CodeFieldStyle>(
     ComponentKey.CodeField,
     CodeFieldUiState(),

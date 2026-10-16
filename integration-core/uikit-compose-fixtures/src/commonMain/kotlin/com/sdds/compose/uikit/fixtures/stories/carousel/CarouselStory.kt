@@ -50,7 +50,7 @@ enum class CarouselPageAlignment(val snapPosition: SnapPosition) {
     End(SnapPosition.End),
 }
 
-@Story
+@Story(componentId = "Carousel")
 object CarouselStory : ComposeBaseStory<CarouselUiState, CarouselStyle>(
     ComponentKey.Carousel,
     CarouselUiState(),

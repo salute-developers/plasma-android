@@ -60,7 +60,7 @@ data class DropZoneUiState(
     }
 }
 
-@Story
+@Story(componentId = "DropZone")
 object DropZoneStory : ComposeBaseStory<DropZoneUiState, DropZoneStyle>(
     ComponentKey.DropZone,
     DropZoneUiState(),

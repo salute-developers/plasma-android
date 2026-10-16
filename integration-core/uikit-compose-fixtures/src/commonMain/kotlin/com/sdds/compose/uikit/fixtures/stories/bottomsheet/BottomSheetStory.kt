@@ -66,7 +66,7 @@ data class BottomSheetUiState(
     }
 }
 
-@Story
+@Story(componentId = "ModalBottomSheet")
 object BottomSheetStory : ComposeBaseStory<BottomSheetUiState, ModalBottomSheetStyle>(
     ComponentKey.BottomSheet,
     BottomSheetUiState(),

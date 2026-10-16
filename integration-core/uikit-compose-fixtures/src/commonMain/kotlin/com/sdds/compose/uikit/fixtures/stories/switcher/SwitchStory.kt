@@ -38,7 +38,7 @@ data class SwitchUiState(
     }
 }
 
-@Story
+@Story(componentId = "Switch")
 object SwitchStory : ComposeBaseStory<SwitchUiState, SwitchStyle>(
     ComponentKey.Switch,
     SwitchUiState(),
