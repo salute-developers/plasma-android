@@ -1,0 +1,14 @@
+package com.sdds.preview.compose.generated
+
+import com.sdds.preview.compose.GeneratedStyleFactory
+import kotlin.String
+import kotlin.collections.Map
+
+internal object GeneratedPreviewStyleFactories {
+  public val all: Map<String, GeneratedStyleFactory<*>> = mapOf(
+        "AvatarGroup" to AvatarGroupPreviewStyleFactory,
+        "BasicButton" to BasicButtonPreviewStyleFactory,
+        "CheckBox" to CheckBoxPreviewStyleFactory,
+        "Tabs" to TabsPreviewStyleFactory,
+      )
+}

@@ -8,6 +8,7 @@ import utils.addDefaultTargets
 
 plugins {
     id("convention.cmp-lib")
+    id("io.github.salute-developers.design-system-builder")
 }
 
 val cleanPreviewPluginWebpackOutput by tasks.registering(Delete::class) {
@@ -18,6 +19,7 @@ val generatedManifestDir = layout.buildDirectory.dir("generated/preview-manifest
 val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factories")
 val generatedIconsDir = layout.buildDirectory.dir("generated/preview-icons")
 val generatedGroupsFile = layout.buildDirectory.file("generated/preview-groups/preview-groups.json")
+val generatePreviewFactories = tasks.named("generateComposePreview")
 
 // Группы компонентов берутся из реестра историй песочницы (`ComponentKey.group`): их знает только Kotlin-код,
 // поэтому JSON строит главная функция JVM-цели модуля.
@@ -42,7 +44,7 @@ val generatePreviewGroups by tasks.registering(JavaExec::class) {
 val generatePreviewManifest by tasks.registering {
     group = "build"
     description = "Собирает preview-plugin.json из шаблона и списка компонентов сгенерированных фабрик."
-    dependsOn("generatePreviewFactories", generatePreviewGroups)
+    dependsOn(generatePreviewFactories, generatePreviewGroups)
     val template = layout.projectDirectory.file("src/manifest/preview-plugin.template.json")
     val components = generatedFactoriesDir.map { it.file("components.txt") }
     val output = generatedManifestDir
@@ -137,34 +139,17 @@ val previewApiMeta: Configuration by configurations.creating {
         attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
     }
 }
-val previewGenerator: Configuration by configurations.creating {
-    isCanBeConsumed = false
-    isCanBeResolved = true
-}
 dependencies {
     previewApiMeta(libs.sdds.uikit.compose)
-    previewGenerator(project(":preview-generator"))
 }
 
-private val JVM_FOR_GENERATOR = 17
-
-val generatePreviewFactories by tasks.registering(JavaExec::class) {
-    group = "build"
-    description = "Генерирует фабрики стилей Compose preview по uikit-compose-api-meta.json."
-    classpath = previewGenerator
-    mainClass.set("com.sdds.preview.generator.MainKt")
-    inputs.files(previewApiMeta)
-    inputs.files(previewGenerator)
-    outputs.dir(generatedFactoriesDir)
-    val components = providers.gradleProperty("previewComponents")
-    inputs.property("previewComponents", components.orElse(""))
-    // Генератор и Theme Builder собраны под JVM 17, поэтому запускаем его на нём независимо от JVM самого Gradle.
-    javaLauncher.set(javaToolchains.launcherFor { languageVersion.set(JavaLanguageVersion.of(JVM_FOR_GENERATOR)) })
-    doFirst {
-        val metaJar = previewApiMeta.files.single {
-            it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.")
-        }
-        setArgs(listOfNotNull(metaJar.absolutePath, generatedFactoriesDir.get().asFile.absolutePath, components.orNull))
+// Фабрики стилей порождает задача `generateComposePreview` плагина Design System Builder.
+// Ограничить набор компонентов можно свойством `-PpreviewComponents=A,B`.
+dsBuilder {
+    preview {
+        metaClasspath.from(previewApiMeta)
+        providers.gradleProperty("previewComponents").orNull?.let { components.set(it) }
+        outputDirectory.set(generatedFactoriesDir)
     }
 }
 

@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.sandbox.SandboxScheme
 import org.gradle.api.Action
 import org.gradle.api.Project
+import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.model.ObjectFactory
@@ -68,6 +69,9 @@ abstract class DsBuilderExtension @Inject constructor(
 
     /** Sandbox adapter generation settings. */
     val sandbox: SandboxCapability = objects.newInstance()
+
+    /** Compose preview style factory generation settings. */
+    val preview: PreviewCapability = objects.newInstance()
 
     private val targetsConfig = objects.newInstance(TargetsConfig::class.java)
 
@@ -161,6 +165,12 @@ abstract class DsBuilderExtension @Inject constructor(
         sandbox.view?.applyComponentsInfoConvention(DsBuilderPlatform.VIEW)
     }
 
+    /** Enables and configures generation of Compose preview style factories. */
+    fun preview(action: Action<in PreviewCapability>) {
+        preview.enabled.set(true)
+        action.execute(preview)
+    }
+
     /**
      * Явно выбирает целевые платформы (View/Compose) и настраивает платформо-зависимые опции.
      *
@@ -213,6 +223,7 @@ abstract class DsBuilderExtension @Inject constructor(
                     .map { dir -> SddsThemeSourceReader.readPlatforms(dir.asFile) }
                     .orElse(emptySet()),
             )
+            extension.preview.outputDirectory.convention(layout.buildDirectory.dir("generated/sdds/preview"))
             extension.documentation.outputDirectory.convention(extension.sddsDirectory.dir("temp/docs"))
             extension.documentation.userDocumentationRoot.convention(
                 project.layout.projectDirectory.dir("override-docs"),
@@ -506,6 +517,23 @@ abstract class DocumentationPlatform {
 
     /** Override for the platform theme info JSON. */
     abstract val themeInfoFile: RegularFileProperty
+}
+
+/**
+ * Compose preview style factory generation settings.
+ *
+ * The task `generateComposePreview` reads `uikit-compose-api-meta.json` from [metaClasspath] and writes one style
+ * factory per component of the metadata into [outputDirectory].
+ */
+abstract class PreviewCapability : DsBuilderCapability() {
+    /** Jars or directories that contain `uikit-compose-api-meta.json`. */
+    abstract val metaClasspath: ConfigurableFileCollection
+
+    /** Comma separated component names; all components of the metadata when not set. */
+    abstract val components: Property<String>
+
+    /** Directory for generated sources, `build/generated/sdds/preview` by default. */
+    abstract val outputDirectory: DirectoryProperty
 }
 
 /** Sandbox adapter generation settings. */
