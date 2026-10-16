@@ -77,8 +77,8 @@ class SchemaContractTest {
             assertEquals(
                 recorded.getValue(path),
                 actual,
-                "$path differs from the recorded digest; copy the canonical files from " +
-                    "design-system-builder/backend-kt/preview/contract and regenerate DIGEST",
+                "$path differs from the recorded digest; run " +
+                    "design-system-builder/backend-kt/preview/contract/fingerprint.sh --sync-to <this resources dir>",
             )
         }
     }

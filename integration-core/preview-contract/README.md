@@ -24,3 +24,19 @@ Incremental patches, plugin manifests, asset loading и расширенная �
 JSON Schema Draft 2020-12 в `src/commonMain/resources/schemas/v1` является source
 of truth. Canonical fixtures публикуются рядом со schemas. Kotlin-модели
 `com.sdds.preview.contract` проверяются schema/serialization round-trip tests.
+
+## Copy of the canonical contract
+
+`schemas/v1/preview-payload.schema.json` and `fixtures/v1/shared` are byte-identical copies of
+`design-system-builder/backend-kt/preview/contract`. `schemas/v1/DIGEST` records their SHA-256:
+
+- `SchemaContractTest` fails when a file of the copy no longer matches `DIGEST` (a manual edit of the copy);
+- the `Preview contract check` workflow compares `DIGEST` with the canonical `CONTRACT.sha256`: a pull request gets a warning,
+  `release/*`, `hotfix/*`, `main` and the nightly run fail. The reference is set by the repository variable `DSB_CONTRACT_REF`
+  (default `dev`).
+
+Update the copy from a design-system-builder checkout:
+
+```bash
+backend-kt/preview/contract/fingerprint.sh --sync-to <plasma-android>/integration-core/preview-contract/src/commonMain/resources
+```
