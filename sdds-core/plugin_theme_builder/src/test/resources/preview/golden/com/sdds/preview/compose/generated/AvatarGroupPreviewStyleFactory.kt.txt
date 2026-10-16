@@ -1,0 +1,64 @@
+@file:Suppress(
+  "DEPRECATION",
+  "UNCHECKED_CAST",
+  "UNUSED_VARIABLE",
+)
+
+package com.sdds.preview.compose.generated
+
+import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.AvatarGroupStyle
+import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.preview.compose.GeneratedStyleFactory
+import com.sdds.preview.compose.PreparedComposeTheme
+import com.sdds.preview.compose.PreviewStateMap
+import com.sdds.preview.compose.PreviewStyleContext
+import com.sdds.preview.compose.dpValue
+import com.sdds.preview.compose.nestedStyle
+import com.sdds.preview.compose.styleContext
+import com.sdds.preview.contract.PreviewPayload
+import com.sdds.preview.contract.PreviewPropertyValue
+import kotlin.String
+import kotlin.Suppress
+import kotlin.collections.Map
+import kotlin.collections.Set
+
+internal object AvatarGroupPreviewStyleFactory : GeneratedStyleFactory<AvatarGroupStyle> {
+  public override val componentName: String = "AvatarGroup"
+
+  public override val styleQualifiedName: String = "com.sdds.compose.uikit.AvatarGroupStyle"
+
+  public override val states: PreviewStateMap = PreviewStateMap()
+
+  public override val unsupportedProperties: Set<String> = setOf()
+
+  public override val gradientUnsupportedProperties: Set<String> = setOf()
+
+  public override val iconProperties: Set<String> = setOf()
+
+  public override val nestedStyleTypes: Map<String, String> = mapOf("avatarStyle" to
+      "com.sdds.compose.uikit.AvatarStyle")
+
+  public override val registry: Map<String, GeneratedStyleFactory<*>>
+    get() = GeneratedPreviewStyleFactories.all
+
+  @Composable
+  public override fun build(
+    properties: Map<String, PreviewPropertyValue>,
+    theme: PreparedComposeTheme,
+    context: PreviewStyleContext,
+  ): AvatarGroupStyle {
+    val builder = AvatarGroupStyle.builder()
+    properties["avatarStyle"]?.nestedStyle<AvatarStyle>(theme, context)?.let { builder.avatarStyle(it) }
+    builder.dimensions {
+      properties["itemOffset"]?.dpValue(theme)?.let { itemOffset(it.base) }
+      properties["itemSpacing"]?.dpValue(theme)?.let { itemSpacing(it.base) }
+    }
+    return builder.style()
+  }
+
+  @Composable
+  public override fun create(payload: PreviewPayload, theme: PreparedComposeTheme): AvatarGroupStyle
+      = build(payload.component.properties, theme,
+      payload.styleContext(GeneratedPreviewStyleFactories.all))
+}

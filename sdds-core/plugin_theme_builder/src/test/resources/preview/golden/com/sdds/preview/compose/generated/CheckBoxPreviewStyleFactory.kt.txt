@@ -1,0 +1,98 @@
+@file:Suppress(
+  "DEPRECATION",
+  "UNCHECKED_CAST",
+  "UNUSED_VARIABLE",
+)
+
+package com.sdds.preview.compose.generated
+
+import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.CheckBoxStates
+import com.sdds.compose.uikit.CheckBoxStyle
+import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.preview.compose.GeneratedStyleFactory
+import com.sdds.preview.compose.PreparedComposeTheme
+import com.sdds.preview.compose.PreviewStateMap
+import com.sdds.preview.compose.PreviewStyleContext
+import com.sdds.preview.compose.brushValue
+import com.sdds.preview.compose.dpValue
+import com.sdds.preview.compose.floatValue
+import com.sdds.preview.compose.shapeValue
+import com.sdds.preview.compose.styleContext
+import com.sdds.preview.compose.toStateful
+import com.sdds.preview.compose.typographyValue
+import com.sdds.preview.contract.PreviewPayload
+import com.sdds.preview.contract.PreviewPropertyValue
+import kotlin.String
+import kotlin.Suppress
+import kotlin.collections.Map
+import kotlin.collections.Set
+
+internal object CheckBoxPreviewStyleFactory : GeneratedStyleFactory<CheckBoxStyle> {
+  public override val componentName: String = "CheckBox"
+
+  public override val styleQualifiedName: String = "com.sdds.compose.uikit.CheckBoxStyle"
+
+  public override val states: PreviewStateMap = PreviewStateMap(mapOf<String, ValueState>("checked"
+      to CheckBoxStates.Checked, "indeterminate" to CheckBoxStates.Indeterminate, "error" to
+      CheckBoxStates.Error, ))
+
+  public override val unsupportedProperties: Set<String> = setOf()
+
+  public override val gradientUnsupportedProperties: Set<String> = setOf()
+
+  public override val iconProperties: Set<String> = setOf()
+
+  public override val nestedStyleTypes: Map<String, String> = mapOf()
+
+  public override val registry: Map<String, GeneratedStyleFactory<*>>
+    get() = GeneratedPreviewStyleFactories.all
+
+  @Composable
+  public override fun build(
+    properties: Map<String, PreviewPropertyValue>,
+    theme: PreparedComposeTheme,
+    context: PreviewStyleContext,
+  ): CheckBoxStyle {
+    val builder = CheckBoxStyle.builder()
+    properties["labelStyle"]?.typographyValue(theme)?.let { builder.labelStyle(it.toStateful<TextStyle>(states)) }
+    properties["descriptionStyle"]?.typographyValue(theme)?.let { builder.descriptionStyle(it.toStateful<TextStyle>(states)) }
+    properties["disableAlpha"]?.floatValue()?.let { builder.disableAlpha(it) }
+    properties["shape"]?.shapeValue(theme)?.let { builder.shape(it.toStateful<CornerBasedShape>(states)) }
+    properties["backgroundShape"]?.shapeValue(theme)?.let { builder.backgroundShape(it.toStateful<Shape>(states)) }
+    builder.colorValues {
+      properties["labelColor"]?.let { v -> v.brushValue(theme)?.let { labelColor(it.toStateful<Brush>(states)) } }
+      properties["descriptionColor"]?.let { v -> v.brushValue(theme)?.let { descriptionColor(it.toStateful<Brush>(states)) } }
+      properties["toggleBorderColor"]?.let { v -> v.brushValue(theme)?.let { toggleBorderColor(it.toStateful<Brush>(states)) } }
+      properties["toggleColor"]?.let { v -> v.brushValue(theme)?.let { toggleColor(it.toStateful<Brush>(states)) } }
+      properties["toggleIconColor"]?.let { v -> v.brushValue(theme)?.let { toggleIconColor(it.toStateful<Brush>(states)) } }
+      properties["backgroundColor"]?.let { v -> v.brushValue(theme)?.let { backgroundColor(it.toStateful<Brush>(states)) } }
+    }
+    builder.dimensionValues {
+      properties["toggleWidth"]?.dpValue(theme)?.let { toggleWidth(it.toStateful<Dp>(states)) }
+      properties["toggleHeight"]?.dpValue(theme)?.let { toggleHeight(it.toStateful<Dp>(states)) }
+      properties["togglePadding"]?.dpValue(theme)?.let { togglePadding(it.toStateful<Dp>(states)) }
+      properties["toggleIconHeight"]?.dpValue(theme)?.let { toggleIconHeight(it.toStateful<Dp>(states)) }
+      properties["toggleIconWidth"]?.dpValue(theme)?.let { toggleIconWidth(it.toStateful<Dp>(states)) }
+      properties["toggleBorderWidth"]?.dpValue(theme)?.let { toggleBorderWidth(it.toStateful<Dp>(states)) }
+      properties["toggleBorderOffset"]?.dpValue(theme)?.let { toggleBorderOffset(it.toStateful<Dp>(states)) }
+      properties["textPadding"]?.dpValue(theme)?.let { textPadding(it.toStateful<Dp>(states)) }
+      properties["descriptionPadding"]?.dpValue(theme)?.let { descriptionPadding(it.toStateful<Dp>(states)) }
+      properties["paddingStart"]?.dpValue(theme)?.let { paddingStart(it.toStateful<Dp>(states)) }
+      properties["paddingTop"]?.dpValue(theme)?.let { paddingTop(it.toStateful<Dp>(states)) }
+      properties["paddingEnd"]?.dpValue(theme)?.let { paddingEnd(it.toStateful<Dp>(states)) }
+      properties["paddingBottom"]?.dpValue(theme)?.let { paddingBottom(it.toStateful<Dp>(states)) }
+    }
+    return builder.style()
+  }
+
+  @Composable
+  public override fun create(payload: PreviewPayload, theme: PreparedComposeTheme): CheckBoxStyle =
+      build(payload.component.properties, theme,
+      payload.styleContext(GeneratedPreviewStyleFactories.all))
+}

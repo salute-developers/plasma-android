@@ -45,13 +45,13 @@ TBD - created by archiving change compose-preview-core-components. Update Purpos
 
 ### Requirement: Мета подключается как зависимость сборки
 
-Api-мета SHALL подключаться к генератору как ресурс артефакта `uikit-compose` через Gradle-зависимость. Копия
+Api-мета SHALL подключаться к задаче `generateComposePreview` как ресурс артефакта `uikit-compose` через Gradle-зависимость. Копия
 файла в репозитории MUST NOT создаваться.
 
 #### Scenario: Версия меты совпадает с версией UIKit
 
 - **WHEN** обновляется версия `uikit-compose`
-- **THEN** при следующей сборке плагина фабрики MUST порождаться по мете новой версии без ручного копирования.
+- **THEN** при следующей сборке плагина превью фабрики MUST порождаться по мете новой версии без ручного копирования.
 
 #### Scenario: Мета недоступна
 
@@ -188,24 +188,19 @@ MUST сопоставляться с `configName` константы `stateEnum`
 
 ### Requirement: Генератор соответствует Theme Builder
 
-Тест SHALL сравнивать для каждого свойства каждого компонента api-меты выбор перегрузки билдера (имя метода, тип параметра, группа),
-который делает Theme Builder (`UniversalComposeVariationGenerator.selectOverload`), и выбор генератора фабрик, отдельно для сплошного
-цвета и для градиента. Тест MUST использовать классы Theme Builder, а не копию его правил. Расхождение MUST приводить к падению теста.
+Генератор фабрик SHALL использовать те же функции выбора перегрузки билдера, что и Theme Builder (`overloadPriority`,
+`colorOverloadPriority`, признаки `Brush`, `InteractiveColor`, `Color`), из одного внутреннего исходного файла плагина. Копии этих правил
+MUST NOT существовать. Вывод генератора MUST проверяться тестом плагина на эталонных компонентах (golden-файлы) и тестом покрытия меты.
 
-#### Scenario: Совпадающий выбор
+#### Scenario: Единый источник правил
 
-- **WHEN** тест прогоняет мету через оба пути
-- **THEN** для каждого свойства выбор перегрузки MUST совпадать.
+- **WHEN** правило приоритета перегрузок меняется
+- **THEN** изменение MUST затрагивать один файл и применяться и к Theme Builder, и к генератору превью.
 
-#### Scenario: Оформление значения
+#### Scenario: Изменение вывода
 
-- **WHEN** выбранная перегрузка принимает `Brush`, `InteractiveColor`, `Color` либо `StatefulValue`
-- **THEN** правила оформления значения (`SolidColor`, `asInteractive`, `asStatefulValue`, прозрачность) MUST соответствовать правилам Theme Builder; оформление проверяется выборочными тестами фабрик на компонентах каждого вида.
-
-#### Scenario: Расхождение
-
-- **WHEN** правило выбора изменено только в одном из путей
-- **THEN** тест MUST упасть с именем свойства и обеими перегрузками.
+- **WHEN** генератор порождает для эталонного компонента код, отличный от golden-файла
+- **THEN** тест плагина MUST упасть с именем компонента и различием.
 
 ### Requirement: Покрытие компонентов проверяется
 
@@ -288,4 +283,26 @@ MUST сопоставляться с `configName` константы `stateEnum`
 - **WHEN** payload содержит свойство тени
 - **THEN** компонент MUST отрисоваться со значением тени по умолчанию
 - **AND** результат MUST содержать `unsupported_property`.
+
+### Requirement: Генерация фабрик является задачей DS Builder plugin
+
+Генерация фабрик стилей Compose preview SHALL выполняться Gradle-задачей `generateComposePreview` плагина `plugin_theme_builder`
+(`DsBuilderPlugin`, блок `preview { }`). Задача MUST читать `uikit-compose-api-meta.json` из classpath, как `UikitComposeApiMetaTask`,
+писать исходники в каталог `outputLocation` и MUST поддерживать ограничение набора компонентов. Отдельный модуль `preview-generator`
+MUST NOT существовать.
+
+#### Scenario: Задача строит фабрики по мете
+
+- **WHEN** запускается `generateComposePreview` на мете `uikit-compose`
+- **THEN** вывод MUST совпадать с выводом прежнего `preview-generator` на той же мете.
+
+#### Scenario: Ограничение набора компонентов
+
+- **WHEN** задано `-PpreviewComponents=BasicButton,CheckBox`
+- **THEN** фабрики MUST порождаться только для этих компонентов.
+
+#### Scenario: Задача не пересобирается без изменений
+
+- **WHEN** мета и параметры не менялись
+- **THEN** задача MUST считаться актуальной (`UP-TO-DATE`).
 

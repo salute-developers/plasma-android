@@ -36,30 +36,34 @@ internal abstract class UikitComposeApiMetaTask : DefaultTask() {
     @TaskAction
     fun generate() {
         val meta = metaClasspath.files
-            .firstNotNullOfOrNull(::readMeta)
+            .firstNotNullOfOrNull(::readComposeApiMeta)
             ?: emptyList()
 
         outputFile.get().asFile.outputStream().use { stream ->
             Serializer.componentConfig.encodeToStream(meta, stream)
         }
     }
+}
 
-    @OptIn(ExperimentalSerializationApi::class)
-    private fun readMeta(file: File): List<ComposeComponentMeta>? {
-        if (!file.exists()) return null
-        if (file.isDirectory) {
-            return file.walkTopDown()
-                .firstOrNull { it.isFile && it.invariantSeparatorsPath.endsWith("uikit-compose-api-meta.json") }
-                ?.inputStream()
-                ?.use { stream ->
-                    Serializer.componentConfig.decodeFromStream<List<ComposeComponentMeta>>(stream)
-                }
-        }
-        return ZipFile(file).use { zip ->
-            zip.entries().toList()
-                .firstOrNull { it.name.endsWith("uikit-compose-api-meta.json") }
-                ?.let { zip.getInputStream(it) }
-                ?.use { Serializer.componentConfig.decodeFromStream<List<ComposeComponentMeta>>(it) }
-        }
+/**
+ * Читает `uikit-compose-api-meta.json` из каталога или JAR-архива [file].
+ * Возвращает `null`, если файл не существует или в нём нет ресурса меты.
+ */
+@OptIn(ExperimentalSerializationApi::class)
+internal fun readComposeApiMeta(file: File): List<ComposeComponentMeta>? {
+    if (!file.exists()) return null
+    if (file.isDirectory) {
+        return file.walkTopDown()
+            .firstOrNull { it.isFile && it.invariantSeparatorsPath.endsWith("uikit-compose-api-meta.json") }
+            ?.inputStream()
+            ?.use { stream ->
+                Serializer.componentConfig.decodeFromStream<List<ComposeComponentMeta>>(stream)
+            }
+    }
+    return ZipFile(file).use { zip ->
+        zip.entries().toList()
+            .firstOrNull { it.name.endsWith("uikit-compose-api-meta.json") }
+            ?.let { zip.getInputStream(it) }
+            ?.use { Serializer.componentConfig.decodeFromStream<List<ComposeComponentMeta>>(it) }
     }
 }

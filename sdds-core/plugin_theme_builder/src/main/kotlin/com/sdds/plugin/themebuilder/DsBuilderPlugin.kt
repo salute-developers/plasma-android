@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.sdds.plugin.themebuilder.DsBuilderExtension.Companion.dsBuilderExt
 import com.sdds.plugin.themebuilder.documentation.DocumentationAggregateTask
 import com.sdds.plugin.themebuilder.documentation.ExtractCodeSnippetsTask
+import com.sdds.plugin.themebuilder.preview.GenerateComposePreviewTask
 import com.sdds.plugin.themebuilder.sandbox.Config
 import com.sdds.plugin.themebuilder.sandbox.GenerateSandboxAdaptersTask
 import com.sdds.plugin.themebuilder.sandbox.SandboxTarget
@@ -47,6 +48,19 @@ class DsBuilderPlugin : Plugin<Project> {
         )
         project.configureDocumentation(extension)
         project.configureSandbox(extension)
+        project.configurePreview(extension)
+    }
+}
+
+private fun Project.configurePreview(extension: DsBuilderExtension) {
+    tasks.register<GenerateComposePreviewTask>("generateComposePreview") {
+        group = "sdds"
+        description = "Generates Compose preview style factories from uikit-compose-api-meta.json."
+        val preview = extension.preview
+        metaClasspath.from(preview.metaClasspath)
+        components.set(preview.components)
+        outputDirectory.set(preview.outputDirectory)
+        onlyIf { preview.enabled.get() }
     }
 }
 
