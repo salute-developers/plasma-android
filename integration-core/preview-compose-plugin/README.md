@@ -58,8 +58,9 @@ python3 -m http.server 8080 --directory /tmp/preview-compose-plugin
 Компонент попадает в preview без кода в плагине: достаточно истории и записи в api-мете.
 
 1. Компонент должен быть в `uikit-compose-api-meta.json` (его строит `uikit-compose`). Для каждой записи меты при сборке
-   плагина генерируется фабрика стиля (`:integration-core:preview-generator`, задача `generatePreviewFactories`):
-   метод билдера выбирается по тем же правилам, что и в Theme Builder, вызовы порождаются как обычный код.
+   плагина генерируется фабрика стиля (задача `generateComposePreview` плагина Design System Builder, блок `dsBuilder.preview`):
+   метод билдера выбирается по тем же правилам, что и в Theme Builder (общий файл `OverloadRules.kt`), вызовы порождаются
+   как обычный код. Набор компонентов можно ограничить свойством `-PpreviewComponents=A,B`.
 2. В `uikit-compose-fixtures` для компонента должна быть история `@Story(componentId = "<componentName из меты>")`.
    `componentId` совпадает с именем компонента в мете и может отличаться от `ComponentKey.value`
    (`CheckBox` и `Checkbox`). История без `componentId` остаётся в демо, но в preview не участвует.

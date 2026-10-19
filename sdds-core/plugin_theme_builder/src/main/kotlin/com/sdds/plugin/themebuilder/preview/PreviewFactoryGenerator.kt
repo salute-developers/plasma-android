@@ -1,5 +1,20 @@
-package com.sdds.preview.generator
+package com.sdds.plugin.themebuilder.preview
 
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeBooleanPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeColorPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeDimensionPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeFloatPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeIconPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeIntegerPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposePropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeShadowPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeShapePropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeTypographyPropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeValuePropertyMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.acceptsBrush
+import com.sdds.plugin.themebuilder.internal.universal.compose.acceptsInteractiveColor
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
@@ -38,7 +53,7 @@ private fun CodeBlock.Builder.addNb(format: String, vararg args: Any?): CodeBloc
     add(format.replace(" ", "·"), *args)
 
 /** Порождает исходники сгенерированных фабрик и реестра фабрик. */
-internal class FactoryGenerator(private val components: List<ComponentMeta>) {
+internal class PreviewFactoryGenerator(private val components: List<ComposeComponentMeta>) {
 
     /** Записывает по файлу на компонент и файл реестра в [outputDir]. */
     fun generate(outputDir: File) {
@@ -46,7 +61,7 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         registryFile().writeTo(outputDir)
     }
 
-    private fun factoryName(component: ComponentMeta) = "${component.componentName}PreviewStyleFactory"
+    private fun factoryName(component: ComposeComponentMeta) = "${component.componentName}PreviewStyleFactory"
 
     private fun registryFile(): FileSpec {
         val map = CodeBlock.builder().add("mapOf(\n").indent()
@@ -67,7 +82,7 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         return FileSpec.builder(GENERATED_PACKAGE, "GeneratedPreviewStyleFactories").addType(registry).build()
     }
 
-    private fun componentFile(component: ComponentMeta): FileSpec {
+    private fun componentFile(component: ComposeComponentMeta): FileSpec {
         val styleClass = ClassName.bestGuess(component.styleQualifiedName)
         val unsupported = mutableSetOf<String>()
         val statesProperty = stateMapProperty(component)
@@ -165,31 +180,31 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
     }
 
     /** Цветовые свойства без перегрузки с `Brush`: градиент для них пропускается. */
-    private fun gradientUnsupportedLiteral(component: ComponentMeta): String =
-        supportedParams(component).filter { it.type == "color" }.groupBy { it.id }
+    private fun gradientUnsupportedLiteral(component: ComposeComponentMeta): String =
+        supportedParams(component).filterIsInstance<ComposeColorPropertyMeta>().groupBy { it.id }
             .filterValues { overloads -> overloads.selectBrushOverload() == null }
             .keys.sorted().joinToString(", ") { "\"$it\"" }
 
     /** Свойство-стиль и ожидаемый класс стиля: по ним SDK проверяет вложенные стили до отрисовки. */
-    private fun nestedStyleTypesLiteral(component: ComponentMeta): String =
-        supportedParams(component).filter { it.type == "component_style" }.groupBy { it.id }
+    private fun nestedStyleTypesLiteral(component: ComposeComponentMeta): String =
+        supportedParams(component).filter { it is ComposeComponentPropertyMeta }.groupBy { it.id }
             .toSortedMap()
-            .map { (id, overloads) -> "\"$id\" to \"${overloads.selectOverload().paramQualifiedType}\"" }
+            .map { (id, overloads) -> "\"$id\" to \"${overloads.selectPreviewOverload().paramQualifiedType}\"" }
             .joinToString(", ")
 
-    private fun supportedParams(component: ComponentMeta) =
+    private fun supportedParams(component: ComposeComponentMeta) =
         component.params.filter { it.deprecated == null && it.isSupportedValueType() }
 
-    private fun unsupportedLiteral(component: ComponentMeta): String =
-        supportedParams(component).filter { it.type == "shadow" }.map { it.id }.distinct()
+    private fun unsupportedLiteral(component: ComposeComponentMeta): String =
+        supportedParams(component).filter { it is ComposeShadowPropertyMeta }.map { it.id }.distinct()
             .joinToString(", ") { "\"$it\"" }
 
     /** Свойства-иконки: имя, которого нет в реестре плагина, даёт предупреждение `unknown_icon`. */
-    private fun iconPropertiesLiteral(component: ComponentMeta): String =
-        supportedParams(component).filter { it.type == "icon" }.map { it.id }.distinct().sorted()
+    private fun iconPropertiesLiteral(component: ComposeComponentMeta): String =
+        supportedParams(component).filter { it is ComposeIconPropertyMeta }.map { it.id }.distinct().sorted()
             .joinToString(", ") { "\"$it\"" }
 
-    private fun stateMapProperty(component: ComponentMeta): PropertySpec {
+    private fun stateMapProperty(component: ComposeComponentMeta): PropertySpec {
         val entries = CodeBlock.builder()
         val stateEnum = component.stateEnum
         if (stateEnum != null) {
@@ -209,7 +224,11 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
             .build()
     }
 
-    private fun buildBody(component: ComponentMeta, styleClass: ClassName, unsupported: MutableSet<String>): CodeBlock {
+    private fun buildBody(
+        component: ComposeComponentMeta,
+        styleClass: ClassName,
+        unsupported: MutableSet<String>,
+    ): CodeBlock {
         val code = CodeBlock.builder()
         if (component.builderFunName.isNotBlank()) {
             code.addStatement(
@@ -234,20 +253,20 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
     }
 
     @Suppress("CyclomaticComplexMethod")
-    private fun statementFor(overloads: List<ParamMeta>, unsupported: MutableSet<String>): CodeBlock? {
+    private fun statementFor(overloads: List<ComposePropertyMeta>, unsupported: MutableSet<String>): CodeBlock? {
         val first = overloads.first()
-        return when (first.type) {
-            "dimension" -> typed(overloads, "dpValue")
-            "typography" -> typed(overloads, "typographyValue")
-            "shape" -> typed(overloads, "shapeValue")
-            "float" -> primitive(overloads.selectOverload(), "floatValue")
-            "boolean" -> primitive(overloads.selectOverload(), "booleanValue")
-            "integer" -> primitive(overloads.selectOverload(), "intValue")
-            "value" -> enumValue(overloads.selectOverload())
-            "component_style" -> nestedStyle(overloads.selectOverload())
-            "color" -> color(overloads)
-            "icon" -> icon(overloads.selectOverload())
-            "shadow" -> {
+        return when (first) {
+            is ComposeDimensionPropertyMeta -> typed(overloads, "dpValue")
+            is ComposeTypographyPropertyMeta -> typed(overloads, "typographyValue")
+            is ComposeShapePropertyMeta -> typed(overloads, "shapeValue")
+            is ComposeFloatPropertyMeta -> primitive(overloads.selectPreviewOverload(), "floatValue")
+            is ComposeBooleanPropertyMeta -> primitive(overloads.selectPreviewOverload(), "booleanValue")
+            is ComposeIntegerPropertyMeta -> primitive(overloads.selectPreviewOverload(), "intValue")
+            is ComposeValuePropertyMeta -> enumValue(overloads.selectPreviewOverload())
+            is ComposeComponentPropertyMeta -> nestedStyle(overloads.selectPreviewOverload())
+            is ComposeColorPropertyMeta -> color(overloads.filterIsInstance<ComposeColorPropertyMeta>())
+            is ComposeIconPropertyMeta -> icon(overloads.selectPreviewOverload())
+            is ComposeShadowPropertyMeta -> {
                 unsupported += first.id
                 null
             }
@@ -258,12 +277,12 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
     /** Префикс вызова: корневые методы вызываются на `builder.`, методы групп внутри блока группы без префикса. */
     private var prefix = ""
 
-    private fun call(param: ParamMeta) = prefix + param.methodName
+    private fun call(param: ComposePropertyMeta) = prefix + param.methodName
 
-    private fun property(param: ParamMeta) = cb("properties[%S]", param.id)
+    private fun property(param: ComposePropertyMeta) = cb("properties[%S]", param.id)
 
-    private fun typed(overloads: List<ParamMeta>, resolver: String): CodeBlock {
-        val sel = overloads.selectOverload()
+    private fun typed(overloads: List<ComposePropertyMeta>, resolver: String): CodeBlock {
+        val sel = overloads.selectPreviewOverload()
         val value = if (sel.isStateful) {
             cb("it.%M<%T>(states)", sdk("toStateful"), valueType(sel))
         } else {
@@ -272,14 +291,15 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         return cb("%L?.%M(theme)?.let { %L(%L) }", property(sel), sdk(resolver), call(sel), value)
     }
 
-    private fun primitive(sel: ParamMeta, reader: String): CodeBlock =
+    private fun primitive(sel: ComposePropertyMeta, reader: String): CodeBlock =
         cb("%L?.%M()?.let { %L(it) }", property(sel), sdk(reader), call(sel))
 
-    private fun enumValue(sel: ParamMeta): CodeBlock? {
-        if (sel.values.isEmpty()) return null
+    private fun enumValue(sel: ComposePropertyMeta): CodeBlock? {
+        val values = (sel as? ComposeValuePropertyMeta)?.values.orEmpty()
+        if (values.isEmpty()) return null
         val enumClass = ClassName.bestGuess(sel.paramQualifiedType)
         val branches = CodeBlock.builder()
-        sel.values.forEach { value ->
+        values.forEach { value ->
             branches.addNb("%S -> %T.%L; ", value.configName.lowercase(), enumClass, value.name)
         }
         return cb(
@@ -291,11 +311,11 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         )
     }
 
-    /** Иконка по имени из payload: `ImageSource` строит реестр плагина, неизвестное имя оставляет значение по умолчанию. */
-    private fun icon(sel: ParamMeta): CodeBlock =
+    /** Иконка по имени из payload: `ImageSource` строит реестр плагина, неизвестное имя оставляет значение билдера. */
+    private fun icon(sel: ComposePropertyMeta): CodeBlock =
         cb("%L?.%M(theme)?.let { %L(it) }", property(sel), sdk("iconValue"), call(sel))
 
-    private fun nestedStyle(sel: ParamMeta): CodeBlock =
+    private fun nestedStyle(sel: ComposePropertyMeta): CodeBlock =
         cb(
             "%L?.%M<%T>(theme, context)?.let { %L(it) }",
             property(sel),
@@ -304,7 +324,7 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
             call(sel),
         )
 
-    private fun color(overloads: List<ParamMeta>): CodeBlock {
+    private fun color(overloads: List<ComposeColorPropertyMeta>): CodeBlock {
         val solid = overloads.selectSolidColorOverload()
         val brush = overloads.selectBrushOverload()
         val solidCall = colorCall(solid)
@@ -324,7 +344,7 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         return body.build()
     }
 
-    private fun colorCall(sel: ParamMeta, gradient: Boolean = false): CodeBlock {
+    private fun colorCall(sel: ComposeColorPropertyMeta, gradient: Boolean = false): CodeBlock {
         val method = call(sel)
         return when {
             sel.isStateful && sel.acceptsBrush ->
@@ -340,8 +360,8 @@ internal class FactoryGenerator(private val components: List<ComponentMeta>) {
         }
     }
 
-    private fun valueType(sel: ParamMeta): ClassName =
-        ClassName.bestGuess(sel.valueQualifiedType.ifBlank { sel.paramQualifiedType })
+    private fun valueType(sel: ComposePropertyMeta): ClassName =
+        ClassName.bestGuess(sel.previewValueType.ifBlank { sel.paramQualifiedType })
 }
 
 /** Дерево групп вызовов: `root` вызывается на билдере, остальные внутри блоков `group { ... }`. */
@@ -386,18 +406,19 @@ private class GroupTree {
     }
 }
 
-private val EXPECTED_VALUE_TYPES: Map<String, Set<String>> = mapOf(
-    "dimension" to setOf("androidx.compose.ui.unit.Dp"),
-    "typography" to setOf("androidx.compose.ui.text.TextStyle"),
-    "shape" to setOf("androidx.compose.foundation.shape.CornerBasedShape", "androidx.compose.ui.graphics.Shape"),
+private val EXPECTED_VALUE_TYPES: Map<Class<out ComposePropertyMeta>, Set<String>> = mapOf(
+    ComposeDimensionPropertyMeta::class.java to setOf("androidx.compose.ui.unit.Dp"),
+    ComposeTypographyPropertyMeta::class.java to setOf("androidx.compose.ui.text.TextStyle"),
+    ComposeShapePropertyMeta::class.java to
+        setOf("androidx.compose.foundation.shape.CornerBasedShape", "androidx.compose.ui.graphics.Shape"),
 )
 
 /**
- * В мете встречаются свойства, чей `type` не соответствует принимаемому значению (например, `dimensions` у
- * `AvatarGroup`
- * принимает объект `AvatarGroupDimensions`). Такие перегрузки не относятся к виду свойства и пропускаются.
+ * В мете встречаются свойства, чей вид не соответствует принимаемому значению (например, `dimensions` у
+ * `AvatarGroup` принимает объект `AvatarGroupDimensions`). Такие перегрузки не относятся к виду свойства
+ * и пропускаются.
  */
-internal fun ParamMeta.isSupportedValueType(): Boolean {
-    val expected = EXPECTED_VALUE_TYPES[type] ?: return true
-    return valueQualifiedType.isBlank() || valueQualifiedType in expected
+internal fun ComposePropertyMeta.isSupportedValueType(): Boolean {
+    val expected = EXPECTED_VALUE_TYPES[javaClass] ?: return true
+    return previewValueType.isBlank() || previewValueType in expected
 }

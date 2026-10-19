@@ -1,0 +1,102 @@
+@file:Suppress(
+  "DEPRECATION",
+  "UNCHECKED_CAST",
+  "UNUSED_VARIABLE",
+)
+
+package com.sdds.preview.compose.generated
+
+import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.DividerStyle
+import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.TabItemStyle
+import com.sdds.compose.uikit.TabsOrientation
+import com.sdds.compose.uikit.TabsStyle
+import com.sdds.preview.compose.GeneratedStyleFactory
+import com.sdds.preview.compose.PreparedComposeTheme
+import com.sdds.preview.compose.PreviewStateMap
+import com.sdds.preview.compose.PreviewStyleContext
+import com.sdds.preview.compose.booleanValue
+import com.sdds.preview.compose.colorValue
+import com.sdds.preview.compose.dpValue
+import com.sdds.preview.compose.hasGradient
+import com.sdds.preview.compose.iconValue
+import com.sdds.preview.compose.nestedStyle
+import com.sdds.preview.compose.shapeValue
+import com.sdds.preview.compose.stringValue
+import com.sdds.preview.compose.styleContext
+import com.sdds.preview.compose.toInteractiveColor
+import com.sdds.preview.compose.typographyValue
+import com.sdds.preview.contract.PreviewPayload
+import com.sdds.preview.contract.PreviewPropertyValue
+import kotlin.String
+import kotlin.Suppress
+import kotlin.collections.Map
+import kotlin.collections.Set
+
+internal object TabsPreviewStyleFactory : GeneratedStyleFactory<TabsStyle> {
+  public override val componentName: String = "Tabs"
+
+  public override val styleQualifiedName: String = "com.sdds.compose.uikit.TabsStyle"
+
+  public override val states: PreviewStateMap = PreviewStateMap()
+
+  public override val unsupportedProperties: Set<String> = setOf()
+
+  public override val gradientUnsupportedProperties: Set<String> = setOf("backgroundColor",
+      "disclosureColor", "indicatorColor", "overflowNextIconColor", "overflowPrevIconColor")
+
+  public override val iconProperties: Set<String> = setOf("disclosureIcon", "overflowNextIcon",
+      "overflowPrevIcon")
+
+  public override val nestedStyleTypes: Map<String, String> = mapOf("dividerStyle" to
+      "com.sdds.compose.uikit.DividerStyle", "dropdownMenuStyle" to
+      "com.sdds.compose.uikit.DropdownMenuStyle", "tabItemStyle" to
+      "com.sdds.compose.uikit.TabItemStyle")
+
+  public override val registry: Map<String, GeneratedStyleFactory<*>>
+    get() = GeneratedPreviewStyleFactories.all
+
+  @Composable
+  public override fun build(
+    properties: Map<String, PreviewPropertyValue>,
+    theme: PreparedComposeTheme,
+    context: PreviewStyleContext,
+  ): TabsStyle {
+    val builder = TabsStyle.builder()
+    properties["shape"]?.shapeValue(theme)?.let { builder.shape(it.base) }
+    properties["tabItemStyle"]?.nestedStyle<TabItemStyle>(theme, context)?.let { builder.tabItemStyle(it) }
+    properties["dividerStyle"]?.nestedStyle<DividerStyle>(theme, context)?.let { builder.dividerStyle(it) }
+    properties["dropdownMenuStyle"]?.nestedStyle<DropdownMenuStyle>(theme, context)?.let { builder.dropdownMenuStyle(it) }
+    properties["dividerEnabled"]?.booleanValue()?.let { builder.dividerEnabled(it) }
+    properties["indicatorEnabled"]?.booleanValue()?.let { builder.indicatorEnabled(it) }
+    properties["orientation"]?.stringValue()?.let { name -> when (name.lowercase()) { "horizontal" -> TabsOrientation.Horizontal; "vertical" -> TabsOrientation.Vertical; else -> null } }?.let { builder.orientation(it) }
+    properties["disclosureTextStyle"]?.typographyValue(theme)?.let { builder.disclosureTextStyle(it.base) }
+    properties["overflowNextIcon"]?.iconValue(theme)?.let { builder.overflowNextIcon(it) }
+    properties["overflowPrevIcon"]?.iconValue(theme)?.let { builder.overflowPrevIcon(it) }
+    properties["disclosureIcon"]?.iconValue(theme)?.let { builder.disclosureIcon(it) }
+    properties["indicatorShape"]?.shapeValue(theme)?.let { builder.indicatorShape(it.base) }
+    builder.colors {
+      properties["backgroundColor"]?.let { v -> if (!v.hasGradient(theme)) { v.colorValue(theme)?.let { backgroundColor(it.toInteractiveColor(states)) } } }
+      properties["indicatorColor"]?.let { v -> if (!v.hasGradient(theme)) { v.colorValue(theme)?.let { indicatorColor(it.toInteractiveColor(states)) } } }
+      properties["overflowNextIconColor"]?.let { v -> if (!v.hasGradient(theme)) { v.colorValue(theme)?.let { overflowNextIconColor(it.toInteractiveColor(states)) } } }
+      properties["overflowPrevIconColor"]?.let { v -> if (!v.hasGradient(theme)) { v.colorValue(theme)?.let { overflowPrevIconColor(it.toInteractiveColor(states)) } } }
+      properties["disclosureColor"]?.let { v -> if (!v.hasGradient(theme)) { v.colorValue(theme)?.let { disclosureColor(it.toInteractiveColor(states)) } } }
+    }
+    builder.dimensions {
+      properties["indicatorThickness"]?.dpValue(theme)?.let { indicatorThickness(it.base) }
+      properties["minSpacing"]?.dpValue(theme)?.let { minSpacing(it.base) }
+      properties["minHeight"]?.dpValue(theme)?.let { minHeight(it.base) }
+      properties["paddingStart"]?.dpValue(theme)?.let { contentPaddingStart(it.base) }
+      properties["paddingEnd"]?.dpValue(theme)?.let { contentPaddingEnd(it.base) }
+      properties["paddingTop"]?.dpValue(theme)?.let { contentPaddingTop(it.base) }
+      properties["paddingBottom"]?.dpValue(theme)?.let { contentPaddingBottom(it.base) }
+    }
+    return builder.style()
+  }
+
+  @Composable
+  public override fun create(payload: PreviewPayload, theme: PreparedComposeTheme): TabsStyle =
+      build(payload.component.properties, theme,
+      payload.styleContext(GeneratedPreviewStyleFactories.all))
+}
