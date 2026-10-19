@@ -3,7 +3,6 @@ import utils.addDefaultTargets
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.kmp-lib")
-    id("convention.maven-publish")
     alias(libs.plugins.kotlin.serialization)
 }
 

@@ -2,7 +2,6 @@ import utils.addDefaultTargets
 
 plugins {
     id("convention.cmp-lib")
-    id("convention.maven-publish")
 }
 
 group = "integration-core"
