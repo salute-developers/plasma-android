@@ -47,7 +47,7 @@ enum class SegmentItemContent {
     COUNTER,
 }
 
-@Story
+@Story(componentId = "SegmentItem")
 object SegmentItemStory : ComposeBaseStory<SegmentItemUiState, SegmentItemStyle>(
     ComponentKey.SegmentItem,
     SegmentItemUiState(),

@@ -36,7 +36,7 @@ data class RadioBoxGroupUiState(
     }
 }
 
-@Story
+@Story(componentId = "RadioBoxGroup")
 object RadioBoxGroupStory : ComposeBaseStory<RadioBoxGroupUiState, RadioBoxGroupStyle>(
     ComponentKey.RadioBoxGroup,
     RadioBoxGroupUiState(),

@@ -52,7 +52,7 @@ data class CardUiState(
     }
 }
 
-@Story
+@Story(componentId = "Card")
 object CardStory : ComposeBaseStory<CardUiState, CardStyle>(
     ComponentKey.Card,
     CardUiState(),

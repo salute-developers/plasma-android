@@ -1,0 +1,1497 @@
+[
+  {
+    "componentName": "AvatarGroup",
+    "qualifiedName": "com.sdds.compose.uikit.AvatarGroupStyleBuilder",
+    "resolvedTypes": [
+      "androidx.compose.ui.unit.Dp",
+      "com.sdds.compose.uikit.AvatarGroupDimensions",
+      "com.sdds.compose.uikit.AvatarStyle"
+    ],
+    "params": [
+      {
+        "type": "component_style",
+        "id": "avatarStyle",
+        "methodName": "avatarStyle",
+        "paramName": "avatarStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.AvatarStyle",
+        "paramSimpleType": "AvatarStyle",
+        "valueQualifiedType": "com.sdds.compose.uikit.AvatarStyle",
+        "group": "root"
+      },
+      {
+        "type": "dimension",
+        "id": "dimensions",
+        "methodName": "dimensions",
+        "paramName": "dimensions",
+        "paramQualifiedType": "com.sdds.compose.uikit.AvatarGroupDimensions",
+        "paramSimpleType": "AvatarGroupDimensions",
+        "valueQualifiedType": "com.sdds.compose.uikit.AvatarGroupDimensions",
+        "group": "root"
+      },
+      {
+        "type": "dimension",
+        "id": "itemOffset",
+        "methodName": "itemOffset",
+        "paramName": "itemOffset",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "itemSpacing",
+        "methodName": "itemSpacing",
+        "paramName": "itemSpacing",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      }
+    ],
+    "stateEnum": null,
+    "styleQualifiedName": "com.sdds.compose.uikit.AvatarGroupStyle"
+  },
+  {
+    "componentName": "BasicButton",
+    "qualifiedName": "com.sdds.compose.uikit.BasicButtonStyleBuilder",
+    "resolvedTypes": [
+      "androidx.compose.foundation.shape.CornerBasedShape",
+      "androidx.compose.ui.graphics.Brush",
+      "androidx.compose.ui.graphics.Color",
+      "androidx.compose.ui.text.TextStyle",
+      "androidx.compose.ui.unit.Dp",
+      "com.sdds.compose.uikit.interactions.InteractiveColor",
+      "com.sdds.compose.uikit.interactions.StatefulValue",
+      "kotlin.Float"
+    ],
+    "params": [
+      {
+        "type": "shape",
+        "id": "shape",
+        "methodName": "shape",
+        "paramName": "shape",
+        "paramQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "paramSimpleType": "CornerBasedShape",
+        "valueQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "group": "root"
+      },
+      {
+        "type": "shape",
+        "id": "shape",
+        "methodName": "shape",
+        "paramName": "shape",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "group": "root"
+      },
+      {
+        "type": "color",
+        "id": "contentColor",
+        "methodName": "contentColor",
+        "paramName": "contentColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "contentColor",
+        "methodName": "contentColor",
+        "paramName": "contentColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "contentColor",
+        "methodName": "contentColor",
+        "paramName": "contentColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "contentColor",
+        "methodName": "contentColor",
+        "paramName": "contentColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "valueColor",
+        "methodName": "valueColor",
+        "paramName": "valueColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "valueColor",
+        "methodName": "valueColor",
+        "paramName": "valueColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "valueColor",
+        "methodName": "valueColor",
+        "paramName": "valueColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "valueColor",
+        "methodName": "valueColor",
+        "paramName": "valueColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "iconColor",
+        "methodName": "iconColor",
+        "paramName": "iconColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "iconColor",
+        "methodName": "iconColor",
+        "paramName": "iconColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "iconColor",
+        "methodName": "iconColor",
+        "paramName": "iconColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "iconColor",
+        "methodName": "iconColor",
+        "paramName": "iconColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "spinnerColor",
+        "methodName": "spinnerColor",
+        "paramName": "spinnerColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "spinnerColor",
+        "methodName": "spinnerColor",
+        "paramName": "spinnerColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "typography",
+        "id": "labelStyle",
+        "methodName": "labelStyle",
+        "paramName": "labelStyle",
+        "paramQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "paramSimpleType": "TextStyle",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "typography",
+        "id": "labelStyle",
+        "methodName": "labelStyle",
+        "paramName": "labelStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "typography",
+        "id": "valueStyle",
+        "methodName": "valueStyle",
+        "paramName": "valueStyle",
+        "paramQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "paramSimpleType": "TextStyle",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "typography",
+        "id": "valueStyle",
+        "methodName": "valueStyle",
+        "paramName": "valueStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "dimension",
+        "id": "height",
+        "methodName": "height",
+        "paramName": "height",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "height",
+        "methodName": "height",
+        "paramName": "height",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingStart",
+        "methodName": "paddingStart",
+        "paramName": "paddingStart",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingStart",
+        "methodName": "paddingStart",
+        "paramName": "paddingStart",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingEnd",
+        "methodName": "paddingEnd",
+        "paramName": "paddingEnd",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingEnd",
+        "methodName": "paddingEnd",
+        "paramName": "paddingEnd",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "minWidth",
+        "methodName": "minWidth",
+        "paramName": "minWidth",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "minWidth",
+        "methodName": "minWidth",
+        "paramName": "minWidth",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "iconSize",
+        "methodName": "iconSize",
+        "paramName": "iconSize",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "iconSize",
+        "methodName": "iconSize",
+        "paramName": "iconSize",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "spinnerSize",
+        "methodName": "spinnerSize",
+        "paramName": "spinnerSize",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "spinnerSize",
+        "methodName": "spinnerSize",
+        "paramName": "spinnerSize",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "spinnerStrokeWidth",
+        "methodName": "spinnerStrokeWidth",
+        "paramName": "spinnerStrokeWidth",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "spinnerStrokeWidth",
+        "methodName": "spinnerStrokeWidth",
+        "paramName": "spinnerStrokeWidth",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "iconMargin",
+        "methodName": "iconMargin",
+        "paramName": "iconMargin",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "iconMargin",
+        "methodName": "iconMargin",
+        "paramName": "iconMargin",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "valueMargin",
+        "methodName": "valueMargin",
+        "paramName": "valueMargin",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "valueMargin",
+        "methodName": "valueMargin",
+        "paramName": "valueMargin",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "float",
+        "id": "disableAlpha",
+        "methodName": "disableAlpha",
+        "paramName": "disableAlpha",
+        "paramQualifiedType": "kotlin.Float",
+        "paramSimpleType": "Float",
+        "valueQualifiedType": "kotlin.Float",
+        "group": "root"
+      },
+      {
+        "type": "float",
+        "id": "loadingAlpha",
+        "methodName": "loadingAlpha",
+        "paramName": "loadingAlpha",
+        "paramQualifiedType": "kotlin.Float",
+        "paramSimpleType": "Float",
+        "valueQualifiedType": "kotlin.Float",
+        "group": "root"
+      }
+    ],
+    "stateEnum": null,
+    "styleQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+    "builderFunName": "basicButtonBuilder"
+  },
+  {
+    "componentName": "CheckBox",
+    "qualifiedName": "com.sdds.compose.uikit.CheckBoxStyleBuilder",
+    "resolvedTypes": [
+      "androidx.compose.foundation.shape.CornerBasedShape",
+      "androidx.compose.ui.graphics.Brush",
+      "androidx.compose.ui.graphics.Color",
+      "androidx.compose.ui.graphics.Shape",
+      "androidx.compose.ui.text.TextStyle",
+      "androidx.compose.ui.unit.Dp",
+      "com.sdds.compose.uikit.interactions.InteractiveColor",
+      "com.sdds.compose.uikit.interactions.StatefulValue",
+      "kotlin.Float"
+    ],
+    "params": [
+      {
+        "type": "typography",
+        "id": "labelStyle",
+        "methodName": "labelStyle",
+        "paramName": "labelStyle",
+        "paramQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "paramSimpleType": "TextStyle",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "typography",
+        "id": "labelStyle",
+        "methodName": "labelStyle",
+        "paramName": "labelStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "typography",
+        "id": "descriptionStyle",
+        "methodName": "descriptionStyle",
+        "paramName": "descriptionStyle",
+        "paramQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "paramSimpleType": "TextStyle",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "typography",
+        "id": "descriptionStyle",
+        "methodName": "descriptionStyle",
+        "paramName": "descriptionStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "labelColor",
+        "methodName": "labelColor",
+        "paramName": "labelColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "descriptionColor",
+        "methodName": "descriptionColor",
+        "paramName": "descriptionColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "descriptionColor",
+        "methodName": "descriptionColor",
+        "paramName": "descriptionColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "descriptionColor",
+        "methodName": "descriptionColor",
+        "paramName": "descriptionColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "descriptionColor",
+        "methodName": "descriptionColor",
+        "paramName": "descriptionColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleBorderColor",
+        "methodName": "toggleBorderColor",
+        "paramName": "toggleBorderColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleBorderColor",
+        "methodName": "toggleBorderColor",
+        "paramName": "toggleBorderColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleBorderColor",
+        "methodName": "toggleBorderColor",
+        "paramName": "toggleBorderColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleBorderColor",
+        "methodName": "toggleBorderColor",
+        "paramName": "toggleBorderColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleColor",
+        "methodName": "toggleColor",
+        "paramName": "toggleColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleColor",
+        "methodName": "toggleColor",
+        "paramName": "toggleColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleColor",
+        "methodName": "toggleColor",
+        "paramName": "toggleColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleColor",
+        "methodName": "toggleColor",
+        "paramName": "toggleColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleIconColor",
+        "methodName": "toggleIconColor",
+        "paramName": "toggleIconColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleIconColor",
+        "methodName": "toggleIconColor",
+        "paramName": "toggleIconColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleIconColor",
+        "methodName": "toggleIconColor",
+        "paramName": "toggleIconColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "toggleIconColor",
+        "methodName": "toggleIconColor",
+        "paramName": "toggleIconColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "paramSimpleType": "Brush",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Brush",
+        "group": "colorValues"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colorValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleWidth",
+        "methodName": "toggleWidth",
+        "paramName": "toggleWidth",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleWidth",
+        "methodName": "toggleWidth",
+        "paramName": "toggleWidth",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleHeight",
+        "methodName": "toggleHeight",
+        "paramName": "toggleHeight",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleHeight",
+        "methodName": "toggleHeight",
+        "paramName": "toggleHeight",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "togglePadding",
+        "methodName": "togglePadding",
+        "paramName": "togglePadding",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "togglePadding",
+        "methodName": "togglePadding",
+        "paramName": "togglePadding",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleIconHeight",
+        "methodName": "toggleIconHeight",
+        "paramName": "toggleIconHeight",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleIconHeight",
+        "methodName": "toggleIconHeight",
+        "paramName": "toggleIconHeight",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleIconWidth",
+        "methodName": "toggleIconWidth",
+        "paramName": "toggleIconWidth",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleIconWidth",
+        "methodName": "toggleIconWidth",
+        "paramName": "toggleIconWidth",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleBorderWidth",
+        "methodName": "toggleBorderWidth",
+        "paramName": "toggleBorderWidth",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleBorderWidth",
+        "methodName": "toggleBorderWidth",
+        "paramName": "toggleBorderWidth",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleBorderOffset",
+        "methodName": "toggleBorderOffset",
+        "paramName": "toggleBorderOffset",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "toggleBorderOffset",
+        "methodName": "toggleBorderOffset",
+        "paramName": "toggleBorderOffset",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "textPadding",
+        "methodName": "textPadding",
+        "paramName": "textPadding",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "textPadding",
+        "methodName": "textPadding",
+        "paramName": "textPadding",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "descriptionPadding",
+        "methodName": "descriptionPadding",
+        "paramName": "descriptionPadding",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "descriptionPadding",
+        "methodName": "descriptionPadding",
+        "paramName": "descriptionPadding",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingStart",
+        "methodName": "paddingStart",
+        "paramName": "paddingStart",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingStart",
+        "methodName": "paddingStart",
+        "paramName": "paddingStart",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingTop",
+        "methodName": "paddingTop",
+        "paramName": "paddingTop",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingTop",
+        "methodName": "paddingTop",
+        "paramName": "paddingTop",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingEnd",
+        "methodName": "paddingEnd",
+        "paramName": "paddingEnd",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingEnd",
+        "methodName": "paddingEnd",
+        "paramName": "paddingEnd",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingBottom",
+        "methodName": "paddingBottom",
+        "paramName": "paddingBottom",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingBottom",
+        "methodName": "paddingBottom",
+        "paramName": "paddingBottom",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensionValues"
+      },
+      {
+        "type": "float",
+        "id": "disableAlpha",
+        "methodName": "disableAlpha",
+        "paramName": "disableAlpha",
+        "paramQualifiedType": "kotlin.Float",
+        "paramSimpleType": "Float",
+        "valueQualifiedType": "kotlin.Float",
+        "group": "root"
+      },
+      {
+        "type": "shape",
+        "id": "shape",
+        "methodName": "shape",
+        "paramName": "shape",
+        "paramQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "paramSimpleType": "CornerBasedShape",
+        "valueQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "group": "root"
+      },
+      {
+        "type": "shape",
+        "id": "shape",
+        "methodName": "shape",
+        "paramName": "shape",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "group": "root"
+      },
+      {
+        "type": "shape",
+        "id": "backgroundShape",
+        "methodName": "backgroundShape",
+        "paramName": "backgroundShape",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Shape",
+        "paramSimpleType": "Shape",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Shape",
+        "group": "root"
+      },
+      {
+        "type": "shape",
+        "id": "backgroundShape",
+        "methodName": "backgroundShape",
+        "paramName": "backgroundShape",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.StatefulValue",
+        "paramSimpleType": "StatefulValue",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Shape",
+        "group": "root"
+      }
+    ],
+    "stateEnum": {
+      "qualifiedName": "com.sdds.compose.uikit.CheckBoxStates",
+      "simpleName": "CheckBoxStates",
+      "values": [
+        {
+          "name": "Checked"
+        },
+        {
+          "name": "Indeterminate"
+        },
+        {
+          "name": "Error"
+        }
+      ]
+    },
+    "styleQualifiedName": "com.sdds.compose.uikit.CheckBoxStyle"
+  },
+  {
+    "componentName": "Tabs",
+    "qualifiedName": "com.sdds.compose.uikit.TabsStyleBuilder",
+    "resolvedTypes": [
+      "androidx.compose.foundation.shape.CornerBasedShape",
+      "androidx.compose.ui.graphics.Color",
+      "androidx.compose.ui.graphics.Shape",
+      "androidx.compose.ui.text.TextStyle",
+      "androidx.compose.ui.unit.Dp",
+      "com.sdds.compose.uikit.DividerStyle",
+      "com.sdds.compose.uikit.DropdownMenuStyle",
+      "com.sdds.compose.uikit.ImageSource",
+      "com.sdds.compose.uikit.TabItemStyle",
+      "com.sdds.compose.uikit.TabsOrientation",
+      "com.sdds.compose.uikit.interactions.InteractiveColor",
+      "kotlin.Boolean"
+    ],
+    "params": [
+      {
+        "type": "shape",
+        "id": "shape",
+        "methodName": "shape",
+        "paramName": "shape",
+        "paramQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "paramSimpleType": "CornerBasedShape",
+        "valueQualifiedType": "androidx.compose.foundation.shape.CornerBasedShape",
+        "group": "root"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "backgroundColor",
+        "methodName": "backgroundColor",
+        "paramName": "backgroundColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "indicatorColor",
+        "methodName": "indicatorColor",
+        "paramName": "indicatorColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "indicatorColor",
+        "methodName": "indicatorColor",
+        "paramName": "indicatorColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "overflowNextIconColor",
+        "methodName": "overflowNextIconColor",
+        "paramName": "overflowNextIconColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "overflowNextIconColor",
+        "methodName": "overflowNextIconColor",
+        "paramName": "overflowNextIconColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "overflowPrevIconColor",
+        "methodName": "overflowPrevIconColor",
+        "paramName": "overflowPrevIconColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "overflowPrevIconColor",
+        "methodName": "overflowPrevIconColor",
+        "paramName": "overflowPrevIconColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "disclosureColor",
+        "methodName": "disclosureColor",
+        "paramName": "disclosureColor",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Color",
+        "paramSimpleType": "Color",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Color",
+        "group": "colors"
+      },
+      {
+        "type": "color",
+        "id": "disclosureColor",
+        "methodName": "disclosureColor",
+        "paramName": "disclosureColor",
+        "paramQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "paramSimpleType": "InteractiveColor",
+        "valueQualifiedType": "com.sdds.compose.uikit.interactions.InteractiveColor",
+        "group": "colors"
+      },
+      {
+        "type": "dimension",
+        "id": "indicatorThickness",
+        "methodName": "indicatorThickness",
+        "paramName": "indicatorThickness",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "minSpacing",
+        "methodName": "minSpacing",
+        "paramName": "minSpacing",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "minHeight",
+        "methodName": "minHeight",
+        "paramName": "minHeight",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingStart",
+        "methodName": "contentPaddingStart",
+        "paramName": "paddingStart",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingEnd",
+        "methodName": "contentPaddingEnd",
+        "paramName": "paddingEnd",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingTop",
+        "methodName": "contentPaddingTop",
+        "paramName": "paddingTop",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "dimension",
+        "id": "paddingBottom",
+        "methodName": "contentPaddingBottom",
+        "paramName": "paddingBottom",
+        "paramQualifiedType": "androidx.compose.ui.unit.Dp",
+        "paramSimpleType": "Dp",
+        "valueQualifiedType": "androidx.compose.ui.unit.Dp",
+        "group": "dimensions"
+      },
+      {
+        "type": "component_style",
+        "id": "tabItemStyle",
+        "methodName": "tabItemStyle",
+        "paramName": "tabItemStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.TabItemStyle",
+        "paramSimpleType": "TabItemStyle",
+        "valueQualifiedType": "com.sdds.compose.uikit.TabItemStyle",
+        "group": "root"
+      },
+      {
+        "type": "component_style",
+        "id": "dividerStyle",
+        "methodName": "dividerStyle",
+        "paramName": "dividerStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.DividerStyle",
+        "paramSimpleType": "DividerStyle",
+        "valueQualifiedType": "com.sdds.compose.uikit.DividerStyle",
+        "group": "root"
+      },
+      {
+        "type": "component_style",
+        "id": "dropdownMenuStyle",
+        "methodName": "dropdownMenuStyle",
+        "paramName": "dropdownMenuStyle",
+        "paramQualifiedType": "com.sdds.compose.uikit.DropdownMenuStyle",
+        "paramSimpleType": "DropdownMenuStyle",
+        "valueQualifiedType": "com.sdds.compose.uikit.DropdownMenuStyle",
+        "group": "root"
+      },
+      {
+        "type": "boolean",
+        "id": "dividerEnabled",
+        "methodName": "dividerEnabled",
+        "paramName": "dividerEnabled",
+        "paramQualifiedType": "kotlin.Boolean",
+        "paramSimpleType": "Boolean",
+        "valueQualifiedType": "kotlin.Boolean",
+        "group": "root"
+      },
+      {
+        "type": "boolean",
+        "id": "indicatorEnabled",
+        "methodName": "indicatorEnabled",
+        "paramName": "indicatorEnabled",
+        "paramQualifiedType": "kotlin.Boolean",
+        "paramSimpleType": "Boolean",
+        "valueQualifiedType": "kotlin.Boolean",
+        "group": "root"
+      },
+      {
+        "type": "value",
+        "id": "orientation",
+        "methodName": "orientation",
+        "paramName": "orientation",
+        "paramQualifiedType": "com.sdds.compose.uikit.TabsOrientation",
+        "paramSimpleType": "TabsOrientation",
+        "valueQualifiedType": "com.sdds.compose.uikit.TabsOrientation",
+        "group": "root",
+        "values": [
+          {
+            "name": "Horizontal"
+          },
+          {
+            "name": "Vertical"
+          }
+        ]
+      },
+      {
+        "type": "typography",
+        "id": "disclosureTextStyle",
+        "methodName": "disclosureTextStyle",
+        "paramName": "disclosureTextStyle",
+        "paramQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "paramSimpleType": "TextStyle",
+        "valueQualifiedType": "androidx.compose.ui.text.TextStyle",
+        "group": "root"
+      },
+      {
+        "type": "icon",
+        "id": "overflowNextIcon",
+        "methodName": "overflowNextIcon",
+        "paramName": "overflowNextIcon",
+        "paramQualifiedType": "com.sdds.compose.uikit.ImageSource",
+        "paramSimpleType": "ImageSource",
+        "valueQualifiedType": "com.sdds.compose.uikit.ImageSource",
+        "group": "root"
+      },
+      {
+        "type": "icon",
+        "id": "overflowPrevIcon",
+        "methodName": "overflowPrevIcon",
+        "paramName": "overflowPrevIcon",
+        "paramQualifiedType": "com.sdds.compose.uikit.ImageSource",
+        "paramSimpleType": "ImageSource",
+        "valueQualifiedType": "com.sdds.compose.uikit.ImageSource",
+        "group": "root"
+      },
+      {
+        "type": "icon",
+        "id": "disclosureIcon",
+        "methodName": "disclosureIcon",
+        "paramName": "disclosureIcon",
+        "paramQualifiedType": "com.sdds.compose.uikit.ImageSource",
+        "paramSimpleType": "ImageSource",
+        "valueQualifiedType": "com.sdds.compose.uikit.ImageSource",
+        "group": "root"
+      },
+      {
+        "type": "shape",
+        "id": "indicatorShape",
+        "methodName": "indicatorShape",
+        "paramName": "shape",
+        "paramQualifiedType": "androidx.compose.ui.graphics.Shape",
+        "paramSimpleType": "Shape",
+        "valueQualifiedType": "androidx.compose.ui.graphics.Shape",
+        "group": "root"
+      }
+    ],
+    "stateEnum": null,
+    "styleQualifiedName": "com.sdds.compose.uikit.TabsStyle"
+  }
+]

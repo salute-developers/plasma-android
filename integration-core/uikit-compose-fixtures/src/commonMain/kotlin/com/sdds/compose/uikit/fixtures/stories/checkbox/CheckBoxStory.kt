@@ -40,7 +40,7 @@ data class CheckBoxUiState(
     }
 }
 
-@Story
+@Story(componentId = "CheckBox")
 object CheckBoxStory : ComposeBaseStory<CheckBoxUiState, CheckBoxStyle>(
     ComponentKey.CheckBox,
     CheckBoxUiState(),

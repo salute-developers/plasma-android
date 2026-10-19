@@ -47,7 +47,7 @@ data class NotificationUiState(
     }
 }
 
-@Story
+@Story(componentId = "Notification")
 object NotificationStory : ComposeBaseStory<NotificationUiState, NotificationStyle>(
     ComponentKey.Notification,
     NotificationUiState(),

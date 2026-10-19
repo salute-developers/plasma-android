@@ -40,10 +40,16 @@ interface BaseStory<State : UiState> {
  * для тестирования и документирования в сторибуке.
  *
  * Применяется к классам.
+ *
+ * @param componentId идентификатор компонента в Compose preview: имя компонента в `uikit-compose-api-meta.json`.
+ * Может отличаться от [ComponentKey.value] (например, `CheckBox` и `Checkbox`). Пустая строка (по умолчанию)
+ * означает, что история не участвует в preview, но остаётся в [StoryRegistry] как раньше.
  */
 @Target(allowedTargets = [AnnotationTarget.CLASS])
 @Retention
-annotation class Story
+annotation class Story(
+    val componentId: String = "",
+)
 
 /**
  * Аннотация для пометки класса данных как состояния UI для истории.

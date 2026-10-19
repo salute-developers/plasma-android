@@ -32,7 +32,7 @@ data class ChipUiState(
     }
 }
 
-@Story
+@Story(componentId = "Chip")
 object ChipStory : ComposeBaseStory<ChipUiState, ChipStyle>(
     ComponentKey.Chip,
     ChipUiState(),

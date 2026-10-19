@@ -51,7 +51,7 @@ data class AiUserMessageUiState(
     }
 }
 
-@Story
+@Story(componentId = "AiUserMessage")
 object AiUserMessageStory : ComposeBaseStory<AiUserMessageUiState, AiUserMessageStyle>(
     ComponentKey.AiUserMessage,
     AiUserMessageUiState(),

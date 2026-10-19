@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<body style="margin:0;background:rgb(231, 44, 91)">
+<iframe id="plugin" src="/index.html"></iframe>
+<pre id="result">running</pre>
+<script>
+    const output = document.getElementById("result");
+    const iframe = document.getElementById("plugin");
+    const waiters = new Map();
+    const descriptionWaiters = new Map();
+    let readyResolve;
+    const ready = new Promise((resolve) => readyResolve = resolve);
+
+    addEventListener("message", (event) => {
+        if (event.source !== iframe.contentWindow) return;
+        if (event.data?.type === "sdds.preview.ready") {
+            readyResolve(event.data);
+        } else if (event.data?.type === "sdds.preview.result") {
+            waiters.get(event.data.result.requestId)?.(event.data.result);
+            waiters.delete(event.data.result.requestId);
+        } else if (event.data?.type === "sdds.preview.description") {
+            descriptionWaiters.get(event.data.result.requestId)?.(event.data.result);
+            descriptionWaiters.delete(event.data.result.requestId);
+        }
+    });
+
+    function send(payload) {
+        return new Promise((resolve) => {
+            waiters.set(payload.requestId, resolve);
+            iframe.contentWindow.postMessage({type: "sdds.preview.payload", payload}, location.origin);
+        });
+    }
+
+    function describe(componentId, requestId) {
+        return new Promise((resolve) => {
+            descriptionWaiters.set(requestId, resolve);
+            iframe.contentWindow.postMessage(
+                {type: "sdds.preview.describe", requestId, componentId},
+                location.origin,
+            );
+        });
+    }
+
+    function assert(condition, message) {
+        if (!condition) throw new Error(message);
+    }
+
+    (async () => {
+        const readyMessage = await ready;
+        assert(readyMessage.protocolVersion === 1, "ready protocolVersion");
+        const fixtureText = await fetch("/canonical-basic-button.json").then((response) => response.text());
+        const fixture = JSON.parse(fixtureText.replaceAll("__BASE_URL__", location.origin));
+        const directDescription = await iframe.contentWindow.describePreviewComponent("BasicButton");
+        assert(directDescription.type === "success", "direct description success");
+        const description = directDescription.description;
+        assert(
+            JSON.stringify(description.properties) === JSON.stringify([
+                {type: "string", name: "label", defaultValue: "label"},
+                {type: "string", name: "value", defaultValue: ""},
+                {type: "singleChoice", name: "icon", defaultValue: "Start", variants: ["Start", "End", "No"]},
+                {
+                    type: "singleChoice",
+                    name: "spacing",
+                    defaultValue: "Packed",
+                    variants: ["Packed", "SpaceBetween"],
+                },
+                {type: "boolean", name: "hasFixedWidth", defaultValue: false},
+                {type: "boolean", name: "enabled", defaultValue: true},
+                {type: "boolean", name: "loading", defaultValue: false},
+            ]),
+            "exact BasicButton properties",
+        );
+        const messageDescription = await describe("BasicButton", "describe-message");
+        assert(messageDescription.type === "success", "message description success");
+        assert(messageDescription.requestId === "describe-message", "description correlation");
+        const manifest = await fetch("/preview-plugin.json").then((response) => response.json());
+        assert(Array.isArray(manifest.components) && manifest.components.length > 0, "manifest lists components");
+        assert(manifest.components.includes("BasicButton"), "manifest lists BasicButton");
+        assert(!manifest.components.includes("Text"), "manifest does not list stories without preview");
+        for (const componentId of manifest.components) {
+            const result = await describe(componentId, "describe-manifest-" + componentId);
+            assert(result.type === "success", "manifest component " + componentId + ": " + JSON.stringify(result));
+            assert(result.description.componentId === componentId, "description id of " + componentId);
+        }
+        const unlisted = await describe("Text", "describe-unlisted");
+        assert(
+            unlisted.type === "failure" && unlisted.code === "unknown_component",
+            "component outside the manifest is unknown",
+        );
+        const unknownDescription = await describe("Missing", "describe-missing");
+        assert(
+            unknownDescription.type === "failure" && unknownDescription.code === "unknown_component",
+            "unknown component failure",
+        );
+        const duplicateResults = [];
+        const duplicateDone = new Promise((resolve) => {
+            const listener = (event) => {
+                if (
+                    event.source !== iframe.contentWindow ||
+                    event.data?.type !== "sdds.preview.description" ||
+                    event.data.result.requestId !== "describe-duplicate"
+                ) return;
+                duplicateResults.push(event.data.result);
+                if (duplicateResults.length === 2) {
+                    removeEventListener("message", listener);
+                    resolve();
+                }
+            };
+            addEventListener("message", listener);
+        });
+        const duplicateEnvelope = {
+            type: "sdds.preview.describe",
+            requestId: "describe-duplicate",
+            componentId: "BasicButton",
+        };
+        iframe.contentWindow.postMessage(duplicateEnvelope, location.origin);
+        iframe.contentWindow.postMessage(duplicateEnvelope, location.origin);
+        await duplicateDone;
+        assert(
+            duplicateResults.some((result) => result.type === "success") &&
+            duplicateResults.some((result) => result.code === "duplicate_request"),
+            "duplicate describe request",
+        );
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        const reusedDescription = await describe("BasicButton", "describe-duplicate");
+        assert(reusedDescription.type === "success", "describe pending cleanup");
+
+        const startedAt = performance.now();
+        const first = await send(fixture);
+        const firstRenderLatencyMs = Math.round(performance.now() - startedAt);
+        assert(first.type === "success" && first.requestId === "button-first", "first success");
+        assert(
+            first.warnings?.length === 1 &&
+            first.warnings[0].code === "unknown_state" &&
+            first.warnings[0].path === "$.component.properties.backgroundColor.states[2]",
+            "unknown state warning",
+        );
+
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-first",
+            "first render marker",
+        );
+        const gradient = structuredClone(fixture);
+        gradient.requestId = "button-gradient";
+        gradient.theme["gradient.background"] = {
+            type: "gradient",
+            layers: [{
+                kind: "linear",
+                angle: 90,
+                stops: [{color: "#FF0000FF", position: 0}, {color: "#0000FFFF", position: 1}],
+            }],
+        };
+        gradient.component.properties.backgroundColor = {base: {type: "tokenRef", tokenId: "gradient.background"}};
+        const gradientResult = await send(gradient);
+        assert(gradientResult.type === "success", "gradient background success");
+
+        const styleCycle = structuredClone(fixture);
+        styleCycle.requestId = "button-style-cycle";
+        styleCycle.styles = {
+            a: {component: "x", properties: {next: {base: {type: "styleRef", styleId: "b"}}}},
+            b: {component: "x", properties: {next: {base: {type: "styleRef", styleId: "a"}}}},
+        };
+        styleCycle.component.properties.nested = {base: {type: "styleRef", styleId: "a"}};
+        const styleCycleResult = await send(styleCycle);
+        assert(
+            styleCycleResult.type === "failure" && styleCycleResult.code === "style_ref_cycle",
+            "style cycle failure",
+        );
+
+        const unknownStyle = structuredClone(fixture);
+        unknownStyle.requestId = "button-unknown-style";
+        unknownStyle.component.properties.nested = {base: {type: "styleRef", styleId: "missing"}};
+        const unknownStyleResult = await send(unknownStyle);
+        assert(
+            unknownStyleResult.type === "failure" && unknownStyleResult.code === "unknown_style_ref",
+            "unknown style failure",
+        );
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-gradient",
+            "reference failures preserved render",
+        );
+        const propertyValues = {
+            label: "Changed label",
+            value: "Changed value",
+            icon: "End",
+            spacing: "SpaceBetween",
+            hasFixedWidth: true,
+            enabled: false,
+            loading: true,
+        };
+        for (const property of description.properties) {
+            const payload = structuredClone(fixture);
+            payload.requestId = `property-${property.name}`;
+            payload.example.props[property.name] = propertyValues[property.name];
+            const propertyResult = await send(payload);
+            assert(propertyResult.type === "success", `property ${property.name} success`);
+        }
+
+        const secondPayload = structuredClone(fixture);
+        secondPayload.requestId = "button-second";
+        secondPayload.theme["color.background"].value = "#008A72FF";
+        secondPayload.component.properties.height = {base: {type: "literal", value: 56.0}};
+        secondPayload.example.props.label = "Updated button";
+        const second = await iframe.contentWindow.submitPreviewPayload(secondPayload);
+        assert(second.type === "success" && second.requestId === "button-second", "direct second success");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-second",
+            "second render marker",
+        );
+
+        const invalid = structuredClone(fixture);
+        invalid.requestId = "button-invalid";
+        invalid.protocolVersion = 999;
+        const invalidResult = await send(invalid);
+        assert(invalidResult.type === "failure", "invalid failure");
+        assert(invalidResult.code === "unsupported_protocol_version", "invalid failure code");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-second",
+            "invalid payload preserved render",
+        );
+
+        const missingFont = structuredClone(fixture);
+        missingFont.requestId = "button-missing-font";
+        missingFont.assets[0].url = location.origin + "/missing-font.otf";
+        const missingFontResult = await send(missingFont);
+        assert(missingFontResult.type === "failure", "missing font failure");
+        assert(missingFontResult.code === "asset_loading_failed", "missing font failure code");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-second",
+            "missing font preserved render",
+        );
+
+        const slow = structuredClone(fixture);
+        slow.requestId = "button-slow";
+        slow.assets[0].url = location.origin + "/slow-font.otf";
+        const slowPromise = send(slow);
+        const latest = structuredClone(secondPayload);
+        latest.requestId = "button-latest";
+        const latestPromise = send(latest);
+        const [slowResult, latestResult] = await Promise.all([slowPromise, latestPromise]);
+        assert(slowResult.type === "failure" && slowResult.code === "superseded", "superseded failure");
+        assert(latestResult.type === "success", "latest success");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "button-latest",
+            "latest render marker",
+        );
+
+        const spikePayload = (componentId, requestId, properties, styles) => {
+            const payload = structuredClone(fixture);
+            payload.requestId = requestId;
+            payload.component = {id: componentId, variations: {}, properties};
+            if (styles) payload.styles = styles;
+            payload.example = {id: componentId, props: {}};
+            return payload;
+        };
+        const tok = (tokenId, extra) => ({type: "tokenRef", tokenId, ...(extra || {})});
+        const noWarnings = (result, message) => assert(!result.warnings || result.warnings.length === 0, message);
+
+        const checkBox = await send(spikePayload("CheckBox", "spike-checkbox", {
+            shape: {base: tok("shape.button")},
+            labelStyle: {base: tok("typography.button")},
+            labelColor: {base: tok("color.content")},
+            toggleColor: {
+                base: tok("color.background"),
+                states: [
+                    {when: ["checked"], source: tok("color.background.pressed")},
+                    {when: ["Indeterminate"], source: tok("color.background.pressed", {alpha: 0.5})},
+                    {when: ["checked", "pressed"], source: tok("color.background")},
+                ],
+            },
+        }));
+        assert(checkBox.type === "success", "CheckBox custom states success: " + JSON.stringify(checkBox));
+        noWarnings(checkBox, "CheckBox known states produce no warnings");
+
+        const checkBoxFancy = spikePayload("CheckBox", "spike-checkbox-fancy", {
+            toggleColor: {base: tok("color.background"), states: [{when: ["fancy"], source: tok("color.content")}]},
+        });
+        const fancyResult = await send(checkBoxFancy);
+        assert(
+            fancyResult.type === "success" && fancyResult.warnings?.[0]?.code === "unknown_state",
+            "CheckBox unknown state warning",
+        );
+
+        const textField = await send(spikePayload("TextField", "spike-textfield", {
+            shape: {base: tok("shape.button")},
+            labelStyle: {base: tok("typography.button")},
+            valueStyle: {base: tok("typography.button")},
+            labelPlacement: {base: {type: "literal", value: "outer"}},
+            captionPlacement: {base: {type: "literal", value: "Inner"}},
+            fieldType: {base: {type: "literal", value: "RequiredEnd"}},
+        }));
+        assert(textField.type === "success", "TextField enum values success: " + JSON.stringify(textField));
+        noWarnings(textField, "TextField produces no warnings");
+        const textFieldBogus = await send(spikePayload("TextField", "spike-textfield-bogus", {
+            labelPlacement: {base: {type: "literal", value: "bogus"}},
+        }));
+        assert(textFieldBogus.type === "success", "TextField unknown enum value is ignored");
+
+        const avatar = await send(spikePayload(
+            "Avatar",
+            "spike-avatar",
+            {badgeStyle: {base: {type: "styleRef", styleId: "badge"}}},
+            {badge: {component: "Badge", properties: {shape: {base: tok("shape.button")}}}},
+        ));
+        assert(avatar.type === "success", "Avatar nested Badge success: " + JSON.stringify(avatar));
+        noWarnings(avatar, "Avatar nested style produces no warnings");
+
+        const tabs = await send(spikePayload(
+            "Tabs",
+            "spike-tabs",
+            {
+                tabItemStyle: {base: {type: "styleRef", styleId: "item"}},
+                dividerStyle: {base: {type: "styleRef", styleId: "divider"}},
+            },
+            {
+                item: {
+                    component: "TabItem",
+                    properties: {shape: {base: tok("shape.button")}, labelStyle: {base: tok("typography.button")}},
+                },
+                divider: {component: "Divider", properties: {backgroundColor: {base: tok("color.background")}}},
+            },
+        ));
+        assert(tabs.type === "success", "Tabs nested styles success: " + JSON.stringify(tabs));
+        noWarnings(tabs, "Tabs nested styles produce no warnings");
+        assert(
+            iframe.contentDocument.documentElement.dataset.sddsPreviewRequestId === "spike-tabs",
+            "spike render marker",
+        );
+
+        output.textContent = JSON.stringify({
+            status: "passed",
+            firstRenderLatencyMs,
+            userAgent: navigator.userAgent,
+            protocolVersion: readyMessage.protocolVersion,
+        });
+    })().catch((error) => {
+        output.textContent = JSON.stringify({status: "failed", message: error.stack || String(error)});
+    });
+</script>
+</body>
+</html>

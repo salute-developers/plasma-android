@@ -1,0 +1,559 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.sdds.dev/preview/v1/preview-payload.schema.json",
+  "type": "object",
+  "required": [
+    "protocolVersion",
+    "requestId",
+    "platform",
+    "theme",
+    "component",
+    "example"
+  ],
+  "properties": {
+    "protocolVersion": {
+      "const": 1
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "enum": [
+        "ANDROID",
+        "COMPOSE",
+        "WEB",
+        "IOS"
+      ]
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "theme": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/tokenValue"
+      }
+    },
+    "component": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "variations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/propertyValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "example": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "props": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "surface": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "background": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "styles": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/style"
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "description": "Стили и текст по умолчанию для вспомогательных элементов истории компонента (кнопки, Switch, Spinner, текст); значения берутся из темы дизайн-системы.",
+      "properties": {
+        "text": {
+          "type": "object",
+          "properties": {
+            "style": {
+              "type": "string",
+              "description": "Идентификатор токена typography."
+            },
+            "color": {
+              "type": "string",
+              "description": "Идентификатор токена color."
+            }
+          },
+          "additionalProperties": false
+        },
+        "styles": {
+          "type": "object",
+          "description": "Идентификаторы стилей из `styles` для компонентов, которые истории рисуют без собственного стиля.",
+          "properties": {
+            "button": {
+              "type": "string"
+            },
+            "switch": {
+              "type": "string"
+            },
+            "spinner": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "url"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "TTF",
+            "OTF",
+            "SVG",
+            "PNG"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "propertySource": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "literal"
+            },
+            "value": {},
+            "alpha": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "tokenId"
+          ],
+          "properties": {
+            "type": {
+              "const": "tokenRef"
+            },
+            "tokenId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "alpha": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "styleId"
+          ],
+          "properties": {
+            "type": {
+              "const": "styleRef"
+            },
+            "styleId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "assetId"
+          ],
+          "properties": {
+            "type": {
+              "const": "assetRef"
+            },
+            "assetId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "propertyValue": {
+      "type": "object",
+      "required": [
+        "base"
+      ],
+      "properties": {
+        "base": {
+          "$ref": "#/$defs/propertySource"
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stateEntry"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tokenValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "color"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^#[0-9A-Fa-f]{8}$"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "dimension"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "cornerRadii"
+          ],
+          "properties": {
+            "type": {
+              "const": "shape"
+            },
+            "cornerRadii": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "layers"
+          ],
+          "properties": {
+            "type": {
+              "const": "shadow"
+            },
+            "layers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "x",
+                  "y",
+                  "blur",
+                  "spread",
+                  "color"
+                ],
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "blur": {
+                    "type": "number"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "spread": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "faces"
+          ],
+          "properties": {
+            "type": {
+              "const": "fontFamily"
+            },
+            "faces": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "assetId",
+                  "weight"
+                ],
+                "properties": {
+                  "assetId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  },
+                  "style": {
+                    "enum": [
+                      "NORMAL",
+                      "ITALIC"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "allowFallback": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "fontFamilyTokenId",
+            "fontSize",
+            "lineHeight",
+            "letterSpacing",
+            "weight"
+          ],
+          "properties": {
+            "type": {
+              "const": "typography"
+            },
+            "fontFamilyTokenId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "fontSize": {
+              "type": "number"
+            },
+            "lineHeight": {
+              "type": "number"
+            },
+            "letterSpacing": {
+              "type": "number"
+            },
+            "weight": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "layers"
+          ],
+          "properties": {
+            "type": {
+              "const": "gradient"
+            },
+            "layers": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "angle",
+                  "stops"
+                ],
+                "properties": {
+                  "kind": {
+                    "const": "linear"
+                  },
+                  "angle": {
+                    "type": "number"
+                  },
+                  "stops": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "color",
+                        "position"
+                      ],
+                      "properties": {
+                        "color": {
+                          "type": "string",
+                          "pattern": "^#[0-9A-Fa-f]{8}$"
+                        },
+                        "position": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "stateEntry": {
+      "type": "object",
+      "required": [
+        "when",
+        "source"
+      ],
+      "properties": {
+        "when": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/propertySource"
+        }
+      },
+      "additionalProperties": false
+    },
+    "style": {
+      "type": "object",
+      "required": [
+        "component",
+        "properties"
+      ],
+      "properties": {
+        "component": {
+          "type": "string",
+          "minLength": 1
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/propertyValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

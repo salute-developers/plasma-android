@@ -50,7 +50,7 @@ data class NavigationBarUiState(
     }
 }
 
-@Story
+@Story(componentId = "NavigationBar")
 object NavigationBarStory : ComposeBaseStory<NavigationBarUiState, NavigationBarStyle>(
     ComponentKey.NavigationBar,
     NavigationBarUiState(),

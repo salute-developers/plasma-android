@@ -82,7 +82,7 @@ enum class TabItemIcon {
     Start, End, None,
 }
 
-@Story
+@Story(componentId = "Tabs")
 object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
     ComponentKey.Tabs,
     TabsUiState(),

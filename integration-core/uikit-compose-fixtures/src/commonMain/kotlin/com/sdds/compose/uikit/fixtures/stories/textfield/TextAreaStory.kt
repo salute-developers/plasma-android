@@ -34,7 +34,7 @@ import com.sdds.icons.compose.Shazam24
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 
-@Story
+@Story(componentId = "TextArea")
 object TextAreaStory : ComposeBaseStory<TextFieldUiState, TextFieldStyle>(
     ComponentKey.TextArea,
     TextFieldUiState(),

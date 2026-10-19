@@ -1,0 +1,35 @@
+{
+  "protocolVersion": 1,
+  "requestId": "fixture-1",
+  "platform": "COMPOSE",
+  "assets": [],
+  "theme": {
+    "color.bg": {
+      "type": "color",
+      "value": "#112233FF"
+    }
+  },
+  "component": {
+    "id": "button",
+    "variations": {},
+    "properties": {
+      "backgroundColor": {
+        "base": {
+          "type": "literal",
+          "value": "#FF0000FF",
+          "alpha": 0.4
+        },
+        "states": []
+      }
+    }
+  },
+  "example": {
+    "id": "default",
+    "props": {}
+  },
+  "surface": {
+    "width": 320,
+    "height": 120,
+    "background": "#FFFFFFFF"
+  }
+}

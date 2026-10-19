@@ -65,7 +65,7 @@ data class WheelUiState(
     }
 }
 
-@Story
+@Story(componentId = "Wheel")
 object WheelStory : ComposeBaseStory<WheelUiState, WheelStyle>(
     ComponentKey.Wheel,
     WheelUiState(),

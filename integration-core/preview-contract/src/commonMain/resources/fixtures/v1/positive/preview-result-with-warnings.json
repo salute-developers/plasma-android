@@ -1,0 +1,1 @@
+{ "type": "success", "requestId": "request-1", "warnings": [{ "code": "unknown_state", "message": "Состояние fancy не поддерживается", "path": "$.component.properties.backgroundColor.states[0]" }] }

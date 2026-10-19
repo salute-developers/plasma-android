@@ -50,7 +50,7 @@ enum class TabBarExtraType {
     Indicator,
 }
 
-@Story
+@Story(componentId = "TabBar")
 object TabBarStory : ComposeBaseStory<TabBarUiState, TabBarStyle>(
     ComponentKey.TabBar,
     TabBarUiState(),

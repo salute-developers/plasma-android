@@ -76,7 +76,7 @@ enum class AutocompleteFieldAlignment(val alignment: Alignment) {
     BottomCenter(Alignment.BottomCenter),
 }
 
-@Story
+@Story(componentId = "Autocomplete")
 object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteStyle>(
     ComponentKey.Autocomplete,
     AutocompleteUiState(),

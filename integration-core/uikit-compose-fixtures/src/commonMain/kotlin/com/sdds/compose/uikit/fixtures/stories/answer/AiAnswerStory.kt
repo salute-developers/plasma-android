@@ -48,7 +48,7 @@ data class AiAnswerUiState(
     }
 }
 
-@Story
+@Story(componentId = "AiAnswer")
 object AiAnswerStory : ComposeBaseStory<AiAnswerUiState, AiAnswerStyle>(
     ComponentKey.AiAnswer,
     AiAnswerUiState(),
