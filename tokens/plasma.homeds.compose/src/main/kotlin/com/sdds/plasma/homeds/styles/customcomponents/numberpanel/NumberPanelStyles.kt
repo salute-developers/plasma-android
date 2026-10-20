@@ -70,6 +70,54 @@ public value class WrapperNumberPanelMHumidity(
     public override val builder: NumberPanelStyleBuilder,
 ) : WrapperNumberPanel
 
+/**
+ * Обертка для вариации Xs для группы климатических устройств
+ */
+@JvmInline
+public value class WrapperNumberPanelXsGroup(
+    public override val builder: NumberPanelStyleBuilder,
+) : WrapperNumberPanel
+
+/**
+ * Обертка для вариации S для группы климатических устройств
+ */
+@JvmInline
+public value class WrapperNumberPanelSGroup(
+    public override val builder: NumberPanelStyleBuilder,
+) : WrapperNumberPanel
+
+/**
+ * Обертка для вариации M для группы климатических устройств
+ */
+@JvmInline
+public value class WrapperNumberPanelMGroup(
+    public override val builder: NumberPanelStyleBuilder,
+) : WrapperNumberPanel
+
+/**
+ * Обертка для вариации MHumidity для группы климатических устройств
+ */
+@JvmInline
+public value class WrapperNumberPanelMHumidityGroup(
+    public override val builder: NumberPanelStyleBuilder,
+) : WrapperNumberPanel
+
+/**
+ * Обертка для вариации XsHumidity для группы климатических устройств
+ */
+@JvmInline
+public value class WrapperNumberPanelXsHumidityGroup(
+    public override val builder: NumberPanelStyleBuilder,
+) : WrapperNumberPanel
+
+/**
+ * Обертка для вариации SHumidity для группы климатических устройств
+ */
+@JvmInline
+public value class WrapperNumberPanelSHumidityGroup(
+    public override val builder: NumberPanelStyleBuilder,
+) : WrapperNumberPanel
+
 private val NumberPanelStyleBuilder.invariantProps: NumberPanelStyleBuilder
     @Composable
     get() = this
@@ -77,6 +125,7 @@ private val NumberPanelStyleBuilder.invariantProps: NumberPanelStyleBuilder
             valueColor(PlasmaHomeDsTheme.colors.textOnLightParagraph)
             fractionColor(PlasmaHomeDsTheme.colors.textOnLightParagraph)
             iconColor(PlasmaHomeDsTheme.colors.textOnLightParagraph)
+            groupIconColor(PlasmaHomeDsTheme.colors.textOnLightParagraph)
         }
 
 public val NumberPanel.Xs: WrapperNumberPanelXs
@@ -89,7 +138,7 @@ public val NumberPanel.Xs: WrapperNumberPanelXs
         .fractionStyle(SBLCDTypography.sblcdFractionXs)
         .icon(R.drawable.ic_degree_xs)
         .dimensions {
-            valueStartPadding(2.dp)
+            valueStartPadding(1.dp)
             valueEndPadding(1.dp)
             fractionStartPadding(1.dp)
             fractionEndPadding(1.dp)
@@ -153,3 +202,63 @@ public val WrapperNumberPanelM.Humidity: WrapperNumberPanelMHumidity
         .mode(NumberPanelMode.Humidity)
         .icon(R.drawable.ic_percent_m)
         .wrap(::WrapperNumberPanelMHumidity)
+
+public val WrapperNumberPanelXs.Group: WrapperNumberPanelXsGroup
+    @Composable
+    @JvmName("WrapperNumberPanelXsGroup")
+    get() = builder
+        .groupIcon(R.drawable.ic_tilde_xs)
+        .dimensions {
+            startContentEndPadding(1.dp)
+        }
+        .wrap(::WrapperNumberPanelXsGroup)
+
+public val WrapperNumberPanelS.Group: WrapperNumberPanelSGroup
+    @Composable
+    @JvmName("WrapperNumberPanelSGroup")
+    get() = builder
+        .groupIcon(R.drawable.ic_tilde_s)
+        .dimensions {
+            startContentEndPadding(2.dp)
+        }
+        .wrap(::WrapperNumberPanelSGroup)
+
+public val WrapperNumberPanelM.Group: WrapperNumberPanelMGroup
+    @Composable
+    @JvmName("WrapperNumberPanelMGroup")
+    get() = builder
+        .groupIcon(R.drawable.ic_tilde_m)
+        .dimensions {
+            startContentEndPadding(4.dp)
+        }
+        .wrap(::WrapperNumberPanelMGroup)
+
+public val WrapperNumberPanelXsHumidity.Group: WrapperNumberPanelXsHumidityGroup
+    @Composable
+    @JvmName("WrapperNumberPanelXsHumidityGroup")
+    get() = builder
+        .groupIcon(R.drawable.ic_tilde_xs)
+        .dimensions {
+            startContentEndPadding(1.dp)
+        }
+        .wrap(::WrapperNumberPanelXsHumidityGroup)
+
+public val WrapperNumberPanelSHumidity.Group: WrapperNumberPanelSHumidityGroup
+    @Composable
+    @JvmName("WrapperNumberPanelSHumidityGroup")
+    get() = builder
+        .groupIcon(R.drawable.ic_tilde_s)
+        .dimensions {
+            startContentEndPadding(2.dp)
+        }
+        .wrap(::WrapperNumberPanelSHumidityGroup)
+
+public val WrapperNumberPanelMHumidity.Group: WrapperNumberPanelMHumidityGroup
+    @Composable
+    @JvmName("WrapperNumberPanelMHumidityGroup")
+    get() = builder
+        .groupIcon(R.drawable.ic_tilde_m)
+        .dimensions {
+            startContentEndPadding(4.dp)
+        }
+        .wrap(::WrapperNumberPanelMHumidityGroup)
