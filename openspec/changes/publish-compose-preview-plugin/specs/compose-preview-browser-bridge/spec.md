@@ -18,10 +18,10 @@ SHALL содержать `api-meta.json`, по которому построен
 
 #### Scenario: Manifest идентифицирует билд
 
-- **WHEN** host читает manifest production artifact
-- **THEN** `version` MUST совпадать с идентификатором каталога билда
-- **AND** `uikitComposeVersion` MUST совпадать с версией проекта `sdds-core:uikit-compose` из его `gradle.properties`
-- **AND** `commit` MUST содержать коммит, из которого собран артефакт.
+- **WHEN** host или бэкенд читает manifest production artifact
+- **THEN** `commit` MUST содержать полный sha коммита, из которого собран артефакт
+- **AND** `version` MUST совпадать с первыми 12 символами `commit`
+- **AND** `uikitComposeVersion` MUST совпадать с версией проекта `sdds-core:uikit-compose` из его `gradle.properties`.
 
 #### Scenario: Мета в артефакте соответствует sha256
 
