@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,8 +20,10 @@ import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.AvatarDefaults
 import com.sdds.compose.uikit.internal.drawWithLayer
+import com.sdds.compose.uikit.motion.components.avatar.rememberAvatarGroupMotion
 import kotlin.math.max
 import kotlin.math.min
 
@@ -69,9 +73,11 @@ fun AvatarGroup(
     threshold: Int = AvatarDefaults.DefaultThreshold,
     content: AvatarGroupScope.() -> Unit,
 ) {
-    val dimensions = style.dimensions
-    val policy = remember(dimensions) {
-        avatarGroupMeasurePolicy(dimensions.itemOffset, dimensions.itemSpacing)
+    val motion = rememberAvatarGroupMotion()
+    val itemOffset by style.dimensions.itemOffsetValues.getValueAsState(motion.context)
+    val itemSpacing by style.dimensions.itemSpacingValues.getValueAsState(motion.context)
+    val policy = remember(itemOffset, itemSpacing) {
+        avatarGroupMeasurePolicy(itemOffset, itemSpacing)
     }
     val scope = remember(threshold) { AvatarGroupScopeImpl(threshold) }
     CompositionLocalProvider(
@@ -83,11 +89,12 @@ fun AvatarGroup(
             modifier = modifier,
             content = {
                 scope.content()
+                val shape = style.avatarStyle.shapes.getValueAsState(motion.context)
                 scope.avatars.forEachIndexed { index, avatar ->
                     AvatarContainer(
                         index = index,
-                        offset = dimensions.itemOffset.floatPx,
-                        shape = style.avatarStyle.shape,
+                        offset = itemOffset.floatPx,
+                        shape = shape,
                         clipOut = index < scope.avatars.size - 1 || scope.counter != null,
                         content = avatar.content,
                     )
@@ -135,7 +142,7 @@ internal val LocalAvatarGroupActionEnabled = compositionLocalOf { true }
 private fun AvatarContainer(
     index: Int,
     offset: Float,
-    shape: Shape,
+    shape: State<Shape>,
     clipOut: Boolean,
     content: (@Composable AvatarGroupItemScope.(Int) -> Unit),
 ) {
@@ -146,7 +153,7 @@ private fun AvatarContainer(
             if (clipOut) {
                 withTransform({ translate(left = offset) }) {
                     drawOutline(
-                        outline = shape.createOutline(size, layoutDirection, density),
+                        outline = shape.value.createOutline(size, layoutDirection, density),
                         color = Color.Transparent,
                         blendMode = BlendMode.Clear,
                     )

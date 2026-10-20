@@ -288,6 +288,7 @@ semanticStateSource.setExclusive(
 
 - `getColorAsState`
 - `getBrushAsState`
+- `getTextStyleAsState`
 - `getDpAsState`
 - `getFloatAsState`
 - `getIntAsState`
