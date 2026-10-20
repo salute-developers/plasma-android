@@ -8,8 +8,8 @@
 ## 2. Workflow публикации
 
 - [ ] 2.1 Создать workflow публикации: триггеры `push` в `develop` с фильтром путей, `workflow_call`/`workflow_dispatch` с окружением и тегом; `concurrency` по окружению без отмены
-- [ ] 2.2 Шаги сборки и гейтов: окружение (JDK 17, Node, Chrome), `previewPluginArtifact`, `jvmTest`, `previewPluginBrowserTest`
-- [ ] 2.3 Установка CLI `dsbuilder` на раннер (JVM-дистрибутив с закреплённой версией либо macOS-раннер); решить формат поставки вместе с командой DSB
+- [ ] 2.2 Шаги сборки и гейтов: окружение (JDK 17, Node), `previewPluginArtifact`, `jvmTest`, `previewPluginBrowserTest` с `-PpreviewChromePath=$(which google-chrome)`
+- [ ] 2.3 Установка CLI `dsbuilder` на `ubuntu-latest`: скачать закреплённую версию JVM-дистрибутива из GitHub Release DSB (тег `cli-vX.Y.Z`), при закрытом репозитории использовать секрет с токеном чтения; запускать CLI с Java 17
 - [ ] 2.4 Шаги отправки: пробная отправка без `--apply`, затем отправка с `--apply`; учётные данные из секретов через переменные окружения процесса, не в аргументах и не в логе
 - [ ] 2.5 Обработка результата: «без изменений» считается успехом, конфликт и ошибки валидации показываются в сообщении шага
 - [ ] 2.6 Добавить безусловный вызов workflow в `publish-release.yml` для релизного тега (окружение prom) и включить `check-preview-contract` в режиме `error` как гейт
