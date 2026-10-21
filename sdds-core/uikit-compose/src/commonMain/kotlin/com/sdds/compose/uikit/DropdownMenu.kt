@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -78,7 +79,7 @@ fun DropdownMenu(
     enterTransition: EnterTransition = fadeIn(),
     exitTransition: ExitTransition = fadeOut(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    offset: Dp = style.dimensions.offset,
+    offset: Dp = Dp.Unspecified,
     scrollState: LazyListState? = null,
     showEmptyState: Boolean = false,
     emptyState: (@Composable DropdownScope.() -> Unit)? = null,
@@ -151,7 +152,7 @@ fun DropdownMenu(
     enterTransition: EnterTransition = fadeIn(),
     exitTransition: ExitTransition = fadeOut(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    offset: Dp = style.dimensions.offset,
+    offset: Dp = Dp.Unspecified,
     scrollState: LazyListState? = null,
     showEmptyState: Boolean = false,
     emptyState: (@Composable DropdownScope.() -> Unit)? = null,
@@ -232,7 +233,7 @@ fun DropdownMenu(
     enterTransition: EnterTransition = fadeIn(),
     exitTransition: ExitTransition = fadeOut(),
     motion: Motion<DropdownMenuMotionStyle> = rememberDropdownMenuMotion(),
-    offset: Dp = style.dimensions.offset,
+    offset: Dp = Dp.Unspecified,
     scrollState: LazyListState? = null,
     showEmptyState: Boolean = false,
     emptyState: (@Composable DropdownScope.() -> Unit)? = null,
@@ -311,7 +312,7 @@ fun ModalDropdownMenu(
     enterTransition: EnterTransition = fadeIn(),
     exitTransition: ExitTransition = fadeOut(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    offset: Dp = style.dimensions.offset,
+    offset: Dp = Dp.Unspecified,
     scrollState: LazyListState? = null,
     showEmptyState: Boolean = false,
     edgeToEdge: Boolean = true,
@@ -400,7 +401,7 @@ fun ModalDropdownMenu(
     enterTransition: EnterTransition = fadeIn(),
     exitTransition: ExitTransition = fadeOut(),
     motion: Motion<DropdownMenuMotionStyle> = rememberDropdownMenuMotion(),
-    offset: Dp = style.dimensions.offset,
+    offset: Dp = Dp.Unspecified,
     scrollState: LazyListState? = null,
     showEmptyState: Boolean = false,
     edgeToEdge: Boolean = true,
@@ -509,33 +510,42 @@ fun DropdownScope.EmptyState(
     description: (@Composable () -> Unit)? = null,
     button: (@Composable () -> Unit)? = null,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val topP by style.dimensions.paddingTopValues.getValueAsState(interactionSource)
+    val bottomP by style.dimensions.paddingBottomValues.getValueAsState(interactionSource)
+    val startP by style.dimensions.paddingStartValues.getValueAsState(interactionSource)
+    val endP by style.dimensions.paddingEndValues.getValueAsState(interactionSource)
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                top = style.dimensions.paddingTop,
-                bottom = style.dimensions.paddingBottom,
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
+                top = topP,
+                bottom = bottomP,
+                start = startP,
+                end = endP,
             ),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        val interactionSource = remember { MutableInteractionSource() }
         image?.let {
+            val brush = style.colors.iconBrush.getValueAsState(interactionSource)
             CompositionLocalProvider(
-                LocalTint provides style.colors.iconColor.colorForInteraction(interactionSource),
+                LocalTintBrushProducer provides { brush.value },
             ) {
                 Box { image.invoke() }
             }
         }
         description?.let {
-            CompositionLocalProvider(
-                LocalTextStyle provides style.descriptionStyle
-                    .copy(style.colors.descriptionColor.colorForInteraction(interactionSource)),
+            val textStyle by style.descriptionStyles.getValueAsState(interactionSource)
+            val brush = style.colors.descriptionBrush.getValueAsState(interactionSource)
+            val padding by style.dimensions.descriptionPaddingValues.getValueAsState(interactionSource)
+            Box(
+                Modifier.padding(top = padding),
             ) {
-                Box(
-                    Modifier.padding(top = style.dimensions.descriptionPadding),
-                ) { description.invoke() }
+                ProvideTextStyle(
+                    textStyle,
+                    brush = { brush.value },
+                    description,
+                )
             }
         }
         val buttonStyle = style.buttonStyle

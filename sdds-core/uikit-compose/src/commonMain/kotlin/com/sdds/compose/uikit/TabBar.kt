@@ -35,10 +35,9 @@ import com.sdds.compose.uikit.shadow.shadow
 /**
  * Компонент для навигации между разделами интерфейса
  *
+ * @param motion объект анимаций
  * @param modifier модификатор
  * @param style стиль компонента
- * @param interactionSource источник взаимодействий
- * @param motion объект анимаций
  * @param content контент.
  * Для добавления элементов в контент используется функция TabBarScope.tabItem()
  */
