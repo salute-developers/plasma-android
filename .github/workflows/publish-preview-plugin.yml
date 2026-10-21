@@ -1,0 +1,151 @@
+name: 'Publish Compose preview plugin'
+
+# Собирает Compose preview plugin и отправляет его на бэкенд design-system-builder командой CLI `dsbuilder`.
+# В хранилище пишет бэкенд, а не этот репозиторий: он же импортирует мету из архива и ведёт версии.
+#
+#   push в develop                       -> dev-бэкенд
+#   repository_dispatch (publish-release) -> prom-бэкенд, источник - релизный тег
+#   workflow_dispatch                     -> выбранное окружение и ref
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'integration-core/preview-compose-plugin/**'
+      - 'integration-core/preview-contract/**'
+      - 'integration-core/preview-sdk-compose/**'
+      - 'integration-core/sandbox-core/**'
+      - 'integration-core/uikit-compose-fixtures/**'
+      - 'sdds-core/uikit-compose/**'
+      - 'build-system/**'
+      - 'gradle/libs.versions.toml'
+      - '.github/workflows/publish-preview-plugin.yml'
+  repository_dispatch:
+    types: [publish-preview-plugin]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Окружение бэкенда DSB'
+        type: choice
+        options:
+          - dev
+          - prom
+        default: dev
+        required: true
+      ref:
+        description: 'Ветка, тэг или коммит (по умолчанию выбранный ref запуска)'
+        required: false
+      apply:
+        description: 'Записать билд (без этого выполняется только пробная отправка)'
+        type: boolean
+        default: false
+
+env:
+  # Версия CLI закрепляется осознанно: релиз `cli-vX.Y.Z` репозитория design-system-builder.
+  DSB_CLI_VERSION: cli-v0.1.0
+  DSB_CLI_REPOSITORY: salute-developers/design-system-builder
+
+jobs:
+  prepare:
+    name: Определить окружение
+    runs-on: ubuntu-latest
+    outputs:
+      target: ${{ steps.target.outputs.target }}
+      ref: ${{ steps.target.outputs.ref }}
+      apply: ${{ steps.target.outputs.apply }}
+      enabled: ${{ steps.target.outputs.enabled }}
+    steps:
+      - name: Выбрать окружение, ref и режим записи
+        id: target
+        env:
+          EVENT: ${{ github.event_name }}
+          DISPATCH_TAG: ${{ github.event.client_payload.tag }}
+          INPUT_TARGET: ${{ inputs.target }}
+          INPUT_REF: ${{ inputs.ref }}
+          INPUT_APPLY: ${{ inputs.apply }}
+          PROM_ENABLED: ${{ vars.DSB_PUBLISH_PROM_ENABLED }}
+        run: |
+          case "$EVENT" in
+            push)
+              target=dev; ref="$GITHUB_SHA"; apply=true ;;
+            repository_dispatch)
+              target=prom; ref="$DISPATCH_TAG"; apply=true ;;
+            *)
+              target="$INPUT_TARGET"; ref="${INPUT_REF:-$GITHUB_SHA}"; apply="$INPUT_APPLY" ;;
+          esac
+          enabled=true
+          # Пока бэкенд prom не выкатил публикацию, шаг для prom выключен переменной репозитория.
+          if [ "$target" = "prom" ] && [ "$PROM_ENABLED" != "true" ]; then enabled=false; fi
+          {
+            echo "target=$target"
+            echo "ref=$ref"
+            echo "apply=$apply"
+            echo "enabled=$enabled"
+          } >> "$GITHUB_OUTPUT"
+
+  publish:
+    name: Собрать и отправить на ${{ needs.prepare.outputs.target }}
+    needs: prepare
+    if: needs.prepare.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    # Публикации в одно окружение выполняются последовательно и не отменяют друг друга.
+    concurrency:
+      group: publish-preview-plugin-${{ needs.prepare.outputs.target }}
+      cancel-in-progress: false
+    env:
+      TARGET: ${{ needs.prepare.outputs.target }}
+      APPLY: ${{ needs.prepare.outputs.apply }}
+      DSB_API_URL: ${{ needs.prepare.outputs.target == 'prom' && secrets.DSB_API_URL_PROM || secrets.DSB_API_URL_DEV }}
+      DSBUILDER_CLIENT_ID: ${{ needs.prepare.outputs.target == 'prom' && secrets.DSB_CLIENT_ID_PROM || secrets.DSB_CLIENT_ID_DEV }}
+      DSBUILDER_CLIENT_SECRET: ${{ needs.prepare.outputs.target == 'prom' && secrets.DSB_CLIENT_SECRET_PROM || secrets.DSB_CLIENT_SECRET_DEV }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare.outputs.ref }}
+          fetch-depth: 0
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Check the preview contract
+        # На релизном теге расхождение копии контракта с каноническим останавливает публикацию.
+        env:
+          MODE: ${{ needs.prepare.outputs.target == 'prom' && 'error' || 'warn' }}
+        run: .github/scripts/check-preview-contract.sh
+
+      - name: Build and verify the plugin artifact
+        run: |
+          ./gradlew -p integration-core \
+            :preview-compose-plugin:jvmTest \
+            :preview-compose-plugin:previewPluginArtifact \
+            :preview-compose-plugin:previewPluginBrowserTest \
+            -PpreviewChromePath="$(command -v google-chrome)"
+
+      - name: Install the dsbuilder CLI
+        env:
+          # Для закрытого репозитория DSB нужен токен чтения релизов.
+          GH_TOKEN: ${{ secrets.DSB_CLI_READ_TOKEN || github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/dsbuilder"
+          gh release download "$DSB_CLI_VERSION" --repo "$DSB_CLI_REPOSITORY" \
+            --pattern dsbuilder-cli-jvm.zip --dir "$RUNNER_TEMP/dsbuilder"
+          unzip -q "$RUNNER_TEMP/dsbuilder/dsbuilder-cli-jvm.zip" -d "$RUNNER_TEMP/dsbuilder"
+          echo "$RUNNER_TEMP/dsbuilder/cli-jvm/bin" >> "$GITHUB_PATH"
+
+      - name: Dry run
+        # Пробная отправка проверяет архив, мету и учётные данные до записи.
+        run: |
+          dsbuilder preview-plugin publish --platform compose \
+            --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
+            --api-url "$DSB_API_URL"
+
+      - name: Publish
+        if: env.APPLY == 'true'
+        run: |
+          dsbuilder preview-plugin publish --platform compose \
+            --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
+            --api-url "$DSB_API_URL" --apply
