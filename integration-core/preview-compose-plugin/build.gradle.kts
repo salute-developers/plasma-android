@@ -65,10 +65,18 @@ val generatePreviewManifest by tasks.registering {
     val apiMeta = generatedApiMetaDir.map { it.file("api-meta.json") }
     val versionProperties = uikitComposeProperties
     val commitOverride = providers.gradleProperty("previewCommit")
-    val repositoryDirectory = layout.projectDirectory.asFile
+    // Фактический HEAD разрешается при конфигурации и входит в задачу: после перехода на другой коммит manifest
+    // пересоздаётся, даже если остальные входы не изменились.
+    val resolvedCommit = commitOverride.orElse(
+        providers.exec {
+            commandLine("git", "rev-parse", "HEAD")
+            workingDir = layout.projectDirectory.asFile
+            isIgnoreExitValue = true
+        }.standardOutput.asText.map { it.trim() },
+    )
     inputs.file(apiMeta)
     inputs.file(versionProperties)
-    inputs.property("commitOverride", commitOverride.orElse(""))
+    inputs.property("commit", resolvedCommit)
     val template = layout.projectDirectory.file("src/manifest/preview-plugin.template.json")
     val components = generatedFactoriesDir.map { it.file("components.txt") }
     val output = generatedManifestDir
@@ -83,11 +91,7 @@ val generatePreviewManifest by tasks.registering {
         val componentNames = components.get().asFile.readLines().filter { it.isNotBlank() }
         manifest["components"] = componentNames
         // Идентификация билда: бэкенд сверяет её с архивом, а клиент показывает версию плагина.
-        val commit = commitOverride.orNull ?: ProcessBuilder("git", "rev-parse", "HEAD")
-            .directory(repositoryDirectory)
-            .redirectErrorStream(true)
-            .start()
-            .let { process -> process.inputStream.bufferedReader().readText().trim().also { process.waitFor() } }
+        val commit = resolvedCommit.get()
         check(Regex("^[0-9a-f]{40}$").matches(commit)) {
             "Не удалось определить коммит сборки (git rev-parse HEAD вернул '$commit'); задайте -PpreviewCommit=<sha>"
         }
@@ -136,6 +140,9 @@ val previewPluginArtifact by tasks.registering(Zip::class) {
         include("*.js", "*.wasm")
     }
     from("src/wasmJsMain/resources")
+    // Бэкенд DSB сравнивает sha256 всего архива: пересборка того же коммита обязана давать тот же zip.
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
     archiveFileName.set("preview-compose-plugin.zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions"))
 }
