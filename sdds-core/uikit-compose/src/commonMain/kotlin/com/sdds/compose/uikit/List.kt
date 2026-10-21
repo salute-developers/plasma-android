@@ -157,7 +157,7 @@ private fun getVerticalArrangement(
 }
 
 @Composable
-private fun ListDimensions.getContentPaddings(
+internal fun ListDimensions.getContentPaddings(
     interactionSource: MutableInteractionSource,
 ) = PaddingValues(
     paddingStartValues.getValue(interactionSource),
@@ -166,4 +166,4 @@ private fun ListDimensions.getContentPaddings(
     paddingBottomValues.getValue(interactionSource),
 )
 
-private val UnspecifiedPaddingValues = PaddingValues(0.dp)
+internal val UnspecifiedPaddingValues = PaddingValues(0.dp)
