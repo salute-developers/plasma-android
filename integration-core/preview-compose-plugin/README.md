@@ -46,8 +46,9 @@ Workflow `publish-preview-plugin.yml` выполняет: проверку ко�
 
 Нужные секреты репозитория (отдельно для dev и prom): `DSB_API_URL_<ENV>`, `DSB_CLIENT_ID_<ENV>`,
 `DSB_CLIENT_SECRET_<ENV>` (служебная учётка DSB с ролью публикации; выдаёт команда DSB). Если репозиторий DSB закрыт,
-нужен ещё `DSB_CLI_READ_TOKEN` с правом чтения релизов. Публикация на prom включается переменной репозитория
-`DSB_PUBLISH_PROM_ENABLED=true`, когда бэкенд prom готов принимать плагин. Версия CLI закреплена в workflow
+нужен ещё `DSB_CLI_READ_TOKEN` с правом чтения релизов. Публикация выключена, пока не заданы переменные
+репозитория: на dev по push в `develop` — `DSB_PUBLISH_DEV_ENABLED=true`, на prom — `DSB_PUBLISH_PROM_ENABLED=true`
+(когда бэкенд готов принимать плагин). Ручной запуск `workflow_dispatch` на dev переменной не ограничен. Версия CLI закреплена в workflow
 (`DSB_CLI_VERSION`, релиз `cli-vX.Y.Z` репозитория DSB).
 
 Повторный запуск для того же коммита безопасен: бэкенд отвечает «без изменений». Откат на прежний билд —

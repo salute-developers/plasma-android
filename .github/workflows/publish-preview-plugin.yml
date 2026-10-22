@@ -3,8 +3,8 @@ name: 'Publish Compose preview plugin'
 # Собирает Compose preview plugin и отправляет его на бэкенд design-system-builder командой CLI `dsbuilder`.
 # В хранилище пишет бэкенд, а не этот репозиторий: он же импортирует мету из архива и ведёт версии.
 #
-#   push в develop                       -> dev-бэкенд
-#   repository_dispatch (publish-release) -> prom-бэкенд, источник - релизный тег
+#   push в develop                       -> dev-бэкенд (включается переменной репозитория DSB_PUBLISH_DEV_ENABLED=true)
+#   repository_dispatch (publish-release) -> prom-бэкенд, источник - релизный тег (DSB_PUBLISH_PROM_ENABLED=true)
 #   workflow_dispatch                     -> выбранное окружение и ref
 permissions:
   contents: read
@@ -67,6 +67,7 @@ jobs:
           INPUT_REF: ${{ inputs.ref }}
           INPUT_APPLY: ${{ inputs.apply }}
           PROM_ENABLED: ${{ vars.DSB_PUBLISH_PROM_ENABLED }}
+          DEV_ENABLED: ${{ vars.DSB_PUBLISH_DEV_ENABLED }}
         run: |
           case "$EVENT" in
             push)
@@ -79,6 +80,9 @@ jobs:
           enabled=true
           # Пока бэкенд prom не выкатил публикацию, шаг для prom выключен переменной репозитория.
           if [ "$target" = "prom" ] && [ "$PROM_ENABLED" != "true" ]; then enabled=false; fi
+          # Автоматическая публикация на dev по push в develop выключена, пока не заданы секреты и релиз CLI;
+          # ручной запуск (workflow_dispatch) этой переменной не ограничен, им можно проверить пробную отправку.
+          if [ "$EVENT" = "push" ] && [ "$DEV_ENABLED" != "true" ]; then enabled=false; fi
           {
             echo "target=$target"
             echo "ref=$ref"
