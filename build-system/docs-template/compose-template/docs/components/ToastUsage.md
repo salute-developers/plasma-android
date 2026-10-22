@@ -47,3 +47,26 @@ OverlayHost {
     ) {...}
 }
 ```
+
+### Учёт системных панелей
+
+По умолчанию `OverlayHost` не учитывает инсеты статус-бара и navigation bar. Для включения автоматического учёта используйте `applySystemBarInsets = true`:
+
+```kotlin
+OverlayHost(
+    applySystemBarInsets = true,
+) {
+    ...
+}
+```
+
+Дополнительный отступ сверх системных инсетов задаётся через `contentPadding`:
+
+```kotlin
+OverlayHost(
+    applySystemBarInsets = true,
+    contentPadding = PaddingValues(top = 16.dp),
+) {
+    ...
+}
+```
