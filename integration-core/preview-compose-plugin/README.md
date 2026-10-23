@@ -22,19 +22,87 @@ integration-core/preview-compose-plugin/build/distributions/preview-compose-plug
 
 - `index.html` — browser entrypoint;
 - `preview-plugin.json` — manifest (собирается при сборке, см. «Как добавить компонент»);
+- `api-meta.json` — api-мета `uikit-compose`, по которой сгенерированы фабрики плагина; её импортирует бэкенд DSB;
 - `preview-compose-plugin.js` — загрузчик приложения;
 - Kotlin/Wasm и Skiko Wasm binaries;
 - `composeResources/` — Compose-ресурсы историй (иллюстрации и т.п.); без них истории, использующие ресурсы,
   падают при отрисовке.
 
-## Размещение
+## Публикация
 
-Распакуйте архив в отдельный каталог web-сервера и публикуйте его содержимое из одного URL:
+Плагин публикует не этот репозиторий, а бэкенд design-system-builder (DSB): CI отправляет ему архив командой CLI,
+а бэкенд за одну операцию кладёт файлы в хранилище, импортирует мету из `api-meta.json` архива и записывает билд как
+активный. В `plasma-android` нет ключей хранилища и знания о нём.
+
+```text
+push в develop                        -> dev-бэкенд
+релиз (publish-release, тег)          -> prom-бэкенд
+workflow_dispatch (окружение и ref)   -> выбранное окружение
+```
+
+Workflow `publish-preview-plugin.yml` выполняет: проверку контракта (на релизном теге ошибка расхождения
+останавливает публикацию), `jvmTest`, `previewPluginArtifact`, `previewPluginBrowserTest` (включая проверку состава и
+идентификации артефакта), пробную отправку и отправку с `--apply`. Публикации в одно окружение идут последовательно.
+
+Нужные секреты репозитория (отдельно для dev и prom): `DSB_API_URL_<ENV>`, `DSB_CLIENT_ID_<ENV>`,
+`DSB_CLIENT_SECRET_<ENV>` (служебная учётка DSB с ролью публикации; выдаёт команда DSB). Если репозиторий DSB закрыт,
+нужен ещё `DSB_CLI_READ_TOKEN` с правом чтения релизов. Публикация выключена, пока не заданы переменные
+репозитория: на dev по push в `develop` — `DSB_PUBLISH_DEV_ENABLED=true`, на prom — `DSB_PUBLISH_PROM_ENABLED=true`
+(когда бэкенд готов принимать плагин). Ручной запуск `workflow_dispatch` на dev переменной не ограничен. Версия CLI закреплена в workflow
+(`DSB_CLI_VERSION`, релиз `cli-vX.Y.Z` репозитория DSB).
+
+Повторный запуск для того же коммита безопасен: бэкенд отвечает «без изменений». Откат на прежний билд —
+повторная публикация его коммита (`workflow_dispatch` с нужным `ref`): бэкенд снова делает его активным.
+
+### Идентификация билда
+
+Manifest содержит поля, которые бэкенд сверяет с архивом:
+
+| Поле | Значение |
+|---|---|
+| `commit` | полный sha коммита сборки |
+| `version` | первые 12 символов `commit`, идентификатор билда |
+| `uikitComposeVersion` | версия из `sdds-core/uikit-compose/gradle.properties` |
+| `apiMetaSha256` | sha256 файла `api-meta.json` из архива |
+
+Версия `uikit-compose` — метка: плагин собирается из локальных исходников коммита, на `develop` они могут
+опережать последний релиз. Точная привязка к мете — `apiMetaSha256`. Коммит определяется `git rev-parse HEAD`,
+значение можно задать явно: `-PpreviewCommit=<sha>`.
+
+### Локальная проверка публикации
+
+Из корня репозитория:
+
+```bash
+./gradlew -p integration-core :preview-compose-plugin:previewPluginArtifact
+```
+
+Поднимите локальный контур DSB (`./setup-local.sh` в репозитории design-system-builder), затем отправьте архив.
+Пробная отправка ничего не записывает; запись выполняется с `--apply`. Служебная учётка локального контура
+задана в realm (`dsbuilder-preview-publisher`):
+
+```bash
+export DSBUILDER_CLIENT_ID=dsbuilder-preview-publisher
+export DSBUILDER_CLIENT_SECRET=dev-preview-publisher-secret
+dsbuilder preview-plugin publish --platform compose \
+  --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
+  --api-url http://localhost:8080 --apply
+```
+
+Файлы плагина попадают в MinIO контура (бакет `compose-preview`), а клиент DSB берёт адрес активного билда у
+бэкенда. Для проверки плагина без бэкенда используйте раздачу архива и `VITE_COMPOSE_PREVIEW_PLUGIN_URL` клиента
+(см. README клиента DSB).
+
+## Размещение вручную
+
+Для локальной отладки без бэкенда архив можно раздать любым статическим сервером. Распакуйте его в отдельный
+каталог и публикуйте содержимое из одного URL:
 
 ```text
 https://preview.example.com/compose/
 ├── index.html
 ├── preview-plugin.json
+├── api-meta.json
 ├── preview-compose-plugin.js
 ├── composeResources/
 └── *.wasm

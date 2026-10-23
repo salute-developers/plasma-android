@@ -5,6 +5,10 @@
   "platform": "compose",
   "protocolVersion": 1,
   "entrypoint": "index.html",
+  "commit": "",
+  "version": "",
+  "uikitComposeVersion": "",
+  "apiMetaSha256": "",
   "payloadBridge": {
     "direct": "submitPreviewPayload",
     "describe": "describePreviewComponent",

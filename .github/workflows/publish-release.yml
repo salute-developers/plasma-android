@@ -90,3 +90,18 @@ jobs:
           .github/scripts/dispatch-publish.sh "${{ steps.changed.outputs.modules }}" "${{ github.event.inputs.tag_name }}"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Dispatch the Compose preview plugin publication
+        # Модуль плагина исключён из списка изменённых модулей (.ignore-changed-modules), поэтому публикация
+        # плагина запускается на каждом релизном теге. Шаг выполняется только когда публикация на prom включена
+        # переменной репозитория; его сбой не должен ронять выпуск релиза, который к этому моменту уже создан.
+        if: ${{ vars.DSB_PUBLISH_PROM_ENABLED == 'true' }}
+        continue-on-error: true
+        run: |
+          curl --fail-with-body -sS -X POST "https://api.github.com/repos/${{ github.repository }}/dispatches" \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -d "{\"event_type\": \"publish-preview-plugin\", \"client_payload\": {\"tag\": \"${TAG}\"}}"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          TAG: ${{ github.event.inputs.tag_name }}
