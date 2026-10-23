@@ -8,7 +8,7 @@ Compose preview plugin собирается в `preview-compose-plugin.zip` (`pr
 
 - Manifest `preview-plugin.json` получает идентификацию билда: `version` (первые 12 символов sha коммита), `uikitComposeVersion` (из `gradle.properties` проекта `sdds-core:uikit-compose`), `apiMetaSha256`, `commit`.
 - В артефакт добавляется `api-meta.json` — тот же файл, из которого генерируются фабрики стилей плагина; бэкенд DSB импортирует из него мету.
-- Новый workflow публикации: по push в `develop` (с фильтром путей) отправляет билд на dev-бэкенд DSB, по релизному тегу (запускается из `publish-release` безусловно) — на prom-бэкенд. Шаги: сборка, `jvmTest`, `previewPluginBrowserTest`, проверка контракта, установка CLI `dsbuilder`, пробная отправка (dry run), отправка.
+- Новый workflow публикации: по push в `develop` (с фильтром путей, когда включена переменная `DSB_PUBLISH_DEV_ENABLED`) отправляет билд на dev-бэкенд DSB, по релизному тегу (запускается из `publish-release`, когда включена переменная `DSB_PUBLISH_PROM_ENABLED`) — на prom-бэкенд. Шаги: сборка, `jvmTest`, `previewPluginBrowserTest`, проверка контракта, установка CLI `dsbuilder`, пробная отправка (dry run), отправка.
 - Авторизация CI в DSB — служебная учётка с узкой ролью «публикация Compose preview»; её идентификатор и секрет хранятся в секретах репозитория отдельно для каждого окружения.
 - Публикации в одно окружение выполняются последовательно; повторный запуск для того же коммита безопасен (бэкенд идемпотентен).
 - README плагина описывает manifest, состав артефакта, схему публикации и локальную проверку.

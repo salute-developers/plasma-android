@@ -50,7 +50,7 @@ CI не знает о хранилище: он вызывает `dsbuilder previ
 | Окружение | Триггер | Источник | Бэкенд |
 |---|---|---|---|
 | dev | push в `develop` с фильтром путей (`integration-core/preview-*`, `integration-core/sandbox-core`, `integration-core/uikit-compose-fixtures`, `sdds-core/uikit-compose`, `build-system`, `gradle/libs.versions.toml`) и `workflow_dispatch` | исходники ветки | dev-бэкенд DSB |
-| prom | `publish-release` запускает workflow безусловно с тегом релиза; `workflow_dispatch` с тегом | исходники тега | prom-бэкенд DSB |
+| prom | `publish-release` запускает workflow с тегом релиза, если включена переменная `DSB_PUBLISH_PROM_ENABLED` (шаг нефатальный: релиз к этому моменту уже создан); `workflow_dispatch` с тегом | исходники тега | prom-бэкенд DSB |
 
 Публикация привязана к релизному тегу, а не к публикации `uikit-compose`: плагин зависит ещё от фикстур, SDK, контракта и sandbox-core, а workflow `uikit-compose` запускается только при изменении самого модуля.
 
