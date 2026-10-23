@@ -38,6 +38,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEachIndexed
 import androidx.compose.ui.window.DialogProperties
@@ -313,7 +314,7 @@ private fun OverlayPopup(
 
     val density = LocalDensity.current
     val layoutDirection = LocalLayoutDirection.current
-    val insetsStart = if (applySystemBarInsets) {
+    val insetsLeft = if (applySystemBarInsets) {
         with(density) {
             WindowInsets.systemBars.getLeft(density, layoutDirection).toDp()
         }
@@ -321,7 +322,7 @@ private fun OverlayPopup(
         0.dp
     }
     val insetsTop = if (applySystemBarInsets) with(density) { WindowInsets.systemBars.getTop(density).toDp() } else 0.dp
-    val insetsEnd = if (applySystemBarInsets) {
+    val insetsRight = if (applySystemBarInsets) {
         with(density) {
             WindowInsets.systemBars.getRight(density, layoutDirection).toDp()
         }
@@ -335,6 +336,11 @@ private fun OverlayPopup(
     } else {
         0.dp
     }
+    // getLeft/getRight возвращают физические отступы, поэтому для логических start/end
+    // в Right-to-Left они меняются местами
+    val isRtl = layoutDirection == LayoutDirection.Rtl
+    val insetsStart = if (isRtl) insetsRight else insetsLeft
+    val insetsEnd = if (isRtl) insetsLeft else insetsRight
 
     EdgeToEdgeDialog(
         onDismissRequest = onDismissRequest,
