@@ -34,7 +34,10 @@ fun SandboxApp(
 ) {
     SandboxTheme {
         SandboxViewModelStoreOwnerProvider {
-            OverlayHost(overlayManager = overlayManager(OverlayManagerLifecycle.ComposableScoped)) {
+            OverlayHost(
+                overlayManager = overlayManager(OverlayManagerLifecycle.ComposableScoped),
+                applySystemBarInsets = true,
+            ) {
                 MainContent(
                     navigationIntegration = navigationIntegration,
                 )

@@ -10,10 +10,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -30,8 +35,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEachIndexed
 import androidx.compose.ui.window.DialogProperties
@@ -45,6 +52,10 @@ import kotlin.math.abs
 
 /**
  * Делает доступным overlayManager для [content]
+ *
+ * @param overlayManager менеджер для показа всплывающих уведомлений
+ * @param animationSpec настройки анимации появления и исчезновения элемента overlay
+ * @param content контент (например всплывающие уведомления)
  */
 @Composable
 @NonRestartableComposable
@@ -63,6 +74,13 @@ fun OverlayHost(
 
 /**
  * Делает доступным overlayManager для [content]
+ *
+ * @param dismissDirection направление движения жеста Swipe для отмены
+ * @param overlayManager менеджер для показа всплывающих уведомлений
+ * @param animationSpec настройки анимации появления и исчезновения элемента overlay
+ * @param offset дополнительное смещение overlay-контента
+ * @param spacing отступ между элементами overlay
+ * @param content контент (например всплывающие уведомления)
  */
 @Composable
 fun OverlayHost(
@@ -73,10 +91,55 @@ fun OverlayHost(
     spacing: Dp = 8.dp,
     content: @Composable () -> Unit,
 ) {
+    OverlayHost(
+        dismissDirection = dismissDirection,
+        overlayManager = overlayManager,
+        animationSpec = animationSpec,
+        offset = offset,
+        spacing = spacing,
+        applySystemBarInsets = false,
+        contentPadding = PaddingValues(0.dp),
+        content = content,
+    )
+}
+
+/**
+ * Делает доступным overlayManager для [content]
+ *
+ * @param applySystemBarInsets применять ли инсеты системных панелей (статус-бар, navigation bar)
+ * при позиционировании overlay-элементов. По умолчанию `false`.
+ * @param dismissDirection направление жеста свайпа для dismiss
+ * @param overlayManager менеджер overlay-элементов
+ * @param animationSpec настройки анимации по умолчанию
+ * @param offset дополнительное смещение overlay-контента
+ * @param spacing отступ между элементами overlay
+ * @param contentPadding дополнительный отступ контента **поверх** системных инсетов.
+ * Применяется только когда [applySystemBarInsets] = `true`.
+ * @param content контент (например всплывающие уведомления)
+ */
+@Composable
+fun OverlayHost(
+    applySystemBarInsets: Boolean,
+    dismissDirection: Set<OverlayDismissDirection> = setOf(DismissToEnd, DismissToStart),
+    overlayManager: OverlayManager = overlayManager(),
+    animationSpec: OverlayAnimationSpec = OverlayAnimationSpec(),
+    offset: DpOffset = DpOffset.Zero,
+    spacing: Dp = 8.dp,
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+    content: @Composable () -> Unit,
+) {
     CompositionLocalProvider(LocalOverlayManager provides overlayManager) {
         Box(Modifier.fillMaxSize()) {
             content()
-            OverlayContainer(animationSpec, overlayManager, dismissDirection, offset, spacing)
+            OverlayContainer(
+                animationSpec,
+                overlayManager,
+                dismissDirection,
+                offset,
+                spacing,
+                applySystemBarInsets,
+                contentPadding,
+            )
         }
     }
 }
@@ -103,6 +166,8 @@ private fun OverlayContainer(
     dismissDirection: Set<OverlayDismissDirection>,
     offset: DpOffset,
     spacing: Dp,
+    applySystemBarInsets: Boolean,
+    contentPadding: PaddingValues,
 ) {
     val overlays by manager.overlays.collectAsState()
 
@@ -124,6 +189,8 @@ private fun OverlayContainer(
                 isFocusable = entries.firstOrNull { it.isFocusable } != null,
                 offset = offset,
                 spacing = spacing,
+                applySystemBarInsets = applySystemBarInsets,
+                contentPadding = contentPadding,
             ) {
                 entries.fastForEachIndexed { i, entry ->
                     key(entry.id) {
@@ -238,10 +305,42 @@ private fun OverlayPopup(
     isFocusable: Boolean,
     offset: DpOffset,
     spacing: Dp,
+    applySystemBarInsets: Boolean,
+    contentPadding: PaddingValues,
     content: @Composable (ColumnScope.() -> Unit),
 ) {
     val alignment = position.toAlignment()
     val platformAnchor = rememberOverlayPlatformAnchor()
+
+    val density = LocalDensity.current
+    val layoutDirection = LocalLayoutDirection.current
+    val insetsLeft = if (applySystemBarInsets) {
+        with(density) {
+            WindowInsets.systemBars.getLeft(density, layoutDirection).toDp()
+        }
+    } else {
+        0.dp
+    }
+    val insetsTop = if (applySystemBarInsets) with(density) { WindowInsets.systemBars.getTop(density).toDp() } else 0.dp
+    val insetsRight = if (applySystemBarInsets) {
+        with(density) {
+            WindowInsets.systemBars.getRight(density, layoutDirection).toDp()
+        }
+    } else {
+        0.dp
+    }
+    val insetsBottom = if (applySystemBarInsets) {
+        with(density) {
+            WindowInsets.systemBars.getBottom(density).toDp()
+        }
+    } else {
+        0.dp
+    }
+    // getLeft/getRight возвращают физические отступы, поэтому для логических start/end
+    // в Right-to-Left они меняются местами
+    val isRtl = layoutDirection == LayoutDirection.Rtl
+    val insetsStart = if (isRtl) insetsRight else insetsLeft
+    val insetsEnd = if (isRtl) insetsLeft else insetsRight
 
     EdgeToEdgeDialog(
         onDismissRequest = onDismissRequest,
@@ -259,7 +358,12 @@ private fun OverlayPopup(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .systemBarsPadding(),
+                .padding(
+                    start = insetsStart + contentPadding.calculateStartPadding(layoutDirection),
+                    top = insetsTop + contentPadding.calculateTopPadding(),
+                    end = insetsEnd + contentPadding.calculateEndPadding(layoutDirection),
+                    bottom = insetsBottom + contentPadding.calculateBottomPadding(),
+                ),
             contentAlignment = alignment,
         ) {
             Column(
