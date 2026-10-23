@@ -183,11 +183,10 @@ private class StaticListScopeImpl : LazyListScope {
         contentType: (index: Int) -> Any?,
         itemContent: @Composable LazyItemScope.(index: Int) -> Unit,
     ) {
-        val offset = _items.size
         repeat(count) { index ->
             _items.add(
                 StaticListItem(key = key?.invoke(index)) {
-                    LazyItemScopeImpl.itemContent(offset + index)
+                    LazyItemScopeImpl.itemContent(index)
                 },
             )
         }
