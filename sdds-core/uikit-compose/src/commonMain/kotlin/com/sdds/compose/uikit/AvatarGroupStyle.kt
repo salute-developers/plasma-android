@@ -6,6 +6,8 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.internal.AvatarDefaults
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -66,6 +68,7 @@ interface AvatarGroupStyleBuilder : StyleBuilder<AvatarGroupStyle> {
      * @see AvatarGroupStyle.dimensions
      * @see AvatarGroupDimensions
      */
+    @Deprecated("Use dimensions(AvatarGroupDimensionsBuilder)", ReplaceWith("dimensions { }"))
     fun dimensions(dimensions: AvatarGroupDimensions): AvatarGroupStyleBuilder
 
     /**
@@ -83,9 +86,41 @@ interface AvatarGroupStyleBuilder : StyleBuilder<AvatarGroupStyle> {
  * @property itemSpacing расстояние между дочерними [Avatar] (влияет на толщину выреза [Avatar])
  */
 @Immutable
-data class AvatarGroupDimensions(
-    val itemOffset: Dp = AvatarDefaults.DefaultItemOffset,
-    val itemSpacing: Dp = AvatarDefaults.DefaultItemSpacing,
+interface AvatarGroupDimensions {
+
+    /**
+     * Смещения дочерних [Avatar] относительно друг друга
+     */
+    val itemOffsetValues: StatefulValue<Dp>
+
+    /**
+     * Расстояния между дочерними [Avatar] (влияет на толщину выреза [Avatar])
+     */
+    val itemSpacingValues: StatefulValue<Dp>
+
+    companion object {
+
+        /**
+         * Возвращает [AvatarGroupDimensionsBuilder]
+         */
+        fun builder(): AvatarGroupDimensionsBuilder = DefaultAvatarGroupDimensions.Builder()
+    }
+}
+
+/**
+ * Factory-функция для создания [AvatarGroupDimensions] из параметров.
+ *
+ * @deprecated Используйте [AvatarGroupDimensions.builder]
+ */
+@Deprecated(
+    "Use dimensions() with builder instead",
+)
+fun AvatarGroupDimensions(
+    itemOffset: Dp = AvatarDefaults.DefaultItemOffset,
+    itemSpacing: Dp = AvatarDefaults.DefaultItemSpacing,
+): AvatarGroupDimensions = DefaultAvatarGroupDimensions(
+    itemOffsetValues = itemOffset.asStatefulValue(),
+    itemSpacingValues = itemSpacing.asStatefulValue(),
 )
 
 /**
@@ -96,12 +131,24 @@ interface AvatarGroupDimensionsBuilder {
     /**
      * Устанавливает смещение дочерних [Avatar] относительно друг друга
      */
-    fun itemOffset(itemOffset: Dp): AvatarGroupDimensionsBuilder
+    fun itemOffset(itemOffset: Dp): AvatarGroupDimensionsBuilder =
+        itemOffset(itemOffset.asStatefulValue())
+
+    /**
+     * Устанавливает смещения дочерних [Avatar] относительно друг друга
+     */
+    fun itemOffset(itemOffset: StatefulValue<Dp>): AvatarGroupDimensionsBuilder
 
     /**
      * Устанавливает расстояние между дочерними [Avatar] (влияет на толщину выреза [Avatar])
      */
-    fun itemSpacing(itemSpacing: Dp): AvatarGroupDimensionsBuilder
+    fun itemSpacing(itemSpacing: Dp): AvatarGroupDimensionsBuilder =
+        itemSpacing(itemSpacing.asStatefulValue())
+
+    /**
+     * Устанавливает расстояния между дочерними [Avatar] (влияет на толщину выреза [Avatar])
+     */
+    fun itemSpacing(itemSpacing: StatefulValue<Dp>): AvatarGroupDimensionsBuilder
 
     /**
      * Собирает [AvatarGroupDimensions]
@@ -118,16 +165,18 @@ private data class DefaultAvatarGroupStyle(
     class Builder(override val receiver: Any?) : AvatarGroupStyleBuilder {
 
         private var avatarStyle: AvatarStyle? = null
-        private var dimensionsBuilder: DefaultAvatarGroupDimensionsBuilder = DefaultAvatarGroupDimensionsBuilder()
+        private var dimensionsBuilder: DefaultAvatarGroupDimensions.Builder =
+            DefaultAvatarGroupDimensions.Builder()
 
         override fun avatarStyle(avatarStyle: AvatarStyle) = apply {
             this.avatarStyle = avatarStyle
         }
 
+        @Deprecated("Use dimensions() with builder instead")
         override fun dimensions(dimensions: AvatarGroupDimensions) = apply {
-            dimensionsBuilder.apply {
-                itemOffset(dimensions.itemOffset)
-                itemSpacing(dimensions.itemSpacing)
+            this.dimensionsBuilder.apply {
+                itemOffset(dimensions.itemOffsetValues)
+                itemSpacing(dimensions.itemSpacingValues)
             }
         }
 
@@ -146,20 +195,25 @@ private data class DefaultAvatarGroupStyle(
     }
 }
 
-private class DefaultAvatarGroupDimensionsBuilder : AvatarGroupDimensionsBuilder {
+@Immutable
+private data class DefaultAvatarGroupDimensions(
+    override val itemOffsetValues: StatefulValue<Dp>,
+    override val itemSpacingValues: StatefulValue<Dp>,
+) : AvatarGroupDimensions {
+    class Builder : AvatarGroupDimensionsBuilder {
 
-    private var itemOffset: Dp = AvatarDefaults.DefaultItemOffset
-    private var itemSpacing: Dp = AvatarDefaults.DefaultItemSpacing
+        private var itemOffsetValues: StatefulValue<Dp> =
+            AvatarDefaults.DefaultItemOffset.asStatefulValue()
+        private var itemSpacingValues: StatefulValue<Dp> =
+            AvatarDefaults.DefaultItemSpacing.asStatefulValue()
 
-    override fun itemOffset(itemOffset: Dp): AvatarGroupDimensionsBuilder = apply {
-        this.itemOffset = itemOffset
-    }
+        override fun itemOffset(itemOffset: StatefulValue<Dp>): AvatarGroupDimensionsBuilder =
+            apply { this.itemOffsetValues = itemOffset }
 
-    override fun itemSpacing(itemSpacing: Dp): AvatarGroupDimensionsBuilder = apply {
-        this.itemSpacing = itemSpacing
-    }
+        override fun itemSpacing(itemSpacing: StatefulValue<Dp>): AvatarGroupDimensionsBuilder =
+            apply { this.itemSpacingValues = itemSpacing }
 
-    override fun build(): AvatarGroupDimensions {
-        return AvatarGroupDimensions(itemOffset, itemSpacing)
+        override fun build(): AvatarGroupDimensions =
+            DefaultAvatarGroupDimensions(itemOffsetValues, itemSpacingValues)
     }
 }

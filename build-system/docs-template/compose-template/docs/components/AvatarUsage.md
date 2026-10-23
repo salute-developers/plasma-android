@@ -65,3 +65,27 @@ AsyncImage(
     model = "https://cdn.example.com/test.png",
 )
 ```
+
+## Состояния и Motion API
+
+В `Avatar` и `Modifier.avatar(...)` можно передать `motion: Motion<AvatarMotionStyle>`.
+`rememberAvatarMotion()` использует `LocalAvatarMotionStyle`, если стиль переходов не указан явно.
+`StatefulValue` задаёт значения для состояний, а `AvatarMotionStyle` — переходы фона, текста, иконки действия и фона иконки действия.
+По умолчанию все переходы используют `noMotion()`: значения меняются без анимации.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_Motion.kt
+```
+
+Для передачи взаимодействий используйте `motion.context.interactionSource` также в `clickable`.
+Статус `AvatarStatus` публикуется в `motion.context.semanticStateSource` автоматически;
+индикатор статуса использует общий с аватаром `MotionContext`.
+Форма и размеры переключаются по состояниям без интерполяции.
+В `AvatarGroup` у каждого аватара собственный контекст: смена статуса одного элемента не анимирует соседей.
+
+### Переход со старых свойств
+
+Существующие вызовы с `interactionSource` сохраняются (перегрузка помечена deprecated) и делегируют motion-реализации.
+Для чтения текущих значений используйте stateful-свойства `shapes`, `textStyles`, `colors.textBrushes`,
+`colors.backgroundBrushes`, `colors.actionBrushes`, `colors.actionScrimBrushes`
+и размерные свойства с суффиксом `Values`, например `dimensionValues.widthValues`.
