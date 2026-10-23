@@ -14,11 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.input.pointer.PointerEvent
-import androidx.compose.ui.input.pointer.PointerEventPass
-import androidx.compose.ui.input.pointer.PointerInputFilter
-import androidx.compose.ui.input.pointer.PointerInputModifier
-import androidx.compose.ui.unit.IntSize
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.Text
@@ -94,10 +89,7 @@ fun NumberPanelExtended(
 
     Row(
         modifier = modifier
-            .enable(
-                enabled = enabled,
-                disabledAlpha = style.disableAlpha,
-            )
+            .alpha(if (enabled) 1f else style.disableAlpha)
             .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.Bottom,
     ) {
@@ -227,35 +219,6 @@ private fun Float.parseValue(): ParsedValue {
             fraction = null,
         )
     }
-}
-
-private fun Modifier.enable(
-    enabled: Boolean,
-    enabledAlpha: Float = 1f,
-    disabledAlpha: Float = 0.4f,
-): Modifier {
-    val modifier = if (enabled) {
-        Modifier
-    } else {
-        object : PointerInputModifier {
-            override val pointerInputFilter: PointerInputFilter = object : PointerInputFilter() {
-                override fun onCancel() = Unit
-
-                override fun onPointerEvent(
-                    pointerEvent: PointerEvent,
-                    pass: PointerEventPass,
-                    bounds: IntSize,
-                ) {
-                    pointerEvent.changes.forEach {
-                        it.consume()
-                    }
-                }
-            }
-        }
-    }
-    return this
-        .then(modifier)
-        .alpha(if (enabled) enabledAlpha else disabledAlpha)
 }
 
 /**
