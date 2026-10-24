@@ -102,6 +102,11 @@ internal fun BaseDropdownMenu(
     val shape = style.shapes.getValueAsState(motion.context)
     val strokeWidth = style.dimensions.strokeWidthValues.getValueAsState(motion.context)
     val strokeColor = style.colors.strokeColor.getBrushAsState(motion.context, motion.style.strokeColor)
+    val currentOffset = if (offset == Dp.Unspecified) {
+        style.dimensions.offsetValues
+    } else {
+        offset.asStatefulValue()
+    }
     val popoverContent: @Composable () -> Unit = {
         CompositionLocalProvider(
             LocalListStyle provides style.listStyle,
@@ -146,7 +151,7 @@ internal fun BaseDropdownMenu(
         onDismissRequest = onDismissRequest,
         triggerInfo = triggerInfo,
         colors = style.colors.toPopoverColors(),
-        dimensions = style.dimensions.toPopoverDimensions(offset),
+        dimensions = style.dimensions.toPopoverDimensions(currentOffset),
         shape = style.shapes,
         shadow = style.shadow,
         placement = placement,
@@ -429,15 +434,17 @@ private fun ScrollableContentWithHeaderFooter(
     }
 }
 
-private fun DropdownMenuDimensions.toPopoverDimensions(offset: Dp = this.offset): PopoverDimensions {
+private fun DropdownMenuDimensions.toPopoverDimensions(
+    offset: StatefulValue<Dp> = this.offsetValues,
+): PopoverDimensions {
     return object : PopoverDimensions {
         @Deprecated("use widthValues", replaceWith = ReplaceWith("widthValues"))
         override val width = this@toPopoverDimensions.width
         override val widthValues: StatefulValue<Dp> = this@toPopoverDimensions.widthValues
 
         @Deprecated("use offsetValues", replaceWith = ReplaceWith("offsetValues"))
-        override val offset = offset
-        override val offsetValues: StatefulValue<Dp> = offset.asStatefulValue()
+        override val offset = offset.getDefaultValue()
+        override val offsetValues: StatefulValue<Dp> = offset
 
         @Deprecated("use tailWidthValues", replaceWith = ReplaceWith("tailWidthValues"))
         override val tailWidth = 0.dp

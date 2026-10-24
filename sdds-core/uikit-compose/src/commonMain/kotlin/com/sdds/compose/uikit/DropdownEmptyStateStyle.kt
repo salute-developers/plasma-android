@@ -5,13 +5,18 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -35,7 +40,13 @@ interface DropdownEmptyStateStyle : Style {
     /**
      * Стиль текста описания
      */
+    @Deprecated("use descriptionStyles", replaceWith = ReplaceWith("descriptionStyles"))
     val descriptionStyle: TextStyle
+
+    /**
+     * Стиль текста описания
+     */
+    val descriptionStyles: StatefulValue<TextStyle>
 
     /**
      * Цвета компонента
@@ -64,7 +75,13 @@ interface DropdownEmptyStateStyleBuilder : StyleBuilder<DropdownEmptyStateStyle>
     /**
      * Устанавливает стиль текста описания [descriptionStyle]
      */
-    fun descriptionStyle(descriptionStyle: TextStyle): DropdownEmptyStateStyleBuilder
+    fun descriptionStyle(descriptionStyle: TextStyle): DropdownEmptyStateStyleBuilder =
+        descriptionStyle(descriptionStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль текста описания [descriptionStyle]
+     */
+    fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): DropdownEmptyStateStyleBuilder
 
     /**
      * Устанавливает стиль кнопки действия [buttonStyle]
@@ -85,13 +102,16 @@ interface DropdownEmptyStateStyleBuilder : StyleBuilder<DropdownEmptyStateStyle>
 }
 
 private data class DefaultDropdownEmptyStateStyle(
-    override val descriptionStyle: TextStyle,
     override val colors: EmptyStateColors,
     override val dimensions: EmptyStateDimensions,
     override val buttonStyle: ButtonStyle?,
+    override val descriptionStyles: StatefulValue<TextStyle>,
 ) : DropdownEmptyStateStyle {
+    @Deprecated("use descriptionStyles", replaceWith = ReplaceWith("descriptionStyles"))
+    override val descriptionStyle: TextStyle = descriptionStyles.getDefaultValue()
+
     class BuilderDropdown : DropdownEmptyStateStyleBuilder {
-        private var descriptionStyle: TextStyle? = null
+        private var descriptionStyle: StatefulValue<TextStyle>? = null
 
         private var buttonStyle: ButtonStyle? = null
 
@@ -99,7 +119,7 @@ private data class DefaultDropdownEmptyStateStyle(
 
         private val dimensionsBuilder: EmptyStateDimensionsBuilder = EmptyStateDimensions.builder()
 
-        override fun descriptionStyle(descriptionStyle: TextStyle): DropdownEmptyStateStyleBuilder =
+        override fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): DropdownEmptyStateStyleBuilder =
             apply { this.descriptionStyle = descriptionStyle }
 
         override fun buttonStyle(buttonStyle: ButtonStyle): DropdownEmptyStateStyleBuilder =
@@ -114,7 +134,7 @@ private data class DefaultDropdownEmptyStateStyle(
             DropdownEmptyStateStyleBuilder = apply { this.dimensionsBuilder.builder() }
 
         override fun style(): DropdownEmptyStateStyle = DefaultDropdownEmptyStateStyle(
-            descriptionStyle = descriptionStyle ?: TextStyle.Default,
+            descriptionStyles = descriptionStyle ?: TextStyle.Default.asStatefulValue(),
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
             buttonStyle = buttonStyle,
@@ -130,12 +150,24 @@ interface EmptyStateColors {
     /**
      * Цвет иконки
      */
+    @Deprecated("use iconBrush", replaceWith = ReplaceWith("iconBrush"))
     val iconColor: InteractiveColor
+
+    /**
+     * Цвет иконки
+     */
+    val iconBrush: StatefulValue<Brush>
 
     /**
      * Цвет текста описания
      */
+    @Deprecated("use descriptionBrush", replaceWith = ReplaceWith("descriptionBrush"))
     val descriptionColor: InteractiveColor
+
+    /**
+     * Цвет текста описания
+     */
+    val descriptionBrush: StatefulValue<Brush>
 
     companion object {
         /**
@@ -152,24 +184,48 @@ interface EmptyStateColorsBuilder {
     /**
      * Устанавливает цвет иконки [iconColor]
      */
-    fun iconColor(iconColor: InteractiveColor): EmptyStateColorsBuilder
+    fun iconColor(iconColor: InteractiveColor): EmptyStateColorsBuilder =
+        iconColor(iconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки [iconColor]
      */
     fun iconColor(iconColor: Color): EmptyStateColorsBuilder =
-        iconColor(iconColor.asInteractive())
+        iconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет иконки [iconColor]
+     */
+    fun iconColor(iconColor: Brush): EmptyStateColorsBuilder =
+        iconColor(iconColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет иконки [iconColor]
+     */
+    fun iconColor(iconColor: StatefulValue<Brush>): EmptyStateColorsBuilder
 
     /**
      * Устанавливает цвет текста описания [descriptionColor]
      */
-    fun descriptionColor(descriptionColor: InteractiveColor): EmptyStateColorsBuilder
+    fun descriptionColor(descriptionColor: InteractiveColor): EmptyStateColorsBuilder =
+        descriptionColor(descriptionColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет текста описания [descriptionColor]
      */
     fun descriptionColor(descriptionColor: Color): EmptyStateColorsBuilder =
-        descriptionColor(descriptionColor.asInteractive())
+        descriptionColor(descriptionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет текста описания [descriptionColor]
+     */
+    fun descriptionColor(descriptionColor: Brush): EmptyStateColorsBuilder =
+        descriptionColor(descriptionColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет текста описания [descriptionColor]
+     */
+    fun descriptionColor(descriptionColor: StatefulValue<Brush>): EmptyStateColorsBuilder
 
     /**
      * Вернёт [EmptyStateColors]
@@ -178,26 +234,33 @@ interface EmptyStateColorsBuilder {
 }
 
 private data class DefaultEmptyStateColors(
-    override val iconColor: InteractiveColor,
-    override val descriptionColor: InteractiveColor,
-) : EmptyStateColors {
-    class Builder : EmptyStateColorsBuilder {
-        private var iconColor: InteractiveColor? = null
-        private var descriptionColor: InteractiveColor? = null
+    override val iconBrush: StatefulValue<Brush>,
+    override val descriptionBrush: StatefulValue<Brush>,
 
-        override fun iconColor(iconColor: InteractiveColor): EmptyStateColorsBuilder =
+) : EmptyStateColors {
+    @Deprecated("use iconBrush", replaceWith = ReplaceWith("iconBrush"))
+    override val iconColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("use descriptionBrush", replaceWith = ReplaceWith("descriptionBrush"))
+    override val descriptionColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    class Builder : EmptyStateColorsBuilder {
+        private var iconColor: StatefulValue<Brush>? = null
+        private var descriptionColor: StatefulValue<Brush>? = null
+
+        override fun iconColor(iconColor: StatefulValue<Brush>): EmptyStateColorsBuilder =
             apply {
                 this.iconColor = iconColor
             }
 
-        override fun descriptionColor(descriptionColor: InteractiveColor): EmptyStateColorsBuilder =
+        override fun descriptionColor(descriptionColor: StatefulValue<Brush>): EmptyStateColorsBuilder =
             apply {
                 this.descriptionColor = descriptionColor
             }
 
         override fun build(): EmptyStateColors = DefaultEmptyStateColors(
-            iconColor = iconColor ?: Color.Black.asInteractive(),
-            descriptionColor = descriptionColor ?: Color.Black.asInteractive(),
+            iconBrush = iconColor ?: Color.Black.asStatefulBrush(),
+            descriptionBrush = descriptionColor ?: Color.Black.asStatefulBrush(),
         )
     }
 }
@@ -210,27 +273,57 @@ interface EmptyStateDimensions {
     /**
      * Отступ описания
      */
+    @Deprecated("use descriptionPaddingValues", replaceWith = ReplaceWith("descriptionPaddingValues"))
     val descriptionPadding: Dp
+
+    /**
+     * Отступ описания
+     */
+    val descriptionPaddingValues: StatefulValue<Dp>
 
     /**
      * Отступ сверху
      */
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
+
+    /**
+     * Отступ сверху
+     */
+    val paddingTopValues: StatefulValue<Dp>
 
     /**
      * Отступ снизу
      */
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     /**
      * Отступ в начале
      */
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
     val paddingStart: Dp
+
+    /**
+     * Отступ в начале
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ в конце
      */
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
+
+    /**
+     * Отступ в конце
+     */
+    val paddingEndValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -247,27 +340,57 @@ interface EmptyStateDimensionsBuilder {
     /**
      * Устанавливает отступ описания [descriptionPadding]
      */
-    fun descriptionPadding(descriptionPadding: Dp): EmptyStateDimensionsBuilder
+    fun descriptionPadding(descriptionPadding: Dp): EmptyStateDimensionsBuilder =
+        descriptionPadding(descriptionPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ описания [descriptionPadding]
+     */
+    fun descriptionPadding(descriptionPadding: StatefulValue<Dp>): EmptyStateDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху [paddingTop]
      */
-    fun paddingTop(paddingTop: Dp): EmptyStateDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): EmptyStateDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступ сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): EmptyStateDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу [paddingBottom]
      */
-    fun paddingBottom(paddingBottom: Dp): EmptyStateDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): EmptyStateDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступ снизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): EmptyStateDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале [paddingStart]
      */
-    fun paddingStart(paddingStart: Dp): EmptyStateDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): EmptyStateDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): EmptyStateDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце [paddingEnd]
      */
-    fun paddingEnd(paddingEnd: Dp): EmptyStateDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): EmptyStateDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): EmptyStateDimensionsBuilder
 
     /**
      * Вернёт [EmptyStateDimensions]
@@ -276,49 +399,64 @@ interface EmptyStateDimensionsBuilder {
 }
 
 private data class DefaultEmptyStateDimensions(
-    override val descriptionPadding: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
+    override val descriptionPaddingValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
 ) : EmptyStateDimensions {
+    @Deprecated("use descriptionPaddingValues", replaceWith = ReplaceWith("descriptionPaddingValues"))
+    override val descriptionPadding: Dp = descriptionPaddingValues.getDefaultValue()
+
+    @Deprecated("use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
+    override val paddingTop: Dp = paddingTopValues.getDefaultValue()
+
+    @Deprecated("use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
+    override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
+
+    @Deprecated("use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+    @Deprecated("use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
+
     class Builder : EmptyStateDimensionsBuilder {
-        private var descriptionPadding: Dp? = null
+        private var descriptionPadding: StatefulValue<Dp>? = null
 
-        private var paddingTop: Dp? = null
+        private var paddingTop: StatefulValue<Dp>? = null
 
-        private var paddingBottom: Dp? = null
+        private var paddingBottom: StatefulValue<Dp>? = null
 
-        private var paddingStart: Dp? = null
+        private var paddingStart: StatefulValue<Dp>? = null
 
-        private var paddingEnd: Dp? = null
+        private var paddingEnd: StatefulValue<Dp>? = null
 
-        override fun descriptionPadding(descriptionPadding: Dp): EmptyStateDimensionsBuilder =
+        override fun descriptionPadding(descriptionPadding: StatefulValue<Dp>): EmptyStateDimensionsBuilder =
             apply { this.descriptionPadding = descriptionPadding }
 
-        override fun paddingTop(paddingTop: Dp): EmptyStateDimensionsBuilder = apply {
+        override fun paddingTop(paddingTop: StatefulValue<Dp>): EmptyStateDimensionsBuilder = apply {
             this.paddingTop = paddingTop
         }
 
-        override fun paddingBottom(paddingBottom: Dp): EmptyStateDimensionsBuilder = apply {
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>): EmptyStateDimensionsBuilder = apply {
             this.paddingBottom = paddingBottom
         }
 
-        override fun paddingStart(paddingStart: Dp): EmptyStateDimensionsBuilder = apply {
+        override fun paddingStart(paddingStart: StatefulValue<Dp>): EmptyStateDimensionsBuilder = apply {
             this.paddingStart = paddingStart
         }
 
-        override fun paddingEnd(paddingEnd: Dp): EmptyStateDimensionsBuilder = apply {
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>): EmptyStateDimensionsBuilder = apply {
             this.paddingEnd = paddingEnd
         }
 
         override fun build(): EmptyStateDimensions =
             DefaultEmptyStateDimensions(
-                descriptionPadding = descriptionPadding ?: 8.dp,
-                paddingTop = paddingTop ?: 0.dp,
-                paddingBottom = paddingBottom ?: 0.dp,
-                paddingStart = paddingStart ?: 0.dp,
-                paddingEnd = paddingEnd ?: 0.dp,
+                descriptionPaddingValues = descriptionPadding ?: 8.dp.asStatefulValue(),
+                paddingTopValues = paddingTop ?: 0.dp.asStatefulValue(),
+                paddingBottomValues = paddingBottom ?: 0.dp.asStatefulValue(),
+                paddingStartValues = paddingStart ?: 0.dp.asStatefulValue(),
+                paddingEndValues = paddingEnd ?: 0.dp.asStatefulValue(),
             )
     }
 }
