@@ -17,6 +17,7 @@ import com.sdds.plasma.homeds.styles.card.Card
 import com.sdds.plasma.homeds.styles.card.HasInnerPaddings
 import com.sdds.plasma.homeds.styles.card.L
 import com.sdds.plasma.homeds.styles.card.M
+import com.sdds.plasma.homeds.styles.customcomponents.numberpanel.Group
 import com.sdds.plasma.homeds.styles.customcomponents.numberpanel.Humidity
 import com.sdds.plasma.homeds.styles.customcomponents.numberpanel.NumberPanel
 import com.sdds.plasma.homeds.styles.customcomponents.numberpanel.Xs
@@ -35,10 +36,26 @@ public value class WrapperProductCardL(
 ) : WrapperProductCard
 
 /**
- * Обертка для вариации MHasInnerPaddings
+ * Обертка для вариации L с NumberPanel для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardLGroup(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperProductCardM(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
+ * Обертка для вариации M с NumberPanel для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardMGroup(
     public override val builder: ProductCardStyleBuilder,
 ) : WrapperProductCard
 
@@ -51,10 +68,26 @@ public value class WrapperProductCardLHasInnerPaddings(
 ) : WrapperProductCard
 
 /**
- * Обертка для вариации M
+ * Обертка для вариации LHasInnerPaddings с NumberPanel для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardLHasInnerPaddingsGroup(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
+ * Обертка для вариации MHasInnerPaddings
  */
 @JvmInline
 public value class WrapperProductCardMHasInnerPaddings(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
+ * Обертка для вариации MHasInnerPaddings с NumberPanel для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardMHasInnerPaddingsGroup(
     public override val builder: ProductCardStyleBuilder,
 ) : WrapperProductCard
 
@@ -67,10 +100,26 @@ public value class WrapperProductCardLHumidity(
 ) : WrapperProductCard
 
 /**
+ * Обертка для вариации с NumberPanel LHumidity для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardLHumidityGroup(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
  * Обертка для вариации MHumidity
  */
 @JvmInline
 public value class WrapperProductCardMHumidity(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
+ * Обертка для вариации с NumberPanel MHumidity для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardMHumidityGroup(
     public override val builder: ProductCardStyleBuilder,
 ) : WrapperProductCard
 
@@ -83,10 +132,26 @@ public value class WrapperProductCardLHumidityHasInnerPaddings(
 ) : WrapperProductCard
 
 /**
+ * Обертка для вариации с NumberPanel LHumidityHasInnerPaddings для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardLHumidityHasInnerPaddingsGroup(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
  * Обертка для вариации MHumidityHasInnerPaddings
  */
 @JvmInline
 public value class WrapperProductCardMHumidityHasInnerPaddings(
+    public override val builder: ProductCardStyleBuilder,
+) : WrapperProductCard
+
+/**
+ * Обертка для вариации с NumberPanel MHumidityHasInnerPaddings для групп климатических устройств
+ */
+@JvmInline
+public value class WrapperProductCardMHumidityHasInnerPaddingsGroup(
     public override val builder: ProductCardStyleBuilder,
 ) : WrapperProductCard
 
@@ -101,6 +166,13 @@ public val ProductCard.L: WrapperProductCardL
         .numberPanelStyle(NumberPanel.Xs.style())
         .wrap(::WrapperProductCardL)
 
+public val WrapperProductCardL.Group: WrapperProductCardLGroup
+    @Composable
+    @JvmName("WrapperProductCardLGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Group.style())
+        .wrap(::WrapperProductCardLGroup)
+
 public val ProductCard.M: WrapperProductCardM
     @Composable
     @JvmName("WrapperProductCardM")
@@ -111,6 +183,13 @@ public val ProductCard.M: WrapperProductCardM
         .cardStyle(Card.M.style())
         .numberPanelStyle(NumberPanel.Xs.style())
         .wrap(::WrapperProductCardM)
+
+public val WrapperProductCardM.Group: WrapperProductCardMGroup
+    @Composable
+    @JvmName("WrapperProductCardMGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Group.style())
+        .wrap(::WrapperProductCardMGroup)
 
 public val WrapperProductCardL.HasInnerPaddings: WrapperProductCardLHasInnerPaddings
     @Composable
@@ -123,6 +202,13 @@ public val WrapperProductCardL.HasInnerPaddings: WrapperProductCardLHasInnerPadd
         .numberPanelStyle(NumberPanel.Xs.style())
         .wrap(::WrapperProductCardLHasInnerPaddings)
 
+public val WrapperProductCardLHasInnerPaddings.Group: WrapperProductCardLHasInnerPaddingsGroup
+    @Composable
+    @JvmName("WrapperProductCardLHasInnerPaddingsGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Group.style())
+        .wrap(::WrapperProductCardLHasInnerPaddingsGroup)
+
 public val WrapperProductCardM.HasInnerPaddings: WrapperProductCardMHasInnerPaddings
     @Composable
     @JvmName("WrapperProductCardMHasInnerPaddings")
@@ -133,6 +219,13 @@ public val WrapperProductCardM.HasInnerPaddings: WrapperProductCardMHasInnerPadd
         .cardStyle(Card.M.HasInnerPaddings.style())
         .numberPanelStyle(NumberPanel.Xs.style())
         .wrap(::WrapperProductCardMHasInnerPaddings)
+
+public val WrapperProductCardMHasInnerPaddings.Group: WrapperProductCardMHasInnerPaddingsGroup
+    @Composable
+    @JvmName("WrapperProductCardMHasInnerPaddingsGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Group.style())
+        .wrap(::WrapperProductCardMHasInnerPaddingsGroup)
 
 public val WrapperProductCardL.Humidity: WrapperProductCardLHumidity
     @Composable
@@ -145,6 +238,13 @@ public val WrapperProductCardL.Humidity: WrapperProductCardLHumidity
         .numberPanelStyle(NumberPanel.Xs.Humidity.style())
         .wrap(::WrapperProductCardLHumidity)
 
+public val WrapperProductCardLHumidity.Group: WrapperProductCardLHumidityGroup
+    @Composable
+    @JvmName("WrapperProductCardLHumidityGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Humidity.Group.style())
+        .wrap(::WrapperProductCardLHumidityGroup)
+
 public val WrapperProductCardM.Humidity: WrapperProductCardMHumidity
     @Composable
     @JvmName("WrapperProductCardMHumidity")
@@ -155,6 +255,13 @@ public val WrapperProductCardM.Humidity: WrapperProductCardMHumidity
         .cardStyle(Card.M.style())
         .numberPanelStyle(NumberPanel.Xs.Humidity.style())
         .wrap(::WrapperProductCardMHumidity)
+
+public val WrapperProductCardMHumidity.Group: WrapperProductCardMHumidityGroup
+    @Composable
+    @JvmName("WrapperProductCardMHumidityGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Humidity.Group.style())
+        .wrap(::WrapperProductCardMHumidityGroup)
 
 public val WrapperProductCardLHumidity.HasInnerPaddings: WrapperProductCardLHumidityHasInnerPaddings
     @Composable
@@ -167,6 +274,13 @@ public val WrapperProductCardLHumidity.HasInnerPaddings: WrapperProductCardLHumi
         .numberPanelStyle(NumberPanel.Xs.Humidity.style())
         .wrap(::WrapperProductCardLHumidityHasInnerPaddings)
 
+public val WrapperProductCardLHumidityHasInnerPaddings.Group: WrapperProductCardLHumidityHasInnerPaddingsGroup
+    @Composable
+    @JvmName("WrapperProductCardLHumidityHasInnerPaddingsGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Humidity.Group.style())
+        .wrap(::WrapperProductCardLHumidityHasInnerPaddingsGroup)
+
 public val WrapperProductCardMHumidity.HasInnerPaddings: WrapperProductCardMHumidityHasInnerPaddings
     @Composable
     @JvmName("WrapperProductCardMHumidityHasInnerPaddings")
@@ -177,3 +291,10 @@ public val WrapperProductCardMHumidity.HasInnerPaddings: WrapperProductCardMHumi
         .cardStyle(Card.M.HasInnerPaddings.style())
         .numberPanelStyle(NumberPanel.Xs.Humidity.style())
         .wrap(::WrapperProductCardMHumidityHasInnerPaddings)
+
+public val WrapperProductCardMHumidityHasInnerPaddings.Group: WrapperProductCardMHumidityHasInnerPaddingsGroup
+    @Composable
+    @JvmName("WrapperProductCardMHumidityHasInnerPaddingsGroup")
+    get() = builder
+        .numberPanelStyle(NumberPanel.Xs.Humidity.Group.style())
+        .wrap(::WrapperProductCardMHumidityHasInnerPaddingsGroup)
