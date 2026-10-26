@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TooltipStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -44,7 +43,7 @@ public val Tooltip.Default: WrapperTooltipDefault
         .colors {
             backgroundColor(SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidDefault).asStatefulValue())
             textColor(SolidColor(SddsSbComTheme.colors.textInversePrimary).asStatefulValue())
-            contentStartColor(SddsSbComTheme.colors.textInversePrimary.asInteractive())
+            contentStartColor(SolidColor(SddsSbComTheme.colors.textInversePrimary).asStatefulValue())
         }
         .dimensions {
             offset(8.0.dp)
