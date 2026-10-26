@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyItemScope
-import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -28,19 +26,12 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
 /**
  * Компонент StaticList
  *
- * Статическая (нескроллируемая) вариация компонента [List]: тот же контент-контракт
- * [LazyListScope] (`item`, `items`, `stickyHeader`) и тот же стиль [ListStyle],
+ * Статическая (нескроллируемая) вариация компонента [List]: тот же стиль [ListStyle],
  * но содержимое раскладывается обычной `Column` и имеет высоту по содержимому.
  *
  * В отличие от [List], не содержит прокрутки и безопасно вкладывается
  * в прокручиваемые контейнеры (в том числе в `item` компонента [List]) —
  * например для сгруппированных секций списка с общим фоном и разделителями.
- *
- * Отличия от [List]:
- * - весь контент компонируется сразу (без ленивой раскладки) — для длинных лент используйте [List];
- * - `contentType` игнорируется (переиспользование элементов отсутствует);
- * - `stickyHeader` отрисовывается как обычный элемент, без прилипания;
- * - `key` элемента применяется как ключ идентичности в композиции.
  *
  * @param modifier модификатор
  * @param style стиль компонента
@@ -60,7 +51,7 @@ fun StaticList(
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     contentPadding: PaddingValues = UnspecifiedPaddingValues,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: LazyListScope.() -> Unit,
+    content: StaticListScope.() -> Unit,
 ) {
     StaticList(
         motion = rememberListMotion(
@@ -100,7 +91,7 @@ fun StaticList(
     verticalArrangement: Arrangement.Vertical = DefaultVerticalArrangement,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     contentPadding: PaddingValues = UnspecifiedPaddingValues,
-    content: LazyListScope.() -> Unit,
+    content: StaticListScope.() -> Unit,
 ) {
     val interactionSource = motion.context.interactionSource
     val resolvedArrangement = if (verticalArrangement == DefaultVerticalArrangement) {
@@ -147,8 +138,11 @@ fun StaticList(
                 staticListScope.items
             }
             items.forEach { item ->
-                key(item.key) {
-                    item.content.invoke()
+                val key = item.key
+                if (key != null) {
+                    key(key) { item.content() }
+                } else {
+                    item.content()
                 }
             }
         }
@@ -156,50 +150,61 @@ fun StaticList(
 }
 
 /**
- * Собирает контент [LazyListScope] для последующего рендера в `Column`.
+ * Контент-контракт компонента [StaticList].
  *
- * ВАЖНО: при обновлении версии androidx compose.foundation проверьте,
- * не появились ли у интерфейса [LazyListScope] новые элементы —
- * этот класс перестанет компилироваться до их реализации.
+ * Похож на `LazyListScope`, но без lazy-семантики:
+ * здесь нет `contentType` (переиспользование элементов отсутствует)
+ * и нет `stickyHeader` (в нераскручиваемом контейнере прилипание невозможно).
  */
-private class StaticListScopeImpl : LazyListScope {
+interface StaticListScope {
+
+    /**
+     * Добавляет один элемент.
+     *
+     * @param key ключ идентичности элемента, должен быть уникальным в пределах списка
+     * @param content контент элемента
+     */
+    fun item(
+        key: Any? = null,
+        content: @Composable () -> Unit,
+    )
+
+    /**
+     * Добавляет [count] элементов.
+     *
+     * @param count количество элементов
+     * @param key генератор ключа идентичности по индексу
+     * @param itemContent контент элемента по индексу
+     */
+    fun items(
+        count: Int,
+        key: ((index: Int) -> Any)? = null,
+        itemContent: @Composable (index: Int) -> Unit,
+    )
+}
+
+/**
+ * Собирает контент [StaticListScope] для последующего рендера в `Column`.
+ */
+private class StaticListScopeImpl : StaticListScope {
 
     private val _items = mutableListOf<StaticListItem>()
 
     val items: List<StaticListItem>
         get() = _items
 
-    override fun item(
-        key: Any?,
-        contentType: Any?,
-        content: @Composable LazyItemScope.() -> Unit,
-    ) {
-        _items.add(StaticListItem(key) { LazyItemScopeImpl.content() })
+    override fun item(key: Any?, content: @Composable () -> Unit) {
+        _items.add(StaticListItem(key, content))
     }
 
     override fun items(
         count: Int,
         key: ((index: Int) -> Any)?,
-        contentType: (index: Int) -> Any?,
-        itemContent: @Composable LazyItemScope.(index: Int) -> Unit,
+        itemContent: @Composable (index: Int) -> Unit,
     ) {
-        val offset = _items.size
         repeat(count) { index ->
-            _items.add(
-                StaticListItem(key = key?.invoke(index)) {
-                    LazyItemScopeImpl.itemContent(offset + index)
-                },
-            )
+            _items.add(StaticListItem(key?.invoke(index)) { itemContent(index) })
         }
-    }
-
-    override fun stickyHeader(
-        key: Any?,
-        contentType: Any?,
-        content: @Composable LazyItemScope.(index: Int) -> Unit,
-    ) {
-        val index = _items.size
-        _items.add(StaticListItem(key) { LazyItemScopeImpl.content(index) })
     }
 }
 
@@ -207,10 +212,3 @@ private class StaticListItem(
     val key: Any?,
     val content: @Composable () -> Unit,
 )
-
-private object LazyItemScopeImpl : LazyItemScope {
-    // Переиспользования элементов и viewport нет, поэтому fillParentMax* — no-op.
-    override fun Modifier.fillParentMaxSize(fraction: Float): Modifier = this
-    override fun Modifier.fillParentMaxWidth(fraction: Float): Modifier = this
-    override fun Modifier.fillParentMaxHeight(fraction: Float): Modifier = this
-}

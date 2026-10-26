@@ -22,6 +22,7 @@ import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListItemDisclosure
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.StaticList
+import com.sdds.compose.uikit.StaticListScope
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.ListUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.ListUiStateTransformer
@@ -88,64 +89,14 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
         style: ListStyle,
         state: ListUiState,
     ) {
-        val listContent: LazyListScope.() -> Unit = {
-            items(state.amount) {
-                val interactionSource = remember { MutableInteractionSource() }
-
-                /* Обертка в Box нужна для удобства проверки размеров элементов */
-                Box {
-                    val listItemMotion = rememberListItemMotion()
-                    ListItem(
-                        motion = listItemMotion,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable(
-                                interactionSource = interactionSource,
-                                indication = LocalIndication.current,
-                                onClick = {},
-                            )
-                            .focusable(interactionSource = interactionSource),
-                        startContent = getStartContent(it, state.startContent),
-                        endContent = getEndContent(state.endContent),
-                        titleContent = { Text("${state.title} $it") },
-                        labelContent = if (state.label.isNotBlank()) {
-                            { Text("${state.label} $it") }
-                        } else {
-                            null
-                        },
-                        subtitleContent = if (state.subtitle.isNotBlank()) {
-                            { Text("${state.subtitle} $it") }
-                        } else {
-                            null
-                        },
-                        disclosureContent = {
-                            ListItemDisclosure(
-                                motion = listItemMotion,
-                                icon = {
-                                    Icon(
-                                        painter = rememberVectorPainter(SddsIcons.DisclosureRightOutline24),
-                                        contentDescription = "",
-                                    )
-                                },
-                                text = { Text("Disclosure") },
-                            )
-                        },
-                        disclosureEnabled = state.hasDisclosure,
-                    )
-                }
-                if (state.hasDivider) {
-                    Divider()
-                }
-            }
-        }
         when (state.engine) {
             ListEngine.Scrollable -> List(
                 style = style,
-                content = listContent,
+                content = getListContent(state),
             )
             ListEngine.Static -> StaticList(
                 style = style,
-                content = listContent,
+                content = getStaticListContent(state),
             )
         }
     }
@@ -176,6 +127,71 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
             }
         }
     }
+}
+
+@Composable
+private fun StoryListItem(
+    index: Int,
+    state: ListUiState,
+) {
+    val interactionSource = remember { MutableInteractionSource() }
+
+    /* Обертка в Box нужна для удобства проверки размеров элементов */
+    Box {
+        val listItemMotion = rememberListItemMotion()
+        ListItem(
+            motion = listItemMotion,
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = LocalIndication.current,
+                    onClick = {},
+                )
+                .focusable(interactionSource = interactionSource),
+            startContent = getStartContent(index, state.startContent),
+            endContent = getEndContent(state.endContent),
+            titleContent = { Text("${state.title} $index") },
+            labelContent = if (state.label.isNotBlank()) {
+                { Text("${state.label} $index") }
+            } else {
+                null
+            },
+            subtitleContent = if (state.subtitle.isNotBlank()) {
+                { Text("${state.subtitle} $index") }
+            } else {
+                null
+            },
+            disclosureContent = {
+                ListItemDisclosure(
+                    motion = listItemMotion,
+                    icon = {
+                        Icon(
+                            painter = rememberVectorPainter(SddsIcons.DisclosureRightOutline24),
+                            contentDescription = "",
+                        )
+                    },
+                    text = { Text("Disclosure") },
+                )
+            },
+            disclosureEnabled = state.hasDisclosure,
+        )
+    }
+    if (state.hasDivider) {
+        Divider()
+    }
+}
+
+private fun getListContent(
+    state: ListUiState,
+): LazyListScope.() -> Unit = {
+    items(state.amount) { StoryListItem(it, state) }
+}
+
+private fun getStaticListContent(
+    state: ListUiState,
+): StaticListScope.() -> Unit = {
+    items(state.amount) { StoryListItem(it, state) }
 }
 
 private fun getStartContent(
