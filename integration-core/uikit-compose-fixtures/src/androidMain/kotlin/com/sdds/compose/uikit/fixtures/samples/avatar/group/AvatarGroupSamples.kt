@@ -40,7 +40,7 @@ fun AvatarGroup_Style() {
     composableCodeSnippet {
         AvatarGroupStyle.builder()
             .avatarStyle(placeholder(AvatarStyle.builder().style(), "/** Стиль компонента */"))
-            .dimensions {
+            .dimensionValues {
                 itemSpacing(2.0.dp)
                 itemOffset(16.0.dp)
             }

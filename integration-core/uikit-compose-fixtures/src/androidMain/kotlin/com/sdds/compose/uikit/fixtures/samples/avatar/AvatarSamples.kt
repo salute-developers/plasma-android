@@ -1,7 +1,13 @@
 package com.sdds.compose.uikit.fixtures.samples.avatar
 
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -17,8 +23,13 @@ import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.badgeBuilder
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.motion.components.avatar.AvatarMotionStyle
+import com.sdds.compose.uikit.motion.components.avatar.rememberAvatarMotion
+import com.sdds.compose.uikit.motion.finite
+import com.sdds.compose.uikit.motion.transition
 import com.sdds.docs.DocSample
 import com.sdds.docs.composableCodeSnippet
 
@@ -90,6 +101,47 @@ fun Avatar_Extra() {
                     count = "1",
                 )
             },
+            content = { },
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
+fun Avatar_Motion() {
+    composableCodeSnippet {
+        var status by remember { mutableStateOf(AvatarStatus.None) }
+        val activeState = setOf(AvatarStatus.Active)
+        val style = AvatarStyle.builder()
+            .shape(CircleShape)
+            .colors {
+                backgroundColor(
+                    Color.LightGray.asStatefulBrush(
+                        activeState to Color(0xFF4CAF50),
+                    ),
+                )
+            }
+            .dimensions {
+                width(88.0.dp)
+                height(88.0.dp)
+            }
+            .style()
+        val motion = rememberAvatarMotion(
+            style = AvatarMotionStyle.builder()
+                .backgroundColor(transition { segment { } changesWith { finite(tween(200)) } })
+                .style(),
+        )
+        Avatar(
+            modifier = Modifier.clickable(
+                interactionSource = motion.context.interactionSource,
+                indication = null,
+            ) {
+                status = if (status == AvatarStatus.None) AvatarStatus.Active else AvatarStatus.None
+            },
+            style = style,
+            status = status,
+            placeholder = AvatarPlaceholder.Name("Michael Scott"),
+            motion = motion,
             content = { },
         )
     }

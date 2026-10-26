@@ -203,7 +203,9 @@ public final class com/sdds/compose/uikit/AutocompleteStyleKt {
 
 public abstract interface class com/sdds/compose/uikit/AvatarColors {
 	public static final field Companion Lcom/sdds/compose/uikit/AvatarColors$Companion;
+	public abstract fun getActionBrushes ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getActionColor-0d7_KjU ()J
+	public abstract fun getActionScrimBrushes ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getActionScrimColor-0d7_KjU ()J
 	public abstract fun getBackgroundAlpha ()F
 	public abstract fun getBackgroundBrushes ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
@@ -225,7 +227,13 @@ public final class com/sdds/compose/uikit/AvatarColors$DefaultImpls {
 }
 
 public abstract interface class com/sdds/compose/uikit/AvatarColorsBuilder {
+	public abstract fun actionColor (Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun actionColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun actionColor (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
 	public abstract fun actionColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun actionScrimColor (Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun actionScrimColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun actionScrimColor (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
 	public abstract fun actionScrimColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
 	public abstract fun activeStatusColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
 	public abstract fun backgroundAlpha (F)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
@@ -243,6 +251,12 @@ public abstract interface class com/sdds/compose/uikit/AvatarColorsBuilder {
 }
 
 public final class com/sdds/compose/uikit/AvatarColorsBuilder$DefaultImpls {
+	public static fun actionColor (Lcom/sdds/compose/uikit/AvatarColorsBuilder;Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public static fun actionColor (Lcom/sdds/compose/uikit/AvatarColorsBuilder;Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public static fun actionColor-8_81llA (Lcom/sdds/compose/uikit/AvatarColorsBuilder;J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public static fun actionScrimColor (Lcom/sdds/compose/uikit/AvatarColorsBuilder;Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public static fun actionScrimColor (Lcom/sdds/compose/uikit/AvatarColorsBuilder;Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public static fun actionScrimColor-8_81llA (Lcom/sdds/compose/uikit/AvatarColorsBuilder;J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
 	public static fun backgroundAlpha (Lcom/sdds/compose/uikit/AvatarColorsBuilder;F)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
 	public static fun backgroundColor (Lcom/sdds/compose/uikit/AvatarColorsBuilder;Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
 	public static fun backgroundColor (Lcom/sdds/compose/uikit/AvatarColorsBuilder;Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
@@ -254,10 +268,15 @@ public final class com/sdds/compose/uikit/AvatarColorsBuilder$DefaultImpls {
 
 public abstract interface class com/sdds/compose/uikit/AvatarDimensionValues {
 	public abstract fun getHeight-D9Ej5fM ()F
+	public abstract fun getHeightValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getStatusCutoutPadding-D9Ej5fM ()F
+	public abstract fun getStatusCutoutPaddingValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getStatusOffsetX-D9Ej5fM ()F
+	public abstract fun getStatusOffsetXValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getStatusOffsetY-D9Ej5fM ()F
+	public abstract fun getStatusOffsetYValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getWidth-D9Ej5fM ()F
+	public abstract fun getWidthValues ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 }
 
 public final class com/sdds/compose/uikit/AvatarDimensions {
@@ -282,15 +301,28 @@ public final class com/sdds/compose/uikit/AvatarDimensions {
 public abstract interface class com/sdds/compose/uikit/AvatarDimensionsBuilder {
 	public static final field Companion Lcom/sdds/compose/uikit/AvatarDimensionsBuilder$Companion;
 	public abstract fun build ()Lcom/sdds/compose/uikit/AvatarDimensionValues;
+	public abstract fun height (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
 	public abstract fun height-0680j_4 (F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public abstract fun statusCutoutPadding (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
 	public abstract fun statusCutoutPadding-0680j_4 (F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public abstract fun statusOffsetX (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
 	public abstract fun statusOffsetX-0680j_4 (F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public abstract fun statusOffsetY (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
 	public abstract fun statusOffsetY-0680j_4 (F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public abstract fun width (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
 	public abstract fun width-0680j_4 (F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
 }
 
 public final class com/sdds/compose/uikit/AvatarDimensionsBuilder$Companion {
 	public final fun builder ()Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/AvatarDimensionsBuilder$DefaultImpls {
+	public static fun height-0680j_4 (Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public static fun statusCutoutPadding-0680j_4 (Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public static fun statusOffsetX-0680j_4 (Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public static fun statusOffsetY-0680j_4 (Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
+	public static fun width-0680j_4 (Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;F)Lcom/sdds/compose/uikit/AvatarDimensionsBuilder;
 }
 
 public final class com/sdds/compose/uikit/AvatarGroupDimensions {
@@ -409,9 +441,11 @@ public abstract interface class com/sdds/compose/uikit/AvatarStyle : com/sdds/co
 	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/AvatarDimensions;
 	public abstract fun getIconBadgeStyle ()Lcom/sdds/compose/uikit/BadgeStyle;
 	public abstract fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public abstract fun getShapes ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 	public abstract fun getStatusCutoutEnabled ()Z
 	public abstract fun getStatusStyle ()Lcom/sdds/compose/uikit/IndicatorStyle;
 	public abstract fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getTextStyles ()Lcom/sdds/compose/uikit/interactions/StatefulValue;
 }
 
 public final class com/sdds/compose/uikit/AvatarStyle$Companion {
@@ -427,13 +461,17 @@ public abstract interface class com/sdds/compose/uikit/AvatarStyleBuilder : com/
 	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
 	public abstract fun iconBadgeStyle (Lcom/sdds/compose/uikit/BadgeStyle;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
 	public abstract fun shape (Landroidx/compose/ui/graphics/Shape;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+	public abstract fun shape (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
 	public abstract fun statusCutoutEnabled (Z)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
 	public abstract fun statusStyle (Lcom/sdds/compose/uikit/IndicatorStyle;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
 	public abstract fun textStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+	public abstract fun textStyle (Lcom/sdds/compose/uikit/interactions/StatefulValue;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
 }
 
 public final class com/sdds/compose/uikit/AvatarStyleBuilder$DefaultImpls {
 	public static fun getReceiver (Lcom/sdds/compose/uikit/AvatarStyleBuilder;)Ljava/lang/Object;
+	public static fun shape (Lcom/sdds/compose/uikit/AvatarStyleBuilder;Landroidx/compose/ui/graphics/Shape;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+	public static fun textStyle (Lcom/sdds/compose/uikit/AvatarStyleBuilder;Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
 }
 
 public final class com/sdds/compose/uikit/AvatarStyleKt {
