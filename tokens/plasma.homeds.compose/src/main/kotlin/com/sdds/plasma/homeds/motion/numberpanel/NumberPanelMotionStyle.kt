@@ -35,9 +35,14 @@ interface NumberPanelMotionStyle : MotionStyle {
     val fractionColor: MotionProperty<Brush>
 
     /**
-     * Анимационное свойство цвета иконки в NumberPanel.
+     * Анимационное свойство цвета иконки для отображения единицы измерения в NumberPanel.
      */
     val iconColor: MotionProperty<Brush>
+
+    /**
+     * Анимационное свойство цвета иконки для группы климатических устройств в NumberPanel.
+     */
+    val groupIconColor: MotionProperty<Brush>
 
     /**
      * Анимационное свойство стиля текста целой части числа в NumberPanel.
@@ -97,6 +102,11 @@ interface NumberPanelMotionStyleBuilder : MotionStyleBuilder<NumberPanelMotionSt
      * Устанавливает анимационное свойство цвета иконки в NumberPanel.
      */
     fun iconColor(color: MotionProperty<Brush>): NumberPanelMotionStyleBuilder
+
+    /**
+     * Устанавливает анимационное свойство цвета иконки для группы климатических устройствв NumberPanel.
+     */
+    fun groupIconColor(color: MotionProperty<Brush>): NumberPanelMotionStyleBuilder
 }
 
 @Immutable
@@ -107,6 +117,7 @@ private class NumberPanelMotionStyleImpl(
     override val fractionStyle: MotionProperty<TextStyle>,
     override val separatorStyle: MotionProperty<TextStyle>,
     override val iconColor: MotionProperty<Brush>,
+    override val groupIconColor: MotionProperty<Brush>,
 ) : NumberPanelMotionStyle {
 
     class Builder : NumberPanelMotionStyleBuilder {
@@ -114,6 +125,7 @@ private class NumberPanelMotionStyleImpl(
         private var valueStyle: MotionProperty<TextStyle>? = null
         private var fractionColor: MotionProperty<Brush>? = null
         private var iconColor: MotionProperty<Brush>? = null
+        private var groupIconColor: MotionProperty<Brush>? = null
         private var fractionStyle: MotionProperty<TextStyle>? = null
         private var separatorStyle: MotionProperty<TextStyle>? = null
 
@@ -127,6 +139,10 @@ private class NumberPanelMotionStyleImpl(
 
         override fun iconColor(color: MotionProperty<Brush>): NumberPanelMotionStyleBuilder = apply {
             this.iconColor = color
+        }
+
+        override fun groupIconColor(color: MotionProperty<Brush>): NumberPanelMotionStyleBuilder = apply {
+            this.groupIconColor = color
         }
 
         override fun valueStyle(style: MotionProperty<TextStyle>): NumberPanelMotionStyleBuilder = apply {
@@ -146,6 +162,7 @@ private class NumberPanelMotionStyleImpl(
                 valueColor = valueColor ?: noMotion(),
                 fractionColor = fractionColor ?: noMotion(),
                 iconColor = iconColor ?: noMotion(),
+                groupIconColor = groupIconColor ?: noMotion(),
                 valueStyle = valueStyle ?: noMotion(),
                 fractionStyle = fractionStyle ?: noMotion(),
                 separatorStyle = separatorStyle ?: noMotion(),
