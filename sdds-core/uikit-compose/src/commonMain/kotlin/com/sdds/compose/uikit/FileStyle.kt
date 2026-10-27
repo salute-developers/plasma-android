@@ -36,12 +36,24 @@ interface FileStyle : Style {
     /**
      * Стиль основной надписи
      */
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
     val labelStyle: TextStyle
+
+    /**
+     * Стиль основной надписи
+     */
+    val labelStyles: StatefulValue<TextStyle>
 
     /**
      * Стиль дополнительной надписи
      */
+    @Deprecated("Use descriptionStyles", replaceWith = ReplaceWith("descriptionStyles"))
     val descriptionStyle: TextStyle
+
+    /**
+     * Стиль дополнительной надписи
+     */
+    val descriptionStyles: StatefulValue<TextStyle>
 
     /**
      * Цвета компонента
@@ -136,12 +148,24 @@ interface FileStyleBuilder : StyleBuilder<FileStyle> {
     /**
      * Устанавливает стиль основного текста [labelStyle]
      */
-    fun labelStyle(labelStyle: TextStyle): FileStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): FileStyleBuilder =
+        labelStyle(labelStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль основного текста [labelStyle]
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): FileStyleBuilder
 
     /**
      * Устанавливает стиль дополнительного текста [descriptionStyle]
      */
-    fun descriptionStyle(descriptionStyle: TextStyle): FileStyleBuilder
+    fun descriptionStyle(descriptionStyle: TextStyle): FileStyleBuilder =
+        descriptionStyle(descriptionStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль дополнительного текста [descriptionStyle]
+     */
+    fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): FileStyleBuilder
 
     /**
      * Устанавливает цвета компонента с помощью [builder]
@@ -157,8 +181,6 @@ interface FileStyleBuilder : StyleBuilder<FileStyle> {
 }
 
 private data class DefaultFileStyle(
-    override val labelStyle: TextStyle,
-    override val descriptionStyle: TextStyle,
     override val colors: FileColors,
     override val dimensions: FileDimensions,
     override val shape: StatefulValue<Shape>,
@@ -167,7 +189,15 @@ private data class DefaultFileStyle(
     override val actionButtonStyle: ButtonStyle,
     override val progressBarStyle: ProgressBarStyle,
     override val circularProgressBarStyle: CircularProgressBarStyle,
+    override val labelStyles: StatefulValue<TextStyle>,
+    override val descriptionStyles: StatefulValue<TextStyle>,
 ) : FileStyle {
+
+    @Deprecated("Use labelStyles", replaceWith = ReplaceWith("labelStyles"))
+    override val labelStyle: TextStyle = labelStyles.getDefaultValue()
+
+    @Deprecated("Use descriptionStyles", replaceWith = ReplaceWith("descriptionStyles"))
+    override val descriptionStyle: TextStyle = descriptionStyles.getDefaultValue()
     class Builder : FileStyleBuilder {
         private var progressPlacement: FileProgressPlacement? = null
         private var actionPlacement: FileActionPlacement? = null
@@ -175,9 +205,9 @@ private data class DefaultFileStyle(
         private var progressBarStyle: ProgressBarStyle? = null
         private var circularProgressBarStyle: CircularProgressBarStyle? = null
         private var shape: StatefulValue<Shape>? = null
-        private var labelStyle: TextStyle? = null
+        private var labelStyle: StatefulValue<TextStyle>? = null
 
-        private var descriptionStyle: TextStyle? = null
+        private var descriptionStyle: StatefulValue<TextStyle>? = null
 
         private val colorsBuilder: FileColorsBuilder = FileColors.builder()
 
@@ -206,11 +236,11 @@ private data class DefaultFileStyle(
             this.shape = shape
         }
 
-        override fun labelStyle(labelStyle: TextStyle): FileStyleBuilder = apply {
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>): FileStyleBuilder = apply {
             this.labelStyle = labelStyle
         }
 
-        override fun descriptionStyle(descriptionStyle: TextStyle): FileStyleBuilder = apply {
+        override fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): FileStyleBuilder = apply {
             this.descriptionStyle = descriptionStyle
         }
 
@@ -223,8 +253,8 @@ private data class DefaultFileStyle(
             FileStyleBuilder = apply { this.dimensionsBuilder.builder() }
 
         override fun style(): FileStyle = DefaultFileStyle(
-            labelStyle = labelStyle ?: TextStyle.Default,
-            descriptionStyle = descriptionStyle ?: TextStyle.Default,
+            labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
+            descriptionStyles = descriptionStyle ?: TextStyle.Default.asStatefulValue(),
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
             shape = shape ?: RectangleShape.asStatefulValue(),
@@ -250,17 +280,35 @@ interface FileColors {
     /**
      * Цвет основного текста
      */
+    @Deprecated("Use labelBrush", replaceWith = ReplaceWith("labelBrush"))
     val labelColor: InteractiveColor
+
+    /**
+     * Кисть основного текста
+     */
+    val labelBrush: StatefulValue<Brush>
 
     /**
      * Цвет дополнительного текста
      */
+    @Deprecated("Use descriptionBrush", replaceWith = ReplaceWith("descriptionBrush"))
     val descriptionColor: InteractiveColor
+
+    /**
+     * Кисть дополнительного текста
+     */
+    val descriptionBrush: StatefulValue<Brush>
 
     /**
      * Цвет иконки
      */
+    @Deprecated("Use iconBrush", replaceWith = ReplaceWith("iconBrush"))
     val iconColor: InteractiveColor
+
+    /**
+     * Кисть иконки
+     */
+    val iconBrush: StatefulValue<Brush>
 
     companion object {
         /**
@@ -300,34 +348,71 @@ interface FileColorsBuilder {
     /**
      * Устанавливает цвет основного текста [labelColor]
      */
-    fun labelColor(labelColor: InteractiveColor): FileColorsBuilder
+    fun labelColor(labelColor: InteractiveColor): FileColorsBuilder =
+        labelColor(labelColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет основного текста [labelColor]
      */
     fun labelColor(labelColor: Color): FileColorsBuilder =
-        labelColor(labelColor.asInteractive())
+        labelColor(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть основного текста [labelColor]
+     */
+    fun labelColor(labelColor: Brush): FileColorsBuilder =
+        labelColor(labelColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисть основного текста [labelColor]
+     */
+    fun labelColor(labelColor: StatefulValue<Brush>): FileColorsBuilder
 
     /**
      * Устанавливает цвет дополнительного текста [descriptionColor]
      */
-    fun descriptionColor(descriptionColor: InteractiveColor): FileColorsBuilder
+    fun descriptionColor(descriptionColor: InteractiveColor): FileColorsBuilder =
+        descriptionColor(descriptionColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет дополнительного текста [descriptionColor]
      */
     fun descriptionColor(descriptionColor: Color): FileColorsBuilder =
-        descriptionColor(descriptionColor.asInteractive())
+        descriptionColor(descriptionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть дополнительного текста [descriptionColor]
+     */
+    fun descriptionColor(descriptionColor: Brush): FileColorsBuilder =
+        descriptionColor(descriptionColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисть дополнительного текста [descriptionColor]
+     */
+    fun descriptionColor(descriptionColor: StatefulValue<Brush>): FileColorsBuilder
 
     /**
      * Устанавливает цвет иконки [iconColor]
      */
-    fun iconColor(iconColor: InteractiveColor): FileColorsBuilder
+    fun iconColor(iconColor: InteractiveColor): FileColorsBuilder =
+        iconColor(iconColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки [iconColor]
      */
-    fun iconColor(iconColor: Color): FileColorsBuilder = iconColor(iconColor.asInteractive())
+    fun iconColor(iconColor: Color): FileColorsBuilder =
+        iconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть иконки [iconColor]
+     */
+    fun iconColor(iconColor: Brush): FileColorsBuilder =
+        iconColor(iconColor.asStatefulValue())
+
+    /**
+     * Устанавливает кисть иконки [iconColor]
+     */
+    fun iconColor(iconColor: StatefulValue<Brush>): FileColorsBuilder
 
     /**
      * Вернёт [FileColors]
@@ -337,38 +422,46 @@ interface FileColorsBuilder {
 
 private data class DefaultFileColors(
     override val backgroundColor: StatefulValue<Brush>,
-    override val labelColor: InteractiveColor,
-    override val descriptionColor: InteractiveColor,
-    override val iconColor: InteractiveColor,
+    override val labelBrush: StatefulValue<Brush>,
+    override val descriptionBrush: StatefulValue<Brush>,
+    override val iconBrush: StatefulValue<Brush>,
 ) : FileColors {
+    @Deprecated("Use labelBrush", replaceWith = ReplaceWith("labelBrush"))
+    override val labelColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use descriptionBrush", replaceWith = ReplaceWith("descriptionBrush"))
+    override val descriptionColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use iconBrush", replaceWith = ReplaceWith("iconBrush"))
+    override val iconColor: InteractiveColor = Color.Transparent.asInteractive()
     class Builder : FileColorsBuilder {
         private var backgroundBrush: StatefulValue<Brush>? = null
 
-        private var labelColor: InteractiveColor? = null
+        private var labelColor: StatefulValue<Brush>? = null
 
-        private var descriptionColor: InteractiveColor? = null
+        private var descriptionColor: StatefulValue<Brush>? = null
 
-        private var iconColor: InteractiveColor? = null
+        private var iconColor: StatefulValue<Brush>? = null
 
         override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): FileColorsBuilder =
             apply { this.backgroundBrush = backgroundBrush }
 
-        override fun labelColor(labelColor: InteractiveColor): FileColorsBuilder = apply {
+        override fun labelColor(labelColor: StatefulValue<Brush>): FileColorsBuilder = apply {
             this.labelColor = labelColor
         }
 
-        override fun descriptionColor(descriptionColor: InteractiveColor): FileColorsBuilder =
+        override fun descriptionColor(descriptionColor: StatefulValue<Brush>): FileColorsBuilder =
             apply { this.descriptionColor = descriptionColor }
 
-        override fun iconColor(iconColor: InteractiveColor): FileColorsBuilder = apply {
+        override fun iconColor(iconColor: StatefulValue<Brush>): FileColorsBuilder = apply {
             this.iconColor = iconColor
         }
 
         override fun build(): FileColors = DefaultFileColors(
             backgroundColor = backgroundBrush ?: Color.Transparent.asStatefulBrush(),
-            labelColor = labelColor ?: Color.Black.asInteractive(),
-            descriptionColor = descriptionColor ?: Color.Black.asInteractive(),
-            iconColor = iconColor ?: Color.Black.asInteractive(),
+            labelBrush = labelColor ?: Color.Black.asStatefulBrush(),
+            descriptionBrush = descriptionColor ?: Color.Black.asStatefulBrush(),
+            iconBrush = iconColor ?: Color.Black.asStatefulBrush(),
         )
     }
 }
@@ -401,22 +494,46 @@ interface FileDimensions {
     /**
      * Отступ контента в начале
      */
+    @Deprecated("Use startContentPaddingValues", replaceWith = ReplaceWith("startContentPaddingValues"))
     val startContentPadding: Dp
+
+    /**
+     * Отступ контента в начале
+     */
+    val startContentPaddingValues: StatefulValue<Dp>
 
     /**
      * Отступ контента в конце
      */
+    @Deprecated("Use endContentPaddingValues", replaceWith = ReplaceWith("endContentPaddingValues"))
     val endContentPadding: Dp
+
+    /**
+     * Отступ контента в конце
+     */
+    val endContentPaddingValues: StatefulValue<Dp>
 
     /**
      * Отступ нижнего контента (внешнего прогресса)
      */
+    @Deprecated("Use bottomContentPaddingValues", replaceWith = ReplaceWith("bottomContentPaddingValues"))
     val bottomContentPadding: Dp
+
+    /**
+     * Отступ нижнего контента (внешнего прогресса)
+     */
+    val bottomContentPaddingValues: StatefulValue<Dp>
 
     /**
      * Отступ дополнительного текста
      */
+    @Deprecated("Use descriptionPaddingValues", replaceWith = ReplaceWith("descriptionPaddingValues"))
     val descriptionPadding: Dp
+
+    /**
+     * Отступ дополнительного текста
+     */
+    val descriptionPaddingValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -477,22 +594,46 @@ interface FileDimensionsBuilder {
     /**
      * Устанавливает отступ контента в начале [startContentPadding]
      */
-    fun startContentPadding(startContentPadding: Dp): FileDimensionsBuilder
+    fun startContentPadding(startContentPadding: Dp): FileDimensionsBuilder =
+        startContentPadding(startContentPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ контента в начале [startContentPadding]
+     */
+    fun startContentPadding(startContentPadding: StatefulValue<Dp>): FileDimensionsBuilder
 
     /**
      * Устанавливает отступ контента в конце [endContentPadding]
      */
-    fun endContentPadding(endContentPadding: Dp): FileDimensionsBuilder
+    fun endContentPadding(endContentPadding: Dp): FileDimensionsBuilder =
+        endContentPadding(endContentPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ контента в конце [endContentPadding]
+     */
+    fun endContentPadding(endContentPadding: StatefulValue<Dp>): FileDimensionsBuilder
 
     /**
      * Устанавливает отступ нижнего прогресса [bottomContentPadding]
      */
-    fun bottomContentPadding(bottomContentPadding: Dp): FileDimensionsBuilder
+    fun bottomContentPadding(bottomContentPadding: Dp): FileDimensionsBuilder =
+        bottomContentPadding(bottomContentPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ нижнего прогресса [bottomContentPadding]
+     */
+    fun bottomContentPadding(bottomContentPadding: StatefulValue<Dp>): FileDimensionsBuilder
 
     /**
      * Устанавливает отступ дополнительного текста [descriptionPadding]
      */
-    fun descriptionPadding(descriptionPadding: Dp): FileDimensionsBuilder
+    fun descriptionPadding(descriptionPadding: Dp): FileDimensionsBuilder =
+        descriptionPadding(descriptionPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ дополнительного текста [descriptionPadding]
+     */
+    fun descriptionPadding(descriptionPadding: StatefulValue<Dp>): FileDimensionsBuilder
 
     /**
      * Вернёт [FileDimensions]
@@ -505,11 +646,22 @@ private data class DefaultFileDimensions(
     override val paddingTop: StatefulValue<Dp>,
     override val paddingEnd: StatefulValue<Dp>,
     override val paddingBottom: StatefulValue<Dp>,
-    override val startContentPadding: Dp,
-    override val endContentPadding: Dp,
-    override val bottomContentPadding: Dp,
-    override val descriptionPadding: Dp,
+    override val startContentPaddingValues: StatefulValue<Dp>,
+    override val endContentPaddingValues: StatefulValue<Dp>,
+    override val bottomContentPaddingValues: StatefulValue<Dp>,
+    override val descriptionPaddingValues: StatefulValue<Dp>,
 ) : FileDimensions {
+    @Deprecated("Use startContentPaddingValues", replaceWith = ReplaceWith("startContentPaddingValues"))
+    override val startContentPadding: Dp = startContentPaddingValues.getDefaultValue()
+
+    @Deprecated("Use endContentPaddingValues", replaceWith = ReplaceWith("endContentPaddingValues"))
+    override val endContentPadding: Dp = endContentPaddingValues.getDefaultValue()
+
+    @Deprecated("Use bottomContentPaddingValues", replaceWith = ReplaceWith("bottomContentPaddingValues"))
+    override val bottomContentPadding: Dp = bottomContentPaddingValues.getDefaultValue()
+
+    @Deprecated("Use descriptionPaddingValues", replaceWith = ReplaceWith("descriptionPaddingValues"))
+    override val descriptionPadding: Dp = descriptionPaddingValues.getDefaultValue()
     class Builder : FileDimensionsBuilder {
         private var paddingStart: StatefulValue<Dp>? = null
 
@@ -519,13 +671,13 @@ private data class DefaultFileDimensions(
 
         private var paddingBottom: StatefulValue<Dp>? = null
 
-        private var startContentPadding: Dp? = null
+        private var startContentPadding: StatefulValue<Dp>? = null
 
-        private var endContentPadding: Dp? = null
+        private var endContentPadding: StatefulValue<Dp>? = null
 
-        private var bottomContentPadding: Dp? = null
+        private var bottomContentPadding: StatefulValue<Dp>? = null
 
-        private var descriptionPadding: Dp? = null
+        private var descriptionPadding: StatefulValue<Dp>? = null
 
         override fun paddingStart(paddingStart: StatefulValue<Dp>): FileDimensionsBuilder = apply {
             this.paddingStart = paddingStart
@@ -543,18 +695,18 @@ private data class DefaultFileDimensions(
             this.paddingBottom = paddingBottom
         }
 
-        override fun startContentPadding(startContentPadding: Dp): FileDimensionsBuilder = apply {
+        override fun startContentPadding(startContentPadding: StatefulValue<Dp>): FileDimensionsBuilder = apply {
             this.startContentPadding = startContentPadding
         }
 
-        override fun endContentPadding(endContentPadding: Dp): FileDimensionsBuilder = apply {
+        override fun endContentPadding(endContentPadding: StatefulValue<Dp>): FileDimensionsBuilder = apply {
             this.endContentPadding = endContentPadding
         }
 
-        override fun bottomContentPadding(bottomContentPadding: Dp): FileDimensionsBuilder =
+        override fun bottomContentPadding(bottomContentPadding: StatefulValue<Dp>): FileDimensionsBuilder =
             apply { this.bottomContentPadding = bottomContentPadding }
 
-        override fun descriptionPadding(descriptionPadding: Dp): FileDimensionsBuilder = apply {
+        override fun descriptionPadding(descriptionPadding: StatefulValue<Dp>): FileDimensionsBuilder = apply {
             this.descriptionPadding = descriptionPadding
         }
 
@@ -563,10 +715,10 @@ private data class DefaultFileDimensions(
             paddingTop = paddingTop ?: 0.dp.asStatefulValue(),
             paddingEnd = paddingEnd ?: 0.dp.asStatefulValue(),
             paddingBottom = paddingBottom ?: 0.dp.asStatefulValue(),
-            startContentPadding = startContentPadding ?: 8.dp,
-            endContentPadding = endContentPadding ?: 8.dp,
-            bottomContentPadding = bottomContentPadding ?: 8.dp,
-            descriptionPadding = descriptionPadding ?: 2.dp,
+            startContentPaddingValues = startContentPadding ?: 8.dp.asStatefulValue(),
+            endContentPaddingValues = endContentPadding ?: 8.dp.asStatefulValue(),
+            bottomContentPaddingValues = bottomContentPadding ?: 8.dp.asStatefulValue(),
+            descriptionPaddingValues = descriptionPadding ?: 2.dp.asStatefulValue(),
         )
     }
 }
