@@ -10,9 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListStyle
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.resourceImageSource
@@ -38,6 +40,30 @@ fun List_Simple() {
                     disclosureEnabled = true,
                     interactionSource = interactionSource,
                 )
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
+fun StaticList_Section() {
+    composableCodeSnippet {
+        com.sdds.compose.uikit.List {
+            item {
+                Text("Section title")
+            }
+            item {
+                com.sdds.compose.uikit.StaticList {
+                    items(3) { index ->
+                        ListItem(
+                            text = "List item title $index",
+                            subtitle = "List item subtitle",
+                            disclosureEnabled = true,
+                        )
+                        if (index < 2) Divider()
+                    }
+                }
             }
         }
     }
