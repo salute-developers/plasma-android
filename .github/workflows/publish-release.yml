@@ -31,7 +31,7 @@ jobs:
         run: |
           DATE=$(date +'%d.%m.%Y')
           echo "DATE=$DATE" >> $GITHUB_ENV
-          echo "FROM_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+          echo "FROM_TAG=$(git describe --tags --abbrev=0 --match 'release-*')" >> $GITHUB_ENV
 
       - name: Determine changed modules
         id: changed
