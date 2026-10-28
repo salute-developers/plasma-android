@@ -33,7 +33,7 @@ data class RectSkeletonUiState(
     }
 }
 
-@Story
+@Story(componentId = "RectSkeleton")
 object RectSkeletonStory : ComposeBaseStory<RectSkeletonUiState, RectSkeletonStyle>(
     ComponentKey.RectSkeleton,
     RectSkeletonUiState(),

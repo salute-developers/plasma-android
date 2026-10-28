@@ -1,0 +1,305 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsTargetDsl
+import org.gradle.api.tasks.bundling.Zip
+import org.gradle.api.tasks.Delete
+import org.gradle.api.tasks.Sync
+import org.gradle.api.attributes.Usage
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
+import utils.addDefaultTargets
+import java.security.MessageDigest
+import java.util.Properties
+
+plugins {
+    id("convention.cmp-lib")
+    id("io.github.salute-developers.design-system-builder")
+}
+
+val cleanPreviewPluginWebpackOutput by tasks.registering(Delete::class) {
+    delete(layout.buildDirectory.dir("kotlin-webpack/wasmJs/productionExecutable"))
+}
+
+val generatedManifestDir = layout.buildDirectory.dir("generated/preview-manifest")
+val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factories")
+val generatedIconsDir = layout.buildDirectory.dir("generated/preview-icons")
+val generatedGroupsFile = layout.buildDirectory.file("generated/preview-groups/preview-groups.json")
+val generatePreviewFactories = tasks.named("generateComposePreview")
+val generatedApiMetaDir = layout.buildDirectory.dir("generated/preview-api-meta")
+val uikitComposeProperties = layout.projectDirectory.file("../../sdds-core/uikit-compose/gradle.properties")
+
+// Мета, по которой `generateComposePreview` строит фабрики плагина: тот же ресурс JVM-артефакта uikit-compose. Она
+// входит в артефакт, и бэкенд DSB импортирует из неё компоненты, поэтому плагин и мета одного билда совпадают.
+val extractPreviewApiMeta by tasks.registering(Copy::class) {
+    group = "build"
+    description = "Извлекает api-meta.json uikit-compose, из которой собран плагин, для включения в артефакт."
+    from(provider { zipTree(previewApiMeta.files.single { it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.") }) }) {
+        include("sdds/api/uikit-compose-api-meta.json")
+        eachFile { path = "api-meta.json" }
+        includeEmptyDirs = false
+    }
+    into(generatedApiMetaDir)
+}
+
+// Группы компонентов берутся из реестра историй песочницы (`ComponentKey.group`): их знает только Kotlin-код,
+// поэтому JSON строит главная функция JVM-цели модуля.
+val generatePreviewGroups by tasks.registering(JavaExec::class) {
+    group = "build"
+    description = "Формирует группы компонентов Compose preview по реестру историй песочницы."
+    dependsOn("compileKotlinJvm")
+    val jvmMain = provider { kotlin.targets.getByName("jvm").compilations.getByName("main") }
+    classpath = files(
+        provider { jvmMain.get().output.allOutputs },
+        provider { jvmMain.get().runtimeDependencyFiles },
+    )
+    mainClass.set("com.sdds.preview.compose.plugin.PreviewComponentGroupKt")
+    val output = generatedGroupsFile
+    outputs.file(output)
+    javaLauncher.set(javaToolchains.launcherFor { languageVersion.set(JavaLanguageVersion.of(17)) })
+    doFirst { setArgs(listOf(output.get().asFile.absolutePath)) }
+}
+
+// Список `components` manifest берётся из генератора фабрик, а не пишется вручную; тест покрытия и браузерный тест
+// сверяют его с реестром историй плагина.
+val generatePreviewManifest by tasks.registering {
+    group = "build"
+    description = "Собирает preview-plugin.json из шаблона, списка компонентов фабрик и идентификации билда."
+    dependsOn(generatePreviewFactories, generatePreviewGroups, extractPreviewApiMeta)
+    val apiMeta = generatedApiMetaDir.map { it.file("api-meta.json") }
+    val versionProperties = uikitComposeProperties
+    val commitOverride = providers.gradleProperty("previewCommit")
+    // Фактический HEAD разрешается при конфигурации и входит в задачу: после перехода на другой коммит manifest
+    // пересоздаётся, даже если остальные входы не изменились.
+    val resolvedCommit = commitOverride.orElse(
+        providers.exec {
+            commandLine("git", "rev-parse", "HEAD")
+            workingDir = layout.projectDirectory.asFile
+            isIgnoreExitValue = true
+        }.standardOutput.asText.map { it.trim() },
+    )
+    inputs.file(apiMeta)
+    inputs.file(versionProperties)
+    inputs.property("commit", resolvedCommit)
+    val template = layout.projectDirectory.file("src/manifest/preview-plugin.template.json")
+    val components = generatedFactoriesDir.map { it.file("components.txt") }
+    val output = generatedManifestDir
+    inputs.file(template)
+    val groupsFile = generatedGroupsFile
+    inputs.file(components)
+    inputs.file(groupsFile)
+    outputs.dir(output)
+    doLast {
+        @Suppress("UNCHECKED_CAST")
+        val manifest = groovy.json.JsonSlurper().parse(template.asFile) as MutableMap<String, Any?>
+        val componentNames = components.get().asFile.readLines().filter { it.isNotBlank() }
+        manifest["components"] = componentNames
+        // Идентификация билда: бэкенд сверяет её с архивом, а клиент показывает версию плагина.
+        val commit = resolvedCommit.get()
+        check(Regex("^[0-9a-f]{40}$").matches(commit)) {
+            "Не удалось определить коммит сборки (git rev-parse HEAD вернул '$commit'); задайте -PpreviewCommit=<sha>"
+        }
+        val versionValues = Properties().apply { versionProperties.asFile.inputStream().use { load(it) } }
+        val uikitComposeVersion = listOf("versionMajor", "versionMinor", "versionPatch").joinToString(".") {
+            requireNotNull(versionValues.getProperty(it)) { "В ${versionProperties.asFile} нет $it" }
+        }
+        manifest["commit"] = commit
+        manifest["version"] = commit.take(12)
+        manifest["uikitComposeVersion"] = uikitComposeVersion
+        manifest["apiMetaSha256"] = MessageDigest.getInstance("SHA-256")
+            .digest(apiMeta.get().asFile.readBytes())
+            .joinToString("") { "%02x".format(it) }
+        @Suppress("UNCHECKED_CAST")
+        val groups = (groovy.json.JsonSlurper().parse(groupsFile.get().asFile) as Map<String, Any?>)["groups"]
+            as List<Map<String, Any?>>
+        // Каждый компонент манифеста входит ровно в одну группу, и групп без компонентов манифеста нет.
+        val grouped = groups.flatMap { (it["components"] as List<*>).map(Any?::toString) }
+        val missing = componentNames - grouped.toSet()
+        val unknown = grouped.toSet() - componentNames.toSet()
+        val duplicated = grouped.groupBy { it }.filterValues { it.size > 1 }.keys
+        check(missing.isEmpty() && unknown.isEmpty() && duplicated.isEmpty()) {
+            "Группы манифеста расходятся с компонентами: без группы $missing, вне манифеста $unknown, в нескольких группах $duplicated"
+        }
+        manifest["groups"] = groups
+        val directory = output.get().asFile
+        directory.mkdirs()
+        File(directory, "preview-plugin.json")
+            .writeText(groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(manifest)) + "\n")
+    }
+}
+
+val previewPluginArtifact by tasks.registering(Zip::class) {
+    group = "distribution"
+    description = "Собирает self-contained Compose preview plugin artifact."
+    dependsOn("wasmJsBrowserProductionWebpack", "wasmJsProcessResources", generatePreviewManifest, extractPreviewApiMeta)
+    from(generatedManifestDir)
+    from(generatedApiMetaDir) {
+        include("api-meta.json")
+    }
+    // Compose-ресурсы историй (иллюстрации, шрифты) загружаются во время работы относительно страницы плагина.
+    from(layout.buildDirectory.dir("processedResources/wasmJs/main")) {
+        include("composeResources/**")
+    }
+    from(layout.buildDirectory.dir("kotlin-webpack/wasmJs/productionExecutable")) {
+        include("*.js", "*.wasm")
+    }
+    from("src/wasmJsMain/resources")
+    // Бэкенд DSB сравнивает sha256 всего архива: пересборка того же коммита обязана давать тот же zip.
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
+    archiveFileName.set("preview-compose-plugin.zip")
+    destinationDirectory.set(layout.buildDirectory.dir("distributions"))
+}
+
+val unpackPreviewPluginArtifact by tasks.registering(Sync::class) {
+    dependsOn(previewPluginArtifact)
+    from(previewPluginArtifact.map { zipTree(it.archiveFile) })
+    into(layout.buildDirectory.dir("browser-test/artifact"))
+}
+
+// Api-мета для галереи браузерного теста: тот же ресурс JVM-артефакта uikit-compose, что и при генерации фабрик.
+val extractApiMetaForBrowserTest by tasks.registering(Copy::class) {
+    from(provider { zipTree(previewApiMeta.files.single { it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.") }) }) {
+        include("sdds/api/uikit-compose-api-meta.json")
+        eachFile { path = "api-meta.json" }
+        includeEmptyDirs = false
+    }
+    into(layout.buildDirectory.dir("browser-test/api-meta"))
+}
+
+// Состав и идентификация артефакта: те же поля бэкенд DSB сверяет при публикации.
+val verifyPreviewPluginArtifact by tasks.registering(Exec::class) {
+    group = "verification"
+    description = "Проверяет состав и идентификацию (commit, version, uikitComposeVersion, apiMetaSha256) артефакта."
+    dependsOn(unpackPreviewPluginArtifact)
+    val versionProperties = uikitComposeProperties
+    val artifactDirectory = layout.buildDirectory.dir("browser-test/artifact")
+    doFirst {
+        val values = Properties().apply { versionProperties.asFile.inputStream().use { load(it) } }
+        val version = listOf("versionMajor", "versionMinor", "versionPatch").joinToString(".") {
+            requireNotNull(values.getProperty(it)) { "В ${versionProperties.asFile} нет $it" }
+        }
+        commandLine(
+            "node",
+            "src/browserTest/check-artifact.mjs",
+            artifactDirectory.get().asFile.absolutePath,
+            version,
+        )
+    }
+}
+
+val previewPluginBrowserTest by tasks.registering(Exec::class) {
+    group = "verification"
+    description = "Проверяет production Compose preview artifact в headless Chrome."
+    dependsOn(unpackPreviewPluginArtifact, extractApiMetaForBrowserTest, verifyPreviewPluginArtifact)
+    val chromePath = providers.gradleProperty("previewChromePath")
+        .orElse("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+    commandLine(
+        "node",
+        "src/browserTest/run-browser-test.mjs",
+        layout.buildDirectory.dir("browser-test/artifact").get().asFile.absolutePath,
+        file("src/browserTest/resources").absolutePath,
+        file("../sandbox-compose/src/commonMain/composeResources/font/s_b_sans_text_regular.otf").absolutePath,
+        chromePath.get(),
+        layout.buildDirectory.dir("browser-test/gallery").get().asFile.absolutePath,
+        layout.buildDirectory.dir("browser-test/api-meta").get().asFile.absolutePath,
+    )
+}
+
+group = "integration-core"
+
+// Фабрики стилей генерируются по api-мете, которая лежит ресурсом в JVM-артефакте uikit-compose.
+val previewApiMeta: Configuration by configurations.creating {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+        attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
+    }
+}
+dependencies {
+    previewApiMeta(libs.sdds.uikit.compose)
+}
+
+// Фабрики стилей порождает задача `generateComposePreview` плагина Design System Builder.
+// Ограничить набор компонентов можно свойством `-PpreviewComponents=A,B`.
+dsBuilder {
+    preview {
+        metaClasspath.from(previewApiMeta)
+        providers.gradleProperty("previewComponents").orNull?.let { components.set(it) }
+        outputDirectory.set(generatedFactoriesDir)
+    }
+}
+
+// Иконки, которые плагин рисует по имени из конфигурации компонента (`disclosure.down.fill.16`). Список лежит в
+// репозитории: в wasm попадают только перечисленные иконки, а несуществующее имя ломает компиляцию реестра.
+val generatePreviewIcons by tasks.registering {
+    group = "build"
+    description = "Генерирует реестр иконок Compose preview по src/icons/preview-icons.txt."
+    val list = layout.projectDirectory.file("src/icons/preview-icons.txt")
+    val output = generatedIconsDir
+    inputs.file(list)
+    outputs.dir(output)
+    doLast {
+        val members = list.asFile.readLines()
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .map { name ->
+                name.split('.', '-', '_').filter { it.isNotEmpty() }
+                    .joinToString("") { part -> part.replaceFirstChar { it.uppercaseChar() } }
+            }
+            .distinct()
+            .sorted()
+        val source = buildString {
+            appendLine("package com.sdds.preview.compose.generated")
+            appendLine()
+            appendLine("import com.sdds.icons.compose.SddsIcons")
+            members.forEach { appendLine("import com.sdds.icons.compose.$it") }
+            appendLine("import com.sdds.preview.compose.PreviewIconRegistry")
+            appendLine()
+            appendLine("/** Сгенерировано из `src/icons/preview-icons.txt`: иконки, доступные Compose preview по имени. */")
+            appendLine("internal object GeneratedPreviewIcons {")
+            appendLine("    val all: PreviewIconRegistry = PreviewIconRegistry(")
+            appendLine("        mapOf(")
+            members.forEach { appendLine("            \"$it\" to { SddsIcons.$it },") }
+            appendLine("        ),")
+            appendLine("    )")
+            appendLine("}")
+        }
+        val directory = output.get().asFile
+        directory.mkdirs()
+        File(directory, "GeneratedPreviewIcons.kt").writeText(source)
+    }
+}
+
+android { namespace = "com.sdds.preview.compose.plugin" }
+
+kotlin {
+    addDefaultTargets(publishLibraryVariants = false)
+    targets.named<KotlinJsTargetDsl>("wasmJs") {
+        binaries.executable()
+    }
+
+    sourceSets {
+        commonMain {
+            kotlin.srcDir(generatePreviewFactories.map { generatedFactoriesDir.get().asFile })
+            kotlin.srcDir(generatePreviewIcons.map { generatedIconsDir.get().asFile })
+        }
+        commonMain.dependencies {
+            implementation(project(":preview-contract"))
+            implementation(project(":preview-sdk-compose"))
+            implementation(project(":sandbox-core"))
+            implementation(project(":uikit-compose-fixtures"))
+            implementation("sdds-core:icons-compose")
+            implementation(libs.sdds.uikit.compose)
+            implementation(compose.foundation)
+            implementation(compose.runtime)
+            implementation(compose.ui)
+            implementation(libs.base.kotlin.serialization.json)
+        }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
+        }
+    }
+}
+
+tasks.named("wasmJsProductionExecutableCompileSync") {
+    dependsOn(cleanPreviewPluginWebpackOutput)
+}

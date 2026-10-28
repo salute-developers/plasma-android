@@ -1,5 +1,6 @@
 package com.sdds.sandbox.ksp.internal
 
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
@@ -26,7 +27,7 @@ internal class StoryRegistryGenerator(
             "register",
         )
         val builder = FunSpec.builder("registerStories")
-            .addModifiers(KModifier.INTERNAL)
+            .addModifiers(KModifier.PUBLIC)
             .addCode(
                 buildCodeBlock { addRegistryStatements(data.stories) },
             )
@@ -39,6 +40,15 @@ internal class StoryRegistryGenerator(
         data.forEach { story ->
             val storyClass = story.storyClass.toClassName()
             add("%T.register()\n", storyClass)
+            if (story.componentId.isNotBlank()) {
+                add(
+                    "%T.registerPreviewEntry(%S, %T, %S)\n",
+                    ClassName("com.sdds.sandbox", "StoryRegistry"),
+                    story.componentId,
+                    storyClass,
+                    story.styleQualifiedName,
+                )
+            }
         }
     }
 }

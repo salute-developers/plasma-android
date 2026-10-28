@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -13,11 +12,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -34,12 +33,18 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.graphics.LocalIndication
-import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.SemanticStateSource
-import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.note.NoteMotionStyle
+import com.sdds.compose.uikit.motion.components.note.rememberNoteMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент [Note]
@@ -146,7 +151,6 @@ fun Note(
  * @param semanticStateSource источник состояния семантики
  * @param contentAfter контент за текстовым блоком
  */
-@Suppress("LongMethod")
 @Composable
 fun Note(
     titleContent: @Composable () -> Unit,
@@ -160,132 +164,148 @@ fun Note(
     semanticStateSource: SemanticStateSource = remember { MutableSemanticStateSource() },
     contentAfter: (@Composable BoxScope.() -> Unit)? = null,
 ) {
-    val backgroundColor = style.colors.backgroundColor.getValue(interactionSource)
-    val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
-    val disclosureColor = style.colors.disclosureColor.colorForInteraction(interactionSource)
+    val fallbackSource = remember { MutableInteractionSource() }
+    val fallbackSemantic = remember { MutableSemanticStateSource() }
+    Note(
+        motion = rememberNoteMotion(
+            motionContext = rememberMotionContext(
+                semanticStateSource = (semanticStateSource as? MutableSemanticStateSource)
+                    ?: fallbackSemantic,
+                interactionSource = (interactionSource as? MutableInteractionSource)
+                    ?: fallbackSource,
+            ),
+        ),
+        titleContent = titleContent,
+        modifier = modifier,
+        style = style,
+        textContent = textContent,
+        closeIcon = closeIcon,
+        contentBefore = contentBefore,
+        action = action,
+        contentAfter = contentAfter,
+    )
+}
+
+/**
+ * Компонент [Note]
+ *
+ * Нота оборачивает контент по умолчанию: текстовый блок зажат между [contentBefore] и
+ * [contentAfter], который стоит сразу за текстом. Если ширину задать извне
+ * (`modifier = Modifier.fillMaxWidth()`), нота растянется, а [contentAfter] прижмётся к её концу.
+ *
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param titleContent заголовок
+ * @param textContent текст
+ * @param closeIcon иконка закрытия
+ * @param contentBefore контент перед текстовым блоком
+ * @param action дополнительный контент для взаимодейстивия с компонентом
+ * @param contentAfter контент за текстовым блоком
+ */
+@Composable
+fun Note(
+    motion: Motion<NoteMotionStyle>,
+    titleContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: NoteStyle = LocalNoteStyle.current,
+    textContent: (@Composable () -> Unit)? = null,
+    closeIcon: (@Composable BoxScope.() -> Unit)? = null,
+    contentBefore: (@Composable BoxScope.() -> Unit)? = null,
+    action: (@Composable BoxScope.() -> Unit)? = null,
+    contentAfter: (@Composable BoxScope.() -> Unit)? = null,
+) {
+    val backgroundColor = style.colors.backgroundColor.getBrushAsState(motion.context, motion.style.backgroundColor)
     val contentBeforeArrangement = style.contentBeforeArrangement
-    val extraBottomPadding = (style.dimensions.paddingTop - style.dimensions.paddingBottom).coerceAtLeast(0.dp)
+    val top by style.dimensions.paddingTopValues.getValueAsState(motion.context)
+    val bottom by style.dimensions.paddingBottomValues.getValueAsState(motion.context)
+    val extraBottomPadding = (top - bottom).coerceAtLeast(0.dp)
     val spacerHeight = with(LocalDensity.current) { extraBottomPadding.roundToPx() }
     val measurePolicy = remember(contentBeforeArrangement, spacerHeight) {
         NoteMeasurePolicy(contentBeforeArrangement, spacerHeight)
     }
     Box(
-        modifier = modifier.background(backgroundColor, style.shape),
+        modifier = modifier
+            .backgroundBrush(
+                { backgroundColor.value },
+                style.shapes.getValueAsState(motion.context).value,
+            ),
         // Нота по умолчанию оборачивает контент и растягивается только тогда, когда ширину
         // требует родитель (например модификатором fillMaxWidth)
         propagateMinConstraints = true,
     ) {
         if (closeIcon != null) {
-            val closeSize = style.dimensions.closeSize
+            val iconTopP by style.dimensions.closeTopMarginValues.getValueAsState(motion.context)
+            val iconEndP by style.dimensions.closeEndMarginValues.getValueAsState(motion.context)
             Box(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     // Слот close — оверлей, он не должен наследовать родительские min-ограничения
                     .width(IntrinsicSize.Min)
                     .height(IntrinsicSize.Min)
-                    .padding(top = style.dimensions.closeTopMargin, end = style.dimensions.closeEndMargin)
+                    .padding(top = iconTopP, end = iconEndP)
                     .defaultMinSize(),
             ) {
+                val closeSize by style.dimensions.closeSizeValues.getValueAsState(motion.context)
+                val closeBrush = style.colors.closeBrush.getBrushAsState(motion.context, motion.style.closeColor)
                 CompositionLocalProvider(
+                    LocalTintBrushProducer provides { closeBrush.value },
                     LocalIconDefaultSize provides DpSize(closeSize, closeSize),
                 ) {
                     closeIcon()
                 }
             }
         }
+        val startP by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+        val endP by style.dimensions.paddingEndValues.getValueAsState(motion.context)
         Layout(
             modifier = Modifier
                 .padding(
-                    start = style.dimensions.paddingStart,
-                    end = style.dimensions.paddingEnd,
-                    top = style.dimensions.paddingTop,
-                    bottom = style.dimensions.paddingBottom,
+                    start = startP,
+                    end = endP,
+                    top = top,
+                    bottom = bottom,
                 )
                 .clipToBounds(),
             measurePolicy = measurePolicy,
             content = {
-                contentBefore?.let {
-                    Box(
-                        modifier = Modifier
-                            .layoutId(CONTENT_BEFORE)
-                            .padding(
-                                end = style.dimensions.contentBeforeEndMargin,
-                            ),
-                    ) {
-                        val iconSize = style.dimensions.iconSize
-                        val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
-                        CompositionLocalProvider(
-                            LocalTint provides iconColor,
-                            LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
-                        ) {
-                            contentBefore.invoke(this)
-                        }
-                    }
+                contentBefore?.let { content ->
+                    ContentBefore(
+                        modifier = Modifier.layoutId(CONTENT_BEFORE),
+                        style = style,
+                        motion = motion,
+                        contentBefore = content,
+                    )
                 }
-
-                Box(
-                    modifier = Modifier
-                        .layoutId(TITLE)
-                        .padding(end = style.dimensions.titlePaddingEnd),
-                ) {
-                    ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
-                        val textColor = style.colors.titleColor.colorForInteractionAsState(
-                            interactionSource,
-                            semanticStateSource,
-                        )
-                        ProvideTextStyle(style.titleStyle, color = { textColor.value }) {
-                            titleContent()
-                        }
-                    }
-                }
-                if (textContent != null) {
-                    Box(
-                        modifier = Modifier
-                            .layoutId(TEXT)
-                            .padding(top = style.dimensions.textTopMargin),
-                    ) {
-                        ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
-                            val textColor = style.colors.textColor.colorForInteractionAsState(
-                                interactionSource,
-                                semanticStateSource,
-                            )
-                            ProvideTextStyle(style.textStyle, color = { textColor.value }) {
-                                textContent()
-                            }
-                        }
-                    }
+                Title(
+                    modifier = Modifier.layoutId(TITLE),
+                    style = style,
+                    motion = motion,
+                    titleContent = titleContent,
+                )
+                textContent?.let { content ->
+                    ContentText(
+                        modifier = Modifier.layoutId(TEXT),
+                        style = style,
+                        motion = motion,
+                        textContent = content,
+                    )
                 }
                 action?.let {
-                    Box(
-                        modifier = Modifier
-                            .layoutId(ACTION)
-                            .padding(top = style.dimensions.actionTopMargin),
-                    ) {
-                        CompositionLocalProvider(
-                            LocalLinkButtonStyle provides style.linkButtonStyle,
-                        ) {
-                            action.invoke(this)
-                        }
-                    }
+                    Action(
+                        modifier = Modifier.layoutId(ACTION),
+                        style = style,
+                        motion = motion,
+                        action = action,
+                    )
                 }
-                contentAfter?.let {
-                    Box(
-                        modifier = Modifier
-                            .layoutId(CONTENT_AFTER)
-                            .padding(
-                                start = style.dimensions.contentAfterStartMargin,
-                                end = style.dimensions.contentAfterEndMargin,
-                            ),
-                    ) {
-                        val iconSize = style.dimensions.disclosureSize
-                        val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
-                        CompositionLocalProvider(
-                            LocalTint provides disclosureColor,
-                            LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
-                        ) {
-                            it.invoke(this)
-                        }
-                    }
+                contentAfter?.let { content ->
+                    ContentAfter(
+                        modifier = Modifier.layoutId(CONTENT_AFTER),
+                        style = style,
+                        motion = motion,
+                        contentAfter = content,
+                    )
                 }
             },
         )
@@ -320,7 +340,7 @@ private fun BoxScope.CloseIcon(
     onClose: (() -> Unit)?,
 ) {
     val closeInteractionSource = remember { MutableInteractionSource() }
-    val closeColor = style.colors.closeColor.colorForInteraction(closeInteractionSource)
+    val closeColor = style.colors.closeBrush.getValueAsState(closeInteractionSource)
     Icon(
         modifier = Modifier
             .align(Alignment.TopEnd)
@@ -330,7 +350,7 @@ private fun BoxScope.CloseIcon(
             ) { onClose?.invoke() },
         source = closeIconSource,
         contentDescription = "",
-        brush = BrushProducer { SolidColor(closeColor) },
+        brush = { closeColor.value },
     )
 }
 
@@ -413,6 +433,130 @@ private class NoteMeasurePolicy(
                 x = contentBefore.widthOrZero(),
                 y = topInset + textBlockHeight + rowBottomInset,
             )
+        }
+    }
+}
+
+@Composable
+private fun ContentBefore(
+    modifier: Modifier,
+    style: NoteStyle,
+    motion: Motion<NoteMotionStyle>,
+    contentBefore: @Composable BoxScope.() -> Unit,
+) {
+    val end by style.dimensions.contentBeforeEndMarginValues.getValueAsState(motion.context)
+    Box(
+        modifier = modifier
+            .padding(
+                end = end,
+            ),
+    ) {
+        val iconColor =
+            style.colors.iconBrush.getBrushAsState(motion.context, motion.style.contentBeforeColor)
+        val iconSize by style.dimensions.iconSizeValues.getValueAsState(motion.context)
+        val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
+        CompositionLocalProvider(
+            LocalTintBrushProducer provides { iconColor.value },
+            LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
+        ) {
+            contentBefore()
+        }
+    }
+}
+
+@Composable
+private fun Title(
+    modifier: Modifier,
+    style: NoteStyle,
+    motion: Motion<NoteMotionStyle>,
+    titleContent: @Composable () -> Unit,
+) {
+    val titleEndP by style.dimensions.titlePaddingEndValues.getValueAsState(motion.context)
+    Box(
+        modifier = modifier
+            .padding(end = titleEndP),
+    ) {
+        ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
+            val textColor = style.colors.titleBrush.getBrushAsState(motion.context, motion.style.titleColor)
+            val titleStyle by style.titleStyles.getTextStyleAsState(motion.context, motion.style.titleStyle)
+            ProvideTextStyle(titleStyle, brush = { textColor.value }) {
+                titleContent()
+            }
+        }
+    }
+}
+
+@Composable
+private fun ContentText(
+    modifier: Modifier,
+    style: NoteStyle,
+    motion: Motion<NoteMotionStyle>,
+    textContent: @Composable () -> Unit,
+) {
+    val textTop by style.dimensions.textTopMarginValues.getValueAsState(motion.context)
+    Box(
+        modifier = modifier
+            .padding(top = textTop),
+    ) {
+        ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
+            val textColor =
+                style.colors.textBrush.getBrushAsState(motion.context, motion.style.textColor)
+            val textStyle by style.textStyles.getTextStyleAsState(
+                motion.context,
+                motion.style.textStyle,
+            )
+            ProvideTextStyle(textStyle, brush = { textColor.value }) {
+                textContent()
+            }
+        }
+    }
+}
+
+@Composable
+private fun Action(
+    modifier: Modifier,
+    style: NoteStyle,
+    motion: Motion<NoteMotionStyle>,
+    action: @Composable BoxScope.() -> Unit,
+) {
+    val actionTop by style.dimensions.actionTopMarginValues.getValueAsState(motion.context)
+    Box(
+        modifier = modifier
+            .padding(top = actionTop),
+    ) {
+        CompositionLocalProvider(
+            LocalLinkButtonStyle provides style.linkButtonStyle,
+        ) {
+            action()
+        }
+    }
+}
+
+@Composable
+private fun ContentAfter(
+    modifier: Modifier,
+    style: NoteStyle,
+    motion: Motion<NoteMotionStyle>,
+    contentAfter: @Composable BoxScope.() -> Unit,
+) {
+    val startM by style.dimensions.contentAfterStartMarginValues.getValueAsState(motion.context)
+    val endM by style.dimensions.contentAfterEndMarginValues.getValueAsState(motion.context)
+    Box(
+        modifier = modifier
+            .padding(
+                start = startM,
+                end = endM,
+            ),
+    ) {
+        val iconSize by style.dimensions.disclosureSizeValues.getValueAsState(motion.context)
+        val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
+        val disclosureColor =
+            style.colors.disclosureBrush.getBrushAsState(motion.context, motion.style.contentAfterColor)
+        CompositionLocalProvider(
+            LocalTintBrushProducer provides { disclosureColor.value },
+            LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
+        ) {
+            contentAfter()
         }
     }
 }

@@ -60,6 +60,8 @@ internal data class ComposeDimensionPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    /** Тип значения, которое принимает перегрузка (может быть пустым); используется генератором Compose preview. */
+    val valueQualifiedType: String = "",
     override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
@@ -87,6 +89,8 @@ internal data class ComposeTypographyPropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    /** Тип значения, которое принимает перегрузка (может быть пустым); используется генератором Compose preview. */
+    val valueQualifiedType: String = "",
     override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 
@@ -99,6 +103,8 @@ internal data class ComposeShapePropertyMeta(
     override val paramQualifiedType: String,
     override val paramSimpleType: String,
     override val group: String,
+    /** Тип значения, которое принимает перегрузка (может быть пустым); используется генератором Compose preview. */
+    val valueQualifiedType: String = "",
     override val deprecated: ComposeDeprecatedMeta? = null,
 ) : ComposePropertyMeta
 

@@ -38,7 +38,7 @@ data class ChipGroupUiState(
     }
 }
 
-@Story
+@Story(componentId = "ChipGroup")
 object ChipGroupStory : ComposeBaseStory<ChipGroupUiState, ChipGroupStyle>(
     ComponentKey.ChipGroup,
     ChipGroupUiState(),

@@ -67,10 +67,16 @@ interface NumberPanelStyle : Style {
     val mode: NumberPanelMode
 
     /**
-     * Иконка
+     * Иконка для отображения единицы измерения
      */
     @get:DrawableRes
     val icon: Int?
+
+    /**
+     * Иконка для группы климатических устройств
+     */
+    @get:DrawableRes
+    val groupIcon: Int?
 
     /**
      * Значение прозрачности выключенного компонента
@@ -154,9 +160,14 @@ interface NumberPanelStyleBuilder : StyleBuilder<NumberPanelStyle> {
     fun mode(mode: NumberPanelMode): NumberPanelStyleBuilder
 
     /**
-     * Устанавливает идентифактор иконки [icon]
+     * Устанавливает идентификатор иконки для отображения единицы измерения [icon]
      */
     fun icon(@DrawableRes icon: Int): NumberPanelStyleBuilder
+
+    /**
+     * Устанавливает идентификатор иконки для группы климатических устройств [icon]
+     */
+    fun groupIcon(@DrawableRes icon: Int): NumberPanelStyleBuilder
 
     /**
      * Устанавливает значение прозрачности [disableAlpha] выключенной компонента.
@@ -182,9 +193,14 @@ interface NumberPanelColors {
     val fractionBrush: StatefulValue<Brush>
 
     /**
-     * Кисти иконки
+     * Кисти иконки для отображения единицы измерения
      */
     val iconBrush: StatefulValue<Brush>
+
+    /**
+     * Кисти иконки для группы климатических устройств
+     */
+    val groupIconBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -257,7 +273,7 @@ interface NumberPanelColorsBuilder {
     fun fractionColor(textColor: StatefulValue<Brush>): NumberPanelColorsBuilder
 
     /**
-     * Устанавливает цвет [iconColor] дополнительного текста целой части числа компонента
+     * Устанавливает цвет [iconColor] иконки для отображения единицы измерения
      * @see NumberPanelColorsBuilder.iconColor
      * @see InteractiveColor
      */
@@ -265,24 +281,52 @@ interface NumberPanelColorsBuilder {
         iconColor(iconColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет [iconColor] дополнительного текста целой части числа компонента
+     * Устанавливает цвет [iconColor] иконки для отображения единицы измерения
      * @see NumberPanelColorsBuilder.iconColor
      */
     fun iconColor(iconColor: Color): NumberPanelColorsBuilder =
         iconColor(iconColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет [iconColor] дополнительного текста целой части числа компонента
+     * Устанавливает цвет [iconColor] иконки для отображения единицы измерения
      * @see NumberPanelColorsBuilder.iconColor
      */
     fun iconColor(iconColor: Brush): NumberPanelColorsBuilder =
         iconColor(iconColor.asStatefulValue())
 
     /**
-     * Устанавливает цвет [iconColor] дополнительного текста целой части числа компонента
+     * Устанавливает цвет [iconColor] иконки для отображения единицы измерения
      * @see NumberPanelColors.iconBrush
      */
     fun iconColor(iconColor: StatefulValue<Brush>): NumberPanelColorsBuilder
+
+    /**
+     * Устанавливает цвет [iconColor] иконки для группы климатических устройств
+     * @see NumberPanelColorsBuilder.iconColor
+     * @see InteractiveColor
+     */
+    fun groupIconColor(iconColor: InteractiveColor): NumberPanelColorsBuilder =
+        groupIconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [iconColor] иконки для группы климатических устройств
+     * @see NumberPanelColorsBuilder.iconColor
+     */
+    fun groupIconColor(iconColor: Color): NumberPanelColorsBuilder =
+        groupIconColor(iconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет [iconColor] иконки для группы климатических устройств
+     * @see NumberPanelColorsBuilder.iconColor
+     */
+    fun groupIconColor(iconColor: Brush): NumberPanelColorsBuilder =
+        groupIconColor(iconColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет [iconColor] иконки для группы климатических устройств
+     * @see NumberPanelColors.iconBrush
+     */
+    fun groupIconColor(iconColor: StatefulValue<Brush>): NumberPanelColorsBuilder
 
     /**
      * Возвращает готовый экземпляр [NumberPanelColors]
@@ -295,12 +339,14 @@ private class DefaultNumberPanelColors(
     override val valueBrush: StatefulValue<Brush>,
     override val iconBrush: StatefulValue<Brush>,
     override val fractionBrush: StatefulValue<Brush>,
+    override val groupIconBrush: StatefulValue<Brush>,
 ) : NumberPanelColors {
 
     class Builder : NumberPanelColorsBuilder {
         private var valueBrush: StatefulValue<Brush>? = null
         private var fractionBrush: StatefulValue<Brush>? = null
         private var iconBrush: StatefulValue<Brush>? = null
+        private var groupIconBrush: StatefulValue<Brush>? = null
 
         override fun valueColor(textColor: StatefulValue<Brush>) = apply {
             this.valueBrush = textColor
@@ -314,12 +360,17 @@ private class DefaultNumberPanelColors(
             this.iconBrush = iconColor
         }
 
+        override fun groupIconColor(iconColor: StatefulValue<Brush>) = apply {
+            this.groupIconBrush = iconColor
+        }
+
         override fun build(): NumberPanelColors {
             val brush = valueBrush ?: Color.Black.asStatefulBrush()
             return DefaultNumberPanelColors(
                 valueBrush = brush,
                 fractionBrush = fractionBrush ?: brush,
                 iconBrush = iconBrush ?: brush,
+                groupIconBrush = groupIconBrush ?: brush,
             )
         }
     }
@@ -352,16 +403,9 @@ interface NumberPanelDimensions {
     val fractionEndPadding: StatefulValue<Dp>
 
     /**
-     * Возвращает готовый экземпляр [NumberPanelDimensions]
+     * Отступ от контента в начале [NumberPanel] (например иконки для группы климатических устройств)
      */
-
-    companion object {
-
-        /**
-         * Возвращает экземпляр [NumberPanelColorsBuilder]
-         */
-        fun builder(): NumberPanelDimensionsBuilder = DefaultNumberPanelDimensions.Builder()
-    }
+    val startContentEndPadding: StatefulValue<Dp>
 }
 
 /**
@@ -423,6 +467,19 @@ interface NumberPanelDimensionsBuilder {
     fun fractionEndPadding(padding: StatefulValue<Dp>): NumberPanelDimensionsBuilder
 
     /**
+     * Устанавливает отступы [padding] от контента в начале [NumberPanel]
+     * @see NumberPanelDimensions.startContentEndPadding
+     */
+    fun startContentEndPadding(padding: StatefulValue<Dp>): NumberPanelDimensionsBuilder
+
+    /**
+     * Устанавливает отступы [padding] от контента в начале [NumberPanel]
+     * @see NumberPanelDimensions.startContentEndPadding
+     */
+    fun startContentEndPadding(padding: Dp): NumberPanelDimensionsBuilder =
+        startContentEndPadding(padding.asStatefulValue())
+
+    /**
      * Возвращает [NumberPanelDimensions]
      */
     fun build(): NumberPanelDimensions
@@ -442,6 +499,7 @@ private class DefaultNumberPanelDimensions(
     override val valueEndPadding: StatefulValue<Dp>,
     override val fractionStartPadding: StatefulValue<Dp>,
     override val fractionEndPadding: StatefulValue<Dp>,
+    override val startContentEndPadding: StatefulValue<Dp>,
 
 ) : NumberPanelDimensions {
     class Builder : NumberPanelDimensionsBuilder {
@@ -449,6 +507,7 @@ private class DefaultNumberPanelDimensions(
         private var valueEndPadding: StatefulValue<Dp>? = null
         private var fractionStartPadding: StatefulValue<Dp>? = null
         private var fractionEndPadding: StatefulValue<Dp>? = null
+        private var startContentEndPadding: StatefulValue<Dp>? = null
 
         override fun valueStartPadding(padding: StatefulValue<Dp>): NumberPanelDimensionsBuilder = apply {
             this.valueStartPadding = padding
@@ -466,11 +525,16 @@ private class DefaultNumberPanelDimensions(
             this.fractionEndPadding = padding
         }
 
+        override fun startContentEndPadding(padding: StatefulValue<Dp>): NumberPanelDimensionsBuilder = apply {
+            this.startContentEndPadding = padding
+        }
+
         override fun build(): NumberPanelDimensions = DefaultNumberPanelDimensions(
-            valueStartPadding = valueStartPadding ?: 12.dp.asStatefulValue(),
-            valueEndPadding = valueEndPadding ?: 12.dp.asStatefulValue(),
-            fractionStartPadding = fractionStartPadding ?: 12.dp.asStatefulValue(),
-            fractionEndPadding = fractionEndPadding ?: 12.dp.asStatefulValue(),
+            valueStartPadding = valueStartPadding ?: 0.dp.asStatefulValue(),
+            valueEndPadding = valueEndPadding ?: 0.dp.asStatefulValue(),
+            fractionStartPadding = fractionStartPadding ?: 0.dp.asStatefulValue(),
+            fractionEndPadding = fractionEndPadding ?: 0.dp.asStatefulValue(),
+            startContentEndPadding = startContentEndPadding ?: 0.dp.asStatefulValue(),
         )
     }
 }
@@ -485,6 +549,7 @@ internal class DefaultNumberPanelStyle(
     override val separatorStyle: StatefulValue<TextStyle>,
     override val mode: NumberPanelMode,
     override val icon: Int?,
+    override val groupIcon: Int?,
 ) : NumberPanelStyle {
     @Stable
     class Builder : NumberPanelStyleBuilder {
@@ -492,9 +557,10 @@ internal class DefaultNumberPanelStyle(
         private var separatorStyle: StatefulValue<TextStyle>? = null
         private var fractionStyle: StatefulValue<TextStyle>? = null
         private var colorsBuilder: NumberPanelColorsBuilder = NumberPanelColors.builder()
-        private var dimensionsBuilder: NumberPanelDimensionsBuilder = NumberPanelDimensions.builder()
+        private var dimensionsBuilder: NumberPanelDimensionsBuilder = NumberPanelDimensionsBuilder.builder()
         private var mode: NumberPanelMode? = null
         private var icon: Int? = null
+        private var groupIcon: Int? = null
         private var disableAlpha: Float? = null
 
         @Composable
@@ -532,6 +598,10 @@ internal class DefaultNumberPanelStyle(
             this.icon = icon
         }
 
+        override fun groupIcon(icon: Int) = apply {
+            this.groupIcon = icon
+        }
+
         override fun style(): NumberPanelStyle {
             val style = valueStyle ?: TextStyle.Default.asStatefulValue()
             return DefaultNumberPanelStyle(
@@ -543,6 +613,7 @@ internal class DefaultNumberPanelStyle(
                 mode = mode ?: NumberPanelMode.Temperature,
                 dimensions = dimensionsBuilder.build(),
                 icon = icon,
+                groupIcon = groupIcon,
             )
         }
     }

@@ -1,5 +1,6 @@
 package com.sdds.sandbox.ksp.internal
 
+import com.google.devtools.ksp.getAllSuperTypes
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
 import com.google.devtools.ksp.processing.KSPLogger
@@ -8,7 +9,12 @@ import com.google.devtools.ksp.processing.SymbolProcessor
 import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.google.devtools.ksp.symbol.KSType
 import com.google.devtools.ksp.validate
+
+private const val STORY_ANNOTATION = "com.sdds.sandbox.Story"
+private const val COMPOSE_BASE_STORY = "com.sdds.compose.sandbox.ComposeBaseStory"
+private const val STYLE_ARGUMENT_INDEX = 1
 
 internal class SandboxStoryProcessor(
     private val codeGenerator: CodeGenerator,
@@ -32,13 +38,45 @@ internal class SandboxStoryProcessor(
                 StoryData(
                     storyClass = classDeclaration.asStarProjectedType(),
                     sourceFile = classDeclaration.containingFile,
+                    componentId = classDeclaration.componentId(),
+                    styleQualifiedName = classDeclaration.composeStyleQualifiedName(),
                 )
             }
+            .also { stories -> reportInvalidComponentIds(stories) }
             .let { StoriesRegistryData(it) }
             .generateRegistry()
 
         return annotatedSymbols[false].orEmpty()
     }
+
+    private fun reportInvalidComponentIds(stories: List<StoryData>) {
+        val declarations = stories.map {
+            StoryDeclaration(it.storyClass.declaration.qualifiedName?.asString().orEmpty(), it.componentId)
+        }
+        validateComponentIds(declarations).forEach(logger::error)
+    }
+
+    private fun KSClassDeclaration.componentId(): String =
+        annotations.firstOrNull {
+            it.annotationType.resolve().declaration.qualifiedName?.asString() == STORY_ANNOTATION
+        }
+            ?.arguments
+            ?.firstOrNull { it.name?.asString() == "componentId" }
+            ?.value as? String
+            ?: ""
+
+    /** Класс стиля из `ComposeBaseStory<State, Style>` (2-й аргумент типа); пустая строка, если история не Compose. */
+    private fun KSClassDeclaration.composeStyleQualifiedName(): String =
+        getAllSuperTypes()
+            .firstOrNull { it.declaration.qualifiedName?.asString() == COMPOSE_BASE_STORY }
+            ?.arguments
+            ?.getOrNull(STYLE_ARGUMENT_INDEX)
+            ?.type
+            ?.resolve()
+            ?.qualifiedName()
+            .orEmpty()
+
+    private fun KSType.qualifiedName(): String? = declaration.qualifiedName?.asString()
 
     private fun StoriesRegistryData.generateRegistry() {
         if (stories.isEmpty()) return

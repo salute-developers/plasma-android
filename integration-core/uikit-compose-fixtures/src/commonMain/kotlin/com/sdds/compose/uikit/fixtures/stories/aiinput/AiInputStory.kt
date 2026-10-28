@@ -55,7 +55,7 @@ data class AiInputUiState(
 
 private val FILE_WIDTH = 160.dp
 
-@Story
+@Story(componentId = "AiInput")
 object AiInputStory : ComposeBaseStory<AiInputUiState, AiInputStyle>(
     ComponentKey.AiInput,
     AiInputUiState(),

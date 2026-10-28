@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,13 +20,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.geometry.center
+import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
@@ -42,14 +45,23 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiStateSet
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
 import com.sdds.compose.uikit.graphics.cutout.ProvideCutoutState
 import com.sdds.compose.uikit.graphics.cutout.cutoutTarget
 import com.sdds.compose.uikit.graphics.cutout.rememberCutoutState
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.interactions.setExclusiveEnum
 import com.sdds.compose.uikit.internal.common.background
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.avatar.AvatarMotionStyle
+import com.sdds.compose.uikit.motion.components.avatar.rememberAvatarMotion
 import com.sdds.compose.uikit.motion.components.indicator.rememberIndicatorMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Компонент [Avatar] предназначен для отрисовки пользовательских аватаров.
@@ -65,6 +77,7 @@ import com.sdds.compose.uikit.motion.components.indicator.rememberIndicatorMotio
  * @param contentDescription описание контента для accessibility
  * @param contentScale тип масштабирования
  * @param filterQuality фильтр качества
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -79,6 +92,11 @@ fun Avatar(
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
     filterQuality: FilterQuality = FilterQuality.Low,
+    motion: Motion<AvatarMotionStyle> = rememberAvatarMotion(
+        motionContext = rememberMotionContext(
+            semanticStateSource = rememberAvatarSemanticStateSource(status),
+        ),
+    ),
 ) {
     val bitmapPainter =
         remember(imageBitmap) { BitmapPainter(imageBitmap, filterQuality = filterQuality) }
@@ -92,6 +110,7 @@ fun Avatar(
         placeholder = placeholder,
         contentDescription = contentDescription,
         contentScale = contentScale,
+        motion = motion,
     )
 }
 
@@ -108,6 +127,7 @@ fun Avatar(
  * @param placeholder текст-заглушка
  * @param contentDescription описание контента для accessibility
  * @param contentScale тип масштабирования
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -121,6 +141,11 @@ fun Avatar(
     placeholder: AvatarPlaceholder? = null,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
+    motion: Motion<AvatarMotionStyle> = rememberAvatarMotion(
+        motionContext = rememberMotionContext(
+            semanticStateSource = rememberAvatarSemanticStateSource(status),
+        ),
+    ),
 ) {
     Avatar(
         modifier = modifier,
@@ -132,6 +157,7 @@ fun Avatar(
         placeholder = placeholder,
         contentDescription = contentDescription,
         contentScale = contentScale,
+        motion = motion,
     )
 }
 
@@ -148,6 +174,7 @@ fun Avatar(
  * @param placeholder текст-заглушка
  * @param contentDescription описание контента для accessibility
  * @param contentScale тип масштабирования
+ * @param motion объект анимаций
  */
 @Composable
 fun Avatar(
@@ -160,6 +187,11 @@ fun Avatar(
     placeholder: AvatarPlaceholder? = null,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
+    motion: Motion<AvatarMotionStyle> = rememberAvatarMotion(
+        motionContext = rememberMotionContext(
+            semanticStateSource = rememberAvatarSemanticStateSource(status),
+        ),
+    ),
 ) {
     Avatar(
         modifier = modifier,
@@ -168,16 +200,18 @@ fun Avatar(
         action = action,
         actionEnabled = actionEnabled,
         placeholder = placeholder,
-    ) {
-        if (painter != null) {
-            Image(
-                modifier = Modifier.matchParentSize(),
-                painter = painter,
-                contentDescription = contentDescription,
-                contentScale = contentScale,
-            )
-        }
-    }
+        motion = motion,
+        content = {
+            if (painter != null) {
+                Image(
+                    modifier = Modifier.matchParentSize(),
+                    painter = painter,
+                    contentDescription = contentDescription,
+                    contentScale = contentScale,
+                )
+            }
+        },
+    )
 }
 
 /**
@@ -207,21 +241,73 @@ fun Avatar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: @Composable BoxScope.() -> Unit,
 ) {
+    Avatar(
+        modifier = modifier,
+        style = style,
+        status = status,
+        action = action,
+        actionEnabled = actionEnabled,
+        placeholder = placeholder,
+        extra = extra,
+        motion = rememberAvatarMotion(
+            motionContext = rememberMotionContext(
+                semanticStateSource = rememberAvatarSemanticStateSource(status),
+                interactionSource = interactionSource as? MutableInteractionSource
+                    ?: remember { MutableInteractionSource() },
+            ),
+        ),
+        content = content,
+    )
+}
+
+/**
+ * Компонент [Avatar] предназначен для отрисовки пользовательских аватаров.
+ * Умеет отображать статус, текст-заглушку, а также иконку действия.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param status статус [AvatarStatus]
+ * @param action иконка действия [Painter]
+ * @param actionEnabled включена ли иконка действия
+ * @param placeholder текст-заглушка
+ * @param extra обвесы аватара
+ * @param motion объект анимаций. Взаимодействия берутся из [Motion.context]
+ * @param content контент аватара (изображеине)
+ */
+@Composable
+fun Avatar(
+    motion: Motion<AvatarMotionStyle>,
+    content: @Composable BoxScope.() -> Unit,
+    modifier: Modifier = Modifier,
+    style: AvatarStyle = LocalAvatarStyle.current,
+    status: AvatarStatus = AvatarStatus.None,
+    action: Painter? = null,
+    actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
+    placeholder: AvatarPlaceholder? = null,
+    extra: (@Composable BoxScope.() -> Unit)? = null,
+) {
     val cutoutState = rememberCutoutState()
-    Box(modifier.requiredSize(style.dimensionValues.width, style.dimensionValues.height)) {
+    val context = motion.context
+    val dimensions = style.dimensionValues
+    val width by dimensions.widthValues.getValueAsState(context)
+    val height by dimensions.heightValues.getValueAsState(context)
+    Box(modifier.requiredSize(width, height)) {
         ProvideCutoutState(cutoutState) {
             Box(
                 modifier = Modifier
                     .cutoutTarget(enabled = style.statusCutoutEnabled)
                     .avatar(
-                        interactionSource = interactionSource,
+                        interactionSource = context.interactionSource,
                         style = style,
                         status = status,
                         action = action,
                         actionEnabled = actionEnabled,
                         placeholder = placeholder,
                         statusCutoutEnabled = style.statusCutoutEnabled,
-                        statusCutoutPadding = style.dimensionValues.statusCutoutPadding,
+                        statusCutoutPadding = dimensions.statusCutoutPaddingValues
+                            .getValueAsState(context)
+                            .value,
+                        motion = motion,
                     ),
                 contentAlignment = Alignment.Center,
                 propagateMinConstraints = false,
@@ -298,8 +384,9 @@ fun Modifier.avatar(
  * @param placeholder текст-заглушка
  * @param statusCutoutEnabled включен ли вырез под индикатор статуса
  * @param statusCutoutPadding внутренний отступ выреза индикатора статуса
+ * @param motion объект анимаций. Взаимодействия берутся из [Motion.context]
  */
-@Suppress("ComposableModifierFactory")
+@Suppress("ComposableModifierFactory", "LongParameterList", "DEPRECATION")
 @Composable
 fun Modifier.avatar(
     interactionSource: InteractionSource,
@@ -310,26 +397,32 @@ fun Modifier.avatar(
     placeholder: AvatarPlaceholder? = null,
     statusCutoutEnabled: Boolean = style.statusCutoutEnabled,
     statusCutoutPadding: Dp = 3.dp,
+    motion: Motion<AvatarMotionStyle> = rememberAvatarMotion(
+        motionContext = rememberMotionContext(
+            semanticStateSource = rememberAvatarSemanticStateSource(status),
+            interactionSource = interactionSource as? MutableInteractionSource
+                ?: remember { MutableInteractionSource() },
+        ),
+    ),
 ): Modifier = composed {
+    val context = motion.context
+    val motionInteractionSource = context.interactionSource
     val dimensions = style.dimensionValues
     val colors = style.colors
-    val stateSet = remember(status) { setOf(status) }
+    val stateSet: Set<ValueState> = remember(status) { setOf(status) }
+
+    SideEffect {
+        context.semanticStateSource.setExclusiveEnum(status)
+    }
+
     val statusModifier = if (status.isEnabled && LocalAvatarGroupStatusEnabled.current) {
-        val indicatorMotion = rememberIndicatorMotion()
-        SideEffect {
-            indicatorMotion.context.semanticStateSource.setExclusive(
-                status,
-                AvatarStatus.Inactive,
-                AvatarStatus.Active,
-                AvatarStatus.None,
-            )
-        }
+        val indicatorMotion = rememberIndicatorMotion(motionContext = context)
         Modifier.indicator(
             motion = indicatorMotion,
             alignment = Alignment.BottomEnd,
             style = style.statusStyle ?: LocalIndicatorStyle.current,
-            horizontalPadding = dimensions.statusOffsetX,
-            verticalPadding = dimensions.statusOffsetY,
+            horizontalPadding = dimensions.statusOffsetXValues.getValue(motionInteractionSource, stateSet),
+            verticalPadding = dimensions.statusOffsetYValues.getValue(motionInteractionSource, stateSet),
             stateSet = stateSet,
             cutoutEnabled = statusCutoutEnabled,
             cutoutPadding = statusCutoutPadding,
@@ -339,12 +432,15 @@ fun Modifier.avatar(
     }
 
     val placeholderModifier = if (placeholder != null) {
-        val textBrushes = colors.textBrushes?.getValueAsState(interactionSource, stateSet)
+        val textBrushes = colors.textBrushes?.getBrushAsState(context, motion.style.textColor)
         val textColors = colors.textColors?.takeIf { textBrushes == null }
-            ?.colorForInteractionAsState(interactionSource, stateSet)
+            ?.colorForInteractionAsState(motionInteractionSource, stateSet)
+        val textStyle = style.textStyles
+            .getTextStyleAsState(context, motion.style.textStyle)
+            .value
         Modifier.placeholder(
             text = placeholder.minimize,
-            style = style.textStyle,
+            style = textStyle,
             textMeasurer = rememberTextMeasurer(),
             textBrushProvider = { textBrushes?.value },
             textColorProvider = { textColors?.value },
@@ -355,10 +451,13 @@ fun Modifier.avatar(
 
     val actionModifier =
         if (action != null && actionEnabled && LocalAvatarGroupActionEnabled.current) {
+            val actionBrush = colors.actionBrushes.getBrushAsState(context, motion.style.actionColor)
+            val actionScrimBrush = colors.actionScrimBrushes
+                .getBrushAsState(context, motion.style.actionScrimColor)
             Modifier.action(
                 painter = action,
-                color = { colors.actionColor },
-                scrimColor = { colors.actionScrimColor },
+                color = { actionBrush.value },
+                scrimColor = { actionScrimBrush.value },
                 size = action.intrinsicSize,
             )
         } else {
@@ -366,15 +465,17 @@ fun Modifier.avatar(
         }
 
     val sizeModifier = Modifier
-        .width(dimensions.width)
-        .height(dimensions.height)
+        .width(dimensions.widthValues.getValue(motionInteractionSource, stateSet))
+        .height(dimensions.heightValues.getValue(motionInteractionSource, stateSet))
 
-    val backgroundBrush = style.colors.backgroundBrushes?.getValue(interactionSource, stateSet)
-    val backgroundColors = style.colors.backgroundColors?.takeIf { backgroundBrush == null }
-        ?.colorForInteraction(interactionSource, stateSet)
+    val backgroundBrush = colors.backgroundBrushes
+        ?.getBrushAsState(context, motion.style.backgroundColor)
+        ?.value
+    val backgroundColors = colors.backgroundColors?.takeIf { backgroundBrush == null }
+        ?.colorForInteraction(motionInteractionSource, stateSet)
 
     statusModifier
-        .clip(style.shape)
+        .clip(style.shapes.getValue(motionInteractionSource, stateSet))
         .background(backgroundBrush, backgroundColors)
         .then(this)
         .then(sizeModifier)
@@ -488,24 +589,43 @@ private fun Modifier.placeholder(
 
 private fun Modifier.action(
     painter: Painter,
-    color: () -> Color,
-    scrimColor: () -> Color,
+    color: BrushProducer,
+    scrimColor: BrushProducer,
     size: Size,
 ): Modifier = this
     .drawWithContent {
         drawContent()
-        drawRect(scrimColor())
+        drawRect(brush = scrimColor())
 
         val topLeft = this.size.center - size.center
         translate(topLeft.x, topLeft.y) {
-            with(painter) {
-                draw(
+            drawContext.canvas.saveLayer(
+                Rect(Offset.Zero, size),
+                Paint(),
+            )
+            try {
+                with(painter) {
+                    draw(size = size)
+                }
+                drawRect(
+                    brush = color(),
                     size = size,
-                    colorFilter = ColorFilter.tint(color()),
+                    blendMode = BlendMode.SrcIn,
                 )
+            } finally {
+                drawContext.canvas.restore()
             }
         }
     }
+
+@Composable
+private fun rememberAvatarSemanticStateSource(status: AvatarStatus): MutableSemanticStateSource {
+    return remember {
+        MutableSemanticStateSource().apply {
+            setExclusiveEnum(status)
+        }
+    }
+}
 
 private val AvatarPlaceholder.minimize
     get() = when (this) {

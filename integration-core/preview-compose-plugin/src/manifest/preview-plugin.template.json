@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "sdds.compose.preview",
+  "name": "SDDS Compose Preview",
+  "platform": "compose",
+  "protocolVersion": 1,
+  "entrypoint": "index.html",
+  "commit": "",
+  "version": "",
+  "uikitComposeVersion": "",
+  "apiMetaSha256": "",
+  "payloadBridge": {
+    "direct": "submitPreviewPayload",
+    "describe": "describePreviewComponent",
+    "payloadMessageType": "sdds.preview.payload",
+    "readyMessageType": "sdds.preview.ready",
+    "resultMessageType": "sdds.preview.result",
+    "describeMessageType": "sdds.preview.describe",
+    "descriptionMessageType": "sdds.preview.description"
+  },
+  "components": []
+}

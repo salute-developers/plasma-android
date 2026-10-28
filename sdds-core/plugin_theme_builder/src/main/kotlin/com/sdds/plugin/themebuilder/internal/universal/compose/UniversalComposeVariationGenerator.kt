@@ -224,12 +224,6 @@ internal class UniversalComposeVariationGenerator(
 
 private const val GROUP_ROOT = "root"
 
-internal fun ComposePropertyMeta.overloadPriority(): Int = when {
-    "StatefulValue" in paramQualifiedType -> 2
-    "InteractiveColor" in paramQualifiedType -> 1
-    else -> 0
-}
-
 internal fun List<ComposePropertyMeta>.selectOverload(value: Stateful<*, *>): ComposePropertyMeta {
     val colorOverloads = filterIsInstance<ComposeColorPropertyMeta>()
     if (value is Color && colorOverloads.isNotEmpty()) {
@@ -254,30 +248,6 @@ internal fun List<ComposePropertyMeta>.selectOverload(value: Stateful<*, *>): Co
 private val Color.requiresBrush: Boolean
     get() = this is Gradient ||
         states.orEmpty().any { it.type == "gradient" }
-
-private fun ComposeColorPropertyMeta.colorOverloadPriority(): Int = when {
-    "StatefulValue" in paramQualifiedType -> 3
-    acceptsInteractiveColor -> 2
-    acceptsColor -> 1
-    acceptsBrush -> 0
-    else -> -1
-}
-
-private val ComposeColorPropertyMeta.acceptsBrush: Boolean
-    get() = valueQualifiedType == BRUSH_TYPE ||
-        (valueQualifiedType.isBlank() && "Brush" in paramQualifiedType)
-
-private val ComposeColorPropertyMeta.acceptsInteractiveColor: Boolean
-    get() = valueQualifiedType == INTERACTIVE_COLOR_TYPE ||
-        (valueQualifiedType.isBlank() && "InteractiveColor" in paramQualifiedType)
-
-private val ComposeColorPropertyMeta.acceptsColor: Boolean
-    get() = valueQualifiedType == COLOR_TYPE ||
-        (valueQualifiedType.isBlank() && paramQualifiedType == COLOR_TYPE)
-
-private const val BRUSH_TYPE = "androidx.compose.ui.graphics.Brush"
-private const val COLOR_TYPE = "androidx.compose.ui.graphics.Color"
-private const val INTERACTIVE_COLOR_TYPE = "com.sdds.compose.uikit.interactions.InteractiveColor"
 
 internal class PropGroupTree {
     private val rootCalls = mutableListOf<String>()

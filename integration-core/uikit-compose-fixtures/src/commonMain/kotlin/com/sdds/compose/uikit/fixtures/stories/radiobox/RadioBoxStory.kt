@@ -34,7 +34,7 @@ data class RadioBoxUiState(
     }
 }
 
-@Story
+@Story(componentId = "RadioBox")
 object RadioBoxStory : ComposeBaseStory<RadioBoxUiState, RadioBoxStyle>(
     ComponentKey.RadioBox,
     RadioBoxUiState(),

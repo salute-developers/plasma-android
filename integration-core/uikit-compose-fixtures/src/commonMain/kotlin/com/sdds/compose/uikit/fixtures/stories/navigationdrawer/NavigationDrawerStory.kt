@@ -53,7 +53,7 @@ data class NavigationDrawerUiState(
     }
 }
 
-@Story
+@Story(componentId = "NavigationDrawer")
 object NavigationDrawerStory : ComposeBaseStory<NavigationDrawerUiState, NavigationDrawerStyle>(
     ComponentKey.NavigationDrawer,
     NavigationDrawerUiState(),

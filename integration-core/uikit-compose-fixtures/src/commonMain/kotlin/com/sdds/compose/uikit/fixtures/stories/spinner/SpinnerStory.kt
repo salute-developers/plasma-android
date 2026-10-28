@@ -23,7 +23,7 @@ data class SpinnerUiState(
     }
 }
 
-@Story
+@Story(componentId = "Spinner")
 object SpinnerStory : ComposeBaseStory<SpinnerUiState, SpinnerStyle>(
     ComponentKey.Spinner,
     SpinnerUiState(),

@@ -11,10 +11,12 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.sdds.compose.uikit.Counter
+import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListStyle
+import com.sdds.compose.uikit.StaticList
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
@@ -274,6 +276,61 @@ fun ListForSandbox(style: ListStyle) {
                 disclosureEnabled = true,
                 interactionSource = interactionSource,
             )
+        }
+    }
+}
+
+/**
+ * StaticList с тремя элементами и disclosure
+ */
+@Composable
+fun StaticListAmountThreeHasDisclosure(style: ListStyle) {
+    StaticList(
+        modifier = Modifier.fillMaxWidth(),
+        style = style,
+    ) {
+        items(3) {
+            val interactionSource = remember { MutableInteractionSource() }
+            val isFocused = interactionSource.collectIsFocusedAsState()
+            ListItem(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .focusable(interactionSource = interactionSource)
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
+                    ) { isFocused.value },
+                text = "Title",
+                disclosureEnabled = true,
+                interactionSource = interactionSource,
+            )
+        }
+    }
+}
+
+/**
+ * StaticList с тремя элементами и разделителями
+ */
+@Composable
+fun StaticListWithDividers(style: ListStyle) {
+    StaticList(
+        modifier = Modifier.fillMaxWidth(),
+        style = style,
+    ) {
+        items(3) { index ->
+            val interactionSource = remember { MutableInteractionSource() }
+            val isFocused = interactionSource.collectIsFocusedAsState()
+            ListItem(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .focusable(interactionSource = interactionSource)
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
+                    ) { isFocused.value },
+                text = "Title $index",
+                disclosureEnabled = true,
+                interactionSource = interactionSource,
+            )
+            if (index < 2) Divider()
         }
     }
 }

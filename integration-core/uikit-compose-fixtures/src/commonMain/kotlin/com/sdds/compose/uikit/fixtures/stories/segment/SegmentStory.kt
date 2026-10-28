@@ -65,7 +65,7 @@ enum class SegmentOrientation {
     Vertical,
 }
 
-@Story
+@Story(componentId = "Segment")
 object SegmentStory : ComposeBaseStory<SegmentUiState, SegmentStyle>(
     ComponentKey.Segment,
     SegmentUiState(),

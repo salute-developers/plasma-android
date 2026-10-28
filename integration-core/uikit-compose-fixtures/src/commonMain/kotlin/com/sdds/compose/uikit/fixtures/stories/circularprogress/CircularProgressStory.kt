@@ -30,7 +30,7 @@ data class CircularProgressUiState(
     }
 }
 
-@Story
+@Story(componentId = "CircularProgressBar")
 object CircularProgressStory : ComposeBaseStory<CircularProgressUiState, CircularProgressBarStyle>(
     ComponentKey.CircularProgressBar,
     CircularProgressUiState(),

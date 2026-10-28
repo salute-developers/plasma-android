@@ -14,17 +14,22 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
-import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.cell.BaseCell
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.file.FileMotionStyle
+import com.sdds.compose.uikit.motion.components.file.rememberFileMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Расположение кнопки действия и встроенного прогресса
@@ -70,7 +75,7 @@ enum class FileProgressPlacement {
  * @param action слот для кнопки действия
  * @param actionPlacement расположение кнопки действия [action] и встроенного [progress]
  * @param interactionSource источник взаимодействий
- *
+ * @param motion объект анимаций
  */
 @Composable
 @NonRestartableComposable
@@ -85,10 +90,16 @@ fun File(
     action: (@Composable () -> Unit)? = null,
     actionPlacement: FileActionPlacement = style.actionPlacement,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<FileMotionStyle> = rememberFileMotion(
+        motionContext = rememberMotionContext(
+            interactionSource = interactionSource as? MutableInteractionSource
+                ?: remember { MutableInteractionSource() },
+        ),
+    ),
 ) {
-    val background = style.colors.backgroundColor.getValueAsState(interactionSource)
-    val shape = style.shape.getValue(interactionSource)
-    val paddings = style.dimensions.getPaddingValues(interactionSource)
+    val background = style.colors.backgroundColor.getBrushAsState(motion.context, motion.style.backgroundColor)
+    val shape by style.shape.getValueAsState(motion.context)
+    val paddings = style.dimensions.getPaddingValues(motion)
     Column(
         modifier
             .backgroundBrush(
@@ -104,14 +115,14 @@ fun File(
             dimensions = object : CellDimensions {
                 override val contentPaddingStart: Dp = style.dimensions.startContentPadding
                 override val contentPaddingStartValues: StatefulValue<Dp> =
-                    style.dimensions.startContentPadding.asStatefulValue()
+                    style.dimensions.startContentPaddingValues
                 override val contentPaddingEnd: Dp = style.dimensions.endContentPadding
                 override val contentPaddingEndValues: StatefulValue<Dp> =
-                    style.dimensions.endContentPadding.asStatefulValue()
+                    style.dimensions.endContentPaddingValues
             },
             startContent = startContent(
                 style = style,
-                interactionSource = interactionSource,
+                motion = motion,
                 actionPlacement = actionPlacement,
                 progressPlacement = style.progressPlacement,
                 image = image,
@@ -120,23 +131,30 @@ fun File(
                 isLoading = isLoading,
             ),
             centerContent = {
+                val labelStyle by
+                    style.labelStyles.getTextStyleAsState(motion.context, motion.style.labelStyle)
                 val labelColor =
-                    style.colors.labelColor.colorForInteractionAsState(interactionSource)
+                    style.colors.labelBrush.getBrushAsState(motion.context, motion.style.labelColor)
                 ProvideTextStyle(
-                    value = style.labelStyle,
-                    color = { labelColor.value },
+                    value = labelStyle,
+                    brush = { labelColor.value },
                     content = labelContent,
                 )
 
                 descriptionContent?.let {
+                    val padding by style.dimensions.descriptionPaddingValues.getValueAsState(motion.context)
                     Box(
-                        modifier = Modifier.padding(top = style.dimensions.descriptionPadding),
+                        modifier = Modifier.padding(top = padding),
                     ) {
-                        val descriptionColor =
-                            style.colors.descriptionColor.colorForInteractionAsState(interactionSource)
+                        val descriptionStyle by
+                            style.descriptionStyles.getTextStyleAsState(motion.context, motion.style.descriptionStyle)
+                        val descriptionColor = style.colors.descriptionBrush.getBrushAsState(
+                            motion.context,
+                            motion.style.descriptionColor,
+                        )
                         ProvideTextStyle(
-                            value = style.descriptionStyle,
-                            color = { descriptionColor.value },
+                            value = descriptionStyle,
+                            brush = { descriptionColor.value },
                             content = descriptionContent,
                         )
                     }
@@ -144,7 +162,7 @@ fun File(
             },
             endContent = endContent(
                 style = style,
-                interactionSource = interactionSource,
+                motion = motion,
                 actionPlacement = actionPlacement,
                 progressPlacement = style.progressPlacement,
                 progress = progress,
@@ -152,7 +170,7 @@ fun File(
                 isLoading = isLoading,
             ),
         )
-        BottomContent(style, isLoading, progress)
+        BottomContent(style, isLoading, motion, progress)
     }
 }
 
@@ -169,7 +187,7 @@ fun File(
  * @param action слот для кнопки действия
  * @param actionPlacement расположение кнопки действия [action] и встроенного [progress]
  * @param interactionSource источник взаимодействий
- *
+ * @param motion объект анимаций
  */
 @Composable
 fun File(
@@ -183,6 +201,12 @@ fun File(
     action: (@Composable () -> Unit)? = null,
     actionPlacement: FileActionPlacement = style.actionPlacement,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    motion: Motion<FileMotionStyle> = rememberFileMotion(
+        motionContext = rememberMotionContext(
+            interactionSource = interactionSource as? MutableInteractionSource
+                ?: remember { MutableInteractionSource() },
+        ),
+    ),
 ) {
     File(
         modifier = modifier,
@@ -211,33 +235,36 @@ fun File(
         action = action,
         actionPlacement = actionPlacement,
         interactionSource = interactionSource,
+        motion = motion,
     )
 }
 
 @Composable
 private fun FileDimensions.getPaddingValues(
-    interactionSource: InteractionSource,
+    motion: Motion<FileMotionStyle>,
 ): PaddingValues = PaddingValues(
-    start = paddingStart.getValue(interactionSource),
-    top = paddingTop.getValue(interactionSource),
-    end = paddingEnd.getValue(interactionSource),
-    bottom = paddingBottom.getValue(interactionSource),
+    start = paddingStart.getValueAsState(motion.context).value,
+    top = paddingTop.getValueAsState(motion.context).value,
+    end = paddingEnd.getValueAsState(motion.context).value,
+    bottom = paddingBottom.getValueAsState(motion.context).value,
 )
 
 @Composable
 private fun ColumnScope.BottomContent(
     style: FileStyle,
     isLoading: Boolean,
+    motion: Motion<FileMotionStyle>,
     progress: @Composable (() -> Unit)?,
 ) {
     if (style.progressPlacement == FileProgressPlacement.Outer && isLoading) {
         CompositionLocalProvider(
             LocalProgressBarStyle provides style.progressBarStyle,
         ) {
+            val padding by style.dimensions.bottomContentPaddingValues.getValueAsState(motion.context)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = style.dimensions.bottomContentPadding),
+                    .padding(top = padding),
                 propagateMinConstraints = true,
             ) {
                 progress?.invoke()
@@ -248,7 +275,7 @@ private fun ColumnScope.BottomContent(
 
 private fun startContent(
     style: FileStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<FileMotionStyle>,
     actionPlacement: FileActionPlacement,
     progressPlacement: FileProgressPlacement,
     image: @Composable (() -> Unit)?,
@@ -258,9 +285,12 @@ private fun startContent(
 ): (@Composable RowScope.() -> Unit)? {
     val imageOrNull: (@Composable RowScope.() -> Unit)? = image?.let {
         {
-            val color = style.colors.iconColor.colorForInteraction(interactionSource)
+            val color = style.colors.iconBrush.getBrushAsState(
+                motion.context,
+                motion.style.iconColor,
+            )
             CompositionLocalProvider(
-                LocalTintBrushProducer provides { SolidColor(color) },
+                LocalTintBrushProducer provides { color.value },
             ) {
                 image.invoke()
             }
@@ -274,9 +304,9 @@ private fun startContent(
                     if (progress == null && action == null) return null
 
                     if (isLoading) {
-                        inlineProgress(progress, style, interactionSource)
+                        inlineProgress(progress, style, motion)
                     } else {
-                        action(action, style, interactionSource)
+                        action(action, style, motion)
                     }
                 }
 
@@ -288,7 +318,7 @@ private fun startContent(
             when (actionPlacement) {
                 FileActionPlacement.Start -> {
                     if (action == null) return null
-                    action(action, style, interactionSource)
+                    action(action, style, motion)
                 }
 
                 FileActionPlacement.End -> imageOrNull
@@ -299,7 +329,7 @@ private fun startContent(
 
 private fun endContent(
     style: FileStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<FileMotionStyle>,
     actionPlacement: FileActionPlacement,
     progressPlacement: FileProgressPlacement,
     progress: @Composable (() -> Unit)?,
@@ -313,9 +343,9 @@ private fun endContent(
                     if (progress == null && action == null) return null
 
                     if (isLoading) {
-                        inlineProgress(progress, style, interactionSource)
+                        inlineProgress(progress, style, motion)
                     } else {
-                        action(action, style, interactionSource)
+                        action(action, style, motion)
                     }
                 }
 
@@ -328,7 +358,7 @@ private fun endContent(
                 FileActionPlacement.End -> {
                     if (action == null) return null
 
-                    action(action, style, interactionSource)
+                    action(action, style, motion)
                 }
 
                 FileActionPlacement.Start -> null
@@ -340,13 +370,16 @@ private fun endContent(
 private fun inlineProgress(
     progress: @Composable (() -> Unit)?,
     style: FileStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<FileMotionStyle>,
 ): @Composable (RowScope.() -> Unit)? {
     progress ?: return null
     return {
-        val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
+        val iconColor = style.colors.iconBrush.getBrushAsState(
+            motion.context,
+            motion.style.iconColor,
+        )
         CompositionLocalProvider(
-            LocalTintBrushProducer provides { SolidColor(iconColor) },
+            LocalTintBrushProducer provides { iconColor.value },
             LocalCircularProgressBarStyle provides style.circularProgressBarStyle,
         ) {
             progress.invoke()
@@ -357,13 +390,16 @@ private fun inlineProgress(
 private fun action(
     action: @Composable (() -> Unit)?,
     style: FileStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<FileMotionStyle>,
 ): @Composable (RowScope.() -> Unit)? {
     action ?: return null
     return {
-        val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
+        val iconColor = style.colors.iconBrush.getBrushAsState(
+            motion.context,
+            motion.style.iconColor,
+        )
         CompositionLocalProvider(
-            LocalTintBrushProducer provides { SolidColor(iconColor) },
+            LocalTintBrushProducer provides { iconColor.value },
             LocalIconButtonStyle provides style.actionButtonStyle,
         ) {
             action.invoke()

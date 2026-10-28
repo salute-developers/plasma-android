@@ -140,7 +140,7 @@ enum class AvatarExtraPlacement(val alignment: Alignment) {
     BottomStart(Alignment.BottomStart),
 }
 
-@Story
+@Story(componentId = "Avatar")
 object AvatarStory : ComposeBaseStory<AvatarUiState, AvatarStyle>(
     ComponentKey.Avatar,
     AvatarUiState(),

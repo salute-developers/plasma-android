@@ -8,3 +8,6 @@
 :integration-core:uikit-compose-testcases
 :integration-core:uikit-fixtures
 :integration-core:uikit-testcases
+:integration-core:preview-contract
+:integration-core:preview-sdk-compose
+:integration-core:preview-compose-plugin

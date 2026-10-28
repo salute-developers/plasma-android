@@ -27,12 +27,13 @@ import com.sdds.plasma.homeds.motion.numberpanel.rememberNumberPanelMotion
 import kotlin.math.abs
 
 /**
- * Компонент для отображения числовых значений, в частности тепературы или влажности.
+ * Компонент для отображения числовых значений, в частности температуры или влажности.
  *
  * @param value числовое значение
  * @param modifier модификатор
  * @param style стиль компонента
- * @param icon иконка
+ * @param icon контент после числового значения (например иконка)
+ * @param enabled возможность взаимодействия с компонентом
  * @param mode режим отображения числа
  * @see NumberPanelMode
  * @param motion объект анимаций
@@ -47,13 +48,52 @@ fun NumberPanel(
     mode: NumberPanelMode = style.mode,
     motion: Motion<NumberPanelMotionStyle> = rememberNumberPanelMotion(),
 ) {
+    NumberPanelExtended(
+        value = value,
+        modifier = modifier,
+        style = style,
+        contentAfter = icon,
+        enabled = enabled,
+        mode = mode,
+        motion = motion,
+    )
+}
+
+/**
+ * Компонент для отображения числовых значений, в частности температуры или влажности.
+ * отличается возможностью передачи дополнительного контента (иконки), отображающегося перед
+ * числовым значением.
+ *
+ * @param value числовое значение
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param contentBefore контент перед числовым значением (например иконка)
+ * @param contentAfter контент после числового значения (например иконка)
+ * @param enabled возможность взаимодействия с компонентом
+ * @param mode режим отображения числа
+ * @see NumberPanelMode
+ * @param motion объект анимаций
+ */
+@Composable
+fun NumberPanelExtended(
+    value: Float,
+    modifier: Modifier = Modifier,
+    style: NumberPanelStyle = LocalNumberPanelStyle.current,
+    contentBefore: (@Composable () -> Unit)? = null,
+    contentAfter: (@Composable () -> Unit)? = null,
+    enabled: Boolean = true,
+    mode: NumberPanelMode = style.mode,
+    motion: Motion<NumberPanelMotionStyle> = rememberNumberPanelMotion(),
+) {
     val parsed = remember(value) { value.parseValue() }
+
     Row(
         modifier = modifier
             .alpha(if (enabled) 1f else style.disableAlpha)
             .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.Bottom,
     ) {
+        ContentBefore(style, motion, contentBefore)
         val valueStyle by style.valueStyle.getTextStyleAsState(motion.context, motion.style.valueStyle)
         val valueColor = style.colors.valueBrush.getBrushAsState(motion.context, motion.style.valueColor)
         parsed.sign?.let {
@@ -89,42 +129,74 @@ fun NumberPanel(
                 brush = { fracColor.value },
             )
         }
-        PanelIcon(style = style, mode = mode, motion = motion, icon = icon)
+        ContentAfter(style, mode, motion, contentAfter)
     }
 }
 
 @Composable
-private fun PanelIcon(
+private fun ContentBefore(
+    style: NumberPanelStyle,
+    motion: Motion<NumberPanelMotionStyle>,
+    content: (@Composable () -> Unit)?,
+) {
+    val groupIcon = if (content == null) style.groupIcon else null
+    if (content != null || style.groupIcon != null) {
+        val padding by style.dimensions.startContentEndPadding.getValueAsState(motion.context)
+        val brush = style.colors.groupIconBrush.getBrushAsState(motion.context, motion.style.groupIconColor)
+        Box(
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(end = padding),
+            contentAlignment = Alignment.Center,
+        ) {
+            groupIcon?.let {
+                Icon(
+                    source = resourceImageSource(it),
+                    brush = { brush.value },
+                    contentDescription = null,
+                )
+            }
+            if (content != null) {
+                CompositionLocalProvider(LocalTintBrushProducer provides { brush.value }) {
+                    content.invoke()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ContentAfter(
     style: NumberPanelStyle,
     mode: NumberPanelMode,
     motion: Motion<NumberPanelMotionStyle>,
-    icon: (@Composable () -> Unit)?,
+    content: (@Composable () -> Unit)?,
 ) {
-    val iconPadding by style.dimensions.fractionEndPadding.getValueAsState(motion.context)
-    Box(
-        modifier = Modifier
-            .fillMaxHeight()
-            .padding(start = iconPadding),
-        contentAlignment = if (mode == NumberPanelMode.Temperature) {
-            Alignment.TopCenter
-        } else {
-            Alignment.BottomCenter
-        },
-    ) {
-        val currentIconColor = style.colors.iconBrush.getBrushAsState(
-            motion.context,
-            motion.style.iconColor,
-        )
-        style.icon?.let {
-            Icon(
-                source = resourceImageSource(it),
-                brush = { currentIconColor.value },
-                contentDescription = null,
-            )
-        }
-        if (style.icon == null) {
-            CompositionLocalProvider(LocalTintBrushProducer provides { currentIconColor.value }) {
-                icon?.invoke()
+    val icon = if (content == null) style.icon else null
+    if (content != null || style.icon != null) {
+        val padding by style.dimensions.fractionEndPadding.getValueAsState(motion.context)
+        val brush = style.colors.iconBrush.getBrushAsState(motion.context, motion.style.iconColor)
+        Box(
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(start = padding),
+            contentAlignment = if (mode == NumberPanelMode.Temperature) {
+                Alignment.TopCenter
+            } else {
+                Alignment.BottomCenter
+            },
+        ) {
+            icon?.let {
+                Icon(
+                    source = resourceImageSource(it),
+                    brush = { brush.value },
+                    contentDescription = null,
+                )
+            }
+            if (content != null) {
+                CompositionLocalProvider(LocalTintBrushProducer provides { brush.value }) {
+                    content.invoke()
+                }
             }
         }
     }

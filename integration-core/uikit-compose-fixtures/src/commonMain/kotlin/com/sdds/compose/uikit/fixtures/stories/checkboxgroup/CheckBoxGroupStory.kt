@@ -36,7 +36,7 @@ data class CheckBoxGroupUiState(
     }
 }
 
-@Story
+@Story(componentId = "CheckBoxGroup")
 object CheckBoxGroupStory : ComposeBaseStory<CheckBoxGroupUiState, CheckBoxGroupStyle>(
     ComponentKey.CheckBoxGroup,
     CheckBoxGroupUiState(),

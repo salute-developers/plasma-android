@@ -29,7 +29,7 @@ data class SplitterUiState(
     }
 }
 
-@Story
+@Story(componentId = "Splitter")
 object SplitterStory : ComposeBaseStory<SplitterUiState, SplitterStyle>(
     ComponentKey.Splitter,
     SplitterUiState(),

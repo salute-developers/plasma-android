@@ -43,7 +43,7 @@ public val AvatarGroup.S: WrapperAvatarGroupS
     get() = AvatarGroupStyle.builder(this)
         .invariantProps
         .avatarStyle(Avatar.S.style())
-        .dimensions {
+        .dimensionValues {
             itemOffset(16.0.dp)
             itemSpacing(2.0.dp)
         }

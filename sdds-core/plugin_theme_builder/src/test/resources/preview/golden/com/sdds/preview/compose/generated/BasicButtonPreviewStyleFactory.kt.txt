@@ -1,0 +1,93 @@
+@file:Suppress(
+  "DEPRECATION",
+  "UNCHECKED_CAST",
+  "UNUSED_VARIABLE",
+)
+
+package com.sdds.preview.compose.generated
+
+import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.basicButtonBuilder
+import com.sdds.preview.compose.GeneratedStyleFactory
+import com.sdds.preview.compose.PreparedComposeTheme
+import com.sdds.preview.compose.PreviewStateMap
+import com.sdds.preview.compose.PreviewStyleContext
+import com.sdds.preview.compose.brushValue
+import com.sdds.preview.compose.colorValue
+import com.sdds.preview.compose.dpValue
+import com.sdds.preview.compose.floatValue
+import com.sdds.preview.compose.hasGradient
+import com.sdds.preview.compose.shapeValue
+import com.sdds.preview.compose.styleContext
+import com.sdds.preview.compose.toInteractiveColor
+import com.sdds.preview.compose.toStateful
+import com.sdds.preview.compose.typographyValue
+import com.sdds.preview.contract.PreviewPayload
+import com.sdds.preview.contract.PreviewPropertyValue
+import kotlin.String
+import kotlin.Suppress
+import kotlin.collections.Map
+import kotlin.collections.Set
+
+internal object BasicButtonPreviewStyleFactory : GeneratedStyleFactory<ButtonStyle> {
+  public override val componentName: String = "BasicButton"
+
+  public override val styleQualifiedName: String = "com.sdds.compose.uikit.ButtonStyle"
+
+  public override val states: PreviewStateMap = PreviewStateMap()
+
+  public override val unsupportedProperties: Set<String> = setOf()
+
+  public override val gradientUnsupportedProperties: Set<String> = setOf("spinnerColor")
+
+  public override val iconProperties: Set<String> = setOf()
+
+  public override val nestedStyleTypes: Map<String, String> = mapOf()
+
+  public override val registry: Map<String, GeneratedStyleFactory<*>>
+    get() = GeneratedPreviewStyleFactories.all
+
+  @Composable
+  public override fun build(
+    properties: Map<String, PreviewPropertyValue>,
+    theme: PreparedComposeTheme,
+    context: PreviewStyleContext,
+  ): ButtonStyle {
+    val builder = ButtonStyle.basicButtonBuilder()
+    properties["shape"]?.shapeValue(theme)?.let { builder.shape(it.toStateful<CornerBasedShape>(states)) }
+    properties["labelStyle"]?.typographyValue(theme)?.let { builder.labelStyle(it.toStateful<TextStyle>(states)) }
+    properties["valueStyle"]?.typographyValue(theme)?.let { builder.valueStyle(it.toStateful<TextStyle>(states)) }
+    properties["disableAlpha"]?.floatValue()?.let { builder.disableAlpha(it) }
+    properties["loadingAlpha"]?.floatValue()?.let { builder.loadingAlpha(it) }
+    builder.colors {
+      properties["contentColor"]?.let { v -> v.brushValue(theme)?.let { contentColor(it.toStateful<Brush>(states)) } }
+      properties["backgroundColor"]?.let { v -> v.brushValue(theme)?.let { backgroundColor(it.toStateful<Brush>(states)) } }
+      properties["labelColor"]?.let { v -> v.brushValue(theme)?.let { labelColor(it.toStateful<Brush>(states)) } }
+      properties["valueColor"]?.let { v -> v.brushValue(theme)?.let { valueColor(it.toStateful<Brush>(states)) } }
+      properties["iconColor"]?.let { v -> v.brushValue(theme)?.let { iconColor(it.toStateful<Brush>(states)) } }
+      properties["spinnerColor"]?.let { v -> if (!v.hasGradient(theme)) { v.colorValue(theme)?.let { spinnerColor(it.toInteractiveColor(states)) } } }
+    }
+    builder.dimensions {
+      properties["height"]?.dpValue(theme)?.let { height(it.toStateful<Dp>(states)) }
+      properties["paddingStart"]?.dpValue(theme)?.let { paddingStart(it.toStateful<Dp>(states)) }
+      properties["paddingEnd"]?.dpValue(theme)?.let { paddingEnd(it.toStateful<Dp>(states)) }
+      properties["minWidth"]?.dpValue(theme)?.let { minWidth(it.toStateful<Dp>(states)) }
+      properties["iconSize"]?.dpValue(theme)?.let { iconSize(it.toStateful<Dp>(states)) }
+      properties["spinnerSize"]?.dpValue(theme)?.let { spinnerSize(it.toStateful<Dp>(states)) }
+      properties["spinnerStrokeWidth"]?.dpValue(theme)?.let { spinnerStrokeWidth(it.toStateful<Dp>(states)) }
+      properties["iconMargin"]?.dpValue(theme)?.let { iconMargin(it.toStateful<Dp>(states)) }
+      properties["valueMargin"]?.dpValue(theme)?.let { valueMargin(it.toStateful<Dp>(states)) }
+    }
+    return builder.style()
+  }
+
+  @Composable
+  public override fun create(payload: PreviewPayload, theme: PreparedComposeTheme): ButtonStyle =
+      build(payload.component.properties, theme,
+      payload.styleContext(GeneratedPreviewStyleFactories.all))
+}

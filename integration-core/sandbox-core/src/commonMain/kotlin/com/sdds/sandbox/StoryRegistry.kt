@@ -19,6 +19,12 @@ package com.sdds.sandbox
 object StoryRegistry {
 
     /**
+     * Записи историй, пригодных для Compose preview, по идентификатору компонента.
+     * Заполняется сгенерированным кодом для историй с непустым [Story.componentId].
+     */
+    private val previewEntries: MutableMap<String, StoryEntry> = mutableMapOf()
+
+    /**
      * Внутреннее хранилище зарегистрированных историй.
      *
      * Ключом является [ComponentKey] компонента, значением - соответствующая история [BaseStory].
@@ -57,6 +63,34 @@ object StoryRegistry {
     }
 
     /**
+     * Возвращает все зарегистрированные истории, упорядоченные по [ComponentKey.value].
+     *
+     * Нужно инструментам, которые сверяют набор историй с внешними данными (например, с api-метой).
+     */
+    fun registeredStories(): List<BaseStory<*>> = stories.values.sortedBy { it.component.value }
+
+    /**
+     * Регистрирует историю для Compose preview под идентификатором [componentId].
+     *
+     * Повторная регистрация с тем же идентификатором перезаписывает запись, как и [register].
+     * Уникальность идентификаторов проверяется при сборке процессором `sandbox-ksp`.
+     *
+     * @param componentId идентификатор компонента preview (имя компонента в api-мете)
+     * @param story история компонента
+     * @param styleQualifiedName полное имя класса стиля, который история передаёт в `ComposeBaseStory`
+     */
+    fun registerPreviewEntry(componentId: String, story: BaseStory<*>, styleQualifiedName: String) {
+        previewEntries[componentId] = StoryEntry(componentId, story, styleQualifiedName)
+    }
+
+    /**
+     * Возвращает записи историй для Compose preview, упорядоченные по [StoryEntry.componentId].
+     *
+     * Порядок детерминирован и не зависит от порядка регистрации.
+     */
+    fun previewEntries(): List<StoryEntry> = previewEntries.values.sortedBy { it.componentId }
+
+    /**
      * Очищает реестр, удаляя все зарегистрированные истории.
      *
      * Полезно для тестирования или при необходимости перезагрузки
@@ -64,6 +98,7 @@ object StoryRegistry {
      */
     fun clear() {
         stories.clear()
+        previewEntries.clear()
     }
 }
 
