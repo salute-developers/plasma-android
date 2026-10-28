@@ -13,7 +13,6 @@ import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TooltipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -51,7 +50,7 @@ private val TooltipStyleBuilder.invariantProps: TooltipStyleBuilder
         .colors {
             backgroundColor(SolidColor(StarDsTheme.colors.surfaceOnDarkSolidSecondary).asStatefulValue())
             textColor(SolidColor(StarDsTheme.colors.textOnDarkPrimary).asStatefulValue())
-            contentStartColor(StarDsTheme.colors.textOnDarkSecondary.asInteractive())
+            contentStartColor(SolidColor(StarDsTheme.colors.textOnDarkSecondary).asStatefulValue())
         }
         .dimensions {
             contentStartSize(dimensionResource(R.dimen.sdkit_cmp_tooltip_content_start_size))
