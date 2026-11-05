@@ -1650,74 +1650,74 @@ private class DefaultTextFieldColors(
             val divColorRead = dividerColorReadOnly ?: divColor
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
-                cursorColor = curColorRead,
+                cursorColor = curColor,
                 cursorColorReadOnly = curColorRead,
-                cursorBrush = cursorBrush ?: curColor.asStatefulBrush().addStates(
+                cursorBrush = (cursorBrush ?: curColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to curColorRead,
                 ),
                 startContentColor = startColor,
                 startContentColorReadOnly = startColorRead,
-                startContentBrush = startContentBrush ?: startColor.asStatefulBrush().addStates(
+                startContentBrush = (startContentBrush ?: startColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to startColorRead,
                 ),
                 endContentColor = endColor,
                 endContentColorReadOnly = endColorRead,
-                endContentBrush = endContentBrush ?: endColor.asStatefulBrush().addStates(
+                endContentBrush = (endContentBrush ?: endColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to endColorRead,
                 ),
                 labelColor = labColor,
                 labelColorReadOnly = labColorRead,
-                labelBrush = labelBrush ?: labColor.asStatefulBrush().addStates(
+                labelBrush = (labelBrush ?: labColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to labColorRead,
                 ),
                 valueColor = valColor,
                 valueColorReadOnly = valColorRead,
-                valueBrush = valueBrush ?: valColor.asStatefulBrush().addStates(
+                valueBrush = (valueBrush ?: valColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to valColorRead,
                 ),
                 captionColor = capColor,
                 captionColorReadOnly = capColorRead,
-                captionBrush = captionBrush ?: capColor.asStatefulBrush().addStates(
+                captionBrush = (captionBrush ?: capColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to capColorRead,
                 ),
                 optionalColor = optColor,
                 optionalColorReadOnly = optColorRead,
-                optionalBrush = optionalBrush ?: optColor.asStatefulBrush().addStates(
+                optionalBrush = (optionalBrush ?: optColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to optColorRead,
                 ),
                 counterColor = countColor,
                 counterColorReadOnly = countColorRead,
-                counterBrush = counterBrush ?: countColor.asStatefulBrush().addStates(
+                counterBrush = (counterBrush ?: countColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to countColorRead,
                 ),
                 backgroundColor = backColor,
                 backgroundColorReadOnly = backColorRead,
-                backgroundBrush = backgroundBrush ?: backColor.asStatefulBrush().addStates(
+                backgroundBrush = (backgroundBrush ?: backColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to backColorRead,
                 ),
                 placeholderColor = placeColor,
                 placeholderColorReadOnly = placeColorRead,
-                placeholderBrush = placeholderBrush ?: placeColor.asStatefulBrush().addStates(
+                placeholderBrush = (placeholderBrush ?: placeColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to placeColorRead,
                 ),
                 indicatorColor = indColor,
                 indicatorColorReadOnly = indColorRead,
-                indicatorBrush = indicatorBrush ?: indColor.asStatefulBrush().addStates(
+                indicatorBrush = (indicatorBrush ?: indColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to indColorRead,
                 ),
                 prefixColor = prefColor,
                 prefixColorReadOnly = prefColorRead,
-                prefixBrush = prefixBrush ?: prefColor.asStatefulBrush().addStates(
+                prefixBrush = (prefixBrush ?: prefColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to prefColorRead,
                 ),
                 suffixColor = sufColor,
                 suffixColorReadOnly = sufColorRead,
-                suffixBrush = suffixBrush ?: sufColor.asStatefulBrush().addStates(
+                suffixBrush = (suffixBrush ?: sufColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to sufColorRead,
                 ),
                 dividerColor = divColor,
                 dividerColorReadOnly = divColorRead,
-                dividerBrush = dividerBrush ?: divColor.asStatefulBrush().addStates(
+                dividerBrush = (dividerBrush ?: divColor.asStatefulBrush()).addStates(
                     setOf(TextFieldSemanticState.Readonly) to divColorRead,
                 ),
                 strokeColor = strokeColor ?: Color.Transparent.asStatefulBrush(),
