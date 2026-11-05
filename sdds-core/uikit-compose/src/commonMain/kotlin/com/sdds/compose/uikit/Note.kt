@@ -71,10 +71,22 @@ fun Note(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     action: (@Composable BoxScope.() -> Unit)? = null,
 ) {
+    val fallbackSource = remember { MutableInteractionSource() }
+    val motion = rememberNoteMotion(
+        motionContext = rememberMotionContext(
+            interactionSource = (interactionSource as? MutableInteractionSource)
+                ?: fallbackSource,
+        ),
+    )
     Note(
+        motion = motion,
         modifier = modifier,
         style = style,
-        titleContent = { Text(title) },
+        titleContent = if (title.isNotBlank()) {
+            { Text(title) }
+        } else {
+            {}
+        },
         textContent = if (text.isNotBlank()) {
             { Text(text) }
         } else {
@@ -83,7 +95,6 @@ fun Note(
         closeIcon = (closeIconSource ?: style.closeIconSource)
             ?.let { source -> { CloseIcon(style, source, onClose) } },
         contentBefore = contentBefore,
-        interactionSource = interactionSource,
         action = action,
     )
 }
@@ -115,10 +126,22 @@ fun Note(
     action: (@Composable BoxScope.() -> Unit)? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
+    val fallbackSource = remember { MutableInteractionSource() }
+    val motion = rememberNoteMotion(
+        motionContext = rememberMotionContext(
+            interactionSource = (interactionSource as? MutableInteractionSource)
+                ?: fallbackSource,
+        ),
+    )
     Note(
+        motion = motion,
         modifier = modifier,
         style = style,
-        titleContent = { Text(title) },
+        titleContent = if (title.isNotBlank()) {
+            { Text(title) }
+        } else {
+            {}
+        },
         textContent = if (text.isNotBlank()) {
             { Text(text) }
         } else {
@@ -128,7 +151,6 @@ fun Note(
             ?.let { source -> { CloseIcon(style, source, onClose) } },
         contentBefore = contentBefore,
         contentAfter = contentAfter,
-        interactionSource = interactionSource,
         action = action,
     )
 }
@@ -221,8 +243,10 @@ fun Note(
     val bottom by style.dimensions.paddingBottomValues.getValueAsState(motion.context)
     val extraBottomPadding = (top - bottom).coerceAtLeast(0.dp)
     val spacerHeight = with(LocalDensity.current) { extraBottomPadding.roundToPx() }
-    val measurePolicy = remember(contentBeforeArrangement, spacerHeight) {
-        NoteMeasurePolicy(contentBeforeArrangement, spacerHeight)
+    val textTop by style.dimensions.textTopMarginValues.getValueAsState(motion.context)
+    val textTopHeight = with(LocalDensity.current) { textTop.roundToPx() }
+    val measurePolicy = remember(contentBeforeArrangement, spacerHeight, textTopHeight) {
+        NoteMeasurePolicy(contentBeforeArrangement, spacerHeight, textTopHeight)
     }
     Box(
         modifier = modifier
@@ -357,6 +381,7 @@ private fun BoxScope.CloseIcon(
 private class NoteMeasurePolicy(
     private val arrangement: ContentBeforeVerticalArrangement,
     private val spacerHeight: Int,
+    private val textTopHeight: Int,
 ) : MeasurePolicy {
     override fun MeasureScope.measure(
         measurables: List<Measurable>,
@@ -369,18 +394,18 @@ private class NoteMeasurePolicy(
         val contentBefore = measurable(CONTENT_BEFORE)?.measure(remaining)
         remaining = remaining.offset(horizontal = -contentBefore.widthOrZero())
         val contentAfter = measurable(CONTENT_AFTER)?.measure(remaining)
-        var textConstraints = remaining.offset(horizontal = -contentAfter.widthOrZero())
+        val textConstraints = remaining.offset(horizontal = -contentAfter.widthOrZero())
 
         val title = measurable(TITLE)?.measure(textConstraints)
         val titleHeight = title.heightOrZero()
-        textConstraints = textConstraints.offset(vertical = -titleHeight)
-        val text = measurable(TEXT)?.measure(textConstraints)
+        val text = measurable(TEXT)?.measure(textConstraints.offset(vertical = -titleHeight))
+        // textTop — отступ между заголовком и текстом, применяется только когда есть оба слота
+        val textTop = if (titleHeight > 0 && text != null) textTopHeight else 0
         val textHeight = text.heightOrZero()
         // Экшн идёт отдельной строкой под текстовым блоком, поэтому contentAfter его ширину не уменьшает
-        remaining = remaining.offset(vertical = -(titleHeight + textHeight))
+        remaining = remaining.offset(vertical = -(titleHeight + textTop + textHeight))
         val action = measurable(ACTION)?.measure(remaining)
-        // Высота текста уже включает textTopMargin, так как паддинг задан внутри самого слота
-        val textBlockHeight = titleHeight + textHeight
+        val textBlockHeight = titleHeight + textTop + textHeight
         val anchorHeight = if (titleHeight > 0) titleHeight else textHeight
 
         // Смещения слотов инлайн-строки относительно верха текстового блока.
@@ -424,7 +449,10 @@ private class NoteMeasurePolicy(
         return layout(finalWidth, finalHeight) {
             contentBefore?.placeRelative(x = 0, y = topInset + contentBeforeOffset)
             title?.placeRelative(x = contentBefore.widthOrZero(), y = topInset)
-            text?.placeRelative(x = contentBefore.widthOrZero(), y = topInset + titleHeight)
+            text?.placeRelative(
+                x = contentBefore.widthOrZero(),
+                y = topInset + titleHeight + textTop,
+            )
             contentAfter?.placeRelative(
                 x = finalWidth - contentAfter.widthOrZero(),
                 y = topInset + contentAfterOffset,
@@ -493,11 +521,7 @@ private fun ContentText(
     motion: Motion<NoteMotionStyle>,
     textContent: @Composable () -> Unit,
 ) {
-    val textTop by style.dimensions.textTopMarginValues.getValueAsState(motion.context)
-    Box(
-        modifier = modifier
-            .padding(top = textTop),
-    ) {
+    Box(modifier = modifier) {
         ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
             val textColor =
                 style.colors.textBrush.getBrushAsState(motion.context, motion.style.textColor)
