@@ -730,7 +730,8 @@
                   "positive",
                   "warning",
                   "dark",
-                  "light"
+                  "light",
+                  "info"
                ],
                "defaultValue": "default"
             }
@@ -835,6 +836,10 @@
                      {
                         "value": "light",
                         "codeName": "Light"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
                      }
                   ]
                }
@@ -936,6 +941,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "BadgeClear.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -1066,6 +1085,24 @@
                ]
             },
             {
+               "name": "l.pilled.info",
+               "composeReference": "BadgeClear.L.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "m.default",
                "composeReference": "BadgeClear.M.Default",
                "props": [
@@ -1160,6 +1197,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "BadgeClear.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -1290,6 +1341,24 @@
                ]
             },
             {
+               "name": "m.pilled.info",
+               "composeReference": "BadgeClear.M.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "s.default",
                "composeReference": "BadgeClear.S.Default",
                "props": [
@@ -1384,6 +1453,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "BadgeClear.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -1514,6 +1597,24 @@
                ]
             },
             {
+               "name": "s.pilled.info",
+               "composeReference": "BadgeClear.S.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "xs.default",
                "composeReference": "BadgeClear.Xs.Default",
                "props": [
@@ -1608,6 +1709,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "BadgeClear.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -1736,6 +1851,24 @@
                      "value": "light"
                   }
                ]
+            },
+            {
+               "name": "xs.pilled.info",
+               "composeReference": "BadgeClear.Xs.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
             }
          ]
       },
@@ -1771,7 +1904,8 @@
                   "positive",
                   "warning",
                   "dark",
-                  "light"
+                  "light",
+                  "info"
                ],
                "defaultValue": "default"
             }
@@ -1876,6 +2010,10 @@
                      {
                         "value": "light",
                         "codeName": "Light"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
                      }
                   ]
                }
@@ -1977,6 +2115,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "BadgeSolid.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -2107,6 +2259,24 @@
                ]
             },
             {
+               "name": "l.pilled.info",
+               "composeReference": "BadgeSolid.L.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "m.default",
                "composeReference": "BadgeSolid.M.Default",
                "props": [
@@ -2201,6 +2371,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "BadgeSolid.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -2331,6 +2515,24 @@
                ]
             },
             {
+               "name": "m.pilled.info",
+               "composeReference": "BadgeSolid.M.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "s.default",
                "composeReference": "BadgeSolid.S.Default",
                "props": [
@@ -2425,6 +2627,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "BadgeSolid.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -2555,6 +2771,24 @@
                ]
             },
             {
+               "name": "s.pilled.info",
+               "composeReference": "BadgeSolid.S.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "xs.default",
                "composeReference": "BadgeSolid.Xs.Default",
                "props": [
@@ -2649,6 +2883,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "BadgeSolid.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -2777,6 +3025,24 @@
                      "value": "light"
                   }
                ]
+            },
+            {
+               "name": "xs.pilled.info",
+               "composeReference": "BadgeSolid.Xs.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
             }
          ]
       },
@@ -2812,7 +3078,8 @@
                   "positive",
                   "warning",
                   "dark",
-                  "light"
+                  "light",
+                  "info"
                ],
                "defaultValue": "default"
             }
@@ -2917,6 +3184,10 @@
                      {
                         "value": "light",
                         "codeName": "Light"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
                      }
                   ]
                }
@@ -3018,6 +3289,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "BadgeTransparent.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -3148,6 +3433,24 @@
                ]
             },
             {
+               "name": "l.pilled.info",
+               "composeReference": "BadgeTransparent.L.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "m.default",
                "composeReference": "BadgeTransparent.M.Default",
                "props": [
@@ -3242,6 +3545,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "BadgeTransparent.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -3372,6 +3689,24 @@
                ]
             },
             {
+               "name": "m.pilled.info",
+               "composeReference": "BadgeTransparent.M.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "s.default",
                "composeReference": "BadgeTransparent.S.Default",
                "props": [
@@ -3466,6 +3801,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "BadgeTransparent.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -3596,6 +3945,24 @@
                ]
             },
             {
+               "name": "s.pilled.info",
+               "composeReference": "BadgeTransparent.S.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "xs.default",
                "composeReference": "BadgeTransparent.Xs.Default",
                "props": [
@@ -3690,6 +4057,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "BadgeTransparent.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -3818,6 +4199,24 @@
                      "value": "light"
                   }
                ]
+            },
+            {
+               "name": "xs.pilled.info",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
             }
          ]
       },
@@ -3853,7 +4252,8 @@
                   "positive",
                   "warning",
                   "dark",
-                  "light"
+                  "light",
+                  "info"
                ],
                "defaultValue": "default"
             }
@@ -3958,6 +4358,10 @@
                      {
                         "value": "light",
                         "codeName": "Light"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
                      }
                   ]
                }
@@ -4059,6 +4463,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "IconBadgeClear.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -4189,6 +4607,24 @@
                ]
             },
             {
+               "name": "l.pilled.info",
+               "composeReference": "IconBadgeClear.L.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "m.default",
                "composeReference": "IconBadgeClear.M.Default",
                "props": [
@@ -4283,6 +4719,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "IconBadgeClear.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -4413,6 +4863,24 @@
                ]
             },
             {
+               "name": "m.pilled.info",
+               "composeReference": "IconBadgeClear.M.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "s.default",
                "composeReference": "IconBadgeClear.S.Default",
                "props": [
@@ -4507,6 +4975,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "IconBadgeClear.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -4637,6 +5119,24 @@
                ]
             },
             {
+               "name": "s.pilled.info",
+               "composeReference": "IconBadgeClear.S.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "xs.default",
                "composeReference": "IconBadgeClear.Xs.Default",
                "props": [
@@ -4731,6 +5231,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "IconBadgeClear.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -4859,6 +5373,24 @@
                      "value": "light"
                   }
                ]
+            },
+            {
+               "name": "xs.pilled.info",
+               "composeReference": "IconBadgeClear.Xs.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
             }
          ]
       },
@@ -4894,7 +5426,8 @@
                   "positive",
                   "warning",
                   "dark",
-                  "light"
+                  "light",
+                  "info"
                ],
                "defaultValue": "default"
             }
@@ -4999,6 +5532,10 @@
                      {
                         "value": "light",
                         "codeName": "Light"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
                      }
                   ]
                }
@@ -5100,6 +5637,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "IconBadgeSolid.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -5230,6 +5781,24 @@
                ]
             },
             {
+               "name": "l.pilled.info",
+               "composeReference": "IconBadgeSolid.L.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "m.default",
                "composeReference": "IconBadgeSolid.M.Default",
                "props": [
@@ -5324,6 +5893,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "IconBadgeSolid.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -5454,6 +6037,24 @@
                ]
             },
             {
+               "name": "m.pilled.info",
+               "composeReference": "IconBadgeSolid.M.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "s.default",
                "composeReference": "IconBadgeSolid.S.Default",
                "props": [
@@ -5548,6 +6149,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "IconBadgeSolid.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -5678,6 +6293,24 @@
                ]
             },
             {
+               "name": "s.pilled.info",
+               "composeReference": "IconBadgeSolid.S.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "xs.default",
                "composeReference": "IconBadgeSolid.Xs.Default",
                "props": [
@@ -5772,6 +6405,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "IconBadgeSolid.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -5900,6 +6547,24 @@
                      "value": "light"
                   }
                ]
+            },
+            {
+               "name": "xs.pilled.info",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
             }
          ]
       },
@@ -5935,7 +6600,8 @@
                   "positive",
                   "warning",
                   "dark",
-                  "light"
+                  "light",
+                  "info"
                ],
                "defaultValue": "default"
             }
@@ -6040,6 +6706,10 @@
                      {
                         "value": "light",
                         "codeName": "Light"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
                      }
                   ]
                }
@@ -6141,6 +6811,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "IconBadgeTransparent.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -6271,6 +6955,24 @@
                ]
             },
             {
+               "name": "l.pilled.info",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "m.default",
                "composeReference": "IconBadgeTransparent.M.Default",
                "props": [
@@ -6365,6 +7067,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "IconBadgeTransparent.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -6495,6 +7211,24 @@
                ]
             },
             {
+               "name": "m.pilled.info",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "s.default",
                "composeReference": "IconBadgeTransparent.S.Default",
                "props": [
@@ -6589,6 +7323,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "IconBadgeTransparent.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -6719,6 +7467,24 @@
                ]
             },
             {
+               "name": "s.pilled.info",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
                "name": "xs.default",
                "composeReference": "IconBadgeTransparent.Xs.Default",
                "props": [
@@ -6813,6 +7579,20 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "IconBadgeTransparent.Xs.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             },
@@ -6939,6 +7719,24 @@
                   {
                      "name": "view",
                      "value": "light"
+                  }
+               ]
+            },
+            {
+               "name": "xs.pilled.info",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "xs"
+                  },
+                  {
+                     "name": "shape",
+                     "value": "pilled"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             }

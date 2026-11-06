@@ -14,6 +14,7 @@ import com.sdds.plasma.giga.styles.badge.BadgeSolid
 import com.sdds.plasma.giga.styles.badge.BadgeTransparent
 import com.sdds.plasma.giga.styles.badge.Dark
 import com.sdds.plasma.giga.styles.badge.Default
+import com.sdds.plasma.giga.styles.badge.Info
 import com.sdds.plasma.giga.styles.badge.L
 import com.sdds.plasma.giga.styles.badge.Light
 import com.sdds.plasma.giga.styles.badge.M
@@ -29,6 +30,7 @@ import com.sdds.plasma.giga.styles.iconbadge.Default
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeClear
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeSolid
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeTransparent
+import com.sdds.plasma.giga.styles.iconbadge.Info
 import com.sdds.plasma.giga.styles.iconbadge.L
 import com.sdds.plasma.giga.styles.iconbadge.M
 import com.sdds.plasma.giga.styles.iconbadge.Negative
@@ -100,6 +102,13 @@ class ComposeBadgeScreenshotTest(
     }
 
     @Test
+    fun testBadgeSizeMInfo() {
+        composeTestRule.content {
+            BadgeCommon(style = BadgeSolid.M.Info.style())
+        }
+    }
+
+    @Test
     fun testBadgeSizeLDefaultClear() {
         composeTestRule.content {
             BadgeCommon(style = BadgeClear.L.Default.style())
@@ -110,6 +119,13 @@ class ComposeBadgeScreenshotTest(
     fun testBadgeSizeLDefaultTransparent() {
         composeTestRule.content {
             BadgeCommon(style = BadgeTransparent.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testBadgeSizeXsInfoTransparent() {
+        composeTestRule.content {
+            BadgeCommon(style = BadgeTransparent.Xs.Info.style())
         }
     }
 
@@ -145,6 +161,13 @@ class ComposeBadgeScreenshotTest(
     fun testIconBadgeSizeSPositiveClear() {
         composeTestRule.content {
             IconBadgeCommon(style = IconBadgeClear.S.Positive.style())
+        }
+    }
+
+    @Test
+    fun testIconBadgeSizeLInfoClear() {
+        composeTestRule.content {
+            IconBadgeCommon(style = IconBadgeClear.L.Info.style())
         }
     }
 
