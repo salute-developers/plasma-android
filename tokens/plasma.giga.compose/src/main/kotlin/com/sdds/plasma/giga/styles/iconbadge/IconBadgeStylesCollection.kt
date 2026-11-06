@@ -32,6 +32,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearLWarning("IconBadgeClear.L.Warning"),
     IconBadgeClearLDark("IconBadgeClear.L.Dark"),
     IconBadgeClearLLight("IconBadgeClear.L.Light"),
+    IconBadgeClearLInfo("IconBadgeClear.L.Info"),
     IconBadgeClearLPilledDefault("IconBadgeClear.L.Pilled.Default"),
     IconBadgeClearLPilledAccent("IconBadgeClear.L.Pilled.Accent"),
     IconBadgeClearLPilledNegative("IconBadgeClear.L.Pilled.Negative"),
@@ -39,6 +40,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearLPilledWarning("IconBadgeClear.L.Pilled.Warning"),
     IconBadgeClearLPilledDark("IconBadgeClear.L.Pilled.Dark"),
     IconBadgeClearLPilledLight("IconBadgeClear.L.Pilled.Light"),
+    IconBadgeClearLPilledInfo("IconBadgeClear.L.Pilled.Info"),
     IconBadgeClearMDefault("IconBadgeClear.M.Default"),
     IconBadgeClearMAccent("IconBadgeClear.M.Accent"),
     IconBadgeClearMNegative("IconBadgeClear.M.Negative"),
@@ -46,6 +48,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearMWarning("IconBadgeClear.M.Warning"),
     IconBadgeClearMDark("IconBadgeClear.M.Dark"),
     IconBadgeClearMLight("IconBadgeClear.M.Light"),
+    IconBadgeClearMInfo("IconBadgeClear.M.Info"),
     IconBadgeClearMPilledDefault("IconBadgeClear.M.Pilled.Default"),
     IconBadgeClearMPilledAccent("IconBadgeClear.M.Pilled.Accent"),
     IconBadgeClearMPilledNegative("IconBadgeClear.M.Pilled.Negative"),
@@ -53,6 +56,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearMPilledWarning("IconBadgeClear.M.Pilled.Warning"),
     IconBadgeClearMPilledDark("IconBadgeClear.M.Pilled.Dark"),
     IconBadgeClearMPilledLight("IconBadgeClear.M.Pilled.Light"),
+    IconBadgeClearMPilledInfo("IconBadgeClear.M.Pilled.Info"),
     IconBadgeClearSDefault("IconBadgeClear.S.Default"),
     IconBadgeClearSAccent("IconBadgeClear.S.Accent"),
     IconBadgeClearSNegative("IconBadgeClear.S.Negative"),
@@ -60,6 +64,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearSWarning("IconBadgeClear.S.Warning"),
     IconBadgeClearSDark("IconBadgeClear.S.Dark"),
     IconBadgeClearSLight("IconBadgeClear.S.Light"),
+    IconBadgeClearSInfo("IconBadgeClear.S.Info"),
     IconBadgeClearSPilledDefault("IconBadgeClear.S.Pilled.Default"),
     IconBadgeClearSPilledAccent("IconBadgeClear.S.Pilled.Accent"),
     IconBadgeClearSPilledNegative("IconBadgeClear.S.Pilled.Negative"),
@@ -67,6 +72,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearSPilledWarning("IconBadgeClear.S.Pilled.Warning"),
     IconBadgeClearSPilledDark("IconBadgeClear.S.Pilled.Dark"),
     IconBadgeClearSPilledLight("IconBadgeClear.S.Pilled.Light"),
+    IconBadgeClearSPilledInfo("IconBadgeClear.S.Pilled.Info"),
     IconBadgeClearXsDefault("IconBadgeClear.Xs.Default"),
     IconBadgeClearXsAccent("IconBadgeClear.Xs.Accent"),
     IconBadgeClearXsNegative("IconBadgeClear.Xs.Negative"),
@@ -74,6 +80,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearXsWarning("IconBadgeClear.Xs.Warning"),
     IconBadgeClearXsDark("IconBadgeClear.Xs.Dark"),
     IconBadgeClearXsLight("IconBadgeClear.Xs.Light"),
+    IconBadgeClearXsInfo("IconBadgeClear.Xs.Info"),
     IconBadgeClearXsPilledDefault("IconBadgeClear.Xs.Pilled.Default"),
     IconBadgeClearXsPilledAccent("IconBadgeClear.Xs.Pilled.Accent"),
     IconBadgeClearXsPilledNegative("IconBadgeClear.Xs.Pilled.Negative"),
@@ -81,6 +88,7 @@ public enum class IconBadgeStyles(
     IconBadgeClearXsPilledWarning("IconBadgeClear.Xs.Pilled.Warning"),
     IconBadgeClearXsPilledDark("IconBadgeClear.Xs.Pilled.Dark"),
     IconBadgeClearXsPilledLight("IconBadgeClear.Xs.Pilled.Light"),
+    IconBadgeClearXsPilledInfo("IconBadgeClear.Xs.Pilled.Info"),
     IconBadgeSolidLDefault("IconBadgeSolid.L.Default"),
     IconBadgeSolidLAccent("IconBadgeSolid.L.Accent"),
     IconBadgeSolidLNegative("IconBadgeSolid.L.Negative"),
@@ -88,6 +96,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidLWarning("IconBadgeSolid.L.Warning"),
     IconBadgeSolidLDark("IconBadgeSolid.L.Dark"),
     IconBadgeSolidLLight("IconBadgeSolid.L.Light"),
+    IconBadgeSolidLInfo("IconBadgeSolid.L.Info"),
     IconBadgeSolidLPilledDefault("IconBadgeSolid.L.Pilled.Default"),
     IconBadgeSolidLPilledAccent("IconBadgeSolid.L.Pilled.Accent"),
     IconBadgeSolidLPilledNegative("IconBadgeSolid.L.Pilled.Negative"),
@@ -95,6 +104,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidLPilledWarning("IconBadgeSolid.L.Pilled.Warning"),
     IconBadgeSolidLPilledDark("IconBadgeSolid.L.Pilled.Dark"),
     IconBadgeSolidLPilledLight("IconBadgeSolid.L.Pilled.Light"),
+    IconBadgeSolidLPilledInfo("IconBadgeSolid.L.Pilled.Info"),
     IconBadgeSolidMDefault("IconBadgeSolid.M.Default"),
     IconBadgeSolidMAccent("IconBadgeSolid.M.Accent"),
     IconBadgeSolidMNegative("IconBadgeSolid.M.Negative"),
@@ -102,6 +112,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidMWarning("IconBadgeSolid.M.Warning"),
     IconBadgeSolidMDark("IconBadgeSolid.M.Dark"),
     IconBadgeSolidMLight("IconBadgeSolid.M.Light"),
+    IconBadgeSolidMInfo("IconBadgeSolid.M.Info"),
     IconBadgeSolidMPilledDefault("IconBadgeSolid.M.Pilled.Default"),
     IconBadgeSolidMPilledAccent("IconBadgeSolid.M.Pilled.Accent"),
     IconBadgeSolidMPilledNegative("IconBadgeSolid.M.Pilled.Negative"),
@@ -109,6 +120,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidMPilledWarning("IconBadgeSolid.M.Pilled.Warning"),
     IconBadgeSolidMPilledDark("IconBadgeSolid.M.Pilled.Dark"),
     IconBadgeSolidMPilledLight("IconBadgeSolid.M.Pilled.Light"),
+    IconBadgeSolidMPilledInfo("IconBadgeSolid.M.Pilled.Info"),
     IconBadgeSolidSDefault("IconBadgeSolid.S.Default"),
     IconBadgeSolidSAccent("IconBadgeSolid.S.Accent"),
     IconBadgeSolidSNegative("IconBadgeSolid.S.Negative"),
@@ -116,6 +128,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidSWarning("IconBadgeSolid.S.Warning"),
     IconBadgeSolidSDark("IconBadgeSolid.S.Dark"),
     IconBadgeSolidSLight("IconBadgeSolid.S.Light"),
+    IconBadgeSolidSInfo("IconBadgeSolid.S.Info"),
     IconBadgeSolidSPilledDefault("IconBadgeSolid.S.Pilled.Default"),
     IconBadgeSolidSPilledAccent("IconBadgeSolid.S.Pilled.Accent"),
     IconBadgeSolidSPilledNegative("IconBadgeSolid.S.Pilled.Negative"),
@@ -123,6 +136,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidSPilledWarning("IconBadgeSolid.S.Pilled.Warning"),
     IconBadgeSolidSPilledDark("IconBadgeSolid.S.Pilled.Dark"),
     IconBadgeSolidSPilledLight("IconBadgeSolid.S.Pilled.Light"),
+    IconBadgeSolidSPilledInfo("IconBadgeSolid.S.Pilled.Info"),
     IconBadgeSolidXsDefault("IconBadgeSolid.Xs.Default"),
     IconBadgeSolidXsAccent("IconBadgeSolid.Xs.Accent"),
     IconBadgeSolidXsNegative("IconBadgeSolid.Xs.Negative"),
@@ -130,6 +144,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidXsWarning("IconBadgeSolid.Xs.Warning"),
     IconBadgeSolidXsDark("IconBadgeSolid.Xs.Dark"),
     IconBadgeSolidXsLight("IconBadgeSolid.Xs.Light"),
+    IconBadgeSolidXsInfo("IconBadgeSolid.Xs.Info"),
     IconBadgeSolidXsPilledDefault("IconBadgeSolid.Xs.Pilled.Default"),
     IconBadgeSolidXsPilledAccent("IconBadgeSolid.Xs.Pilled.Accent"),
     IconBadgeSolidXsPilledNegative("IconBadgeSolid.Xs.Pilled.Negative"),
@@ -137,6 +152,7 @@ public enum class IconBadgeStyles(
     IconBadgeSolidXsPilledWarning("IconBadgeSolid.Xs.Pilled.Warning"),
     IconBadgeSolidXsPilledDark("IconBadgeSolid.Xs.Pilled.Dark"),
     IconBadgeSolidXsPilledLight("IconBadgeSolid.Xs.Pilled.Light"),
+    IconBadgeSolidXsPilledInfo("IconBadgeSolid.Xs.Pilled.Info"),
     IconBadgeTransparentLDefault("IconBadgeTransparent.L.Default"),
     IconBadgeTransparentLAccent("IconBadgeTransparent.L.Accent"),
     IconBadgeTransparentLNegative("IconBadgeTransparent.L.Negative"),
@@ -144,6 +160,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentLWarning("IconBadgeTransparent.L.Warning"),
     IconBadgeTransparentLDark("IconBadgeTransparent.L.Dark"),
     IconBadgeTransparentLLight("IconBadgeTransparent.L.Light"),
+    IconBadgeTransparentLInfo("IconBadgeTransparent.L.Info"),
     IconBadgeTransparentLPilledDefault("IconBadgeTransparent.L.Pilled.Default"),
     IconBadgeTransparentLPilledAccent("IconBadgeTransparent.L.Pilled.Accent"),
     IconBadgeTransparentLPilledNegative("IconBadgeTransparent.L.Pilled.Negative"),
@@ -151,6 +168,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentLPilledWarning("IconBadgeTransparent.L.Pilled.Warning"),
     IconBadgeTransparentLPilledDark("IconBadgeTransparent.L.Pilled.Dark"),
     IconBadgeTransparentLPilledLight("IconBadgeTransparent.L.Pilled.Light"),
+    IconBadgeTransparentLPilledInfo("IconBadgeTransparent.L.Pilled.Info"),
     IconBadgeTransparentMDefault("IconBadgeTransparent.M.Default"),
     IconBadgeTransparentMAccent("IconBadgeTransparent.M.Accent"),
     IconBadgeTransparentMNegative("IconBadgeTransparent.M.Negative"),
@@ -158,6 +176,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentMWarning("IconBadgeTransparent.M.Warning"),
     IconBadgeTransparentMDark("IconBadgeTransparent.M.Dark"),
     IconBadgeTransparentMLight("IconBadgeTransparent.M.Light"),
+    IconBadgeTransparentMInfo("IconBadgeTransparent.M.Info"),
     IconBadgeTransparentMPilledDefault("IconBadgeTransparent.M.Pilled.Default"),
     IconBadgeTransparentMPilledAccent("IconBadgeTransparent.M.Pilled.Accent"),
     IconBadgeTransparentMPilledNegative("IconBadgeTransparent.M.Pilled.Negative"),
@@ -165,6 +184,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentMPilledWarning("IconBadgeTransparent.M.Pilled.Warning"),
     IconBadgeTransparentMPilledDark("IconBadgeTransparent.M.Pilled.Dark"),
     IconBadgeTransparentMPilledLight("IconBadgeTransparent.M.Pilled.Light"),
+    IconBadgeTransparentMPilledInfo("IconBadgeTransparent.M.Pilled.Info"),
     IconBadgeTransparentSDefault("IconBadgeTransparent.S.Default"),
     IconBadgeTransparentSAccent("IconBadgeTransparent.S.Accent"),
     IconBadgeTransparentSNegative("IconBadgeTransparent.S.Negative"),
@@ -172,6 +192,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentSWarning("IconBadgeTransparent.S.Warning"),
     IconBadgeTransparentSDark("IconBadgeTransparent.S.Dark"),
     IconBadgeTransparentSLight("IconBadgeTransparent.S.Light"),
+    IconBadgeTransparentSInfo("IconBadgeTransparent.S.Info"),
     IconBadgeTransparentSPilledDefault("IconBadgeTransparent.S.Pilled.Default"),
     IconBadgeTransparentSPilledAccent("IconBadgeTransparent.S.Pilled.Accent"),
     IconBadgeTransparentSPilledNegative("IconBadgeTransparent.S.Pilled.Negative"),
@@ -179,6 +200,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentSPilledWarning("IconBadgeTransparent.S.Pilled.Warning"),
     IconBadgeTransparentSPilledDark("IconBadgeTransparent.S.Pilled.Dark"),
     IconBadgeTransparentSPilledLight("IconBadgeTransparent.S.Pilled.Light"),
+    IconBadgeTransparentSPilledInfo("IconBadgeTransparent.S.Pilled.Info"),
     IconBadgeTransparentXsDefault("IconBadgeTransparent.Xs.Default"),
     IconBadgeTransparentXsAccent("IconBadgeTransparent.Xs.Accent"),
     IconBadgeTransparentXsNegative("IconBadgeTransparent.Xs.Negative"),
@@ -186,6 +208,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentXsWarning("IconBadgeTransparent.Xs.Warning"),
     IconBadgeTransparentXsDark("IconBadgeTransparent.Xs.Dark"),
     IconBadgeTransparentXsLight("IconBadgeTransparent.Xs.Light"),
+    IconBadgeTransparentXsInfo("IconBadgeTransparent.Xs.Info"),
     IconBadgeTransparentXsPilledDefault("IconBadgeTransparent.Xs.Pilled.Default"),
     IconBadgeTransparentXsPilledAccent("IconBadgeTransparent.Xs.Pilled.Accent"),
     IconBadgeTransparentXsPilledNegative("IconBadgeTransparent.Xs.Pilled.Negative"),
@@ -193,6 +216,7 @@ public enum class IconBadgeStyles(
     IconBadgeTransparentXsPilledWarning("IconBadgeTransparent.Xs.Pilled.Warning"),
     IconBadgeTransparentXsPilledDark("IconBadgeTransparent.Xs.Pilled.Dark"),
     IconBadgeTransparentXsPilledLight("IconBadgeTransparent.Xs.Pilled.Light"),
+    IconBadgeTransparentXsPilledInfo("IconBadgeTransparent.Xs.Pilled.Info"),
     ;
 
     /**
@@ -240,6 +264,7 @@ public enum class IconBadgeClearView {
     Warning,
     Dark,
     Light,
+    Info,
 }
 
 /**
@@ -271,6 +296,7 @@ public enum class IconBadgeSolidView {
     Warning,
     Dark,
     Light,
+    Info,
 }
 
 /**
@@ -302,6 +328,7 @@ public enum class IconBadgeTransparentView {
     Warning,
     Dark,
     Light,
+    Info,
 }
 
 /**
@@ -317,6 +344,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearLWarning -> IconBadgeClear.L.Warning
         IconBadgeStyles.IconBadgeClearLDark -> IconBadgeClear.L.Dark
         IconBadgeStyles.IconBadgeClearLLight -> IconBadgeClear.L.Light
+        IconBadgeStyles.IconBadgeClearLInfo -> IconBadgeClear.L.Info
         IconBadgeStyles.IconBadgeClearLPilledDefault -> IconBadgeClear.L.Pilled.Default
         IconBadgeStyles.IconBadgeClearLPilledAccent -> IconBadgeClear.L.Pilled.Accent
         IconBadgeStyles.IconBadgeClearLPilledNegative -> IconBadgeClear.L.Pilled.Negative
@@ -324,6 +352,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearLPilledWarning -> IconBadgeClear.L.Pilled.Warning
         IconBadgeStyles.IconBadgeClearLPilledDark -> IconBadgeClear.L.Pilled.Dark
         IconBadgeStyles.IconBadgeClearLPilledLight -> IconBadgeClear.L.Pilled.Light
+        IconBadgeStyles.IconBadgeClearLPilledInfo -> IconBadgeClear.L.Pilled.Info
         IconBadgeStyles.IconBadgeClearMDefault -> IconBadgeClear.M.Default
         IconBadgeStyles.IconBadgeClearMAccent -> IconBadgeClear.M.Accent
         IconBadgeStyles.IconBadgeClearMNegative -> IconBadgeClear.M.Negative
@@ -331,6 +360,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearMWarning -> IconBadgeClear.M.Warning
         IconBadgeStyles.IconBadgeClearMDark -> IconBadgeClear.M.Dark
         IconBadgeStyles.IconBadgeClearMLight -> IconBadgeClear.M.Light
+        IconBadgeStyles.IconBadgeClearMInfo -> IconBadgeClear.M.Info
         IconBadgeStyles.IconBadgeClearMPilledDefault -> IconBadgeClear.M.Pilled.Default
         IconBadgeStyles.IconBadgeClearMPilledAccent -> IconBadgeClear.M.Pilled.Accent
         IconBadgeStyles.IconBadgeClearMPilledNegative -> IconBadgeClear.M.Pilled.Negative
@@ -338,6 +368,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearMPilledWarning -> IconBadgeClear.M.Pilled.Warning
         IconBadgeStyles.IconBadgeClearMPilledDark -> IconBadgeClear.M.Pilled.Dark
         IconBadgeStyles.IconBadgeClearMPilledLight -> IconBadgeClear.M.Pilled.Light
+        IconBadgeStyles.IconBadgeClearMPilledInfo -> IconBadgeClear.M.Pilled.Info
         IconBadgeStyles.IconBadgeClearSDefault -> IconBadgeClear.S.Default
         IconBadgeStyles.IconBadgeClearSAccent -> IconBadgeClear.S.Accent
         IconBadgeStyles.IconBadgeClearSNegative -> IconBadgeClear.S.Negative
@@ -345,6 +376,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearSWarning -> IconBadgeClear.S.Warning
         IconBadgeStyles.IconBadgeClearSDark -> IconBadgeClear.S.Dark
         IconBadgeStyles.IconBadgeClearSLight -> IconBadgeClear.S.Light
+        IconBadgeStyles.IconBadgeClearSInfo -> IconBadgeClear.S.Info
         IconBadgeStyles.IconBadgeClearSPilledDefault -> IconBadgeClear.S.Pilled.Default
         IconBadgeStyles.IconBadgeClearSPilledAccent -> IconBadgeClear.S.Pilled.Accent
         IconBadgeStyles.IconBadgeClearSPilledNegative -> IconBadgeClear.S.Pilled.Negative
@@ -352,6 +384,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearSPilledWarning -> IconBadgeClear.S.Pilled.Warning
         IconBadgeStyles.IconBadgeClearSPilledDark -> IconBadgeClear.S.Pilled.Dark
         IconBadgeStyles.IconBadgeClearSPilledLight -> IconBadgeClear.S.Pilled.Light
+        IconBadgeStyles.IconBadgeClearSPilledInfo -> IconBadgeClear.S.Pilled.Info
         IconBadgeStyles.IconBadgeClearXsDefault -> IconBadgeClear.Xs.Default
         IconBadgeStyles.IconBadgeClearXsAccent -> IconBadgeClear.Xs.Accent
         IconBadgeStyles.IconBadgeClearXsNegative -> IconBadgeClear.Xs.Negative
@@ -359,6 +392,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearXsWarning -> IconBadgeClear.Xs.Warning
         IconBadgeStyles.IconBadgeClearXsDark -> IconBadgeClear.Xs.Dark
         IconBadgeStyles.IconBadgeClearXsLight -> IconBadgeClear.Xs.Light
+        IconBadgeStyles.IconBadgeClearXsInfo -> IconBadgeClear.Xs.Info
         IconBadgeStyles.IconBadgeClearXsPilledDefault -> IconBadgeClear.Xs.Pilled.Default
         IconBadgeStyles.IconBadgeClearXsPilledAccent -> IconBadgeClear.Xs.Pilled.Accent
         IconBadgeStyles.IconBadgeClearXsPilledNegative -> IconBadgeClear.Xs.Pilled.Negative
@@ -366,6 +400,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeClearXsPilledWarning -> IconBadgeClear.Xs.Pilled.Warning
         IconBadgeStyles.IconBadgeClearXsPilledDark -> IconBadgeClear.Xs.Pilled.Dark
         IconBadgeStyles.IconBadgeClearXsPilledLight -> IconBadgeClear.Xs.Pilled.Light
+        IconBadgeStyles.IconBadgeClearXsPilledInfo -> IconBadgeClear.Xs.Pilled.Info
         IconBadgeStyles.IconBadgeSolidLDefault -> IconBadgeSolid.L.Default
         IconBadgeStyles.IconBadgeSolidLAccent -> IconBadgeSolid.L.Accent
         IconBadgeStyles.IconBadgeSolidLNegative -> IconBadgeSolid.L.Negative
@@ -373,6 +408,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidLWarning -> IconBadgeSolid.L.Warning
         IconBadgeStyles.IconBadgeSolidLDark -> IconBadgeSolid.L.Dark
         IconBadgeStyles.IconBadgeSolidLLight -> IconBadgeSolid.L.Light
+        IconBadgeStyles.IconBadgeSolidLInfo -> IconBadgeSolid.L.Info
         IconBadgeStyles.IconBadgeSolidLPilledDefault -> IconBadgeSolid.L.Pilled.Default
         IconBadgeStyles.IconBadgeSolidLPilledAccent -> IconBadgeSolid.L.Pilled.Accent
         IconBadgeStyles.IconBadgeSolidLPilledNegative -> IconBadgeSolid.L.Pilled.Negative
@@ -380,6 +416,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidLPilledWarning -> IconBadgeSolid.L.Pilled.Warning
         IconBadgeStyles.IconBadgeSolidLPilledDark -> IconBadgeSolid.L.Pilled.Dark
         IconBadgeStyles.IconBadgeSolidLPilledLight -> IconBadgeSolid.L.Pilled.Light
+        IconBadgeStyles.IconBadgeSolidLPilledInfo -> IconBadgeSolid.L.Pilled.Info
         IconBadgeStyles.IconBadgeSolidMDefault -> IconBadgeSolid.M.Default
         IconBadgeStyles.IconBadgeSolidMAccent -> IconBadgeSolid.M.Accent
         IconBadgeStyles.IconBadgeSolidMNegative -> IconBadgeSolid.M.Negative
@@ -387,6 +424,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidMWarning -> IconBadgeSolid.M.Warning
         IconBadgeStyles.IconBadgeSolidMDark -> IconBadgeSolid.M.Dark
         IconBadgeStyles.IconBadgeSolidMLight -> IconBadgeSolid.M.Light
+        IconBadgeStyles.IconBadgeSolidMInfo -> IconBadgeSolid.M.Info
         IconBadgeStyles.IconBadgeSolidMPilledDefault -> IconBadgeSolid.M.Pilled.Default
         IconBadgeStyles.IconBadgeSolidMPilledAccent -> IconBadgeSolid.M.Pilled.Accent
         IconBadgeStyles.IconBadgeSolidMPilledNegative -> IconBadgeSolid.M.Pilled.Negative
@@ -394,6 +432,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidMPilledWarning -> IconBadgeSolid.M.Pilled.Warning
         IconBadgeStyles.IconBadgeSolidMPilledDark -> IconBadgeSolid.M.Pilled.Dark
         IconBadgeStyles.IconBadgeSolidMPilledLight -> IconBadgeSolid.M.Pilled.Light
+        IconBadgeStyles.IconBadgeSolidMPilledInfo -> IconBadgeSolid.M.Pilled.Info
         IconBadgeStyles.IconBadgeSolidSDefault -> IconBadgeSolid.S.Default
         IconBadgeStyles.IconBadgeSolidSAccent -> IconBadgeSolid.S.Accent
         IconBadgeStyles.IconBadgeSolidSNegative -> IconBadgeSolid.S.Negative
@@ -401,6 +440,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidSWarning -> IconBadgeSolid.S.Warning
         IconBadgeStyles.IconBadgeSolidSDark -> IconBadgeSolid.S.Dark
         IconBadgeStyles.IconBadgeSolidSLight -> IconBadgeSolid.S.Light
+        IconBadgeStyles.IconBadgeSolidSInfo -> IconBadgeSolid.S.Info
         IconBadgeStyles.IconBadgeSolidSPilledDefault -> IconBadgeSolid.S.Pilled.Default
         IconBadgeStyles.IconBadgeSolidSPilledAccent -> IconBadgeSolid.S.Pilled.Accent
         IconBadgeStyles.IconBadgeSolidSPilledNegative -> IconBadgeSolid.S.Pilled.Negative
@@ -408,6 +448,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidSPilledWarning -> IconBadgeSolid.S.Pilled.Warning
         IconBadgeStyles.IconBadgeSolidSPilledDark -> IconBadgeSolid.S.Pilled.Dark
         IconBadgeStyles.IconBadgeSolidSPilledLight -> IconBadgeSolid.S.Pilled.Light
+        IconBadgeStyles.IconBadgeSolidSPilledInfo -> IconBadgeSolid.S.Pilled.Info
         IconBadgeStyles.IconBadgeSolidXsDefault -> IconBadgeSolid.Xs.Default
         IconBadgeStyles.IconBadgeSolidXsAccent -> IconBadgeSolid.Xs.Accent
         IconBadgeStyles.IconBadgeSolidXsNegative -> IconBadgeSolid.Xs.Negative
@@ -415,6 +456,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidXsWarning -> IconBadgeSolid.Xs.Warning
         IconBadgeStyles.IconBadgeSolidXsDark -> IconBadgeSolid.Xs.Dark
         IconBadgeStyles.IconBadgeSolidXsLight -> IconBadgeSolid.Xs.Light
+        IconBadgeStyles.IconBadgeSolidXsInfo -> IconBadgeSolid.Xs.Info
         IconBadgeStyles.IconBadgeSolidXsPilledDefault -> IconBadgeSolid.Xs.Pilled.Default
         IconBadgeStyles.IconBadgeSolidXsPilledAccent -> IconBadgeSolid.Xs.Pilled.Accent
         IconBadgeStyles.IconBadgeSolidXsPilledNegative -> IconBadgeSolid.Xs.Pilled.Negative
@@ -422,6 +464,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeSolidXsPilledWarning -> IconBadgeSolid.Xs.Pilled.Warning
         IconBadgeStyles.IconBadgeSolidXsPilledDark -> IconBadgeSolid.Xs.Pilled.Dark
         IconBadgeStyles.IconBadgeSolidXsPilledLight -> IconBadgeSolid.Xs.Pilled.Light
+        IconBadgeStyles.IconBadgeSolidXsPilledInfo -> IconBadgeSolid.Xs.Pilled.Info
         IconBadgeStyles.IconBadgeTransparentLDefault -> IconBadgeTransparent.L.Default
         IconBadgeStyles.IconBadgeTransparentLAccent -> IconBadgeTransparent.L.Accent
         IconBadgeStyles.IconBadgeTransparentLNegative -> IconBadgeTransparent.L.Negative
@@ -429,6 +472,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentLWarning -> IconBadgeTransparent.L.Warning
         IconBadgeStyles.IconBadgeTransparentLDark -> IconBadgeTransparent.L.Dark
         IconBadgeStyles.IconBadgeTransparentLLight -> IconBadgeTransparent.L.Light
+        IconBadgeStyles.IconBadgeTransparentLInfo -> IconBadgeTransparent.L.Info
         IconBadgeStyles.IconBadgeTransparentLPilledDefault -> IconBadgeTransparent.L.Pilled.Default
         IconBadgeStyles.IconBadgeTransparentLPilledAccent -> IconBadgeTransparent.L.Pilled.Accent
         IconBadgeStyles.IconBadgeTransparentLPilledNegative -> IconBadgeTransparent.L.Pilled.Negative
@@ -436,6 +480,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentLPilledWarning -> IconBadgeTransparent.L.Pilled.Warning
         IconBadgeStyles.IconBadgeTransparentLPilledDark -> IconBadgeTransparent.L.Pilled.Dark
         IconBadgeStyles.IconBadgeTransparentLPilledLight -> IconBadgeTransparent.L.Pilled.Light
+        IconBadgeStyles.IconBadgeTransparentLPilledInfo -> IconBadgeTransparent.L.Pilled.Info
         IconBadgeStyles.IconBadgeTransparentMDefault -> IconBadgeTransparent.M.Default
         IconBadgeStyles.IconBadgeTransparentMAccent -> IconBadgeTransparent.M.Accent
         IconBadgeStyles.IconBadgeTransparentMNegative -> IconBadgeTransparent.M.Negative
@@ -443,6 +488,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentMWarning -> IconBadgeTransparent.M.Warning
         IconBadgeStyles.IconBadgeTransparentMDark -> IconBadgeTransparent.M.Dark
         IconBadgeStyles.IconBadgeTransparentMLight -> IconBadgeTransparent.M.Light
+        IconBadgeStyles.IconBadgeTransparentMInfo -> IconBadgeTransparent.M.Info
         IconBadgeStyles.IconBadgeTransparentMPilledDefault -> IconBadgeTransparent.M.Pilled.Default
         IconBadgeStyles.IconBadgeTransparentMPilledAccent -> IconBadgeTransparent.M.Pilled.Accent
         IconBadgeStyles.IconBadgeTransparentMPilledNegative -> IconBadgeTransparent.M.Pilled.Negative
@@ -450,6 +496,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentMPilledWarning -> IconBadgeTransparent.M.Pilled.Warning
         IconBadgeStyles.IconBadgeTransparentMPilledDark -> IconBadgeTransparent.M.Pilled.Dark
         IconBadgeStyles.IconBadgeTransparentMPilledLight -> IconBadgeTransparent.M.Pilled.Light
+        IconBadgeStyles.IconBadgeTransparentMPilledInfo -> IconBadgeTransparent.M.Pilled.Info
         IconBadgeStyles.IconBadgeTransparentSDefault -> IconBadgeTransparent.S.Default
         IconBadgeStyles.IconBadgeTransparentSAccent -> IconBadgeTransparent.S.Accent
         IconBadgeStyles.IconBadgeTransparentSNegative -> IconBadgeTransparent.S.Negative
@@ -457,6 +504,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentSWarning -> IconBadgeTransparent.S.Warning
         IconBadgeStyles.IconBadgeTransparentSDark -> IconBadgeTransparent.S.Dark
         IconBadgeStyles.IconBadgeTransparentSLight -> IconBadgeTransparent.S.Light
+        IconBadgeStyles.IconBadgeTransparentSInfo -> IconBadgeTransparent.S.Info
         IconBadgeStyles.IconBadgeTransparentSPilledDefault -> IconBadgeTransparent.S.Pilled.Default
         IconBadgeStyles.IconBadgeTransparentSPilledAccent -> IconBadgeTransparent.S.Pilled.Accent
         IconBadgeStyles.IconBadgeTransparentSPilledNegative -> IconBadgeTransparent.S.Pilled.Negative
@@ -464,6 +512,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentSPilledWarning -> IconBadgeTransparent.S.Pilled.Warning
         IconBadgeStyles.IconBadgeTransparentSPilledDark -> IconBadgeTransparent.S.Pilled.Dark
         IconBadgeStyles.IconBadgeTransparentSPilledLight -> IconBadgeTransparent.S.Pilled.Light
+        IconBadgeStyles.IconBadgeTransparentSPilledInfo -> IconBadgeTransparent.S.Pilled.Info
         IconBadgeStyles.IconBadgeTransparentXsDefault -> IconBadgeTransparent.Xs.Default
         IconBadgeStyles.IconBadgeTransparentXsAccent -> IconBadgeTransparent.Xs.Accent
         IconBadgeStyles.IconBadgeTransparentXsNegative -> IconBadgeTransparent.Xs.Negative
@@ -471,6 +520,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentXsWarning -> IconBadgeTransparent.Xs.Warning
         IconBadgeStyles.IconBadgeTransparentXsDark -> IconBadgeTransparent.Xs.Dark
         IconBadgeStyles.IconBadgeTransparentXsLight -> IconBadgeTransparent.Xs.Light
+        IconBadgeStyles.IconBadgeTransparentXsInfo -> IconBadgeTransparent.Xs.Info
         IconBadgeStyles.IconBadgeTransparentXsPilledDefault -> IconBadgeTransparent.Xs.Pilled.Default
         IconBadgeStyles.IconBadgeTransparentXsPilledAccent -> IconBadgeTransparent.Xs.Pilled.Accent
         IconBadgeStyles.IconBadgeTransparentXsPilledNegative ->
@@ -480,6 +530,7 @@ public fun IconBadgeStyles.style(modify: @Composable IconBadgeStyleBuilder.() ->
         IconBadgeStyles.IconBadgeTransparentXsPilledWarning -> IconBadgeTransparent.Xs.Pilled.Warning
         IconBadgeStyles.IconBadgeTransparentXsPilledDark -> IconBadgeTransparent.Xs.Pilled.Dark
         IconBadgeStyles.IconBadgeTransparentXsPilledLight -> IconBadgeTransparent.Xs.Pilled.Light
+        IconBadgeStyles.IconBadgeTransparentXsPilledInfo -> IconBadgeTransparent.Xs.Pilled.Info
     }
     return builder.modify(modify).style()
 }
@@ -506,6 +557,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeClearView.Dark -> IconBadgeStyles.IconBadgeClearLPilledDark
     size == IconBadgeClearSize.L && shape == IconBadgeClearShape.Pilled && view ==
         IconBadgeClearView.Light -> IconBadgeStyles.IconBadgeClearLPilledLight
+    size == IconBadgeClearSize.L && shape == IconBadgeClearShape.Pilled && view ==
+        IconBadgeClearView.Info -> IconBadgeStyles.IconBadgeClearLPilledInfo
     size == IconBadgeClearSize.M && shape == IconBadgeClearShape.Pilled && view ==
         IconBadgeClearView.Default -> IconBadgeStyles.IconBadgeClearMPilledDefault
     size == IconBadgeClearSize.M && shape == IconBadgeClearShape.Pilled && view ==
@@ -520,6 +573,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeClearView.Dark -> IconBadgeStyles.IconBadgeClearMPilledDark
     size == IconBadgeClearSize.M && shape == IconBadgeClearShape.Pilled && view ==
         IconBadgeClearView.Light -> IconBadgeStyles.IconBadgeClearMPilledLight
+    size == IconBadgeClearSize.M && shape == IconBadgeClearShape.Pilled && view ==
+        IconBadgeClearView.Info -> IconBadgeStyles.IconBadgeClearMPilledInfo
     size == IconBadgeClearSize.S && shape == IconBadgeClearShape.Pilled && view ==
         IconBadgeClearView.Default -> IconBadgeStyles.IconBadgeClearSPilledDefault
     size == IconBadgeClearSize.S && shape == IconBadgeClearShape.Pilled && view ==
@@ -534,6 +589,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeClearView.Dark -> IconBadgeStyles.IconBadgeClearSPilledDark
     size == IconBadgeClearSize.S && shape == IconBadgeClearShape.Pilled && view ==
         IconBadgeClearView.Light -> IconBadgeStyles.IconBadgeClearSPilledLight
+    size == IconBadgeClearSize.S && shape == IconBadgeClearShape.Pilled && view ==
+        IconBadgeClearView.Info -> IconBadgeStyles.IconBadgeClearSPilledInfo
     size == IconBadgeClearSize.Xs && shape == IconBadgeClearShape.Pilled && view ==
         IconBadgeClearView.Default -> IconBadgeStyles.IconBadgeClearXsPilledDefault
     size == IconBadgeClearSize.Xs && shape == IconBadgeClearShape.Pilled && view ==
@@ -548,6 +605,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeClearView.Dark -> IconBadgeStyles.IconBadgeClearXsPilledDark
     size == IconBadgeClearSize.Xs && shape == IconBadgeClearShape.Pilled && view ==
         IconBadgeClearView.Light -> IconBadgeStyles.IconBadgeClearXsPilledLight
+    size == IconBadgeClearSize.Xs && shape == IconBadgeClearShape.Pilled && view ==
+        IconBadgeClearView.Info -> IconBadgeStyles.IconBadgeClearXsPilledInfo
     size == IconBadgeClearSize.L && view == IconBadgeClearView.Default ->
         IconBadgeStyles.IconBadgeClearLDefault
     size == IconBadgeClearSize.L && view == IconBadgeClearView.Accent ->
@@ -562,6 +621,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeStyles.IconBadgeClearLDark
     size == IconBadgeClearSize.L && view == IconBadgeClearView.Light ->
         IconBadgeStyles.IconBadgeClearLLight
+    size == IconBadgeClearSize.L && view == IconBadgeClearView.Info ->
+        IconBadgeStyles.IconBadgeClearLInfo
     size == IconBadgeClearSize.M && view == IconBadgeClearView.Default ->
         IconBadgeStyles.IconBadgeClearMDefault
     size == IconBadgeClearSize.M && view == IconBadgeClearView.Accent ->
@@ -576,6 +637,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeStyles.IconBadgeClearMDark
     size == IconBadgeClearSize.M && view == IconBadgeClearView.Light ->
         IconBadgeStyles.IconBadgeClearMLight
+    size == IconBadgeClearSize.M && view == IconBadgeClearView.Info ->
+        IconBadgeStyles.IconBadgeClearMInfo
     size == IconBadgeClearSize.S && view == IconBadgeClearView.Default ->
         IconBadgeStyles.IconBadgeClearSDefault
     size == IconBadgeClearSize.S && view == IconBadgeClearView.Accent ->
@@ -590,6 +653,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeStyles.IconBadgeClearSDark
     size == IconBadgeClearSize.S && view == IconBadgeClearView.Light ->
         IconBadgeStyles.IconBadgeClearSLight
+    size == IconBadgeClearSize.S && view == IconBadgeClearView.Info ->
+        IconBadgeStyles.IconBadgeClearSInfo
     size == IconBadgeClearSize.Xs && view == IconBadgeClearView.Default ->
         IconBadgeStyles.IconBadgeClearXsDefault
     size == IconBadgeClearSize.Xs && view == IconBadgeClearView.Accent ->
@@ -604,6 +669,8 @@ public fun IconBadgeStyles.Clear.resolve(
         IconBadgeStyles.IconBadgeClearXsDark
     size == IconBadgeClearSize.Xs && view == IconBadgeClearView.Light ->
         IconBadgeStyles.IconBadgeClearXsLight
+    size == IconBadgeClearSize.Xs && view == IconBadgeClearView.Info ->
+        IconBadgeStyles.IconBadgeClearXsInfo
     else -> error("Unsupported icon-badge-clear style combination")
 }
 
@@ -640,6 +707,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeSolidView.Dark -> IconBadgeStyles.IconBadgeSolidLPilledDark
     size == IconBadgeSolidSize.L && shape == IconBadgeSolidShape.Pilled && view ==
         IconBadgeSolidView.Light -> IconBadgeStyles.IconBadgeSolidLPilledLight
+    size == IconBadgeSolidSize.L && shape == IconBadgeSolidShape.Pilled && view ==
+        IconBadgeSolidView.Info -> IconBadgeStyles.IconBadgeSolidLPilledInfo
     size == IconBadgeSolidSize.M && shape == IconBadgeSolidShape.Pilled && view ==
         IconBadgeSolidView.Default -> IconBadgeStyles.IconBadgeSolidMPilledDefault
     size == IconBadgeSolidSize.M && shape == IconBadgeSolidShape.Pilled && view ==
@@ -654,6 +723,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeSolidView.Dark -> IconBadgeStyles.IconBadgeSolidMPilledDark
     size == IconBadgeSolidSize.M && shape == IconBadgeSolidShape.Pilled && view ==
         IconBadgeSolidView.Light -> IconBadgeStyles.IconBadgeSolidMPilledLight
+    size == IconBadgeSolidSize.M && shape == IconBadgeSolidShape.Pilled && view ==
+        IconBadgeSolidView.Info -> IconBadgeStyles.IconBadgeSolidMPilledInfo
     size == IconBadgeSolidSize.S && shape == IconBadgeSolidShape.Pilled && view ==
         IconBadgeSolidView.Default -> IconBadgeStyles.IconBadgeSolidSPilledDefault
     size == IconBadgeSolidSize.S && shape == IconBadgeSolidShape.Pilled && view ==
@@ -668,6 +739,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeSolidView.Dark -> IconBadgeStyles.IconBadgeSolidSPilledDark
     size == IconBadgeSolidSize.S && shape == IconBadgeSolidShape.Pilled && view ==
         IconBadgeSolidView.Light -> IconBadgeStyles.IconBadgeSolidSPilledLight
+    size == IconBadgeSolidSize.S && shape == IconBadgeSolidShape.Pilled && view ==
+        IconBadgeSolidView.Info -> IconBadgeStyles.IconBadgeSolidSPilledInfo
     size == IconBadgeSolidSize.Xs && shape == IconBadgeSolidShape.Pilled && view ==
         IconBadgeSolidView.Default -> IconBadgeStyles.IconBadgeSolidXsPilledDefault
     size == IconBadgeSolidSize.Xs && shape == IconBadgeSolidShape.Pilled && view ==
@@ -682,6 +755,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeSolidView.Dark -> IconBadgeStyles.IconBadgeSolidXsPilledDark
     size == IconBadgeSolidSize.Xs && shape == IconBadgeSolidShape.Pilled && view ==
         IconBadgeSolidView.Light -> IconBadgeStyles.IconBadgeSolidXsPilledLight
+    size == IconBadgeSolidSize.Xs && shape == IconBadgeSolidShape.Pilled && view ==
+        IconBadgeSolidView.Info -> IconBadgeStyles.IconBadgeSolidXsPilledInfo
     size == IconBadgeSolidSize.L && view == IconBadgeSolidView.Default ->
         IconBadgeStyles.IconBadgeSolidLDefault
     size == IconBadgeSolidSize.L && view == IconBadgeSolidView.Accent ->
@@ -696,6 +771,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeStyles.IconBadgeSolidLDark
     size == IconBadgeSolidSize.L && view == IconBadgeSolidView.Light ->
         IconBadgeStyles.IconBadgeSolidLLight
+    size == IconBadgeSolidSize.L && view == IconBadgeSolidView.Info ->
+        IconBadgeStyles.IconBadgeSolidLInfo
     size == IconBadgeSolidSize.M && view == IconBadgeSolidView.Default ->
         IconBadgeStyles.IconBadgeSolidMDefault
     size == IconBadgeSolidSize.M && view == IconBadgeSolidView.Accent ->
@@ -710,6 +787,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeStyles.IconBadgeSolidMDark
     size == IconBadgeSolidSize.M && view == IconBadgeSolidView.Light ->
         IconBadgeStyles.IconBadgeSolidMLight
+    size == IconBadgeSolidSize.M && view == IconBadgeSolidView.Info ->
+        IconBadgeStyles.IconBadgeSolidMInfo
     size == IconBadgeSolidSize.S && view == IconBadgeSolidView.Default ->
         IconBadgeStyles.IconBadgeSolidSDefault
     size == IconBadgeSolidSize.S && view == IconBadgeSolidView.Accent ->
@@ -724,6 +803,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeStyles.IconBadgeSolidSDark
     size == IconBadgeSolidSize.S && view == IconBadgeSolidView.Light ->
         IconBadgeStyles.IconBadgeSolidSLight
+    size == IconBadgeSolidSize.S && view == IconBadgeSolidView.Info ->
+        IconBadgeStyles.IconBadgeSolidSInfo
     size == IconBadgeSolidSize.Xs && view == IconBadgeSolidView.Default ->
         IconBadgeStyles.IconBadgeSolidXsDefault
     size == IconBadgeSolidSize.Xs && view == IconBadgeSolidView.Accent ->
@@ -738,6 +819,8 @@ public fun IconBadgeStyles.Solid.resolve(
         IconBadgeStyles.IconBadgeSolidXsDark
     size == IconBadgeSolidSize.Xs && view == IconBadgeSolidView.Light ->
         IconBadgeStyles.IconBadgeSolidXsLight
+    size == IconBadgeSolidSize.Xs && view == IconBadgeSolidView.Info ->
+        IconBadgeStyles.IconBadgeSolidXsInfo
     else -> error("Unsupported icon-badge-solid style combination")
 }
 
@@ -774,6 +857,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeTransparentView.Dark -> IconBadgeStyles.IconBadgeTransparentLPilledDark
     size == IconBadgeTransparentSize.L && shape == IconBadgeTransparentShape.Pilled && view ==
         IconBadgeTransparentView.Light -> IconBadgeStyles.IconBadgeTransparentLPilledLight
+    size == IconBadgeTransparentSize.L && shape == IconBadgeTransparentShape.Pilled && view ==
+        IconBadgeTransparentView.Info -> IconBadgeStyles.IconBadgeTransparentLPilledInfo
     size == IconBadgeTransparentSize.M && shape == IconBadgeTransparentShape.Pilled && view ==
         IconBadgeTransparentView.Default -> IconBadgeStyles.IconBadgeTransparentMPilledDefault
     size == IconBadgeTransparentSize.M && shape == IconBadgeTransparentShape.Pilled && view ==
@@ -788,6 +873,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeTransparentView.Dark -> IconBadgeStyles.IconBadgeTransparentMPilledDark
     size == IconBadgeTransparentSize.M && shape == IconBadgeTransparentShape.Pilled && view ==
         IconBadgeTransparentView.Light -> IconBadgeStyles.IconBadgeTransparentMPilledLight
+    size == IconBadgeTransparentSize.M && shape == IconBadgeTransparentShape.Pilled && view ==
+        IconBadgeTransparentView.Info -> IconBadgeStyles.IconBadgeTransparentMPilledInfo
     size == IconBadgeTransparentSize.S && shape == IconBadgeTransparentShape.Pilled && view ==
         IconBadgeTransparentView.Default -> IconBadgeStyles.IconBadgeTransparentSPilledDefault
     size == IconBadgeTransparentSize.S && shape == IconBadgeTransparentShape.Pilled && view ==
@@ -802,6 +889,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeTransparentView.Dark -> IconBadgeStyles.IconBadgeTransparentSPilledDark
     size == IconBadgeTransparentSize.S && shape == IconBadgeTransparentShape.Pilled && view ==
         IconBadgeTransparentView.Light -> IconBadgeStyles.IconBadgeTransparentSPilledLight
+    size == IconBadgeTransparentSize.S && shape == IconBadgeTransparentShape.Pilled && view ==
+        IconBadgeTransparentView.Info -> IconBadgeStyles.IconBadgeTransparentSPilledInfo
     size == IconBadgeTransparentSize.Xs && shape == IconBadgeTransparentShape.Pilled && view ==
         IconBadgeTransparentView.Default -> IconBadgeStyles.IconBadgeTransparentXsPilledDefault
     size == IconBadgeTransparentSize.Xs && shape == IconBadgeTransparentShape.Pilled && view ==
@@ -816,6 +905,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeTransparentView.Dark -> IconBadgeStyles.IconBadgeTransparentXsPilledDark
     size == IconBadgeTransparentSize.Xs && shape == IconBadgeTransparentShape.Pilled && view ==
         IconBadgeTransparentView.Light -> IconBadgeStyles.IconBadgeTransparentXsPilledLight
+    size == IconBadgeTransparentSize.Xs && shape == IconBadgeTransparentShape.Pilled && view ==
+        IconBadgeTransparentView.Info -> IconBadgeStyles.IconBadgeTransparentXsPilledInfo
     size == IconBadgeTransparentSize.L && view == IconBadgeTransparentView.Default ->
         IconBadgeStyles.IconBadgeTransparentLDefault
     size == IconBadgeTransparentSize.L && view == IconBadgeTransparentView.Accent ->
@@ -830,6 +921,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeStyles.IconBadgeTransparentLDark
     size == IconBadgeTransparentSize.L && view == IconBadgeTransparentView.Light ->
         IconBadgeStyles.IconBadgeTransparentLLight
+    size == IconBadgeTransparentSize.L && view == IconBadgeTransparentView.Info ->
+        IconBadgeStyles.IconBadgeTransparentLInfo
     size == IconBadgeTransparentSize.M && view == IconBadgeTransparentView.Default ->
         IconBadgeStyles.IconBadgeTransparentMDefault
     size == IconBadgeTransparentSize.M && view == IconBadgeTransparentView.Accent ->
@@ -844,6 +937,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeStyles.IconBadgeTransparentMDark
     size == IconBadgeTransparentSize.M && view == IconBadgeTransparentView.Light ->
         IconBadgeStyles.IconBadgeTransparentMLight
+    size == IconBadgeTransparentSize.M && view == IconBadgeTransparentView.Info ->
+        IconBadgeStyles.IconBadgeTransparentMInfo
     size == IconBadgeTransparentSize.S && view == IconBadgeTransparentView.Default ->
         IconBadgeStyles.IconBadgeTransparentSDefault
     size == IconBadgeTransparentSize.S && view == IconBadgeTransparentView.Accent ->
@@ -858,6 +953,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeStyles.IconBadgeTransparentSDark
     size == IconBadgeTransparentSize.S && view == IconBadgeTransparentView.Light ->
         IconBadgeStyles.IconBadgeTransparentSLight
+    size == IconBadgeTransparentSize.S && view == IconBadgeTransparentView.Info ->
+        IconBadgeStyles.IconBadgeTransparentSInfo
     size == IconBadgeTransparentSize.Xs && view == IconBadgeTransparentView.Default ->
         IconBadgeStyles.IconBadgeTransparentXsDefault
     size == IconBadgeTransparentSize.Xs && view == IconBadgeTransparentView.Accent ->
@@ -872,6 +969,8 @@ public fun IconBadgeStyles.Transparent.resolve(
         IconBadgeStyles.IconBadgeTransparentXsDark
     size == IconBadgeTransparentSize.Xs && view == IconBadgeTransparentView.Light ->
         IconBadgeStyles.IconBadgeTransparentXsLight
+    size == IconBadgeTransparentSize.Xs && view == IconBadgeTransparentView.Info ->
+        IconBadgeStyles.IconBadgeTransparentXsInfo
     else -> error("Unsupported icon-badge-transparent style combination")
 }
 
