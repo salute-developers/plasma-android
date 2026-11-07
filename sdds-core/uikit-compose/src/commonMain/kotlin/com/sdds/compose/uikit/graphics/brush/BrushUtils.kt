@@ -102,3 +102,21 @@ fun StatefulValue<Brush>.addStates(vararg statefulValues: Pair<ValueStateSet, In
         defaultValue = getDefaultValue(),
     )
 }
+
+/**
+ * Заменяет все состояния, содержащие [stateToReplace], на новые из [interactiveColor].
+ */
+fun StatefulValue<Brush>.replaceStateSet(
+    stateToReplace: ValueStateSet,
+    interactiveColor: InteractiveColor,
+): StatefulValue<Brush> {
+    val keptIndices = getStateSets().indices.filter { i ->
+        getStateSets()[i].intersect(stateToReplace).isEmpty()
+    }
+    val filtered = StatefulValue.from(
+        states = keptIndices.map { getStateSets()[it] },
+        values = keptIndices.map { getValues()[it] },
+        defaultValue = getDefaultValue(),
+    )
+    return filtered.addStates(stateToReplace to interactiveColor)
+}

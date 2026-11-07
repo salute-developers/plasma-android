@@ -273,6 +273,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_end))
             optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_optional_padding))
             helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_helper_text_padding))
+            dividerThickness(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_divider_height))
         }
         .colors {
             cursorColor(SolidColor(StarDsTheme.colors.textDefaultAccentMain).asStatefulValue())

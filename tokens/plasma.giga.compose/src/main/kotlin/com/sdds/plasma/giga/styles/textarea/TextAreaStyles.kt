@@ -496,9 +496,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
-            endContentColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
             valueColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
-            captionColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
             optionalColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
             placeholderColor(
@@ -506,9 +504,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                     setOf(InteractiveState.Activated)
                         to SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary),
                 ),
-            )
-            backgroundColorReadOnly(
-                PlasmaGigaTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
             )
             indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())

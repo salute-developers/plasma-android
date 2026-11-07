@@ -8,6 +8,7 @@
 package com.sdds.compose.sandbox.styles.textfield
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.styles.chipgroup.EmbeddedChipGroupDense
 import com.sdds.compose.sandbox.styles.chipgroup.L
@@ -26,6 +27,7 @@ import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -397,9 +399,9 @@ public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
         .colors {
             captionColor(SddsSandboxTheme.colors.textDefaultSecondary.asInteractive())
             backgroundColor(
-                SddsSandboxTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(
+                SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentPrimary).asStatefulValue(
                     setOf(InteractiveState.Activated)
-                        to SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary,
+                        to SolidColor(SddsSandboxTheme.colors.surfaceDefaultTransparentSecondary),
                 ),
             )
         }
