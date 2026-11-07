@@ -15,6 +15,7 @@ import com.sdds.api.info.compose.ApiInfo
 import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.graphics.brush.addStates
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.graphics.brush.replaceStateSet
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -1450,6 +1451,7 @@ private class DefaultTextFieldColors(
 
         override fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor) = apply {
             this.cursorColorReadOnly = cursorColorReadOnly
+            this.cursorBrush = this.cursorBrush.replaceReadonly(cursorColorReadOnly)
         }
 
         override fun startContentColor(startContentColor: StatefulValue<Brush>) = apply {
@@ -1464,10 +1466,10 @@ private class DefaultTextFieldColors(
             this.startContentColor = startContentColor
         }
 
-        override fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor) =
-            apply {
-                this.startContentColorReadOnly = startContentColorReadOnly
-            }
+        override fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor) = apply {
+            this.startContentColorReadOnly = startContentColorReadOnly
+            this.startContentBrush = this.startContentBrush.replaceReadonly(startContentColorReadOnly)
+        }
 
         override fun endContentColor(endContentColor: StatefulValue<Brush>) = apply {
             this.endContentBrush = endContentColor
@@ -1479,6 +1481,7 @@ private class DefaultTextFieldColors(
 
         override fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor) = apply {
             this.endContentColorReadOnly = endContentColorReadOnly
+            this.endContentBrush = this.endContentBrush.replaceReadonly(endContentColorReadOnly)
         }
 
         override fun labelColor(labelColor: StatefulValue<Brush>) = apply {
@@ -1491,6 +1494,7 @@ private class DefaultTextFieldColors(
 
         override fun labelColorReadOnly(labelColorReadOnly: InteractiveColor) = apply {
             this.labelColorReadOnly = labelColorReadOnly
+            this.labelBrush = this.labelBrush.replaceReadonly(labelColorReadOnly)
         }
 
         override fun valueColor(valueColor: StatefulValue<Brush>) = apply {
@@ -1503,6 +1507,7 @@ private class DefaultTextFieldColors(
 
         override fun valueColorReadOnly(valueColorReadOnly: InteractiveColor) = apply {
             this.valueColorReadOnly = valueColorReadOnly
+            this.valueBrush = this.valueBrush.replaceReadonly(valueColorReadOnly)
         }
 
         override fun captionColor(captionColor: StatefulValue<Brush>) = apply {
@@ -1515,6 +1520,7 @@ private class DefaultTextFieldColors(
 
         override fun captionColorReadOnly(captionColorReadOnly: InteractiveColor) = apply {
             this.captionColorReadOnly = captionColorReadOnly
+            this.captionBrush = this.captionBrush.replaceReadonly(captionColorReadOnly)
         }
 
         override fun optionalColor(optionalColor: StatefulValue<Brush>) = apply {
@@ -1527,6 +1533,7 @@ private class DefaultTextFieldColors(
 
         override fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor) = apply {
             this.optionalColorReadOnly = optionalColorReadOnly
+            this.optionalBrush = this.optionalBrush.replaceReadonly(optionalColorReadOnly)
         }
 
         override fun counterColor(counterColor: StatefulValue<Brush>) = apply {
@@ -1539,6 +1546,7 @@ private class DefaultTextFieldColors(
 
         override fun counterColorReadOnly(counterColorReadOnly: InteractiveColor) = apply {
             this.counterColorReadOnly = counterColorReadOnly
+            this.counterBrush = this.counterBrush.replaceReadonly(counterColorReadOnly)
         }
 
         override fun placeholderColor(placeholderColor: StatefulValue<Brush>) = apply {
@@ -1551,6 +1559,7 @@ private class DefaultTextFieldColors(
 
         override fun placeholderColorReadOnly(placeholderColorReadOnly: InteractiveColor) = apply {
             this.placeholderColorReadOnly = placeholderColorReadOnly
+            this.placeholderBrush = this.placeholderBrush.replaceReadonly(placeholderColorReadOnly)
         }
 
         override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
@@ -1563,6 +1572,7 @@ private class DefaultTextFieldColors(
 
         override fun backgroundColorReadOnly(backgroundColorReadOnly: InteractiveColor) = apply {
             this.backgroundColorReadOnly = backgroundColorReadOnly
+            this.backgroundBrush = this.backgroundBrush.replaceReadonly(backgroundColorReadOnly)
         }
 
         override fun dividerColor(dividerColor: StatefulValue<Brush>) = apply {
@@ -1575,6 +1585,7 @@ private class DefaultTextFieldColors(
 
         override fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor) = apply {
             this.dividerColorReadOnly = dividerColorReadOnly
+            this.dividerBrush = this.dividerBrush.replaceReadonly(dividerColorReadOnly)
         }
 
         override fun indicatorColor(indicatorColor: StatefulValue<Brush>) = apply {
@@ -1587,6 +1598,7 @@ private class DefaultTextFieldColors(
 
         override fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor) = apply {
             this.indicatorColorReadOnly = indicatorColorReadOnly
+            this.indicatorBrush = this.indicatorBrush.replaceReadonly(indicatorColorReadOnly)
         }
 
         override fun prefixColor(prefixColor: StatefulValue<Brush>) = apply {
@@ -1607,15 +1619,24 @@ private class DefaultTextFieldColors(
 
         override fun prefixColorReadOnly(prefixColorReadOnly: InteractiveColor) = apply {
             this.prefixColorReadOnly = prefixColorReadOnly
+            this.prefixBrush = this.prefixBrush.replaceReadonly(prefixColorReadOnly)
         }
 
         override fun suffixColorReadOnly(suffixColorReadOnly: InteractiveColor) = apply {
             this.suffixColorReadOnly = suffixColorReadOnly
+            this.suffixBrush = this.suffixBrush.replaceReadonly(suffixColorReadOnly)
         }
 
         override fun strokeColor(strokeColor: StatefulValue<Brush>) = apply {
             this.strokeColor = strokeColor
         }
+
+        private fun StatefulValue<Brush>?.replaceReadonly(
+            interactiveColor: InteractiveColor,
+        ): StatefulValue<Brush>? = this?.replaceStateSet(
+            setOf(TextFieldSemanticState.Readonly),
+            interactiveColor,
+        )
 
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
@@ -1650,7 +1671,7 @@ private class DefaultTextFieldColors(
             val divColorRead = dividerColorReadOnly ?: divColor
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
-                cursorColor = curColorRead,
+                cursorColor = curColor,
                 cursorColorReadOnly = curColorRead,
                 cursorBrush = cursorBrush ?: curColor.asStatefulBrush().addStates(
                     setOf(TextFieldSemanticState.Readonly) to curColorRead,

@@ -8,13 +8,14 @@
 package com.sdds.serv.styles.`file`
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.FileActionPlacement
 import com.sdds.compose.uikit.FileProgressPlacement
 import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.FileStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -122,11 +123,11 @@ public val WrapperFileCircularProgressView.Default: WrapperFileCircularProgressT
     get() = builder
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(SddsServTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -137,11 +138,11 @@ public val WrapperFileCircularProgressView.Negative: WrapperFileCircularProgress
     get() = builder
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultNegativeHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultNegativeHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultNegativeActive,
+                        SolidColor(SddsServTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -154,19 +155,19 @@ private val FileStyleBuilder.invariantProps: FileStyleBuilder
         .actionPlacement(FileActionPlacement.End)
         .colors {
             labelColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimaryHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultPrimaryActive,
+                        SolidColor(SddsServTheme.colors.textDefaultPrimaryActive),
                 ),
             )
             iconColor(
-                SddsServTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultPrimaryHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultPrimaryActive,
+                        SolidColor(SddsServTheme.colors.textDefaultPrimaryActive),
                 ),
             )
         }
@@ -181,11 +182,11 @@ public val WrapperFileCircularProgressXsView.Default: WrapperFileCircularProgres
         .circularProgressBarStyle(CircularProgressBar.Xs.Default.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(SddsServTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -198,11 +199,11 @@ public val WrapperFileCircularProgressXsView.Negative: WrapperFileCircularProgre
         .circularProgressBarStyle(CircularProgressBar.Xs.Negative.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultNegativeHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultNegativeHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultNegativeActive,
+                        SolidColor(SddsServTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -229,11 +230,11 @@ public val WrapperFileCircularProgressSView.Default: WrapperFileCircularProgress
         .circularProgressBarStyle(CircularProgressBar.S.Default.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(SddsServTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -246,11 +247,11 @@ public val WrapperFileCircularProgressSView.Negative: WrapperFileCircularProgres
         .circularProgressBarStyle(CircularProgressBar.S.Negative.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultNegativeHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultNegativeHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultNegativeActive,
+                        SolidColor(SddsServTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -277,11 +278,11 @@ public val WrapperFileCircularProgressMView.Default: WrapperFileCircularProgress
         .circularProgressBarStyle(CircularProgressBar.S.Default.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(SddsServTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -294,11 +295,11 @@ public val WrapperFileCircularProgressMView.Negative: WrapperFileCircularProgres
         .circularProgressBarStyle(CircularProgressBar.S.Negative.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultNegativeHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultNegativeHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultNegativeActive,
+                        SolidColor(SddsServTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -325,11 +326,11 @@ public val WrapperFileCircularProgressLView.Default: WrapperFileCircularProgress
         .circularProgressBarStyle(CircularProgressBar.S.Default.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(SddsServTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -342,11 +343,11 @@ public val WrapperFileCircularProgressLView.Negative: WrapperFileCircularProgres
         .circularProgressBarStyle(CircularProgressBar.S.Negative.style())
         .colors {
             descriptionColor(
-                SddsServTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(SddsServTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.textDefaultNegativeHover,
+                        to SolidColor(SddsServTheme.colors.textDefaultNegativeHover),
                     setOf(InteractiveState.Pressed) to
-                        SddsServTheme.colors.textDefaultNegativeActive,
+                        SolidColor(SddsServTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
