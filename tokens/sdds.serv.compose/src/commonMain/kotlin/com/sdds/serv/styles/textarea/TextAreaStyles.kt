@@ -502,9 +502,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
-            endContentColorReadOnly(SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
             valueColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
-            captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             optionalColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
             placeholderColor(
@@ -520,8 +518,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(SddsServTheme.colors.textDefaultSecondary),
                 ),
             )
-            placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            backgroundColorReadOnly(SddsServTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive())
             indicatorColor(SolidColor(SddsServTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())
             suffixColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())

@@ -8,10 +8,11 @@
 package com.sdds.plasma.giga.styles.dropdownemptystate
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.DropdownEmptyStateStyle
 import com.sdds.compose.uikit.DropdownEmptyStateStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -117,8 +118,8 @@ private val DropdownEmptyStateStyleBuilder.invariantProps: DropdownEmptyStateSty
     @Composable
     get() = this
         .colors {
-            iconColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
-            descriptionColor(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(PlasmaGigaTheme.colors.textDefaultPrimary).asStatefulValue())
         }
 
 public val DropdownEmptyState.Xs: WrapperDropdownEmptyStateXs

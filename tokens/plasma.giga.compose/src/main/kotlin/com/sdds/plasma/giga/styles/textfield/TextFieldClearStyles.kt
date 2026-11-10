@@ -18,7 +18,6 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -639,7 +638,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         }
         .colors {
             cursorColor(SolidColor(PlasmaGigaTheme.colors.textDefaultAccent).asStatefulValue())
-            startContentColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
                 SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
@@ -650,13 +648,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
-            endContentColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
-            valueColorReadOnly(PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive())
-            captionColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
             optionalColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(SolidColor(PlasmaGigaTheme.colors.textDefaultSecondary).asStatefulValue())
-            placeholderColorReadOnly(PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive())
-            dividerColorReadOnly(PlasmaGigaTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
             indicatorColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())
             suffixColor(SolidColor(PlasmaGigaTheme.colors.textDefaultTertiary).asStatefulValue())

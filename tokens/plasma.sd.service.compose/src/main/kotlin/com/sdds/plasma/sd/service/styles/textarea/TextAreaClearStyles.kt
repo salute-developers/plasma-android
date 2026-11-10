@@ -18,9 +18,7 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
-import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -557,10 +555,10 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             chipsPadding(6.0.dp)
             chipsPaddingStart(0.0.dp)
             chipsPaddingEnd(0.0.dp)
+            dividerThickness(1.0.dp)
         }
         .colors {
             cursorColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultAccent).asStatefulValue())
-            startContentColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
                 SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
@@ -571,15 +569,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary),
                 ),
             )
-            endContentColorReadOnly(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
-            )
-            valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
-            captionColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
             optionalColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue())
-            placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-            dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
             indicatorColor(SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultTertiary).asStatefulValue())
             suffixColor(SolidColor(PlasmaSdServiceTheme.colors.textDefaultTertiary).asStatefulValue())

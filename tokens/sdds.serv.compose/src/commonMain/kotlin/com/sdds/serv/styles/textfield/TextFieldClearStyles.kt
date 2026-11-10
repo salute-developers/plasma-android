@@ -18,7 +18,6 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -656,10 +655,10 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             chipsPadding(6.0.dp)
             chipsPaddingStart(0.0.dp)
             chipsPaddingEnd(0.0.dp)
+            dividerThickness(1.0.dp)
         }
         .colors {
             cursorColor(SolidColor(SddsServTheme.colors.textDefaultAccent).asStatefulValue())
-            startContentColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
                 SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Pressed)
@@ -670,13 +669,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
-            endContentColorReadOnly(SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
-            valueColorReadOnly(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             optionalColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(SolidColor(SddsServTheme.colors.textDefaultSecondary).asStatefulValue())
-            placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
             indicatorColor(SolidColor(SddsServTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())
             suffixColor(SolidColor(SddsServTheme.colors.textDefaultTertiary).asStatefulValue())

@@ -18,7 +18,6 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -439,7 +438,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             )
             optionalColor(SolidColor(SddsFinAiTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(SolidColor(SddsFinAiTheme.colors.textDefaultSecondary).asStatefulValue())
-            dividerColorReadOnly(SddsFinAiTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
             indicatorColor(SolidColor(SddsFinAiTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(SolidColor(SddsFinAiTheme.colors.textDefaultTertiary).asStatefulValue())
             suffixColor(SolidColor(SddsFinAiTheme.colors.textDefaultTertiary).asStatefulValue())
