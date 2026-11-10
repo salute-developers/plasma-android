@@ -398,9 +398,12 @@ private class NoteMeasurePolicy(
 
         val title = measurable(TITLE)?.measure(textConstraints)
         val titleHeight = title.heightOrZero()
-        val text = measurable(TEXT)?.measure(textConstraints.offset(vertical = -titleHeight))
-        // textTop — отступ между заголовком и текстом, применяется только когда есть оба слота
-        val textTop = if (titleHeight > 0 && text != null) textTopHeight else 0
+        // textTop — отступ между заголовком и текстом, применяется только когда есть оба слота.
+        // Считается до измерения текста, чтобы отступ вычитался из доступной высоты,
+        // иначе при ограниченной высоте нижняя часть текста обрезается
+        val textMeasurable = measurable(TEXT)
+        val textTop = if (titleHeight > 0 && textMeasurable != null) textTopHeight else 0
+        val text = textMeasurable?.measure(textConstraints.offset(vertical = -(titleHeight + textTop)))
         val textHeight = text.heightOrZero()
         // Экшн идёт отдельной строкой под текстовым блоком, поэтому contentAfter его ширину не уменьшает
         remaining = remaining.offset(vertical = -(titleHeight + textTop + textHeight))
