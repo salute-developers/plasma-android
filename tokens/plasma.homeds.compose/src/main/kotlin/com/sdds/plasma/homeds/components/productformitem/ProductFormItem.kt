@@ -7,6 +7,8 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -21,7 +23,6 @@ import com.sdds.compose.uikit.FormItem
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
  * @param modifier модификатор
- * @param editableModifier модификатор для текстового поля
  * @param style стиль компонента
  * @param caption контент надписи
  * @param counter контент счетчика
@@ -38,13 +39,13 @@ import com.sdds.compose.uikit.FormItem
  * @param visualTransformation фильтр визуального отображения [VisualTransformation].
  * @param onTextLayout колбэк, сигнализирующий об окончания лэйаута текста
  * @param interactionSource источник взаимодействий [InteractionSource]
+ * @param focusRequester запросчик фокуса для текстового поля
  */
 @Composable
 fun ProductFormItem(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
-    editableModifier: Modifier = Modifier,
     style: ProductFormItemStyle = LocalProductFormItemStyle.current,
     caption: (@Composable () -> Unit)? = null,
     counter: (@Composable () -> Unit)? = null,
@@ -61,6 +62,7 @@ fun ProductFormItem(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    focusRequester: FocusRequester = FocusRequester.Default,
 ) {
     FormItem(
         modifier = modifier,
@@ -71,7 +73,7 @@ fun ProductFormItem(
         interactionSource = interactionSource,
     ) {
         Editable(
-            modifier = editableModifier,
+            modifier = Modifier.focusRequester(focusRequester),
             value = value,
             onValueChange = onValueChange,
             style = style.editableStyle,
@@ -98,7 +100,6 @@ fun ProductFormItem(
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
  * @param modifier модификатор
- * @param editableModifier модификатор для текстового поля
  * @param style стиль компонента
  * @param caption контент надписи
  * @param counter контент счетчика
@@ -115,13 +116,13 @@ fun ProductFormItem(
  * @param visualTransformation фильтр визуального отображения [VisualTransformation].
  * @param onTextLayout колбэк, сигнализирующий об окончания лэйаута текста
  * @param interactionSource источник взаимодействий [InteractionSource]
+ * @param focusRequester запросчик фокуса для текстового поля
  */
 @Composable
 fun ProductFormItem(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
-    editableModifier: Modifier = Modifier,
     style: ProductFormItemStyle = LocalProductFormItemStyle.current,
     caption: (@Composable () -> Unit)? = null,
     counter: (@Composable () -> Unit)? = null,
@@ -138,6 +139,7 @@ fun ProductFormItem(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    focusRequester: FocusRequester = FocusRequester.Default,
 ) {
     FormItem(
         modifier = modifier,
@@ -148,7 +150,7 @@ fun ProductFormItem(
         interactionSource = interactionSource,
     ) {
         Editable(
-            modifier = editableModifier,
+            modifier = Modifier.focusRequester(focusRequester),
             value = value,
             onValueChange = onValueChange,
             style = style.editableStyle,

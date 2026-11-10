@@ -84,8 +84,7 @@ internal object ProductFormItemStory : ComposeBaseStory<HomeDsProductFormItemUiS
         ProductFormItem(
             onValueChange = { text = it },
             style = style,
-            editableModifier = Modifier
-                .focusRequester(focusRequester),
+            focusRequester = focusRequester,
             caption = { Text(text = state.caption) },
             enabled = state.enabled,
             value = text,
@@ -94,6 +93,7 @@ internal object ProductFormItemStory : ComposeBaseStory<HomeDsProductFormItemUiS
                     modifier = Modifier
                         .clickable(
                             indication = null,
+                            enabled = state.enabled,
                             interactionSource = remember { MutableInteractionSource() },
                         ) {
                             focusRequester.requestFocus()
