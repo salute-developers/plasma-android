@@ -21,6 +21,7 @@ import com.sdds.plasma.giga.styles.badge.BadgeTransparentSize
 import com.sdds.plasma.giga.styles.badge.BadgeTransparentView
 import com.sdds.plasma.giga.styles.badge.Dark
 import com.sdds.plasma.giga.styles.badge.Default
+import com.sdds.plasma.giga.styles.badge.Info
 import com.sdds.plasma.giga.styles.badge.L
 import com.sdds.plasma.giga.styles.badge.Light
 import com.sdds.plasma.giga.styles.badge.M
@@ -41,7 +42,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             Property.SingleChoiceProperty(
                 name = "view",
                 value = "Default",
-                variants = listOf("Default", "Accent", "Negative", "Positive", "Warning", "Dark", "Light"),
+                variants = listOf("Default", "Accent", "Negative", "Positive", "Warning", "Dark", "Light", "Info"),
             ),
         )
 
@@ -54,6 +55,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.L.Warning" to ComposeStyleReference { BadgeTransparent.L.Warning.style() },
             "BadgeTransparent.L.Dark" to ComposeStyleReference { BadgeTransparent.L.Dark.style() },
             "BadgeTransparent.L.Light" to ComposeStyleReference { BadgeTransparent.L.Light.style() },
+            "BadgeTransparent.L.Info" to ComposeStyleReference { BadgeTransparent.L.Info.style() },
             "BadgeTransparent.L.Pilled.Default" to ComposeStyleReference { BadgeTransparent.L.Pilled.Default.style() },
             "BadgeTransparent.L.Pilled.Accent" to ComposeStyleReference { BadgeTransparent.L.Pilled.Accent.style() },
             "BadgeTransparent.L.Pilled.Negative" to ComposeStyleReference { BadgeTransparent.L.Pilled.Negative.style() },
@@ -61,6 +63,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.L.Pilled.Warning" to ComposeStyleReference { BadgeTransparent.L.Pilled.Warning.style() },
             "BadgeTransparent.L.Pilled.Dark" to ComposeStyleReference { BadgeTransparent.L.Pilled.Dark.style() },
             "BadgeTransparent.L.Pilled.Light" to ComposeStyleReference { BadgeTransparent.L.Pilled.Light.style() },
+            "BadgeTransparent.L.Pilled.Info" to ComposeStyleReference { BadgeTransparent.L.Pilled.Info.style() },
             "BadgeTransparent.M.Default" to ComposeStyleReference { BadgeTransparent.M.Default.style() },
             "BadgeTransparent.M.Accent" to ComposeStyleReference { BadgeTransparent.M.Accent.style() },
             "BadgeTransparent.M.Negative" to ComposeStyleReference { BadgeTransparent.M.Negative.style() },
@@ -68,6 +71,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.M.Warning" to ComposeStyleReference { BadgeTransparent.M.Warning.style() },
             "BadgeTransparent.M.Dark" to ComposeStyleReference { BadgeTransparent.M.Dark.style() },
             "BadgeTransparent.M.Light" to ComposeStyleReference { BadgeTransparent.M.Light.style() },
+            "BadgeTransparent.M.Info" to ComposeStyleReference { BadgeTransparent.M.Info.style() },
             "BadgeTransparent.M.Pilled.Default" to ComposeStyleReference { BadgeTransparent.M.Pilled.Default.style() },
             "BadgeTransparent.M.Pilled.Accent" to ComposeStyleReference { BadgeTransparent.M.Pilled.Accent.style() },
             "BadgeTransparent.M.Pilled.Negative" to ComposeStyleReference { BadgeTransparent.M.Pilled.Negative.style() },
@@ -75,6 +79,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.M.Pilled.Warning" to ComposeStyleReference { BadgeTransparent.M.Pilled.Warning.style() },
             "BadgeTransparent.M.Pilled.Dark" to ComposeStyleReference { BadgeTransparent.M.Pilled.Dark.style() },
             "BadgeTransparent.M.Pilled.Light" to ComposeStyleReference { BadgeTransparent.M.Pilled.Light.style() },
+            "BadgeTransparent.M.Pilled.Info" to ComposeStyleReference { BadgeTransparent.M.Pilled.Info.style() },
             "BadgeTransparent.S.Default" to ComposeStyleReference { BadgeTransparent.S.Default.style() },
             "BadgeTransparent.S.Accent" to ComposeStyleReference { BadgeTransparent.S.Accent.style() },
             "BadgeTransparent.S.Negative" to ComposeStyleReference { BadgeTransparent.S.Negative.style() },
@@ -82,6 +87,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.S.Warning" to ComposeStyleReference { BadgeTransparent.S.Warning.style() },
             "BadgeTransparent.S.Dark" to ComposeStyleReference { BadgeTransparent.S.Dark.style() },
             "BadgeTransparent.S.Light" to ComposeStyleReference { BadgeTransparent.S.Light.style() },
+            "BadgeTransparent.S.Info" to ComposeStyleReference { BadgeTransparent.S.Info.style() },
             "BadgeTransparent.S.Pilled.Default" to ComposeStyleReference { BadgeTransparent.S.Pilled.Default.style() },
             "BadgeTransparent.S.Pilled.Accent" to ComposeStyleReference { BadgeTransparent.S.Pilled.Accent.style() },
             "BadgeTransparent.S.Pilled.Negative" to ComposeStyleReference { BadgeTransparent.S.Pilled.Negative.style() },
@@ -89,6 +95,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.S.Pilled.Warning" to ComposeStyleReference { BadgeTransparent.S.Pilled.Warning.style() },
             "BadgeTransparent.S.Pilled.Dark" to ComposeStyleReference { BadgeTransparent.S.Pilled.Dark.style() },
             "BadgeTransparent.S.Pilled.Light" to ComposeStyleReference { BadgeTransparent.S.Pilled.Light.style() },
+            "BadgeTransparent.S.Pilled.Info" to ComposeStyleReference { BadgeTransparent.S.Pilled.Info.style() },
             "BadgeTransparent.Xs.Default" to ComposeStyleReference { BadgeTransparent.Xs.Default.style() },
             "BadgeTransparent.Xs.Accent" to ComposeStyleReference { BadgeTransparent.Xs.Accent.style() },
             "BadgeTransparent.Xs.Negative" to ComposeStyleReference { BadgeTransparent.Xs.Negative.style() },
@@ -96,6 +103,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.Xs.Warning" to ComposeStyleReference { BadgeTransparent.Xs.Warning.style() },
             "BadgeTransparent.Xs.Dark" to ComposeStyleReference { BadgeTransparent.Xs.Dark.style() },
             "BadgeTransparent.Xs.Light" to ComposeStyleReference { BadgeTransparent.Xs.Light.style() },
+            "BadgeTransparent.Xs.Info" to ComposeStyleReference { BadgeTransparent.Xs.Info.style() },
             "BadgeTransparent.Xs.Pilled.Default" to ComposeStyleReference { BadgeTransparent.Xs.Pilled.Default.style() },
             "BadgeTransparent.Xs.Pilled.Accent" to ComposeStyleReference { BadgeTransparent.Xs.Pilled.Accent.style() },
             "BadgeTransparent.Xs.Pilled.Negative" to ComposeStyleReference { BadgeTransparent.Xs.Pilled.Negative.style() },
@@ -103,6 +111,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
             "BadgeTransparent.Xs.Pilled.Warning" to ComposeStyleReference { BadgeTransparent.Xs.Pilled.Warning.style() },
             "BadgeTransparent.Xs.Pilled.Dark" to ComposeStyleReference { BadgeTransparent.Xs.Pilled.Dark.style() },
             "BadgeTransparent.Xs.Pilled.Light" to ComposeStyleReference { BadgeTransparent.Xs.Pilled.Light.style() },
+            "BadgeTransparent.Xs.Pilled.Info" to ComposeStyleReference { BadgeTransparent.Xs.Pilled.Info.style() },
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
@@ -127,6 +136,7 @@ internal object PlasmaGigaBadgeTransparentVariationsCompose : ComposeStyleProvid
                 "Warning" -> BadgeTransparentView.Warning
                 "Dark" -> BadgeTransparentView.Dark
                 "Light" -> BadgeTransparentView.Light
+                "Info" -> BadgeTransparentView.Info
                 else -> BadgeTransparentView.Default
             },
         ).key

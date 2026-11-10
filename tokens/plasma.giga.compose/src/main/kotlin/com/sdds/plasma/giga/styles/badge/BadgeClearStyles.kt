@@ -177,6 +177,16 @@ public val WrapperBadgeClearView.Light: WrapperBadgeClearTerminate
         }
         .wrap(::WrapperBadgeClearTerminate)
 
+public val WrapperBadgeClearView.Info: WrapperBadgeClearTerminate
+    @Composable
+    get() = builder
+        .colors {
+            labelColor(SolidColor(PlasmaGigaTheme.colors.textDefaultInfo).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultInfo).asStatefulValue())
+            endContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultInfo).asStatefulValue())
+        }
+        .wrap(::WrapperBadgeClearTerminate)
+
 private val BadgeStyleBuilder.invariantProps: BadgeStyleBuilder
     @Composable
     get() = this
