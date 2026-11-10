@@ -11,599 +11,11 @@ import androidx.compose.ui.unit.sp
 import kotlin.Suppress
 
 /**
- * Токены типографии для ScreenClass.SMALL
+ * Токены типографии для ScreenClass.MEDIUM
  */
-public object TypographySmallTokens {
+public object TypographyMediumTokens {
     /**
-     * typography s display-l
-     */
-    public val DisplayLNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 88.0.sp,
-            lineHeight = 92.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-l-bold
-     */
-    public val DisplayLBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 88.0.sp,
-            lineHeight = 92.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-m
-     */
-    public val DisplayMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 56.0.sp,
-            lineHeight = 62.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-m-bold
-     */
-    public val DisplayMBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 56.0.sp,
-            lineHeight = 62.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-s
-     */
-    public val DisplaySNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 40.0.sp,
-            lineHeight = 46.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-s-bold
-     */
-    public val DisplaySBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 40.0.sp,
-            lineHeight = 46.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h1
-     */
-    public val HeaderH1Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 28.0.sp,
-            lineHeight = 34.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h1-bold
-     */
-    public val HeaderH1Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 28.0.sp,
-            lineHeight = 34.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h2
-     */
-    public val HeaderH2Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 24.0.sp,
-            lineHeight = 30.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h2-bold
-     */
-    public val HeaderH2Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 24.0.sp,
-            lineHeight = 30.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h3
-     */
-    public val HeaderH3Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h3-bold
-     */
-    public val HeaderH3Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h4
-     */
-    public val HeaderH4Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 18.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h4-bold
-     */
-    public val HeaderH4Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 18.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h5
-     */
-    public val HeaderH5Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 16.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h5-bold
-     */
-    public val HeaderH5Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 16.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h6
-     */
-    public val HeaderH6Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 10.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h6-bold
-     */
-    public val HeaderH6Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 10.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-l
-     */
-    public val BodyLNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 18.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-l-bold
-     */
-    public val BodyLBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 18.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-m
-     */
-    public val BodyMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 16.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-m-bold
-     */
-    public val BodyMBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 16.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-s
-     */
-    public val BodySNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 14.0.sp,
-            lineHeight = 18.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-s-bold
-     */
-    public val BodySBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 14.0.sp,
-            lineHeight = 18.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-xs
-     */
-    public val BodyXsNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 12.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-xs-bold
-     */
-    public val BodyXsBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 12.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-xxs
-     */
-    public val BodyXxsNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 10.0.sp,
-            lineHeight = 12.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-xxs-bold
-     */
-    public val BodyXxsBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 10.0.sp,
-            lineHeight = 12.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-l
-     */
-    public val TextLNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 18.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-l-bold
-     */
-    public val TextLBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 18.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-m
-     */
-    public val TextMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 16.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-m-bold
-     */
-    public val TextMBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 16.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-s
-     */
-    public val TextSNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 14.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-s-bold
-     */
-    public val TextSBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 14.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-xs
-     */
-    public val TextXsNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-xs-bold
-     */
-    public val TextXsBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-l-medium
-     */
-    public val DisplayLMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 88.0.sp,
-            lineHeight = 92.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-m-medium
-     */
-    public val DisplayMMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 56.0.sp,
-            lineHeight = 62.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s display-s-medium
-     */
-    public val DisplaySMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 40.0.sp,
-            lineHeight = 46.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h1-medium
-     */
-    public val HeaderH1Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 28.0.sp,
-            lineHeight = 34.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h2-medium
-     */
-    public val HeaderH2Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 24.0.sp,
-            lineHeight = 30.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h3-medium
-     */
-    public val HeaderH3Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h4-medium
+     * typography m header-h4-medium
      */
     public val HeaderH4Medium: TextStyle
         @Composable
@@ -611,417 +23,6 @@ public object TypographySmallTokens {
             fontWeight = FontWeight(500),
             fontSize = 18.0.sp,
             lineHeight = 24.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h5-medium
-     */
-    public val HeaderH5Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 16.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s header-h6-medium
-     */
-    public val HeaderH6Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 10.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-l-medium
-     */
-    public val BodyLMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 18.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-m-medium
-     */
-    public val BodyMMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 16.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-s-medium
-     */
-    public val BodySMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 14.0.sp,
-            lineHeight = 18.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-xs-medium
-     */
-    public val BodyXsMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 12.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s body-xxs-medium
-     */
-    public val BodyXxsMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 10.0.sp,
-            lineHeight = 12.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-l-medium
-     */
-    public val TextLMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 18.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-m-medium
-     */
-    public val TextMMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 16.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-s-medium
-     */
-    public val TextSMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 14.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography s text-xs-medium
-     */
-    public val TextXsMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-}
-
-/**
- * Токены типографии для ScreenClass.MEDIUM
- */
-public object TypographyMediumTokens {
-    /**
-     * typography m display-l
-     */
-    public val DisplayLNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 112.0.sp,
-            lineHeight = 112.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-l-bold
-     */
-    public val DisplayLBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 112.0.sp,
-            lineHeight = 112.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-m
-     */
-    public val DisplayMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 72.0.sp,
-            lineHeight = 76.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-m-bold
-     */
-    public val DisplayMBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 72.0.sp,
-            lineHeight = 76.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-s
-     */
-    public val DisplaySNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 48.0.sp,
-            lineHeight = 54.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-s-bold
-     */
-    public val DisplaySBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 48.0.sp,
-            lineHeight = 54.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h1
-     */
-    public val HeaderH1Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 40.0.sp,
-            lineHeight = 46.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h1-bold
-     */
-    public val HeaderH1Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 40.0.sp,
-            lineHeight = 46.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h2
-     */
-    public val HeaderH2Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 28.0.sp,
-            lineHeight = 34.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h2-bold
-     */
-    public val HeaderH2Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 28.0.sp,
-            lineHeight = 34.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h3
-     */
-    public val HeaderH3Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h3-bold
-     */
-    public val HeaderH3Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h4
-     */
-    public val HeaderH4Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 18.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h4-bold
-     */
-    public val HeaderH4Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 18.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h5
-     */
-    public val HeaderH5Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 16.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h5-bold
-     */
-    public val HeaderH5Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 16.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h6
-     */
-    public val HeaderH6Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 10.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h6-bold
-     */
-    public val HeaderH6Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 10.0.sp,
-            lineHeight = 14.0.sp,
             letterSpacing = 0.0.sp,
             fontFamily = FontTokens.header,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1042,34 +43,6 @@ public object TypographyMediumTokens {
         )
 
     /**
-     * typography m body-l-bold
-     */
-    public val BodyLBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 18.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m body-m
-     */
-    public val BodyMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 16.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
      * typography m body-m-bold
      */
     public val BodyMBold: TextStyle
@@ -1084,324 +57,16 @@ public object TypographyMediumTokens {
         )
 
     /**
-     * typography m body-s
+     * typography m body-l-bold
      */
-    public val BodySNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 14.0.sp,
-            lineHeight = 18.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m body-s-bold
-     */
-    public val BodySBold: TextStyle
+    public val BodyLBold: TextStyle
         @Composable
         get() = TextStyle(
             fontWeight = FontWeight(600),
-            fontSize = 14.0.sp,
-            lineHeight = 18.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m body-xs
-     */
-    public val BodyXsNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 12.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m body-xs-bold
-     */
-    public val BodyXsBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 12.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m body-xxs
-     */
-    public val BodyXxsNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 10.0.sp,
-            lineHeight = 12.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m body-xxs-bold
-     */
-    public val BodyXxsBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 10.0.sp,
-            lineHeight = 12.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-l
-     */
-    public val TextLNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 20.0.sp,
-            lineHeight = 28.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-l-bold
-     */
-    public val TextLBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 20.0.sp,
-            lineHeight = 28.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-m
-     */
-    public val TextMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 16.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-m-bold
-     */
-    public val TextMBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 16.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-s
-     */
-    public val TextSNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 14.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-s-bold
-     */
-    public val TextSBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 14.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-xs
-     */
-    public val TextXsNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m text-xs-bold
-     */
-    public val TextXsBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-l-medium
-     */
-    public val DisplayLMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 112.0.sp,
-            lineHeight = 112.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-m-medium
-     */
-    public val DisplayMMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 72.0.sp,
-            lineHeight = 76.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m display-s-medium
-     */
-    public val DisplaySMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 48.0.sp,
-            lineHeight = 54.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h1-medium
-     */
-    public val HeaderH1Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 40.0.sp,
-            lineHeight = 46.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h2-medium
-     */
-    public val HeaderH2Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 28.0.sp,
-            lineHeight = 34.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h3-medium
-     */
-    public val HeaderH3Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h4-medium
-     */
-    public val HeaderH4Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
             fontSize = 18.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h5-medium
-     */
-    public val HeaderH5Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 16.0.sp,
             lineHeight = 22.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography m header-h6-medium
-     */
-    public val HeaderH6Medium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 10.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 
@@ -1434,6 +99,34 @@ public object TypographyMediumTokens {
         )
 
     /**
+     * typography m body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography m body-s-medium
      */
     public val BodySMedium: TextStyle
@@ -1442,6 +135,34 @@ public object TypographyMediumTokens {
             fontWeight = FontWeight(500),
             fontSize = 14.0.sp,
             lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.body,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1462,6 +183,34 @@ public object TypographyMediumTokens {
         )
 
     /**
+     * typography m body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography m body-xxs-medium
      */
     public val BodyXxsMedium: TextStyle
@@ -1476,6 +225,398 @@ public object TypographyMediumTokens {
         )
 
     /**
+     * typography m body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-l-bold
+     */
+    public val DisplayLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 112.0.sp,
+            lineHeight = 112.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-l-medium
+     */
+    public val DisplayLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 112.0.sp,
+            lineHeight = 112.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-l
+     */
+    public val DisplayLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 112.0.sp,
+            lineHeight = 112.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-m-bold
+     */
+    public val DisplayMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 72.0.sp,
+            lineHeight = 76.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-m-medium
+     */
+    public val DisplayMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 72.0.sp,
+            lineHeight = 76.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-m
+     */
+    public val DisplayMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 72.0.sp,
+            lineHeight = 76.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-s-bold
+     */
+    public val DisplaySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-s-medium
+     */
+    public val DisplaySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m display-s
+     */
+    public val DisplaySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h6-bold
+     */
+    public val HeaderH6Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h6-medium
+     */
+    public val HeaderH6Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h6
+     */
+    public val HeaderH6Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m text-l-bold
+     */
+    public val TextLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 28.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography m text-l-medium
      */
     public val TextLMedium: TextStyle
@@ -1484,6 +625,34 @@ public object TypographyMediumTokens {
             fontWeight = FontWeight(500),
             fontSize = 20.0.sp,
             lineHeight = 28.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m text-l
+     */
+    public val TextLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 28.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m text-m-bold
+     */
+    public val TextMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 24.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.text,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1504,6 +673,34 @@ public object TypographyMediumTokens {
         )
 
     /**
+     * typography m text-m
+     */
+    public val TextMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m text-s-bold
+     */
+    public val TextSBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography m text-s-medium
      */
     public val TextSMedium: TextStyle
@@ -1512,6 +709,34 @@ public object TypographyMediumTokens {
             fontWeight = FontWeight(500),
             fontSize = 14.0.sp,
             lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m text-s
+     */
+    public val TextSNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m text-xs-bold
+     */
+    public val TextXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.text,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1530,266 +755,42 @@ public object TypographyMediumTokens {
             fontFamily = FontTokens.text,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
+
+    /**
+     * typography m text-xs
+     */
+    public val TextXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
 }
 
 /**
- * Токены типографии для ScreenClass.LARGE
+ * Токены типографии для ScreenClass.MEDIUM
  */
-public object TypographyLargeTokens {
+public object TypographyMediumTokensBetaCore {
     /**
-     * typography l display-l
+     * typography m header-h4-medium
      */
-    public val DisplayLNormal: TextStyle
+    public val HeaderH4Medium: TextStyle
         @Composable
         get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 128.0.sp,
-            lineHeight = 128.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l display-l-bold
-     */
-    public val DisplayLBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 128.0.sp,
-            lineHeight = 128.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l display-m
-     */
-    public val DisplayMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 88.0.sp,
-            lineHeight = 92.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l display-m-bold
-     */
-    public val DisplayMBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 88.0.sp,
-            lineHeight = 92.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l display-s
-     */
-    public val DisplaySNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(300),
-            fontSize = 64.0.sp,
-            lineHeight = 68.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l display-s-bold
-     */
-    public val DisplaySBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 64.0.sp,
-            lineHeight = 68.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.display,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h1
-     */
-    public val HeaderH1Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 48.0.sp,
-            lineHeight = 54.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h1-bold
-     */
-    public val HeaderH1Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 48.0.sp,
-            lineHeight = 54.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h2
-     */
-    public val HeaderH2Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 32.0.sp,
-            lineHeight = 38.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h2-bold
-     */
-    public val HeaderH2Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 32.0.sp,
-            lineHeight = 38.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h3
-     */
-    public val HeaderH3Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 24.0.sp,
-            lineHeight = 30.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h3-bold
-     */
-    public val HeaderH3Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 24.0.sp,
-            lineHeight = 30.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h4
-     */
-    public val HeaderH4Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h4-bold
-     */
-    public val HeaderH4Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 20.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h5
-     */
-    public val HeaderH5Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
+            fontWeight = FontWeight(500),
             fontSize = 18.0.sp,
             lineHeight = 24.0.sp,
             letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
+            fontFamily = FontTokensBetaCore.display,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 
     /**
-     * typography l header-h5-bold
-     */
-    public val HeaderH5Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 18.0.sp,
-            lineHeight = 24.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h6
-     */
-    public val HeaderH6Normal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l header-h6-bold
-     */
-    public val HeaderH6Bold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = 0.0.sp,
-            fontFamily = FontTokens.header,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l body-l
+     * typography m body-l
      */
     public val BodyLNormal: TextStyle
         @Composable
@@ -1798,7 +799,843 @@ public object TypographyLargeTokens {
             fontSize = 18.0.sp,
             lineHeight = 22.0.sp,
             letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-m-bold
+     */
+    public val BodyMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-l-bold
+     */
+    public val BodyLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+}
+
+/**
+ * Токены типографии для ScreenClass.MEDIUM
+ */
+public object TypographyMediumTokensHighContrast {
+    /**
+     * typography m header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-l
+     */
+    public val BodyLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-m-bold
+     */
+    public val BodyMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-l-bold
+     */
+    public val BodyLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography m header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+}
+
+/**
+ * Токены типографии для ScreenClass.LARGE
+ */
+public object TypographyLargeTokens {
+    /**
+     * typography l header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 
@@ -1817,14 +1654,28 @@ public object TypographyLargeTokens {
         )
 
     /**
-     * typography l body-m
+     * typography l body-l-medium
      */
-    public val BodyMNormal: TextStyle
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-l
+     */
+    public val BodyLNormal: TextStyle
         @Composable
         get() = TextStyle(
             fontWeight = FontWeight(400),
-            fontSize = 16.0.sp,
-            lineHeight = 20.0.sp,
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.body,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1845,14 +1696,28 @@ public object TypographyLargeTokens {
         )
 
     /**
-     * typography l body-s
+     * typography l body-m-medium
      */
-    public val BodySNormal: TextStyle
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-m
+     */
+    public val BodyMNormal: TextStyle
         @Composable
         get() = TextStyle(
             fontWeight = FontWeight(400),
-            fontSize = 14.0.sp,
-            lineHeight = 18.0.sp,
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.body,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1873,14 +1738,28 @@ public object TypographyLargeTokens {
         )
 
     /**
-     * typography l body-xs
+     * typography l body-s-medium
      */
-    public val BodyXsNormal: TextStyle
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-s
+     */
+    public val BodySNormal: TextStyle
         @Composable
         get() = TextStyle(
             fontWeight = FontWeight(400),
-            fontSize = 12.0.sp,
-            lineHeight = 14.0.sp,
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.body,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1901,14 +1780,28 @@ public object TypographyLargeTokens {
         )
 
     /**
-     * typography l body-xxs
+     * typography l body-xs-medium
      */
-    public val BodyXxsNormal: TextStyle
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xs
+     */
+    public val BodyXsNormal: TextStyle
         @Composable
         get() = TextStyle(
             fontWeight = FontWeight(400),
-            fontSize = 10.0.sp,
-            lineHeight = 12.0.sp,
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.body,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -1929,114 +1822,44 @@ public object TypographyLargeTokens {
         )
 
     /**
-     * typography l text-l
+     * typography l body-xxs-medium
      */
-    public val TextLNormal: TextStyle
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
         @Composable
         get() = TextStyle(
             fontWeight = FontWeight(400),
-            fontSize = 24.0.sp,
-            lineHeight = 32.0.sp,
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
             letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
+            fontFamily = FontTokens.body,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 
     /**
-     * typography l text-l-bold
+     * typography l display-l-bold
      */
-    public val TextLBold: TextStyle
+    public val DisplayLBold: TextStyle
         @Composable
         get() = TextStyle(
             fontWeight = FontWeight(600),
-            fontSize = 24.0.sp,
-            lineHeight = 32.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l text-m
-     */
-    public val TextMNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 18.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l text-m-bold
-     */
-    public val TextMBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 18.0.sp,
-            lineHeight = 26.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l text-s
-     */
-    public val TextSNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 14.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l text-s-bold
-     */
-    public val TextSBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 14.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l text-xs
-     */
-    public val TextXsNormal: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(400),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l text-xs-bold
-     */
-    public val TextXsBold: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(600),
-            fontSize = 12.0.sp,
-            lineHeight = 16.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.text,
+            fontSize = 128.0.sp,
+            lineHeight = 128.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 
@@ -2049,6 +1872,34 @@ public object TypographyLargeTokens {
             fontWeight = FontWeight(500),
             fontSize = 128.0.sp,
             lineHeight = 128.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l display-l
+     */
+    public val DisplayLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 128.0.sp,
+            lineHeight = 128.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l display-m-bold
+     */
+    public val DisplayMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 88.0.sp,
+            lineHeight = 92.0.sp,
             letterSpacing = 0.0.sp,
             fontFamily = FontTokens.display,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -2069,6 +1920,34 @@ public object TypographyLargeTokens {
         )
 
     /**
+     * typography l display-m
+     */
+    public val DisplayMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 88.0.sp,
+            lineHeight = 92.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l display-s-bold
+     */
+    public val DisplaySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 64.0.sp,
+            lineHeight = 68.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography l display-s-medium
      */
     public val DisplaySMedium: TextStyle
@@ -2083,6 +1962,34 @@ public object TypographyLargeTokens {
         )
 
     /**
+     * typography l display-s
+     */
+    public val DisplaySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 64.0.sp,
+            lineHeight = 68.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography l header-h1-medium
      */
     public val HeaderH1Medium: TextStyle
@@ -2091,6 +1998,34 @@ public object TypographyLargeTokens {
             fontWeight = FontWeight(500),
             fontSize = 48.0.sp,
             lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
             letterSpacing = 0.0.sp,
             fontFamily = FontTokens.header,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -2111,6 +2046,34 @@ public object TypographyLargeTokens {
         )
 
     /**
+     * typography l header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography l header-h3-medium
      */
     public val HeaderH3Medium: TextStyle
@@ -2125,14 +2088,56 @@ public object TypographyLargeTokens {
         )
 
     /**
-     * typography l header-h4-medium
+     * typography l header-h3
      */
-    public val HeaderH4Medium: TextStyle
+    public val HeaderH3Normal: TextStyle
         @Composable
         get() = TextStyle(
-            fontWeight = FontWeight(500),
+            fontWeight = FontWeight(400),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
             fontSize = 20.0.sp,
             lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
             letterSpacing = 0.0.sp,
             fontFamily = FontTokens.header,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -2153,6 +2158,34 @@ public object TypographyLargeTokens {
         )
 
     /**
+     * typography l header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h6-bold
+     */
+    public val HeaderH6Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography l header-h6-medium
      */
     public val HeaderH6Medium: TextStyle
@@ -2167,72 +2200,30 @@ public object TypographyLargeTokens {
         )
 
     /**
-     * typography l body-l-medium
+     * typography l header-h6
      */
-    public val BodyLMedium: TextStyle
+    public val HeaderH6Normal: TextStyle
         @Composable
         get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 18.0.sp,
-            lineHeight = 22.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l body-m-medium
-     */
-    public val BodyMMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 16.0.sp,
-            lineHeight = 20.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l body-s-medium
-     */
-    public val BodySMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 14.0.sp,
-            lineHeight = 18.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
-            lineHeightStyle = TextStyleDefault.lineHeightStyle,
-        )
-
-    /**
-     * typography l body-xs-medium
-     */
-    public val BodyXsMedium: TextStyle
-        @Composable
-        get() = TextStyle(
-            fontWeight = FontWeight(500),
+            fontWeight = FontWeight(400),
             fontSize = 12.0.sp,
-            lineHeight = 14.0.sp,
-            letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
+            lineHeight = 16.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 
     /**
-     * typography l body-xxs-medium
+     * typography l text-l-bold
      */
-    public val BodyXxsMedium: TextStyle
+    public val TextLBold: TextStyle
         @Composable
         get() = TextStyle(
-            fontWeight = FontWeight(500),
-            fontSize = 10.0.sp,
-            lineHeight = 12.0.sp,
+            fontWeight = FontWeight(600),
+            fontSize = 24.0.sp,
+            lineHeight = 32.0.sp,
             letterSpacing = (-0.02).sp,
-            fontFamily = FontTokens.body,
+            fontFamily = FontTokens.text,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 
@@ -2245,6 +2236,34 @@ public object TypographyLargeTokens {
             fontWeight = FontWeight(500),
             fontSize = 24.0.sp,
             lineHeight = 32.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l text-l
+     */
+    public val TextLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 24.0.sp,
+            lineHeight = 32.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l text-m-bold
+     */
+    public val TextMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 26.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.text,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -2265,6 +2284,34 @@ public object TypographyLargeTokens {
         )
 
     /**
+     * typography l text-m
+     */
+    public val TextMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l text-s-bold
+     */
+    public val TextSBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
      * typography l text-s-medium
      */
     public val TextSMedium: TextStyle
@@ -2273,6 +2320,34 @@ public object TypographyLargeTokens {
             fontWeight = FontWeight(500),
             fontSize = 14.0.sp,
             lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l text-s
+     */
+    public val TextSNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l text-xs-bold
+     */
+    public val TextXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.text,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
@@ -2289,6 +2364,2481 @@ public object TypographyLargeTokens {
             lineHeight = 16.0.sp,
             letterSpacing = (-0.02).sp,
             fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l text-xs
+     */
+    public val TextXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+}
+
+/**
+ * Токены типографии для ScreenClass.LARGE
+ */
+public object TypographyLargeTokensBetaCore {
+    /**
+     * typography l header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-l-bold
+     */
+    public val BodyLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-l
+     */
+    public val BodyLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-m-bold
+     */
+    public val BodyMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+}
+
+/**
+ * Токены типографии для ScreenClass.LARGE
+ */
+public object TypographyLargeTokensHighContrast {
+    /**
+     * typography l header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-l-bold
+     */
+    public val BodyLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-l
+     */
+    public val BodyLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-m-bold
+     */
+    public val BodyMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 48.0.sp,
+            lineHeight = 54.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 32.0.sp,
+            lineHeight = 38.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography l header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+}
+
+/**
+ * Токены типографии для ScreenClass.SMALL
+ */
+public object TypographySmallTokens {
+    /**
+     * typography s text-xs-medium
+     */
+    public val TextXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-l-bold
+     */
+    public val BodyLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-l
+     */
+    public val BodyLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m-bold
+     */
+    public val BodyMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.body,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-l-bold
+     */
+    public val DisplayLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 88.0.sp,
+            lineHeight = 92.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-l-medium
+     */
+    public val DisplayLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 88.0.sp,
+            lineHeight = 92.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-l
+     */
+    public val DisplayLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 88.0.sp,
+            lineHeight = 92.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-m-bold
+     */
+    public val DisplayMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 56.0.sp,
+            lineHeight = 62.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-m-medium
+     */
+    public val DisplayMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 56.0.sp,
+            lineHeight = 62.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-m
+     */
+    public val DisplayMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 56.0.sp,
+            lineHeight = 62.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-s-bold
+     */
+    public val DisplaySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-s-medium
+     */
+    public val DisplaySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s display-s
+     */
+    public val DisplaySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(300),
+            fontSize = 40.0.sp,
+            lineHeight = 46.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h6-bold
+     */
+    public val HeaderH6Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h6-medium
+     */
+    public val HeaderH6Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h6
+     */
+    public val HeaderH6Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokens.header,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-l-bold
+     */
+    public val TextLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-l-medium
+     */
+    public val TextLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-l
+     */
+    public val TextLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-m-bold
+     */
+    public val TextMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-m-medium
+     */
+    public val TextMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-m
+     */
+    public val TextMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-s-bold
+     */
+    public val TextSBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-s-medium
+     */
+    public val TextSMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-s
+     */
+    public val TextSNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-xs-bold
+     */
+    public val TextXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s text-xs
+     */
+    public val TextXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+}
+
+/**
+ * Токены типографии для ScreenClass.SMALL
+ */
+public object TypographySmallTokensBetaCore {
+    /**
+     * typography s body-l-bold
+     */
+    public val BodyLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-l
+     */
+    public val BodyLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m-bold
+     */
+    public val BodyMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensBetaCore.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+}
+
+/**
+ * Токены типографии для ScreenClass.SMALL
+ */
+public object TypographySmallTokensHighContrast {
+    /**
+     * typography s body-l-bold
+     */
+    public val BodyLBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-l
+     */
+    public val BodyLNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m-bold
+     */
+    public val BodyMBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-m
+     */
+    public val BodyMNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s-bold
+     */
+    public val BodySBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-s
+     */
+    public val BodySNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 14.0.sp,
+            lineHeight = 18.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs-bold
+     */
+    public val BodyXsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xs
+     */
+    public val BodyXsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 12.0.sp,
+            lineHeight = 14.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs-bold
+     */
+    public val BodyXxsBold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s body-xxs
+     */
+    public val BodyXxsNormal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 10.0.sp,
+            lineHeight = 12.0.sp,
+            letterSpacing = (-0.02).sp,
+            fontFamily = FontTokens.text,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1-bold
+     */
+    public val HeaderH1Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h1
+     */
+    public val HeaderH1Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 28.0.sp,
+            lineHeight = 34.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2-bold
+     */
+    public val HeaderH2Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h2
+     */
+    public val HeaderH2Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 24.0.sp,
+            lineHeight = 30.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3-bold
+     */
+    public val HeaderH3Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h3
+     */
+    public val HeaderH3Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 20.0.sp,
+            lineHeight = 26.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4-bold
+     */
+    public val HeaderH4Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h4
+     */
+    public val HeaderH4Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 18.0.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5-bold
+     */
+    public val HeaderH5Bold: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(600),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(500),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        )
+
+    /**
+     * typography s header-h5
+     */
+    public val HeaderH5Normal: TextStyle
+        @Composable
+        get() = TextStyle(
+            fontWeight = FontWeight(400),
+            fontSize = 16.0.sp,
+            lineHeight = 22.0.sp,
+            letterSpacing = 0.0.sp,
+            fontFamily = FontTokensHighContrast.display,
             lineHeightStyle = TextStyleDefault.lineHeightStyle,
         )
 }

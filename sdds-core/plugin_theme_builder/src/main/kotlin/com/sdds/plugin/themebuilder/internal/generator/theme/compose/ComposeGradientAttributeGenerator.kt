@@ -293,7 +293,7 @@ internal class ComposeGradientAttributeGenerator(
                         returnType = gradientClassType,
                         body = listOf(
                             "return dark${camelThemeName}Gradients {\n",
-                            data.light.entries.joinToString(separator = "\n") {
+                            data.dark.entries.joinToString(separator = "\n") {
                                 "${it.key} overrideBy ${darkGradientValue(it.key, tenant)}"
                             },
                             "\noverrideGradients()",

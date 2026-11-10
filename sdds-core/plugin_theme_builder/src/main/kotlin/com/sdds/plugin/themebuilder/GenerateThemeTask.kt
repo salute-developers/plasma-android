@@ -361,7 +361,7 @@ abstract class GenerateThemeTask : DefaultTask() {
         val colorGenerator = generatorFactory.createColorGenerator(allColors, palette)
         val gradientGenerator = generatorFactory.createGradientGenerator(allGradients, palette)
         val fontGenerator = generatorFactory.createFontGenerator(allFonts)
-        val typographyGenerator = generatorFactory.createTypographyGenerator(allTypography)
+        val typographyGenerator = generatorFactory.createTypographyGenerator(allTypography, allFonts)
         val shapesGenerator = generatorFactory.createShapesGenerator(allShapes)
         val shadowGenerator = generatorFactory.createShadowGenerator(allShadows, palette)
         val spacingGenerator = generatorFactory.createSpacingGenerator(allSpacings)
