@@ -170,6 +170,15 @@ public val WrapperIconBadgeSolidView.Light: WrapperIconBadgeSolidTerminate
         }
         .wrap(::WrapperIconBadgeSolidTerminate)
 
+public val WrapperIconBadgeSolidView.Info: WrapperIconBadgeSolidTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultInfo).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textOnDarkPrimary).asStatefulValue())
+        }
+        .wrap(::WrapperIconBadgeSolidTerminate)
+
 private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
     @Composable
     get() = this

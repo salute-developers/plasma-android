@@ -71,7 +71,11 @@ fun NoteCompact(
     NoteCompact(
         modifier = modifier,
         style = style,
-        titleContent = { Text(title) },
+        titleContent = if (title.isNotBlank()) {
+            { Text(title) }
+        } else {
+            {}
+        },
         textContent = if (text.isNotBlank()) {
             { Text(text) }
         } else {
@@ -115,7 +119,11 @@ fun NoteCompact(
     NoteCompact(
         modifier = modifier,
         style = style,
-        titleContent = { Text(title) },
+        titleContent = if (title.isNotBlank()) {
+            { Text(title) }
+        } else {
+            {}
+        },
         textContent = if (text.isNotBlank()) {
             { Text(text) }
         } else {
@@ -218,8 +226,10 @@ fun NoteCompact(
     val bottomP by style.dimensions.paddingBottomValues.getValueAsState(motion.context)
     val extraTopPadding = (bottomP - topP).coerceAtLeast(0.dp)
     val spacerHeight = with(LocalDensity.current) { extraTopPadding.roundToPx() }
-    val measurePolicy = remember(contentBeforeArrangement, spacerHeight) {
-        NoteCompactMeasurePolicy(contentBeforeArrangement, spacerHeight)
+    val textTop by style.dimensions.textTopMarginValues.getValueAsState(motion.context)
+    val textTopHeight = with(LocalDensity.current) { textTop.roundToPx() }
+    val measurePolicy = remember(contentBeforeArrangement, spacerHeight, textTopHeight) {
+        NoteCompactMeasurePolicy(contentBeforeArrangement, spacerHeight, textTopHeight)
     }
     val startP by style.dimensions.paddingStartValues.getValueAsState(motion.context)
     val endP by style.dimensions.paddingEndValues.getValueAsState(motion.context)
@@ -315,6 +325,7 @@ private fun BoxScope.CloseIcon(
 private class NoteCompactMeasurePolicy(
     private val arrangement: ContentBeforeVerticalArrangement,
     private val spacerHeight: Int,
+    private val textTopHeight: Int,
 ) : MeasurePolicy {
     override fun MeasureScope.measure(
         measurables: List<Measurable>,
@@ -332,16 +343,19 @@ private class NoteCompactMeasurePolicy(
         val action = measurable(ACTION)?.measure(remaining)
         remaining = remaining.offset(horizontal = -action.widthOrZero())
         val close = measurable(CLOSE)?.measure(remaining)
-        var textConstraints = remaining.offset(horizontal = -close.widthOrZero())
+        val textConstraints = remaining.offset(horizontal = -close.widthOrZero())
 
         val title = measurable(TITLE)?.measure(textConstraints)
         val titleHeight = title.heightOrZero()
-        textConstraints = textConstraints.offset(vertical = -titleHeight)
-        val text = measurable(TEXT)?.measure(textConstraints)
+        // textTop — отступ между заголовком и текстом, применяется только когда есть оба слота.
+        // Считается до измерения текста, чтобы отступ вычитался из доступной высоты,
+        // иначе при ограниченной высоте нижняя часть текста обрезается
+        val textMeasurable = measurable(TEXT)
+        val textTop = if (titleHeight > 0 && textMeasurable != null) textTopHeight else 0
+        val text = textMeasurable?.measure(textConstraints.offset(vertical = -(titleHeight + textTop)))
 
-        // Высота текста уже включает textTopMargin, так как паддинг задан внутри самого слота
         val textHeight = text.heightOrZero()
-        val textBlockHeight = titleHeight + textHeight
+        val textBlockHeight = titleHeight + textTop + textHeight
         // Экшн и close центрируются относительно строки заголовка, а не всего текстового блока
         val anchorHeight = if (titleHeight > 0) titleHeight else textHeight
 
@@ -394,7 +408,7 @@ private class NoteCompactMeasurePolicy(
         return layout(finalWidth, finalHeight) {
             contentBefore?.placeRelative(x = 0, y = topInset + contentBeforeOffset)
             title?.placeRelative(x = contentBW, y = topInset)
-            text?.placeRelative(x = contentBW, y = topInset + titleHeight)
+            text?.placeRelative(x = contentBW, y = topInset + titleHeight + textTop)
             var x = finalWidth - closeW
             close?.placeRelative(x = x, y = topInset + closeOffset)
             x -= actionW
@@ -457,11 +471,7 @@ private fun ContentText(
     motion: Motion<NoteMotionStyle>,
     textContent: @Composable () -> Unit,
 ) {
-    val textTop by style.dimensions.textTopMarginValues.getValueAsState(motion.context)
-    Box(
-        modifier = modifier
-            .padding(top = textTop),
-    ) {
+    Box(modifier = modifier) {
         ProvideTextBehaviour(behaviour = TextBehaviour(overflow = TextOverflow.Ellipsis)) {
             val textColor =
                 style.colors.textBrush.getBrushAsState(motion.context, motion.style.textColor)

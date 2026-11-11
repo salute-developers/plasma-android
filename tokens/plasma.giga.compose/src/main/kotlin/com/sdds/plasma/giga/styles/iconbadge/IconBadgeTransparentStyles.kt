@@ -170,6 +170,15 @@ public val WrapperIconBadgeTransparentView.Light: WrapperIconBadgeTransparentTer
         }
         .wrap(::WrapperIconBadgeTransparentTerminate)
 
+public val WrapperIconBadgeTransparentView.Info: WrapperIconBadgeTransparentTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(SolidColor(PlasmaGigaTheme.colors.surfaceDefaultTransparentInfo).asStatefulValue())
+            startContentColor(SolidColor(PlasmaGigaTheme.colors.textDefaultInfo).asStatefulValue())
+        }
+        .wrap(::WrapperIconBadgeTransparentTerminate)
+
 private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
     @Composable
     get() = this

@@ -11,10 +11,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.api.info.compose.ApiDeprecated
 import com.sdds.api.info.compose.ApiInfo
 import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.graphics.brush.addStates
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.graphics.brush.replaceStateSet
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -220,11 +222,20 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет курсора [cursorColorReadOnly]
      */
+    @Deprecated(
+        message = "Use cursorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("cursorColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use cursorColor")
     fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет курсора [cursorColorReadOnly]
      */
+    @Deprecated(
+        message = "Use cursorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("cursorColor(/* brush */)"),
+    )
     fun cursorColorReadOnly(cursorColorReadOnly: Color): TextFieldColorsBuilder =
         cursorColorReadOnly(cursorColorReadOnly.asInteractive())
 
@@ -253,12 +264,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет контента в начале [startContentColorReadOnly]
      */
+    @Deprecated(
+        message = "Use startContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("startContentColor(/* brush */)"),
+    )
     fun startContentColorReadOnly(startContentColorReadOnly: Color): TextFieldColorsBuilder =
         startContentColorReadOnly(startContentColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет контента в начале [startContentColorReadOnly]
      */
+    @Deprecated(
+        message = "Use startContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("startContentColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use startContentColor")
     fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -286,12 +306,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет контента в конце [endContentColorReadOnly]
      */
+    @Deprecated(
+        message = "Use endContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("endContentColor(/* brush */)"),
+    )
     fun endContentColorReadOnly(endContentColorReadOnly: Color): TextFieldColorsBuilder =
         endContentColorReadOnly(endContentColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет контента в конце [endContentColorReadOnly]
      */
+    @Deprecated(
+        message = "Use endContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("endContentColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use endContentColor")
     fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -319,12 +348,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет лэйбла в состоянии readOnly [labelColorReadOnly]
      */
+    @Deprecated(
+        message = "Use labelColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("labelColor(/* brush */)"),
+    )
     fun labelColorReadOnly(labelColorReadOnly: Color): TextFieldColorsBuilder =
         this.labelColorReadOnly(labelColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет лэйбла в состоянии readOnly [labelColorReadOnly]
      */
+    @Deprecated(
+        message = "Use labelColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("labelColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use labelColor")
     fun labelColorReadOnly(labelColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -352,12 +390,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет основного текста в состоянии readOnly [valueColorReadOnly]
      */
+    @Deprecated(
+        message = "Use valueColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("valueColor(/* brush */)"),
+    )
     fun valueColorReadOnly(valueColorReadOnly: Color): TextFieldColorsBuilder =
         valueColorReadOnly(valueColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет основного текста в состоянии readOnly [valueColorReadOnly]
      */
+    @Deprecated(
+        message = "Use valueColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("valueColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use valueColor")
     fun valueColorReadOnly(valueColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -385,12 +432,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет надписи в состоянии readOnly [captionColorReadOnly]
      */
+    @Deprecated(
+        message = "Use captionColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("captionColor(/* brush */)"),
+    )
     fun captionColorReadOnly(captionColorReadOnly: Color): TextFieldColorsBuilder =
         captionColorReadOnly(captionColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет надписи в состоянии readOnly [captionColorReadOnly]
      */
+    @Deprecated(
+        message = "Use captionColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("captionColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use captionColor")
     fun captionColorReadOnly(captionColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -418,12 +474,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет опционального текста [optionalColorReadOnly]
      */
+    @Deprecated(
+        message = "Use optionalColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("optionalColor(/* brush */)"),
+    )
     fun optionalColorReadOnly(optionalColorReadOnly: Color): TextFieldColorsBuilder =
         optionalColorReadOnly(optionalColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет опционального текста [optionalColorReadOnly]
      */
+    @Deprecated(
+        message = "Use optionalColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("optionalColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use optionalColor")
     fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -451,12 +516,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет счетчика [counterColorReadOnly]
      */
+    @Deprecated(
+        message = "Use counterColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("counterColor(/* brush */)"),
+    )
     fun counterColorReadOnly(counterColorReadOnly: Color): TextFieldColorsBuilder =
         counterColorReadOnly(counterColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет счетчика [counterColorReadOnly]
      */
+    @Deprecated(
+        message = "Use counterColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("counterColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use counterColor")
     fun counterColorReadOnly(counterColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -484,12 +558,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет плэйсхолдеоа в состоянии readOnly [placeholderColorReadOnly]
      */
+    @Deprecated(
+        message = "Use placeholderColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("placeholderColor(/* brush */)"),
+    )
     fun placeholderColorReadOnly(placeholderColorReadOnly: Color): TextFieldColorsBuilder =
         placeholderColorReadOnly(placeholderColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет плэйсхолдеоа в состоянии readOnly [placeholderColorReadOnly]
      */
+    @Deprecated(
+        message = "Use placeholderColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("placeholderColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use placeholderColor")
     fun placeholderColorReadOnly(placeholderColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -517,12 +600,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет бэкграунда в состоянии readOnly [backgroundColorReadOnly]
      */
+    @Deprecated(
+        message = "Use backgroundColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("backgroundColor(/* brush */)"),
+    )
     fun backgroundColorReadOnly(backgroundColorReadOnly: Color): TextFieldColorsBuilder =
         backgroundColorReadOnly(backgroundColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет бэкграунда в состоянии readOnly [backgroundColorReadOnly]
      */
+    @Deprecated(
+        message = "Use backgroundColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("backgroundColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use backgroundColor")
     fun backgroundColorReadOnly(backgroundColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -550,12 +642,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет разделителя в состоянии readOnlu [dividerColorReadOnly]
      */
+    @Deprecated(
+        message = "Use dividerColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("dividerColor(/* brush */)"),
+    )
     fun dividerColorReadOnly(dividerColorReadOnly: Color): TextFieldColorsBuilder =
         dividerColorReadOnly(dividerColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет разделителя в состоянии readOnlu [dividerColorReadOnly]
      */
+    @Deprecated(
+        message = "Use dividerColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("dividerColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use dividerColor")
     fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -583,12 +684,21 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет индикатора
      */
+    @Deprecated(
+        message = "Use indicatorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("indicatorColor(/* brush */)"),
+    )
     fun indicatorColorReadOnly(indicatorColorReadOnly: Color): TextFieldColorsBuilder =
         indicatorColorReadOnly(indicatorColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет индикатора
      */
+    @Deprecated(
+        message = "Use indicatorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("indicatorColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use indicatorColor")
     fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -638,23 +748,41 @@ interface TextFieldColorsBuilder {
     /**
      * Устанавливает цвет префикса
      */
+    @Deprecated(
+        message = "Use prefixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("prefixColor(/* brush */)"),
+    )
     fun prefixColorReadOnly(prefixColorReadOnly: Color): TextFieldColorsBuilder =
         prefixColorReadOnly(prefixColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет префикса
      */
+    @Deprecated(
+        message = "Use prefixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("prefixColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use prefixColor")
     fun prefixColorReadOnly(prefixColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет суффикса
      */
+    @Deprecated(
+        message = "Use suffixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("suffixColor(/* brush */)"),
+    )
     fun suffixColorReadOnly(suffixColorReadOnly: Color): TextFieldColorsBuilder =
         suffixColorReadOnly(suffixColorReadOnly.asInteractive())
 
     /**
      * Устанавливает цвет суффикса
      */
+    @Deprecated(
+        message = "Use suffixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
+        replaceWith = ReplaceWith("suffixColor(/* brush */)"),
+    )
+    @ApiDeprecated("Use suffixColor")
     fun suffixColorReadOnly(suffixColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -1450,6 +1578,7 @@ private class DefaultTextFieldColors(
 
         override fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor) = apply {
             this.cursorColorReadOnly = cursorColorReadOnly
+            this.cursorBrush = this.cursorBrush.replaceReadonly(cursorColorReadOnly)
         }
 
         override fun startContentColor(startContentColor: StatefulValue<Brush>) = apply {
@@ -1464,10 +1593,10 @@ private class DefaultTextFieldColors(
             this.startContentColor = startContentColor
         }
 
-        override fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor) =
-            apply {
-                this.startContentColorReadOnly = startContentColorReadOnly
-            }
+        override fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor) = apply {
+            this.startContentColorReadOnly = startContentColorReadOnly
+            this.startContentBrush = this.startContentBrush.replaceReadonly(startContentColorReadOnly)
+        }
 
         override fun endContentColor(endContentColor: StatefulValue<Brush>) = apply {
             this.endContentBrush = endContentColor
@@ -1479,6 +1608,7 @@ private class DefaultTextFieldColors(
 
         override fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor) = apply {
             this.endContentColorReadOnly = endContentColorReadOnly
+            this.endContentBrush = this.endContentBrush.replaceReadonly(endContentColorReadOnly)
         }
 
         override fun labelColor(labelColor: StatefulValue<Brush>) = apply {
@@ -1491,6 +1621,7 @@ private class DefaultTextFieldColors(
 
         override fun labelColorReadOnly(labelColorReadOnly: InteractiveColor) = apply {
             this.labelColorReadOnly = labelColorReadOnly
+            this.labelBrush = this.labelBrush.replaceReadonly(labelColorReadOnly)
         }
 
         override fun valueColor(valueColor: StatefulValue<Brush>) = apply {
@@ -1503,6 +1634,7 @@ private class DefaultTextFieldColors(
 
         override fun valueColorReadOnly(valueColorReadOnly: InteractiveColor) = apply {
             this.valueColorReadOnly = valueColorReadOnly
+            this.valueBrush = this.valueBrush.replaceReadonly(valueColorReadOnly)
         }
 
         override fun captionColor(captionColor: StatefulValue<Brush>) = apply {
@@ -1515,6 +1647,7 @@ private class DefaultTextFieldColors(
 
         override fun captionColorReadOnly(captionColorReadOnly: InteractiveColor) = apply {
             this.captionColorReadOnly = captionColorReadOnly
+            this.captionBrush = this.captionBrush.replaceReadonly(captionColorReadOnly)
         }
 
         override fun optionalColor(optionalColor: StatefulValue<Brush>) = apply {
@@ -1527,6 +1660,7 @@ private class DefaultTextFieldColors(
 
         override fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor) = apply {
             this.optionalColorReadOnly = optionalColorReadOnly
+            this.optionalBrush = this.optionalBrush.replaceReadonly(optionalColorReadOnly)
         }
 
         override fun counterColor(counterColor: StatefulValue<Brush>) = apply {
@@ -1539,6 +1673,7 @@ private class DefaultTextFieldColors(
 
         override fun counterColorReadOnly(counterColorReadOnly: InteractiveColor) = apply {
             this.counterColorReadOnly = counterColorReadOnly
+            this.counterBrush = this.counterBrush.replaceReadonly(counterColorReadOnly)
         }
 
         override fun placeholderColor(placeholderColor: StatefulValue<Brush>) = apply {
@@ -1551,6 +1686,7 @@ private class DefaultTextFieldColors(
 
         override fun placeholderColorReadOnly(placeholderColorReadOnly: InteractiveColor) = apply {
             this.placeholderColorReadOnly = placeholderColorReadOnly
+            this.placeholderBrush = this.placeholderBrush.replaceReadonly(placeholderColorReadOnly)
         }
 
         override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
@@ -1563,6 +1699,7 @@ private class DefaultTextFieldColors(
 
         override fun backgroundColorReadOnly(backgroundColorReadOnly: InteractiveColor) = apply {
             this.backgroundColorReadOnly = backgroundColorReadOnly
+            this.backgroundBrush = this.backgroundBrush.replaceReadonly(backgroundColorReadOnly)
         }
 
         override fun dividerColor(dividerColor: StatefulValue<Brush>) = apply {
@@ -1575,6 +1712,7 @@ private class DefaultTextFieldColors(
 
         override fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor) = apply {
             this.dividerColorReadOnly = dividerColorReadOnly
+            this.dividerBrush = this.dividerBrush.replaceReadonly(dividerColorReadOnly)
         }
 
         override fun indicatorColor(indicatorColor: StatefulValue<Brush>) = apply {
@@ -1587,6 +1725,7 @@ private class DefaultTextFieldColors(
 
         override fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor) = apply {
             this.indicatorColorReadOnly = indicatorColorReadOnly
+            this.indicatorBrush = this.indicatorBrush.replaceReadonly(indicatorColorReadOnly)
         }
 
         override fun prefixColor(prefixColor: StatefulValue<Brush>) = apply {
@@ -1607,15 +1746,24 @@ private class DefaultTextFieldColors(
 
         override fun prefixColorReadOnly(prefixColorReadOnly: InteractiveColor) = apply {
             this.prefixColorReadOnly = prefixColorReadOnly
+            this.prefixBrush = this.prefixBrush.replaceReadonly(prefixColorReadOnly)
         }
 
         override fun suffixColorReadOnly(suffixColorReadOnly: InteractiveColor) = apply {
             this.suffixColorReadOnly = suffixColorReadOnly
+            this.suffixBrush = this.suffixBrush.replaceReadonly(suffixColorReadOnly)
         }
 
         override fun strokeColor(strokeColor: StatefulValue<Brush>) = apply {
             this.strokeColor = strokeColor
         }
+
+        private fun StatefulValue<Brush>?.replaceReadonly(
+            interactiveColor: InteractiveColor,
+        ): StatefulValue<Brush>? = this?.replaceStateSet(
+            setOf(TextFieldSemanticState.Readonly),
+            interactiveColor,
+        )
 
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
@@ -1650,7 +1798,7 @@ private class DefaultTextFieldColors(
             val divColorRead = dividerColorReadOnly ?: divColor
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
-                cursorColor = curColorRead,
+                cursorColor = curColor,
                 cursorColorReadOnly = curColorRead,
                 cursorBrush = cursorBrush ?: curColor.asStatefulBrush().addStates(
                     setOf(TextFieldSemanticState.Readonly) to curColorRead,

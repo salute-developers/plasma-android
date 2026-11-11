@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ContentBeforeVerticalArrangement
 import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.NoteStyleBuilder
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -88,7 +87,7 @@ public val WrapperNoteView.Default: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            iconColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
+            iconColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
             backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
@@ -98,7 +97,7 @@ public val WrapperNoteView.Positive: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Positive.style())
         .colors {
-            iconColor(PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive())
+            iconColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPositive).asStatefulValue())
             backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultPositiveMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
@@ -108,7 +107,7 @@ public val WrapperNoteView.Negative: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Negative.style())
         .colors {
-            iconColor(PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive())
+            iconColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultNegative).asStatefulValue())
             backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegativeMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
@@ -118,7 +117,7 @@ public val WrapperNoteView.Warning: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Warning.style())
         .colors {
-            iconColor(PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive())
+            iconColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultWarning).asStatefulValue())
             backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarningMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
@@ -128,7 +127,7 @@ public val WrapperNoteView.Info: WrapperNoteTerminate
     get() = builder
         .linkButtonStyle(LinkButton.S.Info.style())
         .colors {
-            iconColor(PlasmaHomeDsTheme.colors.textDefaultInfo.asInteractive())
+            iconColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultInfo).asStatefulValue())
             backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultInfoMinor).asStatefulValue())
         }
         .wrap(::WrapperNoteTerminate)
@@ -140,10 +139,10 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
         .titleStyle(PlasmaHomeDsTheme.typography.bodyMNormal)
         .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .colors {
-            titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
-            textColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
-            disclosureColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
-            closeColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            titleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            textColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            disclosureColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
+            closeColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .dimensions {
             disclosureSize(24.0.dp)

@@ -21,6 +21,7 @@ import com.sdds.plasma.giga.styles.iconbadge.IconBadgeClearShape
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeClearSize
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeClearView
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeStyles
+import com.sdds.plasma.giga.styles.iconbadge.Info
 import com.sdds.plasma.giga.styles.iconbadge.L
 import com.sdds.plasma.giga.styles.iconbadge.Light
 import com.sdds.plasma.giga.styles.iconbadge.M
@@ -41,7 +42,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             Property.SingleChoiceProperty(
                 name = "view",
                 value = "Default",
-                variants = listOf("Default", "Accent", "Negative", "Positive", "Warning", "Dark", "Light"),
+                variants = listOf("Default", "Accent", "Negative", "Positive", "Warning", "Dark", "Light", "Info"),
             ),
         )
 
@@ -54,6 +55,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.L.Warning" to ComposeStyleReference { IconBadgeClear.L.Warning.style() },
             "IconBadgeClear.L.Dark" to ComposeStyleReference { IconBadgeClear.L.Dark.style() },
             "IconBadgeClear.L.Light" to ComposeStyleReference { IconBadgeClear.L.Light.style() },
+            "IconBadgeClear.L.Info" to ComposeStyleReference { IconBadgeClear.L.Info.style() },
             "IconBadgeClear.L.Pilled.Default" to ComposeStyleReference { IconBadgeClear.L.Pilled.Default.style() },
             "IconBadgeClear.L.Pilled.Accent" to ComposeStyleReference { IconBadgeClear.L.Pilled.Accent.style() },
             "IconBadgeClear.L.Pilled.Negative" to ComposeStyleReference { IconBadgeClear.L.Pilled.Negative.style() },
@@ -61,6 +63,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.L.Pilled.Warning" to ComposeStyleReference { IconBadgeClear.L.Pilled.Warning.style() },
             "IconBadgeClear.L.Pilled.Dark" to ComposeStyleReference { IconBadgeClear.L.Pilled.Dark.style() },
             "IconBadgeClear.L.Pilled.Light" to ComposeStyleReference { IconBadgeClear.L.Pilled.Light.style() },
+            "IconBadgeClear.L.Pilled.Info" to ComposeStyleReference { IconBadgeClear.L.Pilled.Info.style() },
             "IconBadgeClear.M.Default" to ComposeStyleReference { IconBadgeClear.M.Default.style() },
             "IconBadgeClear.M.Accent" to ComposeStyleReference { IconBadgeClear.M.Accent.style() },
             "IconBadgeClear.M.Negative" to ComposeStyleReference { IconBadgeClear.M.Negative.style() },
@@ -68,6 +71,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.M.Warning" to ComposeStyleReference { IconBadgeClear.M.Warning.style() },
             "IconBadgeClear.M.Dark" to ComposeStyleReference { IconBadgeClear.M.Dark.style() },
             "IconBadgeClear.M.Light" to ComposeStyleReference { IconBadgeClear.M.Light.style() },
+            "IconBadgeClear.M.Info" to ComposeStyleReference { IconBadgeClear.M.Info.style() },
             "IconBadgeClear.M.Pilled.Default" to ComposeStyleReference { IconBadgeClear.M.Pilled.Default.style() },
             "IconBadgeClear.M.Pilled.Accent" to ComposeStyleReference { IconBadgeClear.M.Pilled.Accent.style() },
             "IconBadgeClear.M.Pilled.Negative" to ComposeStyleReference { IconBadgeClear.M.Pilled.Negative.style() },
@@ -75,6 +79,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.M.Pilled.Warning" to ComposeStyleReference { IconBadgeClear.M.Pilled.Warning.style() },
             "IconBadgeClear.M.Pilled.Dark" to ComposeStyleReference { IconBadgeClear.M.Pilled.Dark.style() },
             "IconBadgeClear.M.Pilled.Light" to ComposeStyleReference { IconBadgeClear.M.Pilled.Light.style() },
+            "IconBadgeClear.M.Pilled.Info" to ComposeStyleReference { IconBadgeClear.M.Pilled.Info.style() },
             "IconBadgeClear.S.Default" to ComposeStyleReference { IconBadgeClear.S.Default.style() },
             "IconBadgeClear.S.Accent" to ComposeStyleReference { IconBadgeClear.S.Accent.style() },
             "IconBadgeClear.S.Negative" to ComposeStyleReference { IconBadgeClear.S.Negative.style() },
@@ -82,6 +87,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.S.Warning" to ComposeStyleReference { IconBadgeClear.S.Warning.style() },
             "IconBadgeClear.S.Dark" to ComposeStyleReference { IconBadgeClear.S.Dark.style() },
             "IconBadgeClear.S.Light" to ComposeStyleReference { IconBadgeClear.S.Light.style() },
+            "IconBadgeClear.S.Info" to ComposeStyleReference { IconBadgeClear.S.Info.style() },
             "IconBadgeClear.S.Pilled.Default" to ComposeStyleReference { IconBadgeClear.S.Pilled.Default.style() },
             "IconBadgeClear.S.Pilled.Accent" to ComposeStyleReference { IconBadgeClear.S.Pilled.Accent.style() },
             "IconBadgeClear.S.Pilled.Negative" to ComposeStyleReference { IconBadgeClear.S.Pilled.Negative.style() },
@@ -89,6 +95,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.S.Pilled.Warning" to ComposeStyleReference { IconBadgeClear.S.Pilled.Warning.style() },
             "IconBadgeClear.S.Pilled.Dark" to ComposeStyleReference { IconBadgeClear.S.Pilled.Dark.style() },
             "IconBadgeClear.S.Pilled.Light" to ComposeStyleReference { IconBadgeClear.S.Pilled.Light.style() },
+            "IconBadgeClear.S.Pilled.Info" to ComposeStyleReference { IconBadgeClear.S.Pilled.Info.style() },
             "IconBadgeClear.Xs.Default" to ComposeStyleReference { IconBadgeClear.Xs.Default.style() },
             "IconBadgeClear.Xs.Accent" to ComposeStyleReference { IconBadgeClear.Xs.Accent.style() },
             "IconBadgeClear.Xs.Negative" to ComposeStyleReference { IconBadgeClear.Xs.Negative.style() },
@@ -96,6 +103,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.Xs.Warning" to ComposeStyleReference { IconBadgeClear.Xs.Warning.style() },
             "IconBadgeClear.Xs.Dark" to ComposeStyleReference { IconBadgeClear.Xs.Dark.style() },
             "IconBadgeClear.Xs.Light" to ComposeStyleReference { IconBadgeClear.Xs.Light.style() },
+            "IconBadgeClear.Xs.Info" to ComposeStyleReference { IconBadgeClear.Xs.Info.style() },
             "IconBadgeClear.Xs.Pilled.Default" to ComposeStyleReference { IconBadgeClear.Xs.Pilled.Default.style() },
             "IconBadgeClear.Xs.Pilled.Accent" to ComposeStyleReference { IconBadgeClear.Xs.Pilled.Accent.style() },
             "IconBadgeClear.Xs.Pilled.Negative" to ComposeStyleReference { IconBadgeClear.Xs.Pilled.Negative.style() },
@@ -103,6 +111,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
             "IconBadgeClear.Xs.Pilled.Warning" to ComposeStyleReference { IconBadgeClear.Xs.Pilled.Warning.style() },
             "IconBadgeClear.Xs.Pilled.Dark" to ComposeStyleReference { IconBadgeClear.Xs.Pilled.Dark.style() },
             "IconBadgeClear.Xs.Pilled.Light" to ComposeStyleReference { IconBadgeClear.Xs.Pilled.Light.style() },
+            "IconBadgeClear.Xs.Pilled.Info" to ComposeStyleReference { IconBadgeClear.Xs.Pilled.Info.style() },
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
@@ -127,6 +136,7 @@ internal object PlasmaGigaIconBadgeClearVariationsCompose : ComposeStyleProvider
                 "Warning" -> IconBadgeClearView.Warning
                 "Dark" -> IconBadgeClearView.Dark
                 "Light" -> IconBadgeClearView.Light
+                "Info" -> IconBadgeClearView.Info
                 else -> IconBadgeClearView.Default
             },
         ).key
