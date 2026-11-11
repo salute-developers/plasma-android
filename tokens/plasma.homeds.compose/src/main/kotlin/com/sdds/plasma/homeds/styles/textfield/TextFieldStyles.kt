@@ -19,7 +19,6 @@ import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -269,9 +268,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
-            endContentColorReadOnly(PlasmaHomeDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
             valueColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
-            captionColorReadOnly(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
             optionalColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
             placeholderColor(
@@ -283,10 +280,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                     setOf(TextFieldSemanticState.Readonly, InteractiveState.Activated) to
                         SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary),
                 ),
-            )
-            placeholderColorReadOnly(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
-            backgroundColorReadOnly(
-                PlasmaHomeDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
             )
             indicatorColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultTertiary).asStatefulValue())

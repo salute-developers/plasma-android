@@ -8,13 +8,14 @@
 package com.sdds.plasma.sd.service.styles.`file`
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.FileActionPlacement
 import com.sdds.compose.uikit.FileProgressPlacement
 import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.FileStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -120,11 +121,11 @@ public val WrapperFileLinearProgressView.Default: WrapperFileLinearProgressTermi
     get() = builder
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -135,11 +136,11 @@ public val WrapperFileLinearProgressView.Negative: WrapperFileLinearProgressTerm
     get() = builder
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeHover),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -152,19 +153,19 @@ private val FileStyleBuilder.invariantProps: FileStyleBuilder
         .actionPlacement(FileActionPlacement.End)
         .colors {
             labelColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                 ),
             )
             iconColor(
-                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryHover),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultPrimaryActive),
                 ),
             )
         }
@@ -180,11 +181,11 @@ public val WrapperFileLinearProgressXsView.Default: WrapperFileLinearProgressTer
         .progressBarStyle(ProgressBar.Default.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -197,11 +198,11 @@ public val WrapperFileLinearProgressXsView.Negative: WrapperFileLinearProgressTe
         .progressBarStyle(ProgressBar.Negative.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeHover),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -228,11 +229,11 @@ public val WrapperFileLinearProgressSView.Default: WrapperFileLinearProgressTerm
         .progressBarStyle(ProgressBar.Default.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -245,11 +246,11 @@ public val WrapperFileLinearProgressSView.Negative: WrapperFileLinearProgressTer
         .progressBarStyle(ProgressBar.Negative.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeHover),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -276,11 +277,11 @@ public val WrapperFileLinearProgressMView.Default: WrapperFileLinearProgressTerm
         .progressBarStyle(ProgressBar.Default.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -293,11 +294,11 @@ public val WrapperFileLinearProgressMView.Negative: WrapperFileLinearProgressTer
         .progressBarStyle(ProgressBar.Negative.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeHover),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }
@@ -324,11 +325,11 @@ public val WrapperFileLinearProgressLView.Default: WrapperFileLinearProgressTerm
         .progressBarStyle(ProgressBar.Default.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryHover),
                     setOf(InteractiveState.Pressed) to
-                        PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultSecondaryActive),
                 ),
             )
         }
@@ -341,11 +342,11 @@ public val WrapperFileLinearProgressLView.Negative: WrapperFileLinearProgressTer
         .progressBarStyle(ProgressBar.Negative.style())
         .colors {
             descriptionColor(
-                PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+                SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegative).asStatefulValue(
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeHover,
-                    setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
+                        to SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeHover),
+                    setOf(InteractiveState.Pressed) to
+                        SolidColor(PlasmaSdServiceTheme.colors.textDefaultNegativeActive),
                 ),
             )
         }

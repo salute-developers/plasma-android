@@ -18,7 +18,6 @@ import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -197,7 +196,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
-            startContentColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
                 SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
@@ -214,7 +212,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(StarDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f)),
                 ),
             )
-            endContentColorReadOnly(StarDsTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
             valueColor(
                 SolidColor(StarDsTheme.colors.textDefaultPrimary).asStatefulValue(
                     setOf(InteractiveState.Focused)
@@ -227,8 +224,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(StarDsTheme.colors.textDefaultPrimary),
                 ),
             )
-            valueColorReadOnly(StarDsTheme.colors.textDefaultPrimary.asInteractive())
-            captionColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
             optionalColor(SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue())
             counterColor(
                 SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
@@ -236,7 +231,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
-            counterColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
             placeholderColor(
                 SolidColor(StarDsTheme.colors.textDefaultSecondary).asStatefulValue(
                     setOf(InteractiveState.Focused)
@@ -247,8 +241,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(StarDsTheme.colors.textDefaultSecondary),
                 ),
             )
-            placeholderColorReadOnly(StarDsTheme.colors.textDefaultSecondary.asInteractive())
-            backgroundColorReadOnly(StarDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive())
             indicatorColor(SolidColor(StarDsTheme.colors.surfaceDefaultNegative).asStatefulValue())
             prefixColor(
                 SolidColor(StarDsTheme.colors.textDefaultTertiary).asStatefulValue(
@@ -274,8 +266,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         SolidColor(StarDsTheme.colors.textDefaultTertiary),
                 ),
             )
-            prefixColorReadOnly(StarDsTheme.colors.textDefaultTertiary.asInteractive())
-            suffixColorReadOnly(StarDsTheme.colors.textDefaultTertiary.asInteractive())
         }
 
 public val TextField.Xs: WrapperTextFieldXs
