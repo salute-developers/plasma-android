@@ -226,7 +226,7 @@ interface TextFieldColorsBuilder {
         message = "Use cursorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("cursorColor(/* brush */)"),
     )
-    @ApiDeprecated("Use cursorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use cursorColor")
     fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -278,7 +278,7 @@ interface TextFieldColorsBuilder {
         message = "Use startContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("startContentColor(/* brush */)"),
     )
-    @ApiDeprecated("Use startContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use startContentColor")
     fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -320,7 +320,7 @@ interface TextFieldColorsBuilder {
         message = "Use endContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("endContentColor(/* brush */)"),
     )
-    @ApiDeprecated("Use endContentColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use endContentColor")
     fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -362,7 +362,7 @@ interface TextFieldColorsBuilder {
         message = "Use labelColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("labelColor(/* brush */)"),
     )
-    @ApiDeprecated("Use labelColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use labelColor")
     fun labelColorReadOnly(labelColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -404,7 +404,7 @@ interface TextFieldColorsBuilder {
         message = "Use valueColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("valueColor(/* brush */)"),
     )
-    @ApiDeprecated("Use valueColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use valueColor")
     fun valueColorReadOnly(valueColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -446,7 +446,7 @@ interface TextFieldColorsBuilder {
         message = "Use captionColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("captionColor(/* brush */)"),
     )
-    @ApiDeprecated("Use captionColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use captionColor")
     fun captionColorReadOnly(captionColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -488,7 +488,7 @@ interface TextFieldColorsBuilder {
         message = "Use optionalColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("optionalColor(/* brush */)"),
     )
-    @ApiDeprecated("Use optionalColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use optionalColor")
     fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -530,7 +530,7 @@ interface TextFieldColorsBuilder {
         message = "Use counterColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("counterColor(/* brush */)"),
     )
-    @ApiDeprecated("Use counterColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use counterColor")
     fun counterColorReadOnly(counterColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -572,7 +572,7 @@ interface TextFieldColorsBuilder {
         message = "Use placeholderColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("placeholderColor(/* brush */)"),
     )
-    @ApiDeprecated("Use placeholderColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use placeholderColor")
     fun placeholderColorReadOnly(placeholderColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -614,7 +614,7 @@ interface TextFieldColorsBuilder {
         message = "Use backgroundColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("backgroundColor(/* brush */)"),
     )
-    @ApiDeprecated("Use backgroundColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use backgroundColor")
     fun backgroundColorReadOnly(backgroundColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -656,7 +656,7 @@ interface TextFieldColorsBuilder {
         message = "Use dividerColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("dividerColor(/* brush */)"),
     )
-    @ApiDeprecated("Use dividerColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use dividerColor")
     fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -698,7 +698,7 @@ interface TextFieldColorsBuilder {
         message = "Use indicatorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("indicatorColor(/* brush */)"),
     )
-    @ApiDeprecated("Use indicatorColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use indicatorColor")
     fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -762,7 +762,7 @@ interface TextFieldColorsBuilder {
         message = "Use prefixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("prefixColor(/* brush */)"),
     )
-    @ApiDeprecated("Use prefixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use prefixColor")
     fun prefixColorReadOnly(prefixColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
@@ -782,7 +782,7 @@ interface TextFieldColorsBuilder {
         message = "Use suffixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)",
         replaceWith = ReplaceWith("suffixColor(/* brush */)"),
     )
-    @ApiDeprecated("Use suffixColor(brush: StatefulValue<Brush>) with setOf(TextFieldSemanticState.Readonly)")
+    @ApiDeprecated("Use suffixColor")
     fun suffixColorReadOnly(suffixColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
