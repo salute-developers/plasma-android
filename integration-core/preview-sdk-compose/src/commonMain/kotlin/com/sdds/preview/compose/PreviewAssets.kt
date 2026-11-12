@@ -65,3 +65,12 @@ public data class LoadedFontFace(
     /** Числовой вес шрифта. */ val weight: Int,
     /** Признак курсивного начертания. */ val italic: Boolean,
 )
+
+/** Префикс идентификатора SVG-ресурса иконки в [com.sdds.preview.contract.PreviewPayload.assets]: `icon:<имя>`. */
+public const val ICON_ASSET_PREFIX: String = "icon:"
+
+/** Создаёт [com.sdds.compose.uikit.ImageSource] из содержимого SVG; бросает исключение, если SVG не разбирается. */
+public fun interface SvgIconFactory {
+    /** Разбирает [bytes] SVG-файла иконки. */
+    public fun create(bytes: ByteArray): com.sdds.compose.uikit.ImageSource
+}
