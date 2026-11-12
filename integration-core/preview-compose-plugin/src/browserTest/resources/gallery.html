@@ -30,7 +30,7 @@
     const TYPOGRAPHY_VALUE_TYPES = ["androidx.compose.ui.text.TextStyle"];
     const SHAPE_VALUE_TYPES = ["androidx.compose.foundation.shape.CornerBasedShape", "androidx.compose.ui.graphics.Shape"];
     const MAX_DEPTH = 3;
-    /** Иконка из `preview-icons.txt`: плагин рисует её по имени из конфигурации. */
+    /** Иконка из SVG-ресурса payload (`icon:<имя>`): плагин рисует её по имени из конфигурации. */
     const KNOWN_ICON = "disclosure.down.fill.16";
     const TEXT_COLOUR = /text|label|content|icon|value|caption|title|description|helper|counter|placeholder|hint|prefix|suffix/i;
 
@@ -106,6 +106,7 @@
         const payload = structuredClone(fixture);
         payload.requestId = requestId;
         payload.theme["color.content"] = {type: "color", value: "#202124FF"};
+        payload.assets = [...(payload.assets || []), {id: "icon:" + KNOWN_ICON, type: "SVG", url: location.origin + "/icons/DisclosureDownFill-24.svg"}];
         const styles = {};
         payload.component = {id: component.componentName, variations: {}, properties: sampleProperties(component, metaByName, styles, [component.componentName])};
         if (Object.keys(styles).length) payload.styles = styles;
@@ -154,6 +155,19 @@
         window.__galleryRenderWithProperty = async (componentId, propertyName, base) => {
             const payload = galleryPayload(fixture, metaByName[componentId], metaByName, "gallery-with-" + componentId + "-" + (++renderCount));
             payload.component.properties[propertyName] = {base};
+            return Promise.race([
+                send(payload),
+                new Promise((resolve) => setTimeout(
+                    () => resolve({type: "failure", code: "timeout", message: "Нет ответа за 20 секунд"}),
+                    20000,
+                )),
+            ]);
+        };
+        // Тот же render с иконкой из SVG-ресурса payload (`icon:<имя>`): иконки нет в реестре плагина.
+        window.__galleryRenderWithSvgIcon = async (componentId, propertyName, name, file) => {
+            const payload = galleryPayload(fixture, metaByName[componentId], metaByName, "gallery-svg-" + componentId + "-" + (++renderCount));
+            payload.component.properties[propertyName] = {base: {type: "literal", value: name}};
+            payload.assets = [...(payload.assets || []), {id: "icon:" + name, type: "SVG", url: location.origin + "/icons/" + file}];
             return Promise.race([
                 send(payload),
                 new Promise((resolve) => setTimeout(

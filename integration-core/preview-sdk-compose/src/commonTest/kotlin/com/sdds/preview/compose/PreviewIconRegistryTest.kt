@@ -1,7 +1,9 @@
 package com.sdds.preview.compose
 
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.ImageSource
 import com.sdds.preview.contract.PreviewComponent
 import com.sdds.preview.contract.PreviewExample
 import com.sdds.preview.contract.PreviewPayload
@@ -16,9 +18,10 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
-class PreviewIconsTest {
+class PreviewIconRegistryTest {
     private val vector = ImageVector.Builder("icon", 16.dp, 16.dp, 16f, 16f).build()
-    private val registry = PreviewIconRegistry(mapOf("DisclosureDownFill16" to { vector }))
+    private val registry =
+        PreviewIconRegistry(mapOf("disclosure.down.fill.16" to ImageSource { rememberVectorPainter(vector) }))
 
     private fun literal(value: String) = PreviewPropertyValue(PreviewPropertySource.Literal(JsonPrimitive(value)))
 
@@ -31,12 +34,15 @@ class PreviewIconsTest {
     )
 
     @Test
-    fun `an icon name from the data becomes a SddsIcons member name`() {
-        assertEquals("DisclosureDownFill16", iconMemberName("disclosure.down.fill.16"))
-        assertEquals("Plus16", iconMemberName("plus.16"))
-        assertEquals("DotsHorizontalOutline24", iconMemberName("dots.horizontal.outline.24"))
-        assertEquals("ArrowLeft24", iconMemberName("arrow-left_24"))
-        assertEquals("", iconMemberName(""))
+    fun `withSources adds icons by the exact name from the data and keeps the existing ones`() {
+        val extra = PreviewIconRegistry().withSources(mapOf("plus.16" to ImageSource { rememberVectorPainter(vector) }))
+        val both = registry.withSources(mapOf("plus.16" to ImageSource { rememberVectorPainter(vector) }))
+
+        assertTrue(extra.contains("plus.16"))
+        assertFalse(extra.contains("plus.outline.16"))
+        assertTrue(both.contains("plus.16"))
+        assertTrue(both.contains("disclosure.down.fill.16"))
+        assertTrue(registry.withSources(emptyMap()) === registry)
     }
 
     @Test

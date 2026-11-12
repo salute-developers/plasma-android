@@ -21,6 +21,7 @@ import com.sdds.sandbox.Property
 import com.sdds.sandbox.StoryEntry
 import com.sdds.sandbox.UiState
 import kotlinx.serialization.decodeFromString
+import kotlin.coroutines.cancellation.CancellationException
 
 /** Подготовленный preview, скрывающий конкретные типы story state и style. */
 public interface PreparedComposePreview {
@@ -106,7 +107,7 @@ public class ComposePreviewRuntime(
     private val assetResolver: PreviewAssetResolver,
     private val fontFamilyFactory: LoadedFontFamilyFactory,
     components: List<ComposePreviewComponent>,
-    private val icons: PreviewIconRegistry = PreviewIconRegistry(),
+    private val svgIcons: SvgIconFactory? = null,
 ) {
     private val componentsById = components.associateBy { it.componentId }
 
@@ -119,8 +120,31 @@ public class ComposePreviewRuntime(
         }
         payload.validateReferences()
         component.validate(payload)
-        val theme = payload.prepareComposeTheme(assetResolver, fontFamilyFactory).withIcons(icons)
+        val theme = payload.prepareComposeTheme(assetResolver, fontFamilyFactory)
+            .withIcons(PreviewIconRegistry().withSources(loadSvgIcons(payload)))
         return component.prepare(payload, theme)
+    }
+
+    /**
+     * SVG-иконки из `assets` payload (`icon:<имя>`). Иконка, которую не удалось загрузить или разобрать, пропускается:
+     * дальше она даёт обычное предупреждение `unknown_icon`.
+     */
+    @Suppress("TooGenericExceptionCaught") // Любая ошибка одной иконки (кроме отмены) не должна прерывать render.
+    private suspend fun loadSvgIcons(payload: PreviewPayload): Map<String, com.sdds.compose.uikit.ImageSource> {
+        val factory = svgIcons ?: return emptyMap()
+        val result = HashMap<String, com.sdds.compose.uikit.ImageSource>()
+        payload.assets
+            .filter { it.type == com.sdds.preview.contract.PreviewAssetType.SVG && it.id.startsWith(ICON_ASSET_PREFIX) }
+            .forEach { asset ->
+                try {
+                    result[asset.id.removePrefix(ICON_ASSET_PREFIX)] = factory.create(assetResolver.resolve(asset))
+                } catch (cancellation: CancellationException) {
+                    throw cancellation
+                } catch (_: Throwable) {
+                    // Иконка останется неизвестной. Ошибка JS-промиса в Kotlin/Wasm — `Throwable`, а не `Exception`.
+                }
+            }
+        return result
     }
 
     /** Возвращает описание зарегистрированного component без изменения render state. */
