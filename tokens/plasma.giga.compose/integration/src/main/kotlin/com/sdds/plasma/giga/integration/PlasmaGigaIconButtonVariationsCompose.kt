@@ -19,10 +19,10 @@ import com.sdds.plasma.giga.styles.iconbutton.Clear
 import com.sdds.plasma.giga.styles.iconbutton.Dark
 import com.sdds.plasma.giga.styles.iconbutton.Default
 import com.sdds.plasma.giga.styles.iconbutton.IconButton
-import com.sdds.plasma.giga.styles.iconbutton.IconButtonShape
-import com.sdds.plasma.giga.styles.iconbutton.IconButtonSize
+import com.sdds.plasma.giga.styles.iconbutton.IconButtonDefaultShape
+import com.sdds.plasma.giga.styles.iconbutton.IconButtonDefaultSize
+import com.sdds.plasma.giga.styles.iconbutton.IconButtonDefaultView
 import com.sdds.plasma.giga.styles.iconbutton.IconButtonStyles
-import com.sdds.plasma.giga.styles.iconbutton.IconButtonView
 import com.sdds.plasma.giga.styles.iconbutton.L
 import com.sdds.plasma.giga.styles.iconbutton.M
 import com.sdds.plasma.giga.styles.iconbutton.Negative
@@ -179,33 +179,33 @@ internal object PlasmaGigaIconButtonVariationsCompose : ComposeStyleProvider<But
         )
 
     override fun resolveStyleKey(bindings: Map<String, Any?>): String {
-        return IconButtonStyles.resolve(
+        return IconButtonStyles.Default.resolve(
             size = when (bindings["size"]?.toString()) {
-                "Xl" -> IconButtonSize.Xl
-                "L" -> IconButtonSize.L
-                "M" -> IconButtonSize.M
-                "S" -> IconButtonSize.S
-                "Xs" -> IconButtonSize.Xs
-                "Xxs" -> IconButtonSize.Xxs
-                else -> IconButtonSize.Xl
+                "Xl" -> IconButtonDefaultSize.Xl
+                "L" -> IconButtonDefaultSize.L
+                "M" -> IconButtonDefaultSize.M
+                "S" -> IconButtonDefaultSize.S
+                "Xs" -> IconButtonDefaultSize.Xs
+                "Xxs" -> IconButtonDefaultSize.Xxs
+                else -> IconButtonDefaultSize.Xl
             },
             shape = when (bindings["shape"]?.toString()) {
-                "Default" -> IconButtonShape.Default
-                "Pilled" -> IconButtonShape.Pilled
-                else -> IconButtonShape.Default
+                "Default" -> IconButtonDefaultShape.Default
+                "Pilled" -> IconButtonDefaultShape.Pilled
+                else -> IconButtonDefaultShape.Default
             },
             view = when (bindings["view"]?.toString()) {
-                "Default" -> IconButtonView.Default
-                "Secondary" -> IconButtonView.Secondary
-                "Accent" -> IconButtonView.Accent
-                "Positive" -> IconButtonView.Positive
-                "Negative" -> IconButtonView.Negative
-                "Warning" -> IconButtonView.Warning
-                "Clear" -> IconButtonView.Clear
-                "Dark" -> IconButtonView.Dark
-                "Black" -> IconButtonView.Black
-                "White" -> IconButtonView.White
-                else -> IconButtonView.Default
+                "Default" -> IconButtonDefaultView.Default
+                "Secondary" -> IconButtonDefaultView.Secondary
+                "Accent" -> IconButtonDefaultView.Accent
+                "Positive" -> IconButtonDefaultView.Positive
+                "Negative" -> IconButtonDefaultView.Negative
+                "Warning" -> IconButtonDefaultView.Warning
+                "Clear" -> IconButtonDefaultView.Clear
+                "Dark" -> IconButtonDefaultView.Dark
+                "Black" -> IconButtonDefaultView.Black
+                "White" -> IconButtonDefaultView.White
+                else -> IconButtonDefaultView.Default
             },
         ).key
     }
