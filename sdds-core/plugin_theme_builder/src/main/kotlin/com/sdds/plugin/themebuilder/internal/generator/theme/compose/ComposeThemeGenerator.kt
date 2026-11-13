@@ -27,7 +27,7 @@ internal class ComposeThemeGenerator(
 ) : SimpleBaseGenerator {
 
     private val themeKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(themeClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(themeClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()

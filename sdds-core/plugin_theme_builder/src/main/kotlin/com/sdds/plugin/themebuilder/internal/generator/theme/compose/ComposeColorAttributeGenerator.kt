@@ -42,7 +42,7 @@ internal class ComposeColorAttributeGenerator(
     private val colorAttributes = mutableSetOf<String>()
 
     private val colorKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(colorClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(colorClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()

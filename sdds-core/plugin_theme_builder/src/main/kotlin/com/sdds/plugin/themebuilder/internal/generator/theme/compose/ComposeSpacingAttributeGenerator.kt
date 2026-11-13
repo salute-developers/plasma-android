@@ -33,7 +33,7 @@ internal class ComposeSpacingAttributeGenerator(
     private val spacing = mutableMapOf<Tenant, List<SpacingTokenResult.TokenData>>()
 
     private val spacingKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(spacingClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(spacingClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()

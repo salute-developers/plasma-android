@@ -1,9 +1,12 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.tokens
 
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.dp
+import kotlin.Suppress
 
 /**
  * Токены скруглений

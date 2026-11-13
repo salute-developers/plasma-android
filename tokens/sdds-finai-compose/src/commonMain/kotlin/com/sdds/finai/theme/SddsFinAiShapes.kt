@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.theme
 
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -9,6 +11,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import com.sdds.finai.tokens.RoundShapeTokens
 import com.sdds.finai.tokens.RoundShapeTokensBetaCore
 import com.sdds.finai.tokens.RoundShapeTokensHighContrast
+import kotlin.Suppress
 
 /**
  * Формы SddsFinAi

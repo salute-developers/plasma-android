@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.theme
 
 import androidx.compose.runtime.Immutable

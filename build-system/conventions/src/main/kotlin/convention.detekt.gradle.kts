@@ -11,8 +11,6 @@ configure<DetektExtension> {
     source = project.files(project.fileTree("src") {
         include("main/kotlin/**/*.kt")
         include("*Main/kotlin/**/*.kt")
-        // генерация Theme Builder — не линтуем; здесь пути полные и exclude реально матчится
-        exclude("**/tokens/**", "**/theme/**", "**/styles/**")
     })
     println("detekt: rootDir $rootDir")
     // Так как `convention.detekt` находится в includeBuild 'build-system'.

@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.theme
 
 import androidx.compose.runtime.Immutable
@@ -7,6 +9,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.finai.tokens.SpacingTokens
+import kotlin.Suppress
 
 /**
  * Отступы SddsFinAi

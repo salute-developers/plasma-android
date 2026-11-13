@@ -49,7 +49,9 @@ internal class ColorTokenGenerator(
 ) : TokenGenerator<ColorToken, ColorTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
+    private val ktFileBuilder by unsafeLazy {
+        ktFileBuilderFactory.create("ColorTokens").suppressGeneratedDocs()
+    }
     private val lightBuilders by unsafeLazy {
         mutableMapOf(
             Tenant.Default to ktFileBuilder.rootObject(

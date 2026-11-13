@@ -44,7 +44,7 @@ internal class ComposeGradientAttributeGenerator(
     private val gradientAttributes = mutableSetOf<String>()
 
     private val gradientKtFileBuilder: KtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(gradientClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(gradientClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()

@@ -1,7 +1,10 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.tokens
 
 import androidx.compose.ui.graphics.Color
+import kotlin.Suppress
 
 /**
  * Токены цвета для светлой темы

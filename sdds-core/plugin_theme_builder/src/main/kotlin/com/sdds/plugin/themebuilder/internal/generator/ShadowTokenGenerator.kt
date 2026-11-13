@@ -58,7 +58,9 @@ internal class ShadowTokenGenerator(
 ) : TokenGenerator<ShadowToken, ShadowTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(SHADOW_TOKENS_NAME) }
+    private val ktFileBuilder by unsafeLazy {
+        ktFileBuilderFactory.create(SHADOW_TOKENS_NAME).suppressGeneratedDocs()
+    }
     private val rootShadows =
         mutableMapOf(Tenant.Default to ktFileBuilder.rootObject(SHADOW_TOKENS_NAME, SHADOW_TOKENS_DESC))
     private val rFileImport = ClassName(namespace, "R")

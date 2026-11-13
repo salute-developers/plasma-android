@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.theme.subthemes
 
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -9,6 +11,7 @@ import com.sdds.finai.theme.LocalSddsFinAiColors
 import com.sdds.finai.theme.LocalSddsFinAiGradients
 import com.sdds.finai.theme.SddsFinAiTheme
 import kotlin.Boolean
+import kotlin.Suppress
 import kotlin.Unit
 
 private val OnDarkColorsOverride: ColorAttrOverrideScope.() -> Unit by lazy {

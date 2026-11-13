@@ -83,7 +83,7 @@ internal class TypographyTokenGenerator(
     }
     private val ktFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create("TypographyTokens")
-            .apply { this.addSuppressAnnotation("DEPRECATION") }
+            .suppressGeneratedDocs("DEPRECATION")
     }
     private val largeBuilders by unsafeLazy {
         mutableMapOf(

@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.theme
 
 import androidx.compose.runtime.Composable
@@ -17,6 +19,7 @@ import com.sdds.finai.tokens.TypographyMediumTokensHighContrast
 import com.sdds.finai.tokens.TypographySmallTokens
 import com.sdds.finai.tokens.TypographySmallTokensBetaCore
 import com.sdds.finai.tokens.TypographySmallTokensHighContrast
+import kotlin.Suppress
 
 /**
  * Типографика SddsFinAi
