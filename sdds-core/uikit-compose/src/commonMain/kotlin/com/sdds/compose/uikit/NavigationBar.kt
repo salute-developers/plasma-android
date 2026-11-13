@@ -569,7 +569,7 @@ private fun navbarPaddingValues(
     val bottom = dimensions.paddingBottomValues
     val values = remember(start, top, end, bottom) { listOf(start, top, end, bottom) }
     val snapshot = motion.context.rememberStateSnapshot(values)
-    val paddings = remember(snapshot, hasBottomText) {
+    val paddings = remember(snapshot, hasBottomText, start, top, end, bottom) {
         PaddingValues(
             start = start.getValue(snapshot.target),
             end = end.getValue(snapshot.target),

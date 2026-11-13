@@ -220,6 +220,49 @@ fun rememberMotionContext(
     builder = builder,
 )
 
+/**
+ * Создаёт и запоминает производный [MotionContext] от данного контекста.
+ *
+ * Производный контекст наследует источник интеракций, transition- и interpolation-каналы,
+ * а также пользовательские провайдеры снимка состояний, но использует переданный
+ * [semanticStateSource]. Дефолтный снимок состояний пересобирается поверх нового
+ * источника семантики, поэтому ключи состояний в производном контексте отличаются
+ * от ключей исходного.
+ *
+ * Применяется, когда разным частям одного компонента нужны разные семантические
+ * состояния при одних и тех же интеракциях и одинаковых каналах анимации
+ * (например, послойные состояния у `CollapsingNavigationBar`).
+ *
+ * Для реализаций [MotionContext], отличных от встроенной, наследование выполняется
+ * по максимально доступному через публичный API набору параметров.
+ *
+ * @param semanticStateSource источник семантических состояний производного контекста.
+ * @param label метка для отладки; по умолчанию наследуется от исходного контекста.
+ */
+@Composable
+fun MotionContext.rememberWithSemanticStateSource(
+    semanticStateSource: MutableSemanticStateSource,
+    label: String? = this.label,
+): MotionContext {
+    val simple = this as? SimpleMotionContext
+    return if (simple != null) {
+        remember(this, semanticStateSource) {
+            simple.withSemanticStateSource(semanticStateSource, label)
+        }
+    } else {
+        rememberMotionContext(
+            semanticStateSource = semanticStateSource,
+            interactionSource = interactionSource,
+            label = label,
+            builder = {
+                interpolationChannels.forEach { (key, provider) ->
+                    interpolationChannel(key, provider)
+                }
+            },
+        )
+    }
+}
+
 @Immutable
 private class SimpleMotionContext(
     override val interpolationChannels: Map<MotionChannelKey, MotionChannelProvider<InterpolationMotionChannel>>,
@@ -237,6 +280,23 @@ private class SimpleMotionContext(
                 acc.merge(snapshot)
             }
     }
+
+    fun withSemanticStateSource(source: MutableSemanticStateSource, label: String?): SimpleMotionContext =
+        SimpleMotionContext(
+            interpolationChannels = interpolationChannels,
+            transitionChannel = transitionChannel,
+            interactionSource = interactionSource,
+            semanticStateSource = source,
+            defaultSnapshotProvider = MotionStateSnapshotProvider { observed ->
+                getStateSnapshot(
+                    interactionSource = interactionSource,
+                    semanticStateSource = source,
+                    observedStates = observed,
+                )
+            },
+            extraSnapshotProviders = extraSnapshotProviders,
+            label = label,
+        )
 }
 
 private class MotionContextBuilder(

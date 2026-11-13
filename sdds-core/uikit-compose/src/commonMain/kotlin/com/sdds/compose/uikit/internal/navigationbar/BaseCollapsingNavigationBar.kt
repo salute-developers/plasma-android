@@ -11,7 +11,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,6 +29,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -40,7 +41,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.platform.LocalDensity
@@ -49,20 +49,32 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.Velocity
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.CollapsingNavigationBarDimensions
 import com.sdds.compose.uikit.CollapsingNavigationBarState
 import com.sdds.compose.uikit.CollapsingNavigationBarStates
 import com.sdds.compose.uikit.CollapsingNavigationBarStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalIconButtonStyle
-import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.LocalTintBrushProducer
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarScrollBehavior
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.graphics.LocalIndication
 import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.MotionContext
+import com.sdds.compose.uikit.motion.MotionProperty
+import com.sdds.compose.uikit.motion.components.navigationbar.NavigationBarMotionStyle
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
+import com.sdds.compose.uikit.motion.rememberStateSnapshot
+import com.sdds.compose.uikit.motion.rememberWithSemanticStateSource
 import com.sdds.compose.uikit.rememberNavBarShape
 import com.sdds.compose.uikit.shadow.shadow
 import com.sdds.compose.uikit.toPlatformTextAlign
@@ -85,15 +97,20 @@ internal fun BaseCollapsingNavBar(
     expandedTextAlign: NavigationBarTextAlign,
     windowInsets: WindowInsets,
     scrollBehavior: NavigationBarScrollBehavior?,
-    interactionSource: InteractionSource,
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy,
     onBackPressed: () -> Unit,
+    motion: Motion<NavigationBarMotionStyle>,
 ) {
+    val collapsedMotion = motion.rememberWithSemanticStateSource(
+        remember { MutableSemanticStateSource().apply { add(CollapsingNavigationBarStates.Collapsed) } },
+    )
     var topContentSize by remember { mutableIntStateOf(0) }
     var bottomContentSize by remember { mutableIntStateOf(0) }
-    val collapsedStateSet = remember { setOf(CollapsingNavigationBarStates.Collapsed) }
     val paddingBottomPx = with(LocalDensity.current) {
-        style.dimensions.paddingBottom.toPx()
+        style.dimensions.paddingBottomValues.getValue(
+            motion.context.interactionSource,
+            motion.context.semanticStateSource,
+        ).toPx()
     }
     LaunchedEffect(bottomContentSize) {
         if (scrollBehavior?.state?.heightOffsetLimit != -bottomContentSize.toFloat() + paddingBottomPx) {
@@ -101,17 +118,21 @@ internal fun BaseCollapsingNavBar(
                 -bottomContentSize.toFloat() + paddingBottomPx
         }
     }
-
-    val colorTransitionFraction = scrollBehavior?.state?.collapsedFraction ?: 0f
-    val background = style.colors.background.getValue(interactionSource, emptySet())
+    val collapsedSpacing by style.dimensions.horizontalSpacingValues.getValueAsState(collapsedMotion.context)
+    val spacing by style.dimensions.horizontalSpacingValues.getValueAsState(motion.context)
+    // Прогресс сворачивания читается лямбдой, а не значением: подписка возникает
+    // в фазе отрисовки/замера (graphicsLayer, Layout, drawWithCache), а не в композиции,
+    // поэтому скролл не пересобирает тело компонента на каждый кадр.
+    val fraction: () -> Float = { scrollBehavior?.state?.collapsedFraction ?: 0f }
+    val background = style.colors.background.getBrushAsState(motion.context, motion.style.backgroundColor)
     val scrolledBackground =
-        style.colors.background.getValue(interactionSource, collapsedStateSet)
-    val appBarBackgroundProgress =
-        FastOutLinearInEasing.transform(colorTransitionFraction)
+        style.colors.background.getBrushAsState(collapsedMotion.context, collapsedMotion.style.backgroundColor)
 
-    val collapsedAlpha = TopTextAlphaEasing.transform(colorTransitionFraction)
-    val expandedAlpha = 1f - colorTransitionFraction
-    val hideTopRowSemantics = colorTransitionFraction < 0.5f
+    // Тело подписано на порог, а не на прогресс: пересборка происходит только
+    // при пересечении 0.5, а не на каждый кадр скролла.
+    val hideTopRowSemantics by remember(scrollBehavior) {
+        derivedStateOf { fraction() < 0.5f }
+    }
     val hideBottomRowSemantics = !hideTopRowSemantics
 
     val appBarDragModifier = if (scrollBehavior != null && !scrollBehavior.isPinned) {
@@ -132,16 +153,16 @@ internal fun BaseCollapsingNavBar(
     } else {
         Modifier
     }
-
+    val shape = style.bottomShapes.getValue(motion.context.interactionSource, motion.context.semanticStateSource)
     Column(
         modifier = modifier
             .then(appBarDragModifier)
             .shadow(style.shadow)
-            .clip(rememberNavBarShape(style.bottomShape))
+            .clip(rememberNavBarShape(shape))
             .appBarBackground(
-                containerColor = background,
-                scrolledContainerColor = scrolledBackground,
-                progress = appBarBackgroundProgress,
+                background = { background.value },
+                scrolledBackground = { scrolledBackground.value },
+                progress = { FastOutLinearInEasing.transform(fraction()) },
             ),
     ) {
         Box(
@@ -149,6 +170,38 @@ internal fun BaseCollapsingNavBar(
                 windowInsets.only(WindowInsetsSides.Top),
             ),
         ) {
+            val upTitleColor = style.colors.titleBrush.getBrushAsState(
+                collapsedMotion.context,
+                collapsedMotion.style.titleColor,
+            )
+            val upDescriptionColor = style.colors.descriptionBrush.getBrushAsState(
+                collapsedMotion.context,
+                collapsedMotion.style.descriptionColor,
+            )
+            val upTitleStyle = style.titleStyle.getTextStyleAsState(
+                collapsedMotion.context,
+                collapsedMotion.style.titleStyle,
+            )
+            val upDescriptionStyle = style.descriptionStyle.getTextStyleAsState(
+                collapsedMotion.context,
+                collapsedMotion.style.descriptionStyle,
+            )
+            val downTitleColor = style.colors.titleBrush.getBrushAsState(
+                motion.context,
+                motion.style.titleColor,
+            )
+            val downDescriptionColor = style.colors.descriptionBrush.getBrushAsState(
+                motion.context,
+                motion.style.descriptionColor,
+            )
+            val downTitleStyle = style.titleStyle.getTextStyleAsState(
+                motion.context,
+                motion.style.titleStyle,
+            )
+            val downDescriptionStyle = style.descriptionStyle.getTextStyleAsState(
+                motion.context,
+                motion.style.descriptionStyle,
+            )
             // Верхний контент
             CollapsingNavBarLayout(
                 modifier = Modifier
@@ -156,9 +209,9 @@ internal fun BaseCollapsingNavBar(
                     .windowInsetsPadding(windowInsets.only(WindowInsetsSides.Horizontal))
                     .clipToBounds(),
                 offsetPx = { 0f },
-                alpha = { collapsedAlpha },
-                actionStart = startContent(style, interactionSource, actionStart, onBackPressed),
-                actionEnd = endContent(style, interactionSource, actionEnd),
+                alpha = { TopTextAlphaEasing.transform(fraction()) },
+                actionStart = startContent(style, collapsedMotion, actionStart, onBackPressed, collapsedSpacing),
+                actionEnd = endContent(style, collapsedMotion, actionEnd, collapsedSpacing),
                 textAlign = collapsedTextAlign,
                 centerContent = {
                     CenterContent(
@@ -166,25 +219,13 @@ internal fun BaseCollapsingNavBar(
                         titleContent = collapsedTitle,
                         descriptionContent = collapsedDescription,
                         descriptionPadding = style.dimensions.descriptionPadding.getValue(
-                            interactionSource,
-                            collapsedStateSet,
+                            collapsedMotion.context.interactionSource,
+                            collapsedMotion.context.semanticStateSource,
                         ),
-                        titleColor = style.colors.titleColor.getValue(
-                            interactionSource,
-                            collapsedStateSet,
-                        ),
-                        descriptionColor = style.colors.descriptionColor.getValue(
-                            interactionSource,
-                            collapsedStateSet,
-                        ),
-                        titleStyle = style.titleStyle.getValue(
-                            interactionSource,
-                            collapsedStateSet,
-                        ),
-                        descriptionStyle = style.descriptionStyle.getValue(
-                            interactionSource,
-                            collapsedStateSet,
-                        ),
+                        titleColor = { upTitleColor.value },
+                        descriptionColor = { upDescriptionColor.value },
+                        titleStyle = upTitleStyle,
+                        descriptionStyle = upDescriptionStyle,
                         textAlign = collapsedTextAlign,
                     )
                 },
@@ -192,17 +233,12 @@ internal fun BaseCollapsingNavBar(
                     topContentSize = it
                 },
                 backgroundContent = null,
-                horizontalSpacing = style.dimensions.horizontalSpacing,
-                paddings = PaddingValues(
-                    start = style.dimensions.paddingStart,
-                    end = style.dimensions.paddingEnd,
-                    top = style.dimensions.paddingTop,
-                    bottom = style.dimensions.paddingBottom,
-                ),
+                horizontalSpacing = collapsedSpacing,
+                paddings = collapsingNavbarPaddingValues(style.dimensions, collapsedMotion, false),
                 centerAlignmentStrategy = centerAlignmentStrategy,
                 minContentHeight = style.dimensions.minContentHeight.getValue(
-                    interactionSource,
-                    collapsedStateSet,
+                    collapsedMotion.context.interactionSource,
+                    collapsedMotion.context.semanticStateSource,
                 ),
             )
 
@@ -215,7 +251,7 @@ internal fun BaseCollapsingNavBar(
                 offsetPx = {
                     topContentSize + (scrollBehavior?.state?.heightOffset ?: 0f) - paddingBottomPx
                 },
-                alpha = { expandedAlpha },
+                alpha = { 1f - fraction() },
                 actionStart = null,
                 actionEnd = null,
                 backgroundContent = backgroundContent,
@@ -226,27 +262,26 @@ internal fun BaseCollapsingNavBar(
                         titleContent = expandedTitle,
                         descriptionContent = expandedDescription,
                         descriptionPadding = style.dimensions.descriptionPadding.getValue(
-                            interactionSource,
+                            motion.context.interactionSource,
+                            motion.context.semanticStateSource,
                         ),
-                        titleColor = style.colors.titleColor.getValue(interactionSource),
-                        descriptionColor = style.colors.descriptionColor.getValue(interactionSource),
-                        titleStyle = style.titleStyle.getValue(interactionSource),
-                        descriptionStyle = style.descriptionStyle.getValue(interactionSource),
+                        titleColor = { downTitleColor.value },
+                        descriptionColor = { downDescriptionColor.value },
+                        titleStyle = downTitleStyle,
+                        descriptionStyle = downDescriptionStyle,
                         textAlign = expandedTextAlign,
                     )
                 },
                 onMainContentSizeChanged = {
                     bottomContentSize = it
                 },
-                horizontalSpacing = style.dimensions.horizontalSpacing,
-                paddings = PaddingValues(
-                    start = style.dimensions.paddingStart,
-                    end = style.dimensions.paddingEnd,
-                    top = style.dimensions.textBlockTopMargin,
-                    bottom = style.dimensions.paddingBottom,
-                ),
+                horizontalSpacing = spacing,
+                paddings = collapsingNavbarPaddingValues(style.dimensions, motion, true),
                 centerAlignmentStrategy = centerAlignmentStrategy,
-                minContentHeight = style.dimensions.minContentHeight.getValue(interactionSource),
+                minContentHeight = style.dimensions.minContentHeight.getValue(
+                    motion.context.interactionSource,
+                    motion.context.semanticStateSource,
+                ),
             )
         }
 
@@ -256,12 +291,13 @@ internal fun BaseCollapsingNavBar(
 
 private fun startContent(
     style: CollapsingNavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionStart: (@Composable RowScope.() -> Unit)?,
     onBackPressed: () -> Unit,
+    spacing: Dp,
 ): (@Composable () -> Unit)? {
     return if (style.backIconSource != null || actionStart != null) {
-        @Composable { StartContent(style, interactionSource, actionStart, onBackPressed) }
+        @Composable { StartContent(style, motion, actionStart, onBackPressed, spacing) }
     } else {
         null
     }
@@ -270,18 +306,23 @@ private fun startContent(
 @Composable
 private fun StartContent(
     style: CollapsingNavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionStart: (@Composable RowScope.() -> Unit)?,
     onBackPressed: () -> Unit,
+    spacing: Dp,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         style.backIconSource?.let {
             val iconInteraction = remember { MutableInteractionSource() }
+            val iconMotionContext = rememberMotionContext(
+                semanticStateSource = motion.context.semanticStateSource,
+                interactionSource = iconInteraction,
+            )
             val backIconColor =
-                style.colors.backIconColor.getValue(iconInteraction)
-            val padding = style.dimensions.backIconMargin
+                style.colors.backIconBrush.getBrushAsState(iconMotionContext, motion.style.backIconColor)
+            val padding by style.dimensions.backIconMarginValues.getValueAsState(motion.context)
             Icon(
                 modifier = Modifier
                     .padding(end = padding)
@@ -292,16 +333,17 @@ private fun StartContent(
                     ),
                 source = it,
                 contentDescription = "",
-                brush = BrushProducer { SolidColor(backIconColor) },
+                brush = { backIconColor.value },
             )
         }
         if (actionStart != null) {
             Actions(
                 actionStart,
-                style.colors.actionStartColor,
-                interactionSource,
+                style.colors.actionStartBrush,
+                motion.context,
+                motion.style.actionStartColor,
                 style.actionButtonStyle,
-                style.dimensions.horizontalSpacing,
+                spacing,
             )
         }
     }
@@ -309,11 +351,12 @@ private fun StartContent(
 
 private fun endContent(
     style: CollapsingNavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionEnd: (@Composable RowScope.() -> Unit)?,
+    spacing: Dp,
 ): (@Composable () -> Unit)? {
     return if (actionEnd != null) {
-        { EndContent(style, interactionSource, actionEnd) }
+        { EndContent(style, motion, actionEnd, spacing) }
     } else {
         null
     }
@@ -322,16 +365,18 @@ private fun endContent(
 @Composable
 private fun EndContent(
     style: CollapsingNavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionEnd: (@Composable RowScope.() -> Unit)?,
+    spacing: Dp,
 ) {
     if (actionEnd != null) {
         Actions(
             actionEnd,
-            style.colors.actionEndColor,
-            interactionSource,
+            style.colors.actionEndBrush,
+            motion.context,
+            motion.style.actionEndColor,
             style.actionButtonStyle,
-            style.dimensions.horizontalSpacing,
+            spacing,
         )
     }
 }
@@ -339,12 +384,13 @@ private fun EndContent(
 @Composable
 private fun Actions(
     actionContent: (@Composable RowScope.() -> Unit),
-    tint: StatefulValue<Color>,
-    interactionSource: InteractionSource,
+    tint: StatefulValue<Brush>,
+    motionContext: MotionContext,
+    motionProperty: MotionProperty<Brush>,
     actionButtonStyle: ButtonStyle?,
     spacing: Dp,
 ) {
-    val iconColor = tint.getValue(interactionSource)
+    val iconColor = tint.getBrushAsState(motionContext, motionProperty)
     val actions = @Composable {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -355,13 +401,13 @@ private fun Actions(
     }
     if (actionButtonStyle != null) {
         CompositionLocalProvider(
-            LocalTint provides iconColor,
+            LocalTintBrushProducer provides { iconColor.value },
             LocalIconButtonStyle provides actionButtonStyle,
             content = actions,
         )
     } else {
         CompositionLocalProvider(
-            LocalTint provides iconColor,
+            LocalTintBrushProducer provides { iconColor.value },
             content = actions,
         )
     }
@@ -373,10 +419,10 @@ private fun CenterContent(
     titleContent: (@Composable () -> Unit)?,
     descriptionContent: (@Composable () -> Unit)?,
     descriptionPadding: Dp,
-    titleColor: Color,
-    descriptionColor: Color,
-    titleStyle: TextStyle,
-    descriptionStyle: TextStyle,
+    titleColor: BrushProducer,
+    descriptionColor: BrushProducer,
+    titleStyle: State<TextStyle>,
+    descriptionStyle: State<TextStyle>,
     textAlign: NavigationBarTextAlign,
 ) {
     Column(
@@ -385,16 +431,18 @@ private fun CenterContent(
         horizontalAlignment = textAlign.toHorizontalAlignment(),
     ) {
         titleContent?.let {
+            val currentStyle = titleStyle.value
             ProvideTextStyle(
-                value = titleStyle.copy(textAlign = textAlign.toPlatformTextAlign()),
-                color = { titleColor },
+                value = currentStyle.copy(textAlign = textAlign.toPlatformTextAlign()),
+                brush = titleColor,
                 content = it,
             )
         }
         descriptionContent?.let {
+            val currentStyle = descriptionStyle.value
             ProvideTextStyle(
-                value = descriptionStyle.copy(textAlign = textAlign.toPlatformTextAlign()),
-                color = { descriptionColor },
+                value = currentStyle.copy(textAlign = textAlign.toPlatformTextAlign()),
+                brush = descriptionColor,
                 content = it,
             )
         }
@@ -418,15 +466,17 @@ private fun NavigationBarTextAlign.toHorizontalAlignment(): Alignment.Horizontal
 }
 
 private fun Modifier.appBarBackground(
-    containerColor: Brush,
-    scrolledContainerColor: Brush,
-    progress: Float,
+    background: BrushProducer,
+    scrolledBackground: BrushProducer,
+    progress: () -> Float,
 ): Modifier = drawWithCache {
-    val clampedProgress = progress.coerceIn(0f, 1f)
+    val clampedProgress = progress().coerceIn(0f, 1f)
+    val currentContainerBrush = background()
+    val currentScrolledContainerBrush = scrolledBackground()
     val resolvedBrush = containerColor(
         progress = clampedProgress,
-        containerColor = containerColor,
-        scrolledContainerColor = scrolledContainerColor,
+        containerColor = currentContainerBrush,
+        scrolledContainerColor = currentScrolledContainerBrush,
     )
 
     if (resolvedBrush != null) {
@@ -437,13 +487,13 @@ private fun Modifier.appBarBackground(
         onDrawBehind {
             if (clampedProgress < 1f) {
                 drawRect(
-                    brush = containerColor,
+                    brush = currentContainerBrush,
                     alpha = 1f - clampedProgress,
                 )
             }
             if (clampedProgress > 0f) {
                 drawRect(
-                    brush = scrolledContainerColor,
+                    brush = currentScrolledContainerBrush,
                     alpha = clampedProgress,
                 )
             }
@@ -468,6 +518,29 @@ private fun containerColor(
     } else {
         null
     }
+}
+
+@Composable
+private fun collapsingNavbarPaddingValues(
+    dimensions: CollapsingNavigationBarDimensions,
+    motion: Motion<NavigationBarMotionStyle>,
+    forDownLayout: Boolean,
+): PaddingValues {
+    val start = dimensions.paddingStartValues
+    val top = if (forDownLayout) dimensions.textBlockTopMarginValues else dimensions.paddingTopValues
+    val end = dimensions.paddingEndValues
+    val bottom = dimensions.paddingBottomValues
+    val values = remember(start, top, end, bottom) { listOf(start, top, end, bottom) }
+    val snapshot = motion.context.rememberStateSnapshot(values)
+    val paddings = remember(snapshot, start, top, end, bottom) {
+        PaddingValues(
+            start = start.getValue(snapshot.target),
+            end = end.getValue(snapshot.target),
+            top = top.getValue(snapshot.target),
+            bottom = bottom.getValue(snapshot.target),
+        )
+    }
+    return paddings
 }
 
 /**
