@@ -35,7 +35,7 @@ internal class ComposeShadowAttributeGenerator(
     private val shadows: MutableMap<Tenant, List<ShadowTokenResult.TokenData>> = mutableMapOf()
 
     private val shadowKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(shadowClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(shadowClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()

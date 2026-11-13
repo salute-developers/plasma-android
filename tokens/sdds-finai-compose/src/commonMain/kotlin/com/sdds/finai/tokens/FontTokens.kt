@@ -1,5 +1,8 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-@file:Suppress("ObjectPropertyNaming")
+@file:Suppress(
+    "ObjectPropertyNaming",
+    "UndocumentedPublicProperty",
+)
 
 package com.sdds.finai.tokens
 
@@ -31,6 +34,64 @@ import kotlin.Suppress
  * Токены шрифтов
  */
 public object FontTokens {
+    /**
+     * fontFamily body
+     */
+    public val body: FontFamily
+        @Composable
+        get() = FontFamily(
+            Font(
+                Res.font.s_b_sans_text_light,
+                FontWeight(300),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_text_italic,
+                FontWeight(400),
+                FontStyle.Italic,
+            ),
+            Font(
+                Res.font.s_b_sans_text_semibold_italic,
+                FontWeight(600),
+                FontStyle.Italic,
+            ),
+            Font(
+                Res.font.s_b_sans_text_thin,
+                FontWeight(100),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_text_regular,
+                FontWeight(400),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_text_semibold,
+                FontWeight(600),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_text_light_italic,
+                FontWeight(300),
+                FontStyle.Italic,
+            ),
+            Font(
+                Res.font.s_b_sans_text_bold,
+                FontWeight(700),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_text_bold_italic,
+                FontWeight(700),
+                FontStyle.Italic,
+            ),
+            Font(
+                Res.font.s_b_sans_text_medium,
+                FontWeight(500),
+                FontStyle.Normal,
+            ),
+        )
+
     /**
      * fontFamily display
      */
@@ -164,60 +225,144 @@ public object FontTokens {
                 FontStyle.Normal,
             ),
         )
+}
 
+/**
+ * Токены шрифтов
+ */
+public object FontTokensBetaCore {
     /**
-     * fontFamily body
+     * fontFamily display
      */
-    public val body: FontFamily
+    public val display: FontFamily
         @Composable
         get() = FontFamily(
             Font(
-                Res.font.s_b_sans_text_light,
-                FontWeight(300),
-                FontStyle.Normal,
-            ),
-            Font(
-                Res.font.s_b_sans_text_italic,
-                FontWeight(400),
-                FontStyle.Italic,
-            ),
-            Font(
-                Res.font.s_b_sans_text_semibold_italic,
-                FontWeight(600),
-                FontStyle.Italic,
-            ),
-            Font(
-                Res.font.s_b_sans_text_thin,
+                Res.font.s_b_sans_display_thin,
                 FontWeight(100),
                 FontStyle.Normal,
             ),
             Font(
-                Res.font.s_b_sans_text_regular,
+                Res.font.s_b_sans_display_bold,
+                FontWeight(700),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_regular,
                 FontWeight(400),
                 FontStyle.Normal,
             ),
             Font(
-                Res.font.s_b_sans_text_semibold,
+                Res.font.s_b_sans_display_semibold,
                 FontWeight(600),
                 FontStyle.Normal,
             ),
             Font(
-                Res.font.s_b_sans_text_light_italic,
-                FontWeight(300),
-                FontStyle.Italic,
+                Res.font.s_b_sans_display_medium,
+                FontWeight(500),
+                FontStyle.Normal,
+            ),
+        )
+
+    /**
+     * fontFamily header
+     */
+    public val `header`: FontFamily
+        @Composable
+        get() = FontFamily(
+            Font(
+                Res.font.s_b_sans_display_thin,
+                FontWeight(100),
+                FontStyle.Normal,
             ),
             Font(
-                Res.font.s_b_sans_text_bold,
+                Res.font.s_b_sans_display_bold,
                 FontWeight(700),
                 FontStyle.Normal,
             ),
             Font(
-                Res.font.s_b_sans_text_bold_italic,
-                FontWeight(700),
-                FontStyle.Italic,
+                Res.font.s_b_sans_display_regular,
+                FontWeight(400),
+                FontStyle.Normal,
             ),
             Font(
-                Res.font.s_b_sans_text_medium,
+                Res.font.s_b_sans_display_semibold,
+                FontWeight(600),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_medium,
+                FontWeight(500),
+                FontStyle.Normal,
+            ),
+        )
+}
+
+/**
+ * Токены шрифтов
+ */
+public object FontTokensHighContrast {
+    /**
+     * fontFamily display
+     */
+    public val display: FontFamily
+        @Composable
+        get() = FontFamily(
+            Font(
+                Res.font.s_b_sans_display_thin,
+                FontWeight(100),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_bold,
+                FontWeight(700),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_regular,
+                FontWeight(400),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_semibold,
+                FontWeight(600),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_medium,
+                FontWeight(500),
+                FontStyle.Normal,
+            ),
+        )
+
+    /**
+     * fontFamily header
+     */
+    public val `header`: FontFamily
+        @Composable
+        get() = FontFamily(
+            Font(
+                Res.font.s_b_sans_display_thin,
+                FontWeight(100),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_bold,
+                FontWeight(700),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_regular,
+                FontWeight(400),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_semibold,
+                FontWeight(600),
+                FontStyle.Normal,
+            ),
+            Font(
+                Res.font.s_b_sans_display_medium,
                 FontWeight(500),
                 FontStyle.Normal,
             ),

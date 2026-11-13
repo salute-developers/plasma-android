@@ -18,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.token.GeneratedTokenInfo
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
@@ -53,6 +54,7 @@ import kotlin.collections.component2
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @param typographyTokenValues значения токенов типографики
+ * @param fontTokenValues значения токенов шрифтов (нужны для выбора объекта FontTokens при генерации ссылок)
  * @param fontsAggregator агрегатор шрифтов
  * @param namespace пакет проекта
  * @author Малышев Александр on 07.03.2024
@@ -66,6 +68,7 @@ internal class TypographyTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val typographyTokenValues: Map<Tenant, Map<String, TypographyTokenValue>>,
+    private val fontTokenValues: Map<Tenant, Map<String, FontTokenValue>>,
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
     private val themeName: String,
@@ -80,7 +83,7 @@ internal class TypographyTokenGenerator(
     }
     private val ktFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create("TypographyTokens")
-            .apply { this.addSuppressAnnotation("DEPRECATION") }
+            .suppressGeneratedDocs("DEPRECATION")
     }
     private val largeBuilders by unsafeLazy {
         mutableMapOf(
@@ -439,6 +442,21 @@ internal class TypographyTokenGenerator(
         }
     }
 
+    /**
+     * Имя объекта токенов шрифтов, на который должна ссылаться типографика [tenant].
+     *
+     * Значения шрифтов подтенантов хранятся диффом от дефолтного тенанта: семейство, совпадающее
+     * с дефолтом, в объект `FontTokens<tenant>` не попадает, хотя типографика подтенанта всё равно
+     * на него ссылается. В таком случае эмитим ссылку на дефолтный объект `FontTokens` — иначе
+     * генерируется несуществующее свойство.
+     */
+    private fun fontTokensObjectName(tenant: Tenant, fontFamilyRef: String): String {
+        if (tenant == Tenant.Default) return FONT_TOKENS_OBJECT_NAME
+        val family = fontFamilyRef.split('.').last()
+        val hasOwnFamily = fontTokenValues[tenant]?.keys.orEmpty().any { it.split('.').last() == family }
+        return if (hasOwnFamily) "$FONT_TOKENS_OBJECT_NAME${tenant.name}" else FONT_TOKENS_OBJECT_NAME
+    }
+
     @Suppress("LongMethod")
     private fun TypeSpec.Builder.addTypographyToken(
         token: TypographyToken,
@@ -493,7 +511,10 @@ internal class TypographyTokenGenerator(
             "fontSize = $fontSizeInitializer",
             "lineHeight = $lineHeightInitializer",
             "letterSpacing = $letterSpacing",
-            "fontFamily = FontTokens${tenant.name}.${tokenValue.fontFamilyRef.split('.').last()}",
+            "fontFamily = ${fontTokensObjectName(
+                tenant,
+                tokenValue.fontFamilyRef,
+            )}.${tokenValue.fontFamilyRef.split('.').last()}",
             "lineHeightStyle = $DEFAULTS_NAME.$DEFAULTS_LINE_STYLE_NAME",
             platformStyleArg,
         ).trimIndent()
@@ -535,6 +556,7 @@ internal class TypographyTokenGenerator(
         internal const val DEFAULTS_NAME = "TextStyleDefault"
         internal const val DEFAULTS_PLATFORM_STYLE_NAME = "platformStyle"
         internal const val DEFAULTS_LINE_STYLE_NAME = "lineHeightStyle"
+        private const val FONT_TOKENS_OBJECT_NAME = "FontTokens"
         internal const val TYPOGRAPHY_SMALL_TOKENS_NAME = "TypographySmallTokens"
         internal const val TYPOGRAPHY_SMALL_TOKENS_DESC = "Токены типографии для ScreenClass.SMALL"
         internal const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"

@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.theme
 
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
@@ -8,6 +10,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import com.sdds.compose.uikit.ProvideTextStyle
+import kotlin.Suppress
 import kotlin.Unit
 
 /**

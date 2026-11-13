@@ -59,7 +59,7 @@ private val RadioBoxStyleBuilder.invariantProps: RadioBoxStyleBuilder
                     setOf(InteractiveState.Focused, RadioBoxStates.Checked) to
                         SolidColor(SddsFinAiTheme.colors.outlineDefaultAccent),
                     setOf(RadioBoxStates.Checked) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
             toggleColor(

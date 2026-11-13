@@ -83,6 +83,39 @@ class ComposeColorAttributeGeneratorTest {
         )
     }
 
+    @Test
+    fun `dark-функция подтенанта переопределяет только токены из dark-диффа`() {
+        underTest.setColorTokenData(
+            inputData + (
+                Tenant("Business") to ColorTokenResult.TokenData(
+                    light = mapOf(
+                        "textPrimary" to ColorTokenResult.TokenData.ColorInfo("TextPrimary"),
+                    ),
+                    dark = mapOf(
+                        "textTertiary" to ColorTokenResult.TokenData.ColorInfo("TextTertiary"),
+                    ),
+                )
+                ),
+        )
+
+        underTest.generate()
+
+        val output = outputKt.toString()
+        Assert.assertTrue(output.contains("fun darkThemeColorsBusiness"))
+        // dark-функция: только dark-дифф (шаблон эмита — два пробела перед DarkColorTokens)
+        Assert.assertTrue(
+            output.contains("textTertiary overrideBy  DarkColorTokensBusiness.TextTertiary"),
+        )
+        // light-дифф не должен попадать в dark-функцию: у токена, совпадающего с дефолтным dark,
+        // свойство в DarkColorTokens<tenant> отсутствует — ссылка не скомпилировалась бы
+        Assert.assertFalse(output.contains("textPrimary overrideBy  DarkColorTokensBusiness"))
+        // light-функция как и раньше берёт light-дифф
+        Assert.assertTrue(
+            output.contains("textPrimary overrideBy LightColorTokensBusiness.TextPrimary"),
+        )
+        Assert.assertFalse(output.contains("textTertiary overrideBy LightColorTokensBusiness"))
+    }
+
     private companion object {
         val inputData = mapOf(
             Tenant.Default to ColorTokenResult.TokenData(

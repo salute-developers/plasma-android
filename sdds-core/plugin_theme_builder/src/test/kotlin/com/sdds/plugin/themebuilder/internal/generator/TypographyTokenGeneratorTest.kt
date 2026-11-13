@@ -11,6 +11,8 @@ import com.sdds.plugin.themebuilder.internal.fonts.FontData
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.token.FontToken
+import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -71,6 +73,7 @@ class TypographyTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             typographyTokenValues = typographyTokenValues,
+            fontTokenValues = mapOf(Tenant.Default to defaultFontTokenValues),
             fontsAggregator = mockFontsAggregator,
             dimensionsConfig = dimensionsConfig,
             namespace = "com.test",
@@ -194,6 +197,7 @@ class TypographyTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             typographyTokenValues = typographyTokenValues,
+            fontTokenValues = mapOf(Tenant.Default to defaultFontTokenValues),
             fontsAggregator = mockFontsAggregator,
             dimensionsConfig = dimensionsConfig,
             namespace = "com.test",
@@ -228,6 +232,7 @@ class TypographyTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             typographyTokenValues = typographyTokenValues,
+            fontTokenValues = mapOf(Tenant.Default to defaultFontTokenValues),
             fontsAggregator = mockFontsAggregator,
             dimensionsConfig = dimensionsConfig,
             namespace = "com.test",
@@ -263,6 +268,7 @@ class TypographyTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             typographyTokenValues = typographyTokenValues,
+            fontTokenValues = mapOf(Tenant.Default to defaultFontTokenValues),
             fontsAggregator = mockFontsAggregator,
             dimensionsConfig = dimensionsConfig,
             namespace = "com.test",
@@ -278,11 +284,77 @@ class TypographyTokenGeneratorTest {
         Assert.assertTrue(output.contains("platformStyle = TextStyleDefault.platformStyle"))
     }
 
+    @Test
+    fun `TypographyGenerator ссылается на дефолтный FontTokens когда семейства нет в диффе подтенанта`() {
+        val tenantB = Tenant("TenantB")
+        val output = generateForTwoTenants(
+            fontTokenValues = mapOf(
+                Tenant.Default to defaultFontTokenValues,
+                tenantB to emptyMap(),
+            ),
+        )
+        // объект типографики подтенанта при этом по-прежнему генерируется
+        Assert.assertTrue(output.contains("TypographyMediumTokensTenantB"))
+        // семейство совпадает с дефолтом и исключено из диффа шрифтов — ссылка на дефолтный объект
+        Assert.assertFalse(output.contains("FontTokensTenantB.sans"))
+        Assert.assertTrue(output.contains("FontTokens.sans"))
+    }
+
+    @Test
+    fun `TypographyGenerator ссылается на FontTokens подтенанта когда семейство есть в его диффе`() {
+        val tenantB = Tenant("TenantB")
+        val output = generateForTwoTenants(
+            fontTokenValues = mapOf(
+                Tenant.Default to defaultFontTokenValues,
+                tenantB to defaultFontTokenValues,
+            ),
+        )
+        Assert.assertTrue(output.contains("TypographyMediumTokensTenantB"))
+        Assert.assertTrue(output.contains("FontTokensTenantB.sans"))
+    }
+
+    private fun generateForTwoTenants(fontTokenValues: Map<Tenant, Map<String, FontTokenValue>>): String {
+        val input = getResourceAsText("inputs/test-typography-input.json")
+        val typographyTokens = Serializer.meta.decodeFromString<List<TypographyToken>>(input)
+        val outputKt = ByteArrayOutputStream()
+        every { dimensionsConfig.multiplier } returns 1f
+        every { dimensionsConfig.fromResources } returns false
+        val generator = TypographyTokenGenerator(
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            outputResDir = mockOutputResDir,
+            target = ThemeBuilderTarget.COMPOSE,
+            dimensAggregator = mockDimensAggregator,
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
+            typographyTokenValues = mapOf(
+                Tenant.Default to typographyTokenValues.getValue(Tenant.Default),
+                Tenant("TenantB") to typographyTokenValues.getValue(Tenant.Default),
+            ),
+            fontTokenValues = fontTokenValues,
+            fontsAggregator = mockFontsAggregator,
+            dimensionsConfig = dimensionsConfig,
+            namespace = "com.test",
+            themeName = "TestTheme",
+            multiplatform = true,
+        )
+        typographyTokens.forEach { generator.addToken(it) }
+        generator.generate()
+        return outputKt.toString()
+    }
+
     private companion object {
         val fontsAggregatorData = mapOf(
             "sans" to setOf(
                 FontData("sans", 300, "normal"),
                 FontData("sans", 400, "normal"),
+            ),
+        )
+
+        val defaultFontTokenValues = mapOf(
+            "sans" to FontTokenValue(
+                name = "sans",
+                fonts = listOf(FontToken.FontVariant("https://test/sans.ttf", 400, "normal")),
             ),
         )
 

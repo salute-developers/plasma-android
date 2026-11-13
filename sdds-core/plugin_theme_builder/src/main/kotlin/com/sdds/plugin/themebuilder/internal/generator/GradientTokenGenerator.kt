@@ -59,7 +59,9 @@ internal class GradientTokenGenerator(
     private val themeName: String,
 ) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
-    private val composeKtFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
+    private val composeKtFileBuilder by unsafeLazy {
+        ktFileBuilderFactory.create("GradientTokens").suppressGeneratedDocs()
+    }
     private val composeLightBuilders by unsafeLazy {
         mutableMapOf(
             Tenant.Default to composeKtFileBuilder.rootObject(

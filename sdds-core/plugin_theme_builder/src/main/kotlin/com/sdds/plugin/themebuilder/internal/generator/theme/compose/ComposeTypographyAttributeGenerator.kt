@@ -43,7 +43,7 @@ internal class ComposeTypographyAttributeGenerator(
     private var tokenData: Map<Tenant, TypographyTokenResult.ComposeTokenData> = emptyMap()
     private val typographyAttributes = mutableSetOf<String>()
     private val typographyKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(typographyClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(typographyClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
     private val ktFileFromResBuilder by unsafeLazy {
         ktFileFromResourcesBuilderFactory.create(TargetPackage.THEME)

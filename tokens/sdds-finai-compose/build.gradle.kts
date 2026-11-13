@@ -75,7 +75,6 @@ dsBuilder {
     packageName.set("com.sdds.finai")
     outputLocation.set(SRC)
     theme {
-        source(name = themeName, version = themeVersion, alias = themeAlias)
         mode.set(THEME)
     }
     components {
