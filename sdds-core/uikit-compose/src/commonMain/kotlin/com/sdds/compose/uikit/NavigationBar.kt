@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -18,22 +17,36 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiName
 import com.sdds.api.info.compose.ApiStateSet
 import com.sdds.compose.uikit.graphics.LocalIndication
-import com.sdds.compose.uikit.graphics.brush.BrushProducer
-import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.interactions.setExclusiveEnum
 import com.sdds.compose.uikit.internal.navigationbar.NavigationBarLayout
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.MotionContext
+import com.sdds.compose.uikit.motion.MotionProperty
+import com.sdds.compose.uikit.motion.asMutableInteractionSource
+import com.sdds.compose.uikit.motion.components.navigationbar.NavigationBarMotionStyle
+import com.sdds.compose.uikit.motion.components.navigationbar.rememberNavigationBarMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
+import com.sdds.compose.uikit.motion.rememberStateSnapshot
 import com.sdds.compose.uikit.shadow.shadow
 
 /**
@@ -68,33 +81,44 @@ fun NavigationBar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     onBackPressed: () -> Unit = {},
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy = NavBarCenterAlignmentStrategy.Absolute,
+    motion: Motion<NavigationBarMotionStyle> = rememberNavigationBarMotion(
+        motionContext = rememberMotionContext(
+            semanticStateSource = remember(textPlacement) {
+                MutableSemanticStateSource().apply { setExclusiveEnum(textPlacement) }
+            },
+            interactionSource = interactionSource.asMutableInteractionSource(),
+        ),
+    ),
 ) {
-    val stateSet = remember(textPlacement) { setOf(textPlacement) }
+    val columnSpacer by style.dimensions.descriptionPadding.getValueAsState(motion.context)
     val textContent: @Composable () -> Unit = {
         Column(
-            verticalArrangement = Arrangement.spacedBy(
-                style.dimensions.descriptionPadding.getValue(stateSet),
-            ),
+            verticalArrangement = Arrangement.spacedBy(columnSpacer),
             horizontalAlignment = textAlign.toAlignment(),
         ) {
-            val titleColor = style.colors.titleColor.colorForInteractionAsState(interactionSource)
-            val descriptionColor =
-                style.colors.descriptionColor.colorForInteractionAsState(interactionSource)
             titleContent?.let {
+                val titleColor =
+                    style.colors.titleBrush.getBrushAsState(motion.context, motion.style.titleColor)
+                val titleStyle by style.titleStyle
+                    .getTextStyleAsState(motion.context, motion.style.titleStyle)
                 ProvideTextStyle(
-                    style.titleStyle
-                        .getValue(stateSet)
+                    titleStyle
                         .copy(textAlign = textAlign.toPlatformTextAlign()),
-                    color = { titleColor.value },
+                    brush = { titleColor.value },
                     it,
                 )
             }
             descriptionContent?.let {
+                val descriptionColor = style.colors.descriptionBrush.getBrushAsState(
+                    motion.context,
+                    motion.style.descriptionColor,
+                )
+                val descriptionStyle by style.descriptionStyle
+                    .getTextStyleAsState(motion.context, motion.style.descriptionStyle)
                 ProvideTextStyle(
-                    style.descriptionStyle
-                        .getValue(stateSet)
+                    descriptionStyle
                         .copy(textAlign = textAlign.toPlatformTextAlign()),
-                    color = { descriptionColor.value },
+                    brush = { descriptionColor.value },
                     it,
                 )
             }
@@ -102,13 +126,13 @@ fun NavigationBar(
     }
 
     val startActions: (@Composable () -> Unit)? = if (actionStart != null) {
-        @Composable { ActionRowWrapper(actionStart, style.dimensions.horizontalSpacing) }
+        @Composable { ActionRowWrapper(actionStart, style.dimensions.horizontalSpacingValues, motion) }
     } else {
         null
     }
 
     val endActions: (@Composable () -> Unit)? = if (actionEnd != null) {
-        @Composable { ActionRowWrapper(actionEnd, style.dimensions.horizontalSpacing) }
+        @Composable { ActionRowWrapper(actionEnd, style.dimensions.horizontalSpacingValues, motion) }
     } else {
         null
     }
@@ -126,6 +150,7 @@ fun NavigationBar(
         interactionSource = interactionSource,
         centerAlignmentStrategy = centerAlignmentStrategy,
         onBackPressed = onBackPressed,
+        motion = motion,
     )
 }
 
@@ -159,12 +184,27 @@ fun NavigationBar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     onBackPressed: () -> Unit = {},
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy = NavBarCenterAlignmentStrategy.Absolute,
+    motion: Motion<NavigationBarMotionStyle> = rememberNavigationBarMotion(
+        motionContext = rememberMotionContext(
+            semanticStateSource = remember(textPlacement) {
+                MutableSemanticStateSource().apply { setExclusiveEnum(textPlacement) }
+            },
+            interactionSource = interactionSource.asMutableInteractionSource(),
+        ),
+    ),
 ) {
+    SideEffect {
+        motion.context.semanticStateSource.setExclusiveEnum(textPlacement)
+    }
+    val shape by style.bottomShapes.getValueAsState(motion.context)
+    val spacing by style.dimensions.horizontalSpacingValues.getValueAsState(motion.context)
+    val background =
+        style.colors.backgroundBrush.getBrushAsState(motion.context, motion.style.backgroundColor)
     Column(
         modifier = modifier
             .shadow(style.shadow)
-            .clip(rememberNavBarShape(style.bottomShape))
-            .background(style.colors.backgroundColor.colorForInteraction(interactionSource)),
+            .clip(rememberNavBarShape(shape))
+            .backgroundBrush({ background.value }),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Column(
@@ -173,12 +213,11 @@ fun NavigationBar(
         ) {
             val hasBottomText =
                 textPlacement == NavigationBarTextPlacement.Bottom && textContent != null
-            val stateSet = remember(textPlacement) { setOf(textPlacement) }
             NavigationBarLayout(
                 modifier = Modifier.fillMaxWidth(),
                 startContent = startContent(
                     style = style,
-                    interactionSource = interactionSource,
+                    motion = motion,
                     actionStart = actionStart,
                     onBackPressed = onBackPressed,
                 ),
@@ -190,31 +229,27 @@ fun NavigationBar(
                         contentPlacement = contentPlacement,
                         textPlacement = textPlacement,
                         textAlign = textAlign,
-                        interactionSource = interactionSource,
+                        motion = motion,
+                        spacing = spacing,
                     )
                 },
                 endContent = endContent(
                     style = style,
-                    interactionSource = interactionSource,
+                    motion = motion,
                     actionEnd = actionEnd,
                 ),
-                horizontalSpacing = style.dimensions.horizontalSpacing,
+                horizontalSpacing = spacing,
                 centerAlignmentStrategy = centerAlignmentStrategy,
                 textAlign = textAlign,
-                minContentHeight = style.dimensions.minContentHeight.getValue(stateSet),
-                paddings = PaddingValues(
-                    start = style.dimensions.paddingStart,
-                    end = style.dimensions.paddingEnd,
-                    top = style.dimensions.paddingTop,
-                    bottom = if (hasBottomText) 0.dp else style.dimensions.paddingBottom,
-                ),
+                minContentHeight = style.dimensions.minContentHeight.getValueAsState(motion.context).value,
+                paddings = navbarPaddingValues(style.dimensions, motion, hasBottomText, forOuterText = false),
             )
 
             OuterText(
                 textContent = textContent,
                 textPlacement = textPlacement,
                 style = style,
-                interactionSource = interactionSource,
+                motion = motion,
                 textAlign = textAlign,
             )
         }
@@ -309,8 +344,10 @@ private fun NavigationBarTextAlign.toAlignment(): Alignment.Horizontal {
 @Composable
 private fun ActionRowWrapper(
     actions: @Composable RowScope.() -> Unit,
-    spacing: Dp,
+    spacing: StatefulValue<Dp>,
+    motion: Motion<NavigationBarMotionStyle>,
 ) {
+    val spacing by spacing.getValueAsState(motion.context)
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacing),
@@ -346,39 +383,40 @@ private fun ColumnScope.OuterText(
     textContent: (@Composable () -> Unit)?,
     textPlacement: NavigationBarTextPlacement,
     style: NavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     textAlign: NavigationBarTextAlign,
 ) {
     if (textContent != null && textPlacement == NavigationBarTextPlacement.Bottom) {
+        val paddings = navbarPaddingValues(style.dimensions, motion, hasBottomText = false, forOuterText = true)
         Box(
             modifier = Modifier
                 .align(textAlign.toAlignment())
-                .padding(
-                    top = style.dimensions.textBlockTopMargin,
-                    bottom = style.dimensions.paddingBottom,
-                    start = style.dimensions.paddingStart,
-                    end = style.dimensions.paddingEnd,
-                ),
+                .padding(paddings),
         ) {
-            TextContent(
-                textContent = textContent,
-                textStyle = style.textStyle,
-                textColor = style.colors.textColor,
-                interactionSource = interactionSource,
-                textAlign = textAlign,
-            )
+            val color = style.colors.textBrush.getBrushAsState(motion.context, motion.style.textColor)
+            val textStyle by style.textStyles.getTextStyleAsState(motion.context, motion.style.textStyle)
+
+            CompositionLocalProvider(
+                LocalTintBrushProducer provides { color.value },
+                LocalTextStyle provides textStyle.copy(
+                    brush = color.value,
+                    textAlign = textAlign.toPlatformTextAlign(),
+                ),
+            ) {
+                textContent.invoke()
+            }
         }
     }
 }
 
 private fun startContent(
     style: NavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionStart: (@Composable () -> Unit)?,
     onBackPressed: () -> Unit,
 ): (@Composable () -> Unit)? {
     return if (style.backIconSource != null || actionStart != null) {
-        @Composable { StartContent(style, interactionSource, actionStart, onBackPressed) }
+        @Composable { StartContent(style, motion, actionStart, onBackPressed) }
     } else {
         null
     }
@@ -387,7 +425,7 @@ private fun startContent(
 @Composable
 private fun StartContent(
     style: NavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionStart: (@Composable () -> Unit)?,
     onBackPressed: () -> Unit,
 ) {
@@ -396,9 +434,13 @@ private fun StartContent(
     ) {
         style.backIconSource?.let {
             val iconInteraction = remember { MutableInteractionSource() }
+            val iconMotionContext = rememberMotionContext(
+                semanticStateSource = motion.context.semanticStateSource,
+                interactionSource = iconInteraction,
+            )
             val backIconColor =
-                style.colors.backIconColor.colorForInteraction(iconInteraction)
-            val padding = style.dimensions.backIconMargin
+                style.colors.backIconBrush.getBrushAsState(iconMotionContext, motion.style.backIconColor)
+            val padding by style.dimensions.backIconMarginValues.getValueAsState(motion.context)
             Icon(
                 modifier = Modifier
                     .padding(end = padding)
@@ -409,14 +451,15 @@ private fun StartContent(
                     ),
                 source = it,
                 contentDescription = "",
-                brush = BrushProducer { SolidColor(backIconColor) },
+                brush = { backIconColor.value },
             )
         }
         if (actionStart != null) {
             Actions(
                 actionStart,
-                style.colors.actionStartColor,
-                interactionSource,
+                style.colors.actionStartBrush,
+                motion.context,
+                motion.style.actionStartColor,
                 style.actionButtonStyle,
             )
         }
@@ -425,11 +468,11 @@ private fun StartContent(
 
 private fun endContent(
     style: NavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionEnd: (@Composable () -> Unit)?,
 ): (@Composable () -> Unit)? {
     return if (actionEnd != null) {
-        { EndContent(style, interactionSource, actionEnd) }
+        { EndContent(style, motion, actionEnd) }
     } else {
         null
     }
@@ -438,14 +481,15 @@ private fun endContent(
 @Composable
 private fun EndContent(
     style: NavigationBarStyle,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
     actionEnd: (@Composable () -> Unit)?,
 ) {
     if (actionEnd != null) {
         Actions(
             actionEnd,
-            style.colors.actionEndColor,
-            interactionSource,
+            style.colors.actionEndBrush,
+            motion.context,
+            motion.style.actionEndColor,
             style.actionButtonStyle,
         )
     }
@@ -454,42 +498,23 @@ private fun EndContent(
 @Composable
 private fun Actions(
     actionContent: (@Composable () -> Unit),
-    tint: InteractiveColor,
-    interactionSource: InteractionSource,
+    tint: StatefulValue<Brush>,
+    motionContext: MotionContext,
+    motionProperty: MotionProperty<Brush>,
     actionButtonStyle: ButtonStyle?,
 ) {
-    val iconColor = tint.colorForInteraction(interactionSource)
+    val iconColor = tint.getBrushAsState(motionContext, motionProperty)
     if (actionButtonStyle != null) {
         CompositionLocalProvider(
-            LocalTint provides iconColor,
+            LocalTintBrushProducer provides { iconColor.value },
             LocalIconButtonStyle provides actionButtonStyle,
             content = actionContent,
         )
     } else {
         CompositionLocalProvider(
-            LocalTint provides iconColor,
+            LocalTintBrushProducer provides { iconColor.value },
             content = actionContent,
         )
-    }
-}
-
-@Composable
-private fun TextContent(
-    textContent: @Composable () -> Unit,
-    textStyle: TextStyle,
-    textColor: InteractiveColor,
-    interactionSource: InteractionSource,
-    textAlign: NavigationBarTextAlign,
-) {
-    val color = textColor.colorForInteraction(interactionSource)
-    CompositionLocalProvider(
-        LocalTint provides color,
-        LocalTextStyle provides textStyle.copy(
-            color = color,
-            textAlign = textAlign.toPlatformTextAlign(),
-        ),
-    ) {
-        textContent.invoke()
     }
 }
 
@@ -498,10 +523,11 @@ private fun CenterContent(
     style: NavigationBarStyle,
     content: (@Composable () -> Unit)?,
     textContent: (@Composable () -> Unit)?,
+    spacing: Dp,
     contentPlacement: NavigationBarContentPlacement,
     textPlacement: NavigationBarTextPlacement,
     textAlign: NavigationBarTextAlign,
-    interactionSource: InteractionSource,
+    motion: Motion<NavigationBarMotionStyle>,
 ) {
     val hasInlineContent =
         content != null && contentPlacement == NavigationBarContentPlacement.Inline
@@ -509,13 +535,14 @@ private fun CenterContent(
         textContent != null && textPlacement == NavigationBarTextPlacement.Inline
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(style.dimensions.horizontalSpacing),
+        horizontalArrangement = Arrangement.spacedBy(spacing),
     ) {
-        val textColor = style.colors.textColor.colorForInteraction(interactionSource)
+        val textColor = style.colors.textBrush.getBrushAsState(motion.context, motion.style.textColor)
+        val textStyle by style.textStyles.getTextStyleAsState(motion.context, motion.style.textStyle)
         CompositionLocalProvider(
-            LocalTint provides textColor,
-            LocalTextStyle provides style.textStyle.copy(
-                color = textColor,
+            LocalTintBrushProducer provides { textColor.value },
+            LocalTextStyle provides textStyle.copy(
+                brush = textColor.value,
                 textAlign = textAlign.toPlatformTextAlign(),
             ),
         ) {
@@ -527,6 +554,30 @@ private fun CenterContent(
             }
         }
     }
+}
+
+@Composable
+private fun navbarPaddingValues(
+    dimensions: NavigationBarDimensions,
+    motion: Motion<NavigationBarMotionStyle>,
+    hasBottomText: Boolean,
+    forOuterText: Boolean,
+): PaddingValues {
+    val start = dimensions.paddingStartValues
+    val top = if (forOuterText) dimensions.textBlockTopMarginValues else dimensions.paddingTopValues
+    val end = dimensions.paddingEndValues
+    val bottom = dimensions.paddingBottomValues
+    val values = remember(start, top, end, bottom) { listOf(start, top, end, bottom) }
+    val snapshot = motion.context.rememberStateSnapshot(values)
+    val paddings = remember(snapshot, hasBottomText, start, top, end, bottom) {
+        PaddingValues(
+            start = start.getValue(snapshot.target),
+            end = end.getValue(snapshot.target),
+            top = top.getValue(snapshot.target),
+            bottom = if (hasBottomText) 0.dp else bottom.getValue(snapshot.target),
+        )
+    }
+    return paddings
 }
 
 internal fun getCenterContentAlignment(

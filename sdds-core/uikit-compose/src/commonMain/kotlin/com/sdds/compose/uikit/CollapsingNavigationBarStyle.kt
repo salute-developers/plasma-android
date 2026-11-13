@@ -13,8 +13,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
 import com.sdds.compose.uikit.annotations.DrawableRes
-import com.sdds.compose.uikit.graphics.brush.asBrush
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.transform
 import com.sdds.compose.uikit.shadow.ShadowAppearance
@@ -49,7 +51,13 @@ interface CollapsingNavigationBarStyle : Style {
     /**
      * Форма нижних углов компонента
      */
+    @Deprecated("Use bottomShapes", replaceWith = ReplaceWith("bottomShapes"))
     val bottomShape: CornerBasedShape
+
+    /**
+     * Форма нижних углов компонента
+     */
+    val bottomShapes: StatefulValue<CornerBasedShape>
 
     /**
      * Стиль заголовка по умолчанию
@@ -102,9 +110,21 @@ interface CollapsingNavigationBarStyleBuilder : StyleBuilder<CollapsingNavigatio
     fun titleStyle(titleStyle: StatefulValue<TextStyle>): CollapsingNavigationBarStyleBuilder
 
     /**
+     * Устанавливает стиль основной надписи по умолчанию [titleStyle]
+     */
+    fun titleStyle(titleStyle: TextStyle): CollapsingNavigationBarStyleBuilder =
+        titleStyle(titleStyle.asStatefulValue())
+
+    /**
      * Устанавливает стиль описания [descriptionStyle]
      */
     fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): CollapsingNavigationBarStyleBuilder
+
+    /**
+     * Устанавливает стиль описания по умолчанию [titleStyle]
+     */
+    fun descriptionStyle(descriptionStyle: TextStyle): CollapsingNavigationBarStyleBuilder =
+        descriptionStyle(descriptionStyle.asStatefulValue())
 
     /**
      * Устанавливает источник изображения иконки кнопки назад [backIcon]
@@ -124,7 +144,13 @@ interface CollapsingNavigationBarStyleBuilder : StyleBuilder<CollapsingNavigatio
     /**
      * Устанавливает форму нижних углов [bottomShape]
      */
-    fun bottomShape(bottomShape: CornerBasedShape): CollapsingNavigationBarStyleBuilder
+    fun bottomShape(bottomShape: StatefulValue<CornerBasedShape>): CollapsingNavigationBarStyleBuilder
+
+    /**
+     * Устанавливает форму нижних углов [bottomShape]
+     */
+    fun bottomShape(bottomShape: CornerBasedShape): CollapsingNavigationBarStyleBuilder =
+        bottomShape(bottomShape.asStatefulValue())
 
     /**
      * Устанавливает тень [shadow] компонента
@@ -158,18 +184,21 @@ private class DefaultCollapsingNavigationBarStyle(
     override val shadow: ShadowAppearance,
     override val dimensions: CollapsingNavigationBarDimensions,
     override val colors: CollapsingNavigationBarColors,
-    override val bottomShape: CornerBasedShape,
     override val actionButtonStyle: ButtonStyle?,
     override val titleStyle: StatefulValue<TextStyle>,
     override val descriptionStyle: StatefulValue<TextStyle>,
+    override val bottomShapes: StatefulValue<CornerBasedShape>,
 ) : CollapsingNavigationBarStyle {
     @Deprecated("Use backIconSource", replaceWith = ReplaceWith("backIconSource"))
     override val backIcon: Int? = null
 
+    @Deprecated("Use bottomShapes", replaceWith = ReplaceWith("bottomShapes"))
+    override val bottomShape: CornerBasedShape = bottomShapes.getDefaultValue()
+
     class Builder : CollapsingNavigationBarStyleBuilder {
 
         private var backIconSource: ImageSource? = null
-        private var bottomShape: CornerBasedShape? = null
+        private var bottomShape: StatefulValue<CornerBasedShape>? = null
         private var shadow: ShadowAppearance? = null
         private val colorsBuilder = CollapsingNavigationBarColors.builder()
         private val dimensionsBuilder = CollapsingNavigationBarDimensions.builder()
@@ -189,7 +218,7 @@ private class DefaultCollapsingNavigationBarStyle(
             this.backIconSource = backIcon
         }
 
-        override fun bottomShape(bottomShape: CornerBasedShape) = apply {
+        override fun bottomShape(bottomShape: StatefulValue<CornerBasedShape>) = apply {
             this.bottomShape = bottomShape
         }
 
@@ -218,7 +247,7 @@ private class DefaultCollapsingNavigationBarStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 shadow = shadow ?: ShadowAppearance(),
-                bottomShape = bottomShape ?: RoundedCornerShape(16.dp),
+                bottomShapes = bottomShape ?: RoundedCornerShape(16.dp).asStatefulValue(),
                 actionButtonStyle = actionButtonStyle,
                 titleStyle = titleStyle ?: TextStyle().asStatefulValue(),
                 descriptionStyle = descriptionStyle ?: TextStyle().asStatefulValue(),
@@ -250,27 +279,57 @@ interface CollapsingNavigationBarColors {
     /**
      * Цвет кнопки закрытия
      */
+    @Deprecated("Use backIconBrush", replaceWith = ReplaceWith("backIconBrush"))
     val backIconColor: StatefulValue<Color>
+
+    /**
+     * Кисть кнопки закрытия
+     */
+    val backIconBrush: StatefulValue<Brush>
 
     /**
      * Цвет экшена в начале
      */
+    @Deprecated("Use actionStartBrush", replaceWith = ReplaceWith("actionStartBrush"))
     val actionStartColor: StatefulValue<Color>
+
+    /**
+     * Кисть экшена в начале
+     */
+    val actionStartBrush: StatefulValue<Brush>
 
     /**
      * Цвет экшена в конце
      */
+    @Deprecated("Use actionEndBrush", replaceWith = ReplaceWith("actionEndBrush"))
     val actionEndColor: StatefulValue<Color>
 
     /**
-     * Цвет заголовка
+     * Кисть экшена в конце
      */
+    val actionEndBrush: StatefulValue<Brush>
+
+    /**
+     * Цвет основной надписи по умолчанию
+     */
+    @Deprecated("Use titleBrush", replaceWith = ReplaceWith("titleBrush"))
     val titleColor: StatefulValue<Color>
 
     /**
-     * Цвет описания
+     * Кисть основной надписи по умолчанию
      */
+    val titleBrush: StatefulValue<Brush>
+
+    /**
+     * Цвет описания по умолчанию
+     */
+    @Deprecated("Use descriptionBrush", replaceWith = ReplaceWith("descriptionBrush"))
     val descriptionColor: StatefulValue<Color>
+
+    /**
+     * Кисть описания по умолчанию
+     */
+    val descriptionBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -289,12 +348,13 @@ interface CollapsingNavigationBarColorsBuilder {
      * Устанавливает фон [backgroundColor] компонента.
      */
     fun backgroundColor(backgroundColor: Color): CollapsingNavigationBarColorsBuilder =
-        backgroundColor(backgroundColor.asStatefulValue())
+        background(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает фон [backgroundColor] компонента.
      */
-    fun backgroundColor(backgroundColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder
+    fun backgroundColor(backgroundColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder =
+        background(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает фон [backgroundColor] компонента.
@@ -302,59 +362,161 @@ interface CollapsingNavigationBarColorsBuilder {
     fun background(backgroundColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
-     * Устанавливает цвет кнопки закрытия [backIconColor].
+     * Устанавливает фон [backgroundColor] компонента.
      */
-    fun backIconColor(backIconColor: Color): CollapsingNavigationBarColorsBuilder =
-        backIconColor(backIconColor.asStatefulValue())
+    fun background(backgroundColor: InteractiveColor): CollapsingNavigationBarColorsBuilder =
+        background(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает фон [backgroundColor] компонента.
+     */
+    fun background(backgroundColor: Brush): CollapsingNavigationBarColorsBuilder =
+        background(backgroundColor.asStatefulValue())
 
     /**
      * Устанавливает цвет кнопки закрытия [backIconColor].
      */
-    fun backIconColor(backIconColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder
+    fun backIconColor(backIconColor: Color): CollapsingNavigationBarColorsBuilder =
+        backIconBrush(backIconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет кнопки закрытия [backIconColor].
+     */
+    fun backIconColor(backIconColor: InteractiveColor): CollapsingNavigationBarColorsBuilder =
+        backIconBrush(backIconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет кнопки закрытия [backIconColor].
+     */
+    fun backIconColor(backIconColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder =
+        backIconBrush(backIconColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет кнопки закрытия [backIconBrush].
+     */
+    fun backIconBrush(backIconColor: Brush): CollapsingNavigationBarColorsBuilder =
+        backIconBrush(backIconColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет кнопки закрытия [backIconBrush].
+     */
+    fun backIconBrush(backIconColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
      * Устанавливает цвет экшена в начале [actionStartColor].
      */
     fun actionStartColor(actionStartColor: Color): CollapsingNavigationBarColorsBuilder =
-        actionStartColor(actionStartColor.asStatefulValue())
+        actionStartBrush(actionStartColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет экшена в начале [actionStartColor].
      */
-    fun actionStartColor(actionStartColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder
+    fun actionStartColor(actionStartColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder =
+        actionStartBrush(actionStartColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет экшена в начале [actionStartColor].
+     */
+    fun actionStartColor(actionStartColor: InteractiveColor): CollapsingNavigationBarColorsBuilder =
+        actionStartBrush(actionStartColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет экшена в начале [actionStartBrush].
+     */
+    fun actionStartBrush(actionStartColor: Brush): CollapsingNavigationBarColorsBuilder =
+        actionStartBrush(actionStartColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет экшена в начале [actionStartBrush].
+     */
+    fun actionStartBrush(actionStartColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
      * Устанавливает цвет экшена в конце [actionEndColor].
      */
     fun actionEndColor(actionEndColor: Color): CollapsingNavigationBarColorsBuilder =
-        actionEndColor(actionEndColor.asStatefulValue())
+        actionEndBrush(actionEndColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет экшена в конце [actionEndColor].
      */
-    fun actionEndColor(actionEndColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder
+    fun actionEndColor(actionEndColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder =
+        actionEndBrush(actionEndColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет экшена в конце [actionEndColor].
+     */
+    fun actionEndColor(actionEndColor: InteractiveColor): CollapsingNavigationBarColorsBuilder =
+        actionEndBrush(actionEndColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет экшена в конце [actionEndBrush].
+     */
+    fun actionEndBrush(actionEndColor: Brush): CollapsingNavigationBarColorsBuilder =
+        actionEndBrush(actionEndColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет экшена в конце [actionEndBrush].
+     */
+    fun actionEndBrush(actionEndColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
      * Устанавливает цвет заголовка [titleColor].
      */
     fun titleColor(titleColor: Color): CollapsingNavigationBarColorsBuilder =
-        titleColor(titleColor.asStatefulValue())
+        titleBrush(titleColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет заголовка [titleColor].
      */
-    fun titleColor(titleColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder
+    fun titleColor(titleColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder =
+        titleBrush(titleColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет заголовка [titleColor].
+     */
+    fun titleColor(titleColor: InteractiveColor): CollapsingNavigationBarColorsBuilder =
+        titleBrush(titleColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет заголовка [titleBrush].
+     */
+    fun titleBrush(titleColor: Brush): CollapsingNavigationBarColorsBuilder =
+        titleBrush(titleColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет заголовка [titleBrush].
+     */
+    fun titleBrush(titleColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
      * Устанавливает цвет описания [descriptionColor].
      */
     fun descriptionColor(descriptionColor: Color): CollapsingNavigationBarColorsBuilder =
-        descriptionColor(descriptionColor.asStatefulValue())
+        descriptionBrush(descriptionColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет описания [descriptionColor].
      */
-    fun descriptionColor(descriptionColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder
+    fun descriptionColor(descriptionColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder =
+        descriptionBrush(descriptionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет описания [descriptionColor].
+     */
+    fun descriptionColor(descriptionColor: InteractiveColor): CollapsingNavigationBarColorsBuilder =
+        descriptionBrush(descriptionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет описания [descriptionBrush].
+     */
+    fun descriptionBrush(descriptionColor: Brush): CollapsingNavigationBarColorsBuilder =
+        descriptionBrush(descriptionColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет описания [descriptionBrush].
+     */
+    fun descriptionBrush(descriptionColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
      * Создает экземпляр [CollapsingNavigationBarColors]
@@ -364,67 +526,89 @@ interface CollapsingNavigationBarColorsBuilder {
 
 @Immutable
 private data class DefaultCollapsingNavigationBarColors(
-    override val backgroundColor: StatefulValue<Color>,
-    override val backIconColor: StatefulValue<Color>,
-    override val actionStartColor: StatefulValue<Color>,
-    override val actionEndColor: StatefulValue<Color>,
-    override val titleColor: StatefulValue<Color>,
-    override val descriptionColor: StatefulValue<Color>,
     override val background: StatefulValue<Brush>,
+    override val backIconBrush: StatefulValue<Brush>,
+    override val actionStartBrush: StatefulValue<Brush>,
+    override val actionEndBrush: StatefulValue<Brush>,
+    override val titleBrush: StatefulValue<Brush>,
+    override val descriptionBrush: StatefulValue<Brush>,
 ) : CollapsingNavigationBarColors {
 
-    class Builder : CollapsingNavigationBarColorsBuilder {
-        private var backgroundColor: StatefulValue<Color>? = null
-        private var background: StatefulValue<Brush>? = null
-        private var backIconColor: StatefulValue<Color>? = null
-        private var actionStartColor: StatefulValue<Color>? = null
-        private var actionEndColor: StatefulValue<Color>? = null
-        private var titleColor: StatefulValue<Color>? = null
-        private var descriptionColor: StatefulValue<Color>? = null
+    @Deprecated("use background", replaceWith = ReplaceWith("background"))
+    override val backgroundColor: StatefulValue<Color> = background.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
 
-        override fun backgroundColor(backgroundColor: StatefulValue<Color>) = apply {
-            this.backgroundColor = backgroundColor
-        }
+    @Deprecated("use backIconBrush", replaceWith = ReplaceWith("backIconBrush"))
+    override val backIconColor: StatefulValue<Color> = backIconBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use actionStartBrush", replaceWith = ReplaceWith("actionStartBrush"))
+    override val actionStartColor: StatefulValue<Color> = actionStartBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use actionEndBrush", replaceWith = ReplaceWith("actionEndBrush"))
+    override val actionEndColor: StatefulValue<Color> = actionEndBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use titleBrush", replaceWith = ReplaceWith("titleBrush"))
+    override val titleColor: StatefulValue<Color> = titleBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    @Deprecated("use descriptionBrush", replaceWith = ReplaceWith("descriptionBrush"))
+    override val descriptionColor: StatefulValue<Color> = descriptionBrush.transform {
+        if (it is SolidColor) it.value else Color.Unspecified
+    }
+
+    class Builder : CollapsingNavigationBarColorsBuilder {
+        private var backgroundColor: StatefulValue<Brush>? = null
+        private var background: StatefulValue<Brush>? = null
+        private var backIconColor: StatefulValue<Brush>? = null
+        private var actionStartColor: StatefulValue<Brush>? = null
+        private var actionEndColor: StatefulValue<Brush>? = null
+        private var titleColor: StatefulValue<Brush>? = null
+        private var descriptionColor: StatefulValue<Brush>? = null
 
         override fun background(backgroundColor: StatefulValue<Brush>) = apply {
             this.background = backgroundColor
         }
 
-        override fun backIconColor(backIconColor: StatefulValue<Color>) = apply {
+        override fun backIconBrush(backIconColor: StatefulValue<Brush>) = apply {
             this.backIconColor = backIconColor
         }
 
-        override fun actionStartColor(actionStartColor: StatefulValue<Color>) = apply {
+        override fun actionStartBrush(actionStartColor: StatefulValue<Brush>) = apply {
             this.actionStartColor = actionStartColor
         }
 
-        override fun actionEndColor(actionEndColor: StatefulValue<Color>) = apply {
+        override fun actionEndBrush(actionEndColor: StatefulValue<Brush>) = apply {
             this.actionEndColor = actionEndColor
         }
 
-        override fun titleColor(titleColor: StatefulValue<Color>) = apply {
+        override fun titleBrush(titleColor: StatefulValue<Brush>) = apply {
             this.titleColor = titleColor
         }
 
-        override fun descriptionColor(descriptionColor: StatefulValue<Color>) = apply {
+        override fun descriptionBrush(descriptionColor: StatefulValue<Brush>) = apply {
             this.descriptionColor = descriptionColor
         }
 
         override fun build(): CollapsingNavigationBarColors {
             return DefaultCollapsingNavigationBarColors(
-                backgroundColor = backgroundColor ?: Color.Transparent.asStatefulValue(),
-                backIconColor = backIconColor ?: Color.Black.asStatefulValue(),
-                actionStartColor = actionStartColor ?: Color.Black.asStatefulValue(),
-                actionEndColor = actionEndColor ?: Color.Black.asStatefulValue(),
-                titleColor = titleColor ?: Color.White.asStatefulValue(
+                backIconBrush = backIconColor ?: Color.Black.asStatefulBrush(),
+                actionStartBrush = actionStartColor ?: Color.Black.asStatefulBrush(),
+                actionEndBrush = actionEndColor ?: Color.Black.asStatefulBrush(),
+                titleBrush = titleColor ?: Color.White.asStatefulBrush(
                     setOf(CollapsingNavigationBarStates.Collapsed) to Color.Black,
                 ),
-                descriptionColor = descriptionColor ?: Color.LightGray.asStatefulValue(
+                descriptionBrush = descriptionColor ?: Color.LightGray.asStatefulBrush(
                     setOf(CollapsingNavigationBarStates.Collapsed) to Color.DarkGray,
                 ),
-                background = background
-                    ?: backgroundColor?.transform { SolidColor(it) }
-                    ?: Color.Transparent.asBrush().asStatefulValue(),
+                background = background ?: Color.Transparent.asStatefulBrush(),
             )
         }
     }
@@ -439,32 +623,77 @@ interface CollapsingNavigationBarDimensions {
     /**
      * Отступ иконки назад
      */
+    @Deprecated(
+        "Use backIconMarginValues",
+        replaceWith = ReplaceWith("backIconMarginValues"),
+    )
     val backIconMargin: Dp
+
+    /**
+     * Отступ иконки назад
+     */
+    val backIconMarginValues: StatefulValue<Dp>
 
     /**
      * Горизонтальный отступ между элементами основного блока
      */
+    @Deprecated(
+        "Use horizontalSpacingValues",
+        replaceWith = ReplaceWith("horizontalSpacingValues"),
+    )
     val horizontalSpacing: Dp
+
+    /**
+     * Горизонтальный отступ между элементами основного блока
+     */
+    val horizontalSpacingValues: StatefulValue<Dp>
 
     /**
      * Отступ в начале
      */
+    @Deprecated(
+        "Use paddingStartValues",
+        replaceWith = ReplaceWith("paddingStartValues"),
+    )
     val paddingStart: Dp
+
+    /**
+     * Отступ в начале
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ в конце
      */
+    @Deprecated("Use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
+
+    /**
+     * Отступ в конце
+     */
+    val paddingEndValues: StatefulValue<Dp>
 
     /**
      * Отступ сверху
      */
+    @Deprecated("Use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
+
+    /**
+     * Отступ сверху
+     */
+    val paddingTopValues: StatefulValue<Dp>
 
     /**
      * Отступ снизу
      */
+    @Deprecated("Use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     /**
      * Отступ описания
@@ -474,7 +703,16 @@ interface CollapsingNavigationBarDimensions {
     /**
      * Отступ сверху от текстового блока в сотстоянии expanded
      */
+    @Deprecated(
+        "Use textBlockTopMarginValues",
+        replaceWith = ReplaceWith("textBlockTopMarginValues"),
+    )
     val textBlockTopMargin: Dp
+
+    /**
+     * Отступ сверху от внешнего (не встроенного) текстового блока
+     */
+    val textBlockTopMarginValues: StatefulValue<Dp>
 
     /**
      * Минимальная высота контент-области — блока со слотами actionStart, центрального контента
@@ -504,37 +742,79 @@ interface CollapsingNavigationBarDimensionsBuilder {
     /**
      * Устанавливает отступ иконки назад [backIconMargin]
      */
-    fun backIconMargin(backIconMargin: Dp): CollapsingNavigationBarDimensionsBuilder
+    fun backIconMargin(backIconMargin: Dp): CollapsingNavigationBarDimensionsBuilder =
+        backIconMargin(backIconMargin.asStatefulValue())
 
     /**
-     * Устанавливает отступ сверху от текстового блока в состоянии expanded [textBlockTopMargin]
+     * Устанавливает отступ иконки назад [backIconMargin]
      */
-    fun textBlockTopMargin(textBlockTopMargin: Dp): CollapsingNavigationBarDimensionsBuilder
+    fun backIconMargin(backIconMargin: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
+
+    /**
+     * Устанавливает отступ сверху от внешнего (не встроенного) текстового блока [textBlockTopMargin]
+     */
+    fun textBlockTopMargin(textBlockTopMargin: Dp): CollapsingNavigationBarDimensionsBuilder =
+        textBlockTopMargin(textBlockTopMargin.asStatefulValue())
+
+    /**
+     * Устанавливает отступ сверху от внешнего (не встроенного) текстового блока [textBlockTopMargin]
+     */
+    fun textBlockTopMargin(textBlockTopMargin: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
 
     /**
      * Устанавливает горизонтальный отступ между элементами основного блока [horizontalSpacing]
      */
-    fun horizontalSpacing(horizontalSpacing: Dp): CollapsingNavigationBarDimensionsBuilder
+    fun horizontalSpacing(horizontalSpacing: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
+
+    /**
+     * Устанавливает горизонтальный отступ между элементами основного блока [horizontalSpacing]
+     */
+    fun horizontalSpacing(horizontalSpacing: Dp): CollapsingNavigationBarDimensionsBuilder =
+        horizontalSpacing(horizontalSpacing.asStatefulValue())
 
     /**
      * Устанавливает отступ в начале [paddingStart]
      */
-    fun paddingStart(paddingStart: Dp): CollapsingNavigationBarDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): CollapsingNavigationBarDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце [paddingEnd]
      */
-    fun paddingEnd(paddingEnd: Dp): CollapsingNavigationBarDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): CollapsingNavigationBarDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху [paddingTop]
      */
-    fun paddingTop(paddingTop: Dp): CollapsingNavigationBarDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): CollapsingNavigationBarDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступ сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу [paddingBottom]
      */
-    fun paddingBottom(paddingBottom: Dp): CollapsingNavigationBarDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): CollapsingNavigationBarDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступ снизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): CollapsingNavigationBarDimensionsBuilder
 
     /**
      * Устанавливает отступ описания [descriptionPadding]
@@ -565,54 +845,95 @@ interface CollapsingNavigationBarDimensionsBuilder {
 }
 
 private class DefaultCollapsingNavigationBarDimensions(
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val backIconMargin: Dp,
-    override val horizontalSpacing: Dp,
     override val descriptionPadding: StatefulValue<Dp>,
-    override val textBlockTopMargin: Dp,
     override val minContentHeight: StatefulValue<Dp>,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
+    override val backIconMarginValues: StatefulValue<Dp>,
+    override val horizontalSpacingValues: StatefulValue<Dp>,
+    override val textBlockTopMarginValues: StatefulValue<Dp>,
 ) : CollapsingNavigationBarDimensions {
 
+    @Deprecated(
+        "Use paddingStartValues",
+        replaceWith = ReplaceWith("paddingStartValues"),
+    )
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+    @Deprecated(
+        "Use paddingEndValues",
+        replaceWith = ReplaceWith("paddingEndValues"),
+    )
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
+
+    @Deprecated(
+        "Use paddingTopValues",
+        replaceWith = ReplaceWith("paddingTopValues"),
+    )
+    override val paddingTop: Dp = paddingTopValues.getDefaultValue()
+
+    @Deprecated(
+        "Use paddingBottomValues",
+        replaceWith = ReplaceWith("paddingBottomValues"),
+    )
+    override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
+
+    @Deprecated(
+        "Use backIconMarginValues",
+        replaceWith = ReplaceWith("backIconMarginValues"),
+    )
+    override val backIconMargin: Dp = backIconMarginValues.getDefaultValue()
+
+    @Deprecated(
+        "Use horizontalSpacingValues",
+        replaceWith = ReplaceWith("horizontalSpacingValues"),
+    )
+    override val horizontalSpacing: Dp = horizontalSpacingValues.getDefaultValue()
+
+    @Deprecated(
+        "Use textBlockTopMarginValues",
+        replaceWith = ReplaceWith("textBlockTopMarginValues"),
+    )
+    override val textBlockTopMargin: Dp = textBlockTopMarginValues.getDefaultValue()
     class Builder : CollapsingNavigationBarDimensionsBuilder {
 
-        private var backIconMargin: Dp? = null
-        private var horizontalSpacing: Dp? = null
-        private var textBlockTopMargin: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
+        private var backIconMargin: StatefulValue<Dp>? = null
+        private var horizontalSpacing: StatefulValue<Dp>? = null
+        private var textBlockTopMargin: StatefulValue<Dp>? = null
+        private var paddingStart: StatefulValue<Dp>? = null
+        private var paddingEnd: StatefulValue<Dp>? = null
+        private var paddingTop: StatefulValue<Dp>? = null
+        private var paddingBottom: StatefulValue<Dp>? = null
         private var descriptionPadding: StatefulValue<Dp>? = null
         private var minContentHeight: StatefulValue<Dp>? = null
 
-        override fun backIconMargin(backIconMargin: Dp) = apply {
+        override fun backIconMargin(backIconMargin: StatefulValue<Dp>) = apply {
             this.backIconMargin = backIconMargin
         }
 
-        override fun textBlockTopMargin(textBlockTopMargin: Dp) = apply {
+        override fun textBlockTopMargin(textBlockTopMargin: StatefulValue<Dp>) = apply {
             this.textBlockTopMargin = textBlockTopMargin
         }
 
-        override fun horizontalSpacing(horizontalSpacing: Dp) = apply {
+        override fun horizontalSpacing(horizontalSpacing: StatefulValue<Dp>) = apply {
             this.horizontalSpacing = horizontalSpacing
         }
 
-        override fun paddingStart(paddingStart: Dp) = apply {
+        override fun paddingStart(paddingStart: StatefulValue<Dp>) = apply {
             this.paddingStart = paddingStart
         }
 
-        override fun paddingEnd(paddingEnd: Dp) = apply {
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>) = apply {
             this.paddingEnd = paddingEnd
         }
 
-        override fun paddingTop(paddingTop: Dp) = apply {
+        override fun paddingTop(paddingTop: StatefulValue<Dp>) = apply {
             this.paddingTop = paddingTop
         }
 
-        override fun paddingBottom(paddingBottom: Dp) = apply {
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>) = apply {
             this.paddingBottom = paddingBottom
         }
 
@@ -626,14 +947,14 @@ private class DefaultCollapsingNavigationBarDimensions(
 
         override fun build(): CollapsingNavigationBarDimensions {
             return DefaultCollapsingNavigationBarDimensions(
-                paddingStart = paddingStart ?: 16.dp,
-                paddingEnd = paddingEnd ?: 16.dp,
-                paddingTop = paddingTop ?: 16.dp,
-                paddingBottom = paddingBottom ?: 16.dp,
-                backIconMargin = backIconMargin ?: 4.dp,
-                horizontalSpacing = horizontalSpacing ?: 16.dp,
+                paddingStartValues = paddingStart ?: 16.dp.asStatefulValue(),
+                paddingEndValues = paddingEnd ?: 16.dp.asStatefulValue(),
+                paddingTopValues = paddingTop ?: 16.dp.asStatefulValue(),
+                paddingBottomValues = paddingBottom ?: 16.dp.asStatefulValue(),
+                backIconMarginValues = backIconMargin ?: 4.dp.asStatefulValue(),
+                horizontalSpacingValues = horizontalSpacing ?: 16.dp.asStatefulValue(),
                 descriptionPadding = descriptionPadding ?: 2.dp.asStatefulValue(),
-                textBlockTopMargin = textBlockTopMargin ?: 64.dp,
+                textBlockTopMarginValues = textBlockTopMargin ?: 64.dp.asStatefulValue(),
                 minContentHeight = minContentHeight ?: 0.dp.asStatefulValue(),
             )
         }

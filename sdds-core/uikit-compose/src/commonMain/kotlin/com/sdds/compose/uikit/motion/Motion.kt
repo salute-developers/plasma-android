@@ -3,6 +3,7 @@ package com.sdds.compose.uikit.motion
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
+import com.sdds.compose.uikit.interactions.MutableSemanticStateSource
 
 /**
  * Контейнер, объединяющий [MotionStyle] и [MotionContext].
@@ -38,6 +39,23 @@ fun <S : MotionStyle> rememberMotion(
 ): Motion<S> {
     return remember(style, context) { MotionImpl(context, style) }
 }
+
+/**
+ * Создаёт и запоминает копию данного [Motion] с другим источником семантических состояний.
+ *
+ * [Motion.style] сохраняется без изменений, а [Motion.context] заменяется на производный
+ * от текущего контекста (см. [MotionContext.rememberWithSemanticStateSource]):
+ * интеракции и каналы анимации общие, семантические состояния — свои.
+ *
+ * @param semanticStateSource источник семантических состояний производного контекста.
+ */
+@Composable
+fun <S : MotionStyle> Motion<S>.rememberWithSemanticStateSource(
+    semanticStateSource: MutableSemanticStateSource,
+): Motion<S> = rememberMotion(
+    style = style,
+    context = context.rememberWithSemanticStateSource(semanticStateSource),
+)
 
 @Immutable
 private class MotionImpl<S : MotionStyle>(

@@ -32,6 +32,10 @@ import com.sdds.compose.uikit.internal.navigationbar.BaseCollapsingNavBar
 import com.sdds.compose.uikit.internal.navigationbar.EnterAlwaysScrollBehavior
 import com.sdds.compose.uikit.internal.navigationbar.ExitUntilCollapsedScrollBehavior
 import com.sdds.compose.uikit.internal.navigationbar.PinnedScrollBehavior
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.navigationbar.NavigationBarMotionStyle
+import com.sdds.compose.uikit.motion.components.navigationbar.rememberNavigationBarMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Верхняя панель интерфейса, служащая для навигации и отображения ключевых действий
@@ -41,17 +45,15 @@ import com.sdds.compose.uikit.internal.navigationbar.PinnedScrollBehavior
  * @param style стиль компонента [CollapsingNavigationBarStyle]
  * @param expandedTitle заголовок в состоянии expanded
  * @param expandedDescription описание в состоянии expanded
+ * @param expandedTextAlign выравнивание текста в состоянии expanded
  * @param collapsedTitle заголовок в состоянии collapsed
  * @param collapsedDescription описание в состоянии collapsed
- * @param expandedTextAlign выравнивание текста в состоянии expanded
  * @param collapsedTextAlign выравнивание текста в состоянии collapsed
  * @param actionStart экшены в начале
  * @param actionEnd экшены в конце
  * @param backgroundContent контент фона [CollapsingNavigationBar].
  * Заполняет весь компонент в expanded состоянии, кроме области, занимаемой [content]
  * @param content контент [CollapsingNavigationBar]
- * @param collapsedTextAlign выранивание текста в состоянии collapsed
- * @param expandedTextAlign выранивание текста в состоянии expanded
  * @param windowInsets инсеты [CollapsingNavigationBar]
  * @param scrollBehavior поведение при скролле [NavigationBarScrollBehavior]
  * @param centerAlignmentStrategy режим центрирования текстового блока
@@ -79,6 +81,75 @@ fun CollapsingNavigationBar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     onBackPressed: () -> Unit = {},
 ) {
+    CollapsingNavigationBar(
+        motion = rememberNavigationBarMotion(
+            motionContext = rememberMotionContext(
+                interactionSource = interactionSource,
+            ),
+        ),
+        modifier = modifier,
+        style = style,
+        expandedTitle = expandedTitle,
+        expandedDescription = expandedDescription,
+        expandedTextAlign = expandedTextAlign,
+        collapsedTitle = collapsedTitle,
+        collapsedDescription = collapsedDescription,
+        collapsedTextAlign = collapsedTextAlign,
+        actionStart = actionStart,
+        actionEnd = actionEnd,
+        backgroundContent = backgroundContent,
+        content = content,
+        windowInsets = windowInsets,
+        scrollBehavior = scrollBehavior,
+        centerAlignmentStrategy = centerAlignmentStrategy,
+        onBackPressed = onBackPressed,
+    )
+}
+
+/**
+ * Верхняя панель интерфейса, служащая для навигации и отображения ключевых действий
+ * с возможностью раскрытия в зависимости от состояния скролла на экране.
+ *
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param style стиль компонента [CollapsingNavigationBarStyle]
+ * @param expandedTitle заголовок в состоянии expanded
+ * @param expandedDescription описание в состоянии expanded
+ * @param expandedTextAlign выравнивание текста в состоянии expanded
+ * @param collapsedTitle заголовок в состоянии collapsed
+ * @param collapsedDescription описание в состоянии collapsed
+ * @param collapsedTextAlign выравнивание текста в состоянии collapsed
+ * @param actionStart экшены в начале
+ * @param actionEnd экшены в конце
+ * @param backgroundContent контент фона [CollapsingNavigationBar].
+ * Заполняет весь компонент в expanded состоянии, кроме области, занимаемой [content]
+ * @param content контент [CollapsingNavigationBar]
+ * @param windowInsets инсеты [CollapsingNavigationBar]
+ * @param scrollBehavior поведение при скролле [NavigationBarScrollBehavior]
+ * @param centerAlignmentStrategy режим центрирования текстового блока
+ * @param onBackPressed обработчик кнопки назад,
+ */
+@Composable
+@NonRestartableComposable
+fun CollapsingNavigationBar(
+    motion: Motion<NavigationBarMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: CollapsingNavigationBarStyle = LocalCollapsingNavigationBarStyle.current,
+    expandedTitle: (@Composable () -> Unit)?,
+    expandedDescription: (@Composable () -> Unit)? = null,
+    expandedTextAlign: NavigationBarTextAlign = NavigationBarTextAlign.Start,
+    collapsedTitle: (@Composable () -> Unit)?,
+    collapsedDescription: (@Composable () -> Unit)? = null,
+    collapsedTextAlign: NavigationBarTextAlign = NavigationBarTextAlign.Center,
+    actionStart: (@Composable RowScope.() -> Unit)? = null,
+    actionEnd: (@Composable RowScope.() -> Unit)? = null,
+    backgroundContent: (@Composable BoxScope.() -> Unit)? = null,
+    content: (@Composable () -> Unit)? = null,
+    windowInsets: WindowInsets = CollapsingNavigationBarDefaults.windowInsets,
+    scrollBehavior: NavigationBarScrollBehavior? = null,
+    centerAlignmentStrategy: NavBarCenterAlignmentStrategy = NavBarCenterAlignmentStrategy.Absolute,
+    onBackPressed: () -> Unit = {},
+) {
     BaseCollapsingNavBar(
         modifier = modifier,
         style = style,
@@ -91,12 +162,12 @@ fun CollapsingNavigationBar(
         actionEnd = actionEnd,
         windowInsets = windowInsets,
         scrollBehavior = scrollBehavior,
-        interactionSource = interactionSource,
         collapsedTextAlign = collapsedTextAlign,
         expandedTextAlign = expandedTextAlign,
         content = content,
         centerAlignmentStrategy = centerAlignmentStrategy,
         onBackPressed = onBackPressed,
+        motion = motion,
     )
 }
 
