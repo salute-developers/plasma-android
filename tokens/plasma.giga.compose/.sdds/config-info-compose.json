@@ -8768,19 +8768,20 @@
             "packageName": "com.sdds.plasma.giga.styles.iconbutton",
             "stylesClassName": "IconButtonStyles",
             "stylesClassQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonStyles",
-            "receiverClassName": "IconButtonStyles.Companion",
-            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonStyles.Companion",
+            "receiverClassName": "IconButtonStyles.Default",
+            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonStyles.Default",
             "returnTypeName": "ButtonStyle",
             "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
             "modifyReceiverTypeName": "IconButtonStyleBuilder",
             "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "holderName": "Default",
             "params": [
                {
                   "name": "size",
                   "type": "enum",
                   "required": false,
-                  "typeName": "IconButtonSize",
-                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonSize",
+                  "typeName": "IconButtonDefaultSize",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonDefaultSize",
                   "defaultValue": {
                      "value": "xl",
                      "codeName": "Xl"
@@ -8816,8 +8817,8 @@
                   "name": "shape",
                   "type": "enum",
                   "required": false,
-                  "typeName": "IconButtonShape",
-                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonShape",
+                  "typeName": "IconButtonDefaultShape",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonDefaultShape",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -8837,8 +8838,8 @@
                   "name": "view",
                   "type": "enum",
                   "required": false,
-                  "typeName": "IconButtonView",
-                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonView",
+                  "typeName": "IconButtonDefaultView",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonDefaultView",
                   "defaultValue": {
                      "value": "default",
                      "codeName": "Default"
@@ -10806,6 +10807,411 @@
                   {
                      "name": "view",
                      "value": "white"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "key": "icon-button",
+         "coreName": "IconButton",
+         "styleName": "EmbeddedIconButton",
+         "props": [
+            {
+               "name": "size",
+               "values": [
+                  "l",
+                  "m",
+                  "s"
+               ],
+               "defaultValue": "m"
+            },
+            {
+               "name": "view",
+               "values": [
+                  "default",
+                  "secondary",
+                  "accent",
+                  "positive",
+                  "negative",
+                  "warning",
+                  "info"
+               ],
+               "defaultValue": "default"
+            }
+         ],
+         "styleApi": {
+            "packageName": "com.sdds.plasma.giga.styles.iconbutton",
+            "stylesClassName": "IconButtonStyles",
+            "stylesClassQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonStyles",
+            "receiverClassName": "IconButtonStyles.EmbeddedIconButton",
+            "receiverClassQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.IconButtonStyles.EmbeddedIconButton",
+            "returnTypeName": "ButtonStyle",
+            "returnTypeQualifiedName": "com.sdds.compose.uikit.ButtonStyle",
+            "modifyReceiverTypeName": "IconButtonStyleBuilder",
+            "modifyReceiverTypeQualifiedName": "com.sdds.compose.uikit.IconButtonStyleBuilder",
+            "holderName": "EmbeddedIconButton",
+            "params": [
+               {
+                  "name": "size",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonSize",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.EmbeddedIconButtonSize",
+                  "defaultValue": {
+                     "value": "m",
+                     "codeName": "M"
+                  },
+                  "values": [
+                     {
+                        "value": "l",
+                        "codeName": "L"
+                     },
+                     {
+                        "value": "m",
+                        "codeName": "M"
+                     },
+                     {
+                        "value": "s",
+                        "codeName": "S"
+                     }
+                  ]
+               },
+               {
+                  "name": "view",
+                  "type": "enum",
+                  "required": false,
+                  "typeName": "EmbeddedIconButtonView",
+                  "typeQualifiedName": "com.sdds.plasma.giga.styles.iconbutton.EmbeddedIconButtonView",
+                  "defaultValue": {
+                     "value": "default",
+                     "codeName": "Default"
+                  },
+                  "values": [
+                     {
+                        "value": "default",
+                        "codeName": "Default"
+                     },
+                     {
+                        "value": "secondary",
+                        "codeName": "Secondary"
+                     },
+                     {
+                        "value": "accent",
+                        "codeName": "Accent"
+                     },
+                     {
+                        "value": "positive",
+                        "codeName": "Positive"
+                     },
+                     {
+                        "value": "negative",
+                        "codeName": "Negative"
+                     },
+                     {
+                        "value": "warning",
+                        "codeName": "Warning"
+                     },
+                     {
+                        "value": "info",
+                        "codeName": "Info"
+                     }
+                  ]
+               }
+            ]
+         },
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "EmbeddedIconButton.L.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "EmbeddedIconButton.L.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "EmbeddedIconButton.L.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "EmbeddedIconButton.L.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "EmbeddedIconButton.L.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "EmbeddedIconButton.L.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "l.info",
+               "composeReference": "EmbeddedIconButton.L.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "l"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "m.default",
+               "composeReference": "EmbeddedIconButton.M.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "EmbeddedIconButton.M.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "EmbeddedIconButton.M.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "EmbeddedIconButton.M.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "EmbeddedIconButton.M.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "EmbeddedIconButton.M.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "m.info",
+               "composeReference": "EmbeddedIconButton.M.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "m"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
+                  }
+               ]
+            },
+            {
+               "name": "s.default",
+               "composeReference": "EmbeddedIconButton.S.Default",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "default"
+                  }
+               ]
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "EmbeddedIconButton.S.Secondary",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "secondary"
+                  }
+               ]
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "EmbeddedIconButton.S.Accent",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "accent"
+                  }
+               ]
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "EmbeddedIconButton.S.Positive",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "positive"
+                  }
+               ]
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "EmbeddedIconButton.S.Negative",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "negative"
+                  }
+               ]
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "EmbeddedIconButton.S.Warning",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "warning"
+                  }
+               ]
+            },
+            {
+               "name": "s.info",
+               "composeReference": "EmbeddedIconButton.S.Info",
+               "props": [
+                  {
+                     "name": "size",
+                     "value": "s"
+                  },
+                  {
+                     "name": "view",
+                     "value": "info"
                   }
                ]
             }
