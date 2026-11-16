@@ -24,7 +24,6 @@ import com.sdds.preview.compose.CachingPreviewAssetResolver
 import com.sdds.preview.compose.ComposePreviewRuntime
 import com.sdds.preview.compose.PreparedComposePreview
 import com.sdds.preview.compose.WasmLoadedFontFamilyFactory
-import com.sdds.preview.compose.generated.GeneratedPreviewIcons
 import com.sdds.preview.compose.generated.GeneratedPreviewStyleFactories
 import com.sdds.preview.compose.previewComponentsFrom
 import com.sdds.preview.contract.PREVIEW_PROTOCOL_VERSION
@@ -48,7 +47,7 @@ private val runtime = ComposePreviewRuntime(
     // Редактор присылает одни и те же шрифты при каждом переключении компонента: байты и семейства переиспользуются.
     assetResolver = CachingPreviewAssetResolver(HttpPreviewAssetResolver),
     fontFamilyFactory = CachingLoadedFontFamilyFactory(WasmLoadedFontFamilyFactory),
-    icons = GeneratedPreviewIcons.all,
+    svgIcons = SkiaSvgIconFactory,
     components = run {
         registerStories()
         previewComponentsFrom(StoryRegistry.previewEntries(), GeneratedPreviewStyleFactories.all)
