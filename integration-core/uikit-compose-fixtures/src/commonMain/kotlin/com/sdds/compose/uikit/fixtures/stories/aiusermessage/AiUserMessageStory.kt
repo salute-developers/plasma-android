@@ -45,6 +45,7 @@ data class AiUserMessageUiState(
     val hasUploadingContent: Boolean = true,
     val isInEdit: Boolean = false,
     val filesGroup: Boolean = false,
+    val uploadingFile: Boolean = false,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
@@ -75,7 +76,7 @@ object AiUserMessageStory : ComposeBaseStory<AiUserMessageUiState, AiUserMessage
             isInEdit = editMode,
             uploadingContent = if (state.hasUploadingContent) {
                 {
-                    if (state.variant.contains("File", true)) {
+                    if (state.uploadingFile || state.variant.contains("File", true)) {
                         UploadingFile(state.filesGroup)
                     } else {
                         UploadingImage()
