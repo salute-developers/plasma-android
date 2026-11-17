@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -13,12 +12,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.State
 import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.toolbar.ToolBarMotionStyle
+import com.sdds.compose.uikit.motion.components.toolbar.rememberToolBarMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.compose.uikit.shadow.shadow
 
 /**
@@ -41,28 +49,73 @@ fun ToolBar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: ToolBarScope.() -> Unit,
 ) {
-    val background = style.colors.backgroundColor.getValue(interactionSource)
+    ToolBar(
+        hasDivider = hasDivider,
+        motion = rememberToolBarMotion(motionContext = rememberMotionContext(interactionSource)),
+        modifier = modifier,
+        style = style,
+        orientation = orientation,
+        content = content,
+    )
+}
+
+/**
+ * Компонент - вспомогательная панель с набором инструментов для работы
+ * на основном экране
+ *
+ * @param hasDivider отображение разделителя между контентом
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param orientation расположение контента
+ * @param content контент.
+ */
+@Composable
+fun ToolBar(
+    hasDivider: Boolean,
+    motion: Motion<ToolBarMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: ToolBarStyle = LocalToolBarStyle.current,
+    orientation: ToolBarOrientation = style.orientation,
+    content: ToolBarScope.() -> Unit,
+) {
+    val background = style.colors.backgroundColor.getBrushAsState(motion.context, motion.style.background)
+    val shape = style.shapes.getValue(motion.context.interactionSource, motion.context.semanticStateSource)
     val scope = remember { ToolBarScopeImpl() }
     scope.content()
     if (scope.sections.isEmpty()) return
     Box(
         modifier = modifier
-            .shadow(style.shadow, style.shape)
-            .background(
-                brush = background,
-                shape = style.shape,
+            .shadow(style.shadow, shape)
+            .backgroundBrush(
+                brushProducer = { background.value },
+                shape = shape,
             )
             .padding(
-                style.dimensions.paddingStart,
-                style.dimensions.paddingTop,
-                style.dimensions.paddingEnd,
-                style.dimensions.paddingBottom,
+                style.dimensions.paddingStartValues.getValue(
+                    motion.context.interactionSource,
+                    motion.context.semanticStateSource,
+                ),
+                style.dimensions.paddingTopValues.getValue(
+                    motion.context.interactionSource,
+                    motion.context.semanticStateSource,
+                ),
+                style.dimensions.paddingEndValues.getValue(
+                    motion.context.interactionSource,
+                    motion.context.semanticStateSource,
+                ),
+                style.dimensions.paddingBottomValues.getValue(
+                    motion.context.interactionSource,
+                    motion.context.semanticStateSource,
+                ),
             ),
 
     ) {
+        val sectionGap = style.dimensions.sectionPaddingValues.getValueAsState(motion.context)
+        val dividerPadding = style.dimensions.dividerMarginValues.getValueAsState(motion.context)
         when (orientation) {
-            ToolBarOrientation.Vertical -> VerticalContent(hasDivider, style, scope)
-            else -> HorizontalContent(hasDivider, style, scope)
+            ToolBarOrientation.Vertical -> VerticalContent(hasDivider, style, scope, sectionGap, dividerPadding)
+            else -> HorizontalContent(hasDivider, style, scope, sectionGap, dividerPadding)
         }
     }
     scope.reset()
@@ -73,8 +126,9 @@ private fun VerticalContent(
     hasDivider: Boolean,
     style: ToolBarStyle,
     scope: ToolBarScopeImpl,
+    sectionGap: State<Dp>,
+    dividerPadding: State<Dp>,
 ) {
-    val space = style.dimensions.sectionPadding
     Column(
         modifier = Modifier
             .width(IntrinsicSize.Min),
@@ -83,6 +137,8 @@ private fun VerticalContent(
         CompositionLocalProvider(
             LocalDividerStyle provides style.dividerStyle,
         ) {
+            val space = sectionGap.value
+            val padding = dividerPadding.value
             scope.sections.forEachIndexed { index, item ->
                 val paddingValues = if (scope.sections.size > 1) {
                     when (item) {
@@ -99,7 +155,7 @@ private fun VerticalContent(
                 if (hasDivider && index < scope.sections.lastIndex) {
                     Divider(
                         modifier = Modifier
-                            .padding(horizontal = style.dimensions.dividerMargin),
+                            .padding(horizontal = padding),
                         orientation = DividerOrientation.Horizontal,
                     )
                 }
@@ -113,13 +169,16 @@ private fun HorizontalContent(
     hasDivider: Boolean,
     style: ToolBarStyle,
     scope: ToolBarScopeImpl,
+    sectionGap: State<Dp>,
+    dividerPadding: State<Dp>,
 ) {
-    val space = style.dimensions.sectionPadding
     Row(
         modifier = Modifier
             .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        val space = sectionGap.value
+        val padding = dividerPadding.value
         scope.sections.forEachIndexed { index, item ->
             val paddingValues = if (scope.sections.size > 1) {
                 when (item) {
@@ -135,11 +194,11 @@ private fun HorizontalContent(
             ) {
                 Box(
                     modifier = Modifier.padding(paddingValues = paddingValues),
-                ) { item.content.invoke() }
+                ) { item.movableContent.invoke() }
                 if (hasDivider && index < scope.sections.lastIndex) {
                     Divider(
                         modifier = Modifier
-                            .padding(vertical = style.dimensions.dividerMargin),
+                            .padding(vertical = padding),
                         orientation = DividerOrientation.Vertical,
                     )
                 }
