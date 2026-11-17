@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.WheelDataSet
 import com.sdds.compose.uikit.WheelItemData
 import com.sdds.compose.uikit.WheelSeparator
 import com.sdds.compose.uikit.WheelStyle
+import com.sdds.compose.uikit.WheelWidthMode
 
 /**
  * Тест-кейсы для компонента [Wheel]
@@ -290,6 +291,47 @@ fun WheelCountTwoTADescriptionDivider(style: WheelStyle) {
                 ),
                 description = "description",
                 initialIndex = 3,
+            )
+        }
+    }
+}
+
+/**
+ * Центральный селектор по ширине контента, крайние делят остаток ширины, контент отцентрован во всех колесах
+ */
+@Composable
+fun WheelCenterAlignCenterContentWidthMode(style: WheelStyle) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        Wheel(
+            style = style,
+            wheelCount = 3,
+            hasControls = true,
+            visibleItemsCount = 5,
+            wheelSeparator = WheelSeparator.Dots,
+            alignment = WheelAlignment.Center,
+            widthMode = WheelWidthMode.CenterContent,
+            dataEdgePlacement = DataEdgePlacement.WheelEdge,
+            onItemSelected = { _, _ -> },
+            modifier = Modifier
+                .fillMaxWidth()
+                .semantics(mergeDescendants = false) {
+                    testTag = "wheel"
+                }
+                .align(Alignment.Center),
+        ) { wheelIndex ->
+            WheelDataSet(
+                dataSet = listOf(
+                    WheelItemData("$wheelIndex"),
+                    WheelItemData("10"),
+                    WheelItemData("20"),
+                    WheelItemData("30"),
+                    WheelItemData("40"),
+                    WheelItemData("50"),
+                ),
+                description = "",
+                initialIndex = 1,
             )
         }
     }

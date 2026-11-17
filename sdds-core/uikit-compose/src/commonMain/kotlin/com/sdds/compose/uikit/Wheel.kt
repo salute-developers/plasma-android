@@ -38,8 +38,8 @@ import com.sdds.compose.uikit.motion.components.divider.rememberDividerMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
 
 /**
- * Вертикальное колесо выбора.
- * Используется для выбора одного значения из списка с визуальным фокусом на текущем значении.
+ * Вертикальное колесо выбора (перегрузка без [widthMode] — сохранение исходной и бинарной
+ * совместимости сигнатуры, существовавшей до введения [WheelWidthMode]).
  *
  * @param modifier модификатор
  * @param style стиль компонента
@@ -72,8 +72,63 @@ fun Wheel(
     onItemSelected: (wheel: Int, item: Int) -> Unit = { _, _ -> },
     onSetData: (Int) -> WheelDataSet,
 ) {
+    Wheel(
+        modifier = modifier,
+        style = style,
+        wheelCount = wheelCount,
+        hasControls = hasControls,
+        visibleItemsCount = visibleItemsCount,
+        wheelSeparator = wheelSeparator,
+        alignment = alignment,
+        widthMode = style.widthMode,
+        wheelConstraints = wheelConstraints,
+        dataEdgePlacement = dataEdgePlacement,
+        interactionSource = interactionSource,
+        onItemSelected = onItemSelected,
+        onSetData = onSetData,
+    )
+}
+
+/**
+ * Вертикальное колесо выбора.
+ * Используется для выбора одного значения из списка с визуальным фокусом на текущем значении.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param wheelCount количество колёс
+ * @param hasControls наличие кнопок перемотки
+ * @param visibleItemsCount количество видимых элементов в колесе
+ * @param wheelSeparator тип разделителя между колёсами [WheelSeparator]
+ * @param alignment выравнивание контента в колёсах [WheelAlignment]
+ * @param widthMode распределение ширины между колёсами [WheelWidthMode]
+ * @param dataEdgePlacement способ размещения данных в колесе [DataEdgePlacement]
+ * @param wheelConstraints способ ограничения колёс по ширине [WheelConstraints]
+ * @param interactionSource источник взаимодействий [InteractionSource]
+ * @param onItemSelected колбэк сигнализирубщий о выбранном элементе.
+ * Первый параметр лямбды - индекс колеса, второй - индекс элемента в колесе.
+ * @param onSetData колбэк установки набора данных. Вызывается [wheelCount] раз.
+ * В параметре лямбды доступен индекс колеса, начиная с 0.
+ * Лямбда должна вернуть набор данных [WheelDataSet], необходимый для конфигурации каждого колеса.
+ */
+@Composable
+fun Wheel(
+    modifier: Modifier = Modifier,
+    style: WheelStyle = LocalWheelStyle.current,
+    wheelCount: Int = style.wheelCount,
+    hasControls: Boolean = true,
+    visibleItemsCount: Int = style.visibleItemsCount,
+    wheelSeparator: WheelSeparator = WheelSeparator.None,
+    alignment: WheelAlignment = style.itemAlignment,
+    widthMode: WheelWidthMode = style.widthMode,
+    wheelConstraints: WheelConstraints = WheelConstraints.Strict,
+    dataEdgePlacement: DataEdgePlacement = DataEdgePlacement.WheelCenter,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    onItemSelected: (wheel: Int, item: Int) -> Unit = { _, _ -> },
+    onSetData: (Int) -> WheelDataSet,
+) {
     val dividerMotion = rememberDividerMotion()
     val textMeasurer = rememberTextMeasurer()
+    val effectiveWidthMode = widthMode.resolveFor(alignment)
     var labelOffsetFromCenter by remember { mutableFloatStateOf(0f) }
     var wheelItemHeight by remember { mutableIntStateOf(0) }
     val separatorTextStyle = style.itemTextStyle
@@ -120,7 +175,7 @@ fun Wheel(
         },
         wheelCount = wheelCount,
         style = style,
-        alignment = alignment,
+        widthMode = effectiveWidthMode,
         wheelConstraints = wheelConstraints,
         wheelSeparatorContent = {
             WheelSeparatorBox(
@@ -175,7 +230,7 @@ private fun WheelLayout(
     modifier: Modifier,
     wheelCount: Int,
     style: WheelStyle,
-    alignment: WheelAlignment,
+    widthMode: WheelWidthMode,
     wheelConstraints: WheelConstraints,
     wheelSeparatorContent: @Composable () -> Unit,
     wheelContent: @Composable (wheelIndex: Int) -> Unit,
@@ -216,7 +271,7 @@ private fun WheelLayout(
         val stretchWheelCount = if (stretchWheels) {
             (0 until wheelCount).count { wheelIndex ->
                 shouldStretchWheel(
-                    alignment = alignment,
+                    widthMode = widthMode,
                     wheelIndex = wheelIndex,
                     wheelCount = wheelCount,
                 )
@@ -228,7 +283,7 @@ private fun WheelLayout(
         val compactWheelPlaceables = wheelMeasurables
             .filterNot { measurable ->
                 val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
-                stretchWheels && shouldStretchWheel(alignment, wheelIndex, wheelCount)
+                stretchWheels && shouldStretchWheel(widthMode, wheelIndex, wheelCount)
             }
             .associate { measurable ->
                 val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
@@ -248,7 +303,7 @@ private fun WheelLayout(
         val stretchWheelPlaceables = wheelMeasurables
             .filter { measurable ->
                 val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
-                stretchWheels && shouldStretchWheel(alignment, wheelIndex, wheelCount)
+                stretchWheels && shouldStretchWheel(widthMode, wheelIndex, wheelCount)
             }
             .associate { measurable ->
                 val wheelIndex = (measurable.layoutId as WheelLayoutId.Wheel).index
@@ -334,12 +389,25 @@ private fun Constraints.compactWheelConstraints(
     return copy(minWidth = 0, maxWidth = resolvedMaxWidth, minHeight = 0)
 }
 
-private fun shouldStretchWheel(
-    alignment: WheelAlignment,
+/**
+ * Разрешает [WheelWidthMode.Auto] в явный режим: для [WheelAlignment.Mixed] сохраняется
+ * историческое поведение (компактные центральные колеса), иначе — равные ширины.
+ */
+internal fun WheelWidthMode.resolveFor(alignment: WheelAlignment): WheelWidthMode {
+    if (this != WheelWidthMode.Auto) return this
+    return if (alignment == WheelAlignment.Mixed) {
+        WheelWidthMode.CenterContent
+    } else {
+        WheelWidthMode.Equal
+    }
+}
+
+internal fun shouldStretchWheel(
+    widthMode: WheelWidthMode,
     wheelIndex: Int,
     wheelCount: Int,
 ): Boolean {
-    return alignment != WheelAlignment.Mixed || wheelIndex == 0 || wheelIndex == wheelCount - 1
+    return widthMode != WheelWidthMode.CenterContent || wheelIndex == 0 || wheelIndex == wheelCount - 1
 }
 
 private fun getBaseWheelAlignment(
@@ -422,11 +490,13 @@ enum class TextAfterMode {
 }
 
 /**
- * Ограничения колёс по ширине
+ * Ограничения колёс по ширине.
+ * Влияют на колёса, измеряемые по ширине контента: в [WheelWidthMode.CenterContent]
+ * так измеряются все колёса, кроме крайних.
  */
 enum class WheelConstraints {
     /**
-     * Каждое колесо ограничено по ширине 1/3 доступного пространства
+     * Колесо, измеряемое по ширине контента, дополнительно ограничено 1/N доступного пространства
      */
     Strict,
 
@@ -437,7 +507,8 @@ enum class WheelConstraints {
 }
 
 /**
- * Режим выравнивания составных частей компонента
+ * Режим выравнивания контента в колёсах.
+ * Распределение ширины между колёсами задаётся отдельно — [WheelWidthMode].
  */
 enum class WheelAlignment {
     /**
@@ -460,6 +531,32 @@ enum class WheelAlignment {
      * колеса после центрального - по левому краю
      */
     Mixed,
+}
+
+/**
+ * Режим распределения ширины между колёсами.
+ * Применяется только когда ширина компонента ограничена снаружи (например, `Modifier.fillMaxWidth()`);
+ * при `wrap_content` все колёса измеряются по ширине контента и режим не применяется.
+ */
+enum class WheelWidthMode {
+
+    /**
+     * Совместимость с поведением до введения параметра:
+     * для [WheelAlignment.Mixed] используется [CenterContent], для остальных выравниваний — [Equal].
+     */
+    Auto,
+
+    /**
+     * Все колёса занимают равную долю доступной ширины
+     */
+    Equal,
+
+    /**
+     * Колёса, кроме крайних, измеряются по ширине контента (с учётом [WheelConstraints]);
+     * крайние колёса делят оставшуюся ширину поровну.
+     * При одном или двух колёсах эквивалентен [Equal].
+     */
+    CenterContent,
 }
 
 /**
