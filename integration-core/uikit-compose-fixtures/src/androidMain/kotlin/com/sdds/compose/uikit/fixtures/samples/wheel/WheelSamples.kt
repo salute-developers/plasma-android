@@ -1,6 +1,8 @@
 package com.sdds.compose.uikit.fixtures.samples.wheel
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -11,6 +13,7 @@ import com.sdds.compose.uikit.WheelDataSet
 import com.sdds.compose.uikit.WheelItemData
 import com.sdds.compose.uikit.WheelSeparator
 import com.sdds.compose.uikit.WheelStyle
+import com.sdds.compose.uikit.WheelWidthMode
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.resourceImageSource
@@ -118,6 +121,58 @@ fun Wheel_CenteredAlarmClockWithControlsAndDivider() {
                             )
                         },
                         description = "Минуты",
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun Wheel_CenteredContentWidthMode() {
+    composableCodeSnippet {
+        Wheel(
+            modifier = Modifier.fillMaxWidth(),
+            wheelCount = 3,
+            visibleItemsCount = 3,
+            hasControls = false,
+            wheelSeparator = WheelSeparator.Dots,
+            alignment = WheelAlignment.Center,
+            widthMode = WheelWidthMode.CenterContent,
+            onItemSelected = { wheelIndex, itemIndex ->
+                println("item selected: $itemIndex in wheel $wheelIndex")
+            },
+        ) { wheelIndex ->
+            return@Wheel when (wheelIndex) {
+                0 -> {
+                    WheelDataSet(
+                        dataSet = List(24) {
+                            WheelItemData(
+                                text = "${it + 1}",
+                            )
+                        },
+                        description = "Часы",
+                    )
+                }
+                1 -> {
+                    WheelDataSet(
+                        dataSet = List(60) {
+                            WheelItemData(
+                                text = "${it + 1}",
+                            )
+                        },
+                        description = "Минуты",
+                    )
+                }
+                else -> {
+                    WheelDataSet(
+                        dataSet = List(60) {
+                            WheelItemData(
+                                text = "${it + 1}",
+                            )
+                        },
+                        description = "Секунды",
                     )
                 }
             }

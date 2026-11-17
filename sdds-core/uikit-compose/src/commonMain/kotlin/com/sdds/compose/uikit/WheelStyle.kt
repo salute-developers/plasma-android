@@ -63,6 +63,11 @@ interface WheelStyle : Style {
     val itemAlignment: WheelAlignment
 
     /**
+     * Режим распределения ширины между колёсами
+     */
+    val widthMode: WheelWidthMode
+
+    /**
      * Количество колёс
      */
     val wheelCount: Int
@@ -171,6 +176,11 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
      * Устанавливает выравнивание [itemAlignment]
      */
     fun itemAlignment(itemAlignment: WheelAlignment): WheelStyleBuilder
+
+    /**
+     * Устанавливает режим распределения ширины [widthMode]
+     */
+    fun widthMode(widthMode: WheelWidthMode): WheelStyleBuilder
 
     /**
      * Устанавливает количество колёс [wheelCount]
@@ -285,6 +295,7 @@ private class DefaultWheelStyle(
     override val itemTextAfterStyle: TextStyle,
     override val descriptionStyle: TextStyle,
     override val itemAlignment: WheelAlignment,
+    override val widthMode: WheelWidthMode,
     override val wheelCount: Int,
     override val visibleItemsCount: Int,
     override val controlIconUpSource: ImageSource?,
@@ -319,6 +330,7 @@ private class DefaultWheelStyle(
         private var itemTextAfterStyle: TextStyle? = null
         private var descriptionStyle: TextStyle? = null
         private var itemAlignment: WheelAlignment? = null
+        private var widthMode: WheelWidthMode? = null
         private var wheelCount: Int? = null
         private var visibleItemsCount: Int? = null
         private var controlIconUpSource: ImageSource? = null
@@ -342,6 +354,10 @@ private class DefaultWheelStyle(
 
         override fun itemAlignment(itemAlignment: WheelAlignment) = apply {
             this.itemAlignment = itemAlignment
+        }
+
+        override fun widthMode(widthMode: WheelWidthMode) = apply {
+            this.widthMode = widthMode
         }
 
         override fun wheelCount(wheelCount: Int) = apply {
@@ -395,6 +411,7 @@ private class DefaultWheelStyle(
                 itemTextAfterStyle = itemTextAfterStyle ?: TextStyle.Default,
                 descriptionStyle = descriptionStyle ?: TextStyle.Default,
                 itemAlignment = itemAlignment ?: WheelAlignment.Center,
+                widthMode = widthMode ?: WheelWidthMode.Auto,
                 wheelCount = wheelCount ?: 3,
                 visibleItemsCount = visibleItemsCount ?: 5,
                 controlIconUpSource = controlIconUpSource,
