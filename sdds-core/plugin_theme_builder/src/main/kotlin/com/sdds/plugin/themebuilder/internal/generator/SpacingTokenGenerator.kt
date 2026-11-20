@@ -46,7 +46,9 @@ internal class SpacingTokenGenerator(
     private val themeName: String,
 ) : TokenGenerator<SpacingToken, SpacingTokenResult>(target) {
 
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(SPACING_TOKENS_NAME) }
+    private val ktFileBuilder by unsafeLazy {
+        ktFileBuilderFactory.create(SPACING_TOKENS_NAME).suppressGeneratedDocs()
+    }
     private val rootSpacings =
         mutableMapOf(
             Tenant.Default to ktFileBuilder.rootObject(

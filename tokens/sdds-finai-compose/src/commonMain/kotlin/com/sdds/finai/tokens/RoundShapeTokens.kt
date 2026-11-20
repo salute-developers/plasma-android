@@ -1,33 +1,21 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.finai.tokens
 
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.dp
+import kotlin.Suppress
 
 /**
  * Токены скруглений
  */
 public object RoundShapeTokens {
     /**
-     * borderRadius xxs
+     * borderRadius circle
      */
-    public val RoundXxs: RoundedCornerShape = RoundedCornerShape(CornerSize(4.0.dp))
-
-    /**
-     * borderRadius xs
-     */
-    public val RoundXs: RoundedCornerShape = RoundedCornerShape(CornerSize(8.0.dp))
-
-    /**
-     * borderRadius s
-     */
-    public val RoundS: RoundedCornerShape = RoundedCornerShape(CornerSize(12.0.dp))
-
-    /**
-     * borderRadius m
-     */
-    public val RoundM: RoundedCornerShape = RoundedCornerShape(CornerSize(16.0.dp))
+    public val RoundCircle: RoundedCornerShape = RoundedCornerShape(CornerSize(0.5.dp))
 
     /**
      * borderRadius l
@@ -35,12 +23,102 @@ public object RoundShapeTokens {
     public val RoundL: RoundedCornerShape = RoundedCornerShape(CornerSize(20.0.dp))
 
     /**
+     * borderRadius m
+     */
+    public val RoundM: RoundedCornerShape = RoundedCornerShape(CornerSize(16.0.dp))
+
+    /**
+     * borderRadius s
+     */
+    public val RoundS: RoundedCornerShape = RoundedCornerShape(CornerSize(12.0.dp))
+
+    /**
      * borderRadius xl
      */
     public val RoundXl: RoundedCornerShape = RoundedCornerShape(CornerSize(24.0.dp))
 
     /**
+     * borderRadius xs
+     */
+    public val RoundXs: RoundedCornerShape = RoundedCornerShape(CornerSize(8.0.dp))
+
+    /**
      * borderRadius xxl
      */
     public val RoundXxl: RoundedCornerShape = RoundedCornerShape(CornerSize(32.0.dp))
+
+    /**
+     * borderRadius xxs
+     */
+    public val RoundXxs: RoundedCornerShape = RoundedCornerShape(CornerSize(4.0.dp))
+}
+
+/**
+ * Токены скруглений
+ */
+public object RoundShapeTokensBetaCore {
+    /**
+     * borderRadius l
+     */
+    public val RoundL: RoundedCornerShape = RoundedCornerShape(CornerSize(16.0.dp))
+
+    /**
+     * borderRadius m
+     */
+    public val RoundM: RoundedCornerShape = RoundedCornerShape(CornerSize(12.0.dp))
+
+    /**
+     * borderRadius s
+     */
+    public val RoundS: RoundedCornerShape = RoundedCornerShape(CornerSize(8.0.dp))
+
+    /**
+     * borderRadius xl
+     */
+    public val RoundXl: RoundedCornerShape = RoundedCornerShape(CornerSize(20.0.dp))
+
+    /**
+     * borderRadius xs
+     */
+    public val RoundXs: RoundedCornerShape = RoundedCornerShape(CornerSize(6.0.dp))
+
+    /**
+     * borderRadius xxl
+     */
+    public val RoundXxl: RoundedCornerShape = RoundedCornerShape(CornerSize(40.0.dp))
+}
+
+/**
+ * Токены скруглений
+ */
+public object RoundShapeTokensHighContrast {
+    /**
+     * borderRadius l
+     */
+    public val RoundL: RoundedCornerShape = RoundedCornerShape(CornerSize(16.0.dp))
+
+    /**
+     * borderRadius m
+     */
+    public val RoundM: RoundedCornerShape = RoundedCornerShape(CornerSize(12.0.dp))
+
+    /**
+     * borderRadius s
+     */
+    public val RoundS: RoundedCornerShape = RoundedCornerShape(CornerSize(8.0.dp))
+
+    /**
+     * borderRadius xl
+     */
+    public val RoundXl: RoundedCornerShape = RoundedCornerShape(CornerSize(20.0.dp))
+
+    /**
+     * borderRadius xs
+     */
+    public val RoundXs: RoundedCornerShape = RoundedCornerShape(CornerSize(6.0.dp))
+
+    /**
+     * borderRadius xxl
+     */
+    public val RoundXxl: RoundedCornerShape = RoundedCornerShape(CornerSize(40.0.dp))
 }

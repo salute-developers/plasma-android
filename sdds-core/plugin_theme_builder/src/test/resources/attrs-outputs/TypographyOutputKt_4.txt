@@ -76,6 +76,8 @@ private val Dp.px: Int
     @Composable
     get() = with(LocalDensity.current) { this@px.roundToPx() }
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.runtime.Composable
@@ -92,6 +94,7 @@ import com.sdds.playground.themebuilder.theme.ThemeTypography
 import com.sdds.playground.themebuilder.tokens.TypographyLargeTokens
 import com.sdds.playground.themebuilder.tokens.TypographyMediumTokens
 import com.sdds.playground.themebuilder.tokens.TypographySmallTokens
+import kotlin.Suppress
 
 /**
  * Типографика Theme

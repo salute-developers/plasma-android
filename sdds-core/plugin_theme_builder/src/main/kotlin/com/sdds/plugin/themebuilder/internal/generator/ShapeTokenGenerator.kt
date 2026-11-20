@@ -59,7 +59,9 @@ internal class ShapeTokenGenerator(
 ) : TokenGenerator<ShapeToken, ShapeTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(ROUND_SHAPE_TOKENS_NAME) }
+    private val ktFileBuilder by unsafeLazy {
+        ktFileBuilderFactory.create(ROUND_SHAPE_TOKENS_NAME).suppressGeneratedDocs()
+    }
     private val rootRoundShapes =
         mutableMapOf(Tenant.Default to ktFileBuilder.rootObject(ROUND_SHAPE_TOKENS_NAME, ROUND_SHAPE_TOKENS_DESC))
     private val shouldGenerateShapeStyles: Boolean = viewShapeAppearanceConfig.isNotEmpty()

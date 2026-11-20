@@ -47,7 +47,7 @@ internal class ComposeSubThemeGenerator(
             val fileBuilder = ktFileBuilderFactory.create(
                 "${themeKtClassName}${subTheme.suffix}",
                 "${packageResolver.getPackage(TargetPackage.THEME)}.subthemes",
-            )
+            ).suppressGeneratedDocs()
             with(fileBuilder) {
                 addImports()
                 val colorAttrs = colorSubThemes[subTheme] ?: emptyList()
