@@ -623,7 +623,7 @@ interface ProductModalStyleBuilder : StyleBuilder<ProductModalStyle> {
     fun dimensions(builder: @Composable ProductModalDimensionsBuilder.() -> Unit): ProductModalStyleBuilder
 
     /**
-     * Устанавливает размеры и отступы компонента [dimensions]
+     * Устанавливает цвета компонента [dimensions]
      */
     @Composable
     fun colors(builder: @Composable ProductModalColorsBuilder.() -> Unit): ProductModalStyleBuilder

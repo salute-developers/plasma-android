@@ -12,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.window.DialogProperties
 import com.sdds.compose.uikit.IconButton
@@ -52,6 +53,7 @@ import com.sdds.plasma.giga.motion.productmodal.rememberProductModalMotion
  * @param edgeToEdge растягивать окно на всю высоту экрана
  * @param hasClose должна ли показываться кнопка закрытия, показывается только вместе с [closeIcon]
  * @param closeIcon иконка кнопки закрытия, по умолчанию кнопка не отображается
+ * @param closeContentDescription описание иконки закрытия для TalkBack, локализацию обеспечивает вызывающая сторона
  * @param useNativeBlackout использовать нативное затемнение фона вокруг [Modal]
  * @param motion объект анимации для компонента
  * @param animations настройки анимаций модального окна
@@ -74,6 +76,7 @@ fun ProductModal(
     edgeToEdge: Boolean = true,
     hasClose: Boolean = true,
     closeIcon: Painter? = null,
+    closeContentDescription: String? = null,
     useNativeBlackout: Boolean = false,
     animations: ModalAnimations = ModalAnimations(),
     headerMode: ProductModalHeaderMode = ProductModalHeaderMode.Default,
@@ -88,7 +91,7 @@ fun ProductModal(
         show = show,
         dimBackground = dimBackground,
         onDismissRequest = onDismissRequest,
-        modifier = modifier,
+        modifier = modifier.clip(style.modalStyle.shape),
         style = style.modalStyle,
         gravity = gravity,
         dialogProperties = dialogProperties,
@@ -126,7 +129,7 @@ fun ProductModal(
                 }
             }
             if (hasClose && closeIcon != null) {
-                IconClose(style, motion, onDismissRequest, closeIcon)
+                IconClose(style, motion, onDismissRequest, closeIcon, closeContentDescription)
             }
         }
     }
@@ -149,6 +152,7 @@ fun ProductModal(
  * @param edgeToEdge растягивать окно на всю высоту экрана
  * @param hasClose должна ли показываться кнопка закрытия, показывается только вместе с [closeIcon]
  * @param closeIcon иконка кнопки закрытия, по умолчанию кнопка не отображается
+ * @param closeContentDescription описание иконки закрытия для TalkBack, локализацию обеспечивает вызывающая сторона
  * @param useNativeBlackout использовать нативное затемнение фона вокруг [Modal]
  * @param motion объект анимации для компонента
  * @param animations настройки анимаций модального окна
@@ -171,6 +175,7 @@ fun ProductModal(
     edgeToEdge: Boolean = true,
     hasClose: Boolean = true,
     closeIcon: Painter? = null,
+    closeContentDescription: String? = null,
     useNativeBlackout: Boolean = false,
     animations: ModalAnimations = ModalAnimations(),
     headerMode: ProductModalHeaderMode = ProductModalHeaderMode.Default,
@@ -196,6 +201,7 @@ fun ProductModal(
         edgeToEdge = edgeToEdge,
         hasClose = hasClose,
         closeIcon = closeIcon,
+        closeContentDescription = closeContentDescription,
         useNativeBlackout = useNativeBlackout,
         motion = motion,
         animations = animations,
@@ -233,6 +239,7 @@ private fun BoxScope.IconClose(
     motion: Motion<ProductModalMotionStyle>,
     onDismissRequest: () -> Unit,
     closeIcon: Painter,
+    closeContentDescription: String?,
 ) {
     val interactionSource = motion.context.interactionSource
     val semanticStateSource = motion.context.semanticStateSource
@@ -245,6 +252,7 @@ private fun BoxScope.IconClose(
                 end = style.dimensions.closePaddingEnd.getValue(interactionSource, semanticStateSource),
             ),
         iconSource = imageSource,
+        iconContentDescription = closeContentDescription,
         style = style.iconButtonStyle,
         onClick = onDismissRequest,
     )

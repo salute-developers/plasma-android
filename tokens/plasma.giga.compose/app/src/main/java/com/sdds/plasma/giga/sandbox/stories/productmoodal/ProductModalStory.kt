@@ -34,7 +34,7 @@ import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
 
 /**
- * Состояние компонетна ProductCard в песочнице
+ * Состояние компонетна ProductModal в песочнице
  *
  */
 @StoryUiState
@@ -43,6 +43,7 @@ data class ProductModalUiState(
     override val appearance: String = "",
     val useNativeBlackout: Boolean = true,
     val hasClose: Boolean = false,
+    val closeContentDescription: String = "Закрыть",
     val hasDimBackground: Boolean = true,
     val gravity: ModalGravity = ModalGravity.Center,
     val edgeToEdge: Boolean = true,
@@ -90,6 +91,7 @@ object ProductModalStory : ComposeBaseStory<ProductModalUiState, ProductModalSty
             dimBackground = state.hasDimBackground,
             useNativeBlackout = state.useNativeBlackout,
             closeIcon = painterResource(com.sdds.icons.R.drawable.ic_close_24),
+            closeContentDescription = state.closeContentDescription,
             footerText = { Text(modifier = Modifier.align(Alignment.CenterHorizontally), text = state.footerText) },
             content = {
                 Image(
@@ -132,6 +134,7 @@ object ProductModalStory : ComposeBaseStory<ProductModalUiState, ProductModalSty
             dimBackground = true,
             useNativeBlackout = true,
             closeIcon = painterResource(com.sdds.icons.R.drawable.ic_close_24),
+            closeContentDescription = "Закрыть",
             footer = {
                 ButtonGroup(
                     modifier = Modifier.fillMaxWidth(),
