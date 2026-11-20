@@ -1,8 +1,10 @@
-package com.sdds.plasma.homeds.sandbox
+package com.sdds.plasma.giga.sandbox
 
 import android.os.Bundle
 import com.sdds.compose.sandbox.ui.SandboxActivity
 import com.sdds.compose.uikit.fixtures.stories.registerCoreStories
+import com.sdds.plasma.giga.compose.sandbox.stories.registerStories
+import com.sdds.plasma.giga.integration.custom.PlasmaGigaCustomComponents
 import com.sdds.plasma.giga.integration.registerTheme
 
 /**
@@ -21,6 +23,7 @@ class AppActivity : SandboxActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         registerCoreStories()
-        registerTheme()
+        registerStories()
+        registerTheme(PlasmaGigaCustomComponents)
     }
 }
