@@ -23,6 +23,7 @@ import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.tenant.Tenant
+import com.sdds.plugin.themebuilder.internal.tenant.fontDependentTypographyDiff
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
@@ -338,7 +339,11 @@ abstract class GenerateThemeTask : DefaultTask() {
                 allFonts[tenant] = tenantDiffFonts
 
                 val tenantTypography = typography(tenantEntry.value.typographyFile)
-                val tenantDiffTypography = tenantToDefaultDiff(defaultTenantTypography, tenantTypography)
+                val tenantDiffTypography = fontDependentTypographyDiff(
+                    defaultTypography = defaultTenantTypography,
+                    tenantDiff = tenantToDefaultDiff(defaultTenantTypography, tenantTypography),
+                    overriddenFontFamilies = tenantDiffFonts.keys,
+                )
                 allTypography[tenant] = tenantDiffTypography
 
                 val tenantShapes = shapes(tenantEntry.value.shapeFile)

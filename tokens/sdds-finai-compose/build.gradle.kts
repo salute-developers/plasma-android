@@ -4,9 +4,7 @@ import utils.addDefaultTargets
 import utils.componentsName
 import utils.componentsVersion
 import utils.themeAlias
-import utils.themeName
 import utils.themeResPrefix
-import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {

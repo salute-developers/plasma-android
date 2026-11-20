@@ -105282,6 +105282,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-l.display.l.bold",
+         "displayName": "DisplayL B",
+         "description": "typography l display-l-bold",
+         "reference": "DisplayLBold",
+         "themeReference": "SddsFinAiTheme.typography.displayLBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 128.0,
+            "lineHeight": 128.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.l.bold",
+         "displayName": "DisplayL B",
+         "description": "typography l display-l-bold",
+         "reference": "DisplayLBold",
+         "themeReference": "SddsFinAiTheme.typography.displayLBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 128.0,
+            "lineHeight": 128.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-l.display.l.medium",
          "displayName": "DisplayL M",
          "description": "typography l display-l-medium",
@@ -105290,6 +105322,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 128.0,
+            "lineHeight": 128.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.l.medium",
+         "displayName": "DisplayL M",
+         "description": "typography l display-l-medium",
+         "reference": "DisplayLMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayLMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 128.0,
+            "lineHeight": 128.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.l.medium",
+         "displayName": "DisplayL M",
+         "description": "typography l display-l-medium",
+         "reference": "DisplayLMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayLMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 128.0,
+            "lineHeight": 128.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.l.normal",
+         "displayName": "DisplayL N",
+         "description": "typography l display-l",
+         "reference": "DisplayLNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayLNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 128.0,
+            "lineHeight": 128.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.l.normal",
+         "displayName": "DisplayL N",
+         "description": "typography l display-l",
+         "reference": "DisplayLNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayLNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 128.0,
             "lineHeight": 128.0,
@@ -105330,6 +105426,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-l.display.m.bold",
+         "displayName": "DisplayM B",
+         "description": "typography l display-m-bold",
+         "reference": "DisplayMBold",
+         "themeReference": "SddsFinAiTheme.typography.displayMBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.m.bold",
+         "displayName": "DisplayM B",
+         "description": "typography l display-m-bold",
+         "reference": "DisplayMBold",
+         "themeReference": "SddsFinAiTheme.typography.displayMBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-l.display.m.medium",
          "displayName": "DisplayM M",
          "description": "typography l display-m-medium",
@@ -105338,6 +105466,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.m.medium",
+         "displayName": "DisplayM M",
+         "description": "typography l display-m-medium",
+         "reference": "DisplayMMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayMMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.m.medium",
+         "displayName": "DisplayM M",
+         "description": "typography l display-m-medium",
+         "reference": "DisplayMMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayMMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.m.normal",
+         "displayName": "DisplayM N",
+         "description": "typography l display-m",
+         "reference": "DisplayMNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayMNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.m.normal",
+         "displayName": "DisplayM N",
+         "description": "typography l display-m",
+         "reference": "DisplayMNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayMNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 88.0,
             "lineHeight": 92.0,
@@ -105378,6 +105570,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-l.display.s.bold",
+         "displayName": "DisplayS B",
+         "description": "typography l display-s-bold",
+         "reference": "DisplaySBold",
+         "themeReference": "SddsFinAiTheme.typography.displaySBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 64.0,
+            "lineHeight": 68.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.s.bold",
+         "displayName": "DisplayS B",
+         "description": "typography l display-s-bold",
+         "reference": "DisplaySBold",
+         "themeReference": "SddsFinAiTheme.typography.displaySBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 64.0,
+            "lineHeight": 68.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-l.display.s.medium",
          "displayName": "DisplayS M",
          "description": "typography l display-s-medium",
@@ -105386,6 +105610,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 64.0,
+            "lineHeight": 68.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.s.medium",
+         "displayName": "DisplayS M",
+         "description": "typography l display-s-medium",
+         "reference": "DisplaySMedium",
+         "themeReference": "SddsFinAiTheme.typography.displaySMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 64.0,
+            "lineHeight": 68.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.s.medium",
+         "displayName": "DisplayS M",
+         "description": "typography l display-s-medium",
+         "reference": "DisplaySMedium",
+         "themeReference": "SddsFinAiTheme.typography.displaySMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 64.0,
+            "lineHeight": 68.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.s.normal",
+         "displayName": "DisplayS N",
+         "description": "typography l display-s",
+         "reference": "DisplaySNormal",
+         "themeReference": "SddsFinAiTheme.typography.displaySNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 64.0,
+            "lineHeight": 68.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.display.s.normal",
+         "displayName": "DisplayS N",
+         "description": "typography l display-s",
+         "reference": "DisplaySNormal",
+         "themeReference": "SddsFinAiTheme.typography.displaySNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 64.0,
             "lineHeight": 68.0,
@@ -106098,6 +106386,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-l.header.h6.bold",
+         "displayName": "HeaderH6 B",
+         "description": "typography l header-h6-bold",
+         "reference": "HeaderH6Bold",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Bold",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 12.0,
+            "lineHeight": 16.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.header.h6.bold",
+         "displayName": "HeaderH6 B",
+         "description": "typography l header-h6-bold",
+         "reference": "HeaderH6Bold",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Bold",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 12.0,
+            "lineHeight": 16.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-l.header.h6.medium",
          "displayName": "HeaderH6 M",
          "description": "typography l header-h6-medium",
@@ -106106,6 +106426,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.header",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 12.0,
+            "lineHeight": 16.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.header.h6.medium",
+         "displayName": "HeaderH6 M",
+         "description": "typography l header-h6-medium",
+         "reference": "HeaderH6Medium",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Medium",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 12.0,
+            "lineHeight": 16.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.header.h6.medium",
+         "displayName": "HeaderH6 M",
+         "description": "typography l header-h6-medium",
+         "reference": "HeaderH6Medium",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Medium",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 12.0,
+            "lineHeight": 16.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.header.h6.normal",
+         "displayName": "HeaderH6 N",
+         "description": "typography l header-h6",
+         "reference": "HeaderH6Normal",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Normal",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "textSize": 12.0,
+            "lineHeight": 16.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-l.header.h6.normal",
+         "displayName": "HeaderH6 N",
+         "description": "typography l header-h6",
+         "reference": "HeaderH6Normal",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Normal",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 400,
             "fontStyle": "normal",
             "textSize": 12.0,
             "lineHeight": 16.0,
@@ -106962,6 +107346,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-m.display.l.bold",
+         "displayName": "DisplayL B",
+         "description": "typography m display-l-bold",
+         "reference": "DisplayLBold",
+         "themeReference": "SddsFinAiTheme.typography.displayLBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 112.0,
+            "lineHeight": 112.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.l.bold",
+         "displayName": "DisplayL B",
+         "description": "typography m display-l-bold",
+         "reference": "DisplayLBold",
+         "themeReference": "SddsFinAiTheme.typography.displayLBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 112.0,
+            "lineHeight": 112.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-m.display.l.medium",
          "displayName": "DisplayL M",
          "description": "typography m display-l-medium",
@@ -106970,6 +107386,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 112.0,
+            "lineHeight": 112.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.l.medium",
+         "displayName": "DisplayL M",
+         "description": "typography m display-l-medium",
+         "reference": "DisplayLMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayLMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 112.0,
+            "lineHeight": 112.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.l.medium",
+         "displayName": "DisplayL M",
+         "description": "typography m display-l-medium",
+         "reference": "DisplayLMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayLMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 112.0,
+            "lineHeight": 112.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.l.normal",
+         "displayName": "DisplayL N",
+         "description": "typography m display-l",
+         "reference": "DisplayLNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayLNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 112.0,
+            "lineHeight": 112.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.l.normal",
+         "displayName": "DisplayL N",
+         "description": "typography m display-l",
+         "reference": "DisplayLNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayLNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 112.0,
             "lineHeight": 112.0,
@@ -107010,6 +107490,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-m.display.m.bold",
+         "displayName": "DisplayM B",
+         "description": "typography m display-m-bold",
+         "reference": "DisplayMBold",
+         "themeReference": "SddsFinAiTheme.typography.displayMBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 72.0,
+            "lineHeight": 76.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.m.bold",
+         "displayName": "DisplayM B",
+         "description": "typography m display-m-bold",
+         "reference": "DisplayMBold",
+         "themeReference": "SddsFinAiTheme.typography.displayMBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 72.0,
+            "lineHeight": 76.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-m.display.m.medium",
          "displayName": "DisplayM M",
          "description": "typography m display-m-medium",
@@ -107018,6 +107530,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 72.0,
+            "lineHeight": 76.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.m.medium",
+         "displayName": "DisplayM M",
+         "description": "typography m display-m-medium",
+         "reference": "DisplayMMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayMMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 72.0,
+            "lineHeight": 76.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.m.medium",
+         "displayName": "DisplayM M",
+         "description": "typography m display-m-medium",
+         "reference": "DisplayMMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayMMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 72.0,
+            "lineHeight": 76.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.m.normal",
+         "displayName": "DisplayM N",
+         "description": "typography m display-m",
+         "reference": "DisplayMNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayMNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 72.0,
+            "lineHeight": 76.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.m.normal",
+         "displayName": "DisplayM N",
+         "description": "typography m display-m",
+         "reference": "DisplayMNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayMNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 72.0,
             "lineHeight": 76.0,
@@ -107058,6 +107634,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-m.display.s.bold",
+         "displayName": "DisplayS B",
+         "description": "typography m display-s-bold",
+         "reference": "DisplaySBold",
+         "themeReference": "SddsFinAiTheme.typography.displaySBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 48.0,
+            "lineHeight": 54.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.s.bold",
+         "displayName": "DisplayS B",
+         "description": "typography m display-s-bold",
+         "reference": "DisplaySBold",
+         "themeReference": "SddsFinAiTheme.typography.displaySBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 48.0,
+            "lineHeight": 54.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-m.display.s.medium",
          "displayName": "DisplayS M",
          "description": "typography m display-s-medium",
@@ -107066,6 +107674,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 48.0,
+            "lineHeight": 54.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.s.medium",
+         "displayName": "DisplayS M",
+         "description": "typography m display-s-medium",
+         "reference": "DisplaySMedium",
+         "themeReference": "SddsFinAiTheme.typography.displaySMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 48.0,
+            "lineHeight": 54.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.s.medium",
+         "displayName": "DisplayS M",
+         "description": "typography m display-s-medium",
+         "reference": "DisplaySMedium",
+         "themeReference": "SddsFinAiTheme.typography.displaySMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 48.0,
+            "lineHeight": 54.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.s.normal",
+         "displayName": "DisplayS N",
+         "description": "typography m display-s",
+         "reference": "DisplaySNormal",
+         "themeReference": "SddsFinAiTheme.typography.displaySNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 48.0,
+            "lineHeight": 54.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.display.s.normal",
+         "displayName": "DisplayS N",
+         "description": "typography m display-s",
+         "reference": "DisplaySNormal",
+         "themeReference": "SddsFinAiTheme.typography.displaySNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 48.0,
             "lineHeight": 54.0,
@@ -107778,6 +108450,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-m.header.h6.bold",
+         "displayName": "HeaderH6 B",
+         "description": "typography m header-h6-bold",
+         "reference": "HeaderH6Bold",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Bold",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.header.h6.bold",
+         "displayName": "HeaderH6 B",
+         "description": "typography m header-h6-bold",
+         "reference": "HeaderH6Bold",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Bold",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-m.header.h6.medium",
          "displayName": "HeaderH6 M",
          "description": "typography m header-h6-medium",
@@ -107786,6 +108490,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.header",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.header.h6.medium",
+         "displayName": "HeaderH6 M",
+         "description": "typography m header-h6-medium",
+         "reference": "HeaderH6Medium",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Medium",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.header.h6.medium",
+         "displayName": "HeaderH6 M",
+         "description": "typography m header-h6-medium",
+         "reference": "HeaderH6Medium",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Medium",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.header.h6.normal",
+         "displayName": "HeaderH6 N",
+         "description": "typography m header-h6",
+         "reference": "HeaderH6Normal",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Normal",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-m.header.h6.normal",
+         "displayName": "HeaderH6 N",
+         "description": "typography m header-h6",
+         "reference": "HeaderH6Normal",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Normal",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 400,
             "fontStyle": "normal",
             "textSize": 10.0,
             "lineHeight": 14.0,
@@ -108738,6 +109506,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-s.display.l.bold",
+         "displayName": "DisplayL B",
+         "description": "typography s display-l-bold",
+         "reference": "DisplayLBold",
+         "themeReference": "SddsFinAiTheme.typography.displayLBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.l.bold",
+         "displayName": "DisplayL B",
+         "description": "typography s display-l-bold",
+         "reference": "DisplayLBold",
+         "themeReference": "SddsFinAiTheme.typography.displayLBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-s.display.l.medium",
          "displayName": "DisplayL M",
          "description": "typography s display-l-medium",
@@ -108746,6 +109546,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.l.medium",
+         "displayName": "DisplayL M",
+         "description": "typography s display-l-medium",
+         "reference": "DisplayLMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayLMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.l.medium",
+         "displayName": "DisplayL M",
+         "description": "typography s display-l-medium",
+         "reference": "DisplayLMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayLMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.l.normal",
+         "displayName": "DisplayL N",
+         "description": "typography s display-l",
+         "reference": "DisplayLNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayLNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 88.0,
+            "lineHeight": 92.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.l.normal",
+         "displayName": "DisplayL N",
+         "description": "typography s display-l",
+         "reference": "DisplayLNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayLNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 88.0,
             "lineHeight": 92.0,
@@ -108786,6 +109650,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-s.display.m.bold",
+         "displayName": "DisplayM B",
+         "description": "typography s display-m-bold",
+         "reference": "DisplayMBold",
+         "themeReference": "SddsFinAiTheme.typography.displayMBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 56.0,
+            "lineHeight": 62.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.m.bold",
+         "displayName": "DisplayM B",
+         "description": "typography s display-m-bold",
+         "reference": "DisplayMBold",
+         "themeReference": "SddsFinAiTheme.typography.displayMBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 56.0,
+            "lineHeight": 62.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-s.display.m.medium",
          "displayName": "DisplayM M",
          "description": "typography s display-m-medium",
@@ -108794,6 +109690,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 56.0,
+            "lineHeight": 62.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.m.medium",
+         "displayName": "DisplayM M",
+         "description": "typography s display-m-medium",
+         "reference": "DisplayMMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayMMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 56.0,
+            "lineHeight": 62.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.m.medium",
+         "displayName": "DisplayM M",
+         "description": "typography s display-m-medium",
+         "reference": "DisplayMMedium",
+         "themeReference": "SddsFinAiTheme.typography.displayMMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 56.0,
+            "lineHeight": 62.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.m.normal",
+         "displayName": "DisplayM N",
+         "description": "typography s display-m",
+         "reference": "DisplayMNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayMNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 56.0,
+            "lineHeight": 62.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.m.normal",
+         "displayName": "DisplayM N",
+         "description": "typography s display-m",
+         "reference": "DisplayMNormal",
+         "themeReference": "SddsFinAiTheme.typography.displayMNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 56.0,
             "lineHeight": 62.0,
@@ -108834,6 +109794,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-s.display.s.bold",
+         "displayName": "DisplayS B",
+         "description": "typography s display-s-bold",
+         "reference": "DisplaySBold",
+         "themeReference": "SddsFinAiTheme.typography.displaySBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 40.0,
+            "lineHeight": 46.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.s.bold",
+         "displayName": "DisplayS B",
+         "description": "typography s display-s-bold",
+         "reference": "DisplaySBold",
+         "themeReference": "SddsFinAiTheme.typography.displaySBold",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 40.0,
+            "lineHeight": 46.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-s.display.s.medium",
          "displayName": "DisplayS M",
          "description": "typography s display-s-medium",
@@ -108842,6 +109834,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.display",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 40.0,
+            "lineHeight": 46.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.s.medium",
+         "displayName": "DisplayS M",
+         "description": "typography s display-s-medium",
+         "reference": "DisplaySMedium",
+         "themeReference": "SddsFinAiTheme.typography.displaySMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 40.0,
+            "lineHeight": 46.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.s.medium",
+         "displayName": "DisplayS M",
+         "description": "typography s display-s-medium",
+         "reference": "DisplaySMedium",
+         "themeReference": "SddsFinAiTheme.typography.displaySMedium",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 40.0,
+            "lineHeight": 46.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.s.normal",
+         "displayName": "DisplayS N",
+         "description": "typography s display-s",
+         "reference": "DisplaySNormal",
+         "themeReference": "SddsFinAiTheme.typography.displaySNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
+            "fontStyle": "normal",
+            "textSize": 40.0,
+            "lineHeight": 46.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.display.s.normal",
+         "displayName": "DisplayS N",
+         "description": "typography s display-s",
+         "reference": "DisplaySNormal",
+         "themeReference": "SddsFinAiTheme.typography.displaySNormal",
+         "value": {
+            "fontFamilyRef": "fontFamily.display",
+            "fontWeight": 300,
             "fontStyle": "normal",
             "textSize": 40.0,
             "lineHeight": 46.0,
@@ -109602,6 +110658,38 @@
       },
       {
          "type": "typography",
+         "name": "screen-s.header.h6.bold",
+         "displayName": "HeaderH6 B",
+         "description": "typography s header-h6-bold",
+         "reference": "HeaderH6Bold",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Bold",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.header.h6.bold",
+         "displayName": "HeaderH6 B",
+         "description": "typography s header-h6-bold",
+         "reference": "HeaderH6Bold",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Bold",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 600,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
          "name": "screen-s.header.h6.medium",
          "displayName": "HeaderH6 M",
          "description": "typography s header-h6-medium",
@@ -109610,6 +110698,70 @@
          "value": {
             "fontFamilyRef": "fontFamily.header",
             "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.header.h6.medium",
+         "displayName": "HeaderH6 M",
+         "description": "typography s header-h6-medium",
+         "reference": "HeaderH6Medium",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Medium",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.header.h6.medium",
+         "displayName": "HeaderH6 M",
+         "description": "typography s header-h6-medium",
+         "reference": "HeaderH6Medium",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Medium",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 500,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.header.h6.normal",
+         "displayName": "HeaderH6 N",
+         "description": "typography s header-h6",
+         "reference": "HeaderH6Normal",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Normal",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 400,
+            "fontStyle": "normal",
+            "textSize": 10.0,
+            "lineHeight": 14.0,
+            "letterSpacing": 0.0
+         }
+      },
+      {
+         "type": "typography",
+         "name": "screen-s.header.h6.normal",
+         "displayName": "HeaderH6 N",
+         "description": "typography s header-h6",
+         "reference": "HeaderH6Normal",
+         "themeReference": "SddsFinAiTheme.typography.headerH6Normal",
+         "value": {
+            "fontFamilyRef": "fontFamily.header",
+            "fontWeight": 400,
             "fontStyle": "normal",
             "textSize": 10.0,
             "lineHeight": 14.0,
