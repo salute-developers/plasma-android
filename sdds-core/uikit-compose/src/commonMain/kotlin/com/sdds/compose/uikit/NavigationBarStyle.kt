@@ -138,12 +138,12 @@ interface NavigationBarStyleBuilder : StyleBuilder<NavigationBarStyle> {
         titleStyle(titleStyle.asStatefulValue())
 
     /**
-     * Устанавливает стиль описания по умолчанию [titleStyle]
+     * Устанавливает стиль описания по умолчанию [descriptionStyle]
      */
     fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): NavigationBarStyleBuilder
 
     /**
-     * Устанавливает стиль описания по умолчанию [titleStyle]
+     * Устанавливает стиль описания по умолчанию [descriptionStyle]
      */
     fun descriptionStyle(descriptionStyle: TextStyle): NavigationBarStyleBuilder =
         descriptionStyle(descriptionStyle.asStatefulValue())
