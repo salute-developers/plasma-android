@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -13,12 +12,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.backgroundBrush
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.toolbar.ToolBarMotionStyle
+import com.sdds.compose.uikit.motion.components.toolbar.rememberToolBarMotion
+import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.compose.uikit.shadow.shadow
 
 /**
@@ -41,40 +50,75 @@ fun ToolBar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: ToolBarScope.() -> Unit,
 ) {
-    val background = style.colors.backgroundColor.getValue(interactionSource)
+    ToolBar(
+        hasDivider = hasDivider,
+        motion = rememberToolBarMotion(motionContext = rememberMotionContext(interactionSource)),
+        modifier = modifier,
+        style = style,
+        orientation = orientation,
+        content = content,
+    )
+}
+
+/**
+ * Компонент - вспомогательная панель с набором инструментов для работы
+ * на основном экране
+ *
+ * @param hasDivider отображение разделителя между контентом
+ * @param motion объект анимаций
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param orientation расположение контента
+ * @param content контент.
+ */
+@Composable
+fun ToolBar(
+    hasDivider: Boolean,
+    motion: Motion<ToolBarMotionStyle>,
+    modifier: Modifier = Modifier,
+    style: ToolBarStyle = LocalToolBarStyle.current,
+    orientation: ToolBarOrientation = style.orientation,
+    content: ToolBarScope.() -> Unit,
+) {
+    val background = style.colors.backgroundColor.getBrushAsState(motion.context, motion.style.background)
+    val shape by style.shapes.getValueAsState(motion.context)
     val scope = remember { ToolBarScopeImpl() }
     scope.content()
+    scope.finish()
     if (scope.sections.isEmpty()) return
+    val start by style.dimensions.paddingStartValues.getValueAsState(motion.context)
+    val top by style.dimensions.paddingTopValues.getValueAsState(motion.context)
+    val end by style.dimensions.paddingEndValues.getValueAsState(motion.context)
+    val bottom by style.dimensions.paddingBottomValues.getValueAsState(motion.context)
     Box(
         modifier = modifier
-            .shadow(style.shadow, style.shape)
-            .background(
-                brush = background,
-                shape = style.shape,
+            .shadow(style.shadow, shape)
+            .backgroundBrush(
+                brushProducer = { background.value },
+                shape = shape,
             )
-            .padding(
-                style.dimensions.paddingStart,
-                style.dimensions.paddingTop,
-                style.dimensions.paddingEnd,
-                style.dimensions.paddingBottom,
-            ),
-
+            .padding(start, top, end, bottom),
     ) {
+        val sectionGap = style.dimensions.sectionPaddingValues.getValueAsState(motion.context)
+        val dividerPadding = style.dimensions.dividerMarginValues.getValueAsState(motion.context)
+        // Снимок секций: дочерние scope могут рекомпоноваться независимо от ToolBar
+        // (например, при изменении sectionGap/dividerPadding), когда список уже пересобран
+        val sections = scope.sections.toList()
         when (orientation) {
-            ToolBarOrientation.Vertical -> VerticalContent(hasDivider, style, scope)
-            else -> HorizontalContent(hasDivider, style, scope)
+            ToolBarOrientation.Vertical -> VerticalContent(hasDivider, style, sections, sectionGap, dividerPadding)
+            else -> HorizontalContent(hasDivider, style, sections, sectionGap, dividerPadding)
         }
     }
-    scope.reset()
 }
 
 @Composable
 private fun VerticalContent(
     hasDivider: Boolean,
     style: ToolBarStyle,
-    scope: ToolBarScopeImpl,
+    sections: List<ToolBarScopeImpl.ToolBarItem>,
+    sectionGap: State<Dp>,
+    dividerPadding: State<Dp>,
 ) {
-    val space = style.dimensions.sectionPadding
     Column(
         modifier = Modifier
             .width(IntrinsicSize.Min),
@@ -83,11 +127,13 @@ private fun VerticalContent(
         CompositionLocalProvider(
             LocalDividerStyle provides style.dividerStyle,
         ) {
-            scope.sections.forEachIndexed { index, item ->
-                val paddingValues = if (scope.sections.size > 1) {
+            val space = sectionGap.value
+            val padding = dividerPadding.value
+            sections.forEachIndexed { index, item ->
+                val paddingValues = if (sections.size > 1) {
                     when (item) {
-                        scope.sections.first() -> PaddingValues(bottom = space)
-                        scope.sections.last() -> PaddingValues(top = space)
+                        sections.first() -> PaddingValues(bottom = space)
+                        sections.last() -> PaddingValues(top = space)
                         else -> PaddingValues(vertical = space)
                     }
                 } else {
@@ -96,10 +142,10 @@ private fun VerticalContent(
                 Box(
                     modifier = Modifier.padding(paddingValues = paddingValues),
                 ) { item.movableContent.invoke() }
-                if (hasDivider && index < scope.sections.lastIndex) {
+                if (hasDivider && index < sections.lastIndex) {
                     Divider(
                         modifier = Modifier
-                            .padding(horizontal = style.dimensions.dividerMargin),
+                            .padding(horizontal = padding),
                         orientation = DividerOrientation.Horizontal,
                     )
                 }
@@ -112,19 +158,22 @@ private fun VerticalContent(
 private fun HorizontalContent(
     hasDivider: Boolean,
     style: ToolBarStyle,
-    scope: ToolBarScopeImpl,
+    sections: List<ToolBarScopeImpl.ToolBarItem>,
+    sectionGap: State<Dp>,
+    dividerPadding: State<Dp>,
 ) {
-    val space = style.dimensions.sectionPadding
     Row(
         modifier = Modifier
             .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        scope.sections.forEachIndexed { index, item ->
-            val paddingValues = if (scope.sections.size > 1) {
+        val space = sectionGap.value
+        val padding = dividerPadding.value
+        sections.forEachIndexed { index, item ->
+            val paddingValues = if (sections.size > 1) {
                 when (item) {
-                    scope.sections.first() -> PaddingValues(end = space)
-                    scope.sections.last() -> PaddingValues(start = space)
+                    sections.first() -> PaddingValues(end = space)
+                    sections.last() -> PaddingValues(start = space)
                     else -> PaddingValues(horizontal = space)
                 }
             } else {
@@ -135,11 +184,11 @@ private fun HorizontalContent(
             ) {
                 Box(
                     modifier = Modifier.padding(paddingValues = paddingValues),
-                ) { item.content.invoke() }
-                if (hasDivider && index < scope.sections.lastIndex) {
+                ) { item.movableContent.invoke() }
+                if (hasDivider && index < sections.lastIndex) {
                     Divider(
                         modifier = Modifier
-                            .padding(vertical = style.dimensions.dividerMargin),
+                            .padding(vertical = padding),
                         orientation = DividerOrientation.Vertical,
                     )
                 }
@@ -161,18 +210,36 @@ interface ToolBarScope {
 
 private class ToolBarScopeImpl : ToolBarScope {
     val sections = mutableListOf<ToolBarItem>()
+    private var index = 0
+
     override fun section(content: @Composable () -> Unit) {
-        sections.add(ToolBarItem(content))
+        // Переиспользуем элемент по индексу: идентичность movableContent должна быть
+        // стабильной между рекомпозициями, иначе состояние (remember) внутри секции
+        // будет сбрасываться при каждой рекомпозиции ToolBar
+        if (index < sections.size) {
+            sections[index].content = content
+        } else {
+            sections.add(ToolBarItem(content))
+        }
+        index++
     }
 
-    fun reset() {
-        sections.clear()
+    /**
+     * Завершает сбор секций текущей рекомпозиции: отбрасывает лишние элементы
+     * (если секций стало меньше) и сбрасывает счётчик.
+     */
+    fun finish() {
+        if (sections.size > index) {
+            sections.subList(index, sections.size).clear()
+        }
+        index = 0
     }
 
     class ToolBarItem(
-        val content: @Composable () -> Unit,
+        content: @Composable () -> Unit,
     ) {
-        val movableContent = movableContentOf(content)
+        var content: @Composable () -> Unit = content
+        val movableContent = movableContentOf { this.content() }
     }
 }
 

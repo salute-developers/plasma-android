@@ -7,6 +7,7 @@ import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
@@ -189,6 +190,35 @@ fun rememberMotionContext(
         builder = builder,
     )
 }
+
+/**
+ * Проверяет является ли переданный [InteractionSource]
+ * MutableInteractionSource, в противном случая возвращает новый
+ * MutableInteractionSource(), запоминая результат.
+ *
+ */
+@Composable
+@NonRestartableComposable
+fun InteractionSource.asMutableInteractionSource(): MutableInteractionSource =
+    remember(this) { this as? MutableInteractionSource ?: MutableInteractionSource() }
+
+/**
+ * Создаёт и запоминает [MotionContext].
+ *
+ * @param interactionSource источник интеракций компонента.
+ * @param label метка для отладки.
+ * @param builder дополнительная настройка каналов интерполяции и снимков состояний.
+ */
+@Composable
+fun rememberMotionContext(
+    interactionSource: InteractionSource,
+    label: String? = null,
+    builder: MotionContextBuilderScope.() -> Unit = {},
+): MotionContext = rememberMotionContext(
+    interactionSource = interactionSource.asMutableInteractionSource(),
+    label = label,
+    builder = builder,
+)
 
 @Immutable
 private class SimpleMotionContext(
