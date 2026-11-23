@@ -1,10 +1,11 @@
+import {previewBuildId} from './core-release-policy.mjs';
 // Проверяет состав и идентификацию распакованного production artifact без браузера: бэкенд DSB сверяет те же
 // поля при публикации, поэтому расхождение лучше увидеть до отправки.
 import {createHash} from "node:crypto";
 import {existsSync, readFileSync, readdirSync} from "node:fs";
 import {join} from "node:path";
 
-const [artifactDirectory, expectedUikitComposeVersion] = process.argv.slice(2);
+const [artifactDirectory, expectedUikitComposeVersion, expectedCommit] = process.argv.slice(2);
 const problems = [];
 const problem = (text) => problems.push(text);
 
@@ -26,9 +27,11 @@ const manifestBytes = read("preview-plugin.json");
 const metaBytes = read("api-meta.json");
 if (manifestBytes && metaBytes) {
     const manifest = JSON.parse(manifestBytes.toString("utf8"));
+    if (expectedCommit && manifest.commit !== expectedCommit) problem(`commit не совпадает с фактическим HEAD: ${manifest.commit}`);
     if (!/^[0-9a-f]{40}$/.test(manifest.commit ?? "")) problem(`commit не является sha коммита: ${manifest.commit}`);
-    if (manifest.version !== String(manifest.commit).slice(0, 12)) {
-        problem(`version ${manifest.version} не равна первым 12 символам commit ${manifest.commit}`);
+    if (manifest.version !== String(manifest.commit).slice(0, 12) &&
+        manifest.version !== previewBuildId(manifest.commit, 'uikit-compose', 'compose', manifest.uikitComposeVersion)) {
+        problem('version не соответствует базовому коммиту и версии Core');
     }
     if (!/^\d+\.\d+\.\d+([-+][0-9A-Za-z.-]+)?$/.test(manifest.uikitComposeVersion ?? "")) {
         problem(`uikitComposeVersion не является семантической версией: ${manifest.uikitComposeVersion}`);
@@ -36,6 +39,9 @@ if (manifestBytes && metaBytes) {
     if (expectedUikitComposeVersion && manifest.uikitComposeVersion !== expectedUikitComposeVersion) {
         problem(`uikitComposeVersion ${manifest.uikitComposeVersion}, а gradle.properties uikit-compose даёт ${expectedUikitComposeVersion}`);
     }
+    if (manifest.coreRelease?.libraryId !== 'uikit-compose' || manifest.coreRelease?.platform !== 'compose' ||
+        manifest.coreRelease?.version !== manifest.uikitComposeVersion) problem('Некорректные координаты coreRelease');
+    if (!/^[0-9a-f]{64}$/.test(manifest.apiMetaSha256 ?? '')) problem('apiMetaSha256 должен быть lowercase SHA-256');
     const actual = createHash("sha256").update(metaBytes).digest("hex");
     if (manifest.apiMetaSha256 !== actual) {
         problem(`apiMetaSha256 ${manifest.apiMetaSha256} не совпадает с sha256 файла api-meta.json ${actual}`);

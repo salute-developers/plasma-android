@@ -61,8 +61,8 @@ Manifest содержит поля, которые бэкенд сверяет �
 | Поле | Значение |
 |---|---|
 | `commit` | полный sha коммита сборки |
-| `version` | первые 12 символов `commit`, идентификатор билда |
-| `uikitComposeVersion` | версия из `sdds-core/uikit-compose/gradle.properties` |
+| `version` | первые 12 hex SHA-256 от commit и координат Core, идентификатор билда |
+| `uikitComposeVersion` | эффективная `coreVersion` либо dev-версия на базе HEAD |
 | `apiMetaSha256` | sha256 файла `api-meta.json` из архива |
 
 Версия `uikit-compose` — метка: плагин собирается из локальных исходников коммита, на `develop` они могут
@@ -84,7 +84,7 @@ Manifest содержит поля, которые бэкенд сверяет �
 ```bash
 export DSBUILDER_CLIENT_ID=dsbuilder-preview-publisher
 export DSBUILDER_CLIENT_SECRET=dev-preview-publisher-secret
-dsbuilder preview-plugin publish --platform compose \
+dsbuilder preview-plugin publish --platform compose --channel dev \
   --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
   --api-url http://localhost:8080 --apply
 ```
@@ -326,3 +326,85 @@ Browser test использует headless Chrome (с программным Web
   только исходному sender/origin.
 - Host отвечает за sandbox/CSP iframe, проверку `event.source`, `event.origin` и совместимости
   manifest.
+
+## Поставка Core в DS Builder
+
+Канал задаётся при загрузке обязательным `--channel stable|dev`, независимо от ZIP и URL сервера.
+Сборка не выбирает канал. `-PcoreVersion` задаёт одинаковую версию в
+`uikitComposeVersion` и `coreRelease.version`; без параметра используется
+`<baseVersion>-dev.<полный HEAD>`. Для новой меты без коммита задайте новую версию:
+
+```bash
+./gradlew -p integration-core :preview-compose-plugin:previewPluginArtifact \
+  -PcoreVersion=0.57.0-dev.local.2
+dsbuilder preview-plugin publish --platform compose --channel dev \
+  --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
+  --api-url http://localhost:8080 --apply
+```
+
+Build ID детерминированно зависит от базового HEAD и координат Core; новая версия
+получает отдельный ID без коммита. Повтор сборки той же комбинации сохраняет ID.
+`previewCommit` указывает на настоящий HEAD, но не доказывает отсутствие локальных
+изменений. Gradle и CLI не требуют чистого Git-дерева. Версии Maven не меняются.
+Проверка релизного источника stable принадлежит CI. Сборка сама ничего не загружает.
+Сервер сохраняет неизменяемость Core-координат, меты и зарегистрированного канала.
+
+`api-meta.json` остаётся исходным массивом из JVM-ресурса UIKit; его байты и SHA-256 не нормализуются.
+Поле `components` описывает рендеримые истории и не фильтрует мету.
+Новая версия Core добавляется в каталог DS Builder. Для каждой платформы любой ДС
+в настройках выбираются канал stable/dev и конкретная версия (pinned) либо latest —
+«Последняя (номер версии)» в списке. Новый импорт обновляет только latest-черновики
+соответствующего канала; pinned и опубликованные версии сохраняют свой Core.
+Повторный импорт и preview B2 не продвигают Core. Producer всегда передаёт
+конкретные координаты: latest не используется в manifest, Gradle-версии или мете.
+Следующий черновик наследует политику выбора; локальные сохранённые снимки
+продолжают работать с конкретным Core без разрешения latest на сервере.
+
+Проверки контракта без Wasm: `node --test src/browserTest/core-release-*.test.mjs`
+из каталога модуля либо `./gradlew -p integration-core :preview-compose-plugin:verifyCoreReleasePolicy`.
+Эти модульные фикстуры проверяют validator и не являются реальными A/B-артефактами.
+Полная проверка требует настоящих `previewPluginArtifact`, `verifyPreviewPluginArtifact`
+и `previewPluginBrowserTest` из тех же исходников.
+
+Смена Core-версии меняет ZIP и build ID. Канал загрузки не меняет архив.
+Старые ZIP с Core-координатами поддерживаются; их поле channel игнорируется.
+Для архивов без Core-координат нужна пересборка.
+CI не отправляет артефакты, пока переменная `DSB_CORE_RELEASE_CLI_VERSION` не указывает
+на выпущенный CLI с поддержкой этого контракта. Старый `cli-v0.1.0` не подставляется.
+
+### Когда задавать coreVersion
+
+`-PcoreVersion` — версия Core, которому принадлежат мета и preview, а не отдельная
+версия плагина. Параметр не публикует Maven-библиотеку и не меняет её версию.
+
+- Для обычной локальной сборки параметр можно опустить: используется
+  `<baseVersion>-dev.<полный HEAD>`.
+- Если изменилась мета без нового коммита, задайте новую `coreVersion` явно:
+  мета уже зарегистрированного Core неизменяема.
+- Если изменился только preview, используйте прежнюю `coreVersion`. Для
+  незакреплённой dev-сборки обычная загрузка заменит файлы под тем же build ID.
+- Для stable или preview, закреплённого опубликованной ДС, замена запрещена:
+  новая preview-сборка требует нового build ID. Новый commit при той же
+  `coreVersion` даёт новый ID; опубликованные ДС сохраняют прежнюю сборку,
+  черновики используют последнюю совместимую сборку того же Core.
+
+Канал выбирается только при загрузке: обязательным `--channel dev|stable`.
+
+### Замена локальной dev-сборки
+
+Если изменился только preview, а Core и исходная мета остались прежними, незакреплённая
+сборка заменяется обычной загрузкой под тем же build ID:
+
+```bash
+dsbuilder preview-plugin publish --platform compose --channel dev \
+  --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
+  --api-url http://localhost:8080 --apply
+```
+
+Без `--apply` выполняется только проверка. Замена разрешена только для dev; опубликованная ДС закрепляет
+сборку и запрещает её замену. Для изменённого API/меты нужна новая версия Core.
+При успешной замене сервер возвращает `outcome=replaced` и новый URL при прежнем build ID.
+Новый каталог файлов становится доступным целиком, затем прежний удаляется; браузер
+получает новую редакцию после перезагрузки страницы. Редакции не накапливаются как
+постоянные сборки S3. Ошибки очистки подбираются последующими загрузками.
+Gradle сам ничего не загружает; загрузка CLI выполняется явно.

@@ -18,5 +18,10 @@
     "describeMessageType": "sdds.preview.describe",
     "descriptionMessageType": "sdds.preview.description"
   },
-  "components": []
+  "components": [],
+  "coreRelease": {
+    "libraryId": "uikit-compose",
+    "platform": "compose",
+    "version": ""
+  }
 }

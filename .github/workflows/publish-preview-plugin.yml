@@ -38,6 +38,15 @@ on:
       ref:
         description: 'Ветка, тэг или коммит (по умолчанию выбранный ref запуска)'
         required: false
+      core_channel:
+        description: 'Канал Core (не зависит от окружения DS Builder)'
+        type: choice
+        options: [dev, stable]
+        required: true
+        default: dev
+      core_version:
+        description: 'Версия Core: обязательна для stable, dev по умолчанию baseVersion-dev.fullSHA'
+        required: false
       apply:
         description: 'Записать билд (без этого выполняется только пробная отправка)'
         type: boolean
@@ -45,7 +54,7 @@ on:
 
 env:
   # Версия CLI закрепляется осознанно: релиз `cli-vX.Y.Z` репозитория design-system-builder.
-  DSB_CLI_VERSION: cli-v0.1.0
+  DSB_CLI_VERSION: ${{ vars.DSB_CORE_RELEASE_CLI_VERSION }}
   DSB_CLI_REPOSITORY: salute-developers/design-system-builder
 
 jobs:
@@ -57,6 +66,8 @@ jobs:
       ref: ${{ steps.target.outputs.ref }}
       apply: ${{ steps.target.outputs.apply }}
       enabled: ${{ steps.target.outputs.enabled }}
+      channel: ${{ steps.target.outputs.channel }}
+      core_version: ${{ steps.target.outputs.core_version }}
     steps:
       - name: Выбрать окружение, ref и режим записи
         id: target
@@ -66,18 +77,31 @@ jobs:
           INPUT_TARGET: ${{ inputs.target }}
           INPUT_REF: ${{ inputs.ref }}
           INPUT_APPLY: ${{ inputs.apply }}
+          INPUT_CHANNEL: ${{ inputs.core_channel }}
+          INPUT_CORE_VERSION: ${{ inputs.core_version }}
+          CORE_RELEASE_CLI: ${{ vars.DSB_CORE_RELEASE_CLI_VERSION }}
           PROM_ENABLED: ${{ vars.DSB_PUBLISH_PROM_ENABLED }}
           DEV_ENABLED: ${{ vars.DSB_PUBLISH_DEV_ENABLED }}
         run: |
           case "$EVENT" in
             push)
-              target=dev; ref="$GITHUB_SHA"; apply=true ;;
+              target=dev; ref="$GITHUB_SHA"; apply=true; channel=dev ;;
             repository_dispatch)
-              target=prom; ref="$DISPATCH_TAG"; apply=true ;;
+              [ -n "$DISPATCH_TAG" ] || { echo "Требуется релизный тег UIKit"; exit 1; }
+              target=prom; ref="refs/tags/${DISPATCH_TAG#refs/tags/}"; apply=true; channel=stable ;;
             *)
-              target="$INPUT_TARGET"; ref="${INPUT_REF:-$GITHUB_SHA}"; apply="$INPUT_APPLY" ;;
+              target="$INPUT_TARGET"; ref="${INPUT_REF:-$GITHUB_SHA}"; apply="$INPUT_APPLY"; channel="$INPUT_CHANNEL" ;;
           esac
           enabled=true
+          # Старый CLI не поддерживает Core-релизы. До выпуска совместимого CLI отправка выключена.
+          if [ -z "$CORE_RELEASE_CLI" ]; then enabled=false; fi
+          case "$channel" in dev|stable) ;; *) echo 'Требуется явный канал Core'; exit 1 ;; esac
+          if [ "$EVENT" = "workflow_dispatch" ] && [ "$channel" = "stable" ] && [ -z "$INPUT_CORE_VERSION" ]; then
+            echo 'Для ручной stable-поставки задайте core_version'; exit 1
+          fi
+          if [ "$channel" = "stable" ] && [[ "$ref" != refs/tags/* ]]; then
+            echo 'Stable Core требует refs/tags/<UIKit release>'; exit 1
+          fi
           # Пока бэкенд prom не выкатил публикацию, шаг для prom выключен переменной репозитория.
           if [ "$target" = "prom" ] && [ "$PROM_ENABLED" != "true" ]; then enabled=false; fi
           # Автоматическая публикация на dev по push в develop выключена, пока не заданы секреты и релиз CLI;
@@ -88,6 +112,8 @@ jobs:
             echo "ref=$ref"
             echo "apply=$apply"
             echo "enabled=$enabled"
+            echo "channel=$channel"
+            echo "core_version=$INPUT_CORE_VERSION"
           } >> "$GITHUB_OUTPUT"
 
   publish:
@@ -102,6 +128,9 @@ jobs:
     env:
       TARGET: ${{ needs.prepare.outputs.target }}
       APPLY: ${{ needs.prepare.outputs.apply }}
+      CORE_CHANNEL: ${{ needs.prepare.outputs.channel }}
+      CORE_VERSION: ${{ needs.prepare.outputs.core_version }}
+      CORE_SOURCE_REF: ${{ needs.prepare.outputs.ref }}
       DSB_API_URL: ${{ needs.prepare.outputs.target == 'prom' && secrets.DSB_API_URL_PROM || secrets.DSB_API_URL_DEV }}
       DSBUILDER_CLIENT_ID: ${{ needs.prepare.outputs.target == 'prom' && secrets.DSB_CLIENT_ID_PROM || secrets.DSB_CLIENT_ID_DEV }}
       DSBUILDER_CLIENT_SECRET: ${{ needs.prepare.outputs.target == 'prom' && secrets.DSB_CLIENT_SECRET_PROM || secrets.DSB_CLIENT_SECRET_DEV }}
@@ -123,7 +152,16 @@ jobs:
 
       - name: Build and verify the plugin artifact
         run: |
+          base_version=$(python3 -c 'from pathlib import Path; v=dict(line.split("=",1) for line in Path("sdds-core/uikit-compose/gradle.properties").read_text().splitlines() if "=" in line); print(".".join(v[k].strip() for k in ["versionMajor","versionMinor","versionPatch"]))')
+          if [ "$CORE_CHANNEL" = "dev" ]; then
+            core_version="${CORE_VERSION:-$base_version-dev.$(git rev-parse HEAD)}"
+          else
+            core_version="${CORE_VERSION:-$base_version}"
+            [ "$core_version" = "$base_version" ] || { echo 'Stable version must match UIKit'; exit 1; }
+            [[ "$CORE_SOURCE_REF" =~ ^refs/tags/release-[0-9]{2}-[0-9]{2}-[0-9]{4}$ ]] || { echo 'Stable requires UIKit release tag'; exit 1; }
+          fi
           ./gradlew -p integration-core \
+            -PcoreVersion="$core_version" \
             :preview-compose-plugin:jvmTest \
             :preview-compose-plugin:previewPluginArtifact \
             :preview-compose-plugin:previewPluginBrowserTest \
@@ -145,11 +183,11 @@ jobs:
         run: |
           dsbuilder preview-plugin publish --platform compose \
             --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
-            --api-url "$DSB_API_URL"
+            --api-url "$DSB_API_URL" --channel "$CORE_CHANNEL"
 
       - name: Publish
         if: env.APPLY == 'true'
         run: |
           dsbuilder preview-plugin publish --platform compose \
             --from integration-core/preview-compose-plugin/build/distributions/preview-compose-plugin.zip \
-            --api-url "$DSB_API_URL" --apply
+            --api-url "$DSB_API_URL" --channel "$CORE_CHANNEL" --apply
