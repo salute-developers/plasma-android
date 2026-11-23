@@ -38,6 +38,7 @@ import com.sdds.uikit.internal.base.set
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.focusselector.withoutFocusedIfWindowUnfocused
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
@@ -434,6 +435,13 @@ open class Button @JvmOverloads constructor(
         updateFocusSelector(this, focused)
     }
 
+    override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
+        super.onWindowFocusChanged(hasWindowFocus)
+        if (settings.windowFocusResponsive && isFocused) {
+            updateFocusSelector(this, hasWindowFocus)
+        }
+    }
+
     override fun setPressed(pressed: Boolean) {
         if (isPressed != pressed) {
             handlePressedChange(this, pressed)
@@ -489,6 +497,9 @@ open class Button @JvmOverloads constructor(
         }
         val loadingState = if (isLoading) R.attr.sd_state_loading else -R.attr.sd_state_loading
         mergeDrawableStates(drawableState, intArrayOf(loadingState))
+        if (isAttachedToWindow && settings.windowFocusResponsive) {
+            return drawableState.withoutFocusedIfWindowUnfocused(this)
+        }
         return drawableState
     }
 

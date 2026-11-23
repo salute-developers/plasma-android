@@ -17,6 +17,7 @@ import com.sdds.uikit.internal.base.TextAppearance
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.focusselector.withoutFocusedIfWindowUnfocused
 import com.sdds.uikit.shader.CachedShaderFactory
 import com.sdds.uikit.statelist.AnimatedStateManagerHolder
 import com.sdds.uikit.statelist.AnimationConfig
@@ -199,6 +200,13 @@ open class TextView @JvmOverloads constructor(
         updateFocusSelector(this, focused)
     }
 
+    override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
+        super.onWindowFocusChanged(hasWindowFocus)
+        if (settings.windowFocusResponsive && isFocused) {
+            updateFocusSelector(this, hasWindowFocus)
+        }
+    }
+
     override fun setPressed(pressed: Boolean) {
         if (isPressed != pressed) {
             handlePressedChange(this, pressed)
@@ -213,6 +221,9 @@ open class TextView @JvmOverloads constructor(
         }
         if (colorState?.isDefined() == true) {
             mergeDrawableStates(drawableState, colorState?.attrs)
+        }
+        if (isAttachedToWindow && settings.windowFocusResponsive) {
+            return drawableState.withoutFocusedIfWindowUnfocused(this)
         }
         return drawableState
     }
