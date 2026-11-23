@@ -22,11 +22,17 @@ val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factori
 val generatedGroupsFile = layout.buildDirectory.file("generated/preview-groups/preview-groups.json")
 val generatePreviewFactories = tasks.named("generateComposePreview")
 val generatedApiMetaDir = layout.buildDirectory.dir("generated/preview-api-meta")
+val previewActualCommit = providers.exec {
+    commandLine("git", "rev-parse", "HEAD")
+    workingDir = layout.projectDirectory.asFile
+}.standardOutput.asText.map { it.trim() }
+val coreVersion = providers.gradleProperty("coreVersion").orElse("")
 val uikitComposeProperties = layout.projectDirectory.file("../../sdds-core/uikit-compose/gradle.properties")
 
 // Мета, по которой `generateComposePreview` строит фабрики плагина: тот же ресурс JVM-артефакта uikit-compose. Она
 // входит в артефакт, и бэкенд DSB импортирует из неё компоненты, поэтому плагин и мета одного билда совпадают.
 val extractPreviewApiMeta by tasks.registering(Copy::class) {
+    dependsOn(provider { previewApiMeta })
     group = "build"
     description = "Извлекает api-meta.json uikit-compose, из которой собран плагин, для включения в артефакт."
     from(provider { zipTree(previewApiMeta.files.single { it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.") }) }) {
@@ -66,20 +72,17 @@ val generatePreviewManifest by tasks.registering {
     val commitOverride = providers.gradleProperty("previewCommit")
     // Фактический HEAD разрешается при конфигурации и входит в задачу: после перехода на другой коммит manifest
     // пересоздаётся, даже если остальные входы не изменились.
-    val resolvedCommit = commitOverride.orElse(
-        providers.exec {
-            commandLine("git", "rev-parse", "HEAD")
-            workingDir = layout.projectDirectory.asFile
-            isIgnoreExitValue = true
-        }.standardOutput.asText.map { it.trim() },
-    )
+    val resolvedCommit = commitOverride.orElse(previewActualCommit)
     inputs.file(apiMeta)
     inputs.file(versionProperties)
     inputs.property("commit", resolvedCommit)
+    inputs.property("actualSourceCommit", previewActualCommit)
+    inputs.property("coreVersion", coreVersion)
     val template = layout.projectDirectory.file("src/manifest/preview-plugin.template.json")
     val components = generatedFactoriesDir.map { it.file("components.txt") }
     val output = generatedManifestDir
     inputs.file(template)
+    inputs.file(layout.projectDirectory.file("src/browserTest/core-release-policy.mjs"))
     val groupsFile = generatedGroupsFile
     inputs.file(components)
     inputs.file(groupsFile)
@@ -94,13 +97,32 @@ val generatePreviewManifest by tasks.registering {
         check(Regex("^[0-9a-f]{40}$").matches(commit)) {
             "Не удалось определить коммит сборки (git rev-parse HEAD вернул '$commit'); задайте -PpreviewCommit=<sha>"
         }
+        check(commit == previewActualCommit.get()) { "previewCommit должен совпадать с настоящим HEAD исходников" }
         val versionValues = Properties().apply { versionProperties.asFile.inputStream().use { load(it) } }
         val uikitComposeVersion = listOf("versionMajor", "versionMinor", "versionPatch").joinToString(".") {
             requireNotNull(versionValues.getProperty(it)) { "В ${versionProperties.asFile} нет $it" }
         }
         manifest["commit"] = commit
-        manifest["version"] = commit.take(12)
-        manifest["uikitComposeVersion"] = uikitComposeVersion
+        val policyInput = groovy.json.JsonOutput.toJson(mapOf(
+            "version" to coreVersion.get(), "baseVersion" to uikitComposeVersion,
+            "commit" to commit, "actualCommit" to previewActualCommit.get(),
+        ))
+        val policy = providers.exec {
+            commandLine("node", "src/browserTest/core-release-policy.mjs", "--resolve", policyInput)
+            workingDir = layout.projectDirectory.asFile
+            isIgnoreExitValue = true
+        }
+        check(policy.result.get().exitValue == 0) {
+            policy.standardError.asText.get().trim().ifBlank { "Не удалось проверить происхождение Core" }
+        }
+        val selectedJson = policy.standardOutput.asText.get()
+        @Suppress("UNCHECKED_CAST")
+        val selected = groovy.json.JsonSlurper().parseText(selectedJson) as Map<String, String>
+        val coreVersion = requireNotNull(selected["version"])
+        manifest.remove("channel")
+        manifest["version"] = requireNotNull(selected["buildId"])
+        manifest["coreRelease"] = mapOf("libraryId" to "uikit-compose", "platform" to "compose", "version" to coreVersion)
+        manifest["uikitComposeVersion"] = coreVersion
         manifest["apiMetaSha256"] = MessageDigest.getInstance("SHA-256")
             .digest(apiMeta.get().asFile.readBytes())
             .joinToString("") { "%02x".format(it) }
@@ -154,6 +176,7 @@ val unpackPreviewPluginArtifact by tasks.registering(Sync::class) {
 
 // Api-мета для галереи браузерного теста: тот же ресурс JVM-артефакта uikit-compose, что и при генерации фабрик.
 val extractApiMetaForBrowserTest by tasks.registering(Copy::class) {
+    dependsOn(provider { previewApiMeta })
     from(provider { zipTree(previewApiMeta.files.single { it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.") }) }) {
         include("sdds/api/uikit-compose-api-meta.json")
         eachFile { path = "api-meta.json" }
@@ -178,7 +201,11 @@ val verifyPreviewPluginArtifact by tasks.registering(Exec::class) {
             "node",
             "src/browserTest/check-artifact.mjs",
             artifactDirectory.get().asFile.absolutePath,
-            version,
+            coreVersion.get().ifBlank {
+                val sha = providers.exec { commandLine("git", "rev-parse", "HEAD") }.standardOutput.asText.get().trim()
+                "$version-dev.$sha"
+            },
+            previewActualCommit.get(),
         )
     }
 }
@@ -259,3 +286,10 @@ kotlin {
 tasks.named("wasmJsProductionExecutableCompileSync") {
     dependsOn(cleanPreviewPluginWebpackOutput)
 }
+
+val verifyCoreReleasePolicy by tasks.registering(Exec::class) {
+    group = "verification"
+    description = "Проверяет координаты, версии и происхождение Core без сборки Wasm."
+    commandLine("node", "--test", "src/browserTest/core-release-policy.test.mjs", "src/browserTest/core-release-artifact.test.mjs", "src/browserTest/core-release-workflow.test.mjs")
+}
+tasks.named("jvmTest") { dependsOn(verifyCoreReleasePolicy) }
