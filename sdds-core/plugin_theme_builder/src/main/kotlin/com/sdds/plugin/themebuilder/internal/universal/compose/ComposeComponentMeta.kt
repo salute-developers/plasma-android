@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.universal.compose
 
+import com.sdds.plugin.themebuilder.internal.universal.StateSupport
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -13,6 +14,7 @@ internal data class ComposeComponentMeta(
     val packageName: String = "",
     val styleQualifiedName: String = "",
     val builderFunName: String = "",
+    val stateSupport: StateSupport? = null,
 )
 
 @Serializable

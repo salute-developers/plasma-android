@@ -130,17 +130,7 @@ internal abstract class PropertyMapper<
 
     protected fun List<String>.toStateEnums(): String {
         return mapNotNull { state ->
-            customStateValues[state.lowercase()] ?: interactiveStateValues[state]
+            customStateValues[state.lowercase()] ?: ComposeInteractionStates.values[state]
         }.joinToString()
-    }
-
-    private companion object {
-        val interactiveStateValues = mapOf(
-            "focused" to "InteractiveState.Focused",
-            "pressed" to "InteractiveState.Pressed",
-            "hovered" to "InteractiveState.Hovered",
-            "activated" to "InteractiveState.Activated",
-            "selected" to "InteractiveState.Selected",
-        )
     }
 }

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.universal.StateSupport
+import com.sdds.plugin.themebuilder.internal.universal.view.AndroidState
 import com.sdds.plugin.themebuilder.internal.universal.view.ApiMeta
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.decodeFromStream
@@ -42,7 +44,10 @@ internal abstract class UikitApiMetaTask : DefaultTask() {
             ?: ApiMeta()
 
         outputFile.get().asFile.outputStream().use { stream ->
-            Serializer.componentConfig.encodeToStream(meta, stream)
+            Serializer.componentConfig.encodeToStream(
+                meta.copy(stateSupport = StateSupport(AndroidState.values().map { it.key }, true)),
+                stream,
+            )
         }
     }
 

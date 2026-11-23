@@ -6,12 +6,34 @@ import com.sdds.plugin.themebuilder.internal.universal.ColorState
 import com.sdds.plugin.themebuilder.internal.universal.Gradient
 import com.sdds.plugin.themebuilder.internal.universal.SolidColor
 import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ColorPropertyMapper
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ComposeInteractionStates
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows
 import org.junit.Test
 import java.lang.reflect.InvocationTargetException
 
 class ColorPropertyMapperTest {
+
+    @Test
+    fun `все состояния экспортируемой меты преобразуются в Compose код включая сочетания`() {
+        val states = ComposeInteractionStates.values
+        val mapper = ColorPropertyMapper(stateEnum = null, themeClassName = "TestTheme")
+        for (keys in states.keys.map { listOf(it) } + listOf(states.keys.toList())) {
+            val code = mapper.map(
+                meta = colorParam(methodName = "labelColor", paramQualifiedType = INTERACTIVE_COLOR_TYPE),
+                tokenValue = SolidColor(
+                    default = "text.default.primary",
+                    states = listOf(ColorState(state = keys, value = "text.default.secondary")),
+                ),
+                variationId = "",
+            )
+            assertEquals(
+                "labelColor(TestTheme.colors.textDefaultPrimary.asInteractive(" +
+                    "setOf(${keys.joinToString { states.getValue(it) }}) to TestTheme.colors.textDefaultSecondary))",
+                code,
+            )
+        }
+    }
 
     @Test
     fun `возвращает SolidColor без состояний`() {
