@@ -3,32 +3,50 @@
 ### Requirement: WheelWidthMode enum определяет режим распределения ширины
 `WheelWidthMode` SHALL быть публичным enum в пакете `com.sdds.compose.uikit` (объявлен в `Wheel.kt`) со значениями `Auto`, `Equal`, `CenterContent`.
 
-#### Scenario: Auto является значением по умолчанию в стиле
-- **WHEN** `WheelStyle` создаётся через `WheelStyle.builder().style()` без явного вызова `widthMode`
-- **THEN** `WheelStyle.widthMode == WheelWidthMode.Auto`
+#### Scenario: Auto является значением по умолчанию
+- **WHEN** enum `WheelWidthMode` используется без явного выбора режима
+- **THEN** применяется `WheelWidthMode.Auto`
 
 #### Scenario: Builder принимает WheelWidthMode
 - **WHEN** вызывается `WheelStyle.builder().widthMode(WheelWidthMode.CenterContent).style()`
-- **THEN** возвращаемый `WheelStyle.widthMode == WheelWidthMode.CenterContent`
+- **THEN** `style.safeWidthMode() == WheelWidthMode.CenterContent`
 
-### Requirement: WheelStyle и WheelStyleBuilder предоставляют widthMode
-`WheelStyle` SHALL предоставлять свойство `widthMode: WheelWidthMode`.
+### Requirement: Значение widthMode хранится в стиле через WheelWidthModeProvider
 `WheelStyleBuilder` SHALL предоставлять метод `fun widthMode(widthMode: WheelWidthMode): WheelStyleBuilder`.
+Значение SHALL храниться вне членов интерфейса `WheelStyle`: стили текущего билда SHALL реализовать отдельный интерфейс `WheelWidthModeProvider { val widthMode: WheelWidthMode }`; чтение SHALL выполняться расширением `fun WheelStyle.safeWidthMode(): WheelWidthMode = (this as? WheelWidthModeProvider)?.widthMode ?: WheelWidthMode.Auto`.
+Член `widthMode` SHALL NOT объявляться в `WheelStyle`: обращение к отсутствующему методу у стилей, скомпилированных против предыдущих версий uikit-compose, вызвало бы `AbstractMethodError`.
 
 #### Scenario: widthMode сохраняется в стиле
 - **WHEN** вызывается `WheelStyle.builder().widthMode(WheelWidthMode.Equal).style()`
-- **THEN** `WheelStyle.widthMode == WheelWidthMode.Equal`
+- **THEN** `style.safeWidthMode() == WheelWidthMode.Equal`
+
+#### Scenario: Стиль билдера по умолчанию отдаёт Auto
+- **WHEN** стиль создан `WheelStyle.builder().style()` без вызова `widthMode`
+- **THEN** `style.safeWidthMode() == WheelWidthMode.Auto`
+
+### Requirement: Чтение ширины безопасно для стилей, скомпилированных против старых версий
+Реализации `WheelStyle`, не реализующие `WheelWidthModeProvider` (включая скомпилированные против версий uikit-compose без `WheelWidthMode`), SHALL НЕ приводить к `AbstractMethodError`: чтение выполняется проверкой типа (`as?`) без вызова методов стиля и SHALL возвращать `WheelWidthMode.Auto`.
+Старая (до-`widthMode`) перегрузка `Wheel(...)` SHALL делегировать новую, передавая `style.safeWidthMode()`, и SHALL NOT обращаться к членам, отсутствующим в старых реализациях `WheelStyle`.
+
+#### Scenario: Legacy-стиль получает Auto
+- **WHEN** в `Wheel(...)` передан объект `WheelStyle`, не реализующий `WheelWidthModeProvider`
+- **THEN** эффективный режим резолвится из `WheelWidthMode.Auto` (Mixed → CenterContent, иначе Equal)
+- **AND** исключение не выбрасывается
+
+#### Scenario: Стиль из нового билдера сохраняет режим через старую перегрузку
+- **WHEN** вызывается перегрузка `Wheel(style = S, ...)` без параметра `widthMode`, а `S.safeWidthMode() == CenterContent`
+- **THEN** эффективный режим — `CenterContent`
 
 ### Requirement: Wheel принимает параметр widthMode
-`Wheel(...)` SHALL принимать параметр `widthMode: WheelWidthMode` со значением по умолчанию `style.widthMode`.
-Явный параметр SHALL иметь приоритет над значением из стиля.
+Перегрузка `Wheel(...)` с параметром SHALL принимать `widthMode: WheelWidthMode` со значением по умолчанию `WheelWidthMode.Auto`.
+Явный параметр SHALL иметь приоритет над значением из стиля; унаследование значения стиля выполняет перегрузка без параметра через `safeWidthMode`.
 
-#### Scenario: Дефолт берётся из стиля
-- **WHEN** `Wheel(style = S)` вызывается без параметра `widthMode`
-- **THEN** компонент использует `S.widthMode`
+#### Scenario: Дефолт перегрузки с параметром — Auto
+- **WHEN** перегрузка с параметром вызывается без аргумента `widthMode`
+- **THEN** используется `WheelWidthMode.Auto` (даже если стиль задаёт иной режим)
 
 #### Scenario: Параметр переопределяет стиль
-- **WHEN** `Wheel(style = S, widthMode = WheelWidthMode.CenterContent)` вызывается, а `S.widthMode == WheelWidthMode.Equal`
+- **WHEN** `Wheel(style = S, widthMode = WheelWidthMode.CenterContent)` вызывается с явным аргументом, а `S.safeWidthMode() == WheelWidthMode.Equal`
 - **THEN** компонент использует `CenterContent`
 
 ### Requirement: Auto сохраняет прежнее поведение, привязанное к alignment

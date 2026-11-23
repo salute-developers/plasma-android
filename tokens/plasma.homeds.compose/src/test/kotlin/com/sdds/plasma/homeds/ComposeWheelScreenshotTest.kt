@@ -91,9 +91,9 @@ class ComposeWheelScreenshotTest(
     }
 
     @Test
-    fun testWheelCenterAlignCenterContentWidthMode() {
+    fun testWheelH4CenterAlignCenterContentFromStyle() {
         composeTestRule.content {
-            WheelCenterAlignCenterContentWidthMode(Wheel.H1.CenterAlign.style())
+            WheelCenterAlignCenterContentWidthMode(Wheel.H4.CenterAlign.style())
         }
     }
 }

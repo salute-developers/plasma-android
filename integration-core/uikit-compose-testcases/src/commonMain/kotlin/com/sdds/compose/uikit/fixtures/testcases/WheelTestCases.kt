@@ -15,7 +15,6 @@ import com.sdds.compose.uikit.WheelDataSet
 import com.sdds.compose.uikit.WheelItemData
 import com.sdds.compose.uikit.WheelSeparator
 import com.sdds.compose.uikit.WheelStyle
-import com.sdds.compose.uikit.WheelWidthMode
 
 /**
  * Тест-кейсы для компонента [Wheel]
@@ -297,7 +296,8 @@ fun WheelCountTwoTADescriptionDivider(style: WheelStyle) {
 }
 
 /**
- * Центральный селектор по ширине контента, крайние делят остаток ширины, контент отцентрован во всех колесах
+ * Центральный селектор по ширине контента, крайние делят остаток ширины, контент отцентрован во всех колесах.
+ * Режим ширины намеренно не задан явно — берётся из стиля (для стиля без режима — Auto)
  */
 @Composable
 fun WheelCenterAlignCenterContentWidthMode(style: WheelStyle) {
@@ -311,7 +311,6 @@ fun WheelCenterAlignCenterContentWidthMode(style: WheelStyle) {
             visibleItemsCount = 5,
             wheelSeparator = WheelSeparator.Dots,
             alignment = WheelAlignment.Center,
-            widthMode = WheelWidthMode.CenterContent,
             dataEdgePlacement = DataEdgePlacement.WheelEdge,
             onItemSelected = { _, _ -> },
             modifier = Modifier

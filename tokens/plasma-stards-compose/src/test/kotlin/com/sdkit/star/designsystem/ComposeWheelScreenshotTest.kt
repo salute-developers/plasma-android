@@ -80,7 +80,7 @@ class ComposeWheelScreenshotTest : RoborazziConfigCompose("+night") {
     }
 
     @Test
-    fun testWheelCenterAlignCenterContentWidthMode() {
+    fun testWheelH1CenterAlignWidthModeAuto() {
         composeTestRule.content {
             WheelCenterAlignCenterContentWidthMode(Wheel.H1.CenterAlign.style())
         }

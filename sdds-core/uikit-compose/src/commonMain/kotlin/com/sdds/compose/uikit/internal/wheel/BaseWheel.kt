@@ -461,12 +461,16 @@ internal fun BaseWheel(
         val viewportHeight = viewportPlaceable.height
         val descriptionPlaceable = measureDescriptionOverlay()
         val staticTextAfterPlaceable = measureStaticTextAfter()
-        val topControlPlaceable = measureControl(WheelSubcomposeSlot.TopControl, lazyColumnWidth) {
+        // Контролы мержим по ширине самого колеса (constraints.maxWidth), а не по ширине
+        // текстовой колонки: ImageVector сохраняет пропорции, поэтому ограничение по колонке
+        // сжимало иконку и по высоте, из-за чего topControlHeight/bottomControlHeight
+        // различались между колёсами и контролы уезжали с общей линии.
+        val topControlPlaceable = measureControl(WheelSubcomposeSlot.TopControl, constraints.maxWidth) {
             if (hasControls && iconUp != null && iconDown != null) {
                 TopControl(iconUp, iconUpColor) { scrollByControl(-1) }
             }
         }
-        val bottomControlPlaceable = measureControl(WheelSubcomposeSlot.BottomControl, lazyColumnWidth) {
+        val bottomControlPlaceable = measureControl(WheelSubcomposeSlot.BottomControl, constraints.maxWidth) {
             if (hasControls && iconUp != null && iconDown != null) {
                 BottomControl(iconDown, iconDownColor) { scrollByControl(1) }
             }
@@ -475,17 +479,26 @@ internal fun BaseWheel(
         val topControlHeight = topControlPlaceable?.height ?: 0
         val layoutHeight = topControlHeight + viewportHeight + (bottomControlPlaceable?.height ?: 0)
 
+        // Колесо не уже контрола, иначе иконку обрежет; контент центрируем внутри расширенного колеса.
+        val contentWidth = lazyColumnWidth
+        val layoutWidth = maxOf(
+            contentWidth,
+            topControlPlaceable?.width ?: 0,
+            bottomControlPlaceable?.width ?: 0,
+        )
+        val contentOffsetX = (layoutWidth - contentWidth) / 2
+
         layout(
-            width = lazyColumnWidth.coerceIn(constraints.minWidth, constraints.maxWidth),
+            width = layoutWidth.coerceIn(constraints.minWidth, constraints.maxWidth),
             height = layoutHeight.coerceIn(constraints.minHeight, constraints.maxHeight),
         ) {
             topControlPlaceable?.place(
-                x = alignment.getHorizontalOffset(lazyColumnWidth, topControlPlaceable.width),
+                x = alignment.getHorizontalOffset(layoutWidth, topControlPlaceable.width),
                 y = 0,
             )
-            viewportPlaceable.place(0, topControlHeight)
+            viewportPlaceable.place(contentOffsetX, topControlHeight)
             descriptionPlaceable?.place(
-                x = alignment.getBoxContentHorizontalOffset(lazyColumnWidth, descriptionPlaceable.width),
+                x = alignment.getBoxContentHorizontalOffset(layoutWidth, descriptionPlaceable.width),
                 y = topControlHeight +
                     calculateCenterOffset(viewportHeight, descriptionPlaceable.height) +
                     calculateDescriptionOverlayOffset(
@@ -496,7 +509,7 @@ internal fun BaseWheel(
                     ),
             )
             staticTextAfterPlaceable?.place(
-                x = staticTextAfterOffsetXPx,
+                x = staticTextAfterOffsetXPx + contentOffsetX,
                 y = topControlHeight + calculateSelectedLabelTopOffset(
                     viewportHeight = viewportHeight,
                     itemHeight = itemHeight,
@@ -506,7 +519,7 @@ internal fun BaseWheel(
                 ),
             )
             bottomControlPlaceable?.place(
-                x = alignment.getHorizontalOffset(lazyColumnWidth, bottomControlPlaceable.width),
+                x = alignment.getHorizontalOffset(layoutWidth, bottomControlPlaceable.width),
                 y = topControlHeight + viewportHeight,
             )
         }

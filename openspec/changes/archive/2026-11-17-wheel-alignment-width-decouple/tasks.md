@@ -1,7 +1,7 @@
 ## 0. Подготовка рабочего дерева
 
 - [x] 0.1 Удалить экспериментальное значение `WheelAlignment.MixedCentered` из `sdds-core/uikit-compose/.../Wheel.kt` (не реализовано, нет в BCV-бейзлайне)
-- [x] 0.2 Ревью прочих незакоммиченных правок — закрыто автором: подмена source theme-converter в `ThemeBuilderPlugin.kt` откачена; `tokens/plasma.homeds.compose/.../wheel/WheelStyles.kt` — не ручная правка, а легитимная перегенерация `dsBuilder` с обновлённым theme-converter (в генерации появился `.widthMode(WheelWidthMode.CenterContent)` у CenterAlign — сквозная проверка пайплайна); `wheelConstraints = Loose` из `WheelStory.kt` убран. Примечание: при откате `WheelStory.kt` изменения change'а (поле `widthMode`) были случайно удалены — восстановлены, unused-import вычищен, компиляция подтверждена
+- [x] 0.2 Ревью прочих незакоммиченных правок — закрыто автором: подмена source theme-converter в `ThemeBuilderPlugin.kt` откачена; `tokens/plasma.homeds.compose/.../wheel/WheelStyles.kt` — не ручная правка, а легитимная перегенерация `dsBuilder` с обновлённым theme-converter (в генерации появился `.widthMode(WheelWidthMode.CenterContent)` у CenterAlign — сквозная проверка пайплайна); `wheelConstraints = Loose` из `WheelStory.kt` убран. Примечание: изменения change'а в `WheelStory.kt` (поле `widthMode` в `WheelUiState`) впоследствии удалены автором осознанно — песочница должна показывать режим выбранного стиля, см. 4.3
 
 ## 1. Публичный API — sdds-core/uikit-compose
 
@@ -29,7 +29,7 @@
 
 - [x] 4.1 `uikit-compose-testcases/WheelTestCases.kt`: новый кейс `WheelCenterAlignCenterContentWidthMode` (`fillMaxWidth`, `wheelCount = 3`, `alignment = Center`, `widthMode = CenterContent`, `wheelSeparator = Dots`) — целевое макетное состояние
 - [x] 4.2 `uikit-compose-fixtures/.../wheel/WheelSamples.kt`: doc-сэмпл `Wheel_CenteredContentWidthMode` (`@DocSample(needScreenshot = true)`, три колеса «часы/минуты/секунды», `Modifier.fillMaxWidth()` обязателен для применения режима ширины)
-- [x] 4.3 `uikit-compose-fixtures/.../wheel/WheelStory.kt`: поле `widthMode` в `WheelUiState` (дефолт `Auto` сохраняет поведение всех вариантов) + проброс в `WheelContent`. Отклонение: контрол `alignment` НЕ добавлен — sandbox-ksp не поддерживает nullable-enum (`enumProperty`/`valueOf` в генераторе), а явный `alignment` перезаписал бы выравнивание варианта из стиля; alignment в песочнице управляется выбором варианта стиля
+- [x] 4.3 `uikit-compose-fixtures/.../wheel/WheelStory.kt`: контрол `widthMode` в песочнице сознательно НЕ заводится (решение автора). Промежуточная версия с полем `widthMode` в `WheelUiState` существовала, но удалена: `WheelContent` без явного параметра наследует режим выбранного стиля (через `safeWidthMode`), а контрол с дефолтным значением перезаписывал бы его — в `H4.CenterAlign` уже настроен `CenterContent`, и переопределение ломало корректное отображение варианта. Режим в песочнице демонстрируется выбором варианта стиля; отдельного рычага сравнения `Equal`/`CenterContent` нет. Отклонение: контрол `alignment` также не добавлен — sandbox-ksp не поддерживает nullable-enum (`enumProperty`/`valueOf` в генераторе), а явный `alignment` перезаписал бы выравнивание варианта из стиля
 
 ## 5. Документация
 

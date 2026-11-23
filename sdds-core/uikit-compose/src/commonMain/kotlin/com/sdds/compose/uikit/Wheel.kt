@@ -40,6 +40,7 @@ import com.sdds.compose.uikit.motion.getBrushAsState
 /**
  * Вертикальное колесо выбора (перегрузка без [widthMode] — сохранение исходной и бинарной
  * совместимости сигнатуры, существовавшей до введения [WheelWidthMode]).
+ * Режим ширины берётся из стиля безопасно: [WheelWidthModeProvider]/[safeWidthMode].
  *
  * @param modifier модификатор
  * @param style стиль компонента
@@ -80,7 +81,7 @@ fun Wheel(
         visibleItemsCount = visibleItemsCount,
         wheelSeparator = wheelSeparator,
         alignment = alignment,
-        widthMode = style.widthMode,
+        widthMode = style.safeWidthMode(),
         wheelConstraints = wheelConstraints,
         dataEdgePlacement = dataEdgePlacement,
         interactionSource = interactionSource,
@@ -100,7 +101,9 @@ fun Wheel(
  * @param visibleItemsCount количество видимых элементов в колесе
  * @param wheelSeparator тип разделителя между колёсами [WheelSeparator]
  * @param alignment выравнивание контента в колёсах [WheelAlignment]
- * @param widthMode распределение ширины между колёсами [WheelWidthMode]
+ * @param widthMode распределение ширины между колёсами [WheelWidthMode]. Значение по умолчанию —
+ * [WheelWidthMode.Auto]; чтобы унаследовать режим из стиля, используйте перегрузку без [widthMode]
+ * (она читает стиль через [safeWidthMode]) или передайте [safeWidthMode] явно.
  * @param dataEdgePlacement способ размещения данных в колесе [DataEdgePlacement]
  * @param wheelConstraints способ ограничения колёс по ширине [WheelConstraints]
  * @param interactionSource источник взаимодействий [InteractionSource]
@@ -119,7 +122,7 @@ fun Wheel(
     visibleItemsCount: Int = style.visibleItemsCount,
     wheelSeparator: WheelSeparator = WheelSeparator.None,
     alignment: WheelAlignment = style.itemAlignment,
-    widthMode: WheelWidthMode = style.widthMode,
+    widthMode: WheelWidthMode = WheelWidthMode.Auto,
     wheelConstraints: WheelConstraints = WheelConstraints.Strict,
     dataEdgePlacement: DataEdgePlacement = DataEdgePlacement.WheelCenter,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
@@ -535,8 +538,9 @@ enum class WheelAlignment {
 
 /**
  * Режим распределения ширины между колёсами.
- * Применяется только когда ширина компонента ограничена снаружи (например, `Modifier.fillMaxWidth()`);
- * при `wrap_content` все колёса измеряются по ширине контента и режим не применяется.
+ * Применяется только когда ширина компонента зафиксирована (`minWidth == maxWidth`), например
+ * `Modifier.fillMaxWidth()`; `Modifier.widthIn(max = …)` ширину ограничивает, но не фиксирует —
+ * режим не применится. При `wrap_content` все колёса измеряются по ширине контента и режим не применяется.
  */
 enum class WheelWidthMode {
 

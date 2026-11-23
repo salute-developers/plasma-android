@@ -9008,7 +9008,6 @@ public abstract interface class com/sdds/compose/uikit/WheelStyle : com/sdds/com
 	public abstract fun getTextAfterMode ()Lcom/sdds/compose/uikit/TextAfterMode;
 	public abstract fun getVisibleItemsCount ()I
 	public abstract fun getWheelCount ()I
-	public abstract fun getWidthMode ()Lcom/sdds/compose/uikit/WheelWidthMode;
 }
 
 public final class com/sdds/compose/uikit/WheelStyle$Companion {
@@ -9048,6 +9047,7 @@ public final class com/sdds/compose/uikit/WheelStyleBuilder$DefaultImpls {
 
 public final class com/sdds/compose/uikit/WheelStyleKt {
 	public static final fun getLocalWheelStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun safeWidthMode (Lcom/sdds/compose/uikit/WheelStyle;)Lcom/sdds/compose/uikit/WheelWidthMode;
 }
 
 public final class com/sdds/compose/uikit/WheelWidthMode : java/lang/Enum {
@@ -9057,6 +9057,10 @@ public final class com/sdds/compose/uikit/WheelWidthMode : java/lang/Enum {
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/WheelWidthMode;
 	public static fun values ()[Lcom/sdds/compose/uikit/WheelWidthMode;
+}
+
+public abstract interface class com/sdds/compose/uikit/WheelWidthModeProvider {
+	public abstract fun getWidthMode ()Lcom/sdds/compose/uikit/WheelWidthMode;
 }
 
 public final class com/sdds/compose/uikit/WindowSizeClass : java/lang/Enum {

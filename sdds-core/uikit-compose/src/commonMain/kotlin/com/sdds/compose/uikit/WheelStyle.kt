@@ -63,11 +63,6 @@ interface WheelStyle : Style {
     val itemAlignment: WheelAlignment
 
     /**
-     * Режим распределения ширины между колёсами
-     */
-    val widthMode: WheelWidthMode
-
-    /**
      * Количество колёс
      */
     val wheelCount: Int
@@ -178,7 +173,8 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
     fun itemAlignment(itemAlignment: WheelAlignment): WheelStyleBuilder
 
     /**
-     * Устанавливает режим распределения ширины [widthMode]
+     * Устанавливает режим распределения ширины [widthMode].
+     * Значение доступно через [WheelWidthModeProvider] и читается компонентом при помощи [safeWidthMode].
      */
     fun widthMode(widthMode: WheelWidthMode): WheelStyleBuilder
 
@@ -288,6 +284,32 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
     fun dimensions(builder: @Composable WheelDimensionsBuilder.() -> Unit): WheelStyleBuilder
 }
 
+/**
+ * Источник [WheelWidthMode] у стилей, собранных в сборке с поддержкой этого режима.
+ *
+ * Сознательно НЕ является членом [WheelStyle] и не добавлен в его иерархию: публичные стили,
+ * скомпилированные против предыдущих версий uikit-compose, не реализуют новый метод, и его
+ * обращение к такому стилю вызвало бы `AbstractMethodError`. Чтение выполняется безопасным
+ * приведением через [safeWidthMode].
+ */
+interface WheelWidthModeProvider {
+
+    /**
+     * Режим распределения ширины между колёсами
+     */
+    val widthMode: WheelWidthMode
+}
+
+/**
+ * Безопасное чтение [WheelWidthMode] из произвольного [WheelStyle].
+ *
+ * Стили, реализующие [WheelWidthModeProvider] (все стили текущего билда), возвращают своё
+ * значение; стили, скомпилированные против версий uikit-compose без поддержки режима,
+ * возвращают [WheelWidthMode.Auto] — прежнюю семантику, зависящую только от выравнивания.
+ */
+fun WheelStyle.safeWidthMode(): WheelWidthMode =
+    (this as? WheelWidthModeProvider)?.widthMode ?: WheelWidthMode.Auto
+
 private class DefaultWheelStyle(
     override val dimensions: WheelDimensions,
     override val colors: WheelColors,
@@ -304,7 +326,7 @@ private class DefaultWheelStyle(
     override val textAfterMode: TextAfterMode,
     override val selectionIndicatorEnabled: Boolean,
     override val selectionIndicatorShape: StatefulValue<Shape>,
-) : WheelStyle {
+) : WheelStyle, WheelWidthModeProvider {
     @Deprecated("Use controlIconUpSource", replaceWith = ReplaceWith("controlIconUpSource"))
     override val controlIconUp: Int? = null
 
