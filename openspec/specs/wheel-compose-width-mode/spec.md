@@ -27,23 +27,28 @@
 ### Requirement: Чтение ширины безопасно для стилей, скомпилированных против старых версий
 Реализации `WheelStyle`, не реализующие `WheelWidthModeProvider` (включая скомпилированные против версий uikit-compose без `WheelWidthMode`), SHALL НЕ приводить к `AbstractMethodError`: чтение выполняется проверкой типа (`as?`) без вызова методов стиля и SHALL возвращать `WheelWidthMode.Auto`.
 Старая (до-`widthMode`) перегрузка `Wheel(...)` SHALL делегировать новую, передавая `style.safeWidthMode()`, и SHALL NOT обращаться к членам, отсутствующим в старых реализациях `WheelStyle`.
+Старая перегрузка SHALL быть помечена `@Deprecated(level = DeprecationLevel.HIDDEN)` и сохраняться в байткоде только для бинарной совместимости уже скомпилированных call-site'ов; поведение унаследования режима из стиля SHALL не зависеть от её наличия в разрешении перегрузок.
 
 #### Scenario: Legacy-стиль получает Auto
 - **WHEN** в `Wheel(...)` передан объект `WheelStyle`, не реализующий `WheelWidthModeProvider`
 - **THEN** эффективный режим резолвится из `WheelWidthMode.Auto` (Mixed → CenterContent, иначе Equal)
 - **AND** исключение не выбрасывается
 
-#### Scenario: Стиль из нового билдера сохраняет режим через старую перегрузку
-- **WHEN** вызывается перегрузка `Wheel(style = S, ...)` без параметра `widthMode`, а `S.safeWidthMode() == CenterContent`
+#### Scenario: Стиль из нового билдера сохраняет режим при вызове без параметра
+- **WHEN** вызывается `Wheel(style = S, ...)` без аргумента `widthMode`, а `S.safeWidthMode() == CenterContent`
 - **THEN** эффективный режим — `CenterContent`
 
 ### Requirement: Wheel принимает параметр widthMode
-Перегрузка `Wheel(...)` с параметром SHALL принимать `widthMode: WheelWidthMode` со значением по умолчанию `WheelWidthMode.Auto`.
-Явный параметр SHALL иметь приоритет над значением из стиля; унаследование значения стиля выполняет перегрузка без параметра через `safeWidthMode`.
+Перегрузка `Wheel(...)` SHALL принимать `widthMode: WheelWidthMode` со значением по умолчанию `style.safeWidthMode()` — унаследование режима из стиля выполняет эта же перегрузка, без опоры на разрешение перегрузок.
+Явный аргумент `widthMode` SHALL иметь приоритет над значением из стиля; явный `WheelWidthMode.Auto` SHALL включать резолв по `alignment`.
 
-#### Scenario: Дефолт перегрузки с параметром — Auto
-- **WHEN** перегрузка с параметром вызывается без аргумента `widthMode`
-- **THEN** используется `WheelWidthMode.Auto` (даже если стиль задаёт иной режим)
+#### Scenario: Дефолт читается из стиля
+- **WHEN** `Wheel(...)` вызывается без аргумента `widthMode`, а `style.safeWidthMode() == WheelWidthMode.CenterContent`
+- **THEN** компонент использует `CenterContent`
+
+#### Scenario: Дефолт для стиля без режима — Auto
+- **WHEN** `Wheel(...)` вызывается без аргумента `widthMode`, а стиль не задаёт режим (`safeWidthMode() == Auto`)
+- **THEN** эффективный режим резолвится из `Auto` по `alignment` (Mixed → CenterContent, иначе Equal)
 
 #### Scenario: Параметр переопределяет стиль
 - **WHEN** `Wheel(style = S, widthMode = WheelWidthMode.CenterContent)` вызывается с явным аргументом, а `S.safeWidthMode() == WheelWidthMode.Equal`

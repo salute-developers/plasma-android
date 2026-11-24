@@ -38,9 +38,11 @@ import com.sdds.compose.uikit.motion.components.divider.rememberDividerMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
 
 /**
- * Вертикальное колесо выбора (перегрузка без [widthMode] — сохранение исходной и бинарной
- * совместимости сигнатуры, существовавшей до введения [WheelWidthMode]).
- * Режим ширины берётся из стиля безопасно: [WheelWidthModeProvider]/[safeWidthMode].
+ * Вертикальное колесо выбора.
+ * Сохранена только для бинарной совместимости call-site'ов, скомпилированных до введения
+ * [WheelWidthMode]; из исходников недоступна ([DeprecationLevel.HIDDEN]). Используйте
+ * перегрузку с параметром [widthMode] — её значение по умолчанию читается из стиля через
+ * [safeWidthMode].
  *
  * @param modifier модификатор
  * @param style стиль компонента
@@ -58,6 +60,11 @@ import com.sdds.compose.uikit.motion.getBrushAsState
  * В параметре лямбды доступен индекс колеса, начиная с 0.
  * Лямбда должна вернуть набор данных [WheelDataSet], необходимый для конфигурации каждого колеса.
  */
+@Deprecated(
+    message = "Используйте перегрузку Wheel с параметром widthMode: её значение по умолчанию " +
+        "читается из стиля через safeWidthMode. Эта сигнатура сохранена только для бинарной совместимости.",
+    level = DeprecationLevel.HIDDEN,
+)
 @Composable
 fun Wheel(
     modifier: Modifier = Modifier,
@@ -101,9 +108,9 @@ fun Wheel(
  * @param visibleItemsCount количество видимых элементов в колесе
  * @param wheelSeparator тип разделителя между колёсами [WheelSeparator]
  * @param alignment выравнивание контента в колёсах [WheelAlignment]
- * @param widthMode распределение ширины между колёсами [WheelWidthMode]. Значение по умолчанию —
- * [WheelWidthMode.Auto]; чтобы унаследовать режим из стиля, используйте перегрузку без [widthMode]
- * (она читает стиль через [safeWidthMode]) или передайте [safeWidthMode] явно.
+ * @param widthMode распределение ширины между колёсами [WheelWidthMode]. Значение по умолчанию
+ * читается из стиля через [safeWidthMode] (стиль без заданного режима — [WheelWidthMode.Auto]);
+ * явный аргумент переопределяет стиль, явный [WheelWidthMode.Auto] включает режим по [alignment].
  * @param dataEdgePlacement способ размещения данных в колесе [DataEdgePlacement]
  * @param wheelConstraints способ ограничения колёс по ширине [WheelConstraints]
  * @param interactionSource источник взаимодействий [InteractionSource]
@@ -122,7 +129,7 @@ fun Wheel(
     visibleItemsCount: Int = style.visibleItemsCount,
     wheelSeparator: WheelSeparator = WheelSeparator.None,
     alignment: WheelAlignment = style.itemAlignment,
-    widthMode: WheelWidthMode = WheelWidthMode.Auto,
+    widthMode: WheelWidthMode = style.safeWidthMode(),
     wheelConstraints: WheelConstraints = WheelConstraints.Strict,
     dataEdgePlacement: DataEdgePlacement = DataEdgePlacement.WheelCenter,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
