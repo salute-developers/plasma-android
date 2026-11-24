@@ -1,5 +1,8 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-@file:Suppress("DEPRECATION")
+@file:Suppress(
+    "DEPRECATION",
+    "UndocumentedPublicProperty",
+)
 
 package com.test.tokens
 

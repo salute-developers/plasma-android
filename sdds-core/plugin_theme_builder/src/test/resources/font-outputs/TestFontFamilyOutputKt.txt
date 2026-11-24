@@ -1,5 +1,8 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-@file:Suppress("ObjectPropertyNaming")
+@file:Suppress(
+    "ObjectPropertyNaming",
+    "UndocumentedPublicProperty",
+)
 
 package com.test.tokens
 

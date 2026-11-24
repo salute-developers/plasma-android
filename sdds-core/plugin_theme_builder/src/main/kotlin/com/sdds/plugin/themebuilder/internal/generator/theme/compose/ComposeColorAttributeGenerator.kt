@@ -42,7 +42,7 @@ internal class ComposeColorAttributeGenerator(
     private val colorAttributes = mutableSetOf<String>()
 
     private val colorKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(colorClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(colorClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()
@@ -240,7 +240,7 @@ internal class ComposeColorAttributeGenerator(
                         returnType = colorClassType,
                         body = listOf(
                             "return dark${camelThemeName}Colors {\n",
-                            data.light.entries.joinToString(separator = "\n") {
+                            data.dark.entries.joinToString(separator = "\n") {
                                 "${it.key} overrideBy  DarkColorTokens${tenant.name}.${it.value.colorRef}"
                             },
                             "\noverrideColors()",

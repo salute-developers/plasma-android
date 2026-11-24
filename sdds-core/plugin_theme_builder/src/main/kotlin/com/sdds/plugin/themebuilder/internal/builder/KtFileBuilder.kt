@@ -359,9 +359,20 @@ internal class KtFileBuilder(
      * c подавлением ппредупреждения [warningName]
      */
     fun addSuppressAnnotation(vararg warningName: String) {
+        addFileSuppressions(warningName.toList())
+    }
+
+    /**
+     * Подавляет в генерируемом файле detekt-правила KDoc ([GENERATED_TOKENS_DOC_SUPPRESSIONS])
+     * и дополнительные [extra] предупреждения. Все подавления объединяются в один `@file:Suppress`.
+     */
+    fun suppressGeneratedDocs(vararg extra: String): KtFileBuilder =
+        apply { addFileSuppressions(extra.toList() + GENERATED_TOKENS_DOC_SUPPRESSIONS) }
+
+    private fun addFileSuppressions(names: List<String>) {
         fileSpecBuilder.addAnnotation(
             AnnotationSpec.builder(Suppress::class)
-                .apply { warningName.forEach { addMember("%S", it) } }
+                .apply { names.forEach { addMember("%S", it) } }
                 .useSiteTarget(AnnotationSpec.UseSiteTarget.FILE)
                 .build(),
         )
