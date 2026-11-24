@@ -63,6 +63,7 @@ object PlasmaGigaComposeComponents : ComponentProvider() {
                 ComponentKey.IconButton,
                 mapOf(
                     "IconButton" to PlasmaGigaIconButtonVariationsCompose,
+                    "EmbeddedIconButton" to PlasmaGigaEmbeddedIconButtonVariationsCompose,
                 ),
             ),
             Component(
