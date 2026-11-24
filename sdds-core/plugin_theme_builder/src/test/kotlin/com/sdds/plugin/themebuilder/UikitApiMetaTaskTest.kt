@@ -1,8 +1,13 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.universal.StateSupport
 import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ComposeInteractionStates
+import com.sdds.plugin.themebuilder.internal.universal.view.AndroidState
+import com.sdds.plugin.themebuilder.internal.universal.view.AndroidState.Companion.asAndroidStates
 import com.sdds.plugin.themebuilder.internal.universal.view.ApiMeta
+import com.sdds.plugin.themebuilder.internal.universal.view.StateListAttribute
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.decodeFromString
 import org.gradle.testfixtures.ProjectBuilder
@@ -39,6 +44,12 @@ class UikitApiMetaTaskTest {
         assertEquals(listOf("BasicButton"), meta.components.single().componentNames)
         assertEquals("Button", meta.components.single().styleableName)
         assertEquals(mapOf("loading" to "sd_state_loading"), meta.sharedStates)
+        assertEquals(StateSupport(AndroidState.values().map { it.key }, true), meta.stateSupport)
+        val keys = requireNotNull(meta.stateSupport).interactionStates
+        assertEquals(
+            keys.map { StateListAttribute("android:state_$it", "true") },
+            keys.asAndroidStates().map { it.toStateListAttribute() },
+        )
     }
 
     @Test
@@ -67,7 +78,10 @@ class UikitApiMetaTaskTest {
 
         task.generate()
 
-        assertEquals(ApiMeta(), Serializer.componentConfig.decodeFromString<ApiMeta>(output.readText()))
+        assertEquals(
+            ApiMeta(stateSupport = StateSupport(AndroidState.values().map { it.key }, true)),
+            Serializer.componentConfig.decodeFromString<ApiMeta>(output.readText()),
+        )
     }
 
     @Test
@@ -88,6 +102,10 @@ class UikitApiMetaTaskTest {
         val meta = Serializer.componentConfig.decodeFromString<List<ComposeComponentMeta>>(output.readText())
         assertEquals("Button", meta.single().componentName)
         assertEquals("com.test.Button", meta.single().qualifiedName)
+        assertEquals(
+            StateSupport(ComposeInteractionStates.values.keys.toList(), true),
+            meta.single().stateSupport,
+        )
     }
 
     @Test

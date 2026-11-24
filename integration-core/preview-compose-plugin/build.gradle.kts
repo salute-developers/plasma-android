@@ -26,15 +26,11 @@ val uikitComposeProperties = layout.projectDirectory.file("../../sdds-core/uikit
 
 // Мета, по которой `generateComposePreview` строит фабрики плагина: тот же ресурс JVM-артефакта uikit-compose. Она
 // входит в артефакт, и бэкенд DSB импортирует из неё компоненты, поэтому плагин и мета одного билда совпадают.
-val extractPreviewApiMeta by tasks.registering(Copy::class) {
+val extractPreviewApiMeta by tasks.registering(com.sdds.plugin.themebuilder.UikitComposeApiMetaTask::class) {
     group = "build"
-    description = "Извлекает api-meta.json uikit-compose, из которой собран плагин, для включения в артефакт."
-    from(provider { zipTree(previewApiMeta.files.single { it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.") }) }) {
-        include("sdds/api/uikit-compose-api-meta.json")
-        eachFile { path = "api-meta.json" }
-        includeEmptyDirs = false
-    }
-    into(generatedApiMetaDir)
+    description = "Экспортирует API-мету со словарём состояний генератора для preview-плагина."
+    metaClasspath.from(previewApiMeta)
+    outputFile.set(generatedApiMetaDir.map { it.file("api-meta.json") })
 }
 
 // Группы компонентов берутся из реестра историй песочницы (`ComponentKey.group`): их знает только Kotlin-код,
