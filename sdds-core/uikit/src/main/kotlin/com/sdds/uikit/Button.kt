@@ -38,6 +38,7 @@ import com.sdds.uikit.internal.base.set
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.focusselector.effectiveFocus
 import com.sdds.uikit.internal.focusselector.withoutFocusedIfWindowUnfocused
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
@@ -432,7 +433,7 @@ open class Button @JvmOverloads constructor(
 
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
-        updateFocusSelector(this, focused)
+        updateFocusSelector(this, effectiveFocus(this, focused))
     }
 
     override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
@@ -498,7 +499,7 @@ open class Button @JvmOverloads constructor(
         val loadingState = if (isLoading) R.attr.sd_state_loading else -R.attr.sd_state_loading
         mergeDrawableStates(drawableState, intArrayOf(loadingState))
         if (isAttachedToWindow && settings.windowFocusResponsive) {
-            return drawableState.withoutFocusedIfWindowUnfocused(this)
+            return drawableState.withoutFocusedIfWindowUnfocused(isInEditMode, hasWindowFocus())
         }
         return drawableState
     }

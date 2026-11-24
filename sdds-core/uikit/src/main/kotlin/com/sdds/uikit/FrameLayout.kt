@@ -7,6 +7,7 @@ import androidx.core.content.withStyledAttributes
 import com.sdds.uikit.internal.base.isClippedToOutline
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.focusselector.effectiveFocus
 import com.sdds.uikit.internal.focusselector.withoutFocusedIfWindowUnfocused
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
@@ -57,7 +58,7 @@ open class FrameLayout @JvmOverloads constructor(
 
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
-        updateFocusSelector(this, gainFocus)
+        updateFocusSelector(this, effectiveFocus(this, gainFocus))
     }
 
     override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
@@ -70,7 +71,7 @@ open class FrameLayout @JvmOverloads constructor(
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         val drawableState = super.onCreateDrawableState(extraSpace)
         if (isAttachedToWindow && settings.windowFocusResponsive) {
-            return drawableState.withoutFocusedIfWindowUnfocused(this)
+            return drawableState.withoutFocusedIfWindowUnfocused(isInEditMode, hasWindowFocus())
         }
         return drawableState
     }

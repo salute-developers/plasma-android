@@ -14,7 +14,7 @@
 - Для scale-анимации (она не state-driven) добавляется переопределение `onWindowFocusChanged`, которое сбрасывает/восстанавливает масштаб при потере/возврате фокуса окна.
 - `isInEditMode`-guard и проверка `hasWindowFocus()` защищают превью и скриншот-доки от подавления фокусных состояний.
 - Скоуп — **только View-система `sdds-core/uikit`**. Токены (`tokens/*`), Theme Builder и Compose (`uikit-compose`) **не затрагиваются**.
-- **Нет breaking changes**: поведение по умолчанию (`false`) идентично текущему; включается оптом через тему приложения или точечно атрибутом.
+- **Нет breaking changes на уровне поведения и исходников**: поведение по умолчанию (`false`) идентично текущему; включается оптом через тему приложения или точечно атрибутом; старый код компилируется без изменений. Исключение — **бинарная совместимость** `FocusSelectorSettings` (см. Impact).
 
 ## Capabilities
 
@@ -27,7 +27,7 @@
 ## Impact
 
 - **Публичный API (`sdds-core/uikit`)**:
-  - `FocusSelectorSettings` — новое поле `windowFocusResponsive` в конструкторе data class. Это публичный тип → детектируется `binary-compatibility-validator`, нужен `apiDump` и проверка `api/uikit.api`.
+  - `FocusSelectorSettings` — новое поле `windowFocusResponsive` в конструкторе data class. Это публичный тип → детектируется `binary-compatibility-validator`, нужен `apiDump` и проверка `api/uikit.api`. **Source-совместимо; бинарно несовместимо** для внешних потребителей, напрямую вызывающих конструктор/`copy` `FocusSelectorSettings` (`NoSuchMethodError` без пересборки: у data class меняются дескрипторы конструктора, `copy`/`copy$default`, добавляется `component6`; secondary-конструктор проблему `copy$default` не чинит) — требуется пересборка артефактов, использующих эти API; для 0.x принято.
   - Новый публичный ресурс-атрибут `sd_fsWindowFocusResponsive` в `base_attrs.xml`, добавленный в styleable `SdFocusSelector` (+ в styleable отдельных компонентов для покрытия API-поверхности в IDE-подсказках).
 - **Ресурсы**: `sdds-core/uikit/src/main/res/values/base_attrs.xml`; при необходимости `button_attrs.xml` и др. per-component styleable.
 - **Компоненты (View)**: все, кто реализует `HasFocusSelector`, — `Button`, `Chip`, `TextView`, `ImageView`, `View`, `FrameLayout`, `LinearLayout`, `ConstraintLayout`, `FlowLayout`, `CellLayout`, `AccordionItemView`, `CardContent`, `DecoratedFieldBox`. Каждый получает override `onCreateDrawableState` (удаление `+state_focused`) и `onWindowFocusChanged` (scale). Общий базовый класс отсутствует → правка механическая, но по компоненту.

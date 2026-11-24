@@ -8,8 +8,9 @@
 
 ## 2. Ядро механизма (`internal/focusselector`)
 
-- [x] 2.1 Создать `internal`-хелпер `IntArray.withoutFocusedIfWindowUnfocused(view)` (`WindowFocusState.kt`) — `isInEditMode`/`hasWindowFocus` guard, удаление `+state_focused` (и padding-нулей) с возвратом НОВОГО массива (кэш `StateSet` не мутируется)
+- [x] 2.1 Создать `internal`-хелпер `IntArray.withoutFocusedIfWindowUnfocused(isInEditMode, hasWindowFocus)` (`WindowFocusState.kt`, чистая функция — см. 6.1) — удаление `+state_focused` с возвратом НОВОГО массива (кэш `StateSet` не мутируется). По итогам code-review: хвостовые нули (`extraSpace`-ёмкость для in-place `mergeDrawableStates` у потомков) СОХРАНЯТЬ — первоначальный вариант `filter { it != 0 && ... }` ронял `Avatar`/`Note`/`SegmentItem`/`ListView`-подобные классы с AIOOBE; исправлено + регресс-тест + регресс-проверка на `Avatar` со `status` под overlay
 - [x] 2.2 `SelectorDrawable.onStateChange`/`AnimatedSelectorDrawable` не менялись — `contains(state_focused)` корректно отрабатывает на фильтрованном массиве; анимированный бордер останавливает `ValueAnimator` через существующий `stop()`
+- [x] 2.3 По итогам code-review: scale-анимация синхронизирована симметрично через `HasFocusSelector.effectiveFocus(view, focused)` (`WindowFocusState.kt`) — во всех 12 компонентах `onFocusChanged` передаёт `effectiveFocus(...)` (раньше передавался голый `focused`, что давало «полуфокус»: программный `requestFocus()` под открытым диалогом увеличивал компонент при не подсвеченных фоне/рамке). Регресс-сценарий: под открытым overlay программно вызвать `requestFocus()` — scale не должен дёрнуться
 
 ## 3. Пилот — `Button`
 
@@ -32,8 +33,8 @@
 
 ## 6. Тесты
 
-- [ ] 6.1 JVM-тест-обвязки в `uikit` нет и её добавление не согласовано — Robolectric-тест не заводился (отказ по условию задачи)
-- [x] 6.2 Покрытие поведением через сборку + визуальную проверку (п.7); покрытие явно отметить в описании PR
+- [x] 6.1 По итогам ревью: хелперы вынесены в чистые функции (булевы аргументы вместо `View`), добавлены JVM-тесты `WindowFocusStateTest` (`src/test/`) без Robolectric — включая регрессионный кейс «merge потомка после фильтра пишет в резервные нули, без AIOOBE» (реплика контракта `View.mergeDrawableStates` в тесте). Тест-зависимости (junit/mockk/robolectric) уже подключены `convention.android-lib`, обвязка не потребовалась
+- [x] 6.2 Покрытие поведением через сборку + визуальную проверку (п.7) + юнит-тесты (п.6.1)
 
 ## 7. Визуальная проверка и валидация (`sdds-core:uikit` + песочница)
 
