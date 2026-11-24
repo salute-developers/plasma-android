@@ -12,6 +12,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
+import com.sdds.api.info.compose.ApiName
 import com.sdds.compose.uikit.annotations.DrawableRes
 import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
@@ -121,7 +122,7 @@ interface CollapsingNavigationBarStyleBuilder : StyleBuilder<CollapsingNavigatio
     fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): CollapsingNavigationBarStyleBuilder
 
     /**
-     * Устанавливает стиль описания по умолчанию [titleStyle]
+     * Устанавливает стиль описания по умолчанию [descriptionStyle]
      */
     fun descriptionStyle(descriptionStyle: TextStyle): CollapsingNavigationBarStyleBuilder =
         descriptionStyle(descriptionStyle.asStatefulValue())
@@ -359,17 +360,20 @@ interface CollapsingNavigationBarColorsBuilder {
     /**
      * Устанавливает фон [backgroundColor] компонента.
      */
+    @ApiName(name = "backgroundColor")
     fun background(backgroundColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
      * Устанавливает фон [backgroundColor] компонента.
      */
+    @ApiName(name = "backgroundColor")
     fun background(backgroundColor: InteractiveColor): CollapsingNavigationBarColorsBuilder =
         background(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает фон [backgroundColor] компонента.
      */
+    @ApiName(name = "backgroundColor")
     fun background(backgroundColor: Brush): CollapsingNavigationBarColorsBuilder =
         background(backgroundColor.asStatefulValue())
 
@@ -394,6 +398,7 @@ interface CollapsingNavigationBarColorsBuilder {
     /**
      * Устанавливает цвет кнопки закрытия [backIconBrush].
      */
+    @ApiName(name = "backIconColor")
     fun backIconBrush(backIconColor: Brush): CollapsingNavigationBarColorsBuilder =
         backIconBrush(backIconColor.asStatefulValue())
 
@@ -423,12 +428,14 @@ interface CollapsingNavigationBarColorsBuilder {
     /**
      * Устанавливает цвет экшена в начале [actionStartBrush].
      */
+    @ApiName(name = "actionStartColor")
     fun actionStartBrush(actionStartColor: Brush): CollapsingNavigationBarColorsBuilder =
         actionStartBrush(actionStartColor.asStatefulValue())
 
     /**
      * Устанавливает цвет экшена в начале [actionStartBrush].
      */
+    @ApiName(name = "actionStartColor")
     fun actionStartBrush(actionStartColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
@@ -450,14 +457,16 @@ interface CollapsingNavigationBarColorsBuilder {
         actionEndBrush(actionEndColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет экшена в конце [actionEndBrush].
+     * Устанавливает цвет экшена в конце [actionEndColor].
      */
+    @ApiName(name = "actionEndColor")
     fun actionEndBrush(actionEndColor: Brush): CollapsingNavigationBarColorsBuilder =
         actionEndBrush(actionEndColor.asStatefulValue())
 
     /**
-     * Устанавливает цвет экшена в конце [actionEndBrush].
+     * Устанавливает цвет экшена в конце [actionEndColor].
      */
+    @ApiName(name = "actionEndColor")
     fun actionEndBrush(actionEndColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
@@ -481,12 +490,14 @@ interface CollapsingNavigationBarColorsBuilder {
     /**
      * Устанавливает цвет заголовка [titleBrush].
      */
+    @ApiName(name = "titleColor")
     fun titleBrush(titleColor: Brush): CollapsingNavigationBarColorsBuilder =
         titleBrush(titleColor.asStatefulValue())
 
     /**
      * Устанавливает цвет заголовка [titleBrush].
      */
+    @ApiName(name = "titleColor")
     fun titleBrush(titleColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
@@ -510,12 +521,14 @@ interface CollapsingNavigationBarColorsBuilder {
     /**
      * Устанавливает цвет описания [descriptionBrush].
      */
+    @ApiName(name = "descriptionColor")
     fun descriptionBrush(descriptionColor: Brush): CollapsingNavigationBarColorsBuilder =
         descriptionBrush(descriptionColor.asStatefulValue())
 
     /**
      * Устанавливает цвет описания [descriptionBrush].
      */
+    @ApiName(name = "descriptionColor")
     fun descriptionBrush(descriptionColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**

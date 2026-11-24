@@ -70,7 +70,7 @@ interface NavigationBarMotionStyle : MotionStyle {
     val actionStartColor: MotionProperty<Brush>
 
     /**
-     * Анимационное свойство цвета экшена в конце (actionStart) NavigationBar.
+     * Анимационное свойство цвета экшена в конце (actionEnd) NavigationBar.
      */
     val actionEndColor: MotionProperty<Brush>
 
@@ -134,7 +134,7 @@ interface NavigationBarMotionStyleBuilder : MotionStyleBuilder<NavigationBarMoti
     fun actionStartColor(color: MotionProperty<Brush>): NavigationBarMotionStyleBuilder
 
     /**
-     * Устанавливает анимационное свойство цвета экшена в конце (actionStart) NavigationBar.
+     * Устанавливает анимационное свойство цвета экшена в конце (actionEnd) NavigationBar.
      */
     fun actionEndColor(color: MotionProperty<Brush>): NavigationBarMotionStyleBuilder
 }
