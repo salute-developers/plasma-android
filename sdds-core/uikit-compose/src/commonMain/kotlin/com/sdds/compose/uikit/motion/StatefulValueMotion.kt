@@ -178,6 +178,31 @@ fun StatefulValue<Rect>.getRectAsState(
     )
 }
 
+/**
+ * Возвращает единый снимок состояний ([MotionStateSnapshot]) для группы [values],
+ * заменяя собой отдельные подписки на каждое значение.
+ *
+ * Из [values] собирается набор всех состояний, заявленных в их таблицах
+ * ([StatefulValue.getStates]), и наблюдатели заводятся только за ними:
+ * подписчик на каждый вид интеракций ([InteractiveState]) создаётся лишь если
+ * этот вид присутствует в наборе; остальные сворачиваются в константу `false`.
+ * Подписка на логические состояния ([SemanticStateSource]) одна и unconditional.
+ *
+ * Результат обновления — [MotionStateSnapshot.target] (актуальный набор состояний);
+ * [MotionStateSnapshot.initial] хранит предыдущий набор и нужен для анимаций перехода.
+ * Новый снимок публикуется только при реальном изменении набора состояний.
+ *
+ * @param values значения, состояния которых нужно наблюдать. Обязательно перечислять
+ * здесь ровно те [StatefulValue], которые затем читают через [MotionStateSnapshot.target]:
+ * значение, отсутствующее в [values], не защищено его наблюдателями и молча вернёт
+ * базовую строку таблицы.
+ */
+@Composable
+fun MotionContext.rememberStateSnapshot(values: List<StatefulValue<*>>): MotionStateSnapshot {
+    val observedStates = remember(values) { values.flatMapTo(mutableSetOf()) { it.getStates() } }
+    return stateSnapshotProvider.provide(observedStates)
+}
+
 @Composable
 private fun <T : Any, V : AnimationVector> StatefulValue<T>.animateAsState(
     context: MotionContext,
