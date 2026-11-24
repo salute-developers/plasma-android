@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.TextAfterMode
 import com.sdds.compose.uikit.WheelAlignment
 import com.sdds.compose.uikit.WheelStyle
 import com.sdds.compose.uikit.WheelStyleBuilder
+import com.sdds.compose.uikit.WheelWidthMode
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
@@ -191,9 +192,9 @@ public val Wheel.H4: WrapperWheelH4
     @JvmName("WrapperWheelH4")
     get() = WheelStyle.builder(this)
         .invariantProps
-        .itemTextStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
-        .itemTextAfterStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
-        .descriptionStyle(PlasmaHomeDsTheme.typography.bodySBold)
+        .itemTextStyle(PlasmaHomeDsTheme.typography.headerH4Normal)
+        .itemTextAfterStyle(PlasmaHomeDsTheme.typography.headerH4Normal)
+        .descriptionStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .textAfterMode(TextAfterMode.Static)
         .selectionIndicatorEnabled(true)
         .selectionIndicatorShape(PlasmaHomeDsTheme.shapes.roundXl)
@@ -204,10 +205,10 @@ public val Wheel.H4: WrapperWheelH4
             )
         }
         .dimensions {
-            itemTextAfterPadding(2.0.dp)
+            itemTextAfterPadding(6.0.dp)
             descriptionPadding(6.0.dp)
-            separatorSpacing(24.0.dp)
-            itemMinSpacing(32.0.dp)
+            separatorSpacing(55.0.dp)
+            itemMinSpacing(38.0.dp)
             selectionIndicatorPaddingTop(16.0.dp)
             selectionIndicatorPaddingBottom(16.0.dp)
             selectionIndicatorPaddingStart(0.0.dp)
@@ -227,6 +228,7 @@ public val WrapperWheelH4.CenterAlign: WrapperWheelH4CenterAlign
     @JvmName("WrapperWheelH4CenterAlign")
     get() = builder
         .itemAlignment(WheelAlignment.Center)
+        .widthMode(WheelWidthMode.CenterContent)
         .wrap(::WrapperWheelH4CenterAlign)
 
 public val WrapperWheelH4.LeftAlign: WrapperWheelH4LeftAlign
