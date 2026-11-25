@@ -83,9 +83,9 @@ public val WrapperCheckBoxView.Default: WrapperCheckBoxTerminate
                     setOf(InteractiveState.Focused)
                         to SolidColor(SddsFinAiTheme.colors.outlineDefaultAccent),
                     setOf(CheckBoxStates.Checked)
-                        to SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        to SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                     setOf(CheckBoxStates.Indeterminate) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
             toggleColor(
@@ -115,9 +115,9 @@ public val WrapperCheckBoxView.Negative: WrapperCheckBoxTerminate
                     setOf(InteractiveState.Focused) to
                         SolidColor(SddsFinAiTheme.colors.outlineDefaultNegative),
                     setOf(CheckBoxStates.Checked)
-                        to SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        to SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                     setOf(CheckBoxStates.Indeterminate) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
             toggleColor(

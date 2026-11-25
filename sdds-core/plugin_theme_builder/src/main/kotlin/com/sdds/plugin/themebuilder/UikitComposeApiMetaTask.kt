@@ -1,7 +1,9 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.universal.StateSupport
 import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
+import com.sdds.plugin.themebuilder.internal.universal.compose.mappers.ComposeInteractionStates
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.decodeFromStream
 import kotlinx.serialization.json.encodeToStream
@@ -23,15 +25,18 @@ import java.util.zip.ZipFile
  * Парсит найденный JSON в список [ComposeComponentMeta] и записывает его в [outputFile].
  * Если файл не найден, записывает пустой массив.
  */
-internal abstract class UikitComposeApiMetaTask : DefaultTask() {
+abstract class UikitComposeApiMetaTask : DefaultTask() {
 
+    /** Артефакты, содержащие исходную Compose-мету. */
     @get:InputFiles
     @get:PathSensitive(PathSensitivity.NONE)
     abstract val metaClasspath: ConfigurableFileCollection
 
+    /** JSON с метой API и поддерживаемыми генератором состояниями. */
     @get:OutputFile
     abstract val outputFile: RegularFileProperty
 
+    /** Экспортирует мету, сохраняя массив компонентов в корне. */
     @OptIn(ExperimentalSerializationApi::class)
     @TaskAction
     fun generate() {
@@ -40,7 +45,10 @@ internal abstract class UikitComposeApiMetaTask : DefaultTask() {
             ?: emptyList()
 
         outputFile.get().asFile.outputStream().use { stream ->
-            Serializer.componentConfig.encodeToStream(meta, stream)
+            Serializer.componentConfig.encodeToStream(
+                meta.map { it.copy(stateSupport = StateSupport(ComposeInteractionStates.values.keys.toList(), true)) },
+                stream,
+            )
         }
     }
 }

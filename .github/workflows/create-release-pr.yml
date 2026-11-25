@@ -30,6 +30,9 @@ jobs:
           show-progress: false
           fetch-depth: 0
 
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
       - name: Computed envs
         run: |
           DATE=$(date +'%d.%m.%Y')

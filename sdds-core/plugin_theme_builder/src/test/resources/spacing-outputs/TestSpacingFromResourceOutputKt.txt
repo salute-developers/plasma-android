@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.test.tokens
 
 import androidx.compose.runtime.Composable
@@ -7,6 +9,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.test.R
+import kotlin.Suppress
 
 /**
  * Токены отступов

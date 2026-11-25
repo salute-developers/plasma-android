@@ -33,7 +33,7 @@ internal class ComposeShapeAttributeGenerator(
     private val shapes = mutableMapOf<Tenant, List<ShapeTokenResult.TokenData>>()
 
     private val shapeKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(shapeClassName, TargetPackage.THEME)
+        ktFileBuilderFactory.create(shapeClassName, TargetPackage.THEME).suppressGeneratedDocs()
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()

@@ -12,7 +12,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.api.info.compose.ApiInfo
 import com.sdds.api.info.compose.ApiName
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
+import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.style.Style
@@ -32,7 +35,13 @@ interface ToolBarStyle : Style {
     /**
      * Форма компонента
      */
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
     val shape: CornerBasedShape
+
+    /**
+     * Форма компонента
+     */
+    val shapes: StatefulValue<CornerBasedShape>
 
     /**
      * Тень компонента
@@ -76,7 +85,13 @@ interface ToolBarStyleBuilder : StyleBuilder<ToolBarStyle> {
     /**
      * Устанавливает форму [shape] компонента
      */
-    fun shape(shape: CornerBasedShape): ToolBarStyleBuilder
+    fun shape(shape: CornerBasedShape): ToolBarStyleBuilder =
+        shape(shape.asStatefulValue())
+
+    /**
+     * Устанавливает форму [shape] компонента
+     */
+    fun shape(shape: StatefulValue<CornerBasedShape>): ToolBarStyleBuilder
 
     /**
      * Устанавливает тень [shadow] компонента
@@ -107,7 +122,7 @@ interface ToolBarStyleBuilder : StyleBuilder<ToolBarStyle> {
 }
 
 private class DefaultToolBarStyle(
-    override val shape: CornerBasedShape,
+    override val shapes: StatefulValue<CornerBasedShape>,
     override val shadow: ShadowAppearance,
     override val dimensions: ToolBarDimensions,
     override val colors: ToolBarColors,
@@ -115,15 +130,17 @@ private class DefaultToolBarStyle(
     override val orientation: ToolBarOrientation,
 ) : ToolBarStyle {
 
+    @Deprecated("Use shapes", replaceWith = ReplaceWith("shapes"))
+    override val shape: CornerBasedShape = shapes.getDefaultValue()
     class Builder : ToolBarStyleBuilder {
-        private var shape: CornerBasedShape? = null
+        private var shape: StatefulValue<CornerBasedShape>? = null
         private var shadow: ShadowAppearance? = null
         private val colorsBuilder = ToolBarColors.builder()
         private val dimensionsBuilder = ToolBarDimensions.builder()
         private var dividerStyle: DividerStyle? = null
         private var orientation: ToolBarOrientation? = null
 
-        override fun shape(shape: CornerBasedShape) = apply {
+        override fun shape(shape: StatefulValue<CornerBasedShape>) = apply {
             this.shape = shape
         }
 
@@ -152,7 +169,7 @@ private class DefaultToolBarStyle(
 
         override fun style(): ToolBarStyle {
             return DefaultToolBarStyle(
-                shape = shape ?: RoundedCornerShape(15),
+                shapes = shape ?: RoundedCornerShape(15).asStatefulValue(),
                 shadow = shadow ?: ShadowAppearance(),
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
@@ -192,7 +209,13 @@ interface ToolBarColorsBuilder {
      * Устанавливает фон [backgroundColor] компонента.
      */
     fun backgroundColor(backgroundColor: Color): ToolBarColorsBuilder =
-        backgroundColor(SolidColor(backgroundColor))
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает фон [backgroundColor] компонента.
+     */
+    fun backgroundColor(backgroundColor: InteractiveColor): ToolBarColorsBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает фон [backgroundColor] компонента.
@@ -241,33 +264,71 @@ interface ToolBarDimensions {
      * Падинг между слотами (устанавливается в конце текущего слота
      * и в начале следующего)
      */
+    @Deprecated("Use sectionPaddingValues", replaceWith = ReplaceWith("sectionPaddingValues"))
     val sectionPadding: Dp
+
+    /**
+     * Падинг между слотами (устанавливается в конце текущего слота
+     * и в начале следующего)
+     */
+    val sectionPaddingValues: StatefulValue<Dp>
 
     /**
      *  Отступ от краев Divider в горизонтальной ориентации marginTop и
      *  marginBottom в вертикальной - marginStart и marginEnd
      */
+    @Deprecated("Use dividerMarginValues", replaceWith = ReplaceWith("dividerMarginValues"))
     val dividerMargin: Dp
+
+    /**
+     *  Отступ от краев Divider в горизонтальной ориентации marginTop и
+     *  marginBottom в вертикальной - marginStart и marginEnd
+     */
+    val dividerMarginValues: StatefulValue<Dp>
 
     /**
      * Отступ в начале
      */
+    @Deprecated("Use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
     val paddingStart: Dp
+
+    /**
+     * Отступ в начале
+     */
+    val paddingStartValues: StatefulValue<Dp>
 
     /**
      * Отступ в конце
      */
+    @Deprecated("Use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
     val paddingEnd: Dp
+
+    /**
+     * Отступ в конце
+     */
+    val paddingEndValues: StatefulValue<Dp>
 
     /**
      * Отступ сверху
      */
+    @Deprecated("Use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
     val paddingTop: Dp
+
+    /**
+     * Отступ сверху
+     */
+    val paddingTopValues: StatefulValue<Dp>
 
     /**
      * Отступ снизу
      */
+    @Deprecated("Use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
     val paddingBottom: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottomValues: StatefulValue<Dp>
 
     companion object {
         /**
@@ -286,32 +347,69 @@ interface ToolBarDimensionsBuilder {
      * Устанавливает отступ между слотами [sectionPadding]
      */
     @ApiName(name = "slotPadding")
-    fun sectionPadding(sectionPadding: Dp): ToolBarDimensionsBuilder
+    fun sectionPadding(sectionPadding: Dp): ToolBarDimensionsBuilder =
+        sectionPadding(sectionPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ между слотами [sectionPadding]
+     */
+    @ApiName(name = "slotPadding")
+    fun sectionPadding(sectionPadding: StatefulValue<Dp>): ToolBarDimensionsBuilder
 
     /**
      * Устанавливает отступ от краев Divider [dividerMargin]
      */
-    fun dividerMargin(dividerMargin: Dp): ToolBarDimensionsBuilder
+    fun dividerMargin(dividerMargin: Dp): ToolBarDimensionsBuilder =
+        dividerMargin(dividerMargin.asStatefulValue())
+
+    /**
+     * Устанавливает отступ от краев Divider [dividerMargin]
+     */
+    fun dividerMargin(dividerMargin: StatefulValue<Dp>): ToolBarDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале [paddingStart]
      */
-    fun paddingStart(paddingStart: Dp): ToolBarDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): ToolBarDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): ToolBarDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце [paddingEnd]
      */
-    fun paddingEnd(paddingEnd: Dp): ToolBarDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): ToolBarDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступ в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): ToolBarDimensionsBuilder
 
     /**
      * Устанавливает отступ сверху [paddingTop]
      */
-    fun paddingTop(paddingTop: Dp): ToolBarDimensionsBuilder
+    fun paddingTop(paddingTop: Dp): ToolBarDimensionsBuilder =
+        paddingTop(paddingTop.asStatefulValue())
+
+    /**
+     * Устанавливает отступ сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: StatefulValue<Dp>): ToolBarDimensionsBuilder
 
     /**
      * Устанавливает отступ снизу [paddingBottom]
      */
-    fun paddingBottom(paddingBottom: Dp): ToolBarDimensionsBuilder
+    fun paddingBottom(paddingBottom: Dp): ToolBarDimensionsBuilder =
+        paddingBottom(paddingBottom.asStatefulValue())
+
+    /**
+     * Устанавливает отступ снизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: StatefulValue<Dp>): ToolBarDimensionsBuilder
 
     /**
      * Создает экземпляр [ToolBarDimensions]
@@ -320,54 +418,72 @@ interface ToolBarDimensionsBuilder {
 }
 
 private class DefaultToolBarDimensions(
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
-    override val paddingTop: Dp,
-    override val paddingBottom: Dp,
-    override val sectionPadding: Dp,
-    override val dividerMargin: Dp,
+    override val paddingStartValues: StatefulValue<Dp>,
+    override val paddingEndValues: StatefulValue<Dp>,
+    override val paddingTopValues: StatefulValue<Dp>,
+    override val paddingBottomValues: StatefulValue<Dp>,
+    override val sectionPaddingValues: StatefulValue<Dp>,
+    override val dividerMarginValues: StatefulValue<Dp>,
+
 ) : ToolBarDimensions {
+    @Deprecated("Use paddingStartValues", replaceWith = ReplaceWith("paddingStartValues"))
+    override val paddingStart: Dp = paddingStartValues.getDefaultValue()
+
+    @Deprecated("Use paddingEndValues", replaceWith = ReplaceWith("paddingEndValues"))
+    override val paddingEnd: Dp = paddingEndValues.getDefaultValue()
+
+    @Deprecated("Use paddingTopValues", replaceWith = ReplaceWith("paddingTopValues"))
+    override val paddingTop: Dp = paddingTopValues.getDefaultValue()
+
+    @Deprecated("Use paddingBottomValues", replaceWith = ReplaceWith("paddingBottomValues"))
+    override val paddingBottom: Dp = paddingBottomValues.getDefaultValue()
+
+    @Deprecated("Use sectionPaddingValues", replaceWith = ReplaceWith("sectionPaddingValues"))
+    override val sectionPadding: Dp = sectionPaddingValues.getDefaultValue()
+
+    @Deprecated("Use dividerMarginValues", replaceWith = ReplaceWith("dividerMarginValues"))
+    override val dividerMargin: Dp = dividerMarginValues.getDefaultValue()
 
     class Builder : ToolBarDimensionsBuilder {
-        private var sectionPadding: Dp? = null
-        private var dividerMargin: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
-        private var paddingTop: Dp? = null
-        private var paddingBottom: Dp? = null
+        private var sectionPadding: StatefulValue<Dp>? = null
+        private var dividerMargin: StatefulValue<Dp>? = null
+        private var paddingStart: StatefulValue<Dp>? = null
+        private var paddingEnd: StatefulValue<Dp>? = null
+        private var paddingTop: StatefulValue<Dp>? = null
+        private var paddingBottom: StatefulValue<Dp>? = null
 
-        override fun sectionPadding(sectionPadding: Dp) = apply {
+        override fun sectionPadding(sectionPadding: StatefulValue<Dp>) = apply {
             this.sectionPadding = sectionPadding
         }
 
-        override fun dividerMargin(dividerMargin: Dp) = apply {
+        override fun dividerMargin(dividerMargin: StatefulValue<Dp>) = apply {
             this.dividerMargin = dividerMargin
         }
 
-        override fun paddingStart(paddingStart: Dp) = apply {
+        override fun paddingStart(paddingStart: StatefulValue<Dp>) = apply {
             this.paddingStart = paddingStart
         }
 
-        override fun paddingEnd(paddingEnd: Dp) = apply {
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>) = apply {
             this.paddingEnd = paddingEnd
         }
 
-        override fun paddingTop(paddingTop: Dp) = apply {
+        override fun paddingTop(paddingTop: StatefulValue<Dp>) = apply {
             this.paddingTop = paddingTop
         }
 
-        override fun paddingBottom(paddingBottom: Dp) = apply {
+        override fun paddingBottom(paddingBottom: StatefulValue<Dp>) = apply {
             this.paddingBottom = paddingBottom
         }
 
         override fun build(): ToolBarDimensions {
             return DefaultToolBarDimensions(
-                paddingStart = paddingStart ?: 8.dp,
-                paddingEnd = paddingEnd ?: 8.dp,
-                paddingTop = paddingTop ?: 10.dp,
-                paddingBottom = paddingBottom ?: 10.dp,
-                sectionPadding = sectionPadding ?: 8.dp,
-                dividerMargin = dividerMargin ?: 4.dp,
+                paddingStartValues = paddingStart ?: 8.dp.asStatefulValue(),
+                paddingEndValues = paddingEnd ?: 8.dp.asStatefulValue(),
+                paddingTopValues = paddingTop ?: 10.dp.asStatefulValue(),
+                paddingBottomValues = paddingBottom ?: 10.dp.asStatefulValue(),
+                sectionPaddingValues = sectionPadding ?: 8.dp.asStatefulValue(),
+                dividerMarginValues = dividerMargin ?: 4.dp.asStatefulValue(),
             )
         }
     }

@@ -6,6 +6,7 @@ import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.WheelCenterAlignCenterContentWidthMode
 import com.sdds.compose.uikit.fixtures.testcases.WheelCountFourDescriptionDots
 import com.sdds.compose.uikit.fixtures.testcases.WheelCountOneSeparatorNone
 import com.sdds.compose.uikit.fixtures.testcases.WheelCountThreeDescriptionDivider
@@ -86,6 +87,13 @@ class ComposeWheelScreenshotTest(
     fun testWheelCountTwoTADescriptionDivider() {
         composeTestRule.content {
             WheelCountTwoTADescriptionDivider(Wheel.H4.CenterAlign.style())
+        }
+    }
+
+    @Test
+    fun testWheelH4CenterAlignCenterContentFromStyle() {
+        composeTestRule.content {
+            WheelCenterAlignCenterContentWidthMode(Wheel.H4.CenterAlign.style())
         }
     }
 }

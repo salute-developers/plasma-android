@@ -109,7 +109,7 @@ object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>
                 orientation = state.orientation,
             ) {
                 repeat(state.amount) {
-                    buttonContent(state.appearance)
+                    buttonContent(state.appearance, style.hasIconButtons())
                 }
             }
         }
@@ -125,7 +125,7 @@ object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>
             orientation = ButtonGroupOrientation.Horizontal,
         ) {
             repeat(3) {
-                buttonContent()
+                buttonContent(iconButtons = style.hasIconButtons())
             }
         }
     }
@@ -136,9 +136,11 @@ object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>
      * @param appearance внешний вид, определяющий тип кнопки:
      *                   - содержит "Icon" -> отображается иконка
      *                   - иначе -> отображается текстовая кнопка
+     * @param iconButtons стиль кнопок группы принадлежит иконочной кнопке. Нужен, когда внешний вид не известен:
+     *                    превью клиента его не передаёт, и без этого признака группа всегда была бы текстовой
      */
-    private fun ButtonGroupScope.buttonContent(appearance: String = "") {
-        if (appearance.contains("Icon")) {
+    private fun ButtonGroupScope.buttonContent(appearance: String = "", iconButtons: Boolean = false) {
+        if (iconButtons || appearance.contains("Icon")) {
             button { IconButton(rememberVectorPainter(SddsIcons.Plasma24), {}) }
         } else {
             button {
@@ -197,4 +199,13 @@ object ButtonGroupAmountTransformer : StateValueTransformer<Int, Int> {
     override fun transform(input: Int): Int {
         return input.coerceAtLeast(0)
     }
+}
+
+/**
+ * Стиль кнопок группы принадлежит иконочной кнопке: её минимальная ширина равна высоте (кнопка квадратная), у
+ * текстовой кнопки минимальная ширина больше высоты.
+ */
+private fun ButtonGroupStyle.hasIconButtons(): Boolean {
+    val dimensions = buttonStyle.dimensions
+    return dimensions.minWidthValues.getDefaultValue() == dimensions.heightValues.getDefaultValue()
 }

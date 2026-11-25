@@ -20,6 +20,8 @@ import com.sdds.uikit.drawable.TextDrawable
 import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.focusselector.effectiveFocus
+import com.sdds.uikit.internal.focusselector.withoutFocusedIfWindowUnfocused
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
@@ -284,7 +286,14 @@ open class Chip @JvmOverloads constructor(
 
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
-        updateFocusSelector(this, focused)
+        updateFocusSelector(this, effectiveFocus(this, focused))
+    }
+
+    override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
+        super.onWindowFocusChanged(hasWindowFocus)
+        if (settings.windowFocusResponsive && isFocused) {
+            updateFocusSelector(this, hasWindowFocus)
+        }
     }
 
     override fun setPressed(pressed: Boolean) {
@@ -313,6 +322,9 @@ open class Chip @JvmOverloads constructor(
         }
         if (isChecked) {
             mergeDrawableStates(drawableState, intArrayOf(android.R.attr.state_checked))
+        }
+        if (isAttachedToWindow && settings.windowFocusResponsive) {
+            return drawableState.withoutFocusedIfWindowUnfocused(isInEditMode, hasWindowFocus())
         }
         return drawableState
     }

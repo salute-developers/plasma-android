@@ -155,9 +155,9 @@ public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
                     setOf(InteractiveState.Activated)
                         to SolidColor(SddsFinAiTheme.colors.outlineDefaultAccent),
                     setOf(TextFieldSemanticState.Disabled) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                     setOf(TextFieldSemanticState.Readonly) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
         }
@@ -196,9 +196,9 @@ public val WrapperTextFieldView.Success: WrapperTextFieldTerminate
                     setOf(InteractiveState.Activated)
                         to SolidColor(SddsFinAiTheme.colors.outlineDefaultAccent),
                     setOf(TextFieldSemanticState.Disabled) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                     setOf(TextFieldSemanticState.Readonly) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
         }
@@ -237,9 +237,9 @@ public val WrapperTextFieldView.Warning: WrapperTextFieldTerminate
                     setOf(InteractiveState.Activated)
                         to SolidColor(SddsFinAiTheme.colors.outlineDefaultAccent),
                     setOf(TextFieldSemanticState.Disabled) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                     setOf(TextFieldSemanticState.Readonly) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
         }
@@ -278,9 +278,9 @@ public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
                     setOf(InteractiveState.Activated)
                         to SolidColor(SddsFinAiTheme.colors.outlineDefaultAccent),
                     setOf(TextFieldSemanticState.Disabled) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                     setOf(TextFieldSemanticState.Readonly) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
         }
@@ -308,9 +308,9 @@ public val WrapperTextFieldView.Edited: WrapperTextFieldTerminate
                     setOf(InteractiveState.Activated)
                         to SolidColor(SddsFinAiTheme.colors.outlineDefaultAccent),
                     setOf(TextFieldSemanticState.Disabled) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                     setOf(TextFieldSemanticState.Readonly) to
-                        SolidColor(SddsFinAiTheme.colors.outlineDefaultClear),
+                        SolidColor(SddsFinAiTheme.colors.surfaceDefaultClear),
                 ),
             )
         }

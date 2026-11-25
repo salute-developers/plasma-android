@@ -1,0 +1,106 @@
+{
+  "protocolVersion": 1,
+  "requestId": "fixture-related-styles",
+  "platform": "WEB",
+  "assets": [
+    {
+      "id": "body:0",
+      "type": "WOFF2",
+      "url": "https://cdn.example/fonts/Text-Regular.woff2"
+    }
+  ],
+  "theme": {
+    "dark.surface.solid.accent": {
+      "type": "color",
+      "value": "#2A72F8FF"
+    },
+    "dark.surface.transparent.secondary": {
+      "type": "color",
+      "value": "#FFFFFF1F"
+    },
+    "fontFamily.body": {
+      "type": "fontFamily",
+      "faces": [
+        {
+          "assetId": "body:0",
+          "weight": 400,
+          "style": "NORMAL"
+        }
+      ],
+      "allowFallback": true
+    },
+    "body.m.normal": {
+      "type": "typography",
+      "fontFamilyTokenId": "fontFamily.body",
+      "fontSize": 16,
+      "lineHeight": 20,
+      "letterSpacing": -0.32,
+      "weight": 400,
+      "fontStyle": "NORMAL"
+    }
+  },
+  "component": {
+    "id": "ButtonGroup",
+    "variations": {
+      "view": "accent"
+    },
+    "properties": {
+      "gap": {
+        "base": {
+          "type": "literal",
+          "value": 8
+        }
+      }
+    }
+  },
+  "styles": {
+    "Button/view/accent": {
+      "component": "Button",
+      "variation": "view",
+      "name": "accent",
+      "default": true,
+      "properties": {
+        "backgroundColor": {
+          "base": {
+            "type": "tokenRef",
+            "tokenId": "dark.surface.solid.accent"
+          }
+        }
+      }
+    },
+    "Button/view/secondary": {
+      "component": "Button",
+      "variation": "view",
+      "name": "secondary",
+      "properties": {
+        "backgroundColor": {
+          "base": {
+            "type": "tokenRef",
+            "tokenId": "dark.surface.transparent.secondary"
+          }
+        }
+      }
+    },
+    "Button/invariants": {
+      "component": "Button",
+      "invariant": true,
+      "properties": {
+        "labelStyle": {
+          "base": {
+            "type": "tokenRef",
+            "tokenId": "body.m.normal"
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "id": "Default",
+    "props": {}
+  },
+  "surface": {
+    "width": 360,
+    "height": 160,
+    "background": "#000000FF"
+  }
+}

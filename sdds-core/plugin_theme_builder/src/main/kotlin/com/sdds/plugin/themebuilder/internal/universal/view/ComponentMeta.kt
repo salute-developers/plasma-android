@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.universal.view
 
+import com.sdds.plugin.themebuilder.internal.universal.StateSupport
 import com.sdds.plugin.themebuilder.internal.universal.compose.ComposeComponentMeta
 import kotlinx.serialization.Serializable
 
@@ -24,6 +25,7 @@ import kotlinx.serialization.Serializable
 internal data class ApiMeta(
     val components: List<ComponentMeta> = emptyList(),
     val sharedStates: Map<String, String> = emptyMap(),
+    val stateSupport: StateSupport? = null,
 )
 
 /**

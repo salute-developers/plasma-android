@@ -33,6 +33,12 @@ public enum class PreviewAssetType {
     /** Шрифт OpenType. */
     OTF,
 
+    /** Веб-шрифт WOFF. */
+    WOFF,
+
+    /** Веб-шрифт WOFF2. */
+    WOFF2,
+
     /** Векторное изображение SVG. */
     SVG,
 
@@ -101,6 +107,7 @@ public sealed interface TokenValue {
     public data class FontFamily(
         /** Доступные начертания семейства. */ val faces: List<PreviewFontFace>,
         /** Разрешить системный fallback при недоступности font asset. */ val allowFallback: Boolean = false,
+        /** Имя семейства шрифта. */ val family: String? = null,
     ) : TokenValue
 
     /** Параметры текста. */
@@ -112,6 +119,7 @@ public sealed interface TokenValue {
         /** Высота строки в sp. */ val lineHeight: Double,
         /** Межбуквенный интервал в sp. */ val letterSpacing: Double,
         /** Вес шрифта. */ val weight: Int,
+        /** Начертание текста. */ val fontStyle: PreviewFontStyle? = null,
     ) : TokenValue
 }
 
@@ -166,6 +174,10 @@ public data class PreviewPropertyValue(
 public data class PreviewStyle(
     /** Идентификатор компонента, которому принадлежит стиль. */ val component: String,
     /** Вычисленные properties стиля. */ val properties: Map<String, PreviewPropertyValue> = emptyMap(),
+    /** Ось вариации стиля. */ val variation: String? = null,
+    /** Имя стиля в рамках вариации. */ val name: String? = null,
+    /** Признак стиля по умолчанию. */ val default: Boolean? = null,
+    /** Признак инвариантного стиля. */ val invariant: Boolean? = null,
 )
 
 /** Точка градиента. */

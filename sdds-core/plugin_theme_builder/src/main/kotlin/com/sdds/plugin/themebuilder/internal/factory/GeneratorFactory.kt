@@ -341,6 +341,7 @@ internal class GeneratorFactory(
      */
     fun createTypographyGenerator(
         typography: Map<Tenant, Map<String, TypographyTokenValue>>,
+        fonts: Map<Tenant, Map<String, FontTokenValue>>,
     ): TypographyTokenGenerator {
         return TypographyTokenGenerator(
             outputLocation = OutputLocation.Directory(outputDir),
@@ -351,6 +352,7 @@ internal class GeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
             resourceReferenceProvider = resourceReferenceProvider,
             typographyTokenValues = typography,
+            fontTokenValues = fonts,
             fontsAggregator = fontsAggregator,
             dimensionsConfig = dimensionsConfig,
             namespace = namespace,

@@ -133,6 +133,62 @@ class ComposeGradientAttributeGeneratorTest {
         Assert.assertTrue(output.contains("textDefaultAccentGradient overrideBy"))
         Assert.assertTrue(output.contains("LightBusinessGradientTokens.TextDefaultAccentGradient.colors"))
     }
+
+    @Test
+    fun `dark-функция градиентов подтенанта строится только из dark-диффа`() {
+        underTest.setGradientTokenData(
+            inputData +
+                (
+                    Tenant("Business") to ComposeTokenData(
+                        // light-дифф: linear-градиент accent (один tokenRef — чтобы счётчик ссылок
+                        // совпадал с числом упоминаний объекта в коде)
+                        light = mapOf(
+                            "textDefaultAccentGradient" to listOf(
+                                ComposeTokenData.Gradient(
+                                    tokenRefs = listOf(
+                                        "TextDefaultAccentGradient.colors",
+                                    ),
+                                    gradientType = ComposeTokenData.GradientType.LINEAR,
+                                    tokenObjectName = "LightBusinessGradientTokens",
+                                ),
+                            ),
+                        ),
+                        // dark-дифф: другой токен, gradient joyActive
+                        dark = mapOf(
+                            "textDefaultGradientJoyActive" to listOf(
+                                ComposeTokenData.Gradient(
+                                    tokenRefs = listOf(
+                                        "TextDefaultGradientJoyActive.colors",
+                                    ),
+                                    gradientType = ComposeTokenData.GradientType.SWEEP,
+                                    tokenObjectName = "DarkBusinessGradientTokens",
+                                ),
+                            ),
+                        ),
+                    )
+                    ),
+        )
+
+        underTest.generate()
+
+        val output = outputKt.toString()
+        Assert.assertTrue(output.contains("fun lightThemeGradientsBusiness"))
+        Assert.assertTrue(output.contains("fun darkThemeGradientsBusiness"))
+        // light-объект тенанта должен упоминаться ровно один раз — только в light-функции
+        // (до фикса light-дифф молча попадал и в dark-функцию)
+        Assert.assertEquals(
+            "LightBusinessGradientTokens referenced outside of light function",
+            1,
+            Regex("LightBusinessGradientTokens").findAll(output).count(),
+        )
+        // dark-объект тенанта — ровно один раз, в dark-функции (до фикса — ни разу)
+        Assert.assertEquals(
+            "DarkBusinessGradientTokens must be referenced by dark function",
+            1,
+            Regex("DarkBusinessGradientTokens").findAll(output).count(),
+        )
+        Assert.assertTrue(output.contains("textDefaultGradientJoyActive overrideBy"))
+    }
     private companion object {
         val inputData = mapOf(
             Tenant.Default to ComposeTokenData(

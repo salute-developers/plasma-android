@@ -8,11 +8,11 @@
 package com.sdds.plasma.homeds.styles.navigationbar
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.NavigationBarStyle
 import com.sdds.compose.uikit.NavigationBarStyleBuilder
 import com.sdds.compose.uikit.NavigationBarTextPlacement
-import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -58,12 +58,12 @@ public val NavigationBarMainPage.Default: WrapperNavigationBarMainPageDefault
         )
         .actionButtonStyle(IconButton.S.Secondary.style())
         .colors {
-            backgroundColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive())
-            actionStartColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
-            actionEndColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
-            textColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
-            titleColor(PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive())
-            descriptionColor(PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive())
+            backgroundColor(SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultClear).asStatefulValue())
+            actionStartColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            actionEndColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            textColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            titleColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultPrimary).asStatefulValue())
+            descriptionColor(SolidColor(PlasmaHomeDsTheme.colors.textDefaultSecondary).asStatefulValue())
         }
         .dimensions {
             textBlockTopMargin(16.0.dp)

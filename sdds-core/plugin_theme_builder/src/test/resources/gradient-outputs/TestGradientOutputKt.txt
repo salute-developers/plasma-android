@@ -1,9 +1,12 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.test.tokens
 
 import androidx.compose.ui.graphics.Color
 import kotlin.Float
 import kotlin.FloatArray
+import kotlin.Suppress
 import kotlin.collections.List
 
 /**

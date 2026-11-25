@@ -19,6 +19,15 @@ import com.sdds.uikit.internal.focusselector.FocusSelectorMode.Companion.isEnabl
  * @property scaleEnabled Флаг, указывающий, включено ли масштабирование при фокусе.
  * @property scaleFactor Коэффициент масштабирования при фокусе.
  * @property duplicateParentStateEnabled Флаг, указывающий, нужно ли дублировать состояние родителя.
+ * @property windowFocusResponsive Флаг, указывающий, должен ли компонент переставать сообщать
+ * [android.R.attr.state_focused], пока его окно не имеет фокуса ([android.view.View.hasWindowFocus]).
+ * При `true` все фокусные подсветки, завязанные на [android.R.attr.state_focused] (фон/текст по
+ * ColorStateList-селекторам, рамка-селектор, [android.animation.StateListAnimator]), гаснут, когда другое
+ * окно (активность/диалог) забирает фокус ввода, и возвращаются при возврате фокуса окна.
+ * Масштабирование при фокусе ([scaleEnabled]) синхронизируется с этим же условием.
+ * Значение по умолчанию — `false` (фокусные подсветки остаются видимыми независимо от фокуса окна).
+ * Не применяется к компонентам с редактируемым вводом (EditText/TextField) из-за их собственной
+ * семантики взаимодействия с фокусом окна.
  */
 data class FocusSelectorSettings(
     val isEnabled: Boolean,
@@ -26,6 +35,7 @@ data class FocusSelectorSettings(
     val scaleEnabled: Boolean,
     val scaleFactor: Float,
     val duplicateParentStateEnabled: Boolean,
+    val windowFocusResponsive: Boolean = false,
 ) {
 
     companion object {
@@ -73,6 +83,10 @@ data class FocusSelectorSettings(
                     R.styleable.SdFocusSelector_sd_fsDuplicateParentState,
                     false,
                 )
+                val windowFocusResponsive = attr.getBoolean(
+                    R.styleable.SdFocusSelector_sd_fsWindowFocusResponsive,
+                    false,
+                )
                 val factor = attr.getFloat(
                     R.styleable.SdFocusSelector_sd_fsScaleFactor,
                     FocusScaleAnimationHelper.DEFAULT_FACTOR,
@@ -100,6 +114,7 @@ data class FocusSelectorSettings(
                     scaleEnabled = scaleEnabled,
                     scaleFactor = factor,
                     duplicateParentStateEnabled = duplicateParentStateEnabled,
+                    windowFocusResponsive = windowFocusResponsive,
                 )
             }
         }

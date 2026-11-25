@@ -19,7 +19,6 @@ val cleanPreviewPluginWebpackOutput by tasks.registering(Delete::class) {
 
 val generatedManifestDir = layout.buildDirectory.dir("generated/preview-manifest")
 val generatedFactoriesDir = layout.buildDirectory.dir("generated/preview-factories")
-val generatedIconsDir = layout.buildDirectory.dir("generated/preview-icons")
 val generatedGroupsFile = layout.buildDirectory.file("generated/preview-groups/preview-groups.json")
 val generatePreviewFactories = tasks.named("generateComposePreview")
 val generatedApiMetaDir = layout.buildDirectory.dir("generated/preview-api-meta")
@@ -27,15 +26,11 @@ val uikitComposeProperties = layout.projectDirectory.file("../../sdds-core/uikit
 
 // Мета, по которой `generateComposePreview` строит фабрики плагина: тот же ресурс JVM-артефакта uikit-compose. Она
 // входит в артефакт, и бэкенд DSB импортирует из неё компоненты, поэтому плагин и мета одного билда совпадают.
-val extractPreviewApiMeta by tasks.registering(Copy::class) {
+val extractPreviewApiMeta by tasks.registering(com.sdds.plugin.themebuilder.UikitComposeApiMetaTask::class) {
     group = "build"
-    description = "Извлекает api-meta.json uikit-compose, из которой собран плагин, для включения в артефакт."
-    from(provider { zipTree(previewApiMeta.files.single { it.name.startsWith("uikit-compose-") || it.name.startsWith("uikit-compose.") }) }) {
-        include("sdds/api/uikit-compose-api-meta.json")
-        eachFile { path = "api-meta.json" }
-        includeEmptyDirs = false
-    }
-    into(generatedApiMetaDir)
+    description = "Экспортирует API-мету со словарём состояний генератора для preview-плагина."
+    metaClasspath.from(previewApiMeta)
+    outputFile.set(generatedApiMetaDir.map { it.file("api-meta.json") })
 }
 
 // Группы компонентов берутся из реестра историй песочницы (`ComponentKey.group`): их знает только Kotlin-код,
@@ -227,47 +222,6 @@ dsBuilder {
     }
 }
 
-// Иконки, которые плагин рисует по имени из конфигурации компонента (`disclosure.down.fill.16`). Список лежит в
-// репозитории: в wasm попадают только перечисленные иконки, а несуществующее имя ломает компиляцию реестра.
-val generatePreviewIcons by tasks.registering {
-    group = "build"
-    description = "Генерирует реестр иконок Compose preview по src/icons/preview-icons.txt."
-    val list = layout.projectDirectory.file("src/icons/preview-icons.txt")
-    val output = generatedIconsDir
-    inputs.file(list)
-    outputs.dir(output)
-    doLast {
-        val members = list.asFile.readLines()
-            .map { it.trim() }
-            .filter { it.isNotEmpty() }
-            .map { name ->
-                name.split('.', '-', '_').filter { it.isNotEmpty() }
-                    .joinToString("") { part -> part.replaceFirstChar { it.uppercaseChar() } }
-            }
-            .distinct()
-            .sorted()
-        val source = buildString {
-            appendLine("package com.sdds.preview.compose.generated")
-            appendLine()
-            appendLine("import com.sdds.icons.compose.SddsIcons")
-            members.forEach { appendLine("import com.sdds.icons.compose.$it") }
-            appendLine("import com.sdds.preview.compose.PreviewIconRegistry")
-            appendLine()
-            appendLine("/** Сгенерировано из `src/icons/preview-icons.txt`: иконки, доступные Compose preview по имени. */")
-            appendLine("internal object GeneratedPreviewIcons {")
-            appendLine("    val all: PreviewIconRegistry = PreviewIconRegistry(")
-            appendLine("        mapOf(")
-            members.forEach { appendLine("            \"$it\" to { SddsIcons.$it },") }
-            appendLine("        ),")
-            appendLine("    )")
-            appendLine("}")
-        }
-        val directory = output.get().asFile
-        directory.mkdirs()
-        File(directory, "GeneratedPreviewIcons.kt").writeText(source)
-    }
-}
-
 android { namespace = "com.sdds.preview.compose.plugin" }
 
 kotlin {
@@ -279,14 +233,12 @@ kotlin {
     sourceSets {
         commonMain {
             kotlin.srcDir(generatePreviewFactories.map { generatedFactoriesDir.get().asFile })
-            kotlin.srcDir(generatePreviewIcons.map { generatedIconsDir.get().asFile })
         }
         commonMain.dependencies {
             implementation(project(":preview-contract"))
             implementation(project(":preview-sdk-compose"))
             implementation(project(":sandbox-core"))
             implementation(project(":uikit-compose-fixtures"))
-            implementation("sdds-core:icons-compose")
             implementation(libs.sdds.uikit.compose)
             implementation(compose.foundation)
             implementation(compose.runtime)

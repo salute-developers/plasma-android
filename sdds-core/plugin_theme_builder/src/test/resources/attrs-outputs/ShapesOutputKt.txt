@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("UndocumentedPublicProperty")
+
 package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -8,6 +10,7 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.sdds.playground.themebuilder.theme.ThemeShapes
 import com.sdds.playground.themebuilder.tokens.RoundShapeTokens
+import kotlin.Suppress
 
 /**
  * Формы Theme

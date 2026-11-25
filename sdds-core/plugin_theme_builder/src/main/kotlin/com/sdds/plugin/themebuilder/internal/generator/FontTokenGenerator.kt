@@ -67,7 +67,7 @@ internal class FontTokenGenerator(
     private val fontFamilyXmlBuilders = mutableMapOf<String, XmlFontFamilyDocumentBuilder>()
     private val ktFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(FONT_TOKENS_NAME).also {
-            it.addSuppressAnnotation("ObjectPropertyNaming")
+            it.suppressGeneratedDocs("ObjectPropertyNaming")
             if (dimensionsConfig.variableFonts) {
                 it.addOptInAnnotation(KtFileBuilder.TypeExperimentalTextApi)
             }

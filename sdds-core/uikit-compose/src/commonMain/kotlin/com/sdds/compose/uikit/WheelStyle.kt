@@ -173,6 +173,12 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
     fun itemAlignment(itemAlignment: WheelAlignment): WheelStyleBuilder
 
     /**
+     * Устанавливает режим распределения ширины [widthMode].
+     * Значение доступно через [WheelWidthModeProvider] и читается компонентом при помощи [safeWidthMode].
+     */
+    fun widthMode(widthMode: WheelWidthMode): WheelStyleBuilder
+
+    /**
      * Устанавливает количество колёс [wheelCount]
      */
     fun wheelCount(wheelCount: Int): WheelStyleBuilder
@@ -278,6 +284,32 @@ interface WheelStyleBuilder : StyleBuilder<WheelStyle> {
     fun dimensions(builder: @Composable WheelDimensionsBuilder.() -> Unit): WheelStyleBuilder
 }
 
+/**
+ * Источник [WheelWidthMode] у стилей, собранных в сборке с поддержкой этого режима.
+ *
+ * Сознательно НЕ является членом [WheelStyle] и не добавлен в его иерархию: публичные стили,
+ * скомпилированные против предыдущих версий uikit-compose, не реализуют новый метод, и его
+ * обращение к такому стилю вызвало бы `AbstractMethodError`. Чтение выполняется безопасным
+ * приведением через [safeWidthMode].
+ */
+interface WheelWidthModeProvider {
+
+    /**
+     * Режим распределения ширины между колёсами
+     */
+    val widthMode: WheelWidthMode
+}
+
+/**
+ * Безопасное чтение [WheelWidthMode] из произвольного [WheelStyle].
+ *
+ * Стили, реализующие [WheelWidthModeProvider] (все стили текущего билда), возвращают своё
+ * значение; стили, скомпилированные против версий uikit-compose без поддержки режима,
+ * возвращают [WheelWidthMode.Auto] — прежнюю семантику, зависящую только от выравнивания.
+ */
+fun WheelStyle.safeWidthMode(): WheelWidthMode =
+    (this as? WheelWidthModeProvider)?.widthMode ?: WheelWidthMode.Auto
+
 private class DefaultWheelStyle(
     override val dimensions: WheelDimensions,
     override val colors: WheelColors,
@@ -285,6 +317,7 @@ private class DefaultWheelStyle(
     override val itemTextAfterStyle: TextStyle,
     override val descriptionStyle: TextStyle,
     override val itemAlignment: WheelAlignment,
+    override val widthMode: WheelWidthMode,
     override val wheelCount: Int,
     override val visibleItemsCount: Int,
     override val controlIconUpSource: ImageSource?,
@@ -293,7 +326,7 @@ private class DefaultWheelStyle(
     override val textAfterMode: TextAfterMode,
     override val selectionIndicatorEnabled: Boolean,
     override val selectionIndicatorShape: StatefulValue<Shape>,
-) : WheelStyle {
+) : WheelStyle, WheelWidthModeProvider {
     @Deprecated("Use controlIconUpSource", replaceWith = ReplaceWith("controlIconUpSource"))
     override val controlIconUp: Int? = null
 
@@ -319,6 +352,7 @@ private class DefaultWheelStyle(
         private var itemTextAfterStyle: TextStyle? = null
         private var descriptionStyle: TextStyle? = null
         private var itemAlignment: WheelAlignment? = null
+        private var widthMode: WheelWidthMode? = null
         private var wheelCount: Int? = null
         private var visibleItemsCount: Int? = null
         private var controlIconUpSource: ImageSource? = null
@@ -342,6 +376,10 @@ private class DefaultWheelStyle(
 
         override fun itemAlignment(itemAlignment: WheelAlignment) = apply {
             this.itemAlignment = itemAlignment
+        }
+
+        override fun widthMode(widthMode: WheelWidthMode) = apply {
+            this.widthMode = widthMode
         }
 
         override fun wheelCount(wheelCount: Int) = apply {
@@ -395,6 +433,7 @@ private class DefaultWheelStyle(
                 itemTextAfterStyle = itemTextAfterStyle ?: TextStyle.Default,
                 descriptionStyle = descriptionStyle ?: TextStyle.Default,
                 itemAlignment = itemAlignment ?: WheelAlignment.Center,
+                widthMode = widthMode ?: WheelWidthMode.Auto,
                 wheelCount = wheelCount ?: 3,
                 visibleItemsCount = visibleItemsCount ?: 5,
                 controlIconUpSource = controlIconUpSource,

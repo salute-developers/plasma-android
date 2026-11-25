@@ -294,3 +294,44 @@ fun WheelCountTwoTADescriptionDivider(style: WheelStyle) {
         }
     }
 }
+
+/**
+ * Центральный селектор по ширине контента, крайние делят остаток ширины, контент отцентрован во всех колесах.
+ * Режим ширины намеренно не задан явно — берётся из стиля (для стиля без режима — Auto)
+ */
+@Composable
+fun WheelCenterAlignCenterContentWidthMode(style: WheelStyle) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        Wheel(
+            style = style,
+            wheelCount = 3,
+            hasControls = true,
+            visibleItemsCount = 5,
+            wheelSeparator = WheelSeparator.Dots,
+            alignment = WheelAlignment.Center,
+            dataEdgePlacement = DataEdgePlacement.WheelEdge,
+            onItemSelected = { _, _ -> },
+            modifier = Modifier
+                .fillMaxWidth()
+                .semantics(mergeDescendants = false) {
+                    testTag = "wheel"
+                }
+                .align(Alignment.Center),
+        ) { wheelIndex ->
+            WheelDataSet(
+                dataSet = listOf(
+                    WheelItemData("$wheelIndex"),
+                    WheelItemData("10"),
+                    WheelItemData("20"),
+                    WheelItemData("30"),
+                    WheelItemData("40"),
+                    WheelItemData("50"),
+                ),
+                description = "",
+                initialIndex = 1,
+            )
+        }
+    }
+}

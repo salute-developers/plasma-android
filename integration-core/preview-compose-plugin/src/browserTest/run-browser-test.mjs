@@ -14,6 +14,7 @@ const mimeTypes = {
     ".json": "application/json; charset=utf-8",
     ".wasm": "application/wasm",
     ".otf": "font/otf",
+    ".svg": "image/svg+xml",
 };
 
 function resolveFile(pathname) {
@@ -287,6 +288,41 @@ async function runGallery(socket, port) {
         if (unknownIcon.type !== "success" || !unknownIcon.warnings?.some((w) => w.code === "unknown_icon")) {
             issues.push(`AccordionItem с неизвестной иконкой: ожидались success и unknown_icon, получено ${JSON.stringify(unknownIcon)}`);
         }
+    }
+    // Иконки приходят SVG-ресурсами payload (`icon:<имя>`) и рисуются Skia SVG: у каждой иконки свой кадр, а иконка,
+    // которую не удалось скачать или разобрать, даёт предупреждение `unknown_icon`, а не останавливает Compose.
+    if (!only || only.includes("AccordionItem")) {
+        const svgIcons = ["AddOutline", "SearchOutline", "CandyOutlineBold", "Brightness0Fill", "PowerWireCableOutlineBold", "DislikeFill"];
+        const renderIcon = (name, file) => evaluateAsync(
+            socket,
+            `window.__galleryRenderWithSvgIcon("AccordionItem", "openedIcon", ${JSON.stringify(name)}, ${JSON.stringify(file)})`,
+        );
+        const broken = await renderIcon("test.broken.16", "broken.svg");
+        const missing = await renderIcon("test.missing.16", "no-such-icon.svg");
+        const withoutIcon = await stableShot();
+        for (const [label, result] of [["не SVG", broken], ["нет файла", missing]]) {
+            if (result.type !== "success" || !result.warnings?.some((w) => w.code === "unknown_icon")) {
+                issues.push(`SVG иконка (${label}): ожидались success и unknown_icon, получено ${JSON.stringify(result)}`);
+            }
+        }
+        const frames = new Map();
+        for (const name of svgIcons) {
+            const errorsBefore = pageErrors.length;
+            const result = await renderIcon(`test.${name.toLowerCase()}.24`, `${name}-24.svg`);
+            const shot = await stableShot();
+            frames.set(name, shot);
+            if (result.type !== "success" || result.warnings?.length) {
+                issues.push(`SVG иконка ${name}: ожидался success без предупреждений, получено ${JSON.stringify(result)}`);
+            }
+            if (pageErrors.length > errorsBefore) issues.push(`SVG иконка ${name}: ошибки страницы ${JSON.stringify(pageErrors.slice(errorsBefore))}`);
+            if (shot.equals(withoutIcon)) issues.push(`SVG иконка ${name} не отличается от кадра без иконки: иконка не нарисована`);
+            if (process.env.SVG_ICON_SHOTS) {
+                mkdirSync(process.env.SVG_ICON_SHOTS, {recursive: true});
+                writeFileSync(join(process.env.SVG_ICON_SHOTS, `${name}.png`), shot);
+            }
+        }
+        const distinct = new Set([...frames.values()].map((shot) => shot.toString("base64")));
+        if (distinct.size !== frames.size) issues.push(`SVG иконки рисуются одинаково: ${distinct.size} разных кадров из ${frames.size}`);
     }
     // Конфигурация может не содержать `textStyle`: TextSkeleton всё равно должен нарисоваться, а не остановить Compose.
     if (!only || only.includes("TextSkeleton")) {
