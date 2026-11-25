@@ -8,6 +8,8 @@ import com.sdds.uikit.fs.FocusSelectorSettings
 import com.sdds.uikit.internal.base.isClippedToOutline
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.focusselector.effectiveFocus
+import com.sdds.uikit.internal.focusselector.withoutFocusedIfWindowUnfocused
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
@@ -62,7 +64,22 @@ open class CardContent @JvmOverloads constructor(
 
         override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
             super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
-            updateFocusSelector(this, gainFocus)
+            updateFocusSelector(this, effectiveFocus(this, gainFocus))
+        }
+
+        override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
+            super.onWindowFocusChanged(hasWindowFocus)
+            if (settings.windowFocusResponsive && isFocused) {
+                updateFocusSelector(this, hasWindowFocus)
+            }
+        }
+
+        override fun onCreateDrawableState(extraSpace: Int): IntArray {
+            val drawableState = super.onCreateDrawableState(extraSpace)
+            if (isAttachedToWindow && settings.windowFocusResponsive) {
+                return drawableState.withoutFocusedIfWindowUnfocused(isInEditMode, hasWindowFocus())
+            }
+            return drawableState
         }
 
         override fun setPressed(pressed: Boolean) {

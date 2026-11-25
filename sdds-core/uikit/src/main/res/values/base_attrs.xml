@@ -23,6 +23,13 @@
     <attr name="sd_fsShapeAdjustment" format="dimension" />
     <attr name="sd_fsDuplicateParentState" format="boolean"/>
     <attr name="sd_fsEnabled" format="boolean"/>
+    <!--
+        При true компонент перестаёт сообщать android:state_focused, пока его окно не имеет фокуса
+        (hasWindowFocus() == false): все фокусные подсветки (фон/текст по state_focused, рамка-селектор,
+        scale, stateListAnimator) гаснут, когда другое окно забрало фокус ввода, и возвращаются
+        при возврате фокуса окна. По умолчанию false (историческое поведение).
+    -->
+    <attr name="sd_fsWindowFocusResponsive" format="boolean"/>
 
     <attr name="sd_shapeAppearance" format="reference" />
     <attr name="sd_shaderAppearance" format="reference" />
@@ -172,6 +179,7 @@
         <attr name="sd_fsStrokeInset" />
         <attr name="sd_fsShapeAppearance" />
         <attr name="sd_fsDuplicateParentState" />
+        <attr name="sd_fsWindowFocusResponsive" />
     </declare-styleable>
 
     <declare-styleable name="SdViewState">
