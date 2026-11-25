@@ -47,7 +47,21 @@ class SchemaContractTest {
             val fixture = resource("fixtures/v1/shared/valid/$name")
             assertValid("preview-payload", mapper.readTree(fixture))
             val model = PreviewContractJson.decodeFromString<PreviewPayload>(fixture)
-            assertValid("preview-payload", mapper.readTree(PreviewContractJson.encodeToString(model)))
+            val encoded = mapper.readTree(PreviewContractJson.encodeToString(model))
+            assertValid("preview-payload", encoded)
+            if (name == "related-styles-woff2.json") {
+                val original = mapper.readTree(fixture)
+                original["styles"].fields().forEach { (styleId, style) ->
+                    listOf("variation", "name", "default", "invariant").forEach { field ->
+                        assertEquals(style[field], encoded["styles"][styleId][field], "$styleId.$field must be preserved")
+                    }
+                }
+                assertEquals(
+                    original["theme"]["body.m.normal"]["fontStyle"],
+                    encoded["theme"]["body.m.normal"]["fontStyle"],
+                    "Typography metadata must be preserved",
+                )
+            }
         }
     }
 
