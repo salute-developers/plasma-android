@@ -162,6 +162,8 @@
           "enum": [
             "TTF",
             "OTF",
+            "WOFF",
+            "WOFF2",
             "SVG",
             "PNG"
           ]
@@ -413,6 +415,10 @@
                 "additionalProperties": false
               }
             },
+            "family": {
+              "type": "string",
+              "minLength": 1
+            },
             "allowFallback": {
               "type": "boolean"
             }
@@ -450,6 +456,12 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 1000
+            },
+            "fontStyle": {
+              "enum": [
+                "NORMAL",
+                "ITALIC"
+              ]
             }
           },
           "additionalProperties": false
@@ -551,6 +563,20 @@
           "additionalProperties": {
             "$ref": "#/$defs/propertyValue"
           }
+        },
+        "variation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "invariant": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false
