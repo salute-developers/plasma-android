@@ -1,0 +1,44 @@
+integration-core/sandbox-compose/src/commonMain/kotlin/com/sdds/compose/sandbox/CommonComponentsProvider.kt
+  s_8e4956faaf526e::t_4bcb21cc353141 25-28,31,35
+  s_99179430ffd333::t_789806385de8b8 29-30,32-34,36
+  s_8e4956faaf526e::t_a05c8e557397bd 3-4
+integration-core/sandbox-compose/src/commonMain/kotlin/com/sdds/compose/sandbox/styles/calendar/CalendarTempStyles.kt
+  s_8e4956faaf526e::t_4f2d0a3a66e246 1-105
+integration-core/uikit-compose-fixtures/src/commonMain/kotlin/com/sdds/compose/uikit/fixtures/stories/calendar/CalendarStory.kt
+  s_8e4956faaf526e::t_40c3477b1b2acc 11,25-26,42-43,52,67,74,83
+  s_99179430ffd333::t_da02fa93cb3aea 1-10,12-24,27-41,44-51,53-66,68-73,75-82,84-101
+integration-core/sandbox-core/src/commonMain/kotlin/com/sdds/sandbox/Component.kt
+  s_99179430ffd333::t_107af6a7c95dc1 76-78
+  s_99179430ffd333::t_8c7fe852e41d12 345-346
+  s_99179430ffd333::t_20b38d84640019 191-193
+integration-core/uikit-compose-fixtures/src/commonMain/kotlin/com/sdds/compose/uikit/fixtures/stories/calendar/CalendarGridStory.kt
+  s_8e4956faaf526e::t_6edfafcd9b1ede 13
+  s_8e4956faaf526e::t_adb9001499b90c 64
+  s_8e4956faaf526e::t_141af892de6b87 54-55
+  s_99179430ffd333::t_aeef58f7767f0f 1-12,14-53,56-63,65-76,78-82,84-90,92-96
+  s_8e4956faaf526e::t_82e9409bcd6c63 77,83,91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5-gigacode.4",
+  "base_commit_sha": "5b57b328a818510fabe98134bc49fe246d5e2873",
+  "prompts": {},
+  "sessions": {
+    "s_8e4956faaf526e": {
+      "agent_id": {
+        "tool": "gigacode_cli_agent",
+        "id": "7862d936-a1f8-4ae0-a6fd-d1dd8e8acadd",
+        "model": "Qwen3.8-Flash-Next"
+      },
+      "human_author": "SerraMorec <patatyu6@gmail.com>"
+    },
+    "s_99179430ffd333": {
+      "agent_id": {
+        "tool": "gigacode_cli_agent",
+        "id": "7030ab56-cc4d-4c71-8247-96306192b27a",
+        "model": "Qwen3.8-Flash-Next"
+      },
+      "human_author": "SerraMorec <patatyu6@gmail.com>"
+    }
+  }
+}
