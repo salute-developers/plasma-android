@@ -1,0 +1,20 @@
+integration-core/sandbox-compose/src/commonMain/kotlin/com/sdds/compose/sandbox/styles/calendar/CalendarTempStyles.kt
+  h_f430e2ee00957b 75,81,94,99
+sdds-core/uikit-compose/src/androidUnitTest/kotlin/com/sdds/compose/uikit/CalendarGridColorsTest.kt
+  h_f430e2ee00957b 22-23,30-31,34,42-43,52-53,56-57
+sdds-core/uikit-compose/src/commonMain/kotlin/com/sdds/compose/uikit/CalendarGridStyle.kt
+  h_f430e2ee00957b 52,57,107-108,113,119-120,125,143,150,170-171,176-177,182-183,188,194-195,200-201,206-207,212,300,302,308,310,320-321,323-324,333,335,341-342,346,348,351-352,355-356,359-360
+sdds-core/uikit-compose/src/commonMain/kotlin/com/sdds/compose/uikit/internal/grid/BaseGridCell.kt
+  h_f430e2ee00957b 83-84,111-112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5-gigacode.4",
+  "base_commit_sha": "af417e1eae34d221d0fd2f713b91223843380f55",
+  "prompts": {},
+  "humans": {
+    "h_f430e2ee00957b": {
+      "author": "SerraMorec <patatyu6@gmail.com>"
+    }
+  }
+}
